@@ -34,10 +34,10 @@
 <aside class="factbox" aria-label="本模块概况"><dl>
 <dt>前置</dt><dd><a href="../m06-spectral-bisection/index.html">Module 06</a>：二分与 cut；任何给定的初始二分都可作为起点。</dd>
 <dt>接下来</dt><dd>Module 08 把成对交换改成单点移动，用平衡窗口代替“一换一”。</dd>
-<dt>影片</dt><dd>3:18</dd>
+<dt>影片</dt><dd>3:10 + 1:56 + 2:10 + 2:41</dd>
 <dt>课件</dt><dd>14 页，16:9，含页码</dd>
 <dt>挑战</dt><dd>6 题 · [推演] [解释] [决策] [实现]</dd>
-<dt>Python</dt><dd>下载练习包，本地运行</dd>
+<dt>Python</dt><dd>在浏览器里直接写、直接运行</dd>
 </dl></aside>
 </div></section>
 
@@ -49,7 +49,7 @@
 </div></section>
 
 <section class="section dark" id="film"><div class="wrap">
-<div class="section-head"><div><p class="eyebrow"><span class="eyebrow-no">02</span> / 影片</p><h2>先试探，再回退</h2></div><p>这部影片也是本课程的代表性小样：负收益试探让 cut 暂升到 11，再回退到最佳前缀 cut 3。</p></div>
+<div class="section-head"><div><p class="eyebrow"><span class="eyebrow-no">02</span> / 影片</p><h2>四部影片</h2></div><p>科普片让五个朋友分住两间屋，两张床和三张床，只许一换一：每个人的 D 值、一对的收益、省下 9 的交换、亏 8 的试探、回退到最佳前缀；人更多时亏一步可能打开一扇门；最后空前缀让一切停下。精讲片讲问题与种子、D 值、成对收益与 −2w、一轮试探、最佳前缀与回退、停止；进阶片讲为什么减 2w、为什么负收益也要试探（一张八节点图：先 −1 再 +7）、为什么前缀必须连续、种子的影响（AB | CDE 停在 5）、人数与面积，以及一轮的代价；实验演示从真实页面录下，带你做一遍实验和在线编程。所有数值都来自本页同一个引擎。</p></div>
 <div id="film-root"><p class="muted">正在载入影片…</p></div>
 </div></section>
 
@@ -99,15 +99,14 @@
 </div></section>
 
 <section class="section" id="python"><div class="wrap">
-<div class="section-head"><div><p class="eyebrow"><span class="eyebrow-no">07</span> / Python 实现轨道 · 可选</p><h2>实现最大收益对与最佳前缀</h2></div><p>网页基础轨道不需要 Python。下载后在任意空目录运行；只用标准库。</p></div>
-<div class="grid-2"><div class="prose"><p><strong>任务</strong>（<code>starter.py</code>）：</p>
+<div class="section-head"><div><p class="eyebrow"><span class="eyebrow-no">07</span> / 在线编程 · 在浏览器里运行 Python</p><h2>实现最大收益对与最佳前缀</h2></div><p>不用安装任何东西：Python 在你的浏览器里运行（Pyodide），代码只保存在本机。检查器与下载包里的 check.py 完全相同。</p></div>
+<div class="grid-2 cl-intro"><div class="prose"><p><strong>任务</strong>（<code>starter.py</code>）：</p>
 <ol><li><code>best_swap(adj, side, locked)</code>：在未锁定的左右节点对中找收益最大的一对（收益可为负）。</li><li><code>best_prefix(gains)</code>：返回 (k, 累计收益)，k = 0 合法。</li></ol>
 <p><strong>提示一</strong>：先算每个节点的 D = 外部 − 内部，再对每一对算 D(a) + D(b) − 2w(a,b)。</p>
 <p><strong>提示二</strong>：前缀必须从第 1 步起连续；只在累计收益严格变大时更新 k。检查器会在 120 个随机图上检查：两侧人数不变、每点每轮最多交换一次、收益 = 交换前后 cut 之差。</p></div>
-<div><div class="py-files"><div><code>starter.py</code>起始代码：留有 TODO</div><div><code>check.py</code>检查器：未完成报 INCOMPLETE，不算 PASS</div><div><code>reference.py</code>参考实现：卡住时再看</div><div><code>fixtures/</code>本章例子的 JSON</div><div><code>README.md</code>任务、两级提示与样例</div></div>
-<p><a class="btn primary" href="../../downloads/m07-kernighan-lin-python.zip" download>下载练习包（.zip）</a></p>
-<pre><code>python3 check.py              # 检查你的 starter.py
-python3 check.py reference.py # 看参考实现全部通过</code></pre></div></div>
+<div class="cl-howto"><h3>怎么用</h3><ol><li>在编辑器里补全标着 TODO 的函数。</li><li>按 <b>运行检查</b>（Ctrl/⌘ + Enter）：每一项给出 PASS、FAIL 或 INCOMPLETE。</li><li>全部通过后，在下方用<b>你自己的</b>函数跑一遍例子，逐步对照课程引擎。</li></ol>
+<p class="small muted">第一次运行会下载约 12 MB 的 Python 运行环境，之后由浏览器缓存。想离线做？ <a href="../../downloads/m07-kernighan-lin-python.zip" download>下载练习包（.zip）</a></p></div></div>
+<div id="codelab-root" class="cl-root"><p class="muted">正在载入在线编程…</p></div>
 </div></section>
 
 <section class="section" id="mistakes"><div class="wrap">
@@ -122,7 +121,7 @@ python3 check.py reference.py # 看参考实现全部通过</code></pre></div></
 <h3>原作者与保留的贡献</h3>
 <p><strong>FanqinZeng</strong> · <a href="https://fanqinzeng.github.io/eda-clustering-lab7-kl/">原网站</a> · <a href="https://github.com/FanqinZeng/eda-clustering-lab7-kl">原仓库</a>（固定 <code>b47cd64</code>）</p>
 <ul><li>人数约束与边权关系的引入，逐步解释 D 值、−2w、锁定与最佳前缀（本章讲解顺序沿用）。</li><li>实验里 trial、prefix、accepted 三种状态分开显示；负收益试探时 cut 暂升到 11 的现象（原页面实测，本课程复现）。</li><li>改边权、改种子的实验；AB = 1 时 g(A,D) = 5 的变体例子。</li><li>531 个案例的独立枚举测试思路：本课程的随机测试同样用独立枚举核对首步收益。</li></ul>
-<p class="small muted">原仓库未声明统一许可，本模块未复制其代码、课件、讲义或人物插画；原作的浅色手绘风格在统一课程中改为深色二维影片。原制作脚本依赖的专用课件工具未使用。</p>
+<p class="small muted">原仓库未声明统一许可，本模块未复制其代码、课件、讲义或人物插画；原作的浅色手绘风格在统一课程中改为深色二维影片。原制作脚本依赖的专用课件工具未使用。科普片使用作者指定的第三方音乐《We Never (Remix)（若如初见）》（Hi Noise / 秋成），它不在本课程许可范围内，本课程不授予其任何使用权，也不提供单独的音轨；其余三部影片的配乐为本课程原创合成。</p>
 </div><div class="prose">
 <h3>来源映射</h3>
 <table><tbody><tr><th>本课程</th><td>Module 07 · <code>m07-kernighan-lin</code></td></tr><tr><th>提交</th><td><a href="https://github.com/yongfu-li/eda-learning/issues/6">Issue #6</a> (Clustering Module - Lesson 7)</td></tr><tr><th>教师目录</th><td>module02-05-kernighan-lin（Lab 07）</td></tr><tr><th>状态</th><td>已核对</td></tr></tbody></table>

@@ -2,5 +2,51 @@
   "title": "Kernighan–Lin Refinement",
   "hook": "A swap just made things worse. Why keep swapping?",
   "cardText": "Swap pairs, lock them, keep exploring, then roll back to the best prefix. Trial moves may hurt; only the best stretch is kept.",
-  "description": "Improving a bisection with fixed side sizes: a pair swap’s gain subtracts 2w; negative gains are explored too; after each pass only the best prefix is kept, and an empty prefix means stop."
+  "description": "Improving a bisection with fixed side sizes: a pair swap’s gain subtracts 2w; negative gains are explored too; after each pass only the best prefix is kept, and an empty prefix means stop.",
+  "prerequisitesText": "[Module 06](../m06-spectral-bisection/index.html): bisections and the cut; any given initial bisection can serve as the starting point.",
+  "nextText": "Module 08 replaces the pair swap with single-node moves, and “one for one” with a balance window.",
+  "review": "Module 06 produces a bisection; this chapter **starts from an existing bisection** and lowers the cut by swapping pairs. To compare fairly, the chapter always uses the same “bad seed”, AE | BCD (cut 12).",
+  "objectives": [
+    { "id": "o1", "text": "State KL’s input (a graph and an initial bisection with fixed side sizes), its move (a pair swap) and its output (the trial sequence, the best prefix, the accepted grouping, the stop reason)." },
+    { "id": "o2", "text": "Compute D(v) = external − internal and the pair gain g = D(a) + D(b) − 2w(a,b), and explain why 2w is subtracted." },
+    { "id": "o3", "text": "Walk through one pass as “pick the largest-gain pair → trial swap → lock → update D”, including steps with negative gain (the cut rises to 11 for now)." },
+    { "id": "o4", "text": "Choose the best prefix from the cumulative gains (the empty prefix allowed), tell the trial state from the accepted state, and decide when to stop." },
+    { "id": "o5", "text": "Read the pseudocode line by line, and implement the largest-gain pair and the best prefix in Python." },
+    { "id": "o6", "text": "State KL’s limits: it keeps only the side counts (not areas), depends on the initial grouping, and as a heuristic guarantees no global optimum." }
+  ],
+  "problem": {
+    "input": "An undirected weighted graph; an initial bisection (fixed node count per side, for example AE | BCD).",
+    "output": "For each pass: the trial swap sequence (gains, cut before and after, locks), the cumulative gains and the best prefix; then the accepted bisection, the final cut and the stop reason.",
+    "objective": "Lower the cut by swapping pairs.",
+    "constraints": "Each swap trades one unlocked node from each side, so the side sizes never change; each node swaps at most once per pass.",
+    "assumptions": "Gains may be negative; ties go by the lexicographic order of (−gain, a, b); on a tie for the best prefix the shorter one wins; the empty prefix is allowed.",
+    "stop": "A pass whose best prefix is empty (no positive cumulative gain), or the pass limit."
+  },
+  "filmTitle": "Four films",
+  "filmNote": "The popular-science film puts the five friends in two rooms, two beds and three, allowed only one-for-one swaps: each person’s D value, a pair’s gain, a swap that saves 9, a trial that loses 8, and the roll-back to the best prefix; with more people one loss can open a door; and the empty prefix ends it all. The concise film covers the problem and the seed, D values, the pair gain and its −2w, one pass of trials, the best prefix and roll-back, and the stop; the advanced film covers why −2w, why negative gains are tried (an eight-node graph: −1, then +7), why a prefix must be consecutive, the effect of the seed (AB | CDE stops at 5), counts versus areas, and the cost of a pass; the lab walkthrough, recorded from the real page, takes you through the lab and the in-browser code once. Every value comes from this page’s engine.",
+  "labTitle": "Pair swaps and the best prefix",
+  "labNote": "Step through each trial swap: the candidate table lists every unlocked cross pair and its gain. At the end of a pass, the cumulative-gain chart marks the best prefix, and the graph rolls back to the accepted state.",
+  "challengeTip": "In question 4, “keep 0 steps” is a valid answer too.",
+  "mistakes": [
+    { "title": "Forgetting to subtract 2w", "wrong": "g(E, D) = D(E) + D(D) = 6 + 3 = 9, so E↔D looks like a bargain.", "why": "Both D values count edge DE as external; after the swap E and D are still on opposite sides, so the edge is still cut: it was counted twice too many.", "counter": "g(E, D) = 9 − 2×5 = −1; the real best pair is A↔D (no edge between A and D), g = 9.", "fix": "g = D(a) + D(b) − 2w(a, b)." },
+    { "title": "Stopping at the first negative gain", "wrong": "After A↔D in pass 1, every remaining gain is negative, so the pass is ended.", "why": "KL finishes the whole pass before comparing all prefixes; on a bigger graph, a step that first makes things worse can be followed by a larger positive gain.", "counter": "In pass 1 on G01, step 2, E↔C, has gain −8 and the cut rises to 11 for now: only a trial, undone in the end.", "fix": "Keep trying until no unlocked cross pair is left, then choose the best prefix." },
+    { "title": "Treating any positive steps as a “prefix”", "wrong": "Picking all the positive-gain steps of a pass and applying them together.", "why": "Later gains are computed with the earlier steps already made; skip one in the middle and the later gains no longer hold.", "counter": "Pass 2’s trial gains are −8, +2: applying only the +2 step does not improve the start by 2 (alone it loses 12).", "fix": "Take only a consecutive prefix starting at step 1; k* is where the cumulative gain peaks, and k* = 0 is valid." },
+    { "title": "Reporting the trial state as the result", "wrong": "Reporting the cut 11 at the end of pass 1.", "why": "The state at the end of a pass has every trial applied; what is accepted is the state rolled back to the best prefix.", "counter": "Pass 1’s trials end at cut 11; what is accepted is the first step: ABC | DE, cut 3.", "fix": "Show trial and accepted separately; report only accepted." },
+    { "title": "Thinking count balance is area balance", "wrong": "With cells of different areas, still assuming a KL swap keeps both sides’ areas.", "why": "KL’s one-for-one swap keeps only the node count per side.", "counter": "Swapping a large cell for a small one keeps the count but changes the area.", "fix": "When area matters, add a separate check or use a method with weighted balance; don’t reuse Module 04’s capacity field and pretend it is equivalent." }
+  ],
+  "limits": "- KL is a heuristic: reaching cut 3 on G01 says something about this graph only; in general no global optimum is guaranteed.\n- The result depends on the initial bisection; compare methods from the same seed.\n- It keeps the node count per side, not the area.\n- A naive implementation scans every unlocked cross pair at each step, about O(n³) per pass; real implementations keep the D values sorted.\n- It only suits bisections with fixed side sizes; the next module’s FM relaxes that with single moves and a balance window.",
+  "pythonPackage": {
+    "title": "Implement the largest-gain pair and the best prefix",
+    "md": "**Tasks** (`starter.py`):\n\n1. `best_swap(adj, side, locked)`: among the unlocked left/right pairs, find the one with the largest gain (the gain may be negative).\n2. `best_prefix(gains)`: return (k, cumulative gain); k = 0 is valid.\n\n**Hint 1**: first compute each node’s D = external − internal, then D(a) + D(b) − 2w(a,b) for each pair.\n\n**Hint 2**: a prefix must be consecutive from step 1; update k only when the cumulative gain becomes strictly larger. The checker tests 120 random graphs: the side sizes never change, each node swaps at most once per pass, and gain = cut before − cut after."
+  },
+  "credits": {
+    "kept": [
+      "Introducing the head-count constraint and edge weights, then explaining D values, −2w, locks and the best prefix step by step (this chapter follows that order).",
+      "Showing the trial, prefix and accepted states separately in the lab, and the cut rising to 11 during a negative-gain trial (measured on the original page, reproduced here).",
+      "The experiments that change a weight or the seed; the variant with AB = 1, where g(A,D) = 5.",
+      "The idea of an independent enumeration test over 531 cases: this course’s random tests likewise check the first-step gain by independent enumeration."
+    ],
+    "licenseNote": "The original repository declares no overall licence, and this module copies none of its code, slides, notes or character illustrations; the original’s light hand-drawn style becomes the unified course’s dark two-dimensional films. The proprietary slide tool the original production scripts depend on is not used. The popular-science film uses third-party music chosen by the author, “We Never (Remix)” by Hi Noise / 秋成; it is not covered by this course’s licences, this course grants no rights to it, and no separate audio track is offered. The scores of the other three films are original to this course.",
+    "references": ["Kernighan, B. W., & Lin, S. (1970). An efficient heuristic procedure for partitioning graphs. *Bell System Technical Journal*, 49(2), 291–307.", "The teacher’s original course: [module materials](https://github.com/yongfu-li/eda-learning/tree/003bcd49e3794e6cfd2680181cdbd347d673ad07/courses/learn_clustering/module02-05-kernighan-lin)"]
+  }
 }

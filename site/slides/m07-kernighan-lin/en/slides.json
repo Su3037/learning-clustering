@@ -1,0 +1,216 @@
+{
+ "status": "ready",
+ "moduleId": "m07-kernighan-lin",
+ "slides": [
+  {
+   "slideId": "m07-title",
+   "pageNumber": 1,
+   "pageCount": 14,
+   "title": "Try, then roll back",
+   "image": "p01.jpg",
+   "thumb": "t01.jpg",
+   "alt": "Try, then roll back: ",
+   "transcript": "This module covers Kernighan–Lin (KL) refinement: given an initial grouping with fixed side sizes, how to lower the wiring across it by swapping pairs. Three ideas are at its core: why a pair gain subtracts 2w, why negative gains are tried too, and why only the best prefix is kept in the end.",
+   "videoAnchor": null,
+   "sceneId": "k00-title",
+   "objectiveIds": []
+  },
+  {
+   "slideId": "m07-problem",
+   "pageNumber": 2,
+   "pageCount": 14,
+   "title": "The problem",
+   "image": "p02.jpg",
+   "thumb": "t02.jpg",
+   "alt": "The problem: Input: an undirected weighted graph and an initial bisection with fixed side sizes; Move: swap one pair, a (left) and b (right); Goal: make the cut (total weight across) smaller; Constraint: the node count per side never changes; Output: the trial sequence, the best prefix, the accepted grouping and",
+   "transcript": "The input is an undirected weighted graph and an initial bisection. Here the seed puts A and E on the left and B, C, D on the right; the edges across are AB, AC, CE and DE, so the cut is 12. KL only allows one-for-one swaps, so the node count on each side never changes. Note that this balances the count of nodes, not their area.",
+   "videoAnchor": null,
+   "sceneId": "k01-problem",
+   "objectiveIds": [
+    "o1"
+   ]
+  },
+  {
+   "slideId": "m07-background",
+   "pageNumber": 3,
+   "pageCount": 14,
+   "title": "Background and place",
+   "image": "p03.jpg",
+   "thumb": "t03.jpg",
+   "alt": "Background and place: ",
+   "transcript": "KL is a heuristic published by Kernighan and Lin in 1970 in the Bell System Technical Journal. Rather than grouping from scratch, it improves an existing bisection. In this course it follows spectral bisection: first an initial grouping, then local improvement. The next module, FM, moves one node at a time instead of one for one.",
+   "videoAnchor": null,
+   "sceneId": null,
+   "objectiveIds": []
+  },
+  {
+   "slideId": "m07-dvalue",
+   "pageNumber": 4,
+   "pageCount": 14,
+   "title": "The cut and D values",
+   "image": "p04.jpg",
+   "thumb": "t04.jpg",
+   "alt": "The cut and D values: D(v) = external weight − internal weight; External: v’s edges to the other side; internal: v’s edges to its own side; D(v) is how much the cut drops if v alone moves across; The larger D, the more v “wants” to cross",
+   "transcript": "First give every node a number, D. External weight is its edges to the other side; internal weight is its edges to its own side. Both of A’s edges go across, so D(A) is 6 minus 0, which is 6. C has only 2 external and 6 internal, so D(C) is minus 4: it would rather stay.",
+   "videoAnchor": null,
+   "sceneId": "k02-dvalues",
+   "objectiveIds": [
+    "o2"
+   ]
+  },
+  {
+   "slideId": "m07-pairs",
+   "pageNumber": 5,
+   "pageCount": 14,
+   "title": "The pair gain",
+   "image": "p05.jpg",
+   "thumb": "t05.jpg",
+   "alt": "The pair gain: The gain of swapping a, b: g = D(a) + D(b) − 2w(a,b); One node from each side: 2 × 3 = 6 pairs; Largest: A↔D, 6 + 3 − 0 = 9; Ties go by the lexicographic order of (−g, a, b)",
+   "transcript": "The gain of swapping a pair a, b is D(a) plus D(b), minus 2w(a,b). Two nodes on the left and three on the right make six pairs. The largest in the table is A and D: 6 plus 3 minus 0, which is 9.",
+   "videoAnchor": null,
+   "sceneId": "k03-gain",
+   "objectiveIds": [
+    "o2"
+   ]
+  },
+  {
+   "slideId": "m07-minus2w",
+   "pageNumber": 6,
+   "pageCount": 14,
+   "title": "Why subtract 2w",
+   "image": "p06.jpg",
+   "thumb": "t06.jpg",
+   "alt": "Why subtract 2w: D(E) + D(D) = 6 + 3 = 9; Both D values count edge DE (weight 5) as “external”; After the swap E and D are still on opposite sides: DE is still cut; The extra must come back off: 2 × 5 = 10; g(E, D) = 9 − 10 = −1",
+   "transcript": "Why subtract 2w? Look at E and D. D(E) plus D(D) is 9, but both D values count edge DE as external, once each. After the swap, E is on the right and D on the left: still on opposite sides, so DE is still cut. The edge’s contribution must come off twice, so g is 9 minus 10, which is minus 1.",
+   "videoAnchor": null,
+   "sceneId": "a01-why2w",
+   "objectiveIds": [
+    "o2"
+   ]
+  },
+  {
+   "slideId": "m07-trial1",
+   "pageNumber": 7,
+   "pageCount": 14,
+   "title": "Step one: a trial swap, then lock",
+   "image": "p07.jpg",
+   "thumb": "t07.jpg",
+   "alt": "Step one: a trial swap, then lock: Pick the largest-gain pair: A↔D, g = +9; After the swap, cut 12 → 3; A and D lock: they don’t move again this pass (dashed rings); This is still a “trial”, not yet accepted",
+   "transcript": "Step one picks A and D, the largest gain; after the swap the cut drops from 12 to 3. The two swapped nodes lock and don’t move again this pass. Note that this step is only a trial for now; it has not been accepted.",
+   "videoAnchor": null,
+   "sceneId": "k04-pass",
+   "objectiveIds": [
+    "o3"
+   ]
+  },
+  {
+   "slideId": "m07-trial2",
+   "pageNumber": 8,
+   "pageCount": 14,
+   "title": "Step two: take the negative gain too",
+   "image": "p08.jpg",
+   "thumb": "t08.jpg",
+   "alt": "Step two: take the negative gain too: Recompute D: the candidates left are E↔C −8, E↔B −13; KL does not stop at the first negative gain; It still takes the largest, E↔C: the cut rises to 11 for now; No unlocked node is left on the left: the pass’s trials end",
+   "transcript": "After recomputing D, both remaining candidates have negative gains. KL does not stop here; it takes the largest anyway, E and C, gain minus 8, and the cut rises to 11 for now. With no unlocked node left on the left, the pass’s trials end.",
+   "videoAnchor": null,
+   "sceneId": "k04-pass",
+   "objectiveIds": [
+    "o3"
+   ]
+  },
+  {
+   "slideId": "m07-prefix",
+   "pageNumber": 9,
+   "pageCount": 14,
+   "title": "The best prefix and roll-back",
+   "image": "p09.jpg",
+   "thumb": "t09.jpg",
+   "alt": "The best prefix and roll-back: Cumulative gains: k=0 → 0, k=1 → +9, k=2 → +1; Take the largest, consecutive prefix only: k* = 1; From the pass start, apply only the first step; Accept ABC | DE, cut = 3; step 2 is undone",
+   "transcript": "At the end of the pass, look back at the cumulative gains: doing nothing is 0, the first step is plus 9, both steps are plus 1. The largest is the first step alone, so from the pass start only the A–D swap is applied, and the accepted grouping is ABC versus DE, cut 3. Step two is undone: it was only there to see whether anything better came after it.",
+   "videoAnchor": null,
+   "sceneId": "k05-prefix",
+   "objectiveIds": [
+    "o4"
+   ]
+  },
+  {
+   "slideId": "m07-pass2",
+   "pageNumber": 10,
+   "pageCount": 14,
+   "title": "Pass two: the empty prefix and the stop",
+   "image": "p10.jpg",
+   "thumb": "t10.jpg",
+   "alt": "Pass two: the empty prefix and the stop: Start from ABC | DE, everything unlocked; Trials: E↔C −8, D↔B +2; Cumulative −8, −6: neither beats doing nothing; The best prefix is empty (k = 0) → the algorithm stops",
+   "transcript": "Pass two starts from ABC versus DE with every node unlocked again. The two trial steps gain minus 8 and plus 2, cumulative minus 8 and minus 6, and neither beats doing nothing. The empty prefix wins, the cut stays 3, and the algorithm stops.",
+   "videoAnchor": null,
+   "sceneId": "k06-stop",
+   "objectiveIds": [
+    "o4"
+   ]
+  },
+  {
+   "slideId": "m07-pseudo",
+   "pageNumber": 11,
+   "pageCount": 14,
+   "title": "The pseudocode, line by line",
+   "image": "p11.jpg",
+   "thumb": "t11.jpg",
+   "alt": "The pseudocode, line by line: Lines 1 and 8: pass after pass, until the best prefix is empty; Lines 3–5: take negative gains too; after a swap, lock and update D; Lines 6–7: roll back to the start and apply only the best prefix; Each node swaps at most once per pass",
+   "transcript": "The outer loop of the pseudocode is one pass after another. Inside, while both sides have unlocked nodes, it picks the largest-gain pair, swaps, locks and updates D, taking negative gains too. At the end of the pass it takes the prefix with the largest cumulative gain and applies only those steps from the pass start. If the best prefix is empty, it stops.",
+   "videoAnchor": null,
+   "sceneId": "k07-take",
+   "objectiveIds": [
+    "o5"
+   ]
+  },
+  {
+   "slideId": "m07-mistakes",
+   "pageNumber": 12,
+   "pageCount": 14,
+   "title": "Common mistakes",
+   "image": "p12.jpg",
+   "thumb": "t12.jpg",
+   "alt": "Common mistakes: Forgetting −2w: computing g(E,D) as +9 and thinking E↔D pays; Stopping at a negative gain: ending pass 1 after cut 3, without seeing every prefix; Taking “any positive steps” as the prefix: a prefix is consecutive from step 1; Reporting the trial state: cut 11 instead of the rolled-back 3; Thinking ",
+   "transcript": "There are five common mistakes. First, forgetting to subtract 2w, which makes the E–D swap look like plus 9. Second, stopping at a negative gain, which hides the full set of prefixes. Third, a prefix must be consecutive from the first step; you cannot pick out the positive steps. Fourth, don’t report the trial state as the result. Fifth, count balance is not area balance.",
+   "videoAnchor": null,
+   "sceneId": null,
+   "objectiveIds": [
+    "o3",
+    "o4"
+   ]
+  },
+  {
+   "slideId": "m07-limits",
+   "pageNumber": 13,
+   "pageCount": 14,
+   "title": "Scope and limits",
+   "image": "p13.jpg",
+   "thumb": "t13.jpg",
+   "alt": "Scope and limits: KL is a heuristic: cut 3 on this graph does not mean it finds the global optimum in general; The result depends on the initial grouping: compare methods from the same seed; Each step scans every cross pair: about O(n²) per step, naively; It keeps only the node count per side; different cell areas ne",
+   "transcript": "KL is a heuristic. Getting cut 3 on this small graph is a property of this graph, not a promise of the global optimum. It depends on the initial grouping, so different methods should be compared from the same seed. A naive implementation scans every cross pair at each step. It only balances the head count; different cell areas need separate handling.",
+   "videoAnchor": null,
+   "sceneId": null,
+   "objectiveIds": [
+    "o6"
+   ]
+  },
+  {
+   "slideId": "m07-summary",
+   "pageNumber": 14,
+   "pageCount": 14,
+   "title": "Summary",
+   "image": "p14.jpg",
+   "thumb": "t14.jpg",
+   "alt": "Summary: ",
+   "transcript": "In summary: a trial may make things worse, but acceptance looks only at the best prefix. A pair gain subtracts 2w; each pass locks the swapped nodes and rolls back to the best prefix at the end; if that prefix is empty, stop. The next module’s FM moves one node at a time, with a balance window instead of one for one.",
+   "videoAnchor": null,
+   "sceneId": null,
+   "objectiveIds": []
+  }
+ ],
+ "pdf": "m07-kernighan-lin-en.pdf",
+ "pptx": "m07-kernighan-lin-en.pptx",
+ "contentVersion": "2026.10.23-1",
+ "lang": "en",
+ "aspectNote": "16:9 is this course's choice (it matches the films and suits projection), not a ratio the teacher set. PDF page numbers match the web p/total exactly; in the PPTX the text, shapes and tables are editable and the notes hold the script."
+}

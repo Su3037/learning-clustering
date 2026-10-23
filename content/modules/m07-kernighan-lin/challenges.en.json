@@ -1,0 +1,8 @@
+[
+  { "type": "Trace", "title": "Where D comes from" },
+  { "type": "Trace", "title": "Find the largest-gain pair" },
+  { "type": "Explain", "title": "Why take a negative gain at all" },
+  { "type": "Decide", "title": "How many steps to keep" },
+  { "type": "Explain", "title": "The pair that loses 2w" },
+  { "type": "Implement", "title": "Recompute on a changed graph" }
+]

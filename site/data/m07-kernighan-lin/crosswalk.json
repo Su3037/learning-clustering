@@ -7,7 +7,8 @@
         "m07-problem"
       ],
       "sceneIds": [
-        "s01-hook"
+        "p-open",
+        "k01-problem"
       ],
       "slideIds": [
         "m07-problem",
@@ -20,9 +21,14 @@
       ],
       "video": [
         {
-          "sceneId": "s01-hook",
-          "film": "kl",
-          "start": 3
+          "sceneId": "p-open",
+          "film": "story",
+          "start": 0
+        },
+        {
+          "sceneId": "k01-problem",
+          "film": "concise",
+          "start": 3.4
         }
       ],
       "slides": [
@@ -42,9 +48,11 @@
         "m07-gain"
       ],
       "sceneIds": [
-        "s02-dvalue",
-        "s03-pairs",
-        "s04-minus2w"
+        "p-rule",
+        "p-gain",
+        "k02-dvalues",
+        "k03-gain",
+        "a01-why2w"
       ],
       "slideIds": [
         "m07-dvalue",
@@ -62,19 +70,29 @@
       ],
       "video": [
         {
-          "sceneId": "s02-dvalue",
-          "film": "kl",
-          "start": 20.47
+          "sceneId": "p-rule",
+          "film": "story",
+          "start": 17.41
         },
         {
-          "sceneId": "s03-pairs",
-          "film": "kl",
-          "start": 40.07
+          "sceneId": "p-gain",
+          "film": "story",
+          "start": 37
         },
         {
-          "sceneId": "s04-minus2w",
-          "film": "kl",
-          "start": 56.42
+          "sceneId": "k02-dvalues",
+          "film": "concise",
+          "start": 19.53
+        },
+        {
+          "sceneId": "k03-gain",
+          "film": "concise",
+          "start": 33.76
+        },
+        {
+          "sceneId": "a01-why2w",
+          "film": "advanced",
+          "start": 3.4
         }
       ],
       "slides": [
@@ -98,8 +116,9 @@
         "m07-pass"
       ],
       "sceneIds": [
-        "s05-trial1",
-        "s06-trial2"
+        "p-worse",
+        "k04-pass",
+        "a02-negative"
       ],
       "slideIds": [
         "m07-trial1",
@@ -114,14 +133,19 @@
       ],
       "video": [
         {
-          "sceneId": "s05-trial1",
-          "film": "kl",
-          "start": 84.16
+          "sceneId": "p-worse",
+          "film": "story",
+          "start": 63.15
         },
         {
-          "sceneId": "s06-trial2",
-          "film": "kl",
-          "start": 96.73
+          "sceneId": "k04-pass",
+          "film": "concise",
+          "start": 51.89
+        },
+        {
+          "sceneId": "a02-negative",
+          "film": "advanced",
+          "start": 24.87
         }
       ],
       "slides": [
@@ -141,8 +165,11 @@
         "m07-prefix"
       ],
       "sceneIds": [
-        "s07-prefix",
-        "s08-pass2"
+        "p-keep",
+        "p-round2",
+        "k05-prefix",
+        "k06-stop",
+        "a03-prefix"
       ],
       "slideIds": [
         "m07-prefix",
@@ -157,14 +184,29 @@
       ],
       "video": [
         {
-          "sceneId": "s07-prefix",
-          "film": "kl",
-          "start": 112.87
+          "sceneId": "p-keep",
+          "film": "story",
+          "start": 89
         },
         {
-          "sceneId": "s08-pass2",
-          "film": "kl",
-          "start": 137.04
+          "sceneId": "p-round2",
+          "film": "story",
+          "start": 119.27
+        },
+        {
+          "sceneId": "k05-prefix",
+          "film": "concise",
+          "start": 72.6
+        },
+        {
+          "sceneId": "k06-stop",
+          "film": "concise",
+          "start": 86.73
+        },
+        {
+          "sceneId": "a03-prefix",
+          "film": "advanced",
+          "start": 44.02
         }
       ],
       "slides": [
@@ -184,7 +226,8 @@
         "m07-pseudocode"
       ],
       "sceneIds": [
-        "s09-code"
+        "k07-take",
+        "a06-cost"
       ],
       "slideIds": [
         "m07-pseudo"
@@ -200,9 +243,14 @@
       ],
       "video": [
         {
-          "sceneId": "s09-code",
-          "film": "kl",
-          "start": 149.84
+          "sceneId": "k07-take",
+          "film": "concise",
+          "start": 100
+        },
+        {
+          "sceneId": "a06-cost",
+          "film": "advanced",
+          "start": 91.6
         }
       ],
       "slides": [
@@ -218,8 +266,9 @@
         "m07-limits"
       ],
       "sceneIds": [
-        "s10-ab1",
-        "s11-limits"
+        "p-chip",
+        "a04-seed",
+        "a05-area"
       ],
       "slideIds": [
         "m07-limits"
@@ -229,14 +278,19 @@
       "python": [],
       "video": [
         {
-          "sceneId": "s10-ab1",
-          "film": "kl",
-          "start": 168.78
+          "sceneId": "p-chip",
+          "film": "story",
+          "start": 134.16
         },
         {
-          "sceneId": "s11-limits",
-          "film": "kl",
-          "start": 183.13
+          "sceneId": "a04-seed",
+          "film": "advanced",
+          "start": 61.56
+        },
+        {
+          "sceneId": "a05-area",
+          "film": "advanced",
+          "start": 77.02
         }
       ],
       "slides": [

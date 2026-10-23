@@ -1,0 +1,65 @@
+WEBVTT
+
+1
+00:00:03.200 --> 00:00:10.133
+This is the chapter's lab: choose the initial bisection, and change any edge's weight.
+
+2
+00:00:10.133 --> 00:00:15.200
+Pass 1 starts: seed AE | BCD, cut 12, everything unlocked.
+
+3
+00:00:15.200 --> 00:00:22.800
+The first trial: in the candidate table A↔D has the largest gain, +9; cut 12 → 3, and both lock.
+
+4
+00:00:22.800 --> 00:00:31.000
+The second trial: everything left is negative; E↔C goes anyway, gain −8, and the cut rises to 11 for now.
+
+5
+00:00:31.000 --> 00:00:39.600
+The pass ends: cumulative +9, +1; the gold box marks the best prefix, k = 1, and the graph rolls back to cut 3.
+
+6
+00:00:39.600 --> 00:00:47.467
+Jump to the end: pass 2's totals are −8, −6; the empty prefix wins and the algorithm stops at cut 3.
+
+7
+00:00:47.467 --> 00:00:55.600
+Switch to seed AB | CDE: both trials lose, pass 1 already keeps the empty prefix, and it stops at cut 5.
+
+8
+00:00:55.600 --> 00:01:05.135
+Back to AE | BCD with A–B set to 1: the initial cut becomes 8, and A↔D's gain becomes 5.
+
+9
+00:01:05.135 --> 00:01:14.802
+The code lab: your code runs in the browser, with no Python to install. The pass driver and the outer loop are already written.
+
+10
+00:01:14.802 --> 00:01:21.268
+Run the checks first: neither task is written yet, so the result is INCOMPLETE.
+
+11
+00:01:21.268 --> 00:01:44.127
+Task 1: find the unlocked left/right pair with the largest gain, g = D(a) + D(b) − 2w; return it even when negative.
+
+12
+00:01:44.127 --> 00:01:54.937
+Task 2: the best prefix. Update only when the running total is strictly larger; k = 0 is a valid answer.
+
+13
+00:01:54.937 --> 00:02:03.737
+Run the checks: everything passes, including side sizes, locking and “gain = cut difference” on 120 random graphs.
+
+14
+00:02:03.737 --> 00:02:13.537
+Below, your functions run on six cases, compared pass by pass with the course engine: which pair, what gain, how many steps kept.
+
+15
+00:02:13.537 --> 00:02:21.404
+Click the new graph's row: step one is −1, step two +7; keeping two steps takes the cut from 7 to 1.
+
+16
+00:02:21.404 --> 00:02:28.537
+Finally, try the challenges to check you really understand. Results stay in your browser.

@@ -7,7 +7,8 @@
         "m07-problem"
       ],
       "sceneIds": [
-        "s01-hook"
+        "p-open",
+        "k01-problem"
       ],
       "slideIds": [
         "m07-problem",
@@ -25,9 +26,11 @@
         "m07-gain"
       ],
       "sceneIds": [
-        "s02-dvalue",
-        "s03-pairs",
-        "s04-minus2w"
+        "p-rule",
+        "p-gain",
+        "k02-dvalues",
+        "k03-gain",
+        "a01-why2w"
       ],
       "slideIds": [
         "m07-dvalue",
@@ -50,8 +53,9 @@
         "m07-pass"
       ],
       "sceneIds": [
-        "s05-trial1",
-        "s06-trial2"
+        "p-worse",
+        "k04-pass",
+        "a02-negative"
       ],
       "slideIds": [
         "m07-trial1",
@@ -71,8 +75,11 @@
         "m07-prefix"
       ],
       "sceneIds": [
-        "s07-prefix",
-        "s08-pass2"
+        "p-keep",
+        "p-round2",
+        "k05-prefix",
+        "k06-stop",
+        "a03-prefix"
       ],
       "slideIds": [
         "m07-prefix",
@@ -92,7 +99,8 @@
         "m07-pseudocode"
       ],
       "sceneIds": [
-        "s09-code"
+        "k07-take",
+        "a06-cost"
       ],
       "slideIds": [
         "m07-pseudo"
@@ -113,8 +121,9 @@
         "m07-limits"
       ],
       "sceneIds": [
-        "s10-ab1",
-        "s11-limits"
+        "p-chip",
+        "a04-seed",
+        "a05-area"
       ],
       "slideIds": [
         "m07-limits"

@@ -8,16 +8,17 @@
  * cell areas are not balanced by this rule.
  */
 import { requireGraph, weightMap, cutsize, compareKeys, ENGINE_VERSION } from './graph.js';
+import { L } from '../assets/i18n.js';
 
 export function validate(input, { initial } = {}) {
   let g;
   try { g = requireGraph(input); } catch (e) { return { ok: false, errors: e.errors || [e.message] }; }
   const errors = [], ids = g.nodes.map(n => n.id);
-  if (!initial) errors.push('需要初始二分 initial：{节点: 0 或 1}');
+  if (!initial) errors.push(L('需要初始二分 initial：{节点: 0 或 1}', 'An initial bisection is required: {node: 0 or 1}'));
   else {
-    for (const id of ids) if (initial[id] !== 0 && initial[id] !== 1) errors.push(`节点 ${id} 的初始侧须为 0 或 1`);
+    for (const id of ids) if (initial[id] !== 0 && initial[id] !== 1) errors.push(L(`节点 ${id} 的初始侧须为 0 或 1`, `Node ${id}'s initial side must be 0 or 1`));
     const c0 = ids.filter(id => initial[id] === 0).length;
-    if (c0 === 0 || c0 === ids.length) errors.push('两侧都须非空');
+    if (c0 === 0 || c0 === ids.length) errors.push(L('两侧都须非空', 'Both sides must be non-empty'));
   }
   return { ok: errors.length === 0, errors };
 }
