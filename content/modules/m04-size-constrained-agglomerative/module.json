@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "moduleId": "m04-size-constrained-agglomerative",
+  "displayOrder": 4,
+  "display": "Module 04",
+  "title": "容量约束凝聚聚类",
+  "topic": "Size-constrained agglomerative clustering",
+  "description": "在贪心合并上加硬容量：区分“理论上不可能”“贪心走进死胡同”与“合法但不是最优”，并分开报告合法性与是否达到 K。",
+  "hook": "两个相连很紧的电路块想合并，但容器放不下时该怎么办？",
+  "cardText": "每个簇的大小之和不能超过容量 C。装不下、走错路、合法但不最优，是三种不同的结局。",
+  "sourceIssue": { "number": 3, "title": "Clustering Module - Lesson 4", "url": "https://github.com/yongfu-li/eda-learning/issues/3" },
+  "teacherFolder": "module01-05-size-constrained-agglomerative（Lab 04）",
+  "teacherMappingStatus": "verified",
+  "compatSlug": "size-constrained-agglomerative",
+  "prerequisitesText": "[Module 03](../m03-greedy-pair-merge/index.html)：贪心合并规则与停止条件。",
+  "nextText": "Module 05 不再合并节点，而是让节点改“标签”。",
+  "review": "Module 03 的规则不变：每次合并簇间边权和最大的合法一对，选择键逐字段比较，不回撤。本模块只多问一件事：**合并后装得下吗？**",
+  "objectives": [
+    { "id": "o1", "text": "区分四个报告项：实际簇数、是否满足容量、是否达到 K、停止原因。", "where": ["m04-size", "challenge-c1"] },
+    { "id": "o2", "text": "按“先筛合法、再选最大”的顺序执行带容量的合并，并能指出被阻止的候选。", "where": ["m04-fork", "challenge-c2"] },
+    { "id": "o3", "text": "用下界 ⌈总大小 / C⌉ 证明某个 K 不可能，并理解满足下界不等于一定可行。", "where": ["m04-infeasible", "challenge-c3"] },
+    { "id": "o4", "text": "解释“总体可行，但贪心卡住”（greedy_trap）与“理论上不可能”的区别。", "where": ["m04-infeasible", "challenge-c4"] },
+    { "id": "o5", "text": "解释“合法但非最优”（suboptimal：贪心 18，最优 11），并说明单元大小不同会改变结果。", "where": ["m04-suboptimal", "challenge-c5", "challenge-c6"] },
+    { "id": "o6", "text": "读懂带容量与诊断的伪代码，在 Python 中补全停止报告与分类。", "where": ["m04-pseudocode", "python"] }
+  ],
+  "problem": {
+    "input": "带权无向图、每个节点的大小 s(v)（面积或单元数）、容量 C、目标簇数 K。",
+    "output": "合法的簇、cut、实际簇数、capacityCompliant、targetReached、停止原因；可选的穷举诊断。",
+    "objective": "在每簇大小之和 ≤ C 的前提下，用贪心合并减少 cut，并尽量达到 K。",
+    "constraints": "硬容量：任何一次合并后簇大小都不能超过 C；K 不能凌驾于容量之上；单个节点已超过 C 时输入本身不合法。",
+    "assumptions": "簇大小 = 成员大小之和；先过滤合法候选，再按 (−亲和度, 成员, 成员) 选择；穷举诊断只用于 ≤ 10 个节点的教学图。",
+    "stop": "达到 K；或没有合法的正亲和度对（capacity-blocked / no-positive-affinity）。之后用下界与穷举判断属于哪种结局。"
+  },
+  "filmTitle": "装得下吗",
+  "filmNote": "影片用容量条解释合法性，再用两个独立的反例区分“装不下”和“走错路”。所有数值来自本页引擎与穷举 oracle。",
+  "labTitle": "容量实验台与诊断",
+  "labNote": "改容量、改节点大小，看合并在哪一步被挡住。“诊断”栏用下界和穷举告诉你：是不可能，还是贪心卡住，还是合法但非最优。",
+  "challengeTip": "第 4 题需要写出一个分组，格式如 `AC|BD`。",
+  "mistakes": [
+    { "title": "把“合法”说成“完成”", "wrong": "容量 2 时得到 AB | C | DE，报告“聚类成功”。", "why": "合法只说明每簇没超容量；目标是 K = 2，实际是 3 簇。", "counter": "同一分组在 K = 3 时既合法又达到目标，在 K = 2 时合法但未达到目标。", "fix": "四项分开报告：count、capacityCompliant、targetReached、stopReason。" },
+    { "title": "为了达到 K 而违反容量", "wrong": "把 C 塞进 AB，得到 ABC | DE，大小 3 > 2。", "why": "容量是硬约束；K 只是目标，不能凌驾于约束之上。", "counter": "5 个单位大小、容量 2，至少需要 ⌈5/2⌉ = 3 簇——K = 2 根本不存在合法解。", "fix": "先算下界；下界大于 K 时直接说明不可能。" },
+    { "title": "把“贪心卡住”当成“不可能”", "wrong": "greedy_trap 停在 3 簇，就断言“容量 3 下不可能分成 2 簇”。", "why": "停下只说明贪心这条路走不通；可能还有别的合法分组。", "counter": "greedy_trap：贪心先合并 C–D（10），之后 A、B 都放不进；穷举找到 AC | BD（大小 3、3），2 簇、cut 10。", "fix": "用穷举（小图）或其他方法验证，再下结论。" },
+    { "title": "以为合法结果就是最优", "wrong": "suboptimal 图上贪心得到 AB | CD、cut 18，就当作答案。", "why": "贪心先拿了最大的 A–B（10），把两条 9 都留在了 cut 里。", "counter": "合法的 AC | BD 只切断 A–B 10 和 C–D 1，cut 11。", "fix": "“合法”和“最优”分开说；需要最优时要有对照。" },
+    { "title": "把节点个数当成面积", "wrong": "所有单元大小都按 1 计算，忽略面积差异。", "why": "真实单元面积不同；容量按大小之和计算。", "counter": "G01 中把 A 的大小改成 2、容量 3：结果从 ABC | DE（cut 3）变成 AB | CDE（cut 5）。", "fix": "输入里明确每个节点的大小。" }
+  ],
+  "limits": "- 下界 ⌈总大小/C⌉ 只能证明“不可能”，不能证明“可能”：装箱问题本身就难。\n- 穷举 oracle 只适合 ≤ 10 个节点的教学图（集合划分数量增长极快）；真实规模需要启发式或数学规划。\n- 贪心不回撤：一旦走进死胡同，只能报告，不能自己找到出路。\n- 本模块只有一种约束（容量）；真实设计还有时序、引脚数等约束（Module 09 讨论延迟）。",
+  "pythonPackage": {
+    "title": "补全停止报告与诊断分类",
+    "md": "**任务**（`starter.py`）：\n\n1. `report(parts, k, capacity, size, stop)`：返回 count、capacity_compliant、target_reached、stop_reason 四项。\n2. `classify(graph, k, capacity)`：结合 `solve()` 与已提供的 `oracle()`，返回五种结局之一。\n\n**提示一**：四项是互相独立的；容量 2 的 AB | C | DE 合法但没有达到 K。\n\n**提示二**：先看是否达到 K；没达到时，看下界是否已大于 K，再看穷举是否找到恰好 K 簇的合法划分。检查器还会测超容量单点与无边图。"
+  },
+  "credits": {
+    "student": { "name": "GateUltra", "website": "https://gateultra.github.io/eda-clustering-lab4/", "repository": "https://github.com/GateUltra/eda-clustering-lab4", "commit": "0b5e84b85b3c16d42b43fe387c631addfefa901f" },
+    "kept": [
+      "候选表同时显示亲和度、合并后大小和被阻止原因；把“Target reached: No”单独写出来。",
+      "三个情形分开讲：不可行目标、可行但贪心卡住、合法但非最优（greedy_trap 与 suboptimal 两个图来自原作 `source/graphs.json`）。",
+      "Python 起始练习、独立参考与穷举 oracle 的结构；原作 47 组 JS/Python 轨迹比较的做法在本课程交叉测试中延续。",
+      "16 页 HTML 课件的页码与下方字幕区，是本课程课件布局的正面参考。"
+    ],
+    "licenseNote": "原仓库未声明统一许可，本模块未复制其代码、影片或每页音频；两个反例图的数值在此署名，并由本课程引擎重新计算。原 README“尚未部署”的说法已过期（公开网址可访问）。",
+    "references": ["教师原课程 [Module 材料](https://github.com/yongfu-li/eda-learning/blob/003bcd49e3794e6cfd2680181cdbd347d673ad07/courses/learn_clustering/module01-05-size-constrained-agglomerative/README.md)", "带容量的划分与装箱（bin packing）问题的难度见常见算法教材；本模块只用下界与小图穷举，不声称一般可解。"]
+  }
+}

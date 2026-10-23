@@ -1,0 +1,568 @@
+{
+ "status": "ready",
+ "films": [
+  {
+   "id": "rw1",
+   "title": "关键路径的代价（上）：模型与标记",
+   "status": "ready",
+   "src": "rw1.mp4",
+   "vtt": "rw1.zh.vtt",
+   "poster": "rw1-poster.jpg",
+   "duration": 179.83,
+   "chapters": [
+    {
+     "t": 3.0,
+     "title": "一 · 目标变了",
+     "sceneId": "a01-goal"
+    },
+    {
+     "t": 24.6,
+     "title": "二 · 模型",
+     "sceneId": "a02-model"
+    },
+    {
+     "t": 47.44,
+     "title": "三 · 复制",
+     "sceneId": "a03-replica"
+    },
+    {
+     "t": 68.38,
+     "title": "四 · 初始化",
+     "sceneId": "a04-dag"
+    },
+    {
+     "t": 91.09,
+     "title": "五 · 标记",
+     "sceneId": "a05-early"
+    },
+    {
+     "t": 157.58,
+     "title": "六 · 伪代码",
+     "sceneId": "a08-code"
+    }
+   ],
+   "scenes": [
+    {
+     "sceneId": "a00-title",
+     "start": 0.0,
+     "end": 3.0
+    },
+    {
+     "sceneId": "a01-goal",
+     "start": 3.0,
+     "end": 24.6
+    },
+    {
+     "sceneId": "a02-model",
+     "start": 24.6,
+     "end": 47.44
+    },
+    {
+     "sceneId": "a03-replica",
+     "start": 47.44,
+     "end": 68.38
+    },
+    {
+     "sceneId": "a04-dag",
+     "start": 68.38,
+     "end": 91.09
+    },
+    {
+     "sceneId": "a05-early",
+     "start": 91.09,
+     "end": 111.49
+    },
+    {
+     "sceneId": "a06-label-i",
+     "start": 111.49,
+     "end": 142.56
+    },
+    {
+     "sceneId": "a07-rest",
+     "start": 142.56,
+     "end": 157.58
+    },
+    {
+     "sceneId": "a08-code",
+     "start": 157.58,
+     "end": 179.84
+    }
+   ],
+   "transcript": [
+    {
+     "start": 3.0,
+     "end": 9.356,
+     "text": "一条链：P → X → Y → O，每个节点延迟 1，跨簇加 3。",
+     "sceneId": "a01-goal"
+    },
+    {
+     "start": 9.356,
+     "end": 15.489,
+     "text": "分成 {P,X} 和 {Y,O}：跨一次边界，延迟 7。",
+     "sceneId": "a01-goal"
+    },
+    {
+     "start": 15.489,
+     "end": 20.067,
+     "text": "换一种分法，跨两次边界：延迟 10。",
+     "sceneId": "a01-goal"
+    },
+    {
+     "start": 20.067,
+     "end": 24.2,
+     "text": "延迟只看最长路径跨了几次边界。",
+     "sceneId": "a01-goal"
+    },
+    {
+     "start": 24.6,
+     "end": 32.289,
+     "text": "Rajaraman 与 Wong 的模型：组合电路是一张有向无环图。",
+     "sceneId": "a02-model"
+    },
+    {
+     "start": 32.289,
+     "end": 35.089,
+     "text": "每个节点有延迟 δ。",
+     "sceneId": "a02-model"
+    },
+    {
+     "start": 35.089,
+     "end": 39.889,
+     "text": "簇内连线不加延迟，跨簇连线固定加 D。",
+     "sceneId": "a02-model"
+    },
+    {
+     "start": 39.889,
+     "end": 42.911,
+     "text": "每个簇有容量上限 M。",
+     "sceneId": "a02-model"
+    },
+    {
+     "start": 42.911,
+     "end": 47.044,
+     "text": "还有关键的一条：允许复制节点。",
+     "sceneId": "a02-model"
+    },
+    {
+     "start": 47.444,
+     "end": 52.911,
+     "text": "为什么要复制？g 同时供给两个簇里的 i 和 j。",
+     "sceneId": "a03-replica"
+    },
+    {
+     "start": 52.911,
+     "end": 58.6,
+     "text": "g 只能放在一边：另一边要跨簇取信号，多付 D。",
+     "sceneId": "a03-replica"
+    },
+    {
+     "start": 58.6,
+     "end": 62.956,
+     "text": "复制一份 g：两边都在簇内拿到它。",
+     "sceneId": "a03-replica"
+    },
+    {
+     "start": 62.956,
+     "end": 67.978,
+     "text": "代价是面积：多一个实例，多占一份面积。",
+     "sceneId": "a03-replica"
+    },
+    {
+     "start": 68.378,
+     "end": 74.956,
+     "text": "原作的 12 节点算例，由影片画面复原——这是候选数据。",
+     "sceneId": "a04-dag"
+    },
+    {
+     "start": 74.956,
+     "end": 79.311,
+     "text": "容量 4，D = 3，每个节点延迟 1。",
+     "sceneId": "a04-dag"
+    },
+    {
+     "start": 79.311,
+     "end": 85.667,
+     "text": "Δ(x, v)：从 x 到 v 的最长节点延迟，计 v 不计 x。",
+     "sceneId": "a04-dag"
+    },
+    {
+     "start": 85.667,
+     "end": 90.689,
+     "text": "例如 b 到 k 经过 e、g、i、k：Δ = 4。",
+     "sceneId": "a04-dag"
+    },
+    {
+     "start": 91.089,
+     "end": 97.0,
+     "text": "按拓扑序逐个打标签。d 的祖先 a、b 都能放进簇。",
+     "sceneId": "a05-early"
+    },
+    {
+     "start": 97.0,
+     "end": 100.467,
+     "text": "e、f 同理：标签都是 2。",
+     "sceneId": "a05-early"
+    },
+    {
+     "start": 100.467,
+     "end": 103.489,
+     "text": "f：只有一个祖先 a。",
+     "sceneId": "a05-early"
+    },
+    {
+     "start": 103.489,
+     "end": 108.956,
+     "text": "g 的祖先 b、c、e 都在簇内：l(g) = 3。",
+     "sceneId": "a05-early"
+    },
+    {
+     "start": 108.956,
+     "end": 111.089,
+     "text": "h：l = 2。",
+     "sceneId": "a05-early"
+    },
+    {
+     "start": 111.489,
+     "end": 115.622,
+     "text": "i 有 7 个祖先，容量只够放 3 个。",
+     "sceneId": "a06-label-i"
+    },
+    {
+     "start": 115.622,
+     "end": 120.867,
+     "text": "每个祖先的得分：l(x) + Δ(x, i)。",
+     "sceneId": "a06-label-i"
+    },
+    {
+     "start": 120.867,
+     "end": 129.0,
+     "text": "取得分最高的 g、e、c；得分相同时，拓扑序靠后的优先——这是假设。",
+     "sceneId": "a06-label-i"
+    },
+    {
+     "start": 129.0,
+     "end": 136.244,
+     "text": "簇内的 PI 是 c：l1 = 4。簇外最大是 b：l2 = 4 + 3 = 7。",
+     "sceneId": "a06-label-i"
+    },
+    {
+     "start": 136.244,
+     "end": 142.156,
+     "text": "l(i) = 7：在这个模型里，信号最早 7 到达 i。",
+     "sceneId": "a06-label-i"
+    },
+    {
+     "start": 142.556,
+     "end": 145.8,
+     "text": "j 同理：l(j) = 7。",
+     "sceneId": "a07-rest"
+    },
+    {
+     "start": 145.8,
+     "end": 151.489,
+     "text": "k：候选簇 {k, j, i, g}，l(k) = 8。",
+     "sceneId": "a07-rest"
+    },
+    {
+     "start": 151.489,
+     "end": 157.178,
+     "text": "l：候选簇 {l, j, g, e}，l(l) = 8。",
+     "sceneId": "a07-rest"
+    },
+    {
+     "start": 157.578,
+     "end": 163.933,
+     "text": "标记阶段的伪代码：先算 Δ，PI 的标签等于自身延迟。",
+     "sceneId": "a08-code"
+    },
+    {
+     "start": 163.933,
+     "end": 167.844,
+     "text": "对每个节点，按得分排序祖先。",
+     "sceneId": "a08-code"
+    },
+    {
+     "start": 167.844,
+     "end": 172.422,
+     "text": "把得分最高的放进候选簇，直到容量。",
+     "sceneId": "a08-code"
+    },
+    {
+     "start": 172.422,
+     "end": 179.444,
+     "text": "l = max(l1, l2)。下一集：从输出倒推出真正的簇。",
+     "sceneId": "a08-code"
+    }
+   ],
+   "music": "本课程原创程序合成配乐（NumPy），CC BY 4.0",
+   "why": "RW 内容多，拆成两集：上集讲目标、模型与标记阶段。",
+   "readingViolations": 0,
+   "fps": 30,
+   "size": [
+    1920,
+    1080
+   ]
+  },
+  {
+   "id": "rw2",
+   "title": "关键路径的代价（下）：恢复与复制",
+   "status": "ready",
+   "src": "rw2.mp4",
+   "vtt": "rw2.zh.vtt",
+   "poster": "rw2-poster.jpg",
+   "duration": 141.9,
+   "chapters": [
+    {
+     "t": 3.0,
+     "title": "一 · 回顾",
+     "sceneId": "b01-recap"
+    },
+    {
+     "t": 13.22,
+     "title": "二 · 逆向恢复",
+     "sceneId": "b02-select"
+    },
+    {
+     "t": 45.8,
+     "title": "三 · 实例与复制",
+     "sceneId": "b03-instances"
+    },
+    {
+     "t": 79.18,
+     "title": "四 · 复制的代价",
+     "sceneId": "b05-compare"
+    },
+    {
+     "t": 99.0,
+     "title": "五 · 适用边界",
+     "sceneId": "b06-scope"
+    },
+    {
+     "t": 121.71,
+     "title": "六 · 伪代码",
+     "sceneId": "b07-code"
+    }
+   ],
+   "scenes": [
+    {
+     "sceneId": "b00-title",
+     "start": 0.0,
+     "end": 3.0
+    },
+    {
+     "sceneId": "b01-recap",
+     "start": 3.0,
+     "end": 13.22
+    },
+    {
+     "sceneId": "b02-select",
+     "start": 13.22,
+     "end": 45.8
+    },
+    {
+     "sceneId": "b03-instances",
+     "start": 45.8,
+     "end": 68.29
+    },
+    {
+     "sceneId": "b04-arrival",
+     "start": 68.29,
+     "end": 79.18
+    },
+    {
+     "sceneId": "b05-compare",
+     "start": 79.18,
+     "end": 99.0
+    },
+    {
+     "sceneId": "b06-scope",
+     "start": 99.0,
+     "end": 121.71
+    },
+    {
+     "sceneId": "b07-code",
+     "start": 121.71,
+     "end": 141.89
+    }
+   ],
+   "transcript": [
+    {
+     "start": 3.0,
+     "end": 8.467,
+     "text": "上一集，每个节点都得到了标签和一个候选簇。",
+     "sceneId": "b01-recap"
+    },
+    {
+     "start": 8.467,
+     "end": 12.822,
+     "text": "真正用到哪些簇，要从输出端倒推。",
+     "sceneId": "b01-recap"
+    },
+    {
+     "start": 13.222,
+     "end": 19.356,
+     "text": "从输出 k 开始：选中 k 的候选簇 {k, j, i, g}。",
+     "sceneId": "b02-select"
+    },
+    {
+     "start": 19.356,
+     "end": 25.933,
+     "text": "再看输出 l：{l, j, g, e}。g 和 j 又出现了一次。",
+     "sceneId": "b02-select"
+    },
+    {
+     "start": 25.933,
+     "end": 31.178,
+     "text": "k 的簇外输入 d：它的簇是 {d, b, a}。",
+     "sceneId": "b02-select"
+    },
+    {
+     "start": 31.178,
+     "end": 34.2,
+     "text": "e：{e, c, b}。",
+     "sceneId": "b02-select"
+    },
+    {
+     "start": 34.2,
+     "end": 36.778,
+     "text": "f：{f, a}。",
+     "sceneId": "b02-select"
+    },
+    {
+     "start": 36.778,
+     "end": 39.356,
+     "text": "h：{h, c}。",
+     "sceneId": "b02-select"
+    },
+    {
+     "start": 39.356,
+     "end": 43.267,
+     "text": "b 和 c 是输入，各自单独成簇。",
+     "sceneId": "b02-select"
+    },
+    {
+     "start": 43.267,
+     "end": 45.4,
+     "text": "一共 8 个簇。",
+     "sceneId": "b02-select"
+    },
+    {
+     "start": 45.8,
+     "end": 50.822,
+     "text": "把每个簇的成员生成为实例：节点@簇根。",
+     "sceneId": "b03-instances"
+    },
+    {
+     "start": 50.822,
+     "end": 56.289,
+     "text": "8 个簇，20 个实例——逻辑节点只有 12 个。",
+     "sceneId": "b03-instances"
+    },
+    {
+     "start": 56.289,
+     "end": 61.756,
+     "text": "b 有 3 个实例：每个都是同一个逻辑门的副本。",
+     "sceneId": "b03-instances"
+    },
+    {
+     "start": 61.756,
+     "end": 67.889,
+     "text": "每个实例的输入都要完整：簇内取，或跨簇从簇根取。",
+     "sceneId": "b03-instances"
+    },
+    {
+     "start": 68.289,
+     "end": 73.756,
+     "text": "沿实例图计算到达时间：簇内 +0，跨簇 +3。",
+     "sceneId": "b04-arrival"
+    },
+    {
+     "start": 73.756,
+     "end": 78.778,
+     "text": "两个输出都在时间 8 到达，正好等于标签。",
+     "sceneId": "b04-arrival"
+    },
+    {
+     "start": 79.178,
+     "end": 84.2,
+     "text": "允许复制：最大延迟 8，用了 20 个实例。",
+     "sceneId": "b05-compare"
+    },
+    {
+     "start": 84.2,
+     "end": 89.889,
+     "text": "禁止复制：穷举所有合法分组，最好也只有 10。",
+     "sceneId": "b05-compare"
+    },
+    {
+     "start": 89.889,
+     "end": 94.244,
+     "text": "多 8 个实例，换来 2 个单位的延迟。",
+     "sceneId": "b05-compare"
+    },
+    {
+     "start": 94.244,
+     "end": 98.6,
+     "text": "所以最优性结论以允许复制为前提。",
+     "sceneId": "b05-compare"
+    },
+    {
+     "start": 99.0,
+     "end": 105.356,
+     "text": "最后说清边界。最优性来自论文，只在它的模型里成立。",
+     "sceneId": "b06-scope"
+    },
+    {
+     "start": 105.356,
+     "end": 110.822,
+     "text": "这张 12 节点图是候选复原，平票规则是假设。",
+     "sceneId": "b06-scope"
+    },
+    {
+     "start": 110.822,
+     "end": 114.956,
+     "text": "测试检查实现一致，不证明最优。",
+     "sceneId": "b06-scope"
+    },
+    {
+     "start": 114.956,
+     "end": 121.311,
+     "text": "这份提交与教师目录的 Lab 09 不一致，对应待确认。",
+     "sceneId": "b06-scope"
+    },
+    {
+     "start": 121.711,
+     "end": 126.289,
+     "text": "恢复阶段的伪代码：从所有输出开始。",
+     "sceneId": "b07-code"
+    },
+    {
+     "start": 126.289,
+     "end": 131.533,
+     "text": "选中簇根的候选簇，簇外输入成为新的簇根。",
+     "sceneId": "b07-code"
+    },
+    {
+     "start": 131.533,
+     "end": 135.444,
+     "text": "每个选中的簇生成自己的实例。",
+     "sceneId": "b07-code"
+    },
+    {
+     "start": 135.444,
+     "end": 140.689,
+     "text": "每个实例的输入都必须完整——这就是复制。",
+     "sceneId": "b07-code"
+    }
+   ],
+   "music": "本课程原创程序合成配乐（NumPy），CC BY 4.0",
+   "why": "下集讲逆向恢复、实例与复制的代价，以及适用边界与待确认事项。",
+   "readingViolations": 0,
+   "fps": 30,
+   "size": [
+    1920,
+    1080
+   ]
+  }
+ ]
+}

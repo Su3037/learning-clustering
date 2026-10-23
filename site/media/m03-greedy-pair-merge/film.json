@@ -1,0 +1,319 @@
+{
+ "id": "merge",
+ "title": "合并，再合并",
+ "status": "ready",
+ "src": "merge.mp4",
+ "vtt": "merge.zh.vtt",
+ "poster": "merge-poster.jpg",
+ "duration": 194.87,
+ "chapters": [
+  {
+   "t": 3.0,
+   "title": "一 · 连接与局部选择",
+   "sceneId": "s01-hook"
+  },
+  {
+   "t": 19.8,
+   "title": "二 · 单点簇、K 与亲和度",
+   "sceneId": "s02-setup"
+  },
+  {
+   "t": 42.96,
+   "title": "三 · 逐步推演",
+   "sceneId": "s03-step1"
+  },
+  {
+   "t": 96.51,
+   "title": "四 · 平票规则与比较器错误",
+   "sceneId": "s06-bug"
+  },
+  {
+   "t": 126.33,
+   "title": "五 · 容量预览与停止",
+   "sceneId": "s07-capacity"
+  },
+  {
+   "t": 155.62,
+   "title": "六 · 伪代码与局限",
+   "sceneId": "s08-code"
+  }
+ ],
+ "scenes": [
+  {
+   "sceneId": "s00-title",
+   "start": 0.0,
+   "end": 3.0
+  },
+  {
+   "sceneId": "s01-hook",
+   "start": 3.0,
+   "end": 19.8
+  },
+  {
+   "sceneId": "s02-setup",
+   "start": 19.8,
+   "end": 42.96
+  },
+  {
+   "sceneId": "s03-step1",
+   "start": 42.96,
+   "end": 58.2
+  },
+  {
+   "sceneId": "s04-step2",
+   "start": 58.2,
+   "end": 78.69
+  },
+  {
+   "sceneId": "s05-step3",
+   "start": 78.69,
+   "end": 96.51
+  },
+  {
+   "sceneId": "s06-bug",
+   "start": 96.51,
+   "end": 126.33
+  },
+  {
+   "sceneId": "s07-capacity",
+   "start": 126.33,
+   "end": 155.62
+  },
+  {
+   "sceneId": "s08-code",
+   "start": 155.62,
+   "end": 179.58
+  },
+  {
+   "sceneId": "s09-limits",
+   "start": 179.58,
+   "end": 194.87
+  }
+ ],
+ "transcript": [
+  {
+   "start": 3.0,
+   "end": 6.689,
+   "text": "五个单元，六条带权的连线。",
+   "sceneId": "s01-hook"
+  },
+  {
+   "start": 6.689,
+   "end": 13.267,
+   "text": "每个单元先自己成一组：所有连线都跨组，cut = 18。",
+   "sceneId": "s01-hook"
+  },
+  {
+   "start": 13.267,
+   "end": 19.4,
+   "text": "连接最紧的先合并——这样一定能分出最好的结果吗？",
+   "sceneId": "s01-hook"
+  },
+  {
+   "start": 19.8,
+   "end": 25.933,
+   "text": "先说三个词。单点簇：开始时每个节点自己是一个簇。",
+   "sceneId": "s02-setup"
+  },
+  {
+   "start": 25.933,
+   "end": 31.178,
+   "text": "目标簇数 K：簇数降到 K 就停。这里 K = 2。",
+   "sceneId": "s02-setup"
+  },
+  {
+   "start": 31.178,
+   "end": 35.978,
+   "text": "簇间亲和度：两个簇之间所有边权之和。",
+   "sceneId": "s02-setup"
+  },
+  {
+   "start": 35.978,
+   "end": 42.556,
+   "text": "合并以后，这些边变成内部边——cut 恰好减少这么多。",
+   "sceneId": "s02-setup"
+  },
+  {
+   "start": 42.956,
+   "end": 48.644,
+   "text": "第一步：列出所有候选。A–B 和 D–E 都是 5。",
+   "sceneId": "s03-step1"
+  },
+  {
+   "start": 48.644,
+   "end": 53.889,
+   "text": "并列时比较成员名字：A 在 D 前，选 A–B。",
+   "sceneId": "s03-step1"
+  },
+  {
+   "start": 53.889,
+   "end": 57.8,
+   "text": "合并：cut 从 18 降到 13。",
+   "sceneId": "s03-step1"
+  },
+  {
+   "start": 58.2,
+   "end": 62.111,
+   "text": "A、B 收缩成一个超节点 AB。",
+   "sceneId": "s04-step2"
+  },
+  {
+   "start": 62.111,
+   "end": 67.578,
+   "text": "AB 到 C 有两条平行边：1 和 4，加起来是 5。",
+   "sceneId": "s04-step2"
+  },
+  {
+   "start": 67.578,
+   "end": 75.267,
+   "text": "AB–C 和 D–E 又并列 5：比较 [A, B] 与 [D]，选 AB–C。",
+   "sceneId": "s04-step2"
+  },
+  {
+   "start": 75.267,
+   "end": 78.289,
+   "text": "cut 从 13 降到 8。",
+   "sceneId": "s04-step2"
+  },
+  {
+   "start": 78.689,
+   "end": 83.267,
+   "text": "第三步只剩一个大候选：D–E = 5。",
+   "sceneId": "s05-step3"
+  },
+  {
+   "start": 83.267,
+   "end": 88.511,
+   "text": "合并：cut 从 8 降到 3，簇数到 2，停止。",
+   "sceneId": "s05-step3"
+  },
+  {
+   "start": 88.511,
+   "end": 92.644,
+   "text": "剩下被切断的是 C–D 和 C–E。",
+   "sceneId": "s05-step3"
+  },
+  {
+   "start": 92.644,
+   "end": 96.111,
+   "text": "轨迹 18 → 13 → 8 → 3。",
+   "sceneId": "s05-step3"
+  },
+  {
+   "start": 96.511,
+   "end": 104.2,
+   "text": "原网页的 JavaScript 用 cand < best 比较这些数组。",
+   "sceneId": "s06-bug"
+  },
+  {
+   "start": 104.2,
+   "end": 112.333,
+   "text": "JavaScript 先把数组变成字符串，再一个字符一个字符地比较。",
+   "sceneId": "s06-bug"
+  },
+  {
+   "start": 112.333,
+   "end": 118.911,
+   "text": "字符 1 排在 5 前面：亲和度 1 的 A–C 被当成了“更好”。",
+   "sceneId": "s06-bug"
+  },
+  {
+   "start": 118.911,
+   "end": 125.933,
+   "text": "四个配置全受影响。本课程改为逐字段比较，并加了回归测试。",
+   "sceneId": "s06-bug"
+  },
+  {
+   "start": 126.333,
+   "end": 131.133,
+   "text": "再加一条规则：每个簇最多放 2 个单元。",
+   "sceneId": "s07-capacity"
+  },
+  {
+   "start": 131.133,
+   "end": 138.156,
+   "text": "第一步照旧合并 A–B。第二步想加入 C：大小 3，超过容量。",
+   "sceneId": "s07-capacity"
+  },
+  {
+   "start": 138.156,
+   "end": 144.067,
+   "text": "被阻止，就转选 D–E。之后再也没有合法的合并。",
+   "sceneId": "s07-capacity"
+  },
+  {
+   "start": 144.067,
+   "end": 149.756,
+   "text": "结果：3 个簇，cut 8。合法，但没有达到 K。",
+   "sceneId": "s07-capacity"
+  },
+  {
+   "start": 149.756,
+   "end": 155.222,
+   "text": "没有合法的合并就停下，如实报告——不硬塞。",
+   "sceneId": "s07-capacity"
+  },
+  {
+   "start": 155.622,
+   "end": 158.422,
+   "text": "把规则写成伪代码。",
+   "sceneId": "s08-code"
+  },
+  {
+   "start": 158.422,
+   "end": 163.0,
+   "text": "每一步：先列出全部正亲和度的簇对。",
+   "sceneId": "s08-code"
+  },
+  {
+   "start": 163.0,
+   "end": 167.8,
+   "text": "有容量就先过滤；没有合法候选就停止。",
+   "sceneId": "s08-code"
+  },
+  {
+   "start": 167.8,
+   "end": 173.044,
+   "text": "选择键逐字段比较：数值优先，平票看名字。",
+   "sceneId": "s08-code"
+  },
+  {
+   "start": 173.044,
+   "end": 179.178,
+   "text": "最后分开报告：簇、cut、是否达到 K、停止原因。",
+   "sceneId": "s08-code"
+  },
+  {
+   "start": 179.578,
+   "end": 181.711,
+   "text": "贪心的边界：",
+   "sceneId": "s09-limits"
+  },
+  {
+   "start": 181.711,
+   "end": 185.844,
+   "text": "一次 cut 3，不等于总是最优。",
+   "sceneId": "s09-limits"
+  },
+  {
+   "start": 185.844,
+   "end": 189.311,
+   "text": "换评分，合并顺序就会变。",
+   "sceneId": "s09-limits"
+  },
+  {
+   "start": 189.311,
+   "end": 193.667,
+   "text": "下一模块：装不下，还是走错了路？",
+   "sceneId": "s09-limits"
+  }
+ ],
+ "music": "本课程原创程序合成配乐（NumPy），CC BY 4.0",
+ "why": "约 3 分半：三步合并各留出比较候选的时间；比较器错误单独一段，说明机制而不只给结论。",
+ "readingViolations": 0,
+ "fps": 30,
+ "size": [
+  1920,
+  1080
+ ]
+}

@@ -1,0 +1,215 @@
+{
+ "status": "ready",
+ "moduleId": "m07-kernighan-lin",
+ "slides": [
+  {
+   "slideId": "m07-title",
+   "pageNumber": 1,
+   "pageCount": 14,
+   "title": "先试探，再回退",
+   "image": "p01.jpg",
+   "thumb": "t01.jpg",
+   "alt": "先试探，再回退：",
+   "transcript": "这一模块讲 Kernighan–Lin（KL）改进：给定一个两侧人数固定的初始分组，怎样通过成对交换减少跨组连线。核心是三件事：成对收益为什么要减 2w；为什么负收益也要试探；为什么最后只保留最佳前缀。",
+   "videoAnchor": "00:00",
+   "sceneId": "s00-title",
+   "objectiveIds": []
+  },
+  {
+   "slideId": "m07-problem",
+   "pageNumber": 2,
+   "pageCount": 14,
+   "title": "问题定义",
+   "image": "p02.jpg",
+   "thumb": "t02.jpg",
+   "alt": "问题定义：输入：带权无向图，一个两侧人数固定的初始二分；操作：一次交换一对 a（左）、b（右）；目标：让 cut（跨组边权和）变小；约束：两侧节点数始终不变；输出：试探轨迹、最佳前缀、接受的分组与停止原因",
+   "transcript": "问题的输入是一张带权无向图和一个初始二分。这里的初始二分是 AE 在左、BCD 在右，跨组的边是 AB、AC、CE、DE，cut 等于 12。KL 只允许一对一交换，所以两侧的节点数量永远不变。注意这只是节点个数的平衡，不是面积的平衡。",
+   "videoAnchor": "00:03",
+   "sceneId": "s01-hook",
+   "objectiveIds": [
+    "o1"
+   ]
+  },
+  {
+   "slideId": "m07-background",
+   "pageNumber": 3,
+   "pageCount": 14,
+   "title": "背景与位置",
+   "image": "p03.jpg",
+   "thumb": "t03.jpg",
+   "alt": "背景与位置：",
+   "transcript": "KL 是 1970 年 Kernighan 和 Lin 在贝尔系统技术期刊上发表的启发式方法。它不从零开始分组，而是改进一个已有的二分。在本课程里，它接在谱二分之后：先有初始分组，再局部改进。下一模块 FM 会把一换一改成一次移动一个点。",
+   "videoAnchor": null,
+   "sceneId": null,
+   "objectiveIds": []
+  },
+  {
+   "slideId": "m07-dvalue",
+   "pageNumber": 4,
+   "pageCount": 14,
+   "title": "cut 与 D 值",
+   "image": "p04.jpg",
+   "thumb": "t04.jpg",
+   "alt": "cut 与 D 值：D(v) = 外部边权 − 内部边权；外部：v 与对面节点之间的边；内部：v 与同侧节点之间的边；D(v) 就是“只把 v 换到对面”时 cut 的下降量；D 越大，v 越“想去对面”",
+   "transcript": "先给每个点算一个数 D。外部边权是它和对面节点之间的边，内部边权是它和同侧节点之间的边。A 的两条边都连到对面，所以 D(A) 等于 6 减 0，等于 6。C 的外部只有 2，内部有 6，所以 D(C) 是负 4，它更想留在原地。",
+   "videoAnchor": "00:20",
+   "sceneId": "s02-dvalue",
+   "objectiveIds": [
+    "o2"
+   ]
+  },
+  {
+   "slideId": "m07-pairs",
+   "pageNumber": 5,
+   "pageCount": 14,
+   "title": "成对收益",
+   "image": "p05.jpg",
+   "thumb": "t05.jpg",
+   "alt": "成对收益：交换 a、b 的收益 g = D(a) + D(b) − 2w(a,b)；左右各取一点，共 2 × 3 = 6 对；最大：A↔D，6 + 3 − 0 = 9；平票时按 (−g, a, b) 的字典序",
+   "transcript": "交换一对 a、b 的收益是 D(a) 加 D(b) 再减 2w(a,b)。左边两个点、右边三个点，一共六对。表里最大的是 A 和 D，6 加 3 减 0 等于 9。",
+   "videoAnchor": "00:40",
+   "sceneId": "s03-pairs",
+   "objectiveIds": [
+    "o2"
+   ]
+  },
+  {
+   "slideId": "m07-minus2w",
+   "pageNumber": 6,
+   "pageCount": 14,
+   "title": "为什么要减 2w",
+   "image": "p06.jpg",
+   "thumb": "t06.jpg",
+   "alt": "为什么要减 2w：D(E) + D(D) = 6 + 3 = 9；两个 D 都把边 DE（权 5）当作“外部边”计入；交换后 E、D 仍分处两侧：DE 依然被切；多算的部分要扣回：2 × 5 = 10；g(E, D) = 9 − 10 = −1",
+   "transcript": "为什么要减 2w？看 E 和 D。D(E) 加 D(D) 是 9，但这两个 D 都把边 DE 当成了外部边，各算了一次。交换以后，E 去了右边、D 去了左边，它们依然分处两侧，DE 还是被切。所以要把这条边的贡献扣回两次，g 等于 9 减 10，等于负 1。",
+   "videoAnchor": "00:56",
+   "sceneId": "s04-minus2w",
+   "objectiveIds": [
+    "o2"
+   ]
+  },
+  {
+   "slideId": "m07-trial1",
+   "pageNumber": 7,
+   "pageCount": 14,
+   "title": "第一步：试探交换并锁定",
+   "image": "p07.jpg",
+   "thumb": "t07.jpg",
+   "alt": "第一步：试探交换并锁定：选收益最大的一对：A↔D，g = +9；交换后 cut 12 → 3；A、D 锁定：本轮不再移动（虚线圈）；这仍是“试探”，还没有被接受",
+   "transcript": "第一步选收益最大的 A 和 D，交换后 cut 从 12 降到 3。交换过的两个点被锁定，本轮不再移动。要强调：这一步现在只是试探，还没有被接受。",
+   "videoAnchor": "01:24",
+   "sceneId": "s05-trial1",
+   "objectiveIds": [
+    "o3"
+   ]
+  },
+  {
+   "slideId": "m07-trial2",
+   "pageNumber": 8,
+   "pageCount": 14,
+   "title": "第二步：负收益也要走",
+   "image": "p08.jpg",
+   "thumb": "t08.jpg",
+   "alt": "第二步：负收益也要走：重算 D：剩下的候选 E↔C −8、E↔B −13；KL 不在第一个负收益处停下；照样选最大者 E↔C：cut 暂升到 11；左侧已无未锁定的点，本轮试探结束",
+   "transcript": "重新计算 D 之后，剩下的两个候选收益都是负数。KL 不在这里停下，而是照样选最大的那个，E 和 C，收益负 8，cut 暂时升到 11。这时左边已经没有未锁定的点，本轮的试探结束。",
+   "videoAnchor": "01:36",
+   "sceneId": "s06-trial2",
+   "objectiveIds": [
+    "o3"
+   ]
+  },
+  {
+   "slideId": "m07-prefix",
+   "pageNumber": 9,
+   "pageCount": 14,
+   "title": "最佳前缀与回退",
+   "image": "p09.jpg",
+   "thumb": "t09.jpg",
+   "alt": "最佳前缀与回退：累计收益：k=0 → 0，k=1 → +9，k=2 → +1；取最大且只取连续的前 k 步：k* = 1；从本轮起点只应用前 1 步；接受 ABC | DE，cut = 3；第 2 步被撤回",
+   "transcript": "一轮结束后回头看累计收益：什么都不做是 0，做第一步是正 9，两步都做是正 1。最大的是前 1 步，所以从本轮起点出发，只应用 A 和 D 的交换，接受的分组是 ABC 对 DE，cut 等于 3。第二步被撤回，它只是用来看清后面有没有更好的。",
+   "videoAnchor": "01:52",
+   "sceneId": "s07-prefix",
+   "objectiveIds": [
+    "o4"
+   ]
+  },
+  {
+   "slideId": "m07-pass2",
+   "pageNumber": 10,
+   "pageCount": 14,
+   "title": "第二轮：空前缀与停止",
+   "image": "p10.jpg",
+   "thumb": "t10.jpg",
+   "alt": "第二轮：空前缀与停止：从 ABC | DE 出发，全部解锁；试探：E↔C −8，D↔B +2；累计 −8、−6：都不如什么都不做；最佳前缀为空（k = 0）→ 算法停止",
+   "transcript": "第二轮从 ABC 对 DE 出发，所有点重新解锁。试探的两步收益是负 8 和正 2，累计是负 8 和负 6，都不如什么都不做。空前缀胜出，cut 保持 3，算法停止。",
+   "videoAnchor": "02:17",
+   "sceneId": "s08-pass2",
+   "objectiveIds": [
+    "o4"
+   ]
+  },
+  {
+   "slideId": "m07-pseudo",
+   "pageNumber": 11,
+   "pageCount": 14,
+   "title": "伪代码逐行",
+   "image": "p11.jpg",
+   "thumb": "t11.jpg",
+   "alt": "伪代码逐行：第 1、8 行：一轮接一轮，直到最佳前缀为空；第 3–5 行：负收益也照走，交换后锁定并更新 D；第 6–7 行：回退到起点，只应用最佳前缀；每个点每轮最多交换一次",
+   "transcript": "伪代码的外层是一轮接一轮的 pass。内层在两侧都还有未锁定点时，选收益最大的一对交换、锁定、更新 D，负收益也照走。一轮结束时取累计收益最大的前缀，从本轮起点只应用这几步。如果最佳前缀是空的，就停止。",
+   "videoAnchor": "02:29",
+   "sceneId": "s09-code",
+   "objectiveIds": [
+    "o5"
+   ]
+  },
+  {
+   "slideId": "m07-mistakes",
+   "pageNumber": 12,
+   "pageCount": 14,
+   "title": "常见错误",
+   "image": "p12.jpg",
+   "thumb": "t12.jpg",
+   "alt": "常见错误：忘记减 2w：把 g(E,D) 算成 +9，误以为 E↔D 有利；遇到负收益就停：第一轮在 cut 3 之后提前结束，看不到完整前缀；把“任意正收益步”当前缀：前缀必须从第 1 步起连续；把试探状态当结果：报告 cut 11 而不是回退后的 3；以为人数平衡等于面积平衡",
+   "transcript": "常见错误有五个。第一，忘记减 2w，会把 E 和 D 的交换误算成正 9。第二，遇到负收益就停下，就看不到完整的前缀。第三，前缀必须从第一步开始连续，不能挑几步正收益的。第四，不要把试探状态当结果。第五，人数平衡不等于面积平衡。",
+   "videoAnchor": null,
+   "sceneId": null,
+   "objectiveIds": [
+    "o3",
+    "o4"
+   ]
+  },
+  {
+   "slideId": "m07-limits",
+   "pageNumber": 13,
+   "pageCount": 14,
+   "title": "适用范围与局限",
+   "image": "p13.jpg",
+   "thumb": "t13.jpg",
+   "alt": "适用范围与局限：KL 是启发式：在这张图上得到 cut 3，不代表一般能找到全局最优；结果依赖初始分组：比较方法要从同一个种子出发；每步枚举所有跨侧对：朴素实现每步约 O(n²)；只保持两侧节点数；不同单元面积需另加约束；EDA 中常作为划分的局部改进步骤",
+   "transcript": "KL 是启发式。在这张小图上得到 cut 3 只是这张图的性质，不代表一般能找到全局最优。它依赖初始分组，所以比较不同方法时要从同一个种子出发。朴素实现每一步都要枚举所有跨侧的点对。它只保持人数平衡，单元面积不同的情况要另外处理。",
+   "videoAnchor": null,
+   "sceneId": null,
+   "objectiveIds": [
+    "o6"
+   ]
+  },
+  {
+   "slideId": "m07-summary",
+   "pageNumber": 14,
+   "pageCount": 14,
+   "title": "小结",
+   "image": "p14.jpg",
+   "thumb": "t14.jpg",
+   "alt": "小结：",
+   "transcript": "小结：试探可以变差，接受只看最佳前缀。成对收益要减 2w，每轮交换后锁定，结束时回退到最佳前缀；如果最佳前缀为空就停止。下一模块的 FM 一次只移动一个点，用平衡窗口代替一换一。",
+   "videoAnchor": null,
+   "sceneId": null,
+   "objectiveIds": []
+  }
+ ],
+ "pdf": "m07-kernighan-lin.pdf",
+ "pptx": "m07-kernighan-lin.pptx",
+ "contentVersion": "2026.10.23-1",
+ "aspectNote": "16:9 是本课程的设计选择（与影片一致、适合投影），不是教师指定的比例。PDF 页码与网页 p/total 完全一致；PPTX 中文字、形状与表格均可编辑，讲稿在备注里。"
+}

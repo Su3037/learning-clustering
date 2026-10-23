@@ -1,0 +1,6791 @@
+{
+ "moduleId": "m08-fiduccia-mattheyses",
+ "engineVersion": "1.0.0",
+ "generatedBy": "scripts/build-traces.mjs",
+ "g01": {
+  "nodes": [
+   "A",
+   "B",
+   "C",
+   "D",
+   "E"
+  ],
+  "edges": [
+   [
+    "A",
+    "B",
+    5
+   ],
+   [
+    "A",
+    "C",
+    1
+   ],
+   [
+    "B",
+    "C",
+    4
+   ],
+   [
+    "C",
+    "D",
+    2
+   ],
+   [
+    "C",
+    "E",
+    1
+   ],
+   [
+    "D",
+    "E",
+    5
+   ]
+  ],
+  "positions": {
+   "A": [
+    170,
+    100
+   ],
+   "B": [
+    390,
+    85
+   ],
+   "C": [
+    305,
+    270
+   ],
+   "D": [
+    530,
+    375
+   ],
+   "E": [
+    280,
+    440
+   ]
+  }
+ },
+ "seed": {
+  "A": 0,
+  "B": 1,
+  "C": 1,
+  "D": 1,
+  "E": 0
+ },
+ "run": {
+  "events": [
+   {
+    "eventId": "p1-start",
+    "phase": "pass-1",
+    "step": 0,
+    "kind": "pass-start",
+    "before": null,
+    "after": {
+     "A": 0,
+     "B": 1,
+     "C": 1,
+     "D": 1,
+     "E": 0
+    },
+    "decision": null,
+    "gains": [
+     {
+      "node": "A",
+      "side": 0,
+      "gain": 6,
+      "locked": false,
+      "legal": false
+     },
+     {
+      "node": "B",
+      "side": 1,
+      "gain": 1,
+      "locked": false,
+      "legal": true
+     },
+     {
+      "node": "C",
+      "side": 1,
+      "gain": -4,
+      "locked": false,
+      "legal": true
+     },
+     {
+      "node": "D",
+      "side": 1,
+      "gain": 3,
+      "locked": false,
+      "legal": true
+     },
+     {
+      "node": "E",
+      "side": 0,
+      "gain": 6,
+      "locked": false,
+      "legal": false
+     }
+    ],
+    "buckets": [
+     {
+      "gain": 6,
+      "nodes": [
+       "A",
+       "E"
+      ]
+     },
+     {
+      "gain": 3,
+      "nodes": [
+       "D"
+      ]
+     },
+     {
+      "gain": 1,
+      "nodes": [
+       "B"
+      ]
+     },
+     {
+      "gain": -4,
+      "nodes": [
+       "C"
+      ]
+     }
+    ],
+    "metrics": {
+     "cut": 12
+    },
+    "sourceVersion": "1.0.0"
+   },
+   {
+    "eventId": "p1-m1",
+    "phase": "pass-1",
+    "step": 1,
+    "kind": "trial-move",
+    "before": {
+     "A": 0,
+     "B": 1,
+     "C": 1,
+     "D": 1,
+     "E": 0
+    },
+    "after": {
+     "A": 0,
+     "B": 1,
+     "C": 1,
+     "D": 0,
+     "E": 0
+    },
+    "decision": "试探移动 D（1→0）",
+    "gains": [
+     {
+      "node": "A",
+      "side": 0,
+      "gain": 6,
+      "locked": false,
+      "legal": true
+     },
+     {
+      "node": "B",
+      "side": 1,
+      "gain": 1,
+      "locked": false,
+      "legal": false
+     },
+     {
+      "node": "C",
+      "side": 1,
+      "gain": 0,
+      "locked": false,
+      "legal": false
+     },
+     {
+      "node": "D",
+      "side": 0,
+      "gain": 3,
+      "locked": true,
+      "legal": false
+     },
+     {
+      "node": "E",
+      "side": 0,
+      "gain": -4,
+      "locked": false,
+      "legal": true
+     }
+    ],
+    "buckets": [
+     {
+      "gain": 6,
+      "nodes": [
+       "A"
+      ]
+     },
+     {
+      "gain": 1,
+      "nodes": [
+       "B"
+      ]
+     },
+     {
+      "gain": 0,
+      "nodes": [
+       "C"
+      ]
+     },
+     {
+      "gain": -4,
+      "nodes": [
+       "E"
+      ]
+     }
+    ],
+    "locks": [
+     "D"
+    ],
+    "trialGain": 3,
+    "blocked": [
+     "A",
+     "E"
+    ],
+    "metrics": {
+     "cutBefore": 12,
+     "cut": 9,
+     "cumulative": 3
+    },
+    "sourceVersion": "1.0.0"
+   },
+   {
+    "eventId": "p1-m2",
+    "phase": "pass-1",
+    "step": 2,
+    "kind": "trial-move",
+    "before": {
+     "A": 0,
+     "B": 1,
+     "C": 1,
+     "D": 0,
+     "E": 0
+    },
+    "after": {
+     "A": 1,
+     "B": 1,
+     "C": 1,
+     "D": 0,
+     "E": 0
+    },
+    "decision": "试探移动 A（0→1）",
+    "gains": [
+     {
+      "node": "A",
+      "side": 1,
+      "gain": 6,
+      "locked": true,
+      "legal": false
+     },
+     {
+      "node": "B",
+      "side": 1,
+      "gain": -9,
+      "locked": false,
+      "legal": true
+     },
+     {
+      "node": "C",
+      "side": 1,
+      "gain": -2,
+      "locked": false,
+      "legal": true
+     },
+     {
+      "node": "D",
+      "side": 0,
+      "gain": 3,
+      "locked": true,
+      "legal": false
+     },
+     {
+      "node": "E",
+      "side": 0,
+      "gain": -4,
+      "locked": false,
+      "legal": false
+     }
+    ],
+    "buckets": [
+     {
+      "gain": -2,
+      "nodes": [
+       "C"
+      ]
+     },
+     {
+      "gain": -4,
+      "nodes": [
+       "E"
+      ]
+     },
+     {
+      "gain": -9,
+      "nodes": [
+       "B"
+      ]
+     }
+    ],
+    "locks": [
+     "A",
+     "D"
+    ],
+    "trialGain": 6,
+    "blocked": [],
+    "metrics": {
+     "cutBefore": 9,
+     "cut": 3,
+     "cumulative": 9
+    },
+    "sourceVersion": "1.0.0"
+   },
+   {
+    "eventId": "p1-m3",
+    "phase": "pass-1",
+    "step": 3,
+    "kind": "trial-move",
+    "before": {
+     "A": 1,
+     "B": 1,
+     "C": 1,
+     "D": 0,
+     "E": 0
+    },
+    "after": {
+     "A": 1,
+     "B": 1,
+     "C": 0,
+     "D": 0,
+     "E": 0
+    },
+    "decision": "试探移动 C（1→0）",
+    "gains": [
+     {
+      "node": "A",
+      "side": 1,
+      "gain": 6,
+      "locked": true,
+      "legal": false
+     },
+     {
+      "node": "B",
+      "side": 1,
+      "gain": -1,
+      "locked": false,
+      "legal": false
+     },
+     {
+      "node": "C",
+      "side": 0,
+      "gain": -2,
+      "locked": true,
+      "legal": false
+     },
+     {
+      "node": "D",
+      "side": 0,
+      "gain": 3,
+      "locked": true,
+      "legal": false
+     },
+     {
+      "node": "E",
+      "side": 0,
+      "gain": -6,
+      "locked": false,
+      "legal": true
+     }
+    ],
+    "buckets": [
+     {
+      "gain": -1,
+      "nodes": [
+       "B"
+      ]
+     },
+     {
+      "gain": -6,
+      "nodes": [
+       "E"
+      ]
+     }
+    ],
+    "locks": [
+     "A",
+     "C",
+     "D"
+    ],
+    "trialGain": -2,
+    "blocked": [],
+    "metrics": {
+     "cutBefore": 3,
+     "cut": 5,
+     "cumulative": 7
+    },
+    "sourceVersion": "1.0.0"
+   },
+   {
+    "eventId": "p1-m4",
+    "phase": "pass-1",
+    "step": 4,
+    "kind": "trial-move",
+    "before": {
+     "A": 1,
+     "B": 1,
+     "C": 0,
+     "D": 0,
+     "E": 0
+    },
+    "after": {
+     "A": 1,
+     "B": 1,
+     "C": 0,
+     "D": 0,
+     "E": 1
+    },
+    "decision": "试探移动 E（0→1）",
+    "gains": [
+     {
+      "node": "A",
+      "side": 1,
+      "gain": 6,
+      "locked": true,
+      "legal": false
+     },
+     {
+      "node": "B",
+      "side": 1,
+      "gain": -1,
+      "locked": false,
+      "legal": true
+     },
+     {
+      "node": "C",
+      "side": 0,
+      "gain": -2,
+      "locked": true,
+      "legal": false
+     },
+     {
+      "node": "D",
+      "side": 0,
+      "gain": 3,
+      "locked": true,
+      "legal": false
+     },
+     {
+      "node": "E",
+      "side": 1,
+      "gain": -6,
+      "locked": true,
+      "legal": false
+     }
+    ],
+    "buckets": [
+     {
+      "gain": -1,
+      "nodes": [
+       "B"
+      ]
+     }
+    ],
+    "locks": [
+     "A",
+     "C",
+     "D",
+     "E"
+    ],
+    "trialGain": -6,
+    "blocked": [
+     "B"
+    ],
+    "metrics": {
+     "cutBefore": 5,
+     "cut": 11,
+     "cumulative": 1
+    },
+    "sourceVersion": "1.0.0"
+   },
+   {
+    "eventId": "p1-m5",
+    "phase": "pass-1",
+    "step": 5,
+    "kind": "trial-move",
+    "before": {
+     "A": 1,
+     "B": 1,
+     "C": 0,
+     "D": 0,
+     "E": 1
+    },
+    "after": {
+     "A": 1,
+     "B": 0,
+     "C": 0,
+     "D": 0,
+     "E": 1
+    },
+    "decision": "试探移动 B（1→0）",
+    "gains": [
+     {
+      "node": "A",
+      "side": 1,
+      "gain": 6,
+      "locked": true,
+      "legal": false
+     },
+     {
+      "node": "B",
+      "side": 0,
+      "gain": -1,
+      "locked": true,
+      "legal": false
+     },
+     {
+      "node": "C",
+      "side": 0,
+      "gain": -2,
+      "locked": true,
+      "legal": false
+     },
+     {
+      "node": "D",
+      "side": 0,
+      "gain": 3,
+      "locked": true,
+      "legal": false
+     },
+     {
+      "node": "E",
+      "side": 1,
+      "gain": -6,
+      "locked": true,
+      "legal": false
+     }
+    ],
+    "buckets": [],
+    "locks": [
+     "A",
+     "B",
+     "C",
+     "D",
+     "E"
+    ],
+    "trialGain": -1,
+    "blocked": [],
+    "metrics": {
+     "cutBefore": 11,
+     "cut": 12,
+     "cumulative": 0
+    },
+    "sourceVersion": "1.0.0"
+   },
+   {
+    "eventId": "p1-prefix",
+    "phase": "pass-1",
+    "step": 6,
+    "kind": "best-prefix",
+    "before": {
+     "A": 1,
+     "B": 0,
+     "C": 0,
+     "D": 0,
+     "E": 1
+    },
+    "after": {
+     "A": 1,
+     "B": 1,
+     "C": 1,
+     "D": 0,
+     "E": 0
+    },
+    "decision": "保留前 2 步",
+    "prefix": {
+     "gains": [
+      0,
+      3,
+      9,
+      7,
+      1,
+      0
+     ],
+     "bestK": 2
+    },
+    "locks": [],
+    "metrics": {
+     "cut": 3,
+     "rollbackFromCut": 12
+    },
+    "sourceVersion": "1.0.0"
+   },
+   {
+    "eventId": "p2-start",
+    "phase": "pass-2",
+    "step": 7,
+    "kind": "pass-start",
+    "before": null,
+    "after": {
+     "A": 1,
+     "B": 1,
+     "C": 1,
+     "D": 0,
+     "E": 0
+    },
+    "decision": null,
+    "gains": [
+     {
+      "node": "A",
+      "side": 1,
+      "gain": -6,
+      "locked": false,
+      "legal": true
+     },
+     {
+      "node": "B",
+      "side": 1,
+      "gain": -9,
+      "locked": false,
+      "legal": true
+     },
+     {
+      "node": "C",
+      "side": 1,
+      "gain": -2,
+      "locked": false,
+      "legal": true
+     },
+     {
+      "node": "D",
+      "side": 0,
+      "gain": -3,
+      "locked": false,
+      "legal": false
+     },
+     {
+      "node": "E",
+      "side": 0,
+      "gain": -4,
+      "locked": false,
+      "legal": false
+     }
+    ],
+    "buckets": [
+     {
+      "gain": -2,
+      "nodes": [
+       "C"
+      ]
+     },
+     {
+      "gain": -3,
+      "nodes": [
+       "D"
+      ]
+     },
+     {
+      "gain": -4,
+      "nodes": [
+       "E"
+      ]
+     },
+     {
+      "gain": -6,
+      "nodes": [
+       "A"
+      ]
+     },
+     {
+      "gain": -9,
+      "nodes": [
+       "B"
+      ]
+     }
+    ],
+    "metrics": {
+     "cut": 3
+    },
+    "sourceVersion": "1.0.0"
+   },
+   {
+    "eventId": "p2-m1",
+    "phase": "pass-2",
+    "step": 8,
+    "kind": "trial-move",
+    "before": {
+     "A": 1,
+     "B": 1,
+     "C": 1,
+     "D": 0,
+     "E": 0
+    },
+    "after": {
+     "A": 1,
+     "B": 1,
+     "C": 0,
+     "D": 0,
+     "E": 0
+    },
+    "decision": "试探移动 C（1→0）",
+    "gains": [
+     {
+      "node": "A",
+      "side": 1,
+      "gain": -4,
+      "locked": false,
+      "legal": false
+     },
+     {
+      "node": "B",
+      "side": 1,
+      "gain": -1,
+      "locked": false,
+      "legal": false
+     },
+     {
+      "node": "C",
+      "side": 0,
+      "gain": -2,
+      "locked": true,
+      "legal": false
+     },
+     {
+      "node": "D",
+      "side": 0,
+      "gain": -7,
+      "locked": false,
+      "legal": true
+     },
+     {
+      "node": "E",
+      "side": 0,
+      "gain": -6,
+      "locked": false,
+      "legal": true
+     }
+    ],
+    "buckets": [
+     {
+      "gain": -1,
+      "nodes": [
+       "B"
+      ]
+     },
+     {
+      "gain": -4,
+      "nodes": [
+       "A"
+      ]
+     },
+     {
+      "gain": -6,
+      "nodes": [
+       "E"
+      ]
+     },
+     {
+      "gain": -7,
+      "nodes": [
+       "D"
+      ]
+     }
+    ],
+    "locks": [
+     "C"
+    ],
+    "trialGain": -2,
+    "blocked": [],
+    "metrics": {
+     "cutBefore": 3,
+     "cut": 5,
+     "cumulative": -2
+    },
+    "sourceVersion": "1.0.0"
+   },
+   {
+    "eventId": "p2-m2",
+    "phase": "pass-2",
+    "step": 9,
+    "kind": "trial-move",
+    "before": {
+     "A": 1,
+     "B": 1,
+     "C": 0,
+     "D": 0,
+     "E": 0
+    },
+    "after": {
+     "A": 1,
+     "B": 1,
+     "C": 0,
+     "D": 0,
+     "E": 1
+    },
+    "decision": "试探移动 E（0→1）",
+    "gains": [
+     {
+      "node": "A",
+      "side": 1,
+      "gain": -4,
+      "locked": false,
+      "legal": true
+     },
+     {
+      "node": "B",
+      "side": 1,
+      "gain": -1,
+      "locked": false,
+      "legal": true
+     },
+     {
+      "node": "C",
+      "side": 0,
+      "gain": -2,
+      "locked": true,
+      "legal": false
+     },
+     {
+      "node": "D",
+      "side": 0,
+      "gain": 3,
+      "locked": false,
+      "legal": false
+     },
+     {
+      "node": "E",
+      "side": 1,
+      "gain": -6,
+      "locked": true,
+      "legal": false
+     }
+    ],
+    "buckets": [
+     {
+      "gain": 3,
+      "nodes": [
+       "D"
+      ]
+     },
+     {
+      "gain": -1,
+      "nodes": [
+       "B"
+      ]
+     },
+     {
+      "gain": -4,
+      "nodes": [
+       "A"
+      ]
+     }
+    ],
+    "locks": [
+     "C",
+     "E"
+    ],
+    "trialGain": -6,
+    "blocked": [
+     "A",
+     "B"
+    ],
+    "metrics": {
+     "cutBefore": 5,
+     "cut": 11,
+     "cumulative": -8
+    },
+    "sourceVersion": "1.0.0"
+   },
+   {
+    "eventId": "p2-m3",
+    "phase": "pass-2",
+    "step": 10,
+    "kind": "trial-move",
+    "before": {
+     "A": 1,
+     "B": 1,
+     "C": 0,
+     "D": 0,
+     "E": 1
+    },
+    "after": {
+     "A": 1,
+     "B": 0,
+     "C": 0,
+     "D": 0,
+     "E": 1
+    },
+    "decision": "试探移动 B（1→0）",
+    "gains": [
+     {
+      "node": "A",
+      "side": 1,
+      "gain": 6,
+      "locked": false,
+      "legal": false
+     },
+     {
+      "node": "B",
+      "side": 0,
+      "gain": -1,
+      "locked": true,
+      "legal": false
+     },
+     {
+      "node": "C",
+      "side": 0,
+      "gain": -2,
+      "locked": true,
+      "legal": false
+     },
+     {
+      "node": "D",
+      "side": 0,
+      "gain": 3,
+      "locked": false,
+      "legal": true
+     },
+     {
+      "node": "E",
+      "side": 1,
+      "gain": -6,
+      "locked": true,
+      "legal": false
+     }
+    ],
+    "buckets": [
+     {
+      "gain": 6,
+      "nodes": [
+       "A"
+      ]
+     },
+     {
+      "gain": 3,
+      "nodes": [
+       "D"
+      ]
+     }
+    ],
+    "locks": [
+     "B",
+     "C",
+     "E"
+    ],
+    "trialGain": -1,
+    "blocked": [
+     "D"
+    ],
+    "metrics": {
+     "cutBefore": 11,
+     "cut": 12,
+     "cumulative": -9
+    },
+    "sourceVersion": "1.0.0"
+   },
+   {
+    "eventId": "p2-m4",
+    "phase": "pass-2",
+    "step": 11,
+    "kind": "trial-move",
+    "before": {
+     "A": 1,
+     "B": 0,
+     "C": 0,
+     "D": 0,
+     "E": 1
+    },
+    "after": {
+     "A": 1,
+     "B": 0,
+     "C": 0,
+     "D": 1,
+     "E": 1
+    },
+    "decision": "试探移动 D（0→1）",
+    "gains": [
+     {
+      "node": "A",
+      "side": 1,
+      "gain": 6,
+      "locked": false,
+      "legal": true
+     },
+     {
+      "node": "B",
+      "side": 0,
+      "gain": -1,
+      "locked": true,
+      "legal": false
+     },
+     {
+      "node": "C",
+      "side": 0,
+      "gain": -2,
+      "locked": true,
+      "legal": false
+     },
+     {
+      "node": "D",
+      "side": 1,
+      "gain": 3,
+      "locked": true,
+      "legal": false
+     },
+     {
+      "node": "E",
+      "side": 1,
+      "gain": -6,
+      "locked": true,
+      "legal": false
+     }
+    ],
+    "buckets": [
+     {
+      "gain": 6,
+      "nodes": [
+       "A"
+      ]
+     }
+    ],
+    "locks": [
+     "B",
+     "C",
+     "D",
+     "E"
+    ],
+    "trialGain": 3,
+    "blocked": [
+     "A"
+    ],
+    "metrics": {
+     "cutBefore": 12,
+     "cut": 9,
+     "cumulative": -6
+    },
+    "sourceVersion": "1.0.0"
+   },
+   {
+    "eventId": "p2-m5",
+    "phase": "pass-2",
+    "step": 12,
+    "kind": "trial-move",
+    "before": {
+     "A": 1,
+     "B": 0,
+     "C": 0,
+     "D": 1,
+     "E": 1
+    },
+    "after": {
+     "A": 0,
+     "B": 0,
+     "C": 0,
+     "D": 1,
+     "E": 1
+    },
+    "decision": "试探移动 A（1→0）",
+    "gains": [
+     {
+      "node": "A",
+      "side": 0,
+      "gain": 6,
+      "locked": true,
+      "legal": false
+     },
+     {
+      "node": "B",
+      "side": 0,
+      "gain": -1,
+      "locked": true,
+      "legal": false
+     },
+     {
+      "node": "C",
+      "side": 0,
+      "gain": -2,
+      "locked": true,
+      "legal": false
+     },
+     {
+      "node": "D",
+      "side": 1,
+      "gain": 3,
+      "locked": true,
+      "legal": false
+     },
+     {
+      "node": "E",
+      "side": 1,
+      "gain": -6,
+      "locked": true,
+      "legal": false
+     }
+    ],
+    "buckets": [],
+    "locks": [
+     "A",
+     "B",
+     "C",
+     "D",
+     "E"
+    ],
+    "trialGain": 6,
+    "blocked": [],
+    "metrics": {
+     "cutBefore": 9,
+     "cut": 3,
+     "cumulative": 0
+    },
+    "sourceVersion": "1.0.0"
+   },
+   {
+    "eventId": "p2-prefix",
+    "phase": "pass-2",
+    "step": 13,
+    "kind": "best-prefix",
+    "before": {
+     "A": 0,
+     "B": 0,
+     "C": 0,
+     "D": 1,
+     "E": 1
+    },
+    "after": {
+     "A": 1,
+     "B": 1,
+     "C": 1,
+     "D": 0,
+     "E": 0
+    },
+    "decision": "保留空前缀",
+    "prefix": {
+     "gains": [
+      0,
+      -2,
+      -8,
+      -9,
+      -6,
+      0
+     ],
+     "bestK": 0
+    },
+    "locks": [],
+    "metrics": {
+     "cut": 3,
+     "rollbackFromCut": 3
+    },
+    "sourceVersion": "1.0.0"
+   }
+  ],
+  "result": {
+   "assignment": {
+    "A": 1,
+    "B": 1,
+    "C": 1,
+    "D": 0,
+    "E": 0
+   },
+   "cut": 3,
+   "passes": [
+    {
+     "pass": 1,
+     "startCut": 12,
+     "moves": [
+      {
+       "index": 1,
+       "node": "D",
+       "from": 1,
+       "to": 0,
+       "gain": 3,
+       "fs": [
+        {
+         "net": "DE",
+         "w": 5
+        }
+       ],
+       "te": [
+        {
+         "net": "CD",
+         "w": 2
+        }
+       ],
+       "cutBefore": 12,
+       "cutAfter": 9,
+       "cumulative": 3,
+       "blockedBetter": [
+        "A",
+        "E"
+       ]
+      },
+      {
+       "index": 2,
+       "node": "A",
+       "from": 0,
+       "to": 1,
+       "gain": 6,
+       "fs": [
+        {
+         "net": "AB",
+         "w": 5
+        },
+        {
+         "net": "AC",
+         "w": 1
+        }
+       ],
+       "te": [],
+       "cutBefore": 9,
+       "cutAfter": 3,
+       "cumulative": 9,
+       "blockedBetter": []
+      },
+      {
+       "index": 3,
+       "node": "C",
+       "from": 1,
+       "to": 0,
+       "gain": -2,
+       "fs": [
+        {
+         "net": "CD",
+         "w": 2
+        },
+        {
+         "net": "CE",
+         "w": 1
+        }
+       ],
+       "te": [
+        {
+         "net": "AC",
+         "w": 1
+        },
+        {
+         "net": "BC",
+         "w": 4
+        }
+       ],
+       "cutBefore": 3,
+       "cutAfter": 5,
+       "cumulative": 7,
+       "blockedBetter": []
+      },
+      {
+       "index": 4,
+       "node": "E",
+       "from": 0,
+       "to": 1,
+       "gain": -6,
+       "fs": [],
+       "te": [
+        {
+         "net": "CE",
+         "w": 1
+        },
+        {
+         "net": "DE",
+         "w": 5
+        }
+       ],
+       "cutBefore": 5,
+       "cutAfter": 11,
+       "cumulative": 1,
+       "blockedBetter": [
+        "B"
+       ]
+      },
+      {
+       "index": 5,
+       "node": "B",
+       "from": 1,
+       "to": 0,
+       "gain": -1,
+       "fs": [
+        {
+         "net": "BC",
+         "w": 4
+        }
+       ],
+       "te": [
+        {
+         "net": "AB",
+         "w": 5
+        }
+       ],
+       "cutBefore": 11,
+       "cutAfter": 12,
+       "cumulative": 0,
+       "blockedBetter": []
+      }
+     ],
+     "prefixGains": [
+      0,
+      3,
+      9,
+      7,
+      1,
+      0
+     ],
+     "bestK": 2,
+     "bestGain": 9,
+     "acceptedCut": 3,
+     "start": {
+      "A": 0,
+      "B": 1,
+      "C": 1,
+      "D": 1,
+      "E": 0
+     },
+     "accepted": {
+      "A": 1,
+      "B": 1,
+      "C": 1,
+      "D": 0,
+      "E": 0
+     }
+    },
+    {
+     "pass": 2,
+     "startCut": 3,
+     "moves": [
+      {
+       "index": 1,
+       "node": "C",
+       "from": 1,
+       "to": 0,
+       "gain": -2,
+       "fs": [
+        {
+         "net": "CD",
+         "w": 2
+        },
+        {
+         "net": "CE",
+         "w": 1
+        }
+       ],
+       "te": [
+        {
+         "net": "AC",
+         "w": 1
+        },
+        {
+         "net": "BC",
+         "w": 4
+        }
+       ],
+       "cutBefore": 3,
+       "cutAfter": 5,
+       "cumulative": -2,
+       "blockedBetter": []
+      },
+      {
+       "index": 2,
+       "node": "E",
+       "from": 0,
+       "to": 1,
+       "gain": -6,
+       "fs": [],
+       "te": [
+        {
+         "net": "CE",
+         "w": 1
+        },
+        {
+         "net": "DE",
+         "w": 5
+        }
+       ],
+       "cutBefore": 5,
+       "cutAfter": 11,
+       "cumulative": -8,
+       "blockedBetter": [
+        "A",
+        "B"
+       ]
+      },
+      {
+       "index": 3,
+       "node": "B",
+       "from": 1,
+       "to": 0,
+       "gain": -1,
+       "fs": [
+        {
+         "net": "BC",
+         "w": 4
+        }
+       ],
+       "te": [
+        {
+         "net": "AB",
+         "w": 5
+        }
+       ],
+       "cutBefore": 11,
+       "cutAfter": 12,
+       "cumulative": -9,
+       "blockedBetter": [
+        "D"
+       ]
+      },
+      {
+       "index": 4,
+       "node": "D",
+       "from": 0,
+       "to": 1,
+       "gain": 3,
+       "fs": [
+        {
+         "net": "DE",
+         "w": 5
+        }
+       ],
+       "te": [
+        {
+         "net": "CD",
+         "w": 2
+        }
+       ],
+       "cutBefore": 12,
+       "cutAfter": 9,
+       "cumulative": -6,
+       "blockedBetter": [
+        "A"
+       ]
+      },
+      {
+       "index": 5,
+       "node": "A",
+       "from": 1,
+       "to": 0,
+       "gain": 6,
+       "fs": [
+        {
+         "net": "AB",
+         "w": 5
+        },
+        {
+         "net": "AC",
+         "w": 1
+        }
+       ],
+       "te": [],
+       "cutBefore": 9,
+       "cutAfter": 3,
+       "cumulative": 0,
+       "blockedBetter": []
+      }
+     ],
+     "prefixGains": [
+      0,
+      -2,
+      -8,
+      -9,
+      -6,
+      0
+     ],
+     "bestK": 0,
+     "bestGain": 0,
+     "acceptedCut": 3,
+     "start": {
+      "A": 1,
+      "B": 1,
+      "C": 1,
+      "D": 0,
+      "E": 0
+     },
+     "accepted": {
+      "A": 1,
+      "B": 1,
+      "C": 1,
+      "D": 0,
+      "E": 0
+     }
+    }
+   ],
+   "stopReason": "no-positive-prefix",
+   "maxDiff": 1,
+   "hasMultiPin": false
+  },
+  "status": "completed",
+  "metadata": {
+   "engine": "fiduccia-mattheyses",
+   "version": "1.0.0",
+   "buckets": "Map scan, not O(P)",
+   "balance": "|n0-n1|<=1"
+  }
+ },
+ "legacy": {
+  "graph": {
+   "nodes": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F"
+   ],
+   "edges": [
+    [
+     "A",
+     "B",
+     6
+    ],
+    [
+     "A",
+     "C",
+     4
+    ],
+    [
+     "B",
+     "D",
+     4
+    ],
+    [
+     "C",
+     "D",
+     1
+    ],
+    [
+     "C",
+     "E",
+     4
+    ],
+    [
+     "D",
+     "F",
+     4
+    ],
+    [
+     "E",
+     "F",
+     6
+    ]
+   ],
+   "seed": {
+    "A": 0,
+    "B": 0,
+    "C": 1,
+    "D": 1,
+    "E": 0,
+    "F": 1
+   },
+   "maxDiff": 2,
+   "claimed": {
+    "initialCut": 9,
+    "allLegalGainsNonPositive": true,
+    "finalCut": 4
+   }
+  },
+  "run": {
+   "events": [
+    {
+     "eventId": "p1-start",
+     "phase": "pass-1",
+     "step": 0,
+     "kind": "pass-start",
+     "before": null,
+     "after": {
+      "A": 0,
+      "B": 0,
+      "C": 1,
+      "D": 1,
+      "E": 0,
+      "F": 1
+     },
+     "decision": null,
+     "gains": [
+      {
+       "node": "A",
+       "side": 0,
+       "gain": -2,
+       "locked": false,
+       "legal": true
+      },
+      {
+       "node": "B",
+       "side": 0,
+       "gain": -2,
+       "locked": false,
+       "legal": true
+      },
+      {
+       "node": "C",
+       "side": 1,
+       "gain": 7,
+       "locked": false,
+       "legal": true
+      },
+      {
+       "node": "D",
+       "side": 1,
+       "gain": -1,
+       "locked": false,
+       "legal": true
+      },
+      {
+       "node": "E",
+       "side": 0,
+       "gain": 10,
+       "locked": false,
+       "legal": true
+      },
+      {
+       "node": "F",
+       "side": 1,
+       "gain": 2,
+       "locked": false,
+       "legal": true
+      }
+     ],
+     "buckets": [
+      {
+       "gain": 10,
+       "nodes": [
+        "E"
+       ]
+      },
+      {
+       "gain": 7,
+       "nodes": [
+        "C"
+       ]
+      },
+      {
+       "gain": 2,
+       "nodes": [
+        "F"
+       ]
+      },
+      {
+       "gain": -1,
+       "nodes": [
+        "D"
+       ]
+      },
+      {
+       "gain": -2,
+       "nodes": [
+        "A",
+        "B"
+       ]
+      }
+     ],
+     "metrics": {
+      "cut": 18
+     },
+     "sourceVersion": "1.0.0"
+    },
+    {
+     "eventId": "p1-m1",
+     "phase": "pass-1",
+     "step": 1,
+     "kind": "trial-move",
+     "before": {
+      "A": 0,
+      "B": 0,
+      "C": 1,
+      "D": 1,
+      "E": 0,
+      "F": 1
+     },
+     "after": {
+      "A": 0,
+      "B": 0,
+      "C": 1,
+      "D": 1,
+      "E": 1,
+      "F": 1
+     },
+     "decision": "试探移动 E（0→1）",
+     "gains": [
+      {
+       "node": "A",
+       "side": 0,
+       "gain": -2,
+       "locked": false,
+       "legal": false
+      },
+      {
+       "node": "B",
+       "side": 0,
+       "gain": -2,
+       "locked": false,
+       "legal": false
+      },
+      {
+       "node": "C",
+       "side": 1,
+       "gain": -1,
+       "locked": false,
+       "legal": true
+      },
+      {
+       "node": "D",
+       "side": 1,
+       "gain": -1,
+       "locked": false,
+       "legal": true
+      },
+      {
+       "node": "E",
+       "side": 1,
+       "gain": 10,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "F",
+       "side": 1,
+       "gain": -10,
+       "locked": false,
+       "legal": true
+      }
+     ],
+     "buckets": [
+      {
+       "gain": -1,
+       "nodes": [
+        "C",
+        "D"
+       ]
+      },
+      {
+       "gain": -2,
+       "nodes": [
+        "A",
+        "B"
+       ]
+      },
+      {
+       "gain": -10,
+       "nodes": [
+        "F"
+       ]
+      }
+     ],
+     "locks": [
+      "E"
+     ],
+     "trialGain": 10,
+     "blocked": [],
+     "metrics": {
+      "cutBefore": 18,
+      "cut": 8,
+      "cumulative": 10
+     },
+     "sourceVersion": "1.0.0"
+    },
+    {
+     "eventId": "p1-m2",
+     "phase": "pass-1",
+     "step": 2,
+     "kind": "trial-move",
+     "before": {
+      "A": 0,
+      "B": 0,
+      "C": 1,
+      "D": 1,
+      "E": 1,
+      "F": 1
+     },
+     "after": {
+      "A": 0,
+      "B": 0,
+      "C": 0,
+      "D": 1,
+      "E": 1,
+      "F": 1
+     },
+     "decision": "试探移动 C（1→0）",
+     "gains": [
+      {
+       "node": "A",
+       "side": 0,
+       "gain": -10,
+       "locked": false,
+       "legal": true
+      },
+      {
+       "node": "B",
+       "side": 0,
+       "gain": -2,
+       "locked": false,
+       "legal": true
+      },
+      {
+       "node": "C",
+       "side": 0,
+       "gain": -1,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "D",
+       "side": 1,
+       "gain": 1,
+       "locked": false,
+       "legal": true
+      },
+      {
+       "node": "E",
+       "side": 1,
+       "gain": 10,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "F",
+       "side": 1,
+       "gain": -10,
+       "locked": false,
+       "legal": true
+      }
+     ],
+     "buckets": [
+      {
+       "gain": 1,
+       "nodes": [
+        "D"
+       ]
+      },
+      {
+       "gain": -2,
+       "nodes": [
+        "B"
+       ]
+      },
+      {
+       "gain": -10,
+       "nodes": [
+        "A",
+        "F"
+       ]
+      }
+     ],
+     "locks": [
+      "C",
+      "E"
+     ],
+     "trialGain": -1,
+     "blocked": [],
+     "metrics": {
+      "cutBefore": 8,
+      "cut": 9,
+      "cumulative": 9
+     },
+     "sourceVersion": "1.0.0"
+    },
+    {
+     "eventId": "p1-m3",
+     "phase": "pass-1",
+     "step": 3,
+     "kind": "trial-move",
+     "before": {
+      "A": 0,
+      "B": 0,
+      "C": 0,
+      "D": 1,
+      "E": 1,
+      "F": 1
+     },
+     "after": {
+      "A": 0,
+      "B": 0,
+      "C": 0,
+      "D": 0,
+      "E": 1,
+      "F": 1
+     },
+     "decision": "试探移动 D（1→0）",
+     "gains": [
+      {
+       "node": "A",
+       "side": 0,
+       "gain": -10,
+       "locked": false,
+       "legal": true
+      },
+      {
+       "node": "B",
+       "side": 0,
+       "gain": -10,
+       "locked": false,
+       "legal": true
+      },
+      {
+       "node": "C",
+       "side": 0,
+       "gain": -1,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "D",
+       "side": 0,
+       "gain": 1,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "E",
+       "side": 1,
+       "gain": 10,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "F",
+       "side": 1,
+       "gain": -2,
+       "locked": false,
+       "legal": false
+      }
+     ],
+     "buckets": [
+      {
+       "gain": -2,
+       "nodes": [
+        "F"
+       ]
+      },
+      {
+       "gain": -10,
+       "nodes": [
+        "A",
+        "B"
+       ]
+      }
+     ],
+     "locks": [
+      "C",
+      "D",
+      "E"
+     ],
+     "trialGain": 1,
+     "blocked": [],
+     "metrics": {
+      "cutBefore": 9,
+      "cut": 8,
+      "cumulative": 10
+     },
+     "sourceVersion": "1.0.0"
+    },
+    {
+     "eventId": "p1-m4",
+     "phase": "pass-1",
+     "step": 4,
+     "kind": "trial-move",
+     "before": {
+      "A": 0,
+      "B": 0,
+      "C": 0,
+      "D": 0,
+      "E": 1,
+      "F": 1
+     },
+     "after": {
+      "A": 1,
+      "B": 0,
+      "C": 0,
+      "D": 0,
+      "E": 1,
+      "F": 1
+     },
+     "decision": "试探移动 A（0→1）",
+     "gains": [
+      {
+       "node": "A",
+       "side": 1,
+       "gain": -10,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "B",
+       "side": 0,
+       "gain": 2,
+       "locked": false,
+       "legal": true
+      },
+      {
+       "node": "C",
+       "side": 0,
+       "gain": -1,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "D",
+       "side": 0,
+       "gain": 1,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "E",
+       "side": 1,
+       "gain": 10,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "F",
+       "side": 1,
+       "gain": -2,
+       "locked": false,
+       "legal": true
+      }
+     ],
+     "buckets": [
+      {
+       "gain": 2,
+       "nodes": [
+        "B"
+       ]
+      },
+      {
+       "gain": -2,
+       "nodes": [
+        "F"
+       ]
+      }
+     ],
+     "locks": [
+      "A",
+      "C",
+      "D",
+      "E"
+     ],
+     "trialGain": -10,
+     "blocked": [
+      "F"
+     ],
+     "metrics": {
+      "cutBefore": 8,
+      "cut": 18,
+      "cumulative": 0
+     },
+     "sourceVersion": "1.0.0"
+    },
+    {
+     "eventId": "p1-m5",
+     "phase": "pass-1",
+     "step": 5,
+     "kind": "trial-move",
+     "before": {
+      "A": 1,
+      "B": 0,
+      "C": 0,
+      "D": 0,
+      "E": 1,
+      "F": 1
+     },
+     "after": {
+      "A": 1,
+      "B": 1,
+      "C": 0,
+      "D": 0,
+      "E": 1,
+      "F": 1
+     },
+     "decision": "试探移动 B（0→1）",
+     "gains": [
+      {
+       "node": "A",
+       "side": 1,
+       "gain": -10,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "B",
+       "side": 1,
+       "gain": 2,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "C",
+       "side": 0,
+       "gain": -1,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "D",
+       "side": 0,
+       "gain": 1,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "E",
+       "side": 1,
+       "gain": 10,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "F",
+       "side": 1,
+       "gain": -2,
+       "locked": false,
+       "legal": true
+      }
+     ],
+     "buckets": [
+      {
+       "gain": -2,
+       "nodes": [
+        "F"
+       ]
+      }
+     ],
+     "locks": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+     ],
+     "trialGain": 2,
+     "blocked": [],
+     "metrics": {
+      "cutBefore": 18,
+      "cut": 16,
+      "cumulative": 2
+     },
+     "sourceVersion": "1.0.0"
+    },
+    {
+     "eventId": "p1-m6",
+     "phase": "pass-1",
+     "step": 6,
+     "kind": "trial-move",
+     "before": {
+      "A": 1,
+      "B": 1,
+      "C": 0,
+      "D": 0,
+      "E": 1,
+      "F": 1
+     },
+     "after": {
+      "A": 1,
+      "B": 1,
+      "C": 0,
+      "D": 0,
+      "E": 1,
+      "F": 0
+     },
+     "decision": "试探移动 F（1→0）",
+     "gains": [
+      {
+       "node": "A",
+       "side": 1,
+       "gain": -10,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "B",
+       "side": 1,
+       "gain": 2,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "C",
+       "side": 0,
+       "gain": -1,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "D",
+       "side": 0,
+       "gain": 1,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "E",
+       "side": 1,
+       "gain": 10,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "F",
+       "side": 0,
+       "gain": -2,
+       "locked": true,
+       "legal": false
+      }
+     ],
+     "buckets": [],
+     "locks": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "trialGain": -2,
+     "blocked": [],
+     "metrics": {
+      "cutBefore": 16,
+      "cut": 18,
+      "cumulative": 0
+     },
+     "sourceVersion": "1.0.0"
+    },
+    {
+     "eventId": "p1-prefix",
+     "phase": "pass-1",
+     "step": 7,
+     "kind": "best-prefix",
+     "before": {
+      "A": 1,
+      "B": 1,
+      "C": 0,
+      "D": 0,
+      "E": 1,
+      "F": 0
+     },
+     "after": {
+      "A": 0,
+      "B": 0,
+      "C": 1,
+      "D": 1,
+      "E": 1,
+      "F": 1
+     },
+     "decision": "保留前 1 步",
+     "prefix": {
+      "gains": [
+       0,
+       10,
+       9,
+       10,
+       0,
+       2,
+       0
+      ],
+      "bestK": 1
+     },
+     "locks": [],
+     "metrics": {
+      "cut": 8,
+      "rollbackFromCut": 18
+     },
+     "sourceVersion": "1.0.0"
+    }
+   ],
+   "result": {
+    "assignment": {
+     "A": 0,
+     "B": 0,
+     "C": 1,
+     "D": 1,
+     "E": 1,
+     "F": 1
+    },
+    "cut": 8,
+    "passes": [
+     {
+      "pass": 1,
+      "startCut": 18,
+      "moves": [
+       {
+        "index": 1,
+        "node": "E",
+        "from": 0,
+        "to": 1,
+        "gain": 10,
+        "fs": [
+         {
+          "net": "CE",
+          "w": 4
+         },
+         {
+          "net": "EF",
+          "w": 6
+         }
+        ],
+        "te": [],
+        "cutBefore": 18,
+        "cutAfter": 8,
+        "cumulative": 10,
+        "blockedBetter": []
+       },
+       {
+        "index": 2,
+        "node": "C",
+        "from": 1,
+        "to": 0,
+        "gain": -1,
+        "fs": [
+         {
+          "net": "AC",
+          "w": 4
+         }
+        ],
+        "te": [
+         {
+          "net": "CD",
+          "w": 1
+         },
+         {
+          "net": "CE",
+          "w": 4
+         }
+        ],
+        "cutBefore": 8,
+        "cutAfter": 9,
+        "cumulative": 9,
+        "blockedBetter": []
+       },
+       {
+        "index": 3,
+        "node": "D",
+        "from": 1,
+        "to": 0,
+        "gain": 1,
+        "fs": [
+         {
+          "net": "BD",
+          "w": 4
+         },
+         {
+          "net": "CD",
+          "w": 1
+         }
+        ],
+        "te": [
+         {
+          "net": "DF",
+          "w": 4
+         }
+        ],
+        "cutBefore": 9,
+        "cutAfter": 8,
+        "cumulative": 10,
+        "blockedBetter": []
+       },
+       {
+        "index": 4,
+        "node": "A",
+        "from": 0,
+        "to": 1,
+        "gain": -10,
+        "fs": [],
+        "te": [
+         {
+          "net": "AB",
+          "w": 6
+         },
+         {
+          "net": "AC",
+          "w": 4
+         }
+        ],
+        "cutBefore": 8,
+        "cutAfter": 18,
+        "cumulative": 0,
+        "blockedBetter": [
+         "F"
+        ]
+       },
+       {
+        "index": 5,
+        "node": "B",
+        "from": 0,
+        "to": 1,
+        "gain": 2,
+        "fs": [
+         {
+          "net": "AB",
+          "w": 6
+         }
+        ],
+        "te": [
+         {
+          "net": "BD",
+          "w": 4
+         }
+        ],
+        "cutBefore": 18,
+        "cutAfter": 16,
+        "cumulative": 2,
+        "blockedBetter": []
+       },
+       {
+        "index": 6,
+        "node": "F",
+        "from": 1,
+        "to": 0,
+        "gain": -2,
+        "fs": [
+         {
+          "net": "DF",
+          "w": 4
+         }
+        ],
+        "te": [
+         {
+          "net": "EF",
+          "w": 6
+         }
+        ],
+        "cutBefore": 16,
+        "cutAfter": 18,
+        "cumulative": 0,
+        "blockedBetter": []
+       }
+      ],
+      "prefixGains": [
+       0,
+       10,
+       9,
+       10,
+       0,
+       2,
+       0
+      ],
+      "bestK": 1,
+      "bestGain": 10,
+      "acceptedCut": 8,
+      "start": {
+       "A": 0,
+       "B": 0,
+       "C": 1,
+       "D": 1,
+       "E": 0,
+       "F": 1
+      },
+      "accepted": {
+       "A": 0,
+       "B": 0,
+       "C": 1,
+       "D": 1,
+       "E": 1,
+       "F": 1
+      }
+     }
+    ],
+    "stopReason": "first-pass-only",
+    "maxDiff": 2,
+    "hasMultiPin": false
+   },
+   "status": "completed",
+   "metadata": {
+    "engine": "fiduccia-mattheyses",
+    "version": "1.0.0",
+    "buckets": "Map scan, not O(P)",
+    "balance": "|n0-n1|<=2"
+   }
+  },
+  "optimum": {
+   "cut": 8,
+   "side": {
+    "A": 0,
+    "B": 0,
+    "C": 0,
+    "D": 0,
+    "E": 1,
+    "F": 1
+   }
+  }
+ },
+ "escape": {
+  "graph": {
+   "nodes": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F"
+   ],
+   "edges": [
+    [
+     "A",
+     "C",
+     4
+    ],
+    [
+     "A",
+     "E",
+     5
+    ],
+    [
+     "B",
+     "C",
+     2
+    ],
+    [
+     "B",
+     "E",
+     1
+    ],
+    [
+     "C",
+     "F",
+     3
+    ],
+    [
+     "D",
+     "E",
+     1
+    ],
+    [
+     "E",
+     "F",
+     1
+    ]
+   ],
+   "seed": {
+    "A": 0,
+    "D": 0,
+    "E": 0,
+    "B": 1,
+    "C": 1,
+    "F": 1
+   },
+   "maxDiff": 2,
+   "positions": {
+    "A": [
+     160,
+     120
+    ],
+    "E": [
+     330,
+     250
+    ],
+    "D": [
+     160,
+     380
+    ],
+    "C": [
+     500,
+     120
+    ],
+    "B": [
+     640,
+     250
+    ],
+    "F": [
+     500,
+     380
+    ]
+   },
+   "origin": "randomGraph(4198, n=6, p=.5, maxW=6) in site/engines/graph.js"
+  },
+  "run": {
+   "events": [
+    {
+     "eventId": "p1-start",
+     "phase": "pass-1",
+     "step": 0,
+     "kind": "pass-start",
+     "before": null,
+     "after": {
+      "A": 0,
+      "D": 0,
+      "E": 0,
+      "B": 1,
+      "C": 1,
+      "F": 1
+     },
+     "decision": null,
+     "gains": [
+      {
+       "node": "A",
+       "side": 0,
+       "gain": -1,
+       "locked": false,
+       "legal": true
+      },
+      {
+       "node": "B",
+       "side": 1,
+       "gain": -1,
+       "locked": false,
+       "legal": true
+      },
+      {
+       "node": "C",
+       "side": 1,
+       "gain": -1,
+       "locked": false,
+       "legal": true
+      },
+      {
+       "node": "D",
+       "side": 0,
+       "gain": -1,
+       "locked": false,
+       "legal": true
+      },
+      {
+       "node": "E",
+       "side": 0,
+       "gain": -4,
+       "locked": false,
+       "legal": true
+      },
+      {
+       "node": "F",
+       "side": 1,
+       "gain": -2,
+       "locked": false,
+       "legal": true
+      }
+     ],
+     "buckets": [
+      {
+       "gain": -1,
+       "nodes": [
+        "A",
+        "B",
+        "C",
+        "D"
+       ]
+      },
+      {
+       "gain": -2,
+       "nodes": [
+        "F"
+       ]
+      },
+      {
+       "gain": -4,
+       "nodes": [
+        "E"
+       ]
+      }
+     ],
+     "metrics": {
+      "cut": 6
+     },
+     "sourceVersion": "1.0.0"
+    },
+    {
+     "eventId": "p1-m1",
+     "phase": "pass-1",
+     "step": 1,
+     "kind": "trial-move",
+     "before": {
+      "A": 0,
+      "D": 0,
+      "E": 0,
+      "B": 1,
+      "C": 1,
+      "F": 1
+     },
+     "after": {
+      "A": 1,
+      "D": 0,
+      "E": 0,
+      "B": 1,
+      "C": 1,
+      "F": 1
+     },
+     "decision": "试探移动 A（0→1）",
+     "gains": [
+      {
+       "node": "A",
+       "side": 1,
+       "gain": -1,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "B",
+       "side": 1,
+       "gain": -1,
+       "locked": false,
+       "legal": true
+      },
+      {
+       "node": "C",
+       "side": 1,
+       "gain": -9,
+       "locked": false,
+       "legal": true
+      },
+      {
+       "node": "D",
+       "side": 0,
+       "gain": -1,
+       "locked": false,
+       "legal": false
+      },
+      {
+       "node": "E",
+       "side": 0,
+       "gain": 6,
+       "locked": false,
+       "legal": false
+      },
+      {
+       "node": "F",
+       "side": 1,
+       "gain": -2,
+       "locked": false,
+       "legal": true
+      }
+     ],
+     "buckets": [
+      {
+       "gain": 6,
+       "nodes": [
+        "E"
+       ]
+      },
+      {
+       "gain": -1,
+       "nodes": [
+        "B",
+        "D"
+       ]
+      },
+      {
+       "gain": -2,
+       "nodes": [
+        "F"
+       ]
+      },
+      {
+       "gain": -9,
+       "nodes": [
+        "C"
+       ]
+      }
+     ],
+     "locks": [
+      "A"
+     ],
+     "trialGain": -1,
+     "blocked": [],
+     "metrics": {
+      "cutBefore": 6,
+      "cut": 7,
+      "cumulative": -1
+     },
+     "sourceVersion": "1.0.0"
+    },
+    {
+     "eventId": "p1-m2",
+     "phase": "pass-1",
+     "step": 2,
+     "kind": "trial-move",
+     "before": {
+      "A": 1,
+      "D": 0,
+      "E": 0,
+      "B": 1,
+      "C": 1,
+      "F": 1
+     },
+     "after": {
+      "A": 1,
+      "D": 0,
+      "E": 0,
+      "B": 0,
+      "C": 1,
+      "F": 1
+     },
+     "decision": "试探移动 B（1→0）",
+     "gains": [
+      {
+       "node": "A",
+       "side": 1,
+       "gain": -1,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "B",
+       "side": 0,
+       "gain": -1,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "C",
+       "side": 1,
+       "gain": -5,
+       "locked": false,
+       "legal": true
+      },
+      {
+       "node": "D",
+       "side": 0,
+       "gain": -1,
+       "locked": false,
+       "legal": true
+      },
+      {
+       "node": "E",
+       "side": 0,
+       "gain": 4,
+       "locked": false,
+       "legal": true
+      },
+      {
+       "node": "F",
+       "side": 1,
+       "gain": -2,
+       "locked": false,
+       "legal": true
+      }
+     ],
+     "buckets": [
+      {
+       "gain": 4,
+       "nodes": [
+        "E"
+       ]
+      },
+      {
+       "gain": -1,
+       "nodes": [
+        "D"
+       ]
+      },
+      {
+       "gain": -2,
+       "nodes": [
+        "F"
+       ]
+      },
+      {
+       "gain": -5,
+       "nodes": [
+        "C"
+       ]
+      }
+     ],
+     "locks": [
+      "A",
+      "B"
+     ],
+     "trialGain": -1,
+     "blocked": [
+      "E"
+     ],
+     "metrics": {
+      "cutBefore": 7,
+      "cut": 8,
+      "cumulative": -2
+     },
+     "sourceVersion": "1.0.0"
+    },
+    {
+     "eventId": "p1-m3",
+     "phase": "pass-1",
+     "step": 3,
+     "kind": "trial-move",
+     "before": {
+      "A": 1,
+      "D": 0,
+      "E": 0,
+      "B": 0,
+      "C": 1,
+      "F": 1
+     },
+     "after": {
+      "A": 1,
+      "D": 0,
+      "E": 1,
+      "B": 0,
+      "C": 1,
+      "F": 1
+     },
+     "decision": "试探移动 E（0→1）",
+     "gains": [
+      {
+       "node": "A",
+       "side": 1,
+       "gain": -1,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "B",
+       "side": 0,
+       "gain": -1,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "C",
+       "side": 1,
+       "gain": -5,
+       "locked": false,
+       "legal": true
+      },
+      {
+       "node": "D",
+       "side": 0,
+       "gain": 1,
+       "locked": false,
+       "legal": false
+      },
+      {
+       "node": "E",
+       "side": 1,
+       "gain": 4,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "F",
+       "side": 1,
+       "gain": -4,
+       "locked": false,
+       "legal": true
+      }
+     ],
+     "buckets": [
+      {
+       "gain": 1,
+       "nodes": [
+        "D"
+       ]
+      },
+      {
+       "gain": -4,
+       "nodes": [
+        "F"
+       ]
+      },
+      {
+       "gain": -5,
+       "nodes": [
+        "C"
+       ]
+      }
+     ],
+     "locks": [
+      "A",
+      "B",
+      "E"
+     ],
+     "trialGain": 4,
+     "blocked": [],
+     "metrics": {
+      "cutBefore": 8,
+      "cut": 4,
+      "cumulative": 2
+     },
+     "sourceVersion": "1.0.0"
+    },
+    {
+     "eventId": "p1-m4",
+     "phase": "pass-1",
+     "step": 4,
+     "kind": "trial-move",
+     "before": {
+      "A": 1,
+      "D": 0,
+      "E": 1,
+      "B": 0,
+      "C": 1,
+      "F": 1
+     },
+     "after": {
+      "A": 1,
+      "D": 0,
+      "E": 1,
+      "B": 0,
+      "C": 1,
+      "F": 0
+     },
+     "decision": "试探移动 F（1→0）",
+     "gains": [
+      {
+       "node": "A",
+       "side": 1,
+       "gain": -1,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "B",
+       "side": 0,
+       "gain": -1,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "C",
+       "side": 1,
+       "gain": 1,
+       "locked": false,
+       "legal": true
+      },
+      {
+       "node": "D",
+       "side": 0,
+       "gain": 1,
+       "locked": false,
+       "legal": true
+      },
+      {
+       "node": "E",
+       "side": 1,
+       "gain": 4,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "F",
+       "side": 0,
+       "gain": -4,
+       "locked": true,
+       "legal": false
+      }
+     ],
+     "buckets": [
+      {
+       "gain": 1,
+       "nodes": [
+        "C",
+        "D"
+       ]
+      }
+     ],
+     "locks": [
+      "A",
+      "B",
+      "E",
+      "F"
+     ],
+     "trialGain": -4,
+     "blocked": [
+      "D"
+     ],
+     "metrics": {
+      "cutBefore": 4,
+      "cut": 8,
+      "cumulative": -2
+     },
+     "sourceVersion": "1.0.0"
+    },
+    {
+     "eventId": "p1-m5",
+     "phase": "pass-1",
+     "step": 5,
+     "kind": "trial-move",
+     "before": {
+      "A": 1,
+      "D": 0,
+      "E": 1,
+      "B": 0,
+      "C": 1,
+      "F": 0
+     },
+     "after": {
+      "A": 1,
+      "D": 0,
+      "E": 1,
+      "B": 0,
+      "C": 0,
+      "F": 0
+     },
+     "decision": "试探移动 C（1→0）",
+     "gains": [
+      {
+       "node": "A",
+       "side": 1,
+       "gain": -1,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "B",
+       "side": 0,
+       "gain": -1,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "C",
+       "side": 0,
+       "gain": 1,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "D",
+       "side": 0,
+       "gain": 1,
+       "locked": false,
+       "legal": true
+      },
+      {
+       "node": "E",
+       "side": 1,
+       "gain": 4,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "F",
+       "side": 0,
+       "gain": -4,
+       "locked": true,
+       "legal": false
+      }
+     ],
+     "buckets": [
+      {
+       "gain": 1,
+       "nodes": [
+        "D"
+       ]
+      }
+     ],
+     "locks": [
+      "A",
+      "B",
+      "C",
+      "E",
+      "F"
+     ],
+     "trialGain": 1,
+     "blocked": [],
+     "metrics": {
+      "cutBefore": 8,
+      "cut": 7,
+      "cumulative": -1
+     },
+     "sourceVersion": "1.0.0"
+    },
+    {
+     "eventId": "p1-m6",
+     "phase": "pass-1",
+     "step": 6,
+     "kind": "trial-move",
+     "before": {
+      "A": 1,
+      "D": 0,
+      "E": 1,
+      "B": 0,
+      "C": 0,
+      "F": 0
+     },
+     "after": {
+      "A": 1,
+      "D": 1,
+      "E": 1,
+      "B": 0,
+      "C": 0,
+      "F": 0
+     },
+     "decision": "试探移动 D（0→1）",
+     "gains": [
+      {
+       "node": "A",
+       "side": 1,
+       "gain": -1,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "B",
+       "side": 0,
+       "gain": -1,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "C",
+       "side": 0,
+       "gain": 1,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "D",
+       "side": 1,
+       "gain": 1,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "E",
+       "side": 1,
+       "gain": 4,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "F",
+       "side": 0,
+       "gain": -4,
+       "locked": true,
+       "legal": false
+      }
+     ],
+     "buckets": [],
+     "locks": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "trialGain": 1,
+     "blocked": [],
+     "metrics": {
+      "cutBefore": 7,
+      "cut": 6,
+      "cumulative": 0
+     },
+     "sourceVersion": "1.0.0"
+    },
+    {
+     "eventId": "p1-prefix",
+     "phase": "pass-1",
+     "step": 7,
+     "kind": "best-prefix",
+     "before": {
+      "A": 1,
+      "D": 1,
+      "E": 1,
+      "B": 0,
+      "C": 0,
+      "F": 0
+     },
+     "after": {
+      "A": 1,
+      "D": 0,
+      "E": 1,
+      "B": 0,
+      "C": 1,
+      "F": 1
+     },
+     "decision": "保留前 3 步",
+     "prefix": {
+      "gains": [
+       0,
+       -1,
+       -2,
+       2,
+       -2,
+       -1,
+       0
+      ],
+      "bestK": 3
+     },
+     "locks": [],
+     "metrics": {
+      "cut": 4,
+      "rollbackFromCut": 6
+     },
+     "sourceVersion": "1.0.0"
+    },
+    {
+     "eventId": "p2-start",
+     "phase": "pass-2",
+     "step": 8,
+     "kind": "pass-start",
+     "before": null,
+     "after": {
+      "A": 1,
+      "D": 0,
+      "E": 1,
+      "B": 0,
+      "C": 1,
+      "F": 1
+     },
+     "decision": null,
+     "gains": [
+      {
+       "node": "A",
+       "side": 1,
+       "gain": -9,
+       "locked": false,
+       "legal": true
+      },
+      {
+       "node": "B",
+       "side": 0,
+       "gain": 3,
+       "locked": false,
+       "legal": false
+      },
+      {
+       "node": "C",
+       "side": 1,
+       "gain": -5,
+       "locked": false,
+       "legal": true
+      },
+      {
+       "node": "D",
+       "side": 0,
+       "gain": 1,
+       "locked": false,
+       "legal": false
+      },
+      {
+       "node": "E",
+       "side": 1,
+       "gain": -4,
+       "locked": false,
+       "legal": true
+      },
+      {
+       "node": "F",
+       "side": 1,
+       "gain": -4,
+       "locked": false,
+       "legal": true
+      }
+     ],
+     "buckets": [
+      {
+       "gain": 3,
+       "nodes": [
+        "B"
+       ]
+      },
+      {
+       "gain": 1,
+       "nodes": [
+        "D"
+       ]
+      },
+      {
+       "gain": -4,
+       "nodes": [
+        "E",
+        "F"
+       ]
+      },
+      {
+       "gain": -5,
+       "nodes": [
+        "C"
+       ]
+      },
+      {
+       "gain": -9,
+       "nodes": [
+        "A"
+       ]
+      }
+     ],
+     "metrics": {
+      "cut": 4
+     },
+     "sourceVersion": "1.0.0"
+    },
+    {
+     "eventId": "p2-m1",
+     "phase": "pass-2",
+     "step": 9,
+     "kind": "trial-move",
+     "before": {
+      "A": 1,
+      "D": 0,
+      "E": 1,
+      "B": 0,
+      "C": 1,
+      "F": 1
+     },
+     "after": {
+      "A": 1,
+      "D": 0,
+      "E": 0,
+      "B": 0,
+      "C": 1,
+      "F": 1
+     },
+     "decision": "试探移动 E（1→0）",
+     "gains": [
+      {
+       "node": "A",
+       "side": 1,
+       "gain": 1,
+       "locked": false,
+       "legal": true
+      },
+      {
+       "node": "B",
+       "side": 0,
+       "gain": 1,
+       "locked": false,
+       "legal": true
+      },
+      {
+       "node": "C",
+       "side": 1,
+       "gain": -5,
+       "locked": false,
+       "legal": true
+      },
+      {
+       "node": "D",
+       "side": 0,
+       "gain": -1,
+       "locked": false,
+       "legal": true
+      },
+      {
+       "node": "E",
+       "side": 0,
+       "gain": -4,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "F",
+       "side": 1,
+       "gain": -2,
+       "locked": false,
+       "legal": true
+      }
+     ],
+     "buckets": [
+      {
+       "gain": 1,
+       "nodes": [
+        "A",
+        "B"
+       ]
+      },
+      {
+       "gain": -1,
+       "nodes": [
+        "D"
+       ]
+      },
+      {
+       "gain": -2,
+       "nodes": [
+        "F"
+       ]
+      },
+      {
+       "gain": -5,
+       "nodes": [
+        "C"
+       ]
+      }
+     ],
+     "locks": [
+      "E"
+     ],
+     "trialGain": -4,
+     "blocked": [
+      "B",
+      "D"
+     ],
+     "metrics": {
+      "cutBefore": 4,
+      "cut": 8,
+      "cumulative": -4
+     },
+     "sourceVersion": "1.0.0"
+    },
+    {
+     "eventId": "p2-m2",
+     "phase": "pass-2",
+     "step": 10,
+     "kind": "trial-move",
+     "before": {
+      "A": 1,
+      "D": 0,
+      "E": 0,
+      "B": 0,
+      "C": 1,
+      "F": 1
+     },
+     "after": {
+      "A": 0,
+      "D": 0,
+      "E": 0,
+      "B": 0,
+      "C": 1,
+      "F": 1
+     },
+     "decision": "试探移动 A（1→0）",
+     "gains": [
+      {
+       "node": "A",
+       "side": 0,
+       "gain": 1,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "B",
+       "side": 0,
+       "gain": 1,
+       "locked": false,
+       "legal": true
+      },
+      {
+       "node": "C",
+       "side": 1,
+       "gain": 3,
+       "locked": false,
+       "legal": false
+      },
+      {
+       "node": "D",
+       "side": 0,
+       "gain": -1,
+       "locked": false,
+       "legal": true
+      },
+      {
+       "node": "E",
+       "side": 0,
+       "gain": -4,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "F",
+       "side": 1,
+       "gain": -2,
+       "locked": false,
+       "legal": false
+      }
+     ],
+     "buckets": [
+      {
+       "gain": 3,
+       "nodes": [
+        "C"
+       ]
+      },
+      {
+       "gain": 1,
+       "nodes": [
+        "B"
+       ]
+      },
+      {
+       "gain": -1,
+       "nodes": [
+        "D"
+       ]
+      },
+      {
+       "gain": -2,
+       "nodes": [
+        "F"
+       ]
+      }
+     ],
+     "locks": [
+      "A",
+      "E"
+     ],
+     "trialGain": 1,
+     "blocked": [],
+     "metrics": {
+      "cutBefore": 8,
+      "cut": 7,
+      "cumulative": -3
+     },
+     "sourceVersion": "1.0.0"
+    },
+    {
+     "eventId": "p2-m3",
+     "phase": "pass-2",
+     "step": 11,
+     "kind": "trial-move",
+     "before": {
+      "A": 0,
+      "D": 0,
+      "E": 0,
+      "B": 0,
+      "C": 1,
+      "F": 1
+     },
+     "after": {
+      "A": 0,
+      "D": 0,
+      "E": 0,
+      "B": 1,
+      "C": 1,
+      "F": 1
+     },
+     "decision": "试探移动 B（0→1）",
+     "gains": [
+      {
+       "node": "A",
+       "side": 0,
+       "gain": 1,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "B",
+       "side": 1,
+       "gain": 1,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "C",
+       "side": 1,
+       "gain": -1,
+       "locked": false,
+       "legal": true
+      },
+      {
+       "node": "D",
+       "side": 0,
+       "gain": -1,
+       "locked": false,
+       "legal": true
+      },
+      {
+       "node": "E",
+       "side": 0,
+       "gain": -4,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "F",
+       "side": 1,
+       "gain": -2,
+       "locked": false,
+       "legal": true
+      }
+     ],
+     "buckets": [
+      {
+       "gain": -1,
+       "nodes": [
+        "C",
+        "D"
+       ]
+      },
+      {
+       "gain": -2,
+       "nodes": [
+        "F"
+       ]
+      }
+     ],
+     "locks": [
+      "A",
+      "B",
+      "E"
+     ],
+     "trialGain": 1,
+     "blocked": [
+      "C"
+     ],
+     "metrics": {
+      "cutBefore": 7,
+      "cut": 6,
+      "cumulative": -2
+     },
+     "sourceVersion": "1.0.0"
+    },
+    {
+     "eventId": "p2-m4",
+     "phase": "pass-2",
+     "step": 12,
+     "kind": "trial-move",
+     "before": {
+      "A": 0,
+      "D": 0,
+      "E": 0,
+      "B": 1,
+      "C": 1,
+      "F": 1
+     },
+     "after": {
+      "A": 0,
+      "D": 0,
+      "E": 0,
+      "B": 1,
+      "C": 0,
+      "F": 1
+     },
+     "decision": "试探移动 C（1→0）",
+     "gains": [
+      {
+       "node": "A",
+       "side": 0,
+       "gain": 1,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "B",
+       "side": 1,
+       "gain": 1,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "C",
+       "side": 0,
+       "gain": -1,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "D",
+       "side": 0,
+       "gain": -1,
+       "locked": false,
+       "legal": true
+      },
+      {
+       "node": "E",
+       "side": 0,
+       "gain": -4,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "F",
+       "side": 1,
+       "gain": 4,
+       "locked": false,
+       "legal": false
+      }
+     ],
+     "buckets": [
+      {
+       "gain": 4,
+       "nodes": [
+        "F"
+       ]
+      },
+      {
+       "gain": -1,
+       "nodes": [
+        "D"
+       ]
+      }
+     ],
+     "locks": [
+      "A",
+      "B",
+      "C",
+      "E"
+     ],
+     "trialGain": -1,
+     "blocked": [],
+     "metrics": {
+      "cutBefore": 6,
+      "cut": 7,
+      "cumulative": -3
+     },
+     "sourceVersion": "1.0.0"
+    },
+    {
+     "eventId": "p2-m5",
+     "phase": "pass-2",
+     "step": 13,
+     "kind": "trial-move",
+     "before": {
+      "A": 0,
+      "D": 0,
+      "E": 0,
+      "B": 1,
+      "C": 0,
+      "F": 1
+     },
+     "after": {
+      "A": 0,
+      "D": 1,
+      "E": 0,
+      "B": 1,
+      "C": 0,
+      "F": 1
+     },
+     "decision": "试探移动 D（0→1）",
+     "gains": [
+      {
+       "node": "A",
+       "side": 0,
+       "gain": 1,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "B",
+       "side": 1,
+       "gain": 1,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "C",
+       "side": 0,
+       "gain": -1,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "D",
+       "side": 1,
+       "gain": -1,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "E",
+       "side": 0,
+       "gain": -4,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "F",
+       "side": 1,
+       "gain": 4,
+       "locked": false,
+       "legal": true
+      }
+     ],
+     "buckets": [
+      {
+       "gain": 4,
+       "nodes": [
+        "F"
+       ]
+      }
+     ],
+     "locks": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+     ],
+     "trialGain": -1,
+     "blocked": [
+      "F"
+     ],
+     "metrics": {
+      "cutBefore": 7,
+      "cut": 8,
+      "cumulative": -4
+     },
+     "sourceVersion": "1.0.0"
+    },
+    {
+     "eventId": "p2-m6",
+     "phase": "pass-2",
+     "step": 14,
+     "kind": "trial-move",
+     "before": {
+      "A": 0,
+      "D": 1,
+      "E": 0,
+      "B": 1,
+      "C": 0,
+      "F": 1
+     },
+     "after": {
+      "A": 0,
+      "D": 1,
+      "E": 0,
+      "B": 1,
+      "C": 0,
+      "F": 0
+     },
+     "decision": "试探移动 F（1→0）",
+     "gains": [
+      {
+       "node": "A",
+       "side": 0,
+       "gain": 1,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "B",
+       "side": 1,
+       "gain": 1,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "C",
+       "side": 0,
+       "gain": -1,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "D",
+       "side": 1,
+       "gain": -1,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "E",
+       "side": 0,
+       "gain": -4,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "F",
+       "side": 0,
+       "gain": 4,
+       "locked": true,
+       "legal": false
+      }
+     ],
+     "buckets": [],
+     "locks": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "trialGain": 4,
+     "blocked": [],
+     "metrics": {
+      "cutBefore": 8,
+      "cut": 4,
+      "cumulative": 0
+     },
+     "sourceVersion": "1.0.0"
+    },
+    {
+     "eventId": "p2-prefix",
+     "phase": "pass-2",
+     "step": 15,
+     "kind": "best-prefix",
+     "before": {
+      "A": 0,
+      "D": 1,
+      "E": 0,
+      "B": 1,
+      "C": 0,
+      "F": 0
+     },
+     "after": {
+      "A": 1,
+      "D": 0,
+      "E": 1,
+      "B": 0,
+      "C": 1,
+      "F": 1
+     },
+     "decision": "保留空前缀",
+     "prefix": {
+      "gains": [
+       0,
+       -4,
+       -3,
+       -2,
+       -3,
+       -4,
+       0
+      ],
+      "bestK": 0
+     },
+     "locks": [],
+     "metrics": {
+      "cut": 4,
+      "rollbackFromCut": 4
+     },
+     "sourceVersion": "1.0.0"
+    }
+   ],
+   "result": {
+    "assignment": {
+     "A": 1,
+     "D": 0,
+     "E": 1,
+     "B": 0,
+     "C": 1,
+     "F": 1
+    },
+    "cut": 4,
+    "passes": [
+     {
+      "pass": 1,
+      "startCut": 6,
+      "moves": [
+       {
+        "index": 1,
+        "node": "A",
+        "from": 0,
+        "to": 1,
+        "gain": -1,
+        "fs": [
+         {
+          "net": "AC",
+          "w": 4
+         }
+        ],
+        "te": [
+         {
+          "net": "AE",
+          "w": 5
+         }
+        ],
+        "cutBefore": 6,
+        "cutAfter": 7,
+        "cumulative": -1,
+        "blockedBetter": []
+       },
+       {
+        "index": 2,
+        "node": "B",
+        "from": 1,
+        "to": 0,
+        "gain": -1,
+        "fs": [
+         {
+          "net": "BE",
+          "w": 1
+         }
+        ],
+        "te": [
+         {
+          "net": "BC",
+          "w": 2
+         }
+        ],
+        "cutBefore": 7,
+        "cutAfter": 8,
+        "cumulative": -2,
+        "blockedBetter": [
+         "E"
+        ]
+       },
+       {
+        "index": 3,
+        "node": "E",
+        "from": 0,
+        "to": 1,
+        "gain": 4,
+        "fs": [
+         {
+          "net": "AE",
+          "w": 5
+         },
+         {
+          "net": "EF",
+          "w": 1
+         }
+        ],
+        "te": [
+         {
+          "net": "BE",
+          "w": 1
+         },
+         {
+          "net": "DE",
+          "w": 1
+         }
+        ],
+        "cutBefore": 8,
+        "cutAfter": 4,
+        "cumulative": 2,
+        "blockedBetter": []
+       },
+       {
+        "index": 4,
+        "node": "F",
+        "from": 1,
+        "to": 0,
+        "gain": -4,
+        "fs": [],
+        "te": [
+         {
+          "net": "CF",
+          "w": 3
+         },
+         {
+          "net": "EF",
+          "w": 1
+         }
+        ],
+        "cutBefore": 4,
+        "cutAfter": 8,
+        "cumulative": -2,
+        "blockedBetter": [
+         "D"
+        ]
+       },
+       {
+        "index": 5,
+        "node": "C",
+        "from": 1,
+        "to": 0,
+        "gain": 1,
+        "fs": [
+         {
+          "net": "BC",
+          "w": 2
+         },
+         {
+          "net": "CF",
+          "w": 3
+         }
+        ],
+        "te": [
+         {
+          "net": "AC",
+          "w": 4
+         }
+        ],
+        "cutBefore": 8,
+        "cutAfter": 7,
+        "cumulative": -1,
+        "blockedBetter": []
+       },
+       {
+        "index": 6,
+        "node": "D",
+        "from": 0,
+        "to": 1,
+        "gain": 1,
+        "fs": [
+         {
+          "net": "DE",
+          "w": 1
+         }
+        ],
+        "te": [],
+        "cutBefore": 7,
+        "cutAfter": 6,
+        "cumulative": 0,
+        "blockedBetter": []
+       }
+      ],
+      "prefixGains": [
+       0,
+       -1,
+       -2,
+       2,
+       -2,
+       -1,
+       0
+      ],
+      "bestK": 3,
+      "bestGain": 2,
+      "acceptedCut": 4,
+      "start": {
+       "A": 0,
+       "D": 0,
+       "E": 0,
+       "B": 1,
+       "C": 1,
+       "F": 1
+      },
+      "accepted": {
+       "A": 1,
+       "D": 0,
+       "E": 1,
+       "B": 0,
+       "C": 1,
+       "F": 1
+      }
+     },
+     {
+      "pass": 2,
+      "startCut": 4,
+      "moves": [
+       {
+        "index": 1,
+        "node": "E",
+        "from": 1,
+        "to": 0,
+        "gain": -4,
+        "fs": [
+         {
+          "net": "BE",
+          "w": 1
+         },
+         {
+          "net": "DE",
+          "w": 1
+         }
+        ],
+        "te": [
+         {
+          "net": "AE",
+          "w": 5
+         },
+         {
+          "net": "EF",
+          "w": 1
+         }
+        ],
+        "cutBefore": 4,
+        "cutAfter": 8,
+        "cumulative": -4,
+        "blockedBetter": [
+         "B",
+         "D"
+        ]
+       },
+       {
+        "index": 2,
+        "node": "A",
+        "from": 1,
+        "to": 0,
+        "gain": 1,
+        "fs": [
+         {
+          "net": "AE",
+          "w": 5
+         }
+        ],
+        "te": [
+         {
+          "net": "AC",
+          "w": 4
+         }
+        ],
+        "cutBefore": 8,
+        "cutAfter": 7,
+        "cumulative": -3,
+        "blockedBetter": []
+       },
+       {
+        "index": 3,
+        "node": "B",
+        "from": 0,
+        "to": 1,
+        "gain": 1,
+        "fs": [
+         {
+          "net": "BC",
+          "w": 2
+         }
+        ],
+        "te": [
+         {
+          "net": "BE",
+          "w": 1
+         }
+        ],
+        "cutBefore": 7,
+        "cutAfter": 6,
+        "cumulative": -2,
+        "blockedBetter": [
+         "C"
+        ]
+       },
+       {
+        "index": 4,
+        "node": "C",
+        "from": 1,
+        "to": 0,
+        "gain": -1,
+        "fs": [
+         {
+          "net": "AC",
+          "w": 4
+         }
+        ],
+        "te": [
+         {
+          "net": "BC",
+          "w": 2
+         },
+         {
+          "net": "CF",
+          "w": 3
+         }
+        ],
+        "cutBefore": 6,
+        "cutAfter": 7,
+        "cumulative": -3,
+        "blockedBetter": []
+       },
+       {
+        "index": 5,
+        "node": "D",
+        "from": 0,
+        "to": 1,
+        "gain": -1,
+        "fs": [],
+        "te": [
+         {
+          "net": "DE",
+          "w": 1
+         }
+        ],
+        "cutBefore": 7,
+        "cutAfter": 8,
+        "cumulative": -4,
+        "blockedBetter": [
+         "F"
+        ]
+       },
+       {
+        "index": 6,
+        "node": "F",
+        "from": 1,
+        "to": 0,
+        "gain": 4,
+        "fs": [
+         {
+          "net": "CF",
+          "w": 3
+         },
+         {
+          "net": "EF",
+          "w": 1
+         }
+        ],
+        "te": [],
+        "cutBefore": 8,
+        "cutAfter": 4,
+        "cumulative": 0,
+        "blockedBetter": []
+       }
+      ],
+      "prefixGains": [
+       0,
+       -4,
+       -3,
+       -2,
+       -3,
+       -4,
+       0
+      ],
+      "bestK": 0,
+      "bestGain": 0,
+      "acceptedCut": 4,
+      "start": {
+       "A": 1,
+       "D": 0,
+       "E": 1,
+       "B": 0,
+       "C": 1,
+       "F": 1
+      },
+      "accepted": {
+       "A": 1,
+       "D": 0,
+       "E": 1,
+       "B": 0,
+       "C": 1,
+       "F": 1
+      }
+     }
+    ],
+    "stopReason": "no-positive-prefix",
+    "maxDiff": 2,
+    "hasMultiPin": false
+   },
+   "status": "completed",
+   "metadata": {
+    "engine": "fiduccia-mattheyses",
+    "version": "1.0.0",
+    "buckets": "Map scan, not O(P)",
+    "balance": "|n0-n1|<=2"
+   }
+  },
+  "optimum": {
+   "cut": 4,
+   "side": {
+    "A": 0,
+    "B": 1,
+    "C": 0,
+    "D": 1,
+    "E": 0,
+    "F": 0
+   }
+  }
+ },
+ "seven": {
+  "graph": {
+   "nodes": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G"
+   ],
+   "edges": [
+    [
+     "A",
+     "B",
+     5
+    ],
+    [
+     "A",
+     "C",
+     4
+    ],
+    [
+     "B",
+     "C",
+     4
+    ],
+    [
+     "C",
+     "D",
+     1
+    ],
+    [
+     "D",
+     "E",
+     4
+    ],
+    [
+     "D",
+     "F",
+     4
+    ],
+    [
+     "E",
+     "F",
+     3
+    ],
+    [
+     "F",
+     "G",
+     5
+    ],
+    [
+     "D",
+     "G",
+     3
+    ]
+   ],
+   "seed": {
+    "A": 0,
+    "B": 1,
+    "C": 0,
+    "D": 0,
+    "E": 1,
+    "F": 1,
+    "G": 0
+   },
+   "maxDiff": 1
+  },
+  "run": {
+   "events": [
+    {
+     "eventId": "p1-start",
+     "phase": "pass-1",
+     "step": 0,
+     "kind": "pass-start",
+     "before": null,
+     "after": {
+      "A": 0,
+      "B": 1,
+      "C": 0,
+      "D": 0,
+      "E": 1,
+      "F": 1,
+      "G": 0
+     },
+     "decision": null,
+     "gains": [
+      {
+       "node": "A",
+       "side": 0,
+       "gain": 1,
+       "locked": false,
+       "legal": true
+      },
+      {
+       "node": "B",
+       "side": 1,
+       "gain": 9,
+       "locked": false,
+       "legal": false
+      },
+      {
+       "node": "C",
+       "side": 0,
+       "gain": -1,
+       "locked": false,
+       "legal": true
+      },
+      {
+       "node": "D",
+       "side": 0,
+       "gain": 4,
+       "locked": false,
+       "legal": true
+      },
+      {
+       "node": "E",
+       "side": 1,
+       "gain": 1,
+       "locked": false,
+       "legal": false
+      },
+      {
+       "node": "F",
+       "side": 1,
+       "gain": 6,
+       "locked": false,
+       "legal": false
+      },
+      {
+       "node": "G",
+       "side": 0,
+       "gain": 2,
+       "locked": false,
+       "legal": true
+      }
+     ],
+     "buckets": [
+      {
+       "gain": 9,
+       "nodes": [
+        "B"
+       ]
+      },
+      {
+       "gain": 6,
+       "nodes": [
+        "F"
+       ]
+      },
+      {
+       "gain": 4,
+       "nodes": [
+        "D"
+       ]
+      },
+      {
+       "gain": 2,
+       "nodes": [
+        "G"
+       ]
+      },
+      {
+       "gain": 1,
+       "nodes": [
+        "A",
+        "E"
+       ]
+      },
+      {
+       "gain": -1,
+       "nodes": [
+        "C"
+       ]
+      }
+     ],
+     "metrics": {
+      "cut": 22
+     },
+     "sourceVersion": "1.0.0"
+    },
+    {
+     "eventId": "p1-m1",
+     "phase": "pass-1",
+     "step": 1,
+     "kind": "trial-move",
+     "before": {
+      "A": 0,
+      "B": 1,
+      "C": 0,
+      "D": 0,
+      "E": 1,
+      "F": 1,
+      "G": 0
+     },
+     "after": {
+      "A": 0,
+      "B": 1,
+      "C": 0,
+      "D": 1,
+      "E": 1,
+      "F": 1,
+      "G": 0
+     },
+     "decision": "试探移动 D（0→1）",
+     "gains": [
+      {
+       "node": "A",
+       "side": 0,
+       "gain": 1,
+       "locked": false,
+       "legal": false
+      },
+      {
+       "node": "B",
+       "side": 1,
+       "gain": 9,
+       "locked": false,
+       "legal": true
+      },
+      {
+       "node": "C",
+       "side": 0,
+       "gain": 1,
+       "locked": false,
+       "legal": false
+      },
+      {
+       "node": "D",
+       "side": 1,
+       "gain": 4,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "E",
+       "side": 1,
+       "gain": -7,
+       "locked": false,
+       "legal": true
+      },
+      {
+       "node": "F",
+       "side": 1,
+       "gain": -2,
+       "locked": false,
+       "legal": true
+      },
+      {
+       "node": "G",
+       "side": 0,
+       "gain": 8,
+       "locked": false,
+       "legal": false
+      }
+     ],
+     "buckets": [
+      {
+       "gain": 9,
+       "nodes": [
+        "B"
+       ]
+      },
+      {
+       "gain": 8,
+       "nodes": [
+        "G"
+       ]
+      },
+      {
+       "gain": 1,
+       "nodes": [
+        "A",
+        "C"
+       ]
+      },
+      {
+       "gain": -2,
+       "nodes": [
+        "F"
+       ]
+      },
+      {
+       "gain": -7,
+       "nodes": [
+        "E"
+       ]
+      }
+     ],
+     "locks": [
+      "D"
+     ],
+     "trialGain": 4,
+     "blocked": [
+      "B",
+      "F"
+     ],
+     "metrics": {
+      "cutBefore": 22,
+      "cut": 18,
+      "cumulative": 4
+     },
+     "sourceVersion": "1.0.0"
+    },
+    {
+     "eventId": "p1-m2",
+     "phase": "pass-1",
+     "step": 2,
+     "kind": "trial-move",
+     "before": {
+      "A": 0,
+      "B": 1,
+      "C": 0,
+      "D": 1,
+      "E": 1,
+      "F": 1,
+      "G": 0
+     },
+     "after": {
+      "A": 0,
+      "B": 0,
+      "C": 0,
+      "D": 1,
+      "E": 1,
+      "F": 1,
+      "G": 0
+     },
+     "decision": "试探移动 B（1→0）",
+     "gains": [
+      {
+       "node": "A",
+       "side": 0,
+       "gain": -9,
+       "locked": false,
+       "legal": true
+      },
+      {
+       "node": "B",
+       "side": 0,
+       "gain": 9,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "C",
+       "side": 0,
+       "gain": -7,
+       "locked": false,
+       "legal": true
+      },
+      {
+       "node": "D",
+       "side": 1,
+       "gain": 4,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "E",
+       "side": 1,
+       "gain": -7,
+       "locked": false,
+       "legal": false
+      },
+      {
+       "node": "F",
+       "side": 1,
+       "gain": -2,
+       "locked": false,
+       "legal": false
+      },
+      {
+       "node": "G",
+       "side": 0,
+       "gain": 8,
+       "locked": false,
+       "legal": true
+      }
+     ],
+     "buckets": [
+      {
+       "gain": 8,
+       "nodes": [
+        "G"
+       ]
+      },
+      {
+       "gain": -2,
+       "nodes": [
+        "F"
+       ]
+      },
+      {
+       "gain": -7,
+       "nodes": [
+        "C",
+        "E"
+       ]
+      },
+      {
+       "gain": -9,
+       "nodes": [
+        "A"
+       ]
+      }
+     ],
+     "locks": [
+      "B",
+      "D"
+     ],
+     "trialGain": 9,
+     "blocked": [],
+     "metrics": {
+      "cutBefore": 18,
+      "cut": 9,
+      "cumulative": 13
+     },
+     "sourceVersion": "1.0.0"
+    },
+    {
+     "eventId": "p1-m3",
+     "phase": "pass-1",
+     "step": 3,
+     "kind": "trial-move",
+     "before": {
+      "A": 0,
+      "B": 0,
+      "C": 0,
+      "D": 1,
+      "E": 1,
+      "F": 1,
+      "G": 0
+     },
+     "after": {
+      "A": 0,
+      "B": 0,
+      "C": 0,
+      "D": 1,
+      "E": 1,
+      "F": 1,
+      "G": 1
+     },
+     "decision": "试探移动 G（0→1）",
+     "gains": [
+      {
+       "node": "A",
+       "side": 0,
+       "gain": -9,
+       "locked": false,
+       "legal": false
+      },
+      {
+       "node": "B",
+       "side": 0,
+       "gain": 9,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "C",
+       "side": 0,
+       "gain": -7,
+       "locked": false,
+       "legal": false
+      },
+      {
+       "node": "D",
+       "side": 1,
+       "gain": 4,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "E",
+       "side": 1,
+       "gain": -7,
+       "locked": false,
+       "legal": true
+      },
+      {
+       "node": "F",
+       "side": 1,
+       "gain": -12,
+       "locked": false,
+       "legal": true
+      },
+      {
+       "node": "G",
+       "side": 1,
+       "gain": 8,
+       "locked": true,
+       "legal": false
+      }
+     ],
+     "buckets": [
+      {
+       "gain": -7,
+       "nodes": [
+        "C",
+        "E"
+       ]
+      },
+      {
+       "gain": -9,
+       "nodes": [
+        "A"
+       ]
+      },
+      {
+       "gain": -12,
+       "nodes": [
+        "F"
+       ]
+      }
+     ],
+     "locks": [
+      "B",
+      "D",
+      "G"
+     ],
+     "trialGain": 8,
+     "blocked": [],
+     "metrics": {
+      "cutBefore": 9,
+      "cut": 1,
+      "cumulative": 21
+     },
+     "sourceVersion": "1.0.0"
+    },
+    {
+     "eventId": "p1-m4",
+     "phase": "pass-1",
+     "step": 4,
+     "kind": "trial-move",
+     "before": {
+      "A": 0,
+      "B": 0,
+      "C": 0,
+      "D": 1,
+      "E": 1,
+      "F": 1,
+      "G": 1
+     },
+     "after": {
+      "A": 0,
+      "B": 0,
+      "C": 0,
+      "D": 1,
+      "E": 0,
+      "F": 1,
+      "G": 1
+     },
+     "decision": "试探移动 E（1→0）",
+     "gains": [
+      {
+       "node": "A",
+       "side": 0,
+       "gain": -9,
+       "locked": false,
+       "legal": true
+      },
+      {
+       "node": "B",
+       "side": 0,
+       "gain": 9,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "C",
+       "side": 0,
+       "gain": -7,
+       "locked": false,
+       "legal": true
+      },
+      {
+       "node": "D",
+       "side": 1,
+       "gain": 4,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "E",
+       "side": 0,
+       "gain": -7,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "F",
+       "side": 1,
+       "gain": -6,
+       "locked": false,
+       "legal": false
+      },
+      {
+       "node": "G",
+       "side": 1,
+       "gain": 8,
+       "locked": true,
+       "legal": false
+      }
+     ],
+     "buckets": [
+      {
+       "gain": -6,
+       "nodes": [
+        "F"
+       ]
+      },
+      {
+       "gain": -7,
+       "nodes": [
+        "C"
+       ]
+      },
+      {
+       "gain": -9,
+       "nodes": [
+        "A"
+       ]
+      }
+     ],
+     "locks": [
+      "B",
+      "D",
+      "E",
+      "G"
+     ],
+     "trialGain": -7,
+     "blocked": [],
+     "metrics": {
+      "cutBefore": 1,
+      "cut": 8,
+      "cumulative": 14
+     },
+     "sourceVersion": "1.0.0"
+    },
+    {
+     "eventId": "p1-m5",
+     "phase": "pass-1",
+     "step": 5,
+     "kind": "trial-move",
+     "before": {
+      "A": 0,
+      "B": 0,
+      "C": 0,
+      "D": 1,
+      "E": 0,
+      "F": 1,
+      "G": 1
+     },
+     "after": {
+      "A": 0,
+      "B": 0,
+      "C": 1,
+      "D": 1,
+      "E": 0,
+      "F": 1,
+      "G": 1
+     },
+     "decision": "试探移动 C（0→1）",
+     "gains": [
+      {
+       "node": "A",
+       "side": 0,
+       "gain": -1,
+       "locked": false,
+       "legal": false
+      },
+      {
+       "node": "B",
+       "side": 0,
+       "gain": 9,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "C",
+       "side": 1,
+       "gain": -7,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "D",
+       "side": 1,
+       "gain": 4,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "E",
+       "side": 0,
+       "gain": -7,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "F",
+       "side": 1,
+       "gain": -6,
+       "locked": false,
+       "legal": true
+      },
+      {
+       "node": "G",
+       "side": 1,
+       "gain": 8,
+       "locked": true,
+       "legal": false
+      }
+     ],
+     "buckets": [
+      {
+       "gain": -1,
+       "nodes": [
+        "A"
+       ]
+      },
+      {
+       "gain": -6,
+       "nodes": [
+        "F"
+       ]
+      }
+     ],
+     "locks": [
+      "B",
+      "C",
+      "D",
+      "E",
+      "G"
+     ],
+     "trialGain": -7,
+     "blocked": [
+      "F"
+     ],
+     "metrics": {
+      "cutBefore": 8,
+      "cut": 15,
+      "cumulative": 7
+     },
+     "sourceVersion": "1.0.0"
+    },
+    {
+     "eventId": "p1-m6",
+     "phase": "pass-1",
+     "step": 6,
+     "kind": "trial-move",
+     "before": {
+      "A": 0,
+      "B": 0,
+      "C": 1,
+      "D": 1,
+      "E": 0,
+      "F": 1,
+      "G": 1
+     },
+     "after": {
+      "A": 0,
+      "B": 0,
+      "C": 1,
+      "D": 1,
+      "E": 0,
+      "F": 0,
+      "G": 1
+     },
+     "decision": "试探移动 F（1→0）",
+     "gains": [
+      {
+       "node": "A",
+       "side": 0,
+       "gain": -1,
+       "locked": false,
+       "legal": true
+      },
+      {
+       "node": "B",
+       "side": 0,
+       "gain": 9,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "C",
+       "side": 1,
+       "gain": -7,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "D",
+       "side": 1,
+       "gain": 4,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "E",
+       "side": 0,
+       "gain": -7,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "F",
+       "side": 0,
+       "gain": -6,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "G",
+       "side": 1,
+       "gain": 8,
+       "locked": true,
+       "legal": false
+      }
+     ],
+     "buckets": [
+      {
+       "gain": -1,
+       "nodes": [
+        "A"
+       ]
+      }
+     ],
+     "locks": [
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G"
+     ],
+     "trialGain": -6,
+     "blocked": [
+      "A"
+     ],
+     "metrics": {
+      "cutBefore": 15,
+      "cut": 21,
+      "cumulative": 1
+     },
+     "sourceVersion": "1.0.0"
+    },
+    {
+     "eventId": "p1-m7",
+     "phase": "pass-1",
+     "step": 7,
+     "kind": "trial-move",
+     "before": {
+      "A": 0,
+      "B": 0,
+      "C": 1,
+      "D": 1,
+      "E": 0,
+      "F": 0,
+      "G": 1
+     },
+     "after": {
+      "A": 1,
+      "B": 0,
+      "C": 1,
+      "D": 1,
+      "E": 0,
+      "F": 0,
+      "G": 1
+     },
+     "decision": "试探移动 A（0→1）",
+     "gains": [
+      {
+       "node": "A",
+       "side": 1,
+       "gain": -1,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "B",
+       "side": 0,
+       "gain": 9,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "C",
+       "side": 1,
+       "gain": -7,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "D",
+       "side": 1,
+       "gain": 4,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "E",
+       "side": 0,
+       "gain": -7,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "F",
+       "side": 0,
+       "gain": -6,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "G",
+       "side": 1,
+       "gain": 8,
+       "locked": true,
+       "legal": false
+      }
+     ],
+     "buckets": [],
+     "locks": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G"
+     ],
+     "trialGain": -1,
+     "blocked": [],
+     "metrics": {
+      "cutBefore": 21,
+      "cut": 22,
+      "cumulative": 0
+     },
+     "sourceVersion": "1.0.0"
+    },
+    {
+     "eventId": "p1-prefix",
+     "phase": "pass-1",
+     "step": 8,
+     "kind": "best-prefix",
+     "before": {
+      "A": 1,
+      "B": 0,
+      "C": 1,
+      "D": 1,
+      "E": 0,
+      "F": 0,
+      "G": 1
+     },
+     "after": {
+      "A": 0,
+      "B": 0,
+      "C": 0,
+      "D": 1,
+      "E": 1,
+      "F": 1,
+      "G": 1
+     },
+     "decision": "保留前 3 步",
+     "prefix": {
+      "gains": [
+       0,
+       4,
+       13,
+       21,
+       14,
+       7,
+       1,
+       0
+      ],
+      "bestK": 3
+     },
+     "locks": [],
+     "metrics": {
+      "cut": 1,
+      "rollbackFromCut": 22
+     },
+     "sourceVersion": "1.0.0"
+    },
+    {
+     "eventId": "p2-start",
+     "phase": "pass-2",
+     "step": 9,
+     "kind": "pass-start",
+     "before": null,
+     "after": {
+      "A": 0,
+      "B": 0,
+      "C": 0,
+      "D": 1,
+      "E": 1,
+      "F": 1,
+      "G": 1
+     },
+     "decision": null,
+     "gains": [
+      {
+       "node": "A",
+       "side": 0,
+       "gain": -9,
+       "locked": false,
+       "legal": false
+      },
+      {
+       "node": "B",
+       "side": 0,
+       "gain": -9,
+       "locked": false,
+       "legal": false
+      },
+      {
+       "node": "C",
+       "side": 0,
+       "gain": -7,
+       "locked": false,
+       "legal": false
+      },
+      {
+       "node": "D",
+       "side": 1,
+       "gain": -10,
+       "locked": false,
+       "legal": true
+      },
+      {
+       "node": "E",
+       "side": 1,
+       "gain": -7,
+       "locked": false,
+       "legal": true
+      },
+      {
+       "node": "F",
+       "side": 1,
+       "gain": -12,
+       "locked": false,
+       "legal": true
+      },
+      {
+       "node": "G",
+       "side": 1,
+       "gain": -8,
+       "locked": false,
+       "legal": true
+      }
+     ],
+     "buckets": [
+      {
+       "gain": -7,
+       "nodes": [
+        "C",
+        "E"
+       ]
+      },
+      {
+       "gain": -8,
+       "nodes": [
+        "G"
+       ]
+      },
+      {
+       "gain": -9,
+       "nodes": [
+        "A",
+        "B"
+       ]
+      },
+      {
+       "gain": -10,
+       "nodes": [
+        "D"
+       ]
+      },
+      {
+       "gain": -12,
+       "nodes": [
+        "F"
+       ]
+      }
+     ],
+     "metrics": {
+      "cut": 1
+     },
+     "sourceVersion": "1.0.0"
+    },
+    {
+     "eventId": "p2-m1",
+     "phase": "pass-2",
+     "step": 10,
+     "kind": "trial-move",
+     "before": {
+      "A": 0,
+      "B": 0,
+      "C": 0,
+      "D": 1,
+      "E": 1,
+      "F": 1,
+      "G": 1
+     },
+     "after": {
+      "A": 0,
+      "B": 0,
+      "C": 0,
+      "D": 1,
+      "E": 0,
+      "F": 1,
+      "G": 1
+     },
+     "decision": "试探移动 E（1→0）",
+     "gains": [
+      {
+       "node": "A",
+       "side": 0,
+       "gain": -9,
+       "locked": false,
+       "legal": true
+      },
+      {
+       "node": "B",
+       "side": 0,
+       "gain": -9,
+       "locked": false,
+       "legal": true
+      },
+      {
+       "node": "C",
+       "side": 0,
+       "gain": -7,
+       "locked": false,
+       "legal": true
+      },
+      {
+       "node": "D",
+       "side": 1,
+       "gain": -2,
+       "locked": false,
+       "legal": false
+      },
+      {
+       "node": "E",
+       "side": 0,
+       "gain": -7,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "F",
+       "side": 1,
+       "gain": -6,
+       "locked": false,
+       "legal": false
+      },
+      {
+       "node": "G",
+       "side": 1,
+       "gain": -8,
+       "locked": false,
+       "legal": false
+      }
+     ],
+     "buckets": [
+      {
+       "gain": -2,
+       "nodes": [
+        "D"
+       ]
+      },
+      {
+       "gain": -6,
+       "nodes": [
+        "F"
+       ]
+      },
+      {
+       "gain": -7,
+       "nodes": [
+        "C"
+       ]
+      },
+      {
+       "gain": -8,
+       "nodes": [
+        "G"
+       ]
+      },
+      {
+       "gain": -9,
+       "nodes": [
+        "A",
+        "B"
+       ]
+      }
+     ],
+     "locks": [
+      "E"
+     ],
+     "trialGain": -7,
+     "blocked": [],
+     "metrics": {
+      "cutBefore": 1,
+      "cut": 8,
+      "cumulative": -7
+     },
+     "sourceVersion": "1.0.0"
+    },
+    {
+     "eventId": "p2-m2",
+     "phase": "pass-2",
+     "step": 11,
+     "kind": "trial-move",
+     "before": {
+      "A": 0,
+      "B": 0,
+      "C": 0,
+      "D": 1,
+      "E": 0,
+      "F": 1,
+      "G": 1
+     },
+     "after": {
+      "A": 0,
+      "B": 0,
+      "C": 1,
+      "D": 1,
+      "E": 0,
+      "F": 1,
+      "G": 1
+     },
+     "decision": "试探移动 C（0→1）",
+     "gains": [
+      {
+       "node": "A",
+       "side": 0,
+       "gain": -1,
+       "locked": false,
+       "legal": false
+      },
+      {
+       "node": "B",
+       "side": 0,
+       "gain": -1,
+       "locked": false,
+       "legal": false
+      },
+      {
+       "node": "C",
+       "side": 1,
+       "gain": -7,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "D",
+       "side": 1,
+       "gain": -4,
+       "locked": false,
+       "legal": true
+      },
+      {
+       "node": "E",
+       "side": 0,
+       "gain": -7,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "F",
+       "side": 1,
+       "gain": -6,
+       "locked": false,
+       "legal": true
+      },
+      {
+       "node": "G",
+       "side": 1,
+       "gain": -8,
+       "locked": false,
+       "legal": true
+      }
+     ],
+     "buckets": [
+      {
+       "gain": -1,
+       "nodes": [
+        "A",
+        "B"
+       ]
+      },
+      {
+       "gain": -4,
+       "nodes": [
+        "D"
+       ]
+      },
+      {
+       "gain": -6,
+       "nodes": [
+        "F"
+       ]
+      },
+      {
+       "gain": -8,
+       "nodes": [
+        "G"
+       ]
+      }
+     ],
+     "locks": [
+      "C",
+      "E"
+     ],
+     "trialGain": -7,
+     "blocked": [
+      "D",
+      "F"
+     ],
+     "metrics": {
+      "cutBefore": 8,
+      "cut": 15,
+      "cumulative": -14
+     },
+     "sourceVersion": "1.0.0"
+    },
+    {
+     "eventId": "p2-m3",
+     "phase": "pass-2",
+     "step": 12,
+     "kind": "trial-move",
+     "before": {
+      "A": 0,
+      "B": 0,
+      "C": 1,
+      "D": 1,
+      "E": 0,
+      "F": 1,
+      "G": 1
+     },
+     "after": {
+      "A": 0,
+      "B": 0,
+      "C": 1,
+      "D": 0,
+      "E": 0,
+      "F": 1,
+      "G": 1
+     },
+     "decision": "试探移动 D（1→0）",
+     "gains": [
+      {
+       "node": "A",
+       "side": 0,
+       "gain": -1,
+       "locked": false,
+       "legal": true
+      },
+      {
+       "node": "B",
+       "side": 0,
+       "gain": -1,
+       "locked": false,
+       "legal": true
+      },
+      {
+       "node": "C",
+       "side": 1,
+       "gain": -7,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "D",
+       "side": 0,
+       "gain": -4,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "E",
+       "side": 0,
+       "gain": -7,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "F",
+       "side": 1,
+       "gain": 2,
+       "locked": false,
+       "legal": false
+      },
+      {
+       "node": "G",
+       "side": 1,
+       "gain": -2,
+       "locked": false,
+       "legal": false
+      }
+     ],
+     "buckets": [
+      {
+       "gain": 2,
+       "nodes": [
+        "F"
+       ]
+      },
+      {
+       "gain": -1,
+       "nodes": [
+        "A",
+        "B"
+       ]
+      },
+      {
+       "gain": -2,
+       "nodes": [
+        "G"
+       ]
+      }
+     ],
+     "locks": [
+      "C",
+      "D",
+      "E"
+     ],
+     "trialGain": -4,
+     "blocked": [
+      "A",
+      "B"
+     ],
+     "metrics": {
+      "cutBefore": 15,
+      "cut": 19,
+      "cumulative": -18
+     },
+     "sourceVersion": "1.0.0"
+    },
+    {
+     "eventId": "p2-m4",
+     "phase": "pass-2",
+     "step": 13,
+     "kind": "trial-move",
+     "before": {
+      "A": 0,
+      "B": 0,
+      "C": 1,
+      "D": 0,
+      "E": 0,
+      "F": 1,
+      "G": 1
+     },
+     "after": {
+      "A": 1,
+      "B": 0,
+      "C": 1,
+      "D": 0,
+      "E": 0,
+      "F": 1,
+      "G": 1
+     },
+     "decision": "试探移动 A（0→1）",
+     "gains": [
+      {
+       "node": "A",
+       "side": 1,
+       "gain": -1,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "B",
+       "side": 0,
+       "gain": 9,
+       "locked": false,
+       "legal": false
+      },
+      {
+       "node": "C",
+       "side": 1,
+       "gain": -7,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "D",
+       "side": 0,
+       "gain": -4,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "E",
+       "side": 0,
+       "gain": -7,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "F",
+       "side": 1,
+       "gain": 2,
+       "locked": false,
+       "legal": true
+      },
+      {
+       "node": "G",
+       "side": 1,
+       "gain": -2,
+       "locked": false,
+       "legal": true
+      }
+     ],
+     "buckets": [
+      {
+       "gain": 9,
+       "nodes": [
+        "B"
+       ]
+      },
+      {
+       "gain": 2,
+       "nodes": [
+        "F"
+       ]
+      },
+      {
+       "gain": -2,
+       "nodes": [
+        "G"
+       ]
+      }
+     ],
+     "locks": [
+      "A",
+      "C",
+      "D",
+      "E"
+     ],
+     "trialGain": -1,
+     "blocked": [
+      "F"
+     ],
+     "metrics": {
+      "cutBefore": 19,
+      "cut": 20,
+      "cumulative": -19
+     },
+     "sourceVersion": "1.0.0"
+    },
+    {
+     "eventId": "p2-m5",
+     "phase": "pass-2",
+     "step": 14,
+     "kind": "trial-move",
+     "before": {
+      "A": 1,
+      "B": 0,
+      "C": 1,
+      "D": 0,
+      "E": 0,
+      "F": 1,
+      "G": 1
+     },
+     "after": {
+      "A": 1,
+      "B": 0,
+      "C": 1,
+      "D": 0,
+      "E": 0,
+      "F": 0,
+      "G": 1
+     },
+     "decision": "试探移动 F（1→0）",
+     "gains": [
+      {
+       "node": "A",
+       "side": 1,
+       "gain": -1,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "B",
+       "side": 0,
+       "gain": 9,
+       "locked": false,
+       "legal": true
+      },
+      {
+       "node": "C",
+       "side": 1,
+       "gain": -7,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "D",
+       "side": 0,
+       "gain": -4,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "E",
+       "side": 0,
+       "gain": -7,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "F",
+       "side": 0,
+       "gain": 2,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "G",
+       "side": 1,
+       "gain": 8,
+       "locked": false,
+       "legal": false
+      }
+     ],
+     "buckets": [
+      {
+       "gain": 9,
+       "nodes": [
+        "B"
+       ]
+      },
+      {
+       "gain": 8,
+       "nodes": [
+        "G"
+       ]
+      }
+     ],
+     "locks": [
+      "A",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "trialGain": 2,
+     "blocked": [
+      "B"
+     ],
+     "metrics": {
+      "cutBefore": 20,
+      "cut": 18,
+      "cumulative": -17
+     },
+     "sourceVersion": "1.0.0"
+    },
+    {
+     "eventId": "p2-m6",
+     "phase": "pass-2",
+     "step": 15,
+     "kind": "trial-move",
+     "before": {
+      "A": 1,
+      "B": 0,
+      "C": 1,
+      "D": 0,
+      "E": 0,
+      "F": 0,
+      "G": 1
+     },
+     "after": {
+      "A": 1,
+      "B": 1,
+      "C": 1,
+      "D": 0,
+      "E": 0,
+      "F": 0,
+      "G": 1
+     },
+     "decision": "试探移动 B（0→1）",
+     "gains": [
+      {
+       "node": "A",
+       "side": 1,
+       "gain": -1,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "B",
+       "side": 1,
+       "gain": 9,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "C",
+       "side": 1,
+       "gain": -7,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "D",
+       "side": 0,
+       "gain": -4,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "E",
+       "side": 0,
+       "gain": -7,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "F",
+       "side": 0,
+       "gain": 2,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "G",
+       "side": 1,
+       "gain": 8,
+       "locked": false,
+       "legal": true
+      }
+     ],
+     "buckets": [
+      {
+       "gain": 8,
+       "nodes": [
+        "G"
+       ]
+      }
+     ],
+     "locks": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "trialGain": 9,
+     "blocked": [],
+     "metrics": {
+      "cutBefore": 18,
+      "cut": 9,
+      "cumulative": -8
+     },
+     "sourceVersion": "1.0.0"
+    },
+    {
+     "eventId": "p2-m7",
+     "phase": "pass-2",
+     "step": 16,
+     "kind": "trial-move",
+     "before": {
+      "A": 1,
+      "B": 1,
+      "C": 1,
+      "D": 0,
+      "E": 0,
+      "F": 0,
+      "G": 1
+     },
+     "after": {
+      "A": 1,
+      "B": 1,
+      "C": 1,
+      "D": 0,
+      "E": 0,
+      "F": 0,
+      "G": 0
+     },
+     "decision": "试探移动 G（1→0）",
+     "gains": [
+      {
+       "node": "A",
+       "side": 1,
+       "gain": -1,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "B",
+       "side": 1,
+       "gain": 9,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "C",
+       "side": 1,
+       "gain": -7,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "D",
+       "side": 0,
+       "gain": -4,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "E",
+       "side": 0,
+       "gain": -7,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "F",
+       "side": 0,
+       "gain": 2,
+       "locked": true,
+       "legal": false
+      },
+      {
+       "node": "G",
+       "side": 0,
+       "gain": 8,
+       "locked": true,
+       "legal": false
+      }
+     ],
+     "buckets": [],
+     "locks": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G"
+     ],
+     "trialGain": 8,
+     "blocked": [],
+     "metrics": {
+      "cutBefore": 9,
+      "cut": 1,
+      "cumulative": 0
+     },
+     "sourceVersion": "1.0.0"
+    },
+    {
+     "eventId": "p2-prefix",
+     "phase": "pass-2",
+     "step": 17,
+     "kind": "best-prefix",
+     "before": {
+      "A": 1,
+      "B": 1,
+      "C": 1,
+      "D": 0,
+      "E": 0,
+      "F": 0,
+      "G": 0
+     },
+     "after": {
+      "A": 0,
+      "B": 0,
+      "C": 0,
+      "D": 1,
+      "E": 1,
+      "F": 1,
+      "G": 1
+     },
+     "decision": "保留空前缀",
+     "prefix": {
+      "gains": [
+       0,
+       -7,
+       -14,
+       -18,
+       -19,
+       -17,
+       -8,
+       0
+      ],
+      "bestK": 0
+     },
+     "locks": [],
+     "metrics": {
+      "cut": 1,
+      "rollbackFromCut": 1
+     },
+     "sourceVersion": "1.0.0"
+    }
+   ],
+   "result": {
+    "assignment": {
+     "A": 0,
+     "B": 0,
+     "C": 0,
+     "D": 1,
+     "E": 1,
+     "F": 1,
+     "G": 1
+    },
+    "cut": 1,
+    "passes": [
+     {
+      "pass": 1,
+      "startCut": 22,
+      "moves": [
+       {
+        "index": 1,
+        "node": "D",
+        "from": 0,
+        "to": 1,
+        "gain": 4,
+        "fs": [
+         {
+          "net": "DE",
+          "w": 4
+         },
+         {
+          "net": "DF",
+          "w": 4
+         }
+        ],
+        "te": [
+         {
+          "net": "CD",
+          "w": 1
+         },
+         {
+          "net": "DG",
+          "w": 3
+         }
+        ],
+        "cutBefore": 22,
+        "cutAfter": 18,
+        "cumulative": 4,
+        "blockedBetter": [
+         "B",
+         "F"
+        ]
+       },
+       {
+        "index": 2,
+        "node": "B",
+        "from": 1,
+        "to": 0,
+        "gain": 9,
+        "fs": [
+         {
+          "net": "AB",
+          "w": 5
+         },
+         {
+          "net": "BC",
+          "w": 4
+         }
+        ],
+        "te": [],
+        "cutBefore": 18,
+        "cutAfter": 9,
+        "cumulative": 13,
+        "blockedBetter": []
+       },
+       {
+        "index": 3,
+        "node": "G",
+        "from": 0,
+        "to": 1,
+        "gain": 8,
+        "fs": [
+         {
+          "net": "FG",
+          "w": 5
+         },
+         {
+          "net": "DG",
+          "w": 3
+         }
+        ],
+        "te": [],
+        "cutBefore": 9,
+        "cutAfter": 1,
+        "cumulative": 21,
+        "blockedBetter": []
+       },
+       {
+        "index": 4,
+        "node": "E",
+        "from": 1,
+        "to": 0,
+        "gain": -7,
+        "fs": [],
+        "te": [
+         {
+          "net": "DE",
+          "w": 4
+         },
+         {
+          "net": "EF",
+          "w": 3
+         }
+        ],
+        "cutBefore": 1,
+        "cutAfter": 8,
+        "cumulative": 14,
+        "blockedBetter": []
+       },
+       {
+        "index": 5,
+        "node": "C",
+        "from": 0,
+        "to": 1,
+        "gain": -7,
+        "fs": [
+         {
+          "net": "CD",
+          "w": 1
+         }
+        ],
+        "te": [
+         {
+          "net": "AC",
+          "w": 4
+         },
+         {
+          "net": "BC",
+          "w": 4
+         }
+        ],
+        "cutBefore": 8,
+        "cutAfter": 15,
+        "cumulative": 7,
+        "blockedBetter": [
+         "F"
+        ]
+       },
+       {
+        "index": 6,
+        "node": "F",
+        "from": 1,
+        "to": 0,
+        "gain": -6,
+        "fs": [
+         {
+          "net": "EF",
+          "w": 3
+         }
+        ],
+        "te": [
+         {
+          "net": "DF",
+          "w": 4
+         },
+         {
+          "net": "FG",
+          "w": 5
+         }
+        ],
+        "cutBefore": 15,
+        "cutAfter": 21,
+        "cumulative": 1,
+        "blockedBetter": [
+         "A"
+        ]
+       },
+       {
+        "index": 7,
+        "node": "A",
+        "from": 0,
+        "to": 1,
+        "gain": -1,
+        "fs": [
+         {
+          "net": "AC",
+          "w": 4
+         }
+        ],
+        "te": [
+         {
+          "net": "AB",
+          "w": 5
+         }
+        ],
+        "cutBefore": 21,
+        "cutAfter": 22,
+        "cumulative": 0,
+        "blockedBetter": []
+       }
+      ],
+      "prefixGains": [
+       0,
+       4,
+       13,
+       21,
+       14,
+       7,
+       1,
+       0
+      ],
+      "bestK": 3,
+      "bestGain": 21,
+      "acceptedCut": 1,
+      "start": {
+       "A": 0,
+       "B": 1,
+       "C": 0,
+       "D": 0,
+       "E": 1,
+       "F": 1,
+       "G": 0
+      },
+      "accepted": {
+       "A": 0,
+       "B": 0,
+       "C": 0,
+       "D": 1,
+       "E": 1,
+       "F": 1,
+       "G": 1
+      }
+     },
+     {
+      "pass": 2,
+      "startCut": 1,
+      "moves": [
+       {
+        "index": 1,
+        "node": "E",
+        "from": 1,
+        "to": 0,
+        "gain": -7,
+        "fs": [],
+        "te": [
+         {
+          "net": "DE",
+          "w": 4
+         },
+         {
+          "net": "EF",
+          "w": 3
+         }
+        ],
+        "cutBefore": 1,
+        "cutAfter": 8,
+        "cumulative": -7,
+        "blockedBetter": []
+       },
+       {
+        "index": 2,
+        "node": "C",
+        "from": 0,
+        "to": 1,
+        "gain": -7,
+        "fs": [
+         {
+          "net": "CD",
+          "w": 1
+         }
+        ],
+        "te": [
+         {
+          "net": "AC",
+          "w": 4
+         },
+         {
+          "net": "BC",
+          "w": 4
+         }
+        ],
+        "cutBefore": 8,
+        "cutAfter": 15,
+        "cumulative": -14,
+        "blockedBetter": [
+         "D",
+         "F"
+        ]
+       },
+       {
+        "index": 3,
+        "node": "D",
+        "from": 1,
+        "to": 0,
+        "gain": -4,
+        "fs": [
+         {
+          "net": "DE",
+          "w": 4
+         }
+        ],
+        "te": [
+         {
+          "net": "CD",
+          "w": 1
+         },
+         {
+          "net": "DF",
+          "w": 4
+         },
+         {
+          "net": "DG",
+          "w": 3
+         }
+        ],
+        "cutBefore": 15,
+        "cutAfter": 19,
+        "cumulative": -18,
+        "blockedBetter": [
+         "A",
+         "B"
+        ]
+       },
+       {
+        "index": 4,
+        "node": "A",
+        "from": 0,
+        "to": 1,
+        "gain": -1,
+        "fs": [
+         {
+          "net": "AC",
+          "w": 4
+         }
+        ],
+        "te": [
+         {
+          "net": "AB",
+          "w": 5
+         }
+        ],
+        "cutBefore": 19,
+        "cutAfter": 20,
+        "cumulative": -19,
+        "blockedBetter": [
+         "F"
+        ]
+       },
+       {
+        "index": 5,
+        "node": "F",
+        "from": 1,
+        "to": 0,
+        "gain": 2,
+        "fs": [
+         {
+          "net": "DF",
+          "w": 4
+         },
+         {
+          "net": "EF",
+          "w": 3
+         }
+        ],
+        "te": [
+         {
+          "net": "FG",
+          "w": 5
+         }
+        ],
+        "cutBefore": 20,
+        "cutAfter": 18,
+        "cumulative": -17,
+        "blockedBetter": [
+         "B"
+        ]
+       },
+       {
+        "index": 6,
+        "node": "B",
+        "from": 0,
+        "to": 1,
+        "gain": 9,
+        "fs": [
+         {
+          "net": "AB",
+          "w": 5
+         },
+         {
+          "net": "BC",
+          "w": 4
+         }
+        ],
+        "te": [],
+        "cutBefore": 18,
+        "cutAfter": 9,
+        "cumulative": -8,
+        "blockedBetter": []
+       },
+       {
+        "index": 7,
+        "node": "G",
+        "from": 1,
+        "to": 0,
+        "gain": 8,
+        "fs": [
+         {
+          "net": "FG",
+          "w": 5
+         },
+         {
+          "net": "DG",
+          "w": 3
+         }
+        ],
+        "te": [],
+        "cutBefore": 9,
+        "cutAfter": 1,
+        "cumulative": 0,
+        "blockedBetter": []
+       }
+      ],
+      "prefixGains": [
+       0,
+       -7,
+       -14,
+       -18,
+       -19,
+       -17,
+       -8,
+       0
+      ],
+      "bestK": 0,
+      "bestGain": 0,
+      "acceptedCut": 1,
+      "start": {
+       "A": 0,
+       "B": 0,
+       "C": 0,
+       "D": 1,
+       "E": 1,
+       "F": 1,
+       "G": 1
+      },
+      "accepted": {
+       "A": 0,
+       "B": 0,
+       "C": 0,
+       "D": 1,
+       "E": 1,
+       "F": 1,
+       "G": 1
+      }
+     }
+    ],
+    "stopReason": "no-positive-prefix",
+    "maxDiff": 1,
+    "hasMultiPin": false
+   },
+   "status": "completed",
+   "metadata": {
+    "engine": "fiduccia-mattheyses",
+    "version": "1.0.0",
+    "buckets": "Map scan, not O(P)",
+    "balance": "|n0-n1|<=1"
+   }
+  }
+ }
+}

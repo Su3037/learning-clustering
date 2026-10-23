@@ -1,0 +1,50 @@
+[
+  {
+    "id": "c1",
+    "type": "推演",
+    "difficulty": "Intro",
+    "title": "D 值从哪里来",
+    "objectiveId": "o2",
+    "validatorId": "m07-kernighan-lin/c1"
+  },
+  {
+    "id": "c2",
+    "type": "推演",
+    "difficulty": "Intro",
+    "title": "找到最大收益对",
+    "objectiveId": "o2",
+    "validatorId": "m07-kernighan-lin/c2"
+  },
+  {
+    "id": "c3",
+    "type": "解释",
+    "difficulty": "Practice",
+    "title": "为什么还要走负收益",
+    "objectiveId": "o3",
+    "validatorId": "m07-kernighan-lin/c3"
+  },
+  {
+    "id": "c4",
+    "type": "决策",
+    "difficulty": "Practice",
+    "title": "保留几步",
+    "objectiveId": "o4",
+    "validatorId": "m07-kernighan-lin/c4"
+  },
+  {
+    "id": "c5",
+    "type": "解释",
+    "difficulty": "Stretch",
+    "title": "减 2w 的那一对",
+    "objectiveId": "o2",
+    "validatorId": "m07-kernighan-lin/c5"
+  },
+  {
+    "id": "c6",
+    "type": "实现",
+    "difficulty": "Stretch",
+    "title": "换一张图重算",
+    "objectiveId": "o5",
+    "validatorId": "m07-kernighan-lin/c6"
+  }
+]

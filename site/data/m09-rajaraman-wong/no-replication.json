@@ -1,0 +1,27 @@
+{
+ "status": "computed by exhaustive search with pruning (scripts/research/rw_no_replication.py)",
+ "model": "same DAG, delta=1, intra 0, inter D=3, capacity 4, NO replication",
+ "bestMaxDelay": 10,
+ "example": [
+  [
+   "a",
+   "d",
+   "f",
+   "h"
+  ],
+  [
+   "b",
+   "c",
+   "e",
+   "g"
+  ],
+  [
+   "i",
+   "j",
+   "k",
+   "l"
+  ]
+ ],
+ "leavesVisited": 2,
+ "seconds": 0.02
+}

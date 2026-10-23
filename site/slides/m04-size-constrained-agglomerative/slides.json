@@ -1,0 +1,173 @@
+{
+ "status": "ready",
+ "moduleId": "m04-size-constrained-agglomerative",
+ "slides": [
+  {
+   "slideId": "m04-title",
+   "pageNumber": 1,
+   "pageCount": 11,
+   "title": "装得下吗",
+   "image": "p01.jpg",
+   "thumb": "t01.jpg",
+   "alt": "装得下吗：",
+   "transcript": "这一模块在贪心合并上加一条硬约束：每个簇的大小之和不能超过容量。我们要分清三种结局：理论上不可能、可行但贪心卡住、合法但不是最优。",
+   "videoAnchor": "00:00",
+   "sceneId": "s00-title",
+   "objectiveIds": []
+  },
+  {
+   "slideId": "m04-problem",
+   "pageNumber": 2,
+   "pageCount": 11,
+   "title": "问题定义",
+   "image": "p02.jpg",
+   "thumb": "t02.jpg",
+   "alt": "问题定义：输入：图、节点大小 s(v)、容量 C、目标 K；规则：先筛合法（合并后 ≤ C），再选亲和度最大；K 不能凌驾于容量：不做超容量合并；单点已超容量：输入不合法；输出四项分开：count、合法、达到 K、停止原因",
+   "transcript": "输入除了图和 K，还有每个节点的大小和容量 C。规则是先筛掉超容量的候选，再在合法候选里选亲和度最大的。目标 K 不能凌驾于容量之上。结果的四个报告项要分开写。",
+   "videoAnchor": "00:03",
+   "sceneId": "s01-hook",
+   "objectiveIds": [
+    "o1"
+   ]
+  },
+  {
+   "slideId": "m04-fork",
+   "pageNumber": 3,
+   "pageCount": 11,
+   "title": "同一张图，两种容量",
+   "image": "p03.jpg",
+   "thumb": "t03.jpg",
+   "alt": "同一张图，两种容量：容量 3：AB+C 大小 3 合法，得 ABC | DE，cut 3；容量 2：AB+C 被阻止，改选 D–E；之后 AB+C、C+DE 都是 3，全部被阻止；容量 2 结果：AB | C | DE，cut 8，未达到 K",
+   "transcript": "同一张图，容量 3 时第二步 AB 加 C 合法，最终得到 ABC 对 DE。容量 2 时这一步被阻止，改选 D–E，之后再也没有合法的合并，停在三个簇，cut 8，没有达到 K。",
+   "videoAnchor": "00:35",
+   "sceneId": "s03-fork",
+   "objectiveIds": [
+    "o2"
+   ]
+  },
+  {
+   "slideId": "m04-bound",
+   "pageNumber": 4,
+   "pageCount": 11,
+   "title": "不可能：下界证明",
+   "image": "p04.jpg",
+   "thumb": "t04.jpg",
+   "alt": "不可能：下界证明：下界：至少需要“总大小 ÷ C 向上取整”个簇；G01：5 ÷ 2 向上取整 = 3 > K = 2；任何算法都做不到——贪心停下没有犯错；下界只能证明“不可能”，不能证明“可能”",
+   "transcript": "先算下界：总大小除以容量再向上取整。G01 的 5 个单位、容量 2，至少需要 3 个簇，所以 K 等于 2 本来就不可能。但下界只能证明不可能，不能证明可能。",
+   "videoAnchor": "00:56",
+   "sceneId": "s04-bound",
+   "objectiveIds": [
+    "o3"
+   ]
+  },
+  {
+   "slideId": "m04-trap",
+   "pageNumber": 5,
+   "pageCount": 11,
+   "title": "可行，但贪心卡住",
+   "image": "p05.jpg",
+   "thumb": "t05.jpg",
+   "alt": "可行，但贪心卡住：greedy_trap（原作者）：A、B 大小 2；C、D 大小 1；容量 3；下界 6 ÷ 3 = 2，没有排除 2 簇；贪心先合并 C–D（10）；CD+A、CD+B 都是 4 > 3；停在 3 簇；穷举却有 AC | BD（3、3），cut 10；停下 ≠ 无解",
+   "transcript": "原作者的 greedy_trap 图：下界允许两个簇。贪心第一步拿走最大的 C–D，之后 A 和 B 都放不进去，停在三个簇。但穷举找到了 AC 对 BD，两个簇的大小都是 3，合法。这就是可行、但贪心卡住。",
+   "videoAnchor": "01:15",
+   "sceneId": "s05-trap",
+   "objectiveIds": [
+    "o4"
+   ]
+  },
+  {
+   "slideId": "m04-sub",
+   "pageNumber": 6,
+   "pageCount": 11,
+   "title": "合法，但不是最优",
+   "image": "p06.jpg",
+   "thumb": "t06.jpg",
+   "alt": "合法，但不是最优：suboptimal（原作者）：A–B 10、A–C 9、B–D 9、C–D 1；贪心：AB | CD，切断两条 9，cut 18；穷举：AC | BD，切断 10 与 1，cut 11；两者都合法、都达到 K，只是质量不同",
+   "transcript": "原作者的 suboptimal 图里，贪心先合并 A–B，再合并 C–D，切断两条 9，cut 18。合法的最优分组是 AC 对 BD，只切断 10 和 1，cut 11。两者都合法，也都达到 K。",
+   "videoAnchor": "01:51",
+   "sceneId": "s07-sub",
+   "objectiveIds": [
+    "o5"
+   ]
+  },
+  {
+   "slideId": "m04-uneven",
+   "pageNumber": 7,
+   "pageCount": 11,
+   "title": "大小不同，结局不同",
+   "image": "p07.jpg",
+   "thumb": "t07.jpg",
+   "alt": "大小不同，结局不同：G01 中 A 的大小改为 2，容量 3，K = 2；A–B 合并后大小 3，已满；AB+C 被阻止；改为 D–E，再把 C 放进 DE；结果 AB | CDE，cut 5（原为 ABC | DE，cut 3）",
+   "transcript": "单元大小也会改变结局。把 A 的大小改成 2，A–B 合并后已经满了，C 放不进去，于是先合并 D–E，再把 C 放进去，得到 AB 对 CDE，cut 5。",
+   "videoAnchor": "02:15",
+   "sceneId": "s08-uneven",
+   "objectiveIds": [
+    "o5"
+   ]
+  },
+  {
+   "slideId": "m04-pseudo",
+   "pageNumber": 8,
+   "pageCount": 11,
+   "title": "伪代码：合并、报告、诊断",
+   "image": "p08.jpg",
+   "thumb": "t08.jpg",
+   "alt": "伪代码：合并、报告、诊断：第 1 行：单点超容量即输入不合法；第 4 行：先筛合法，再比较；第 5 行：区分 capacity-blocked 与 no-positive-affinity；第 7 行：四项分开报告；第 8 行：下界 + 小图穷举诊断",
+   "transcript": "伪代码第一行检查单点是否超容量。第四行在比较之前先筛掉超容量的候选。第五行在没有合法候选时停止，并区分两种原因。第七行分开报告四项，第八行用下界和穷举诊断属于哪种结局。",
+   "videoAnchor": "02:36",
+   "sceneId": "s09-code",
+   "objectiveIds": [
+    "o6"
+   ]
+  },
+  {
+   "slideId": "m04-mistakes",
+   "pageNumber": 9,
+   "pageCount": 11,
+   "title": "常见错误",
+   "image": "p09.jpg",
+   "thumb": "t09.jpg",
+   "alt": "常见错误：把“合法”说成“完成”；为了达到 K 违反容量；把“贪心卡住”当成“不可能”；以为合法结果就是最优；把节点个数当面积",
+   "transcript": "常见错误：把合法当成完成；为了凑 K 违反容量；把贪心卡住误认为问题无解；以为合法就是最优；以及忽略单元面积的差异。",
+   "videoAnchor": null,
+   "sceneId": null,
+   "objectiveIds": [
+    "o1",
+    "o4",
+    "o5"
+   ]
+  },
+  {
+   "slideId": "m04-limits",
+   "pageNumber": 10,
+   "pageCount": 11,
+   "title": "应用与局限",
+   "image": "p10.jpg",
+   "thumb": "t10.jpg",
+   "alt": "应用与局限：容量对应芯片上一块区域能放的面积；下界只能证不可能；可能性要靠找到解（与装箱同难）；穷举只适合 ≤ 10 个节点的教学图；贪心不回撤：改进需要允许交换或回退的方法（Module 07、08）",
+   "transcript": "在芯片设计中，容量对应一块区域能放的面积。下界只能证明不可能。穷举只适合很小的教学图。贪心不回撤，要改进就需要允许交换或回退的方法，这是 Module 07 和 08 的主题。",
+   "videoAnchor": "02:54",
+   "sceneId": "s10-limits",
+   "objectiveIds": [
+    "o3"
+   ]
+  },
+  {
+   "slideId": "m04-summary",
+   "pageNumber": 11,
+   "pageCount": 11,
+   "title": "小结",
+   "image": "p11.jpg",
+   "thumb": "t11.jpg",
+   "alt": "小结：",
+   "transcript": "小结：先筛合法，再选最大，四项结果分开报告。理论上不可能、可行但贪心卡住、合法但非最优，是三种不同的结局，要用不同的证据来区分。下一模块换一种机制：节点不合并，而是改标签。",
+   "videoAnchor": null,
+   "sceneId": null,
+   "objectiveIds": []
+  }
+ ],
+ "pdf": "m04-size-constrained-agglomerative.pdf",
+ "pptx": "m04-size-constrained-agglomerative.pptx",
+ "contentVersion": "2026.10.23-1",
+ "aspectNote": "16:9 是本课程的设计选择（与影片一致、适合投影），不是教师指定的比例。PDF 页码与网页 p/total 完全一致；PPTX 中文字、形状与表格均可编辑，讲稿在备注里。"
+}

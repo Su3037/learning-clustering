@@ -1,0 +1,318 @@
+{
+ "id": "affinity",
+ "title": "谁和谁最亲近",
+ "status": "ready",
+ "src": "affinity.mp4",
+ "vtt": "affinity.zh.vtt",
+ "poster": "affinity-poster.jpg",
+ "duration": 201.4,
+ "chapters": [
+  {
+   "t": 3.0,
+   "title": "一 · 先预测",
+   "sceneId": "s01-hook"
+  },
+  {
+   "t": 14.33,
+   "title": "二 · 图与 net",
+   "sceneId": "s02-model"
+  },
+  {
+   "t": 29.8,
+   "title": "三 · 直接边权",
+   "sceneId": "s03-edge"
+  },
+  {
+   "t": 48.82,
+   "title": "四 · 共同邻居",
+   "sceneId": "s04-ac"
+  },
+  {
+   "t": 94.6,
+   "title": "五 · 换评分，第一对就变",
+   "sceneId": "s06-priority"
+  },
+  {
+   "t": 121.09,
+   "title": "六 · 宽 net 的稀释",
+   "sceneId": "s07-pin"
+  },
+  {
+   "t": 158.82,
+   "title": "七 · 伪代码与 EDA",
+   "sceneId": "s08-code"
+  }
+ ],
+ "scenes": [
+  {
+   "sceneId": "s00-title",
+   "start": 0.0,
+   "end": 3.0
+  },
+  {
+   "sceneId": "s01-hook",
+   "start": 3.0,
+   "end": 14.33
+  },
+  {
+   "sceneId": "s02-model",
+   "start": 14.33,
+   "end": 29.8
+  },
+  {
+   "sceneId": "s03-edge",
+   "start": 29.8,
+   "end": 48.82
+  },
+  {
+   "sceneId": "s04-ac",
+   "start": 48.82,
+   "end": 69.31
+  },
+  {
+   "sceneId": "s05-bd",
+   "start": 69.31,
+   "end": 94.6
+  },
+  {
+   "sceneId": "s06-priority",
+   "start": 94.6,
+   "end": 121.09
+  },
+  {
+   "sceneId": "s07-pin",
+   "start": 121.09,
+   "end": 158.82
+  },
+  {
+   "sceneId": "s08-code",
+   "start": 158.82,
+   "end": 182.56
+  },
+  {
+   "sceneId": "s09-eda",
+   "start": 182.56,
+   "end": 201.4
+  }
+ ],
+ "transcript": [
+  {
+   "start": 3.0,
+   "end": 9.578,
+   "text": "一个三角形 PQR，每条边 4；旁边一对 X–Y，边权 5。",
+   "sceneId": "s01-hook"
+  },
+  {
+   "start": 9.578,
+   "end": 13.933,
+   "text": "如果要先合并一对，你会选哪一对？",
+   "sceneId": "s01-hook"
+  },
+  {
+   "start": 14.333,
+   "end": 18.911,
+   "text": "先说清输入：普通的边只连两个单元。",
+   "sceneId": "s02-model"
+  },
+  {
+   "start": 18.911,
+   "end": 23.933,
+   "text": "一个 net 可以连五个、甚至上千个单元。",
+   "sceneId": "s02-model"
+  },
+  {
+   "start": 23.933,
+   "end": 29.4,
+   "text": "要给其中的“一对”打分，就得先选一个模型。",
+   "sceneId": "s02-model"
+  },
+  {
+   "start": 29.8,
+   "end": 34.822,
+   "text": "最直接的模型：两点之间的边权就是分数。",
+   "sceneId": "s03-edge"
+  },
+  {
+   "start": 34.822,
+   "end": 41.178,
+   "text": "A–B 和 D–E 都是 5，谁排前面？按名字：A 在 D 前。",
+   "sceneId": "s03-edge"
+  },
+  {
+   "start": 41.178,
+   "end": 48.422,
+   "text": "A–C 与 C–E 也并列：同样按名字。排名就与输入顺序无关了。",
+   "sceneId": "s03-edge"
+  },
+  {
+   "start": 48.822,
+   "end": 54.733,
+   "text": "第二个模型：共同邻居。先看 A–C 的直接边：1。",
+   "sceneId": "s04-ac"
+  },
+  {
+   "start": 54.733,
+   "end": 57.311,
+   "text": "A 和 C 都连着 B。",
+   "sceneId": "s04-ac"
+  },
+  {
+   "start": 57.311,
+   "end": 64.556,
+   "text": "经过 B 的联系只和较弱的那条边一样强：min(5, 4) = 4。",
+   "sceneId": "s04-ac"
+  },
+  {
+   "start": 64.556,
+   "end": 68.911,
+   "text": "A–C 的共同邻居分 = 1 + 4 = 5。",
+   "sceneId": "s04-ac"
+  },
+  {
+   "start": 69.311,
+   "end": 75.0,
+   "text": "再看 B–D：它们之间没有导线，直接部分是 0。",
+   "sceneId": "s05-bd"
+  },
+  {
+   "start": 75.0,
+   "end": 78.022,
+   "text": "可是 B 和 D 都连着 C。",
+   "sceneId": "s05-bd"
+  },
+  {
+   "start": 78.022,
+   "end": 81.933,
+   "text": "经 C：min(4, 2) = 2。",
+   "sceneId": "s05-bd"
+  },
+  {
+   "start": 81.933,
+   "end": 88.511,
+   "text": "B–D 的分数是 2——只在已有的边上打分，就会漏掉它。",
+   "sceneId": "s05-bd"
+  },
+  {
+   "start": 88.511,
+   "end": 94.2,
+   "text": "这不是新增导线：图没变，变的是这一对的分数。",
+   "sceneId": "s05-bd"
+  },
+  {
+   "start": 94.6,
+   "end": 101.622,
+   "text": "回到开头的问题。按直接边权：X–Y 最粗，第一对是 X–Y。",
+   "sceneId": "s06-priority"
+  },
+  {
+   "start": 101.622,
+   "end": 107.089,
+   "text": "按共同邻居：三角形里每一对都经过第三个点。",
+   "sceneId": "s06-priority"
+  },
+  {
+   "start": 107.089,
+   "end": 114.111,
+   "text": "P–Q = 4 + min(4, 4) = 8，P–R、Q–R 也是 8。",
+   "sceneId": "s06-priority"
+  },
+  {
+   "start": 114.111,
+   "end": 120.689,
+   "text": "三对并列，按名字取 P–Q。换一种评分，第一对就变了。",
+   "sceneId": "s06-priority"
+  },
+  {
+   "start": 121.089,
+   "end": 128.778,
+   "text": "网表也一样。两条宽 net 连着 A 到 E，一条私有 net 只连 E、F。",
+   "sceneId": "s07-pin"
+  },
+  {
+   "start": 128.778,
+   "end": 136.689,
+   "text": "如果只数“有几条 net 同时连着”：A–B 有 2 条，E–F 只有 1 条。",
+   "sceneId": "s07-pin"
+  },
+  {
+   "start": 136.689,
+   "end": 146.156,
+   "text": "clique 模型把一个 net 摊成 |e|−1 份：A–B = 1/4 + 1/4 = 0.5。",
+   "sceneId": "s07-pin"
+  },
+  {
+   "start": 146.156,
+   "end": 153.844,
+   "text": "E–F 的 net 只有两个引脚：1/(2−1) = 1。E–F 排第一。",
+   "sceneId": "s07-pin"
+  },
+  {
+   "start": 153.844,
+   "end": 158.422,
+   "text": "宽 net 被稀释，私有连接才显出来。",
+   "sceneId": "s07-pin"
+  },
+  {
+   "start": 158.822,
+   "end": 164.289,
+   "text": "把共同邻居评分写成伪代码，用 B–D 走一遍。",
+   "sceneId": "s08-code"
+  },
+  {
+   "start": 164.289,
+   "end": 167.533,
+   "text": "没有直接边：从 0 开始。",
+   "sceneId": "s08-code"
+  },
+  {
+   "start": 167.533,
+   "end": 172.111,
+   "text": "对每个共同邻居，加上较弱的那条边。",
+   "sceneId": "s08-code"
+  },
+  {
+   "start": 172.111,
+   "end": 175.356,
+   "text": "分数为正，记下这一对。",
+   "sceneId": "s08-code"
+  },
+  {
+   "start": 175.356,
+   "end": 182.156,
+   "text": "最后按分数降序、名字升序排好。输出的是排名，不是分组。",
+   "sceneId": "s08-code"
+  },
+  {
+   "start": 182.556,
+   "end": 184.911,
+   "text": "回到芯片设计。",
+   "sceneId": "s09-eda"
+  },
+  {
+   "start": 184.911,
+   "end": 189.933,
+   "text": "评分是模型的选择，要写明用的是哪一种。",
+   "sceneId": "s09-eda"
+  },
+  {
+   "start": 189.933,
+   "end": 194.956,
+   "text": "宽 net 不摊薄，会掩盖真正的局部结构。",
+   "sceneId": "s09-eda"
+  },
+  {
+   "start": 194.956,
+   "end": 200.2,
+   "text": "下一模块：用簇间边权和，开始真正的合并。",
+   "sceneId": "s09-eda"
+  }
+ ],
+ "music": "本课程原创程序合成配乐（NumPy），CC BY 4.0",
+ "why": "约 3 分半：先预测、再拆分数。B–D 的“无直接边也有分”与宽 net 稀释各留足停顿。",
+ "readingViolations": 0,
+ "fps": 30,
+ "size": [
+  1920,
+  1080
+ ]
+}

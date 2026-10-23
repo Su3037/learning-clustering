@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "moduleId": "m09-rajaraman-wong",
+  "displayOrder": 9,
+  "display": "Module 09",
+  "title": "Rajaraman–Wong 延迟导向聚类",
+  "topic": "Rajaraman–Wong delay-oriented clustering",
+  "description": "目标从 cut 换成延迟：组合电路 DAG、节点延迟、跨簇固定延迟 D、簇容量，允许复制逻辑节点；标记阶段与逆向恢复，逻辑节点与物理实例分开表示。",
+  "hook": "两种分法切断的连线差不多，为什么关键路径的延迟可以差很多？",
+  "cardText": "目标换成“最长路径延迟”。跨簇一次就加 D；允许把同一个逻辑节点复制到多个簇里。",
+  "sourceIssue": { "number": 8, "title": "Clustering Module - Lesson 9", "url": "https://github.com/yongfu-li/eda-learning/issues/8" },
+  "teacherFolder": "module03-01-multilevel-clustering（Lab 09：Multilevel）——与提交主题不一致",
+  "teacherMappingStatus": "pending",
+  "mappingNote": "Issue #8（Lesson 9）提交的是 Rajaraman–Wong 延迟导向聚类，而教师当前课程目录的 Lab 09 是 Multilevel。本课程保留真实提交的主题，按提交顺序编为 Module 09；对应关系待教师确认。本页不是 Multilevel 的替代，旧的 multilevel 路径也不会跳转到这里。",
+  "compatSlug": null,
+  "prerequisitesText": "Module 02–08 的 cut 与分组概念；本章换用**有向**电路图，不复用五节点无向图。",
+  "nextText": "这是本课程的最后一个模块：回到[首页的综合对比](../../index.html#synthesis)。",
+  "review": "前面七个模块都在减少 **cut**。本章换一个目标：信号从输入走到输出的**最长延迟**。图也换成有方向的组合电路（DAG）。",
+  "objectives": [
+    { "id": "o1", "text": "说明目标从“最小 cut”变为“最小 PI→PO 最大延迟”，并用四节点链手算：跨簇一次 7，两次 10。", "where": ["m09-goal", "challenge-c1", "challenge-c2"] },
+    { "id": "o2", "text": "写出 RW 的模型：DAG、节点延迟 δ(v)、簇内连线 0、跨簇连线固定 D、簇容量 M、允许复制。", "where": ["m09-model"] },
+    { "id": "o3", "text": "区分逻辑节点（logicalId）与物理实例（instanceId），说明复制的作用与面积代价。", "where": ["m09-replication", "challenge-c3"] },
+    { "id": "o4", "text": "计算最长节点延迟 Δ(x, v) 并按拓扑序执行标记：l(v) = max(l1, l2)。", "where": ["m09-init", "m09-label", "challenge-c4"] },
+    { "id": "o5", "text": "从输出端逆向恢复簇与实例：候选图得到 8 簇、20 个实例、输出延迟 8；不复制时最好是 10。", "where": ["m09-reconstruct", "challenge-c5"] },
+    { "id": "o6", "text": "说清适用边界：最优性只在论文模型内成立；候选 DAG 与平票规则待原作者确认；本模块与教师目录的对应待确认。", "where": ["m09-scope", "challenge-c6", "python"] }
+  ],
+  "problem": {
+    "input": "组合电路 DAG（无环）、每个节点的延迟 δ(v) 与大小 s(v)、簇容量 M、跨簇延迟 D；PI 为没有输入的节点，PO 为输出。",
+    "output": "每个节点的标签 l(v)、被选中的簇、物理实例与实例连线、各 PO 的到达时间与最大延迟、复制的节点与总面积。",
+    "objective": "最小化从任一 PI 到任一 PO 的最大路径延迟。",
+    "constraints": "每个簇的大小之和 ≤ M；簇内连线额外延迟 0，跨簇连线额外延迟 D；每个实例的输入必须完整。",
+    "assumptions": "允许复制逻辑节点（这是最优性结论的前提）；本课程教学例 δ = 1、s = 1；平票：l(x)+Δ(x,v) 相等时拓扑序靠后者优先（候选假设）。",
+    "stop": "标记阶段处理完所有非 PI 节点；恢复阶段从 PO 出发，直到所有需要的簇都已生成。输入有环时报错，不做任何近似。"
+  },
+  "filmTitle": "关键路径的代价",
+  "filmNote": "分两集：第一集讲模型与标记，第二集讲逆向恢复、复制与完整例子。12 节点候选图由原作影片画面复原，平票规则为假设，画面上始终标注“候选”。",
+  "labTitle": "链路评估与 RW 标记、恢复",
+  "labNote": "上半部分：给四节点链切分，看跨簇次数如何改变延迟。下半部分：在候选 DAG 上单步执行标记与恢复；可以改 D 和容量，引擎会重算。",
+  "challengeTip": "第 3 题区分逻辑节点与实例：实例写作“节点@簇根”。",
+  "mistakes": [
+    { "title": "以为 cut 小就延迟小", "wrong": "选跨簇边最少的分法，认为关键路径最快。", "why": "延迟只看最长的那条路径经过了几次边界；跨簇边的总数不直接决定它。", "counter": "四节点链分成 {P,X} | {Y,O}：1 条跨簇边、延迟 7；分成 {P} | {X,Y} | {O}：2 条跨簇边、延迟 10。在分叉的电路上，跨簇边数相同的两种分法，关键路径的跨界次数可以不同。", "fix": "按路径计算延迟：节点延迟之和 + D × 路径上的跨界次数，取所有 PI→PO 路径的最大值。" },
+    { "title": "用“节点 → 簇”的映射表示复制", "wrong": "给每个节点记一个簇号，复制时把同一节点写进两个簇。", "why": "一个映射表只能给每个节点一个簇；复制后同一个逻辑节点有多个物理实例，每个实例有自己的输入。", "counter": "候选图里逻辑节点 b 有 3 个实例：b@b、b@d、b@e。", "fix": "逻辑节点与实例分开：instances[{instanceId, logicalId, clusterId}] + 实例连线，并检查每个实例的输入完整。" },
+    { "title": "把复制当成免费的", "wrong": "为了缩短延迟，随意复制节点。", "why": "每个副本都占面积；RW 的结论是在允许复制、并满足容量的前提下延迟最优，不是面积最优。", "counter": "候选图：12 个逻辑节点变成 20 个实例，总面积 20。", "fix": "报告实例数与总面积；比较方案时同时看延迟与代价。" },
+    { "title": "把“延迟最优”推广到禁止复制的情况", "wrong": "认为 RW 的最优性在不允许复制时依然成立。", "why": "最优性证明依赖于允许复制；禁止复制后问题不同，结论不再适用。", "counter": "候选图上禁止复制、容量 4 时，穷举得到的最好最大延迟是 10，而允许复制的 RW 结果是 8。", "fix": "说明前提：DAG、节点延迟模型、固定 D、容量、允许复制。" },
+    { "title": "把 RW 的“标签”当成 LP 的标签", "wrong": "以为 l(v) 是 v 所属的群体。", "why": "RW 的标签是一个数：从输入到 v 的最小可能到达时间（在模型内）；LP 的标签是群体记号。", "counter": "候选图 l(i) = 7、l(k) = 8，都是时间。", "fix": "称为“延迟标签 l(v)”，与 Module 05 区分。" }
+  ],
+  "limits": "- **最优性来自论文**（Rajaraman 与 Wong，IEEE TCAD 1995；会议版 DAC 1993），只在其模型内成立：组合 DAG、节点延迟、簇内 0、跨簇固定 D、容量约束、允许复制。本课程的测试不证明最优性，只检查实例图合法、到达时间计算一致。\n- **12 节点例子是候选复原**：原作影片的图与 Δ 表复原出 15 条边，在“lv 降序、相等时逆拓扑序”的平票假设下重现 8 簇、20 实例、输出 8。原始边表与平票规则尚待原作者确认，不是教师确认的数据。\n- **课程对应待确认**：教师目录的 Lab 09 是 Multilevel，本模块不替代它。\n- 本课程实现假设单位大小时逐个加入候选（前缀），一般大小下的装入策略与论文细节需进一步核对。\n- 复制带来面积代价；实际设计还要考虑引脚、功耗等，本章不讨论。",
+  "pythonPackage": {
+    "title": "分层完成：先评估延迟，再实现标记与恢复",
+    "md": "**基础任务**（可以先独立完成这三项）：\n\n1. `topological_order(nodes, edges)`：有环时报错。\n2. `longest_node_delays(...)`：Δ[x][v]。\n3. `evaluate_instance_delay(...)`：实例到达时间；链的 7 与 10。\n\n**进阶任务**：\n\n4. `rw_label(dag)`：按拓扑序打标签。\n5. `rw_reconstruct(dag, cluster)`：从 PO 倒推簇与实例。\n\n**提示一**：Δ 只计路径上 v 的延迟、不计起点 x；无路径记为 None。\n\n**提示二**：实例 id 写成 “节点@簇根”；簇外输入 u 来自 “u@u”，代价 D。检查器在候选图上核对 8 簇、20 实例、输出 8，并检查每个实例的输入完整。"
+  },
+  "credits": {
+    "student": { "name": "muranfei", "website": "https://muranfei.github.io/rajaraman-wong-algorithm-teaching/", "repository": "https://github.com/muranfei/rajaraman-wong-algorithm-teaching", "commit": "63c23ecd6bc38d3c490eebf5eab2322da5dec063" },
+    "kept": [
+      "约 13 分 52 秒的长专题结构：问题 → 延迟模型 → DAG → 初始化 / 标记 / 聚类三阶段；本章按此拆成两集。",
+      "讲义中 l1 / l2、节点复制以及面积代价的讲法。",
+      "12 节点算例（d = 1、D = 3、容量 4）：本章的候选 DAG 由该影片 405 秒处的图与 438 秒处的 Δ 表复原。",
+      "明确列出来源与局限的写法。"
+    ],
+    "licenseNote": "原仓库未声明统一许可，本模块未复制其视频、讲义或课件画面；原作讲解基于 EST8717 Lecture 5 课件，该课件未在仓库中分发。原网页没有可执行的 RW 引擎，本课程的引擎、实验、挑战与 Python 练习为新写。",
+    "references": ["Rajaraman, R., & Wong, D. F. (1995). Optimum clustering for delay minimization. *IEEE Transactions on Computer-Aided Design*, 14(12), 1490–1495. [doi:10.1109/43.476579](https://doi.org/10.1109/43.476579)", "会议版本：Rajaraman, R., & Wong, D. F. (1993). Optimal clustering for delay minimization. *Proc. 30th Design Automation Conference*.", "单位延迟模型的早期工作：Lawler, E. L., Levitt, K. N., & Turner, J. (1969). Module clustering to minimize delay in digital networks. *IEEE Transactions on Computers*, C-18(1), 47–57.", "教师原课程目录中的 [Lab 09（Multilevel）](https://github.com/yongfu-li/eda-learning/tree/003bcd49e3794e6cfd2680181cdbd347d673ad07/courses/learn_clustering/module03-01-multilevel-clustering)——与本模块主题不同。"]
+  }
+}

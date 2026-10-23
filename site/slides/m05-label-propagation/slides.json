@@ -1,0 +1,189 @@
+{
+ "status": "ready",
+ "moduleId": "m05-label-propagation",
+ "slides": [
+  {
+   "slideId": "m05-title",
+   "pageNumber": 1,
+   "pageCount": 12,
+   "title": "圈子从哪里来",
+   "image": "p01.jpg",
+   "thumb": "t01.jpg",
+   "alt": "圈子从哪里来：",
+   "transcript": "这一模块讲标签传播。每个节点看看邻居现在的标签，加入连接最强的那一组。它不合并节点，也不指定簇数；我们会看到它怎样停下，又怎样陷入振荡。",
+   "videoAnchor": "《圈子从哪里来》 00:00",
+   "sceneId": "s00-title",
+   "objectiveIds": []
+  },
+  {
+   "slideId": "m05-contacts",
+   "pageNumber": 2,
+   "pageCount": 12,
+   "title": "通讯录里的圈子",
+   "image": "p02.jpg",
+   "thumb": "t02.jpg",
+   "alt": "通讯录里的圈子：28 人、61 条联系的虚构通讯录（原作数据）；规则：看朋友们现在属于哪个圈子，加入联系最多的那一个；反复几轮，圈子自己浮现：8 + 10 + 10；Raghavan、Albert、Kumara，2007",
+   "transcript": "先看一本虚构的通讯录。每个人看看朋友们现在属于哪个圈子，然后加入联系最多的那一个。重复几轮，圈子就自己浮现了：三轮之后分成三个圈子，只切开权重 4 的联系。这个方法来自 2007 年 Raghavan、Albert 和 Kumara 的论文。",
+   "videoAnchor": "《圈子从哪里来》 00:14",
+   "sceneId": "s02-gather",
+   "objectiveIds": [
+    "o1"
+   ]
+  },
+  {
+   "slideId": "m05-chip",
+   "pageNumber": 3,
+   "pageCount": 12,
+   "title": "芯片里的同一个问题",
+   "image": "p03.jpg",
+   "thumb": "t03.jpg",
+   "alt": "芯片里的同一个问题：24 个单元、56 条连线、总权 202（虚构）；按位置用尺子切成三块：切断 88；穷举不可行：平分三组已有 1,577,585,295 种；需要一条只看邻居的局部规则",
+   "transcript": "芯片里是同一个问题：块内用短导线，跨块要靠长导线。在这张虚构电路上，按位置切成三块会切断 88。试遍所有分法也不行。我们需要一条只看邻居的局部规则。",
+   "videoAnchor": "《圈子从哪里来》 00:29",
+   "sceneId": "s03-chip",
+   "objectiveIds": [
+    "o6"
+   ]
+  },
+  {
+   "slideId": "m05-problem",
+   "pageNumber": 4,
+   "pageCount": 12,
+   "title": "问题定义",
+   "image": "p04.jpg",
+   "thumb": "t04.jpg",
+   "alt": "问题定义：输入：图、访问顺序、async/sync、平票规则、最大轮数；初始：每个节点的标签 = 自己的名字；输出：标签、分组、逐节点票数、cut、轮数、停止状态；不指定 K，不合并节点，不保证均衡",
+   "transcript": "输入是图和一组规则：访问顺序、同步还是异步、平票规则和最大轮数。开始时每个节点的标签就是自己的名字。输出包括最终标签、分组、每一票的明细、cut、轮数和停止状态。它不指定 K，也不合并节点。",
+   "videoAnchor": "《圈子从哪里来》 01:02",
+   "sceneId": "s05-labels",
+   "objectiveIds": [
+    "o1"
+   ]
+  },
+  {
+   "slideId": "m05-vote",
+   "pageNumber": 5,
+   "pageCount": 12,
+   "title": "一次更新：加权投票",
+   "image": "p05.jpg",
+   "thumb": "t05.jpg",
+   "alt": "一次更新：加权投票：新标签(v) = 邻居中同标签边权之和最大的那个标签；C（第 1 轮）：B = 1 + 4 = 5，D = 2，E = 1；C 的标签改为 B——名字仍是 C；比的是权重，不是邻居个数",
+   "transcript": "一次更新只看这个节点的邻居。轮到 C 时，A 已经改为标签 B，B 也是 B，所以标签 B 的票是 1 加 4 等于 5，D 是 2，E 是 1。C 的标签改为 B，但它仍然是节点 C。比的是权重之和，不是邻居的个数。",
+   "videoAnchor": "《圈子从哪里来》 01:18",
+   "sceneId": "s06-vote",
+   "objectiveIds": [
+    "o2"
+   ]
+  },
+  {
+   "slideId": "m05-round",
+   "pageNumber": 6,
+   "pageCount": 12,
+   "title": "一整轮与零变化确认",
+   "image": "p06.jpg",
+   "thumb": "t06.jpg",
+   "alt": "一整轮与零变化确认：异步：每次更新立即写回；第 1 轮：B B B E E，改变 3 个；第 2 轮：完整零变化 → stable；共 2 轮（含确认轮），cut 3；E→A 顺序：分组相同，需要 3 轮",
+   "transcript": "异步更新时，每次算出新标签就立即写回，后面的节点马上能看到。第一轮结束是 B B B E E，三个节点改变。第二轮全部不变，才确认稳定，所以一共两轮，cut 3。如果反过来从 E 到 A 访问，分组不变，但需要三轮。",
+   "videoAnchor": "《圈子从哪里来》 01:36",
+   "sceneId": "s07-round",
+   "objectiveIds": [
+    "o3"
+   ]
+  },
+  {
+   "slideId": "m05-sync",
+   "pageNumber": 7,
+   "pageCount": 12,
+   "title": "同步与振荡",
+   "image": "p07.jpg",
+   "thumb": "t07.jpg",
+   "alt": "同步与振荡：同步：整轮读同一张旧快照，轮末一起提交；两节点：A、B 每轮交换标签；G01 同步：第 3 轮回到第 1 轮的状态（周期 2）；停止状态：stable / cycle / limit；只有 stable 能叫“收敛”",
+   "transcript": "同步更新时，所有节点读同一张旧快照，轮末一起提交。两个节点会同时交换标签，然后再换回来，永远停不下。G01 在同步模式下也会以周期 2 振荡。停止状态要分清 stable、cycle 和 limit，只有 stable 才能叫收敛。",
+   "videoAnchor": "《圈子从哪里来》 01:52",
+   "sceneId": "s08-sync",
+   "objectiveIds": [
+    "o4"
+   ]
+  },
+  {
+   "slideId": "m05-bridge",
+   "pageNumber": 8,
+   "pageCount": 12,
+   "title": "平票与边权",
+   "image": "p08.jpg",
+   "thumb": "t08.jpg",
+   "alt": "平票与边权：平票规则：min（默认）/ max / keep，必须确定；C–D 改为 10，从初始标签重新运行；D 把 C 拉过去：AB | CDE，cut 5；比较不同参数时，从同一个起点重新开始",
+   "transcript": "平票必须有确定的规则，本课程实现三种。把 C–D 的权重改成 10，从初始标签重新运行，D 会把 C 拉过去，结果是 AB 对 CDE，cut 5。比较不同参数时，要从同一个起点重新开始。",
+   "videoAnchor": "《圈子从哪里来》 02:08",
+   "sceneId": "s09-bridge",
+   "objectiveIds": [
+    "o5"
+   ]
+  },
+  {
+   "slideId": "m05-circuit",
+   "pageNumber": 9,
+   "pageCount": 12,
+   "title": "回到芯片",
+   "image": "p09.jpg",
+   "thumb": "t09.jpg",
+   "alt": "回到芯片：24 单元电路：标签传播 5 轮停下；只切断 2（尺子切法 88）；颜色沿最强的连线扩散；虚构教学图：不说明一般最优",
+   "transcript": "回到 24 个单元的电路。标签传播五轮停下，只切断 2，而尺子切法要切断 88。但这是一张虚构的教学图，不能说明一般情况下最优。",
+   "videoAnchor": "《圈子从哪里来》 02:23",
+   "sceneId": "s10-circuit",
+   "objectiveIds": [
+    "o6"
+   ]
+  },
+  {
+   "slideId": "m05-pseudo",
+   "pageNumber": 10,
+   "pageCount": 12,
+   "title": "伪代码逐行",
+   "image": "p10.jpg",
+   "thumb": "t10.jpg",
+   "alt": "伪代码逐行：第 4 行：按邻居标签累加边权（Python：count_votes）；第 5 行：平票规则（choose）；第 6–7 行：异步与同步的唯一差别；第 8 行：零变化 → stable，重复 → cycle",
+   "transcript": "伪代码第四行按邻居标签累加边权，对应 Python 的 count_votes；第五行处理平票；第六、七行是异步与同步唯一的差别；第八行判断 stable 或 cycle。",
+   "videoAnchor": "《圈子从哪里来》 02:42",
+   "sceneId": "s11-limits",
+   "objectiveIds": [
+    "o6"
+   ]
+  },
+  {
+   "slideId": "m05-mistakes",
+   "pageNumber": 11,
+   "pageCount": 12,
+   "title": "常见错误",
+   "image": "p11.jpg",
+   "thumb": "t11.jpg",
+   "alt": "常见错误：把标签当名字：说“C 变成了 B”；按人数计票：两票的 B 未必赢四权的 D；一步没变就说收敛：要整轮零变化；把振荡当“没算完”或“收敛”；按标签名比较结果：B/B/B/E/E 与 A/A/A/D/D 是同一分组",
+   "transcript": "常见错误包括：把标签当名字；按人数而不是权重计票；一个节点没变就说收敛；把振荡当成没算完或者收敛；以及按标签名字比较两个结果。",
+   "videoAnchor": null,
+   "sceneId": null,
+   "objectiveIds": [
+    "o1",
+    "o2",
+    "o3",
+    "o4"
+   ]
+  },
+  {
+   "slideId": "m05-summary",
+   "pageNumber": 12,
+   "pageCount": 12,
+   "title": "小结",
+   "image": "p12.jpg",
+   "thumb": "t12.jpg",
+   "alt": "小结：",
+   "transcript": "小结：名字是身份，标签是归属；每个节点看邻居、跟最强。一整轮零变化才是稳定；同步可能振荡，要报告 cycle。下一模块不再局部投票，而是用全图的谱信息给节点排序，再切一刀。",
+   "videoAnchor": null,
+   "sceneId": null,
+   "objectiveIds": []
+  }
+ ],
+ "pdf": "m05-label-propagation.pdf",
+ "pptx": "m05-label-propagation.pptx",
+ "contentVersion": "2026.10.23-1",
+ "aspectNote": "16:9 是本课程的设计选择（与影片一致、适合投影），不是教师指定的比例。PDF 页码与网页 p/total 完全一致；PPTX 中文字、形状与表格均可编辑，讲稿在备注里。"
+}

@@ -1,0 +1,50 @@
+[
+  {
+    "id": "c1",
+    "type": "合法性",
+    "difficulty": "Intro",
+    "title": "为什么不选 A",
+    "objectiveId": "o2",
+    "validatorId": "m08-fiduccia-mattheyses/c1"
+  },
+  {
+    "id": "c2",
+    "type": "推演",
+    "difficulty": "Intro",
+    "title": "拆开 D 的收益",
+    "objectiveId": "o3",
+    "validatorId": "m08-fiduccia-mattheyses/c2"
+  },
+  {
+    "id": "c3",
+    "type": "回退",
+    "difficulty": "Practice",
+    "title": "选出 k*",
+    "objectiveId": "o4",
+    "validatorId": "m08-fiduccia-mattheyses/c3"
+  },
+  {
+    "id": "c4",
+    "type": "纠错",
+    "difficulty": "Practice",
+    "title": "审查原附件的反例",
+    "objectiveId": "o5",
+    "validatorId": "m08-fiduccia-mattheyses/c4"
+  },
+  {
+    "id": "c5",
+    "type": "探索",
+    "difficulty": "Stretch",
+    "title": "先负后正",
+    "objectiveId": "o5",
+    "validatorId": "m08-fiduccia-mattheyses/c5"
+  },
+  {
+    "id": "c6",
+    "type": "拓展",
+    "difficulty": "Stretch",
+    "title": "多引脚 net 的收益",
+    "objectiveId": "o6",
+    "validatorId": "m08-fiduccia-mattheyses/c6"
+  }
+]

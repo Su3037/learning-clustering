@@ -1,0 +1,11 @@
+{
+  "moduleId": "m04-size-constrained-agglomerative",
+  "objectives": [
+    { "id": "o1", "sections": ["m04-size"], "sceneIds": ["s02-terms"], "slideIds": ["m04-problem"], "experiment": "最后一步的状态栏：四项报告", "challenges": ["c1"], "python": ["report"] },
+    { "id": "o2", "sections": ["m04-fork"], "sceneIds": ["s03-fork"], "slideIds": ["m04-fork"], "experiment": "G01 · 容量 2：第 2 步候选表中 AB–C 标红", "challenges": ["c2"], "python": ["solve"] },
+    { "id": "o3", "sections": ["m04-infeasible"], "sceneIds": ["s04-bound"], "slideIds": ["m04-bound"], "experiment": "诊断栏：下界与最少合法簇数", "challenges": ["c3"], "python": ["oracle"] },
+    { "id": "o4", "sections": ["m04-infeasible"], "sceneIds": ["s05-trap", "s06-trap2"], "slideIds": ["m04-trap"], "experiment": "greedy_trap · 诊断：总体可行，但贪心卡住", "challenges": ["c4"], "python": ["classify"] },
+    { "id": "o5", "sections": ["m04-suboptimal"], "sceneIds": ["s07-sub", "s08-uneven"], "slideIds": ["m04-sub", "m04-uneven"], "experiment": "suboptimal · 诊断：非最优；G01 把 A 的大小改为 2、容量 3", "challenges": ["c5", "c6"], "python": ["classify"] },
+    { "id": "o6", "sections": ["m04-pseudocode"], "sceneIds": ["s09-code"], "slideIds": ["m04-pseudo"], "experiment": "伪代码随事件高亮", "challenges": [], "python": ["solve", "report", "classify"] }
+  ]
+}

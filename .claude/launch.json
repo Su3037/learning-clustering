@@ -1,0 +1,6 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    { "name": "course", "runtimeExecutable": "python3", "runtimeArgs": ["scripts/serve.py", "8790"], "port": 8790, "url": "http://127.0.0.1:8790" }
+  ]
+}

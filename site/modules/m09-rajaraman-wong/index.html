@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Module 09 Rajaraman–Wong 延迟导向聚类 · Learning Clustering</title>
+<meta name="description" content="目标从 cut 换成延迟：组合电路 DAG、节点延迟、跨簇固定延迟 D、簇容量，允许复制逻辑节点；标记阶段与逆向恢复，逻辑节点与物理实例分开表示。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%2032%2032%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Ccircle%20cx%3D%229%22%20cy%3D%2211%22%20r%3D%225%22%20fill%3D%22%230f6b5c%22%2F%3E%3Ccircle%20cx%3D%2223%22%20cy%3D%229%22%20r%3D%224%22%20fill%3D%22%232f5e9e%22%2F%3E%3Ccircle%20cx%3D%2220%22%20cy%3D%2223%22%20r%3D%225%22%20fill%3D%22%238a6114%22%2F%3E%3Cpath%20d%3D%22M9%2011%2023%209M9%2011%2020%2023%22%20stroke%3D%22%2356625b%22%20stroke-width%3D%221.6%22%2F%3E%3Cpath%20d%3D%22M23%209%2020%2023%22%20stroke%3D%22%23a33b3b%22%20stroke-width%3D%221.6%22%20stroke-dasharray%3D%222.5%202%22%2F%3E%3C%2Fsvg%3E">
+<link rel="stylesheet" href="../../assets/course.css">
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="topbar"><div class="wrap">
+<a class="brand" href="../../index.html"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="9" cy="11" r="5" fill="#0f6b5c"/><circle cx="23" cy="9" r="4" fill="#2f5e9e"/><circle cx="20" cy="23" r="5" fill="#8a6114"/><path d="M9 11 23 9M9 11 20 23" stroke="#56625b" stroke-width="1.6"/><path d="M23 9 20 23" stroke="#a33b3b" stroke-width="1.6" stroke-dasharray="2.5 2"/></svg><span>Learning Clustering<br><small>连接与分组 · Clustering for EDA</small></span></a>
+<nav class="topnav" aria-label="课程"><a href="../../index.html">首页</a><a href="../../foundations/index.html">基础速查</a><a href="../../glossary/index.html">术语表</a><a href="../../guide/index.html">如何挑战</a><a href="../../credits/index.html">资源与贡献</a><a href="../../progress/index.html">学习记录</a></nav>
+</div></header>
+
+<nav class="module-nav" aria-label="本模块"><div class="wrap"><a href="#goals">目标与问题</a><a href="#film">影片</a><a href="#lesson">讲解</a><a href="#slides">课件</a><a href="#lab">实验</a><a href="#challenges">挑战</a><a href="#python">Python</a><a href="#mistakes">易错与局限</a><a href="#sources">来源</a></div></nav>
+<main id="main">
+<section class="mod-hero"><div class="wrap">
+<div>
+<p class="eyebrow">Module 09 · Rajaraman–Wong delay-oriented clustering</p>
+<h1>Rajaraman–Wong 延迟导向聚类</h1>
+<p class="sub">两种分法切断的连线差不多，为什么关键路径的延迟可以差很多？</p>
+<div class="btn-row"><span class="tag">原作者 muranfei</span><span class="tag">来源 Issue #8</span><span class="tag warn">教师目录对应待确认</span></div>
+<div class="notice"><strong>来源映射待确认：</strong>Issue #8（Lesson 9）提交的是 Rajaraman–Wong 延迟导向聚类，而教师当前课程目录的 Lab 09 是 Multilevel。本课程保留真实提交的主题，按提交顺序编为 Module 09；对应关系待教师确认。本页不是 Multilevel 的替代，旧的 multilevel 路径也不会跳转到这里。</div>
+<nav class="pager" aria-label="上一模块与下一模块"><a href="../m08-fiduccia-mattheyses/index.html">← Module 08 Fiduccia–Mattheyses 改进</a><a href="../../index.html#synthesis">八个模块的综合对比 →</a></nav>
+</div>
+<aside class="factbox" aria-label="本模块概况"><dl>
+<dt>前置</dt><dd>Module 02–08 的 cut 与分组概念；本章换用<strong>有向</strong>电路图，不复用五节点无向图。</dd>
+<dt>接下来</dt><dd>这是本课程的最后一个模块：回到<a href="../../index.html#synthesis">首页的综合对比</a>。</dd>
+<dt>影片</dt><dd>2:60 + 2:22</dd>
+<dt>课件</dt><dd>12 页，16:9，含页码</dd>
+<dt>挑战</dt><dd>6 题（[概念][推演][解释][探索]）</dd>
+<dt>Python</dt><dd>下载练习包，本地运行（网页不运行 Python）</dd>
+</dl></aside>
+</div></section>
+
+<section class="section" id="goals"><div class="wrap">
+<div class="section-head"><div><p class="eyebrow">目标与问题</p><h2>这一模块要解决什么</h2></div><p>先看问题和成功标准，再看算法。每个目标后面的链接指向讲它的地方。</p></div>
+<p class="review"><b>复习卡</b> · 前面七个模块都在减少 <strong>cut</strong>。本章换一个目标：信号从输入走到输出的<strong>最长延迟</strong>。图也换成有方向的组合电路（DAG）。</p>
+<div class="grid-2"><div><h3 style="margin-top:0">学习目标</h3><ol class="objectives"><li id="obj-o1">说明目标从“最小 cut”变为“最小 PI→PO 最大延迟”，并用四节点链手算：跨簇一次 7，两次 10。<span class="links"><a href="#m09-goal">目标变了：从 cut 到延迟</a> · <a href="#challenge-c1">[概念] 目标变了</a> · <a href="#challenge-c2">[推演] 一条路径的延迟</a></span></li><li id="obj-o2">写出 RW 的模型：DAG、节点延迟 δ(v)、簇内连线 0、跨簇连线固定 D、簇容量 M、允许复制。<span class="links"><a href="#m09-model">模型：DAG、延迟、容量</a></span></li><li id="obj-o3">区分逻辑节点（logicalId）与物理实例（instanceId），说明复制的作用与面积代价。<span class="links"><a href="#m09-replication">复制：一个逻辑节点，多个实例</a> · <a href="#challenge-c3">[解释] 复制与实例</a></span></li><li id="obj-o4">计算最长节点延迟 Δ(x, v) 并按拓扑序执行标记：l(v) = max(l1, l2)。<span class="links"><a href="#m09-init">初始化：最长节点延迟 Δ</a> · <a href="#m09-label">标记：l(v) = max(l1, l2)</a> · <a href="#challenge-c4">[推演] i 的标签</a></span></li><li id="obj-o5">从输出端逆向恢复簇与实例：候选图得到 8 簇、20 个实例、输出延迟 8；不复制时最好是 10。<span class="links"><a href="#m09-reconstruct">恢复：从输出倒推簇与实例</a> · <a href="#challenge-c5">[探索] 复制换来了多少</a></span></li><li id="obj-o6">说清适用边界：最优性只在论文模型内成立；候选 DAG 与平票规则待原作者确认；本模块与教师目录的对应待确认。<span class="links"><a href="#m09-scope">适用边界与待确认事项</a> · <a href="#challenge-c6">[解释] 哪些说法站得住</a> · <a href="#python">Python</a></span></li></ol></div>
+<div><h3 style="margin-top:0">问题定义</h3><div class="problem" style="grid-template-columns:1fr 1fr"><div><b>输入</b><p>组合电路 DAG（无环）、每个节点的延迟 δ(v) 与大小 s(v)、簇容量 M、跨簇延迟 D；PI 为没有输入的节点，PO 为输出。</p></div><div><b>输出</b><p>每个节点的标签 l(v)、被选中的簇、物理实例与实例连线、各 PO 的到达时间与最大延迟、复制的节点与总面积。</p></div><div><b>目标</b><p>最小化从任一 PI 到任一 PO 的最大路径延迟。</p></div><div><b>约束</b><p>每个簇的大小之和 ≤ M；簇内连线额外延迟 0，跨簇连线额外延迟 D；每个实例的输入必须完整。</p></div><div><b>假设</b><p>允许复制逻辑节点（这是最优性结论的前提）；本课程教学例 δ = 1、s = 1；平票：l(x)+Δ(x,v) 相等时拓扑序靠后者优先（候选假设）。</p></div><div><b>停止 / 完成</b><p>标记阶段处理完所有非 PI 节点；恢复阶段从 PO 出发，直到所有需要的簇都已生成。输入有环时报错，不做任何近似。</p></div></div></div></div>
+</div></section>
+
+<section class="section dark" id="film"><div class="wrap">
+<div class="section-head"><div><p class="eyebrow">影片 · 二维科普短片</p><h2>关键路径的代价</h2></div><p>分两集：第一集讲模型与标记，第二集讲逆向恢复、复制与完整例子。12 节点候选图由原作影片画面复原，平票规则为假设，画面上始终标注“候选”。</p></div>
+<div id="film-root"><p class="muted">正在载入影片…</p></div>
+</div></section>
+
+<section class="section" id="lesson"><div class="wrap">
+<div class="section-head"><div><p class="eyebrow">讲解 · 由浅入深</p><h2>从例子到伪代码</h2></div><p>章节编号与影片章节、课件页对应；完整对应表见本页末尾的 crosswalk。</p></div>
+<nav class="btn-row" aria-label="讲解小节" style="margin-bottom:24px"><a class="btn small" href="#m09-goal">1. 目标变了：从 cut 到延迟</a> <a class="btn small" href="#m09-model">2. 模型：DAG、延迟、容量</a> <a class="btn small" href="#m09-replication">3. 复制：一个逻辑节点，多个实例</a> <a class="btn small" href="#m09-init">4. 初始化：最长节点延迟 Δ</a> <a class="btn small" href="#m09-label">5. 标记：l(v) = max(l1, l2)</a> <a class="btn small" href="#m09-reconstruct">6. 恢复：从输出倒推簇与实例</a> <a class="btn small" href="#m09-pseudocode">7. 伪代码</a> <a class="btn small" href="#m09-scope">8. 适用边界与待确认事项</a></nav>
+<div class="prose"><section class="lesson-part" aria-labelledby="m09-goal"><h3 id="m09-goal"><span class="eyebrow" style="display:block;margin:0">第 1 节</span>目标变了：从 cut 到延迟</h3><p>前面七个模块都在减少 <strong>cut</strong>——跨组连线越少越好。可是在芯片里，很多时候更要紧的是<strong>快</strong>：信号从输入走到输出，最慢的那条路径决定了电路能跑多快。</p>
+<p>把电路分进不同的簇（例如不同的芯片区域或器件），<strong>跨簇的连线比簇内的慢得多</strong>。于是问题变成：怎样分簇，才能让<strong>最长路径的延迟</strong>最小？</p>
+<p>先看一条最简单的链：P → X → Y → O，每个节点延迟 1，每次跨簇多加 D = 3，每个簇最多放 2 个节点。</p>
+<table><thead><tr><th>分法</th><th>路径上跨簇次数</th><th>延迟</th></tr></thead><tbody><tr><td>{P, X} | {Y, O}</td><td>1（X→Y）</td><td>4 + 3 = <strong>7</strong></td></tr><tr><td>{P} | {X, Y} | {O}</td><td>2（P→X、Y→O）</td><td>4 + 3 + 3 = <strong>10</strong></td></tr></tbody></table>
+<p>两种分法都满足容量，延迟却差了 3。<strong>延迟只看最长路径跨了几次边界</strong>，而不是总共切断了多少条连线。在分叉的电路上，两种分法切断的连线数可以相同，关键路径的跨界次数却不同。</p></section>
+<section class="lesson-part" aria-labelledby="m09-model"><h3 id="m09-model"><span class="eyebrow" style="display:block;margin:0">第 2 节</span>模型：DAG、延迟、容量</h3><div class="terms"><div class="term" id="term-dag"><h4>有向无环图</h4><span class="en">DAG</span><p>组合电路：信号沿有向边流动，没有环。本章不使用前面的无向五节点图。</p></div><div class="term" id="term-pi-po"><h4>主输入 / 主输出</h4><span class="en">PI / PO</span><p>没有输入的源节点 / 电路的输出。</p></div><div class="term" id="term-node-delay-v-"><h4>节点延迟</h4><span class="en">node delay δ(v)</span><p>信号经过节点 v 需要的时间。本章例子 δ = 1。</p></div><div class="term" id="term-inter-cluster-delay-d"><h4>跨簇延迟</h4><span class="en">inter-cluster delay D</span><p>一条连线的两端在不同簇时额外增加的固定延迟；簇内为 0。它和 Module 06 里的度矩阵 D 无关。</p></div><div class="term" id="term-capacity-m"><h4>簇容量</h4><span class="en">capacity M</span><p>每个簇的大小上限。本章例子每个节点大小 1、M = 4。</p></div></div>
+<p>一条路径的延迟 = 路径上所有节点的 δ 之和 + D × 跨簇次数。电路的延迟 = 所有 PI→PO 路径中的最大值。</p>
+<p>背景：Lawler、Levitt 与 Turner（1969）研究过单位延迟的模块聚类；Rajaraman 与 Wong 在 DAC 1993 提出、并于 1995 年在 IEEE TCAD 发表了适用于一般节点延迟的算法，证明<strong>在允许复制节点的条件下</strong>能得到最大延迟最小的聚类。</p></section>
+<section class="lesson-part" aria-labelledby="m09-replication"><h3 id="m09-replication"><span class="eyebrow" style="display:block;margin:0">第 3 节</span>复制：一个逻辑节点，多个实例</h3><div class="terms"><div class="term" id="term-logicalid"><h4>逻辑节点</h4><span class="en">logicalId</span><p>电路中的一个门或单元（例如 b）。</p></div><div class="term" id="term-instanceid"><h4>物理实例</h4><span class="en">instanceId</span><p>逻辑节点放在某个簇里的一份副本，本课程写作“节点@簇根”（例如 b@d）。</p></div><div class="term" id="term-replication"><h4>复制</h4><span class="en">replication</span><p>同一个逻辑节点在多个簇里各放一份实例。每个实例都要有完整的输入。</p></div></div>
+<p>为什么要复制？如果一个节点同时供给两个延迟关键的簇，把它放进其中一个，另一个簇就得跨界取信号，多付 D。复制一份，两个簇都能在簇内拿到它。</p>
+<div class="callout warn"><strong>复制不是免费的，也不能用“节点 → 簇”表示</strong><p>每个副本都占面积。12 个逻辑节点的候选例子最终有 20 个实例。数据结构上，一个“节点 → 簇”的映射只能给每个节点一个簇；复制后必须分开记录逻辑节点与实例，并检查每个实例的输入完整。本课程引擎的 <code>instances[{instanceId, logicalId, clusterId}]</code> 与实例连线就是为此设计的。</p></div></section>
+<section class="lesson-part" aria-labelledby="m09-init"><h3 id="m09-init"><span class="eyebrow" style="display:block;margin:0">第 4 节</span>初始化：最长节点延迟 Δ</h3><p>候选例子（由原作者 muranfei 影片中的图复原，<strong>候选</strong>状态）有 12 个节点 a–l：PI 为 a、b、c，PO 为 k、l，15 条有向边。</p>
+<blockquote class="callout"><p><strong>Δ(x, v)</strong>：从 x 到 v 的所有路径中，节点延迟之和的最大值——计 v，不计 x。没有路径时不定义。</p></blockquote>
+<p>例如 b → e → g → i → k 经过 e、g、i、k 四个节点：Δ(b, k) = 4。原作影片 438 秒处给出了完整的 Δ 表，本课程用复原的边表重新计算，与它逐项一致。</p>
+<p>PI 的标签就是它自己的延迟：l(a) = l(b) = l(c) = 1。</p></section>
+<section class="lesson-part" aria-labelledby="m09-label"><h3 id="m09-label"><span class="eyebrow" style="display:block;margin:0">第 5 节</span>标记：l(v) = max(l1, l2)</h3><p>按<strong>拓扑序</strong>处理每个非 PI 节点 v：</p>
+<ol><li>对 v 的每个祖先 x，算 <strong>l(x) + Δ(x, v)</strong>——“如果 x 之前的部分已经尽量快，信号从 x 走到 v 需要多久”。</li><li>按这个值从大到小排序（相等时，本课程假设拓扑序靠后的优先——<strong>候选假设</strong>）。</li><li>把 v 和排在前面的祖先依次放进候选簇，直到容量 M。</li><li><strong>l1</strong> = 簇内 PI 的最大值；<strong>l2</strong> = 簇外祖先的最大值 + D。<strong>l(v) = max(l1, l2)</strong>。</li></ol>
+<p>以 i 为例（容量 4）：</p>
+<table><thead><tr><th>祖先 x</th><th>l(x) + Δ(x, i)</th><th>在簇内？</th></tr></thead><tbody><tr><td>g</td><td>3 + 1 = 4</td><td>是</td></tr><tr><td>e</td><td>2 + 2 = 4</td><td>是</td></tr><tr><td>c</td><td>1 + 3 = 4</td><td>是（PI）</td></tr><tr><td>b</td><td>1 + 3 = 4</td><td>否</td></tr><tr><td>f、d、a</td><td>3</td><td>否</td></tr></tbody></table>
+<p>l1 = 4（簇内 PI c），l2 = 4 + 3 = 7（簇外最大的是 b）。<strong>l(i) = 7</strong>。最后 l(k) = l(l) = 8。</p>
+<div class="callout note"><strong>两种“标签”</strong><p>RW 的 l(v) 是一个<strong>时间</strong>；Module 05 的标签是一个<strong>群体记号</strong>。两者同名，含义完全不同。</p></div></section>
+<section class="lesson-part" aria-labelledby="m09-reconstruct"><h3 id="m09-reconstruct"><span class="eyebrow" style="display:block;margin:0">第 6 节</span>恢复：从输出倒推簇与实例</h3><p>标记只给出每个节点的候选簇。真正用到的簇从 PO 倒推：</p>
+<ol><li>从 k、l 开始，取它们的候选簇：k 的簇 {g, i, j, k}，l 的簇 {e, g, j, l}。</li><li>簇外的输入节点（k 的簇需要 d、e、f、h；l 的簇需要 b、c、h）各自成为新的簇根，取它们的候选簇。</li><li>重复直到不再需要新的簇。</li></ol>
+<p>候选例子得到 <strong>8 个簇、20 个实例</strong>；g、j、e、a 各有 2 个实例，b、c 各有 3 个。每个实例的输入都完整（本课程测试检查）。两个输出的到达时间都是 <strong>8</strong>，等于标签。</p>
+<p><strong>和不复制相比</strong>：同样容量 4、同样 D = 3，如果每个节点只能在一个簇里，本课程穷举所有合法分组得到的最好最大延迟是 <strong>10</strong>。复制用 8 个额外的实例换来了 2 个单位的延迟。</p></section>
+<section class="lesson-part" aria-labelledby="m09-pseudocode"><h3 id="m09-pseudocode"><span class="eyebrow" style="display:block;margin:0">第 7 节</span>伪代码</h3><div class="pseudo" data-pseudo="rw"><ol aria-label="伪代码"><li data-line="1" data-note="有环则报错。Δ 计 v 不计 x。">检查输入是 DAG；求拓扑序；计算 Δ(x, v)</li><li data-line="2" data-note="PI 没有输入。">for 每个 PI p: l(p) ← δ(p)</li><li data-line="3" data-note="保证 v 的祖先都已有标签。">for 每个非 PI 节点 v（拓扑序）:</li><li data-line="4" data-note="从 x 出发到 v 的最早时间。">    score(x) ← l(x) + Δ(x, v)，对 v 的每个祖先 x</li><li data-line="5" data-note="平票：拓扑序靠后者优先（候选假设）。">    候选簇 ← v + 按 score 降序的祖先，直到容量 M</li><li data-line="6" data-note="簇外的路径必须跨一次边界。">    l1 ← 簇内 PI 的最大 score；l2 ← 簇外最大 score + D</li><li data-line="7" data-note="标签是时间，不是群体。">    l(v) ← max(l1, l2)</li><li data-line="8" data-note="逆向恢复实际需要的簇。">从 PO 倒推：取候选簇，簇外输入成为新的簇根</li><li data-line="9" data-note="一个逻辑节点可有多个实例；检查输入完整。">为每个（簇根, 成员）生成实例，连接实例边</li></ol><div class="explain"><p class="muted">点击任一行看解释；在实验中单步时，当前执行的行会自动高亮。</p></div></div>
+<p><strong>和 Python 的对应</strong>：第 1 行 → <code>topological_order()</code>、<code>longest_node_delays()</code>；第 2–7 行 → <code>rw_label()</code>；第 8–9 行 → <code>rw_reconstruct()</code>；到达时间 → <code>evaluate_instance_delay()</code>。</p></section>
+<section class="lesson-part" aria-labelledby="m09-scope"><h3 id="m09-scope"><span class="eyebrow" style="display:block;margin:0">第 8 节</span>适用边界与待确认事项</h3><ul><li><strong>最优性只在模型内</strong>：DAG、节点延迟、簇内 0、跨簇固定 D、容量、<strong>允许复制</strong>。禁止复制、或者同时要求面积/引脚/功耗最优时，不能沿用这一结论。本课程的测试检查实现的一致性，不证明最优性。</li><li><strong>候选数据</strong>：12 节点例子由原作影片画面复原；“相等时逆拓扑序优先”是假设。它重现了 8 簇、20 实例、输出 8，但原始边表与平票规则待原作者确认。</li><li><strong>课程对应</strong>：这份提交编号为 Lesson 9，而教师目录的 Lab 09 是 Multilevel。本模块按提交保留 RW，不替代 Multilevel，对应关系待教师确认。</li><li><strong>工程含义</strong>：延迟驱动的聚类常用于把电路分到多个芯片或 FPGA 区域时减少跨区延迟；复制换来速度，也带来面积。</li></ul></section></div>
+</div></section>
+
+<section class="section" id="slides"><div class="wrap">
+<div class="section-head"><div><p class="eyebrow">课件 · 带页码与讲稿</p><h2>课堂课件</h2></div><p>页码与 PDF 完全一致；当前页的讲稿在幻灯片下方，不遮挡图。</p></div>
+<div id="slides-root"><p class="muted">正在载入课件…</p></div>
+</div></section>
+
+<section class="section dark" id="lab"><div class="wrap">
+<div class="section-head"><div><p class="eyebrow">实验 · 浏览器内实时计算</p><h2>链路评估与 RW 标记、恢复</h2></div><p>上半部分：给四节点链切分，看跨簇次数如何改变延迟。下半部分：在候选 DAG 上单步执行标记与恢复；可以改 D 和容量，引擎会重算。</p></div>
+<div id="lab-root" tabindex="-1"><p class="muted">正在载入实验…（需要通过 HTTP 打开页面；直接双击 HTML 时浏览器会阻止模块脚本。）</p></div>
+</div></section>
+
+<section class="section" id="challenges"><div class="wrap">
+<div class="section-head"><div><p class="eyebrow">挑战 · 由易到难</p><h2>分组挑战</h2></div><p>类别写在方括号里，难度单独标注。答案由引擎或明确规则判定；看答案不扣分，记录会如实区分。</p></div>
+<p class="ch-guide">第一次用？先读<a href="../../guide/index.html">如何挑战</a>：读任务 → 预测 → 操作 → 提交 → 看解释 → 再试。第 3 题区分逻辑节点与实例：实例写作“节点@簇根”。</p>
+<div class="ch-list" id="challenge-root"><p class="muted">正在载入挑战…</p></div>
+</div></section>
+
+<section class="section" id="python"><div class="wrap">
+<div class="section-head"><div><p class="eyebrow">Python 实现轨道 · 可选</p><h2>分层完成：先评估延迟，再实现标记与恢复</h2></div><p>网页基础轨道不需要 Python。下载后在任意空目录运行；只用标准库。</p></div>
+<div class="grid-2"><div class="prose"><p><strong>基础任务</strong>（可以先独立完成这三项）：</p>
+<ol><li><code>topological_order(nodes, edges)</code>：有环时报错。</li><li><code>longest_node_delays(...)</code>：Δ[x][v]。</li><li><code>evaluate_instance_delay(...)</code>：实例到达时间；链的 7 与 10。</li></ol>
+<p><strong>进阶任务</strong>：</p>
+<ol><li><code>rw_label(dag)</code>：按拓扑序打标签。</li><li><code>rw_reconstruct(dag, cluster)</code>：从 PO 倒推簇与实例。</li></ol>
+<p><strong>提示一</strong>：Δ 只计路径上 v 的延迟、不计起点 x；无路径记为 None。</p>
+<p><strong>提示二</strong>：实例 id 写成 “节点@簇根”；簇外输入 u 来自 “u@u”，代价 D。检查器在候选图上核对 8 簇、20 实例、输出 8，并检查每个实例的输入完整。</p></div>
+<div><div class="py-files"><div><code>starter.py</code><br>起始代码：留有 TODO</div><div><code>check.py</code><br>检查器：未完成报 INCOMPLETE，不算 PASS</div><div><code>reference.py</code><br>参考实现：卡住时再看</div><div><code>fixtures/</code><br>本章例子的 JSON</div><div><code>README.md</code><br>任务、两级提示与样例</div></div>
+<p><a class="btn primary" href="../../downloads/m09-rajaraman-wong-python.zip" download>下载练习包（.zip）</a></p>
+<pre><code>python3 check.py              # 检查你的 starter.py
+python3 check.py reference.py # 看参考实现全部通过</code></pre></div></div>
+</div></section>
+
+<section class="section" id="mistakes"><div class="wrap">
+<div class="section-head"><div><p class="eyebrow">常见错误与局限</p><h2>容易错在哪里</h2></div><p>每条都给错误结果、错因、反例和修正；反例的数值都由测试复算。</p></div>
+<div class="mistakes"><article class="mistake"><h4>以为 cut 小就延迟小</h4><dl><dt>错误结果</dt><dd>选跨簇边最少的分法，认为关键路径最快。</dd><dt>错因</dt><dd>延迟只看最长的那条路径经过了几次边界；跨簇边的总数不直接决定它。</dd><dt>反例 / 证据</dt><dd>四节点链分成 {P,X} | {Y,O}：1 条跨簇边、延迟 7；分成 {P} | {X,Y} | {O}：2 条跨簇边、延迟 10。在分叉的电路上，跨簇边数相同的两种分法，关键路径的跨界次数可以不同。</dd><dt>修正</dt><dd>按路径计算延迟：节点延迟之和 + D × 路径上的跨界次数，取所有 PI→PO 路径的最大值。</dd></dl></article><article class="mistake"><h4>用“节点 → 簇”的映射表示复制</h4><dl><dt>错误结果</dt><dd>给每个节点记一个簇号，复制时把同一节点写进两个簇。</dd><dt>错因</dt><dd>一个映射表只能给每个节点一个簇；复制后同一个逻辑节点有多个物理实例，每个实例有自己的输入。</dd><dt>反例 / 证据</dt><dd>候选图里逻辑节点 b 有 3 个实例：b@b、b@d、b@e。</dd><dt>修正</dt><dd>逻辑节点与实例分开：instances[{instanceId, logicalId, clusterId}] + 实例连线，并检查每个实例的输入完整。</dd></dl></article><article class="mistake"><h4>把复制当成免费的</h4><dl><dt>错误结果</dt><dd>为了缩短延迟，随意复制节点。</dd><dt>错因</dt><dd>每个副本都占面积；RW 的结论是在允许复制、并满足容量的前提下延迟最优，不是面积最优。</dd><dt>反例 / 证据</dt><dd>候选图：12 个逻辑节点变成 20 个实例，总面积 20。</dd><dt>修正</dt><dd>报告实例数与总面积；比较方案时同时看延迟与代价。</dd></dl></article><article class="mistake"><h4>把“延迟最优”推广到禁止复制的情况</h4><dl><dt>错误结果</dt><dd>认为 RW 的最优性在不允许复制时依然成立。</dd><dt>错因</dt><dd>最优性证明依赖于允许复制；禁止复制后问题不同，结论不再适用。</dd><dt>反例 / 证据</dt><dd>候选图上禁止复制、容量 4 时，穷举得到的最好最大延迟是 10，而允许复制的 RW 结果是 8。</dd><dt>修正</dt><dd>说明前提：DAG、节点延迟模型、固定 D、容量、允许复制。</dd></dl></article><article class="mistake"><h4>把 RW 的“标签”当成 LP 的标签</h4><dl><dt>错误结果</dt><dd>以为 l(v) 是 v 所属的群体。</dd><dt>错因</dt><dd>RW 的标签是一个数：从输入到 v 的最小可能到达时间（在模型内）；LP 的标签是群体记号。</dd><dt>反例 / 证据</dt><dd>候选图 l(i) = 7、l(k) = 8，都是时间。</dd><dt>修正</dt><dd>称为“延迟标签 l(v)”，与 Module 05 区分。</dd></dl></article></div>
+<div class="prose" style="margin-top:26px"><h3>适用范围与局限</h3><ul><li><strong>最优性来自论文</strong>（Rajaraman 与 Wong，IEEE TCAD 1995；会议版 DAC 1993），只在其模型内成立：组合 DAG、节点延迟、簇内 0、跨簇固定 D、容量约束、允许复制。本课程的测试不证明最优性，只检查实例图合法、到达时间计算一致。</li><li><strong>12 节点例子是候选复原</strong>：原作影片的图与 Δ 表复原出 15 条边，在“lv 降序、相等时逆拓扑序”的平票假设下重现 8 簇、20 实例、输出 8。原始边表与平票规则尚待原作者确认，不是教师确认的数据。</li><li><strong>课程对应待确认</strong>：教师目录的 Lab 09 是 Multilevel，本模块不替代它。</li><li>本课程实现假设单位大小时逐个加入候选（前缀），一般大小下的装入策略与论文细节需进一步核对。</li><li>复制带来面积代价；实际设计还要考虑引脚、功耗等，本章不讨论。</li></ul></div>
+</div></section>
+
+<section class="section" id="sources"><div class="wrap">
+<div class="section-head"><div><p class="eyebrow">资料与原作者</p><h2>来源</h2></div><p>本模块在统一课程中重写了讲解、引擎与媒体；原作的贡献在此署名，未复制无许可的源代码或音轨。</p></div>
+<div class="grid-2"><div class="prose">
+<h3 style="margin-top:0">原作者与保留的贡献</h3>
+<p><strong>muranfei</strong> · <a href="https://muranfei.github.io/rajaraman-wong-algorithm-teaching/">原网站</a> · <a href="https://github.com/muranfei/rajaraman-wong-algorithm-teaching">原仓库</a>（固定 <code>63c23ec</code>）</p>
+<ul><li>约 13 分 52 秒的长专题结构：问题 → 延迟模型 → DAG → 初始化 / 标记 / 聚类三阶段；本章按此拆成两集。</li><li>讲义中 l1 / l2、节点复制以及面积代价的讲法。</li><li>12 节点算例（d = 1、D = 3、容量 4）：本章的候选 DAG 由该影片 405 秒处的图与 438 秒处的 Δ 表复原。</li><li>明确列出来源与局限的写法。</li></ul>
+<p class="small muted">原仓库未声明统一许可，本模块未复制其视频、讲义或课件画面；原作讲解基于 EST8717 Lecture 5 课件，该课件未在仓库中分发。原网页没有可执行的 RW 引擎，本课程的引擎、实验、挑战与 Python 练习为新写。</p>
+</div><div class="prose">
+<h3 style="margin-top:0">来源映射</h3>
+<table><tbody><tr><th>本课程</th><td>Module 09 · <code>m09-rajaraman-wong</code></td></tr><tr><th>提交</th><td><a href="https://github.com/yongfu-li/eda-learning/issues/8">Issue #8</a>（Clustering Module - Lesson 9）</td></tr><tr><th>教师目录</th><td>module03-01-multilevel-clustering（Lab 09：Multilevel）——与提交主题不一致</td></tr><tr><th>状态</th><td>待教师确认</td></tr></tbody></table>
+<h3>参考文献</h3><ul><li>Rajaraman, R., &amp; Wong, D. F. (1995). Optimum clustering for delay minimization. <em>IEEE Transactions on Computer-Aided Design</em>, 14(12), 1490–1495. <a href="https://doi.org/10.1109/43.476579" rel="noopener">doi:10.1109/43.476579</a></li><li>会议版本：Rajaraman, R., &amp; Wong, D. F. (1993). Optimal clustering for delay minimization. <em>Proc. 30th Design Automation Conference</em>.</li><li>单位延迟模型的早期工作：Lawler, E. L., Levitt, K. N., &amp; Turner, J. (1969). Module clustering to minimize delay in digital networks. <em>IEEE Transactions on Computers</em>, C-18(1), 47–57.</li><li>教师原课程目录中的 <a href="https://github.com/yongfu-li/eda-learning/tree/003bcd49e3794e6cfd2680181cdbd347d673ad07/courses/learn_clustering/module03-01-multilevel-clustering" rel="noopener">Lab 09（Multilevel）</a>——与本模块主题不同。</li></ul>
+<p><a href="../../data/m09-rajaraman-wong/crosswalk.json">本模块 crosswalk（目标 → 讲解 → 影片 → 课件 → 实验 → 挑战 → Python）</a> · <a href="../../downloads/m09-rajaraman-wong-outline.md">Markdown 大纲</a></p>
+</div></div>
+</div></section>
+</main>
+<footer class="footer"><div class="wrap">
+<span>Learning Clustering · 整合已关闭 Clustering 提交 Module 02–09。原作者署名见<a href="../../credits/index.html">资源与贡献</a>。</span>
+<span><button class="btn quiet small" type="button" data-pref="reduceMotion">减少动态</button> <button class="btn quiet small" type="button" data-pref="sound">声音</button> · 内容版本 2026.10.23-1</span>
+</div></footer>
+<script type="module">import { initShell } from '../../assets/core.js'; initShell();</script>
+<script type="module" src="./lab.js"></script>
+</body>
+</html>

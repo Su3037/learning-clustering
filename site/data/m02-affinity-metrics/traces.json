@@ -1,0 +1,776 @@
+{
+ "moduleId": "m02-affinity-metrics",
+ "engineVersion": "1.0.0",
+ "generatedBy": "scripts/build-traces.mjs",
+ "g01": {
+  "nodes": [
+   "A",
+   "B",
+   "C",
+   "D",
+   "E"
+  ],
+  "edges": [
+   [
+    "A",
+    "B",
+    5
+   ],
+   [
+    "A",
+    "C",
+    1
+   ],
+   [
+    "B",
+    "C",
+    4
+   ],
+   [
+    "C",
+    "D",
+    2
+   ],
+   [
+    "C",
+    "E",
+    1
+   ],
+   [
+    "D",
+    "E",
+    5
+   ]
+  ],
+  "positions": {
+   "A": [
+    170,
+    100
+   ],
+   "B": [
+    390,
+    85
+   ],
+   "C": [
+    305,
+    270
+   ],
+   "D": [
+    530,
+    375
+   ],
+   "E": [
+    280,
+    440
+   ]
+  }
+ },
+ "priority": {
+  "nodes": [
+   "P",
+   "Q",
+   "R",
+   "X",
+   "Y"
+  ],
+  "edges": [
+   [
+    "P",
+    "Q",
+    4
+   ],
+   [
+    "P",
+    "R",
+    4
+   ],
+   [
+    "Q",
+    "R",
+    4
+   ],
+   [
+    "X",
+    "Y",
+    5
+   ]
+  ],
+  "positions": {
+   "P": [
+    150,
+    330
+   ],
+   "Q": [
+    330,
+    330
+   ],
+   "R": [
+    240,
+    160
+   ],
+   "X": [
+    470,
+    170
+   ],
+   "Y": [
+    590,
+    330
+   ]
+  }
+ },
+ "netlist": {
+  "nodes": [
+   "A",
+   "B",
+   "C",
+   "D",
+   "E",
+   "F"
+  ],
+  "nets": [
+   {
+    "id": "en",
+    "pins": [
+     "A",
+     "B",
+     "C",
+     "D",
+     "E"
+    ],
+    "w": 1
+   },
+   {
+    "id": "rst",
+    "pins": [
+     "A",
+     "B",
+     "C",
+     "D",
+     "E"
+    ],
+    "w": 1
+   },
+   {
+    "id": "n1",
+    "pins": [
+     "E",
+     "F"
+    ],
+    "w": 1
+   }
+  ]
+ },
+ "edge": [
+  {
+   "u": "A",
+   "v": "B",
+   "score": 5,
+   "parts": {
+    "direct": 5,
+    "via": []
+   }
+  },
+  {
+   "u": "D",
+   "v": "E",
+   "score": 5,
+   "parts": {
+    "direct": 5,
+    "via": []
+   }
+  },
+  {
+   "u": "B",
+   "v": "C",
+   "score": 4,
+   "parts": {
+    "direct": 4,
+    "via": []
+   }
+  },
+  {
+   "u": "C",
+   "v": "D",
+   "score": 2,
+   "parts": {
+    "direct": 2,
+    "via": []
+   }
+  },
+  {
+   "u": "A",
+   "v": "C",
+   "score": 1,
+   "parts": {
+    "direct": 1,
+    "via": []
+   }
+  },
+  {
+   "u": "C",
+   "v": "E",
+   "score": 1,
+   "parts": {
+    "direct": 1,
+    "via": []
+   }
+  }
+ ],
+ "shared": [
+  {
+   "u": "A",
+   "v": "B",
+   "score": 6,
+   "parts": {
+    "direct": 5,
+    "via": [
+     {
+      "x": "C",
+      "wu": 1,
+      "wv": 4,
+      "min": 1
+     }
+    ]
+   }
+  },
+  {
+   "u": "D",
+   "v": "E",
+   "score": 6,
+   "parts": {
+    "direct": 5,
+    "via": [
+     {
+      "x": "C",
+      "wu": 2,
+      "wv": 1,
+      "min": 1
+     }
+    ]
+   }
+  },
+  {
+   "u": "A",
+   "v": "C",
+   "score": 5,
+   "parts": {
+    "direct": 1,
+    "via": [
+     {
+      "x": "B",
+      "wu": 5,
+      "wv": 4,
+      "min": 4
+     }
+    ]
+   }
+  },
+  {
+   "u": "B",
+   "v": "C",
+   "score": 5,
+   "parts": {
+    "direct": 4,
+    "via": [
+     {
+      "x": "A",
+      "wu": 5,
+      "wv": 1,
+      "min": 1
+     }
+    ]
+   }
+  },
+  {
+   "u": "C",
+   "v": "D",
+   "score": 3,
+   "parts": {
+    "direct": 2,
+    "via": [
+     {
+      "x": "E",
+      "wu": 1,
+      "wv": 5,
+      "min": 1
+     }
+    ]
+   }
+  },
+  {
+   "u": "C",
+   "v": "E",
+   "score": 3,
+   "parts": {
+    "direct": 1,
+    "via": [
+     {
+      "x": "D",
+      "wu": 2,
+      "wv": 5,
+      "min": 2
+     }
+    ]
+   }
+  },
+  {
+   "u": "B",
+   "v": "D",
+   "score": 2,
+   "parts": {
+    "direct": 0,
+    "via": [
+     {
+      "x": "C",
+      "wu": 4,
+      "wv": 2,
+      "min": 2
+     }
+    ]
+   }
+  },
+  {
+   "u": "A",
+   "v": "D",
+   "score": 1,
+   "parts": {
+    "direct": 0,
+    "via": [
+     {
+      "x": "C",
+      "wu": 1,
+      "wv": 2,
+      "min": 1
+     }
+    ]
+   }
+  },
+  {
+   "u": "A",
+   "v": "E",
+   "score": 1,
+   "parts": {
+    "direct": 0,
+    "via": [
+     {
+      "x": "C",
+      "wu": 1,
+      "wv": 1,
+      "min": 1
+     }
+    ]
+   }
+  },
+  {
+   "u": "B",
+   "v": "E",
+   "score": 1,
+   "parts": {
+    "direct": 0,
+    "via": [
+     {
+      "x": "C",
+      "wu": 4,
+      "wv": 1,
+      "min": 1
+     }
+    ]
+   }
+  }
+ ],
+ "priorityEdge": [
+  {
+   "u": "X",
+   "v": "Y",
+   "score": 5,
+   "parts": {
+    "direct": 5,
+    "via": []
+   }
+  },
+  {
+   "u": "P",
+   "v": "Q",
+   "score": 4,
+   "parts": {
+    "direct": 4,
+    "via": []
+   }
+  },
+  {
+   "u": "P",
+   "v": "R",
+   "score": 4,
+   "parts": {
+    "direct": 4,
+    "via": []
+   }
+  },
+  {
+   "u": "Q",
+   "v": "R",
+   "score": 4,
+   "parts": {
+    "direct": 4,
+    "via": []
+   }
+  }
+ ],
+ "priorityShared": [
+  {
+   "u": "P",
+   "v": "Q",
+   "score": 8,
+   "parts": {
+    "direct": 4,
+    "via": [
+     {
+      "x": "R",
+      "wu": 4,
+      "wv": 4,
+      "min": 4
+     }
+    ]
+   }
+  },
+  {
+   "u": "P",
+   "v": "R",
+   "score": 8,
+   "parts": {
+    "direct": 4,
+    "via": [
+     {
+      "x": "Q",
+      "wu": 4,
+      "wv": 4,
+      "min": 4
+     }
+    ]
+   }
+  },
+  {
+   "u": "Q",
+   "v": "R",
+   "score": 8,
+   "parts": {
+    "direct": 4,
+    "via": [
+     {
+      "x": "P",
+      "wu": 4,
+      "wv": 4,
+      "min": 4
+     }
+    ]
+   }
+  },
+  {
+   "u": "X",
+   "v": "Y",
+   "score": 5,
+   "parts": {
+    "direct": 5,
+    "via": []
+   }
+  }
+ ],
+ "pin": {
+  "scores": [
+   {
+    "u": "E",
+    "v": "F",
+    "score": 1,
+    "raw": 1,
+    "parts": {
+     "nets": [
+      {
+       "id": "n1",
+       "size": 2,
+       "w": 1,
+       "share": 1
+      }
+     ]
+    }
+   },
+   {
+    "u": "A",
+    "v": "B",
+    "score": 0.5,
+    "raw": 2,
+    "parts": {
+     "nets": [
+      {
+       "id": "en",
+       "size": 5,
+       "w": 1,
+       "share": 0.25
+      },
+      {
+       "id": "rst",
+       "size": 5,
+       "w": 1,
+       "share": 0.25
+      }
+     ]
+    }
+   },
+   {
+    "u": "A",
+    "v": "C",
+    "score": 0.5,
+    "raw": 2,
+    "parts": {
+     "nets": [
+      {
+       "id": "en",
+       "size": 5,
+       "w": 1,
+       "share": 0.25
+      },
+      {
+       "id": "rst",
+       "size": 5,
+       "w": 1,
+       "share": 0.25
+      }
+     ]
+    }
+   },
+   {
+    "u": "A",
+    "v": "D",
+    "score": 0.5,
+    "raw": 2,
+    "parts": {
+     "nets": [
+      {
+       "id": "en",
+       "size": 5,
+       "w": 1,
+       "share": 0.25
+      },
+      {
+       "id": "rst",
+       "size": 5,
+       "w": 1,
+       "share": 0.25
+      }
+     ]
+    }
+   },
+   {
+    "u": "A",
+    "v": "E",
+    "score": 0.5,
+    "raw": 2,
+    "parts": {
+     "nets": [
+      {
+       "id": "en",
+       "size": 5,
+       "w": 1,
+       "share": 0.25
+      },
+      {
+       "id": "rst",
+       "size": 5,
+       "w": 1,
+       "share": 0.25
+      }
+     ]
+    }
+   },
+   {
+    "u": "B",
+    "v": "C",
+    "score": 0.5,
+    "raw": 2,
+    "parts": {
+     "nets": [
+      {
+       "id": "en",
+       "size": 5,
+       "w": 1,
+       "share": 0.25
+      },
+      {
+       "id": "rst",
+       "size": 5,
+       "w": 1,
+       "share": 0.25
+      }
+     ]
+    }
+   },
+   {
+    "u": "B",
+    "v": "D",
+    "score": 0.5,
+    "raw": 2,
+    "parts": {
+     "nets": [
+      {
+       "id": "en",
+       "size": 5,
+       "w": 1,
+       "share": 0.25
+      },
+      {
+       "id": "rst",
+       "size": 5,
+       "w": 1,
+       "share": 0.25
+      }
+     ]
+    }
+   },
+   {
+    "u": "B",
+    "v": "E",
+    "score": 0.5,
+    "raw": 2,
+    "parts": {
+     "nets": [
+      {
+       "id": "en",
+       "size": 5,
+       "w": 1,
+       "share": 0.25
+      },
+      {
+       "id": "rst",
+       "size": 5,
+       "w": 1,
+       "share": 0.25
+      }
+     ]
+    }
+   },
+   {
+    "u": "C",
+    "v": "D",
+    "score": 0.5,
+    "raw": 2,
+    "parts": {
+     "nets": [
+      {
+       "id": "en",
+       "size": 5,
+       "w": 1,
+       "share": 0.25
+      },
+      {
+       "id": "rst",
+       "size": 5,
+       "w": 1,
+       "share": 0.25
+      }
+     ]
+    }
+   },
+   {
+    "u": "C",
+    "v": "E",
+    "score": 0.5,
+    "raw": 2,
+    "parts": {
+     "nets": [
+      {
+       "id": "en",
+       "size": 5,
+       "w": 1,
+       "share": 0.25
+      },
+      {
+       "id": "rst",
+       "size": 5,
+       "w": 1,
+       "share": 0.25
+      }
+     ]
+    }
+   },
+   {
+    "u": "D",
+    "v": "E",
+    "score": 0.5,
+    "raw": 2,
+    "parts": {
+     "nets": [
+      {
+       "id": "en",
+       "size": 5,
+       "w": 1,
+       "share": 0.25
+      },
+      {
+       "id": "rst",
+       "size": 5,
+       "w": 1,
+       "share": 0.25
+      }
+     ]
+    }
+   }
+  ],
+  "raw": [
+   {
+    "u": "A",
+    "v": "B",
+    "score": 2
+   },
+   {
+    "u": "A",
+    "v": "C",
+    "score": 2
+   },
+   {
+    "u": "A",
+    "v": "D",
+    "score": 2
+   },
+   {
+    "u": "A",
+    "v": "E",
+    "score": 2
+   },
+   {
+    "u": "B",
+    "v": "C",
+    "score": 2
+   },
+   {
+    "u": "B",
+    "v": "D",
+    "score": 2
+   },
+   {
+    "u": "B",
+    "v": "E",
+    "score": 2
+   },
+   {
+    "u": "C",
+    "v": "D",
+    "score": 2
+   },
+   {
+    "u": "C",
+    "v": "E",
+    "score": 2
+   },
+   {
+    "u": "D",
+    "v": "E",
+    "score": 2
+   },
+   {
+    "u": "E",
+    "v": "F",
+    "score": 1
+   }
+  ],
+  "ignored": []
+ }
+}

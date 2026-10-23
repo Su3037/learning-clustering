@@ -1,0 +1,388 @@
+{
+ "id": "fm",
+ "title": "合法的那一步",
+ "status": "ready",
+ "src": "fm.mp4",
+ "vtt": "fm.zh.vtt",
+ "poster": "fm-poster.jpg",
+ "duration": 225.3,
+ "chapters": [
+  {
+   "t": 3.0,
+   "title": "一 · 与 KL 的差别",
+   "sceneId": "s01-diff"
+  },
+  {
+   "t": 20.02,
+   "title": "二 · 合法性与收益",
+   "sceneId": "s02-gains"
+  },
+  {
+   "t": 56.87,
+   "title": "三 · 走完一轮",
+   "sceneId": "s04-walk"
+  },
+  {
+   "t": 84.73,
+   "title": "四 · 最佳前缀",
+   "sceneId": "s05-prefix"
+  },
+  {
+   "t": 102.11,
+   "title": "五 · 审查一个反例",
+   "sceneId": "s06-legacy"
+  },
+  {
+   "t": 157.58,
+   "title": "六 · 桶与多引脚 net",
+   "sceneId": "s08-bucket"
+  },
+  {
+   "t": 192.96,
+   "title": "七 · 伪代码与局限",
+   "sceneId": "s10-code"
+  }
+ ],
+ "scenes": [
+  {
+   "sceneId": "s00-title",
+   "start": 0.0,
+   "end": 3.0
+  },
+  {
+   "sceneId": "s01-diff",
+   "start": 3.0,
+   "end": 20.02
+  },
+  {
+   "sceneId": "s02-gains",
+   "start": 20.02,
+   "end": 38.38
+  },
+  {
+   "sceneId": "s03-fste",
+   "start": 38.38,
+   "end": 56.87
+  },
+  {
+   "sceneId": "s04-walk",
+   "start": 56.87,
+   "end": 84.73
+  },
+  {
+   "sceneId": "s05-prefix",
+   "start": 84.73,
+   "end": 102.11
+  },
+  {
+   "sceneId": "s06-legacy",
+   "start": 102.11,
+   "end": 127.71
+  },
+  {
+   "sceneId": "s07-escape",
+   "start": 127.71,
+   "end": 157.58
+  },
+  {
+   "sceneId": "s08-bucket",
+   "start": 157.58,
+   "end": 176.16
+  },
+  {
+   "sceneId": "s09-multipin",
+   "start": 176.16,
+   "end": 192.96
+  },
+  {
+   "sceneId": "s10-code",
+   "start": 192.96,
+   "end": 211.36
+  },
+  {
+   "sceneId": "s11-limits",
+   "start": 211.36,
+   "end": 225.31
+  }
+ ],
+ "transcript": [
+  {
+   "start": 3.0,
+   "end": 7.133,
+   "text": "KL 一换一：两侧人数永远不变。",
+   "sceneId": "s01-diff"
+  },
+  {
+   "start": 7.133,
+   "end": 12.6,
+   "text": "FM 一次只移动一个点：更灵活，但人数会变。",
+   "sceneId": "s01-diff"
+  },
+  {
+   "start": 12.6,
+   "end": 19.622,
+   "text": "所以要加一个平衡窗口：两侧人数之差不超过 maxDiff。",
+   "sceneId": "s01-diff"
+  },
+  {
+   "start": 20.022,
+   "end": 25.711,
+   "text": "同一个种子 AE | BCD，maxDiff = 1。",
+   "sceneId": "s02-gains"
+  },
+  {
+   "start": 25.711,
+   "end": 32.289,
+   "text": "A、E 的收益是 +6，最大——可它们在只有 2 人的左侧。",
+   "sceneId": "s02-gains"
+  },
+  {
+   "start": 32.289,
+   "end": 37.978,
+   "text": "移走就违反平衡。合法候选里最大的是 D：+3。",
+   "sceneId": "s02-gains"
+  },
+  {
+   "start": 38.378,
+   "end": 41.178,
+   "text": "把 D 的收益拆开看。",
+   "sceneId": "s03-fste"
+  },
+  {
+   "start": 41.178,
+   "end": 47.978,
+   "text": "D–E：D 是它在右侧唯一的端点，移走后不再被切，+5。",
+   "sceneId": "s03-fste"
+  },
+  {
+   "start": 47.978,
+   "end": 53.667,
+   "text": "C–D：左侧没有端点，移走后开始被切，−2。",
+   "sceneId": "s03-fste"
+  },
+  {
+   "start": 53.667,
+   "end": 56.467,
+   "text": "收益 = 5 − 2 = 3。",
+   "sceneId": "s03-fste"
+  },
+  {
+   "start": 56.867,
+   "end": 62.556,
+   "text": "一轮：每次在合法的未锁定节点里选收益最大的。",
+   "sceneId": "s04-walk"
+  },
+  {
+   "start": 62.556,
+   "end": 65.578,
+   "text": "D：+3，cut 9。",
+   "sceneId": "s04-walk"
+  },
+  {
+   "start": 65.578,
+   "end": 70.822,
+   "text": "左侧变成 3 人，A 合法了：+6，cut 3。",
+   "sceneId": "s04-walk"
+  },
+  {
+   "start": 70.822,
+   "end": 75.4,
+   "text": "之后全是负收益：C −2，cut 5。",
+   "sceneId": "s04-walk"
+  },
+  {
+   "start": 75.4,
+   "end": 78.422,
+   "text": "E −6，cut 11。",
+   "sceneId": "s04-walk"
+  },
+  {
+   "start": 78.422,
+   "end": 84.333,
+   "text": "B −1，cut 12。没有合法节点了，本轮结束。",
+   "sceneId": "s04-walk"
+  },
+  {
+   "start": 84.733,
+   "end": 88.867,
+   "text": "累计收益：3、9、7、1、0。",
+   "sceneId": "s05-prefix"
+  },
+  {
+   "start": 88.867,
+   "end": 91.444,
+   "text": "最大的是前 2 步。",
+   "sceneId": "s05-prefix"
+  },
+  {
+   "start": 91.444,
+   "end": 97.356,
+   "text": "回到起点，只做 D 和 A：ABC | DE，cut 3。",
+   "sceneId": "s05-prefix"
+  },
+  {
+   "start": 97.356,
+   "end": 101.711,
+   "text": "最后的 cut 12 只是试探的终点。",
+   "sceneId": "s05-prefix"
+  },
+  {
+   "start": 102.111,
+   "end": 109.578,
+   "text": "原附件里有一个“负收益爬坡”的案例。我们用它自己的数据核验。",
+   "sceneId": "s06-legacy"
+  },
+  {
+   "start": 109.578,
+   "end": 114.378,
+   "text": "原文说初始 cut 9；按数据算是 18。",
+   "sceneId": "s06-legacy"
+  },
+  {
+   "start": 114.378,
+   "end": 120.511,
+   "text": "原文说所有合法收益都 ≤ 0；可 E 合法，收益 +10。",
+   "sceneId": "s06-legacy"
+  },
+  {
+   "start": 120.511,
+   "end": 127.311,
+   "text": "原文说降到 4；首轮最佳和穷举最优都是 8。它不能当反例。",
+   "sceneId": "s06-legacy"
+  },
+  {
+   "start": 127.711,
+   "end": 133.4,
+   "text": "这是本课程用固定种子搜索、再穷举核验的反例。",
+   "sceneId": "s07-escape"
+  },
+  {
+   "start": 133.4,
+   "end": 140.644,
+   "text": "初始时所有合法移动的收益都 ≤ 0：只走正收益就停在 cut 6。",
+   "sceneId": "s07-escape"
+  },
+  {
+   "start": 140.644,
+   "end": 144.111,
+   "text": "FM 先把 A 移过去：−1。",
+   "sceneId": "s07-escape"
+  },
+  {
+   "start": 144.111,
+   "end": 148.022,
+   "text": "再移 B：−1，cut 升到 8。",
+   "sceneId": "s07-escape"
+  },
+  {
+   "start": 148.022,
+   "end": 152.378,
+   "text": "这时 E 的收益变成 +4：cut 4。",
+   "sceneId": "s07-escape"
+  },
+  {
+   "start": 152.378,
+   "end": 157.178,
+   "text": "保留前 3 步：cut 4，正是平衡最优。",
+   "sceneId": "s07-escape"
+  },
+  {
+   "start": 157.578,
+   "end": 161.933,
+   "text": "FM 论文把节点按收益放进“桶”。",
+   "sceneId": "s08-bucket"
+  },
+  {
+   "start": 161.933,
+   "end": 168.289,
+   "text": "桶链表加最大指针，让每一轮的代价与引脚总数成正比。",
+   "sceneId": "s08-bucket"
+  },
+  {
+   "start": 168.289,
+   "end": 175.756,
+   "text": "本课程的实验显示了桶，但选择时仍在扫描——不能说成线性时间。",
+   "sceneId": "s08-bucket"
+  },
+  {
+   "start": 176.156,
+   "end": 182.067,
+   "text": "真正的多引脚 net：一根线连着 A、B、C、D。",
+   "sceneId": "s09-multipin"
+  },
+  {
+   "start": 182.067,
+   "end": 186.867,
+   "text": "A 移走后，两侧仍各有引脚——收益 0。",
+   "sceneId": "s09-multipin"
+  },
+  {
+   "start": 186.867,
+   "end": 192.556,
+   "text": "拆成团再按边算，会得到 −1。两种模型不等价。",
+   "sceneId": "s09-multipin"
+  },
+  {
+   "start": 192.956,
+   "end": 196.867,
+   "text": "写成伪代码：外层与 KL 相同。",
+   "sceneId": "s10-code"
+  },
+  {
+   "start": 196.867,
+   "end": 201.222,
+   "text": "内层：只在合法候选里选最大收益。",
+   "sceneId": "s10-code"
+  },
+  {
+   "start": 201.222,
+   "end": 204.911,
+   "text": "移动、锁定、增量更新收益。",
+   "sceneId": "s10-code"
+  },
+  {
+   "start": 204.911,
+   "end": 208.6,
+   "text": "一轮结束，回退到最佳前缀。",
+   "sceneId": "s10-code"
+  },
+  {
+   "start": 208.6,
+   "end": 210.956,
+   "text": "空前缀即停止。",
+   "sceneId": "s10-code"
+  },
+  {
+   "start": 211.356,
+   "end": 213.489,
+   "text": "FM 的边界：",
+   "sceneId": "s11-limits"
+  },
+  {
+   "start": 213.489,
+   "end": 216.511,
+   "text": "多引脚 net 是拓展。",
+   "sceneId": "s11-limits"
+  },
+  {
+   "start": 216.511,
+   "end": 219.756,
+   "text": "这份实现不是线性时间。",
+   "sceneId": "s11-limits"
+  },
+  {
+   "start": 219.756,
+   "end": 224.111,
+   "text": "下一模块：目标从 cut 换成延迟。",
+   "sceneId": "s11-limits"
+  }
+ ],
+ "music": "本课程原创程序合成配乐（NumPy），CC BY 4.0",
+ "why": "约 4 分钟：合法性与回退为主；单独一段审查原附件反例，再用经穷举核验的反例说明负收益。",
+ "readingViolations": 0,
+ "fps": 30,
+ "size": [
+  1920,
+  1080
+ ]
+}

@@ -1,0 +1,247 @@
+{
+  "moduleId": "m07-kernighan-lin",
+  "objectives": [
+    {
+      "id": "o1",
+      "sections": [
+        "m07-problem"
+      ],
+      "sceneIds": [
+        "s01-hook"
+      ],
+      "slideIds": [
+        "m07-problem",
+        "m07-background"
+      ],
+      "experiment": "初始二分选择：所有种子都是 2 | 3",
+      "challenges": [],
+      "python": [
+        "kernighan_lin"
+      ],
+      "video": [
+        {
+          "sceneId": "s01-hook",
+          "film": "kl",
+          "start": 3
+        }
+      ],
+      "slides": [
+        {
+          "slideId": "m07-problem",
+          "page": 2
+        },
+        {
+          "slideId": "m07-background",
+          "page": 3
+        }
+      ]
+    },
+    {
+      "id": "o2",
+      "sections": [
+        "m07-gain"
+      ],
+      "sceneIds": [
+        "s02-dvalue",
+        "s03-pairs",
+        "s04-minus2w"
+      ],
+      "slideIds": [
+        "m07-dvalue",
+        "m07-pairs",
+        "m07-minus2w"
+      ],
+      "experiment": "第 1 次试探：候选表的 D(a)+D(b) 与 −2w 两列",
+      "challenges": [
+        "c1",
+        "c2",
+        "c5"
+      ],
+      "python": [
+        "best_swap"
+      ],
+      "video": [
+        {
+          "sceneId": "s02-dvalue",
+          "film": "kl",
+          "start": 20.47
+        },
+        {
+          "sceneId": "s03-pairs",
+          "film": "kl",
+          "start": 40.07
+        },
+        {
+          "sceneId": "s04-minus2w",
+          "status": "scene-not-a-chapter"
+        }
+      ],
+      "slides": [
+        {
+          "slideId": "m07-dvalue",
+          "page": 4
+        },
+        {
+          "slideId": "m07-pairs",
+          "page": 5
+        },
+        {
+          "slideId": "m07-minus2w",
+          "page": 6
+        }
+      ]
+    },
+    {
+      "id": "o3",
+      "sections": [
+        "m07-pass"
+      ],
+      "sceneIds": [
+        "s05-trial1",
+        "s06-trial2"
+      ],
+      "slideIds": [
+        "m07-trial1",
+        "m07-trial2"
+      ],
+      "experiment": "第 2 次试探：状态栏提示负收益，cut 暂升 11",
+      "challenges": [
+        "c3"
+      ],
+      "python": [
+        "kl_pass"
+      ],
+      "video": [
+        {
+          "sceneId": "s05-trial1",
+          "film": "kl",
+          "start": 84.16
+        },
+        {
+          "sceneId": "s06-trial2",
+          "status": "scene-not-a-chapter"
+        }
+      ],
+      "slides": [
+        {
+          "slideId": "m07-trial1",
+          "page": 7
+        },
+        {
+          "slideId": "m07-trial2",
+          "page": 8
+        }
+      ]
+    },
+    {
+      "id": "o4",
+      "sections": [
+        "m07-prefix"
+      ],
+      "sceneIds": [
+        "s07-prefix",
+        "s08-pass2"
+      ],
+      "slideIds": [
+        "m07-prefix",
+        "m07-pass2"
+      ],
+      "experiment": "每轮最后一个事件：累计收益图的金框与回退后的 cut",
+      "challenges": [
+        "c4"
+      ],
+      "python": [
+        "best_prefix"
+      ],
+      "video": [
+        {
+          "sceneId": "s07-prefix",
+          "film": "kl",
+          "start": 112.87
+        },
+        {
+          "sceneId": "s08-pass2",
+          "status": "scene-not-a-chapter"
+        }
+      ],
+      "slides": [
+        {
+          "slideId": "m07-prefix",
+          "page": 9
+        },
+        {
+          "slideId": "m07-pass2",
+          "page": 10
+        }
+      ]
+    },
+    {
+      "id": "o5",
+      "sections": [
+        "m07-pseudocode"
+      ],
+      "sceneIds": [
+        "s09-code"
+      ],
+      "slideIds": [
+        "m07-pseudo"
+      ],
+      "experiment": "伪代码随事件高亮",
+      "challenges": [
+        "c6"
+      ],
+      "python": [
+        "best_swap",
+        "best_prefix",
+        "kernighan_lin"
+      ],
+      "video": [
+        {
+          "sceneId": "s09-code",
+          "film": "kl",
+          "start": 149.84
+        }
+      ],
+      "slides": [
+        {
+          "slideId": "m07-pseudo",
+          "page": 11
+        }
+      ]
+    },
+    {
+      "id": "o6",
+      "sections": [
+        "m07-limits"
+      ],
+      "sceneIds": [
+        "s10-ab1",
+        "s11-limits"
+      ],
+      "slideIds": [
+        "m07-limits"
+      ],
+      "experiment": "换种子、改 A–B 权重比较结果",
+      "challenges": [],
+      "python": [],
+      "video": [
+        {
+          "sceneId": "s10-ab1",
+          "status": "scene-not-a-chapter"
+        },
+        {
+          "sceneId": "s11-limits",
+          "status": "scene-not-a-chapter"
+        }
+      ],
+      "slides": [
+        {
+          "slideId": "m07-limits",
+          "page": 13
+        }
+      ]
+    }
+  ],
+  "contentVersion": "2026.10.23-1",
+  "generated": "2026-10-23"
+}

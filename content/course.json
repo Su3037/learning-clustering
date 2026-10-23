@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "contentVersion": "2026.10.23-1",
+  "title": "Learning Clustering · 连接与分组",
+  "subtitle": "Clustering for EDA",
+  "description": "整合 8 份已关闭的 Clustering 课程提交（Module 02–09）：中文讲解、二维科普影片、带页码课件、浏览器内实验、分组挑战与 Python 练习。",
+  "scope": "yongfu-li/eda-learning 已关闭 Clustering Issue #1–#8；不含 Partitioning 与教师目录其他章节",
+  "modules": ["m02-affinity-metrics", "m03-greedy-pair-merge", "m04-size-constrained-agglomerative", "m05-label-propagation", "m06-spectral-bisection", "m07-kernighan-lin", "m08-fiduccia-mattheyses", "m09-rajaraman-wong"]
+}

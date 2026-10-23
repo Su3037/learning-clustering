@@ -1,0 +1,127 @@
+{
+  "moduleId": "m07-kernighan-lin",
+  "objectives": [
+    {
+      "id": "o1",
+      "sections": [
+        "m07-problem"
+      ],
+      "sceneIds": [
+        "s01-hook"
+      ],
+      "slideIds": [
+        "m07-problem",
+        "m07-background"
+      ],
+      "experiment": "初始二分选择：所有种子都是 2 | 3",
+      "challenges": [],
+      "python": [
+        "kernighan_lin"
+      ]
+    },
+    {
+      "id": "o2",
+      "sections": [
+        "m07-gain"
+      ],
+      "sceneIds": [
+        "s02-dvalue",
+        "s03-pairs",
+        "s04-minus2w"
+      ],
+      "slideIds": [
+        "m07-dvalue",
+        "m07-pairs",
+        "m07-minus2w"
+      ],
+      "experiment": "第 1 次试探：候选表的 D(a)+D(b) 与 −2w 两列",
+      "challenges": [
+        "c1",
+        "c2",
+        "c5"
+      ],
+      "python": [
+        "best_swap"
+      ]
+    },
+    {
+      "id": "o3",
+      "sections": [
+        "m07-pass"
+      ],
+      "sceneIds": [
+        "s05-trial1",
+        "s06-trial2"
+      ],
+      "slideIds": [
+        "m07-trial1",
+        "m07-trial2"
+      ],
+      "experiment": "第 2 次试探：状态栏提示负收益，cut 暂升 11",
+      "challenges": [
+        "c3"
+      ],
+      "python": [
+        "kl_pass"
+      ]
+    },
+    {
+      "id": "o4",
+      "sections": [
+        "m07-prefix"
+      ],
+      "sceneIds": [
+        "s07-prefix",
+        "s08-pass2"
+      ],
+      "slideIds": [
+        "m07-prefix",
+        "m07-pass2"
+      ],
+      "experiment": "每轮最后一个事件：累计收益图的金框与回退后的 cut",
+      "challenges": [
+        "c4"
+      ],
+      "python": [
+        "best_prefix"
+      ]
+    },
+    {
+      "id": "o5",
+      "sections": [
+        "m07-pseudocode"
+      ],
+      "sceneIds": [
+        "s09-code"
+      ],
+      "slideIds": [
+        "m07-pseudo"
+      ],
+      "experiment": "伪代码随事件高亮",
+      "challenges": [
+        "c6"
+      ],
+      "python": [
+        "best_swap",
+        "best_prefix",
+        "kernighan_lin"
+      ]
+    },
+    {
+      "id": "o6",
+      "sections": [
+        "m07-limits"
+      ],
+      "sceneIds": [
+        "s10-ab1",
+        "s11-limits"
+      ],
+      "slideIds": [
+        "m07-limits"
+      ],
+      "experiment": "换种子、改 A–B 权重比较结果",
+      "challenges": [],
+      "python": []
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>基础速查 · Learning Clustering</title>
+<meta name="description" content="整合 8 份已关闭的 Clustering 课程提交（Module 02–09）：中文讲解、二维科普影片、带页码课件、浏览器内实验、分组挑战与 Python 练习。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%2032%2032%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Ccircle%20cx%3D%229%22%20cy%3D%2211%22%20r%3D%225%22%20fill%3D%22%230f6b5c%22%2F%3E%3Ccircle%20cx%3D%2223%22%20cy%3D%229%22%20r%3D%224%22%20fill%3D%22%232f5e9e%22%2F%3E%3Ccircle%20cx%3D%2220%22%20cy%3D%2223%22%20r%3D%225%22%20fill%3D%22%238a6114%22%2F%3E%3Cpath%20d%3D%22M9%2011%2023%209M9%2011%2020%2023%22%20stroke%3D%22%2356625b%22%20stroke-width%3D%221.6%22%2F%3E%3Cpath%20d%3D%22M23%209%2020%2023%22%20stroke%3D%22%23a33b3b%22%20stroke-width%3D%221.6%22%20stroke-dasharray%3D%222.5%202%22%2F%3E%3C%2Fsvg%3E">
+<link rel="stylesheet" href="../assets/course.css">
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="topbar"><div class="wrap">
+<a class="brand" href="../index.html"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="9" cy="11" r="5" fill="#0f6b5c"/><circle cx="23" cy="9" r="4" fill="#2f5e9e"/><circle cx="20" cy="23" r="5" fill="#8a6114"/><path d="M9 11 23 9M9 11 20 23" stroke="#56625b" stroke-width="1.6"/><path d="M23 9 20 23" stroke="#a33b3b" stroke-width="1.6" stroke-dasharray="2.5 2"/></svg><span>Learning Clustering<br><small>连接与分组 · Clustering for EDA</small></span></a>
+<nav class="topnav" aria-label="课程"><a href="../index.html">首页</a><a href="../foundations/index.html" aria-current="page">基础速查</a><a href="../glossary/index.html">术语表</a><a href="../guide/index.html">如何挑战</a><a href="../credits/index.html">资源与贡献</a><a href="../progress/index.html">学习记录</a></nav>
+</div></header>
+<main id="main"><section class="section"><div class="wrap"><div class="prose"><p>&lt;p class=&quot;eyebrow&quot;&gt;基础速查&lt;/p&gt;</p>
+<h2>基础速查：图、边权、net、cut、簇</h2>
+<p>这页是八个模块共用的最少前置知识。每个模块第一次用到某个概念时还会再展开一次；这里给统一的定义，让各章不必重复同一段开场。</p>
+<h3>为什么芯片设计要“分组”</h3>
+<p>芯片里有成千上万个单元，彼此用导线连接。把连接紧密的单元放进同一块区域，跨区域的导线就更少、更短。更少的长导线意味着更少的布线拥塞，信号也更快。<strong>聚类（clustering）</strong>先把单元分成若干组，再交给后续的划分、布局工具处理。</p>
+<h3>用图描述连接</h3>
+<ul><li><strong>节点（node）</strong>：一个电路单元。图上的坐标只为了画图。</li><li><strong>边（edge）与边权（weight）</strong>：两个单元之间有连接就连一条边；边权表示连接强度，例如两者之间的连线数量。权重越大，越希望它们在同一组。</li><li><strong>net（信号网）</strong>：一个信号可以同时连到三个或更多单元的引脚。把它画成普通边需要一个模型，例如“团（clique）模型”把它展开成所有两两之间的边，并把权重摊薄。Module 02 和 08 会讲这件事。</li></ul>
+<h3>分组和代价</h3>
+<ul><li><strong>簇（cluster）</strong>：被分在一起的一组单元。</li><li><strong>划分（partition）</strong>：每个单元恰好属于一个组。Module 09 允许复制单元，所以那里的结果不再是严格的划分。</li><li><strong>cut（割边权和）</strong>：两端分在不同组的边，把它们的权重加起来。每条无向边只算一次。</li></ul>
+<div class="callout note"><strong>课程公共图 G01</strong><p>节点 A–E，每个大小为 1；边 AB=5、AC=1、BC=4、CD=2、CE=1、DE=5，总权 18。分组 ABC | DE 只切断 CD=2 和 CE=1，cut = 3。种子分组 AE | BCD 的 cut = 12。Module 02–08 都会用这张图，但每章做的事不同：评分、合并、容量、标签、谱、交换、单点移动。同一个 cut 3 出现在几章里，不说明这些算法等价。</p></div>
+<h3>这门课里的八种做法</h3>
+<table><thead><tr><th>模块</th><th>输入</th><th>做什么</th><th>输出</th></tr></thead><tbody><tr><td>Module 02 亲和度</td><td>图或网表</td><td>给每对节点打分</td><td>排名（不是分组）</td></tr><tr><td>Module 03 贪心合并</td><td>图、K</td><td>反复合并最亲近的两簇</td><td>K 个簇</td></tr><tr><td>Module 04 容量约束</td><td>图、K、容量</td><td>只做合法的合并</td><td>簇＋是否达到 K＋停止原因</td></tr><tr><td>Module 05 标签传播</td><td>图、更新规则</td><td>节点向邻居“投票”改标签</td><td>标签分组（不指定 K）</td></tr><tr><td>Module 06 谱二分</td><td>图、平衡窗口</td><td>用 L 的第二特征向量排序再切</td><td>两组</td></tr><tr><td>Module 07 KL</td><td>图、初始两组</td><td>成对交换，保留最佳前缀</td><td>改进后的两组</td></tr><tr><td>Module 08 FM</td><td>图、初始两组、平衡窗口</td><td>单点移动，保留最佳前缀</td><td>改进后的两组</td></tr><tr><td>Module 09 RW</td><td>有向电路图、延迟、容量</td><td>允许复制，最小化最长路径延迟</td><td>簇与实例</td></tr></tbody></table>
+<h3>Python 轨道怎么用</h3>
+<p>每个模块都有一个可下载的练习包：<code>starter.py</code>（留有 TODO）、<code>check.py</code>（检查器）、<code>reference.py</code>（参考实现）、<code>fixtures/</code>（例子数据）、<code>README.md</code>。在任意空目录解压后运行：</p>
+<pre><code>python3 check.py              # 检查你写的 starter.py
+python3 check.py reference.py # 参考实现应全部 PASS</code></pre>
+<p>未完成的函数报 <strong>INCOMPLETE</strong>，不会算作通过；缺少可选依赖的检查报 <strong>SKIP</strong>，同样不算通过。网页上的实验和挑战都不需要安装 Python。</p></div></div></section></main>
+<footer class="footer"><div class="wrap">
+<span>Learning Clustering · 整合已关闭 Clustering 提交 Module 02–09。原作者署名见<a href="../credits/index.html">资源与贡献</a>。</span>
+<span><button class="btn quiet small" type="button" data-pref="reduceMotion">减少动态</button> <button class="btn quiet small" type="button" data-pref="sound">声音</button> · 内容版本 2026.10.23-1</span>
+</div></footer>
+<script type="module">import { initShell } from '../assets/core.js'; initShell();</script>
+
+</body>
+</html>

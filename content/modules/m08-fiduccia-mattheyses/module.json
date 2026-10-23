@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "moduleId": "m08-fiduccia-mattheyses",
+  "displayOrder": 8,
+  "display": "Module 08",
+  "title": "Fiduccia–Mattheyses 改进",
+  "topic": "Fiduccia–Mattheyses refinement",
+  "description": "单点移动的二分改进：只在平衡合法的节点中选最大收益，负收益也试探，轮末回退到最佳前缀；含已证伪的原反例、经穷举核验的替换反例与多引脚 net 拓展。",
+  "hook": "收益最大的那个点不让动，算法该怎么办？",
+  "cardText": "一次只移动一个点，但必须保持两侧人数在窗口内。合法的才能选；试探、锁定、最佳前缀与 KL 相同。",
+  "sourceIssue": { "number": 7, "title": "Clustering Module - Lesson 8", "url": "https://github.com/yongfu-li/eda-learning/issues/7" },
+  "teacherFolder": "module02-07-fiduccia-mattheyses（Lab 08）",
+  "teacherMappingStatus": "verified",
+  "compatSlug": "fiduccia-mattheyses",
+  "prerequisitesText": "[Module 07](../m07-kernighan-lin/index.html)：收益、锁定、试探与最佳前缀。",
+  "nextText": "Module 09 把目标从 cut 换成延迟，并允许复制节点。",
+  "review": "Module 07 的四个概念在这里原样保留：**收益、锁定、试探、最佳前缀**（含空前缀）。区别只有一处：KL 一次交换一对，FM 一次**移动一个点**，所以要用平衡窗口限制两侧人数。",
+  "objectives": [
+    { "id": "o1", "text": "说出 FM 与 KL 的差别：单点移动 + 平衡窗口 |n₀ − n₁| ≤ maxDiff，而不是一换一。", "where": ["m08-diff"] },
+    { "id": "o2", "text": "只在平衡合法的未锁定节点中选最大收益：种子上 A、E 收益 +6 但不合法，选 D（+3）。", "where": ["m08-legal", "challenge-c1"] },
+    { "id": "o3", "text": "把收益拆成 FS 与 TE：D 的 FS = DE（5）、TE = CD（2），收益 3；移动 D 后 A 变为合法的 +6。", "where": ["m08-legal", "challenge-c2"] },
+    { "id": "o4", "text": "走完一轮（cut 12, 9, 3, 5, 11, 12），选出最佳前缀 k* = 2，区分试探与接受。", "where": ["m08-walk", "challenge-c3"] },
+    { "id": "o5", "text": "审查原附件的 hillclimb 说明并用一个经穷举核验的反例说明负收益的作用。", "where": ["m08-escape", "challenge-c4", "challenge-c5"] },
+    { "id": "o6", "text": "区分“桶的展示”与“线性时间实现”，区分二端图与真正的多引脚 net；在 Python 中实现 gain 与合法候选。", "where": ["m08-bucket", "m08-pseudocode", "challenge-c6", "python"] }
+  ],
+  "problem": {
+    "input": "带权二端图（或多引脚网表）、一个初始二分、平衡参数 maxDiff。",
+    "output": "每轮的试探移动（节点、收益、FS/TE、移动后 cut）、累计收益、最佳前缀、接受的二分、最终 cut 与停止原因。",
+    "objective": "通过单点移动减少 cut（多引脚时为被切 net 的权重和）。",
+    "constraints": "移动后两侧都非空且 |n₀ − n₁| ≤ maxDiff（按节点个数）；每轮每个节点最多移动一次。",
+    "assumptions": "收益可为负；在合法候选中取最大收益，平票按节点名；最佳前缀并列取较短者，允许空前缀。",
+    "stop": "某一轮的最佳前缀为空，或达到轮数上限。"
+  },
+  "filmTitle": "合法的那一步",
+  "filmNote": "影片重点是“最大”只在合法候选中比较，以及回退。原附件的 hillclimb 说明已被证伪，影片只把它作为“如何审查一个反例”的材料，教学用的是新的、经穷举核验的反例。",
+  "labTitle": "白盒 FM 工坊",
+  "labNote": "每一步列出所有节点的收益、是否合法、FS/TE 分解和按收益分组的“桶”。桶由每步扫描生成——这是教学实现，不是论文的线性时间桶结构。",
+  "challengeTip": "第 3 题里“保留 0 步”也是合法答案；第 6 题是多引脚 net 的拓展。",
+  "mistakes": [
+    { "title": "直接选收益最大的节点", "wrong": "种子 AE | BCD 上先移动 A（收益 +6）。", "why": "A 在只有 2 人的左侧，移走后左侧只剩 1 人，|1 − 4| = 3 > 1，违反平衡。", "counter": "合法候选只有 B（+1）、C（−4）、D（+3）；应选 D。D 移过去以后，A 才变成合法的 +6。", "fix": "先筛合法，再在合法候选中取最大收益。" },
+    { "title": "照搬原附件的 hillclimb 说明", "wrong": "原文：“初始 cut 9，所有合法移动的收益都 ≤ 0，FM 先走 −1 再得 +6，降到 4。”", "why": "按附件自己的数据计算，初始 cut 是 18；E 的移动合法且收益 +10；首轮最佳 cut 是 8，穷举的平衡最优也是 8。文字与数据不符。", "counter": "本课程的替换反例：初始 cut 6，所有合法移动收益都 ≤ 0；FM 先走 −1、−1，再得 +4，保留 3 步，cut 4，穷举确认这就是平衡最优。", "fix": "反例必须用独立计算核验（逐个合法移动的收益 + 穷举最优）再写进教材。" },
+    { "title": "把“画了桶”当成“实现了线性时间”", "wrong": "页面上显示了按收益分组的桶，就声称实现是 O(P)。", "why": "论文的线性时间来自增量维护的桶链表和最大收益指针；原附件与本课程的教学实现每一步都扫描全部候选。", "counter": "本课程的 gain 更新是增量的（只重算受影响 net 上的节点），但选择仍是扫描：不能称为 O(P)。", "fix": "把“理论算法的复杂度”和“这份实现的复杂度”分开写。" },
+    { "title": "把普通边的例子叫作超图", "wrong": "原附件第三个案例 id 为 hypergraph，但数据只有二端边。", "why": "真正的多引脚 net 要按两侧的引脚计数判定 FS/TE；把 net 拆成边再算，结果不同。", "counter": "net {A,B,C,D}（权 3），A、B、C 在左、D 在右：按引脚计数，A 的收益是 0（A 移走后这个 net 仍被切）；拆成团（每对 3/(4−1) = 1）再按边算，A 的“收益”却是 1 − 2 = −1。", "fix": "需要多引脚时用 pin 计数实现（本课程引擎支持，标为拓展）。" },
+    { "title": "以为人数平衡等于面积平衡", "wrong": "认为 maxDiff 限制了两侧面积。", "why": "本章按节点个数计数；单元面积不同时需要按面积定义窗口。", "counter": "一个面积 10 的单元和面积 1 的单元在人数窗口里是“一样的”。", "fix": "需要面积平衡时改用面积之和定义合法性（本课程未实现，标为拓展）。" }
+  ],
+  "limits": "- 本章基础轨道是带权二端图；多引脚 net 是标明的拓展（引擎已用 pin 计数实现 gain 更新）。面积权重的平衡窗口没有实现。\n- 教学实现的选择步骤是扫描，没有达到 1982 年论文的 O(P) 每轮复杂度。\n- FM 是启发式：G01 与替换反例上得到平衡最优，只是这两张图的性质。\n- 结果依赖初始二分与平票规则（本课程：收益降序，再按节点名）。原附件的平票规则（同收益时优先从大侧移动、名字倒序）不同，因此个别案例的移动顺序会不同。",
+  "pythonPackage": {
+    "title": "实现 gain 与合法候选",
+    "md": "**任务**（`starter.py`）：\n\n1. `gain(nets, side, v)`：返回 (gain, FS 列表, TE 列表)；按 net 的两侧引脚计数，多引脚 net 也适用。\n2. `legal_moves(side, locked, max_diff)`：未锁定、移动后仍平衡的节点。\n\n**提示一**：对 v 所在的每个 net，数一数 v 所在侧（F）和对面（T）各有几个引脚：F 侧只有 v → +w；T 侧为 0 → −w。\n\n**提示二**：用 `balance_ok({**side, v: 1 - side[v]}, max_diff)` 判断移动后是否合法。检查器会审查原附件的 hillclimb 数据，并在 150 个随机图（含多引脚 net）上检查收益 = 移动前后 cut 之差。"
+  },
+  "credits": {
+    "student": { "name": "stephQ-lab", "website": "https://github.com/user-attachments/files/33714154/eda_lab_08_fiduccia_mattheyses_fm.html", "repository": "https://github.com/user-attachments/files/33714154/eda_lab_08_fiduccia_mattheyses_fm.html", "commit": null },
+    "kept": [
+      "中文单页工坊：单步、撤回、最佳前缀、完整一轮、收益分解、桶示意与投影模式（本章实验沿用“白盒”思路）。",
+      "原始种子的推演：D(+3)、A(+6)，cut 12 → 9 → 3，最佳 k* = 2，下一轮无改善（本课程复现）。",
+      "10 项任务与 5 题自测中“对照 KL 与 FM”的思路，提炼为主动挑战。",
+      "hillclimb 案例的数据被保留为回归测试，用来演示如何审查一个反例。"
+    ],
+    "licenseNote": "有效成果是 Issue #7 的 HTML 附件；Issue 中先贴的 TCLhw 仓库是 Tcl 作业，不是 FM 成果，不作为本模块来源。附件未声明许可，本模块未复制其代码；附件依赖外部 Tailwind CDN 与 Google Fonts，本课程不依赖任何外部 CDN。附件中未发现视频或课件，本模块的影片与课件为新制作。",
+    "references": ["Fiduccia, C. M., & Mattheyses, R. M. (1982). A linear-time heuristic for improving network partitions. *Proc. 19th Design Automation Conference*, 175–181.", "教师原课程 [Module 材料](https://github.com/yongfu-li/eda-learning/tree/003bcd49e3794e6cfd2680181cdbd347d673ad07/courses/learn_clustering/module02-07-fiduccia-mattheyses)"]
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "moduleId": "m05-label-propagation",
+  "displayOrder": 5,
+  "display": "Module 05",
+  "title": "标签传播",
+  "topic": "Label propagation clustering",
+  "description": "节点不合并，只改标签：按邻居标签加权投票；异步与同步、访问顺序、平票、稳定确认与振荡。",
+  "hook": "没有人画圈，圈子从哪里来？",
+  "cardText": "每个节点看看邻居现在的标签，加入连接最强的那一组。名字不变，标签在变；它可能停下，也可能来回振荡。",
+  "sourceIssue": { "number": 4, "title": "Clustering Module - Lesson 5", "url": "https://github.com/yongfu-li/eda-learning/issues/4" },
+  "teacherFolder": "module02-01-label-propagation（Lab 05）",
+  "teacherMappingStatus": "verified",
+  "compatSlug": "label-propagation",
+  "prerequisitesText": "[基础速查](../../foundations/index.html)：图、边权、cut。Module 04 的“合并”机制在这里换成了“改标签”。",
+  "nextText": "Module 06 从局部投票转向全图的谱信息。",
+  "review": "前三章的合并会把成员集合真正放在一起；本章**不合并任何节点**，每个节点只更新自己携带的标签。分组是“标签相同的节点”。",
+  "objectives": [
+    { "id": "o1", "text": "区分节点名字（身份，不变）与标签（归属，可变），并说明本算法不需要指定 K。", "where": ["m05-why", "m05-label", "challenge-c1"] },
+    { "id": "o2", "text": "按标签加权计票：C 的票是 B = 1 + 4 = 5、D = 2、E = 1——比的是权重，不是人数。", "where": ["m05-vote", "challenge-c2"] },
+    { "id": "o3", "text": "手算一整轮异步更新，并解释为什么需要一轮“零变化确认”才算 stable（G01：2 轮）。", "where": ["m05-round", "challenge-c3"] },
+    { "id": "o4", "text": "区分 stable、cycle、limit 三种停止状态；在同步更新下找到振荡。", "where": ["m05-sync", "challenge-c4"] },
+    { "id": "o5", "text": "说明访问顺序、平票规则和边权如何改变结果与轮数（反向顺序 3 轮；C–D = 10 时 cut 5）。", "where": ["m05-sync", "challenge-c5"] },
+    { "id": "o6", "text": "用 cut 评价结果并说出局限（无 K、无均衡保证、依赖规则）；在 Python 中实现计票与停止判定。", "where": ["m05-cut", "m05-pseudocode", "challenge-c6", "python"] }
+  ],
+  "problem": {
+    "input": "带权无向图、访问顺序、更新方式（async / sync）、平票规则（min / max / keep）、最大轮数。",
+    "output": "每个节点的最终标签、按标签得到的分组、逐节点票数、cut、轮数和停止状态。",
+    "objective": "让连接紧密的节点“自己”汇聚到同一个标签，不预先指定簇数。",
+    "constraints": "每次只读这个节点的邻居；节点名字永不改变；平票规则必须确定。",
+    "assumptions": "边权为正，表示连接强度；初始每个节点的标签就是它自己的名字；孤立点保留自己的标签。",
+    "stop": "stable：完整一轮零变化；cycle：标签状态重复出现；limit：达到最大轮数。只有 stable 才能叫“收敛”。"
+  },
+  "filmTitle": "圈子从哪里来",
+  "filmNote": "延续原作（作者的 Lab05 仓库）影片的叙事：从通讯录到芯片，再逐层拆开规则。另附一段慢速推演，一票一票走完 G01 的两轮。",
+  "labTitle": "标签接力实验室",
+  "labNote": "逐个节点更新、整轮播放；切换异步/同步、平票规则、访问顺序，改 C–D 的权重。右侧是这一票的明细，下面是逐节点记录。",
+  "challengeTip": "第 4 题要你自己找出一个会振荡的设置：可以先在实验里试。",
+  "mistakes": [
+    { "title": "把标签当成名字", "wrong": "说“C 变成了 B”。", "why": "节点名字是身份，永远不变；变的是 C 携带的标签。", "counter": "第一轮后 C 携带标签 B，但它仍是节点 C，它的边和权重都没有变。", "fix": "说“C 的标签变为 B”，分组看“标签相同的节点”。" },
+    { "title": "按人数而不是权重计票", "wrong": "A 有两个邻居带 B、一个邻居带 D，就判 B 赢。", "why": "票数是同标签邻居的边权之和，不是邻居个数。", "counter": "原作（Lab05 仓库）的 tie 图：B、C 带 B（各 1）、D 带 D（4）——加权后 B = 2、D = 4，A 选 D。", "fix": "按标签累加边权。" },
+    { "title": "一轮里有节点没变就说收敛", "wrong": "第 1 轮 B、E 没变，就认为它们稳定了。", "why": "后面的节点一改，前面的节点下一次看到的邻居标签就不同了。", "counter": "G01 第 1 轮有 3 个节点改变；必须到第 2 轮完整零变化，才确认 stable——共 2 轮。", "fix": "以“完整一轮零变化”作为 stable 的判据，轮数包含这一确认轮。" },
+    { "title": "把振荡说成“没算完”或“收敛了”", "wrong": "同步更新跑到上限仍在变，报告为 stable 或继续加大轮数上限。", "why": "同步读同一张旧快照，两个互相支持的节点会同时交换标签，永远回到同一状态。", "counter": "两节点同步：A↔B 来回交换；G01 同步也在第 3 轮回到第 1 轮的状态（周期 2）。", "fix": "检测重复状态，报告 cycle；改用异步或改变平票规则再比较。" },
+    { "title": "按标签名字判断两个结果是否相同", "wrong": "正序得到 B/B/B/E/E、反序得到 A/A/A/D/D，就说结果不同。", "why": "标签名只是记号；分组看谁和谁在一起。", "counter": "两者都是 ABC | DE。", "fix": "比较规范化后的分组，不比较标签字符串。" }
+  ],
+  "limits": "- 不指定 K，也不保证各组大小均衡：可能一个大组吞掉几乎所有节点。\n- 结果依赖访问顺序、更新方式和平票规则；在同一张图上换规则，轮数甚至是否停止都会变。\n- 同步更新可能振荡；异步在这些例子里停下，但本课程不声称它在任何图上都必然停止。\n- 原论文（Raghavan、Albert、Kumara，2007）强调近线性时间：每轮每条边只读常数次。本课程的实现按这个思路逐节点扫描邻居。\n- 24 单元电路与联系人图都是虚构教学图，数字只说明这张图上的结果。",
+  "pythonPackage": {
+    "title": "实现计票与停止判定",
+    "md": "**任务**（`starter.py`）：\n\n1. `count_votes(adj, labels, vertex)`：按标签累加邻居边权。\n2. 主循环中的停止判定：stable / cycle（limit 由循环上限负责）。\n\n**提示一**：同一标签的邻居，把它们的边权加起来；C 的票应为 B = 5、D = 2、E = 1。\n\n**提示二**：一整轮零变化 → stable；这一轮结束后的完整标签状态以前出现过 → cycle。检查器还会跑作者原作的 24 单元电路图与 28 人联系人图。"
+  },
+  "credits": {
+    "student": { "name": "Su3037", "website": "https://su3037.github.io/clustering-lab5-label-propagation/", "repository": "https://github.com/Su3037/clustering-lab5-label-propagation", "commit": "7b4eca7787d532d30c79659c104798d57f8f3495" },
+    "kept": [
+      "“通讯录 → 芯片 → 一条局部规则 → 逐层拆解”的叙事与“名字是身份、标签是归属”的说法。",
+      "真实逐节点投票、异步/同步、三种平票、访问顺序、桥边权修改与振荡反例；本章引擎直接改写自作者的 `site/algorithm.js`（MIT）。",
+      "24 单元虚构电路（几何切法 cut 88、LP cut 2）与 28 人联系人图（3 轮 cut 4）的数据。",
+      "约 1 分半的慢速推演分工：本章影片附一段慢速逐票推演。"
+    ],
+    "licenseNote": "原作代码 MIT、原创内容 CC BY 4.0。原片配乐《We Never (Remix)》是第三方音乐，不在这些许可内，本课程没有使用或提取它；新片配乐为原创合成。原 README 中“仓库私有”的说法已过期（仓库现为公开）。",
+    "references": ["Raghavan, U. N., Albert, R., & Kumara, S. (2007). Near linear time algorithm to detect community structures in large-scale networks. *Physical Review E*, 76, 036106.", "教师原课程 [Module 材料](https://github.com/yongfu-li/eda-learning/tree/003bcd49e3794e6cfd2680181cdbd347d673ad07/courses/learn_clustering/module02-01-label-propagation)"]
+  }
+}

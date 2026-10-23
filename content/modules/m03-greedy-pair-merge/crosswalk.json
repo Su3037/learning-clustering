@@ -1,0 +1,11 @@
+{
+  "moduleId": "m03-greedy-pair-merge",
+  "objectives": [
+    { "id": "o1", "sections": ["m03-local", "m03-setup"], "sceneIds": ["s01-hook", "s02-setup"], "slideIds": ["m03-problem", "m03-setup"], "experiment": "任意 K 与容量：状态栏显示停止原因", "challenges": [], "python": ["greedy_pair_merge"] },
+    { "id": "o2", "sections": ["m03-setup", "m03-walk"], "sceneIds": ["s04-step2"], "slideIds": ["m03-step2"], "experiment": "K=2 第 2 步：候选表显示 AB–C = 5（1+4）", "challenges": ["c2"], "python": ["greedy_pair_merge"] },
+    { "id": "o3", "sections": ["m03-tie"], "sceneIds": ["s03-step1", "s06-bug"], "slideIds": ["m03-tie", "m03-bug"], "experiment": "下方“对照：原网页的字符串比较”", "challenges": ["c1", "c5"], "python": ["selection_key"] },
+    { "id": "o4", "sections": ["m03-walk"], "sceneIds": ["s03-step1", "s04-step2", "s05-step3"], "slideIds": ["m03-trajectory"], "experiment": "K=2 逐步播放 18→13→8→3", "challenges": ["c3"], "python": ["greedy_pair_merge"] },
+    { "id": "o5", "sections": ["m03-capacity"], "sceneIds": ["s07-capacity"], "slideIds": ["m03-capacity"], "experiment": "容量 2：停止事件显示被阻止的候选", "challenges": ["c4"], "python": ["greedy_pair_merge"] },
+    { "id": "o6", "sections": ["m03-pseudocode", "m03-limits"], "sceneIds": ["s08-code", "s09-limits"], "slideIds": ["m03-pseudo", "m03-limits"], "experiment": "伪代码随事件高亮", "challenges": ["c6"], "python": ["selection_key", "greedy_pair_merge"] }
+  ]
+}

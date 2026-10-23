@@ -1,0 +1,370 @@
+{
+ "id": "spectral",
+ "title": "给每个点一个数",
+ "status": "ready",
+ "src": "spectral.mp4",
+ "vtt": "spectral.zh.vtt",
+ "poster": "spectral-poster.jpg",
+ "duration": 221.83,
+ "chapters": [
+  {
+   "t": 3.0,
+   "title": "一 · 二分目标",
+   "sceneId": "s01-hook"
+  },
+  {
+   "t": 38.51,
+   "title": "二 · 拉普拉斯矩阵",
+   "sceneId": "s03-lap"
+  },
+  {
+   "t": 59.93,
+   "title": "三 · 二次型直觉",
+   "sceneId": "s04-quad"
+  },
+  {
+   "t": 85.98,
+   "title": "四 · Fiedler 向量",
+   "sceneId": "s05-fiedler"
+  },
+  {
+   "t": 107.36,
+   "title": "五 · 排序扫描",
+   "sceneId": "s06-sweep"
+  },
+  {
+   "t": 151.8,
+   "title": "六 · 纠正误解",
+   "sceneId": "s08-fix"
+  },
+  {
+   "t": 188.96,
+   "title": "七 · 伪代码与局限",
+   "sceneId": "s10-code"
+  }
+ ],
+ "scenes": [
+  {
+   "sceneId": "s00-title",
+   "start": 0.0,
+   "end": 3.0
+  },
+  {
+   "sceneId": "s01-hook",
+   "start": 3.0,
+   "end": 15.8
+  },
+  {
+   "sceneId": "s02-goal",
+   "start": 15.8,
+   "end": 38.51
+  },
+  {
+   "sceneId": "s03-lap",
+   "start": 38.51,
+   "end": 59.93
+  },
+  {
+   "sceneId": "s04-quad",
+   "start": 59.93,
+   "end": 85.98
+  },
+  {
+   "sceneId": "s05-fiedler",
+   "start": 85.98,
+   "end": 107.36
+  },
+  {
+   "sceneId": "s06-sweep",
+   "start": 107.36,
+   "end": 137.44
+  },
+  {
+   "sceneId": "s07-flip",
+   "start": 137.44,
+   "end": 151.8
+  },
+  {
+   "sceneId": "s08-fix",
+   "start": 151.8,
+   "end": 177.84
+  },
+  {
+   "sceneId": "s09-disc",
+   "start": 177.84,
+   "end": 188.96
+  },
+  {
+   "sceneId": "s10-code",
+   "start": 188.96,
+   "end": 206.78
+  },
+  {
+   "sceneId": "s11-limits",
+   "start": 206.78,
+   "end": 221.84
+  }
+ ],
+ "transcript": [
+  {
+   "start": 3.0,
+   "end": 6.689,
+   "text": "同一张连接图，换一种想法。",
+   "sceneId": "s01-hook"
+  },
+  {
+   "start": 6.689,
+   "end": 11.489,
+   "text": "先给每个点一个数，把它们排成一条线。",
+   "sceneId": "s01-hook"
+  },
+  {
+   "start": 11.489,
+   "end": 15.4,
+   "text": "然后只在相邻的位置之间试切。",
+   "sceneId": "s01-hook"
+  },
+  {
+   "start": 15.8,
+   "end": 23.489,
+   "text": "只要 cut 最小？把所有点放进一组就行——cut 是 0，毫无用处。",
+   "sceneId": "s02-goal"
+  },
+  {
+   "start": 23.489,
+   "end": 28.289,
+   "text": "所以要求两组都非空，并且不区分左右。",
+   "sceneId": "s02-goal"
+  },
+  {
+   "start": 28.289,
+   "end": 33.311,
+   "text": "这样 5 个节点一共 15 种分法，不是 16。",
+   "sceneId": "s02-goal"
+  },
+  {
+   "start": 33.311,
+   "end": 38.111,
+   "text": "再加一个平衡窗口：每组 2 到 3 个节点。",
+   "sceneId": "s02-goal"
+  },
+  {
+   "start": 38.511,
+   "end": 44.422,
+   "text": "先把边权装进一个矩阵：拉普拉斯矩阵 L = D − A。",
+   "sceneId": "s03-lap"
+  },
+  {
+   "start": 44.422,
+   "end": 50.822,
+   "text": "每条边贡献四处：两个对角加 w，两个非对角减 w。",
+   "sceneId": "s03-lap"
+  },
+  {
+   "start": 50.822,
+   "end": 55.4,
+   "text": "装完：对角是度数，其余是负的边权。",
+   "sceneId": "s03-lap"
+  },
+  {
+   "start": 55.4,
+   "end": 59.533,
+   "text": "检查一下：每一行加起来都是 0。",
+   "sceneId": "s03-lap"
+  },
+  {
+   "start": 59.933,
+   "end": 67.844,
+   "text": "这个矩阵有一个关键性质：xᵀLx 等于每条边的 w 乘上两端差的平方。",
+   "sceneId": "s04-quad"
+  },
+  {
+   "start": 67.844,
+   "end": 73.089,
+   "text": "如果 x 只取 +1 和 −1，被切的边贡献 4w。",
+   "sceneId": "s04-quad"
+  },
+  {
+   "start": 73.089,
+   "end": 80.111,
+   "text": "所以 xᵀLx = 4 × cut。最小化它，就是在最小化 cut。",
+   "sceneId": "s04-quad"
+  },
+  {
+   "start": 80.111,
+   "end": 85.578,
+   "text": "可以把边想成弹簧——这只是帮助理解的类比。",
+   "sceneId": "s04-quad"
+  },
+  {
+   "start": 85.978,
+   "end": 93.0,
+   "text": "放松条件，让 x 取任意实数：答案是第二小特征值的特征向量。",
+   "sceneId": "s05-fiedler"
+  },
+  {
+   "start": 93.0,
+   "end": 98.689,
+   "text": "它叫 Fiedler 向量。每个节点得到一个数。",
+   "sceneId": "s05-fiedler"
+  },
+  {
+   "start": 98.689,
+   "end": 103.267,
+   "text": "按这个数排序：E、D、C、B、A。",
+   "sceneId": "s05-fiedler"
+  },
+  {
+   "start": 103.267,
+   "end": 106.956,
+   "text": "连得紧的点，数值彼此接近。",
+   "sceneId": "s05-fiedler"
+  },
+  {
+   "start": 107.356,
+   "end": 111.489,
+   "text": "沿着数轴，在每个相邻位置试切。",
+   "sceneId": "s06-sweep"
+  },
+  {
+   "start": 111.489,
+   "end": 116.511,
+   "text": "k = 1：只切出 E，cut 6，超出窗口。",
+   "sceneId": "s06-sweep"
+  },
+  {
+   "start": 116.511,
+   "end": 121.978,
+   "text": "k = 2：ED | CBA，cut 3，在窗口内。",
+   "sceneId": "s06-sweep"
+  },
+  {
+   "start": 121.978,
+   "end": 126.333,
+   "text": "k = 3：正中间，cut 反而是 5。",
+   "sceneId": "s06-sweep"
+  },
+  {
+   "start": 126.333,
+   "end": 131.133,
+   "text": "k = 4：只剩 A，cut 6，超出窗口。",
+   "sceneId": "s06-sweep"
+  },
+  {
+   "start": 131.133,
+   "end": 137.044,
+   "text": "窗口内最小的是 k = 2：DE | ABC，cut 3。",
+   "sceneId": "s06-sweep"
+  },
+  {
+   "start": 137.444,
+   "end": 141.8,
+   "text": "特征向量乘以 −1 仍然是特征向量。",
+   "sceneId": "s07-flip"
+  },
+  {
+   "start": 141.8,
+   "end": 145.489,
+   "text": "翻号以后，数轴整个反过来。",
+   "sceneId": "s07-flip"
+  },
+  {
+   "start": 145.489,
+   "end": 151.4,
+   "text": "同一刀两侧只是换了名字：分组不变，cut 不变。",
+   "sceneId": "s07-flip"
+  },
+  {
+   "start": 151.8,
+   "end": 158.6,
+   "text": "纠正一个说法：没有平衡约束，最优并不一定是孤立一个点。",
+   "sceneId": "s08-fix"
+  },
+  {
+   "start": 158.6,
+   "end": 164.956,
+   "text": "这张图上孤立一个点最少切 6，而 ABC | DE 只切 3。",
+   "sceneId": "s08-fix"
+  },
+  {
+   "start": 164.956,
+   "end": 170.867,
+   "text": "再纠正一个：原页面的特征向量是存储的三位小数。",
+   "sceneId": "s08-fix"
+  },
+  {
+   "start": 170.867,
+   "end": 177.444,
+   "text": "它的残差 0.0044 只是舍入；但改了图，它不会重算。",
+   "sceneId": "s08-fix"
+  },
+  {
+   "start": 177.844,
+   "end": 182.867,
+   "text": "还有一个陷阱：图不连通时，λ2 也是 0。",
+   "sceneId": "s09-disc"
+  },
+  {
+   "start": 182.867,
+   "end": 188.556,
+   "text": "这时排序只说明谁在同一个分量。先检查连通性。",
+   "sceneId": "s09-disc"
+  },
+  {
+   "start": 188.956,
+   "end": 192.867,
+   "text": "写成伪代码：先构造 L 并自检。",
+   "sceneId": "s10-code"
+  },
+  {
+   "start": 192.867,
+   "end": 197.444,
+   "text": "求特征分解，检查连通、简并和残差。",
+   "sceneId": "s10-code"
+  },
+  {
+   "start": 197.444,
+   "end": 201.356,
+   "text": "取 Fiedler 向量，排序。",
+   "sceneId": "s10-code"
+  },
+  {
+   "start": 201.356,
+   "end": 206.378,
+   "text": "逐个位置扫描，只在窗口内选最小 cut。",
+   "sceneId": "s10-code"
+  },
+  {
+   "start": 206.778,
+   "end": 209.133,
+   "text": "谱二分的边界：",
+   "sceneId": "s11-limits"
+  },
+  {
+   "start": 209.133,
+   "end": 213.489,
+   "text": "条件不满足时，排序可能没有意义。",
+   "sceneId": "s11-limits"
+  },
+  {
+   "start": 213.489,
+   "end": 215.844,
+   "text": "弹簧只是类比。",
+   "sceneId": "s11-limits"
+  },
+  {
+   "start": 215.844,
+   "end": 220.644,
+   "text": "下一模块：从这个二分出发，继续改进。",
+   "sceneId": "s11-limits"
+  }
+ ],
+ "music": "本课程原创程序合成配乐（NumPy），CC BY 4.0",
+ "why": "约 3 分半：矩阵装配与二次型放慢；扫描四个切点逐个停留。完整代数证明不放进主片。",
+ "readingViolations": 0,
+ "fps": 30,
+ "size": [
+  1920,
+  1080
+ ]
+}

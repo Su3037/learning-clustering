@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "moduleId": "m07-kernighan-lin",
+  "displayOrder": 7,
+  "display": "Module 07",
+  "title": "Kernighan–Lin 改进",
+  "topic": "Kernighan–Lin refinement",
+  "description": "两侧人数固定的二分改进：成对交换的收益要减 2w；负收益也要试探；一轮后只保留最佳前缀，空前缀即停止。",
+  "hook": "一次交换让结果变差了，为什么还要继续换下去？",
+  "cardText": "成对交换、锁定、试探，再回退到最佳前缀。试探可以变差，接受只看最好的那一段。",
+  "sourceIssue": { "number": 6, "title": "Clustering Module - Lesson 7", "url": "https://github.com/yongfu-li/eda-learning/issues/6" },
+  "teacherFolder": "module02-05-kernighan-lin（Lab 07）",
+  "teacherMappingStatus": "verified",
+  "compatSlug": "kernighan-lin",
+  "prerequisitesText": "[Module 06](../m06-spectral-bisection/index.html)：二分与 cut；任何给定的初始二分都可作为起点。",
+  "nextText": "Module 08 把成对交换改成单点移动，用平衡窗口代替“一换一”。",
+  "review": "Module 06 给出一个二分；本章**从一个已有的二分出发**，通过成对交换减少 cut。为了比较公平，本章固定用同一个“坏种子” AE | BCD（cut 12）。",
+  "objectives": [
+    { "id": "o1", "text": "说出 KL 的输入（图与人数固定的初始二分）、操作（成对交换）和输出（试探轨迹、最佳前缀、接受的分组、停止原因）。", "where": ["m07-problem"] },
+    { "id": "o2", "text": "计算 D(v) = 外部 − 内部，以及成对收益 g = D(a) + D(b) − 2w(a,b)，解释为什么要减 2w。", "where": ["m07-gain", "challenge-c1", "challenge-c2"] },
+    { "id": "o3", "text": "按“选最大收益对 → 试探交换 → 锁定 → 更新 D”走完一轮，包括收益为负的步骤（cut 暂升到 11）。", "where": ["m07-pass", "challenge-c3"] },
+    { "id": "o4", "text": "从累计收益中选出最佳前缀（允许空前缀），区分试探状态与接受状态，并判断何时停止。", "where": ["m07-prefix", "challenge-c4"] },
+    { "id": "o5", "text": "逐行读懂伪代码，在 Python 中实现最大收益对与最佳前缀。", "where": ["m07-pseudocode", "challenge-c6", "python"] },
+    { "id": "o6", "text": "说出 KL 的局限：只保持两侧人数（不是面积）、依赖初始分组、启发式不保证全局最优。", "where": ["m07-limits", "lab"] }
+  ],
+  "problem": {
+    "input": "带权无向图；一个初始二分（两侧节点数固定，例如 AE | BCD）。",
+    "output": "每一轮的试探交换序列（收益、交换前后 cut、锁定）、累计收益、最佳前缀、接受的二分、最终 cut 与停止原因。",
+    "objective": "通过成对交换减少 cut。",
+    "constraints": "每次交换左右各一个未锁定节点，两侧人数始终不变；每轮每个节点最多交换一次。",
+    "assumptions": "收益可以为负；平票按 (−收益, a, b) 的字典序；最佳前缀在并列时取较短者；允许空前缀。",
+    "stop": "某一轮的最佳前缀为空（累计收益没有正值），或达到轮数上限。"
+  },
+  "filmTitle": "先试探，再回退",
+  "filmNote": "这部影片也是本课程的代表性小样：负收益试探让 cut 暂升到 11，再回退到最佳前缀 cut 3。",
+  "labTitle": "成对交换与最佳前缀",
+  "labNote": "单步看每一次试探交换：候选表里列出所有未锁定的跨侧对和它们的收益。一轮结束时，累计收益图标出最佳前缀，图上的分组回退到被接受的状态。",
+  "challengeTip": "第 4 题里“保留 0 步”也是一个合法答案。",
+  "mistakes": [
+    { "title": "忘记减 2w", "wrong": "g(E, D) = D(E) + D(D) = 6 + 3 = 9，以为 E↔D 很划算。", "why": "两个 D 都把边 DE 算成了外部边；交换后 E、D 仍分处两侧，这条边依旧被切，被多算了两次。", "counter": "g(E, D) = 9 − 2×5 = −1；真正的最佳对是 A↔D（A、D 之间没有边），g = 9。", "fix": "g = D(a) + D(b) − 2w(a, b)。" },
+    { "title": "遇到负收益就停", "wrong": "第一轮做完 A↔D 后看到剩下的收益全是负数，就结束本轮。", "why": "KL 要走完整轮，才能比较所有前缀；在更大的图上，先变差的一步后面可能出现更大的正收益。", "counter": "G01 第一轮第二步 E↔C 收益 −8，cut 暂升到 11——这一步只是试探，最终会被撤回。", "fix": "继续试探直到没有未锁定的跨侧对，再选最佳前缀。" },
+    { "title": "把任意几个正收益步当作“前缀”", "wrong": "从一轮的试探里挑出所有正收益的步骤一起应用。", "why": "后面的收益是在前面步骤已经做过的情况下算的；跳过中间某一步，后面的收益就不再成立。", "counter": "第二轮的试探收益是 −8、+2：单独取 +2 的那一步，并不能从起点得到 +2 的改善。", "fix": "只取从第 1 步开始的连续前缀；累计收益最大处为 k*，k* = 0 合法。" },
+    { "title": "把试探状态当成结果", "wrong": "报告第一轮结束时的 cut 11。", "why": "一轮结束时的状态是全部试探都做完的状态；接受的是回退到最佳前缀后的状态。", "counter": "第一轮试探结束 cut 11，接受的是前 1 步：ABC | DE，cut 3。", "fix": "分开显示 trial 与 accepted；只报告 accepted。" },
+    { "title": "以为人数平衡就是面积平衡", "wrong": "单元面积不同时，仍认为 KL 交换保持了两侧面积。", "why": "KL 一换一只保持两侧的节点个数。", "counter": "一个大单元与一个小单元互换，人数不变，面积会变。", "fix": "需要面积约束时另加检查，或使用支持加权平衡的方法；不要套用 Module 04 的 capacity 字段假装等价。" }
+  ],
+  "limits": "- KL 是启发式：G01 上得到 cut 3 只说明这张图；一般不保证全局最优。\n- 结果依赖初始二分；比较方法时从同一个种子出发才公平。\n- 只保持两侧节点数，不保持面积。\n- 朴素实现每一步枚举所有未锁定的跨侧对，一轮约 O(n³)；实际实现会维护排序的 D 值。\n- 只适合两侧人数固定的二分；下一模块的 FM 用单点移动和平衡窗口放宽这一点。",
+  "pythonPackage": {
+    "title": "实现最大收益对与最佳前缀",
+    "md": "**任务**（`starter.py`）：\n\n1. `best_swap(adj, side, locked)`：在未锁定的左右节点对中找收益最大的一对（收益可为负）。\n2. `best_prefix(gains)`：返回 (k, 累计收益)，k = 0 合法。\n\n**提示一**：先算每个节点的 D = 外部 − 内部，再对每一对算 D(a) + D(b) − 2w(a,b)。\n\n**提示二**：前缀必须从第 1 步起连续；只在累计收益严格变大时更新 k。检查器会在 120 个随机图上检查：两侧人数不变、每点每轮最多交换一次、收益 = 交换前后 cut 之差。"
+  },
+  "credits": {
+    "student": { "name": "FanqinZeng", "website": "https://fanqinzeng.github.io/eda-clustering-lab7-kl/", "repository": "https://github.com/FanqinZeng/eda-clustering-lab7-kl", "commit": "b47cd64cc9c9a11c4e9c144f8cf45de4bdb4c820" },
+    "kept": [
+      "人数约束与边权关系的引入，逐步解释 D 值、−2w、锁定与最佳前缀（本章讲解顺序沿用）。",
+      "实验里 trial、prefix、accepted 三种状态分开显示；负收益试探时 cut 暂升到 11 的现象（原页面实测，本课程复现）。",
+      "改边权、改种子的实验；AB = 1 时 g(A,D) = 5 的变体例子。",
+      "531 个案例的独立枚举测试思路：本课程的随机测试同样用独立枚举核对首步收益。"
+    ],
+    "licenseNote": "原仓库未声明统一许可，本模块未复制其代码、课件、讲义或人物插画；原作的浅色手绘风格在统一课程中改为深色二维影片。原制作脚本依赖的专用课件工具未使用。",
+    "references": ["Kernighan, B. W., & Lin, S. (1970). An efficient heuristic procedure for partitioning graphs. *Bell System Technical Journal*, 49(2), 291–307.", "教师原课程 [Module 材料](https://github.com/yongfu-li/eda-learning/tree/003bcd49e3794e6cfd2680181cdbd347d673ad07/courses/learn_clustering/module02-05-kernighan-lin)"]
+  }
+}

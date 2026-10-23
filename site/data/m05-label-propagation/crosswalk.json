@@ -1,0 +1,236 @@
+{
+  "moduleId": "m05-label-propagation",
+  "objectives": [
+    {
+      "id": "o1",
+      "sections": [
+        "m05-why",
+        "m05-label"
+      ],
+      "sceneIds": [
+        "s01-contacts",
+        "s05-labels"
+      ],
+      "slideIds": [
+        "m05-contacts",
+        "m05-problem"
+      ],
+      "experiment": "节点下方的“标签 X”随更新改变，节点名不变",
+      "challenges": [
+        "c1"
+      ],
+      "python": [],
+      "video": [
+        {
+          "sceneId": "s01-contacts",
+          "film": "circles",
+          "start": 3
+        },
+        {
+          "sceneId": "s05-labels",
+          "film": "circles",
+          "start": 62.56
+        }
+      ],
+      "slides": [
+        {
+          "slideId": "m05-contacts",
+          "page": 2
+        },
+        {
+          "slideId": "m05-problem",
+          "page": 4
+        }
+      ]
+    },
+    {
+      "id": "o2",
+      "sections": [
+        "m05-vote"
+      ],
+      "sceneIds": [
+        "s06-vote",
+        "t03-C1"
+      ],
+      "slideIds": [
+        "m05-vote"
+      ],
+      "experiment": "G01 第 1 轮第 3 步：右侧票数 B=5、D=2、E=1",
+      "challenges": [
+        "c2"
+      ],
+      "python": [
+        "count_votes"
+      ],
+      "video": [
+        {
+          "sceneId": "s06-vote",
+          "status": "scene-not-a-chapter"
+        },
+        {
+          "sceneId": "t03-C1",
+          "status": "scene-not-a-chapter"
+        }
+      ],
+      "slides": [
+        {
+          "slideId": "m05-vote",
+          "page": 5
+        }
+      ]
+    },
+    {
+      "id": "o3",
+      "sections": [
+        "m05-round"
+      ],
+      "sceneIds": [
+        "s07-round",
+        "t99-end"
+      ],
+      "slideIds": [
+        "m05-round"
+      ],
+      "experiment": "G01 逐步播放到第 2 轮结束：状态 stable",
+      "challenges": [
+        "c3"
+      ],
+      "python": [
+        "solve"
+      ],
+      "video": [
+        {
+          "sceneId": "s07-round",
+          "status": "scene-not-a-chapter"
+        },
+        {
+          "sceneId": "t99-end",
+          "film": "slow",
+          "start": 81.2
+        }
+      ],
+      "slides": [
+        {
+          "slideId": "m05-round",
+          "page": 6
+        }
+      ]
+    },
+    {
+      "id": "o4",
+      "sections": [
+        "m05-sync"
+      ],
+      "sceneIds": [
+        "s08-sync"
+      ],
+      "slideIds": [
+        "m05-sync"
+      ],
+      "experiment": "两节点 · 同步：状态 cycle",
+      "challenges": [
+        "c4"
+      ],
+      "python": [
+        "solve"
+      ],
+      "video": [
+        {
+          "sceneId": "s08-sync",
+          "film": "circles",
+          "start": 112.42
+        }
+      ],
+      "slides": [
+        {
+          "slideId": "m05-sync",
+          "page": 7
+        }
+      ]
+    },
+    {
+      "id": "o5",
+      "sections": [
+        "m05-sync",
+        "m05-round"
+      ],
+      "sceneIds": [
+        "s09-bridge"
+      ],
+      "slideIds": [
+        "m05-bridge"
+      ],
+      "experiment": "C–D 滑块改为 10；“反向顺序”按钮",
+      "challenges": [
+        "c5",
+        "c6"
+      ],
+      "python": [
+        "solve"
+      ],
+      "video": [
+        {
+          "sceneId": "s09-bridge",
+          "status": "scene-not-a-chapter"
+        }
+      ],
+      "slides": [
+        {
+          "slideId": "m05-bridge",
+          "page": 8
+        }
+      ]
+    },
+    {
+      "id": "o6",
+      "sections": [
+        "m05-cut",
+        "m05-pseudocode"
+      ],
+      "sceneIds": [
+        "s10-circuit",
+        "s11-limits"
+      ],
+      "slideIds": [
+        "m05-chip",
+        "m05-circuit",
+        "m05-pseudo"
+      ],
+      "experiment": "24 单元虚构电路",
+      "challenges": [
+        "c6"
+      ],
+      "python": [
+        "count_votes",
+        "solve"
+      ],
+      "video": [
+        {
+          "sceneId": "s10-circuit",
+          "film": "circles",
+          "start": 143.8
+        },
+        {
+          "sceneId": "s11-limits",
+          "status": "scene-not-a-chapter"
+        }
+      ],
+      "slides": [
+        {
+          "slideId": "m05-chip",
+          "page": 3
+        },
+        {
+          "slideId": "m05-circuit",
+          "page": 9
+        },
+        {
+          "slideId": "m05-pseudo",
+          "page": 10
+        }
+      ]
+    }
+  ],
+  "contentVersion": "2026.10.23-1",
+  "generated": "2026-10-23"
+}

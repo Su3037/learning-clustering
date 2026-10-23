@@ -1,0 +1,2749 @@
+{
+ "moduleId": "m03-greedy-pair-merge",
+ "engineVersion": "1.0.0",
+ "generatedBy": "scripts/build-traces.mjs",
+ "g01": {
+  "nodes": [
+   "A",
+   "B",
+   "C",
+   "D",
+   "E"
+  ],
+  "edges": [
+   [
+    "A",
+    "B",
+    5
+   ],
+   [
+    "A",
+    "C",
+    1
+   ],
+   [
+    "B",
+    "C",
+    4
+   ],
+   [
+    "C",
+    "D",
+    2
+   ],
+   [
+    "C",
+    "E",
+    1
+   ],
+   [
+    "D",
+    "E",
+    5
+   ]
+  ],
+  "positions": {
+   "A": [
+    170,
+    100
+   ],
+   "B": [
+    390,
+    85
+   ],
+   "C": [
+    305,
+    270
+   ],
+   "D": [
+    530,
+    375
+   ],
+   "E": [
+    280,
+    440
+   ]
+  }
+ },
+ "runs": {
+  "k2-capnone": {
+   "events": [
+    {
+     "eventId": "init",
+     "phase": "init",
+     "step": 0,
+     "kind": "singletons",
+     "before": null,
+     "after": [
+      {
+       "label": "A",
+       "members": [
+        "A"
+       ],
+       "size": 1
+      },
+      {
+       "label": "B",
+       "members": [
+        "B"
+       ],
+       "size": 1
+      },
+      {
+       "label": "C",
+       "members": [
+        "C"
+       ],
+       "size": 1
+      },
+      {
+       "label": "D",
+       "members": [
+        "D"
+       ],
+       "size": 1
+      },
+      {
+       "label": "E",
+       "members": [
+        "E"
+       ],
+       "size": 1
+      }
+     ],
+     "decision": null,
+     "metrics": {
+      "cut": 18,
+      "clusters": 5
+     },
+     "sourceVersion": "1.0.0"
+    },
+    {
+     "eventId": "merge-1",
+     "phase": "merge",
+     "step": 1,
+     "kind": "merge",
+     "before": [
+      {
+       "label": "A",
+       "members": [
+        "A"
+       ],
+       "size": 1
+      },
+      {
+       "label": "B",
+       "members": [
+        "B"
+       ],
+       "size": 1
+      },
+      {
+       "label": "C",
+       "members": [
+        "C"
+       ],
+       "size": 1
+      },
+      {
+       "label": "D",
+       "members": [
+        "D"
+       ],
+       "size": 1
+      },
+      {
+       "label": "E",
+       "members": [
+        "E"
+       ],
+       "size": 1
+      }
+     ],
+     "after": [
+      {
+       "label": "AB",
+       "members": [
+        "A",
+        "B"
+       ],
+       "size": 2
+      },
+      {
+       "label": "C",
+       "members": [
+        "C"
+       ],
+       "size": 1
+      },
+      {
+       "label": "D",
+       "members": [
+        "D"
+       ],
+       "size": 1
+      },
+      {
+       "label": "E",
+       "members": [
+        "E"
+       ],
+       "size": 1
+      }
+     ],
+     "decision": {
+      "a": "A",
+      "b": "B",
+      "affinity": 5,
+      "size": 2,
+      "merged": "AB"
+     },
+     "candidates": [
+      {
+       "a": "A",
+       "b": "B",
+       "labelA": "A",
+       "labelB": "B",
+       "affinity": 5,
+       "parts": [
+        {
+         "u": "A",
+         "v": "B",
+         "w": 5
+        }
+       ],
+       "size": 2,
+       "legal": true,
+       "reason": null
+      },
+      {
+       "a": "D",
+       "b": "E",
+       "labelA": "D",
+       "labelB": "E",
+       "affinity": 5,
+       "parts": [
+        {
+         "u": "D",
+         "v": "E",
+         "w": 5
+        }
+       ],
+       "size": 2,
+       "legal": true,
+       "reason": null
+      },
+      {
+       "a": "B",
+       "b": "C",
+       "labelA": "B",
+       "labelB": "C",
+       "affinity": 4,
+       "parts": [
+        {
+         "u": "B",
+         "v": "C",
+         "w": 4
+        }
+       ],
+       "size": 2,
+       "legal": true,
+       "reason": null
+      },
+      {
+       "a": "C",
+       "b": "D",
+       "labelA": "C",
+       "labelB": "D",
+       "affinity": 2,
+       "parts": [
+        {
+         "u": "C",
+         "v": "D",
+         "w": 2
+        }
+       ],
+       "size": 2,
+       "legal": true,
+       "reason": null
+      },
+      {
+       "a": "A",
+       "b": "C",
+       "labelA": "A",
+       "labelB": "C",
+       "affinity": 1,
+       "parts": [
+        {
+         "u": "A",
+         "v": "C",
+         "w": 1
+        }
+       ],
+       "size": 2,
+       "legal": true,
+       "reason": null
+      },
+      {
+       "a": "C",
+       "b": "E",
+       "labelA": "C",
+       "labelB": "E",
+       "affinity": 1,
+       "parts": [
+        {
+         "u": "C",
+         "v": "E",
+         "w": 1
+        }
+       ],
+       "size": 2,
+       "legal": true,
+       "reason": null
+      }
+     ],
+     "blocked": [],
+     "metrics": {
+      "cutBefore": 18,
+      "cut": 13,
+      "drop": 5,
+      "clusters": 4
+     },
+     "sourceVersion": "1.0.0"
+    },
+    {
+     "eventId": "merge-2",
+     "phase": "merge",
+     "step": 2,
+     "kind": "merge",
+     "before": [
+      {
+       "label": "AB",
+       "members": [
+        "A",
+        "B"
+       ],
+       "size": 2
+      },
+      {
+       "label": "C",
+       "members": [
+        "C"
+       ],
+       "size": 1
+      },
+      {
+       "label": "D",
+       "members": [
+        "D"
+       ],
+       "size": 1
+      },
+      {
+       "label": "E",
+       "members": [
+        "E"
+       ],
+       "size": 1
+      }
+     ],
+     "after": [
+      {
+       "label": "ABC",
+       "members": [
+        "A",
+        "B",
+        "C"
+       ],
+       "size": 3
+      },
+      {
+       "label": "D",
+       "members": [
+        "D"
+       ],
+       "size": 1
+      },
+      {
+       "label": "E",
+       "members": [
+        "E"
+       ],
+       "size": 1
+      }
+     ],
+     "decision": {
+      "a": "AB",
+      "b": "C",
+      "affinity": 5,
+      "size": 3,
+      "merged": "ABC"
+     },
+     "candidates": [
+      {
+       "a": "AB",
+       "b": "C",
+       "labelA": "AB",
+       "labelB": "C",
+       "affinity": 5,
+       "parts": [
+        {
+         "u": "A",
+         "v": "C",
+         "w": 1
+        },
+        {
+         "u": "B",
+         "v": "C",
+         "w": 4
+        }
+       ],
+       "size": 3,
+       "legal": true,
+       "reason": null
+      },
+      {
+       "a": "D",
+       "b": "E",
+       "labelA": "D",
+       "labelB": "E",
+       "affinity": 5,
+       "parts": [
+        {
+         "u": "D",
+         "v": "E",
+         "w": 5
+        }
+       ],
+       "size": 2,
+       "legal": true,
+       "reason": null
+      },
+      {
+       "a": "C",
+       "b": "D",
+       "labelA": "C",
+       "labelB": "D",
+       "affinity": 2,
+       "parts": [
+        {
+         "u": "C",
+         "v": "D",
+         "w": 2
+        }
+       ],
+       "size": 2,
+       "legal": true,
+       "reason": null
+      },
+      {
+       "a": "C",
+       "b": "E",
+       "labelA": "C",
+       "labelB": "E",
+       "affinity": 1,
+       "parts": [
+        {
+         "u": "C",
+         "v": "E",
+         "w": 1
+        }
+       ],
+       "size": 2,
+       "legal": true,
+       "reason": null
+      }
+     ],
+     "blocked": [],
+     "metrics": {
+      "cutBefore": 13,
+      "cut": 8,
+      "drop": 5,
+      "clusters": 3
+     },
+     "sourceVersion": "1.0.0"
+    },
+    {
+     "eventId": "merge-3",
+     "phase": "merge",
+     "step": 3,
+     "kind": "merge",
+     "before": [
+      {
+       "label": "ABC",
+       "members": [
+        "A",
+        "B",
+        "C"
+       ],
+       "size": 3
+      },
+      {
+       "label": "D",
+       "members": [
+        "D"
+       ],
+       "size": 1
+      },
+      {
+       "label": "E",
+       "members": [
+        "E"
+       ],
+       "size": 1
+      }
+     ],
+     "after": [
+      {
+       "label": "ABC",
+       "members": [
+        "A",
+        "B",
+        "C"
+       ],
+       "size": 3
+      },
+      {
+       "label": "DE",
+       "members": [
+        "D",
+        "E"
+       ],
+       "size": 2
+      }
+     ],
+     "decision": {
+      "a": "D",
+      "b": "E",
+      "affinity": 5,
+      "size": 2,
+      "merged": "DE"
+     },
+     "candidates": [
+      {
+       "a": "D",
+       "b": "E",
+       "labelA": "D",
+       "labelB": "E",
+       "affinity": 5,
+       "parts": [
+        {
+         "u": "D",
+         "v": "E",
+         "w": 5
+        }
+       ],
+       "size": 2,
+       "legal": true,
+       "reason": null
+      },
+      {
+       "a": "ABC",
+       "b": "D",
+       "labelA": "ABC",
+       "labelB": "D",
+       "affinity": 2,
+       "parts": [
+        {
+         "u": "C",
+         "v": "D",
+         "w": 2
+        }
+       ],
+       "size": 4,
+       "legal": true,
+       "reason": null
+      },
+      {
+       "a": "ABC",
+       "b": "E",
+       "labelA": "ABC",
+       "labelB": "E",
+       "affinity": 1,
+       "parts": [
+        {
+         "u": "C",
+         "v": "E",
+         "w": 1
+        }
+       ],
+       "size": 4,
+       "legal": true,
+       "reason": null
+      }
+     ],
+     "blocked": [],
+     "metrics": {
+      "cutBefore": 8,
+      "cut": 3,
+      "drop": 5,
+      "clusters": 2
+     },
+     "sourceVersion": "1.0.0"
+    }
+   ],
+   "result": {
+    "clusters": [
+     [
+      "A",
+      "B",
+      "C"
+     ],
+     [
+      "D",
+      "E"
+     ]
+    ],
+    "labels": [
+     "ABC",
+     "DE"
+    ],
+    "sizes": [
+     3,
+     2
+    ],
+    "count": 2,
+    "cut": 3,
+    "k": 2,
+    "capacity": null,
+    "assignment": {
+     "A": "ABC",
+     "B": "ABC",
+     "C": "ABC",
+     "D": "DE",
+     "E": "DE"
+    },
+    "targetReached": true,
+    "capacityCompliant": true,
+    "stopReason": "target-reached",
+    "cutTrajectory": [
+     18,
+     13,
+     8,
+     3
+    ]
+   },
+   "status": "completed",
+   "metadata": {
+    "engine": "merge",
+    "version": "1.0.0",
+    "legacyComparator": false
+   }
+  },
+  "k3-capnone": {
+   "events": [
+    {
+     "eventId": "init",
+     "phase": "init",
+     "step": 0,
+     "kind": "singletons",
+     "before": null,
+     "after": [
+      {
+       "label": "A",
+       "members": [
+        "A"
+       ],
+       "size": 1
+      },
+      {
+       "label": "B",
+       "members": [
+        "B"
+       ],
+       "size": 1
+      },
+      {
+       "label": "C",
+       "members": [
+        "C"
+       ],
+       "size": 1
+      },
+      {
+       "label": "D",
+       "members": [
+        "D"
+       ],
+       "size": 1
+      },
+      {
+       "label": "E",
+       "members": [
+        "E"
+       ],
+       "size": 1
+      }
+     ],
+     "decision": null,
+     "metrics": {
+      "cut": 18,
+      "clusters": 5
+     },
+     "sourceVersion": "1.0.0"
+    },
+    {
+     "eventId": "merge-1",
+     "phase": "merge",
+     "step": 1,
+     "kind": "merge",
+     "before": [
+      {
+       "label": "A",
+       "members": [
+        "A"
+       ],
+       "size": 1
+      },
+      {
+       "label": "B",
+       "members": [
+        "B"
+       ],
+       "size": 1
+      },
+      {
+       "label": "C",
+       "members": [
+        "C"
+       ],
+       "size": 1
+      },
+      {
+       "label": "D",
+       "members": [
+        "D"
+       ],
+       "size": 1
+      },
+      {
+       "label": "E",
+       "members": [
+        "E"
+       ],
+       "size": 1
+      }
+     ],
+     "after": [
+      {
+       "label": "AB",
+       "members": [
+        "A",
+        "B"
+       ],
+       "size": 2
+      },
+      {
+       "label": "C",
+       "members": [
+        "C"
+       ],
+       "size": 1
+      },
+      {
+       "label": "D",
+       "members": [
+        "D"
+       ],
+       "size": 1
+      },
+      {
+       "label": "E",
+       "members": [
+        "E"
+       ],
+       "size": 1
+      }
+     ],
+     "decision": {
+      "a": "A",
+      "b": "B",
+      "affinity": 5,
+      "size": 2,
+      "merged": "AB"
+     },
+     "candidates": [
+      {
+       "a": "A",
+       "b": "B",
+       "labelA": "A",
+       "labelB": "B",
+       "affinity": 5,
+       "parts": [
+        {
+         "u": "A",
+         "v": "B",
+         "w": 5
+        }
+       ],
+       "size": 2,
+       "legal": true,
+       "reason": null
+      },
+      {
+       "a": "D",
+       "b": "E",
+       "labelA": "D",
+       "labelB": "E",
+       "affinity": 5,
+       "parts": [
+        {
+         "u": "D",
+         "v": "E",
+         "w": 5
+        }
+       ],
+       "size": 2,
+       "legal": true,
+       "reason": null
+      },
+      {
+       "a": "B",
+       "b": "C",
+       "labelA": "B",
+       "labelB": "C",
+       "affinity": 4,
+       "parts": [
+        {
+         "u": "B",
+         "v": "C",
+         "w": 4
+        }
+       ],
+       "size": 2,
+       "legal": true,
+       "reason": null
+      },
+      {
+       "a": "C",
+       "b": "D",
+       "labelA": "C",
+       "labelB": "D",
+       "affinity": 2,
+       "parts": [
+        {
+         "u": "C",
+         "v": "D",
+         "w": 2
+        }
+       ],
+       "size": 2,
+       "legal": true,
+       "reason": null
+      },
+      {
+       "a": "A",
+       "b": "C",
+       "labelA": "A",
+       "labelB": "C",
+       "affinity": 1,
+       "parts": [
+        {
+         "u": "A",
+         "v": "C",
+         "w": 1
+        }
+       ],
+       "size": 2,
+       "legal": true,
+       "reason": null
+      },
+      {
+       "a": "C",
+       "b": "E",
+       "labelA": "C",
+       "labelB": "E",
+       "affinity": 1,
+       "parts": [
+        {
+         "u": "C",
+         "v": "E",
+         "w": 1
+        }
+       ],
+       "size": 2,
+       "legal": true,
+       "reason": null
+      }
+     ],
+     "blocked": [],
+     "metrics": {
+      "cutBefore": 18,
+      "cut": 13,
+      "drop": 5,
+      "clusters": 4
+     },
+     "sourceVersion": "1.0.0"
+    },
+    {
+     "eventId": "merge-2",
+     "phase": "merge",
+     "step": 2,
+     "kind": "merge",
+     "before": [
+      {
+       "label": "AB",
+       "members": [
+        "A",
+        "B"
+       ],
+       "size": 2
+      },
+      {
+       "label": "C",
+       "members": [
+        "C"
+       ],
+       "size": 1
+      },
+      {
+       "label": "D",
+       "members": [
+        "D"
+       ],
+       "size": 1
+      },
+      {
+       "label": "E",
+       "members": [
+        "E"
+       ],
+       "size": 1
+      }
+     ],
+     "after": [
+      {
+       "label": "ABC",
+       "members": [
+        "A",
+        "B",
+        "C"
+       ],
+       "size": 3
+      },
+      {
+       "label": "D",
+       "members": [
+        "D"
+       ],
+       "size": 1
+      },
+      {
+       "label": "E",
+       "members": [
+        "E"
+       ],
+       "size": 1
+      }
+     ],
+     "decision": {
+      "a": "AB",
+      "b": "C",
+      "affinity": 5,
+      "size": 3,
+      "merged": "ABC"
+     },
+     "candidates": [
+      {
+       "a": "AB",
+       "b": "C",
+       "labelA": "AB",
+       "labelB": "C",
+       "affinity": 5,
+       "parts": [
+        {
+         "u": "A",
+         "v": "C",
+         "w": 1
+        },
+        {
+         "u": "B",
+         "v": "C",
+         "w": 4
+        }
+       ],
+       "size": 3,
+       "legal": true,
+       "reason": null
+      },
+      {
+       "a": "D",
+       "b": "E",
+       "labelA": "D",
+       "labelB": "E",
+       "affinity": 5,
+       "parts": [
+        {
+         "u": "D",
+         "v": "E",
+         "w": 5
+        }
+       ],
+       "size": 2,
+       "legal": true,
+       "reason": null
+      },
+      {
+       "a": "C",
+       "b": "D",
+       "labelA": "C",
+       "labelB": "D",
+       "affinity": 2,
+       "parts": [
+        {
+         "u": "C",
+         "v": "D",
+         "w": 2
+        }
+       ],
+       "size": 2,
+       "legal": true,
+       "reason": null
+      },
+      {
+       "a": "C",
+       "b": "E",
+       "labelA": "C",
+       "labelB": "E",
+       "affinity": 1,
+       "parts": [
+        {
+         "u": "C",
+         "v": "E",
+         "w": 1
+        }
+       ],
+       "size": 2,
+       "legal": true,
+       "reason": null
+      }
+     ],
+     "blocked": [],
+     "metrics": {
+      "cutBefore": 13,
+      "cut": 8,
+      "drop": 5,
+      "clusters": 3
+     },
+     "sourceVersion": "1.0.0"
+    }
+   ],
+   "result": {
+    "clusters": [
+     [
+      "A",
+      "B",
+      "C"
+     ],
+     [
+      "D"
+     ],
+     [
+      "E"
+     ]
+    ],
+    "labels": [
+     "ABC",
+     "D",
+     "E"
+    ],
+    "sizes": [
+     3,
+     1,
+     1
+    ],
+    "count": 3,
+    "cut": 8,
+    "k": 3,
+    "capacity": null,
+    "assignment": {
+     "A": "ABC",
+     "B": "ABC",
+     "C": "ABC",
+     "D": "D",
+     "E": "E"
+    },
+    "targetReached": true,
+    "capacityCompliant": true,
+    "stopReason": "target-reached",
+    "cutTrajectory": [
+     18,
+     13,
+     8
+    ]
+   },
+   "status": "completed",
+   "metadata": {
+    "engine": "merge",
+    "version": "1.0.0",
+    "legacyComparator": false
+   }
+  },
+  "k2-cap2": {
+   "events": [
+    {
+     "eventId": "init",
+     "phase": "init",
+     "step": 0,
+     "kind": "singletons",
+     "before": null,
+     "after": [
+      {
+       "label": "A",
+       "members": [
+        "A"
+       ],
+       "size": 1
+      },
+      {
+       "label": "B",
+       "members": [
+        "B"
+       ],
+       "size": 1
+      },
+      {
+       "label": "C",
+       "members": [
+        "C"
+       ],
+       "size": 1
+      },
+      {
+       "label": "D",
+       "members": [
+        "D"
+       ],
+       "size": 1
+      },
+      {
+       "label": "E",
+       "members": [
+        "E"
+       ],
+       "size": 1
+      }
+     ],
+     "decision": null,
+     "metrics": {
+      "cut": 18,
+      "clusters": 5
+     },
+     "sourceVersion": "1.0.0"
+    },
+    {
+     "eventId": "merge-1",
+     "phase": "merge",
+     "step": 1,
+     "kind": "merge",
+     "before": [
+      {
+       "label": "A",
+       "members": [
+        "A"
+       ],
+       "size": 1
+      },
+      {
+       "label": "B",
+       "members": [
+        "B"
+       ],
+       "size": 1
+      },
+      {
+       "label": "C",
+       "members": [
+        "C"
+       ],
+       "size": 1
+      },
+      {
+       "label": "D",
+       "members": [
+        "D"
+       ],
+       "size": 1
+      },
+      {
+       "label": "E",
+       "members": [
+        "E"
+       ],
+       "size": 1
+      }
+     ],
+     "after": [
+      {
+       "label": "AB",
+       "members": [
+        "A",
+        "B"
+       ],
+       "size": 2
+      },
+      {
+       "label": "C",
+       "members": [
+        "C"
+       ],
+       "size": 1
+      },
+      {
+       "label": "D",
+       "members": [
+        "D"
+       ],
+       "size": 1
+      },
+      {
+       "label": "E",
+       "members": [
+        "E"
+       ],
+       "size": 1
+      }
+     ],
+     "decision": {
+      "a": "A",
+      "b": "B",
+      "affinity": 5,
+      "size": 2,
+      "merged": "AB"
+     },
+     "candidates": [
+      {
+       "a": "A",
+       "b": "B",
+       "labelA": "A",
+       "labelB": "B",
+       "affinity": 5,
+       "parts": [
+        {
+         "u": "A",
+         "v": "B",
+         "w": 5
+        }
+       ],
+       "size": 2,
+       "legal": true,
+       "reason": null
+      },
+      {
+       "a": "D",
+       "b": "E",
+       "labelA": "D",
+       "labelB": "E",
+       "affinity": 5,
+       "parts": [
+        {
+         "u": "D",
+         "v": "E",
+         "w": 5
+        }
+       ],
+       "size": 2,
+       "legal": true,
+       "reason": null
+      },
+      {
+       "a": "B",
+       "b": "C",
+       "labelA": "B",
+       "labelB": "C",
+       "affinity": 4,
+       "parts": [
+        {
+         "u": "B",
+         "v": "C",
+         "w": 4
+        }
+       ],
+       "size": 2,
+       "legal": true,
+       "reason": null
+      },
+      {
+       "a": "C",
+       "b": "D",
+       "labelA": "C",
+       "labelB": "D",
+       "affinity": 2,
+       "parts": [
+        {
+         "u": "C",
+         "v": "D",
+         "w": 2
+        }
+       ],
+       "size": 2,
+       "legal": true,
+       "reason": null
+      },
+      {
+       "a": "A",
+       "b": "C",
+       "labelA": "A",
+       "labelB": "C",
+       "affinity": 1,
+       "parts": [
+        {
+         "u": "A",
+         "v": "C",
+         "w": 1
+        }
+       ],
+       "size": 2,
+       "legal": true,
+       "reason": null
+      },
+      {
+       "a": "C",
+       "b": "E",
+       "labelA": "C",
+       "labelB": "E",
+       "affinity": 1,
+       "parts": [
+        {
+         "u": "C",
+         "v": "E",
+         "w": 1
+        }
+       ],
+       "size": 2,
+       "legal": true,
+       "reason": null
+      }
+     ],
+     "blocked": [],
+     "metrics": {
+      "cutBefore": 18,
+      "cut": 13,
+      "drop": 5,
+      "clusters": 4
+     },
+     "sourceVersion": "1.0.0"
+    },
+    {
+     "eventId": "merge-2",
+     "phase": "merge",
+     "step": 2,
+     "kind": "merge",
+     "before": [
+      {
+       "label": "AB",
+       "members": [
+        "A",
+        "B"
+       ],
+       "size": 2
+      },
+      {
+       "label": "C",
+       "members": [
+        "C"
+       ],
+       "size": 1
+      },
+      {
+       "label": "D",
+       "members": [
+        "D"
+       ],
+       "size": 1
+      },
+      {
+       "label": "E",
+       "members": [
+        "E"
+       ],
+       "size": 1
+      }
+     ],
+     "after": [
+      {
+       "label": "AB",
+       "members": [
+        "A",
+        "B"
+       ],
+       "size": 2
+      },
+      {
+       "label": "C",
+       "members": [
+        "C"
+       ],
+       "size": 1
+      },
+      {
+       "label": "DE",
+       "members": [
+        "D",
+        "E"
+       ],
+       "size": 2
+      }
+     ],
+     "decision": {
+      "a": "D",
+      "b": "E",
+      "affinity": 5,
+      "size": 2,
+      "merged": "DE"
+     },
+     "candidates": [
+      {
+       "a": "AB",
+       "b": "C",
+       "labelA": "AB",
+       "labelB": "C",
+       "affinity": 5,
+       "parts": [
+        {
+         "u": "A",
+         "v": "C",
+         "w": 1
+        },
+        {
+         "u": "B",
+         "v": "C",
+         "w": 4
+        }
+       ],
+       "size": 3,
+       "legal": false,
+       "reason": "合并后大小 3 > 容量 2"
+      },
+      {
+       "a": "D",
+       "b": "E",
+       "labelA": "D",
+       "labelB": "E",
+       "affinity": 5,
+       "parts": [
+        {
+         "u": "D",
+         "v": "E",
+         "w": 5
+        }
+       ],
+       "size": 2,
+       "legal": true,
+       "reason": null
+      },
+      {
+       "a": "C",
+       "b": "D",
+       "labelA": "C",
+       "labelB": "D",
+       "affinity": 2,
+       "parts": [
+        {
+         "u": "C",
+         "v": "D",
+         "w": 2
+        }
+       ],
+       "size": 2,
+       "legal": true,
+       "reason": null
+      },
+      {
+       "a": "C",
+       "b": "E",
+       "labelA": "C",
+       "labelB": "E",
+       "affinity": 1,
+       "parts": [
+        {
+         "u": "C",
+         "v": "E",
+         "w": 1
+        }
+       ],
+       "size": 2,
+       "legal": true,
+       "reason": null
+      }
+     ],
+     "blocked": [
+      {
+       "a": "AB",
+       "b": "C",
+       "labelA": "AB",
+       "labelB": "C",
+       "affinity": 5,
+       "parts": [
+        {
+         "u": "A",
+         "v": "C",
+         "w": 1
+        },
+        {
+         "u": "B",
+         "v": "C",
+         "w": 4
+        }
+       ],
+       "size": 3,
+       "legal": false,
+       "reason": "合并后大小 3 > 容量 2"
+      }
+     ],
+     "metrics": {
+      "cutBefore": 13,
+      "cut": 8,
+      "drop": 5,
+      "clusters": 3
+     },
+     "sourceVersion": "1.0.0"
+    },
+    {
+     "eventId": "stop-3",
+     "phase": "stop",
+     "step": 3,
+     "kind": "stopped",
+     "before": [
+      {
+       "label": "AB",
+       "members": [
+        "A",
+        "B"
+       ],
+       "size": 2
+      },
+      {
+       "label": "C",
+       "members": [
+        "C"
+       ],
+       "size": 1
+      },
+      {
+       "label": "DE",
+       "members": [
+        "D",
+        "E"
+       ],
+       "size": 2
+      }
+     ],
+     "after": [
+      {
+       "label": "AB",
+       "members": [
+        "A",
+        "B"
+       ],
+       "size": 2
+      },
+      {
+       "label": "C",
+       "members": [
+        "C"
+       ],
+       "size": 1
+      },
+      {
+       "label": "DE",
+       "members": [
+        "D",
+        "E"
+       ],
+       "size": 2
+      }
+     ],
+     "decision": "capacity-blocked",
+     "candidates": [
+      {
+       "a": "AB",
+       "b": "C",
+       "labelA": "AB",
+       "labelB": "C",
+       "affinity": 5,
+       "parts": [
+        {
+         "u": "A",
+         "v": "C",
+         "w": 1
+        },
+        {
+         "u": "B",
+         "v": "C",
+         "w": 4
+        }
+       ],
+       "size": 3,
+       "legal": false,
+       "reason": "合并后大小 3 > 容量 2"
+      },
+      {
+       "a": "C",
+       "b": "DE",
+       "labelA": "C",
+       "labelB": "DE",
+       "affinity": 3,
+       "parts": [
+        {
+         "u": "C",
+         "v": "D",
+         "w": 2
+        },
+        {
+         "u": "C",
+         "v": "E",
+         "w": 1
+        }
+       ],
+       "size": 3,
+       "legal": false,
+       "reason": "合并后大小 3 > 容量 2"
+      }
+     ],
+     "metrics": {
+      "cut": 8,
+      "clusters": 3
+     },
+     "sourceVersion": "1.0.0"
+    }
+   ],
+   "result": {
+    "clusters": [
+     [
+      "A",
+      "B"
+     ],
+     [
+      "C"
+     ],
+     [
+      "D",
+      "E"
+     ]
+    ],
+    "labels": [
+     "AB",
+     "C",
+     "DE"
+    ],
+    "sizes": [
+     2,
+     1,
+     2
+    ],
+    "count": 3,
+    "cut": 8,
+    "k": 2,
+    "capacity": 2,
+    "assignment": {
+     "A": "AB",
+     "B": "AB",
+     "C": "C",
+     "D": "DE",
+     "E": "DE"
+    },
+    "targetReached": false,
+    "capacityCompliant": true,
+    "stopReason": "capacity-blocked",
+    "cutTrajectory": [
+     18,
+     13,
+     8
+    ]
+   },
+   "status": "blocked",
+   "metadata": {
+    "engine": "merge",
+    "version": "1.0.0",
+    "legacyComparator": false
+   }
+  },
+  "k2-cap3": {
+   "events": [
+    {
+     "eventId": "init",
+     "phase": "init",
+     "step": 0,
+     "kind": "singletons",
+     "before": null,
+     "after": [
+      {
+       "label": "A",
+       "members": [
+        "A"
+       ],
+       "size": 1
+      },
+      {
+       "label": "B",
+       "members": [
+        "B"
+       ],
+       "size": 1
+      },
+      {
+       "label": "C",
+       "members": [
+        "C"
+       ],
+       "size": 1
+      },
+      {
+       "label": "D",
+       "members": [
+        "D"
+       ],
+       "size": 1
+      },
+      {
+       "label": "E",
+       "members": [
+        "E"
+       ],
+       "size": 1
+      }
+     ],
+     "decision": null,
+     "metrics": {
+      "cut": 18,
+      "clusters": 5
+     },
+     "sourceVersion": "1.0.0"
+    },
+    {
+     "eventId": "merge-1",
+     "phase": "merge",
+     "step": 1,
+     "kind": "merge",
+     "before": [
+      {
+       "label": "A",
+       "members": [
+        "A"
+       ],
+       "size": 1
+      },
+      {
+       "label": "B",
+       "members": [
+        "B"
+       ],
+       "size": 1
+      },
+      {
+       "label": "C",
+       "members": [
+        "C"
+       ],
+       "size": 1
+      },
+      {
+       "label": "D",
+       "members": [
+        "D"
+       ],
+       "size": 1
+      },
+      {
+       "label": "E",
+       "members": [
+        "E"
+       ],
+       "size": 1
+      }
+     ],
+     "after": [
+      {
+       "label": "AB",
+       "members": [
+        "A",
+        "B"
+       ],
+       "size": 2
+      },
+      {
+       "label": "C",
+       "members": [
+        "C"
+       ],
+       "size": 1
+      },
+      {
+       "label": "D",
+       "members": [
+        "D"
+       ],
+       "size": 1
+      },
+      {
+       "label": "E",
+       "members": [
+        "E"
+       ],
+       "size": 1
+      }
+     ],
+     "decision": {
+      "a": "A",
+      "b": "B",
+      "affinity": 5,
+      "size": 2,
+      "merged": "AB"
+     },
+     "candidates": [
+      {
+       "a": "A",
+       "b": "B",
+       "labelA": "A",
+       "labelB": "B",
+       "affinity": 5,
+       "parts": [
+        {
+         "u": "A",
+         "v": "B",
+         "w": 5
+        }
+       ],
+       "size": 2,
+       "legal": true,
+       "reason": null
+      },
+      {
+       "a": "D",
+       "b": "E",
+       "labelA": "D",
+       "labelB": "E",
+       "affinity": 5,
+       "parts": [
+        {
+         "u": "D",
+         "v": "E",
+         "w": 5
+        }
+       ],
+       "size": 2,
+       "legal": true,
+       "reason": null
+      },
+      {
+       "a": "B",
+       "b": "C",
+       "labelA": "B",
+       "labelB": "C",
+       "affinity": 4,
+       "parts": [
+        {
+         "u": "B",
+         "v": "C",
+         "w": 4
+        }
+       ],
+       "size": 2,
+       "legal": true,
+       "reason": null
+      },
+      {
+       "a": "C",
+       "b": "D",
+       "labelA": "C",
+       "labelB": "D",
+       "affinity": 2,
+       "parts": [
+        {
+         "u": "C",
+         "v": "D",
+         "w": 2
+        }
+       ],
+       "size": 2,
+       "legal": true,
+       "reason": null
+      },
+      {
+       "a": "A",
+       "b": "C",
+       "labelA": "A",
+       "labelB": "C",
+       "affinity": 1,
+       "parts": [
+        {
+         "u": "A",
+         "v": "C",
+         "w": 1
+        }
+       ],
+       "size": 2,
+       "legal": true,
+       "reason": null
+      },
+      {
+       "a": "C",
+       "b": "E",
+       "labelA": "C",
+       "labelB": "E",
+       "affinity": 1,
+       "parts": [
+        {
+         "u": "C",
+         "v": "E",
+         "w": 1
+        }
+       ],
+       "size": 2,
+       "legal": true,
+       "reason": null
+      }
+     ],
+     "blocked": [],
+     "metrics": {
+      "cutBefore": 18,
+      "cut": 13,
+      "drop": 5,
+      "clusters": 4
+     },
+     "sourceVersion": "1.0.0"
+    },
+    {
+     "eventId": "merge-2",
+     "phase": "merge",
+     "step": 2,
+     "kind": "merge",
+     "before": [
+      {
+       "label": "AB",
+       "members": [
+        "A",
+        "B"
+       ],
+       "size": 2
+      },
+      {
+       "label": "C",
+       "members": [
+        "C"
+       ],
+       "size": 1
+      },
+      {
+       "label": "D",
+       "members": [
+        "D"
+       ],
+       "size": 1
+      },
+      {
+       "label": "E",
+       "members": [
+        "E"
+       ],
+       "size": 1
+      }
+     ],
+     "after": [
+      {
+       "label": "ABC",
+       "members": [
+        "A",
+        "B",
+        "C"
+       ],
+       "size": 3
+      },
+      {
+       "label": "D",
+       "members": [
+        "D"
+       ],
+       "size": 1
+      },
+      {
+       "label": "E",
+       "members": [
+        "E"
+       ],
+       "size": 1
+      }
+     ],
+     "decision": {
+      "a": "AB",
+      "b": "C",
+      "affinity": 5,
+      "size": 3,
+      "merged": "ABC"
+     },
+     "candidates": [
+      {
+       "a": "AB",
+       "b": "C",
+       "labelA": "AB",
+       "labelB": "C",
+       "affinity": 5,
+       "parts": [
+        {
+         "u": "A",
+         "v": "C",
+         "w": 1
+        },
+        {
+         "u": "B",
+         "v": "C",
+         "w": 4
+        }
+       ],
+       "size": 3,
+       "legal": true,
+       "reason": null
+      },
+      {
+       "a": "D",
+       "b": "E",
+       "labelA": "D",
+       "labelB": "E",
+       "affinity": 5,
+       "parts": [
+        {
+         "u": "D",
+         "v": "E",
+         "w": 5
+        }
+       ],
+       "size": 2,
+       "legal": true,
+       "reason": null
+      },
+      {
+       "a": "C",
+       "b": "D",
+       "labelA": "C",
+       "labelB": "D",
+       "affinity": 2,
+       "parts": [
+        {
+         "u": "C",
+         "v": "D",
+         "w": 2
+        }
+       ],
+       "size": 2,
+       "legal": true,
+       "reason": null
+      },
+      {
+       "a": "C",
+       "b": "E",
+       "labelA": "C",
+       "labelB": "E",
+       "affinity": 1,
+       "parts": [
+        {
+         "u": "C",
+         "v": "E",
+         "w": 1
+        }
+       ],
+       "size": 2,
+       "legal": true,
+       "reason": null
+      }
+     ],
+     "blocked": [],
+     "metrics": {
+      "cutBefore": 13,
+      "cut": 8,
+      "drop": 5,
+      "clusters": 3
+     },
+     "sourceVersion": "1.0.0"
+    },
+    {
+     "eventId": "merge-3",
+     "phase": "merge",
+     "step": 3,
+     "kind": "merge",
+     "before": [
+      {
+       "label": "ABC",
+       "members": [
+        "A",
+        "B",
+        "C"
+       ],
+       "size": 3
+      },
+      {
+       "label": "D",
+       "members": [
+        "D"
+       ],
+       "size": 1
+      },
+      {
+       "label": "E",
+       "members": [
+        "E"
+       ],
+       "size": 1
+      }
+     ],
+     "after": [
+      {
+       "label": "ABC",
+       "members": [
+        "A",
+        "B",
+        "C"
+       ],
+       "size": 3
+      },
+      {
+       "label": "DE",
+       "members": [
+        "D",
+        "E"
+       ],
+       "size": 2
+      }
+     ],
+     "decision": {
+      "a": "D",
+      "b": "E",
+      "affinity": 5,
+      "size": 2,
+      "merged": "DE"
+     },
+     "candidates": [
+      {
+       "a": "D",
+       "b": "E",
+       "labelA": "D",
+       "labelB": "E",
+       "affinity": 5,
+       "parts": [
+        {
+         "u": "D",
+         "v": "E",
+         "w": 5
+        }
+       ],
+       "size": 2,
+       "legal": true,
+       "reason": null
+      },
+      {
+       "a": "ABC",
+       "b": "D",
+       "labelA": "ABC",
+       "labelB": "D",
+       "affinity": 2,
+       "parts": [
+        {
+         "u": "C",
+         "v": "D",
+         "w": 2
+        }
+       ],
+       "size": 4,
+       "legal": false,
+       "reason": "合并后大小 4 > 容量 3"
+      },
+      {
+       "a": "ABC",
+       "b": "E",
+       "labelA": "ABC",
+       "labelB": "E",
+       "affinity": 1,
+       "parts": [
+        {
+         "u": "C",
+         "v": "E",
+         "w": 1
+        }
+       ],
+       "size": 4,
+       "legal": false,
+       "reason": "合并后大小 4 > 容量 3"
+      }
+     ],
+     "blocked": [],
+     "metrics": {
+      "cutBefore": 8,
+      "cut": 3,
+      "drop": 5,
+      "clusters": 2
+     },
+     "sourceVersion": "1.0.0"
+    }
+   ],
+   "result": {
+    "clusters": [
+     [
+      "A",
+      "B",
+      "C"
+     ],
+     [
+      "D",
+      "E"
+     ]
+    ],
+    "labels": [
+     "ABC",
+     "DE"
+    ],
+    "sizes": [
+     3,
+     2
+    ],
+    "count": 2,
+    "cut": 3,
+    "k": 2,
+    "capacity": 3,
+    "assignment": {
+     "A": "ABC",
+     "B": "ABC",
+     "C": "ABC",
+     "D": "DE",
+     "E": "DE"
+    },
+    "targetReached": true,
+    "capacityCompliant": true,
+    "stopReason": "target-reached",
+    "cutTrajectory": [
+     18,
+     13,
+     8,
+     3
+    ]
+   },
+   "status": "completed",
+   "metadata": {
+    "engine": "merge",
+    "version": "1.0.0",
+    "legacyComparator": false
+   }
+  },
+  "k3-cap2": {
+   "events": [
+    {
+     "eventId": "init",
+     "phase": "init",
+     "step": 0,
+     "kind": "singletons",
+     "before": null,
+     "after": [
+      {
+       "label": "A",
+       "members": [
+        "A"
+       ],
+       "size": 1
+      },
+      {
+       "label": "B",
+       "members": [
+        "B"
+       ],
+       "size": 1
+      },
+      {
+       "label": "C",
+       "members": [
+        "C"
+       ],
+       "size": 1
+      },
+      {
+       "label": "D",
+       "members": [
+        "D"
+       ],
+       "size": 1
+      },
+      {
+       "label": "E",
+       "members": [
+        "E"
+       ],
+       "size": 1
+      }
+     ],
+     "decision": null,
+     "metrics": {
+      "cut": 18,
+      "clusters": 5
+     },
+     "sourceVersion": "1.0.0"
+    },
+    {
+     "eventId": "merge-1",
+     "phase": "merge",
+     "step": 1,
+     "kind": "merge",
+     "before": [
+      {
+       "label": "A",
+       "members": [
+        "A"
+       ],
+       "size": 1
+      },
+      {
+       "label": "B",
+       "members": [
+        "B"
+       ],
+       "size": 1
+      },
+      {
+       "label": "C",
+       "members": [
+        "C"
+       ],
+       "size": 1
+      },
+      {
+       "label": "D",
+       "members": [
+        "D"
+       ],
+       "size": 1
+      },
+      {
+       "label": "E",
+       "members": [
+        "E"
+       ],
+       "size": 1
+      }
+     ],
+     "after": [
+      {
+       "label": "AB",
+       "members": [
+        "A",
+        "B"
+       ],
+       "size": 2
+      },
+      {
+       "label": "C",
+       "members": [
+        "C"
+       ],
+       "size": 1
+      },
+      {
+       "label": "D",
+       "members": [
+        "D"
+       ],
+       "size": 1
+      },
+      {
+       "label": "E",
+       "members": [
+        "E"
+       ],
+       "size": 1
+      }
+     ],
+     "decision": {
+      "a": "A",
+      "b": "B",
+      "affinity": 5,
+      "size": 2,
+      "merged": "AB"
+     },
+     "candidates": [
+      {
+       "a": "A",
+       "b": "B",
+       "labelA": "A",
+       "labelB": "B",
+       "affinity": 5,
+       "parts": [
+        {
+         "u": "A",
+         "v": "B",
+         "w": 5
+        }
+       ],
+       "size": 2,
+       "legal": true,
+       "reason": null
+      },
+      {
+       "a": "D",
+       "b": "E",
+       "labelA": "D",
+       "labelB": "E",
+       "affinity": 5,
+       "parts": [
+        {
+         "u": "D",
+         "v": "E",
+         "w": 5
+        }
+       ],
+       "size": 2,
+       "legal": true,
+       "reason": null
+      },
+      {
+       "a": "B",
+       "b": "C",
+       "labelA": "B",
+       "labelB": "C",
+       "affinity": 4,
+       "parts": [
+        {
+         "u": "B",
+         "v": "C",
+         "w": 4
+        }
+       ],
+       "size": 2,
+       "legal": true,
+       "reason": null
+      },
+      {
+       "a": "C",
+       "b": "D",
+       "labelA": "C",
+       "labelB": "D",
+       "affinity": 2,
+       "parts": [
+        {
+         "u": "C",
+         "v": "D",
+         "w": 2
+        }
+       ],
+       "size": 2,
+       "legal": true,
+       "reason": null
+      },
+      {
+       "a": "A",
+       "b": "C",
+       "labelA": "A",
+       "labelB": "C",
+       "affinity": 1,
+       "parts": [
+        {
+         "u": "A",
+         "v": "C",
+         "w": 1
+        }
+       ],
+       "size": 2,
+       "legal": true,
+       "reason": null
+      },
+      {
+       "a": "C",
+       "b": "E",
+       "labelA": "C",
+       "labelB": "E",
+       "affinity": 1,
+       "parts": [
+        {
+         "u": "C",
+         "v": "E",
+         "w": 1
+        }
+       ],
+       "size": 2,
+       "legal": true,
+       "reason": null
+      }
+     ],
+     "blocked": [],
+     "metrics": {
+      "cutBefore": 18,
+      "cut": 13,
+      "drop": 5,
+      "clusters": 4
+     },
+     "sourceVersion": "1.0.0"
+    },
+    {
+     "eventId": "merge-2",
+     "phase": "merge",
+     "step": 2,
+     "kind": "merge",
+     "before": [
+      {
+       "label": "AB",
+       "members": [
+        "A",
+        "B"
+       ],
+       "size": 2
+      },
+      {
+       "label": "C",
+       "members": [
+        "C"
+       ],
+       "size": 1
+      },
+      {
+       "label": "D",
+       "members": [
+        "D"
+       ],
+       "size": 1
+      },
+      {
+       "label": "E",
+       "members": [
+        "E"
+       ],
+       "size": 1
+      }
+     ],
+     "after": [
+      {
+       "label": "AB",
+       "members": [
+        "A",
+        "B"
+       ],
+       "size": 2
+      },
+      {
+       "label": "C",
+       "members": [
+        "C"
+       ],
+       "size": 1
+      },
+      {
+       "label": "DE",
+       "members": [
+        "D",
+        "E"
+       ],
+       "size": 2
+      }
+     ],
+     "decision": {
+      "a": "D",
+      "b": "E",
+      "affinity": 5,
+      "size": 2,
+      "merged": "DE"
+     },
+     "candidates": [
+      {
+       "a": "AB",
+       "b": "C",
+       "labelA": "AB",
+       "labelB": "C",
+       "affinity": 5,
+       "parts": [
+        {
+         "u": "A",
+         "v": "C",
+         "w": 1
+        },
+        {
+         "u": "B",
+         "v": "C",
+         "w": 4
+        }
+       ],
+       "size": 3,
+       "legal": false,
+       "reason": "合并后大小 3 > 容量 2"
+      },
+      {
+       "a": "D",
+       "b": "E",
+       "labelA": "D",
+       "labelB": "E",
+       "affinity": 5,
+       "parts": [
+        {
+         "u": "D",
+         "v": "E",
+         "w": 5
+        }
+       ],
+       "size": 2,
+       "legal": true,
+       "reason": null
+      },
+      {
+       "a": "C",
+       "b": "D",
+       "labelA": "C",
+       "labelB": "D",
+       "affinity": 2,
+       "parts": [
+        {
+         "u": "C",
+         "v": "D",
+         "w": 2
+        }
+       ],
+       "size": 2,
+       "legal": true,
+       "reason": null
+      },
+      {
+       "a": "C",
+       "b": "E",
+       "labelA": "C",
+       "labelB": "E",
+       "affinity": 1,
+       "parts": [
+        {
+         "u": "C",
+         "v": "E",
+         "w": 1
+        }
+       ],
+       "size": 2,
+       "legal": true,
+       "reason": null
+      }
+     ],
+     "blocked": [
+      {
+       "a": "AB",
+       "b": "C",
+       "labelA": "AB",
+       "labelB": "C",
+       "affinity": 5,
+       "parts": [
+        {
+         "u": "A",
+         "v": "C",
+         "w": 1
+        },
+        {
+         "u": "B",
+         "v": "C",
+         "w": 4
+        }
+       ],
+       "size": 3,
+       "legal": false,
+       "reason": "合并后大小 3 > 容量 2"
+      }
+     ],
+     "metrics": {
+      "cutBefore": 13,
+      "cut": 8,
+      "drop": 5,
+      "clusters": 3
+     },
+     "sourceVersion": "1.0.0"
+    }
+   ],
+   "result": {
+    "clusters": [
+     [
+      "A",
+      "B"
+     ],
+     [
+      "C"
+     ],
+     [
+      "D",
+      "E"
+     ]
+    ],
+    "labels": [
+     "AB",
+     "C",
+     "DE"
+    ],
+    "sizes": [
+     2,
+     1,
+     2
+    ],
+    "count": 3,
+    "cut": 8,
+    "k": 3,
+    "capacity": 2,
+    "assignment": {
+     "A": "AB",
+     "B": "AB",
+     "C": "C",
+     "D": "DE",
+     "E": "DE"
+    },
+    "targetReached": true,
+    "capacityCompliant": true,
+    "stopReason": "target-reached",
+    "cutTrajectory": [
+     18,
+     13,
+     8
+    ]
+   },
+   "status": "completed",
+   "metadata": {
+    "engine": "merge",
+    "version": "1.0.0",
+    "legacyComparator": false
+   }
+  }
+ },
+ "legacy": {
+  "result": {
+   "clusters": [
+    [
+     "A",
+     "C",
+     "D",
+     "E"
+    ],
+    [
+     "B"
+    ]
+   ],
+   "labels": [
+    "ACDE",
+    "B"
+   ],
+   "sizes": [
+    4,
+    1
+   ],
+   "count": 2,
+   "cut": 9,
+   "k": 2,
+   "capacity": null,
+   "assignment": {
+    "A": "ACDE",
+    "C": "ACDE",
+    "D": "ACDE",
+    "E": "ACDE",
+    "B": "B"
+   },
+   "targetReached": true,
+   "capacityCompliant": true,
+   "stopReason": "target-reached",
+   "cutTrajectory": [
+    18,
+    17,
+    16,
+    9
+   ]
+  },
+  "first": {
+   "a": "A",
+   "b": "C",
+   "affinity": 1,
+   "size": 2,
+   "merged": "AC"
+  }
+ }
+}

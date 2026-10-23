@@ -1,0 +1,1309 @@
+{
+ "moduleId": "m07-kernighan-lin",
+ "engineVersion": "1.0.0",
+ "generatedBy": "scripts/build-traces.mjs",
+ "g01": {
+  "nodes": [
+   "A",
+   "B",
+   "C",
+   "D",
+   "E"
+  ],
+  "edges": [
+   [
+    "A",
+    "B",
+    5
+   ],
+   [
+    "A",
+    "C",
+    1
+   ],
+   [
+    "B",
+    "C",
+    4
+   ],
+   [
+    "C",
+    "D",
+    2
+   ],
+   [
+    "C",
+    "E",
+    1
+   ],
+   [
+    "D",
+    "E",
+    5
+   ]
+  ],
+  "positions": {
+   "A": [
+    170,
+    100
+   ],
+   "B": [
+    390,
+    85
+   ],
+   "C": [
+    305,
+    270
+   ],
+   "D": [
+    530,
+    375
+   ],
+   "E": [
+    280,
+    440
+   ]
+  }
+ },
+ "seed": {
+  "A": 0,
+  "B": 1,
+  "C": 1,
+  "D": 1,
+  "E": 0
+ },
+ "run": {
+  "events": [
+   {
+    "eventId": "p1-start",
+    "phase": "pass-1",
+    "step": 0,
+    "kind": "pass-start",
+    "before": null,
+    "after": {
+     "A": 0,
+     "B": 1,
+     "C": 1,
+     "D": 1,
+     "E": 0
+    },
+    "decision": null,
+    "metrics": {
+     "cut": 12
+    },
+    "sourceVersion": "1.0.0"
+   },
+   {
+    "eventId": "p1-t1",
+    "phase": "pass-1",
+    "step": 1,
+    "kind": "trial-swap",
+    "before": {
+     "A": 0,
+     "B": 1,
+     "C": 1,
+     "D": 1,
+     "E": 0
+    },
+    "after": {
+     "A": 1,
+     "B": 1,
+     "C": 1,
+     "D": 0,
+     "E": 0
+    },
+    "decision": "试探交换 A↔D",
+    "candidates": [
+     {
+      "a": "A",
+      "b": "D",
+      "Da": 6,
+      "Db": 3,
+      "w": 0,
+      "gain": 9
+     },
+     {
+      "a": "E",
+      "b": "B",
+      "Da": 6,
+      "Db": 1,
+      "w": 0,
+      "gain": 7
+     },
+     {
+      "a": "A",
+      "b": "C",
+      "Da": 6,
+      "Db": -4,
+      "w": 1,
+      "gain": 0
+     },
+     {
+      "a": "E",
+      "b": "C",
+      "Da": 6,
+      "Db": -4,
+      "w": 1,
+      "gain": 0
+     },
+     {
+      "a": "E",
+      "b": "D",
+      "Da": 6,
+      "Db": 3,
+      "w": 5,
+      "gain": -1
+     },
+     {
+      "a": "A",
+      "b": "B",
+      "Da": 6,
+      "Db": 1,
+      "w": 5,
+      "gain": -3
+     }
+    ],
+    "dValues": {
+     "A": {
+      "ext": 6,
+      "int": 0,
+      "D": 6
+     },
+     "B": {
+      "ext": 5,
+      "int": 4,
+      "D": 1
+     },
+     "C": {
+      "ext": 2,
+      "int": 6,
+      "D": -4
+     },
+     "D": {
+      "ext": 5,
+      "int": 2,
+      "D": 3
+     },
+     "E": {
+      "ext": 6,
+      "int": 0,
+      "D": 6
+     }
+    },
+    "locks": [
+     "A",
+     "D"
+    ],
+    "trialGain": 9,
+    "metrics": {
+     "cutBefore": 12,
+     "cut": 3,
+     "cumulative": 9
+    },
+    "sourceVersion": "1.0.0"
+   },
+   {
+    "eventId": "p1-t2",
+    "phase": "pass-1",
+    "step": 2,
+    "kind": "trial-swap",
+    "before": {
+     "A": 1,
+     "B": 1,
+     "C": 1,
+     "D": 0,
+     "E": 0
+    },
+    "after": {
+     "A": 1,
+     "B": 1,
+     "C": 0,
+     "D": 0,
+     "E": 1
+    },
+    "decision": "试探交换 E↔C",
+    "candidates": [
+     {
+      "a": "E",
+      "b": "C",
+      "Da": -4,
+      "Db": -2,
+      "w": 1,
+      "gain": -8
+     },
+     {
+      "a": "E",
+      "b": "B",
+      "Da": -4,
+      "Db": -9,
+      "w": 0,
+      "gain": -13
+     }
+    ],
+    "dValues": {
+     "A": {
+      "ext": 0,
+      "int": 6,
+      "D": -6
+     },
+     "B": {
+      "ext": 0,
+      "int": 9,
+      "D": -9
+     },
+     "C": {
+      "ext": 3,
+      "int": 5,
+      "D": -2
+     },
+     "D": {
+      "ext": 2,
+      "int": 5,
+      "D": -3
+     },
+     "E": {
+      "ext": 1,
+      "int": 5,
+      "D": -4
+     }
+    },
+    "locks": [
+     "A",
+     "C",
+     "D",
+     "E"
+    ],
+    "trialGain": -8,
+    "metrics": {
+     "cutBefore": 3,
+     "cut": 11,
+     "cumulative": 1
+    },
+    "sourceVersion": "1.0.0"
+   },
+   {
+    "eventId": "p1-prefix",
+    "phase": "pass-1",
+    "step": 3,
+    "kind": "best-prefix",
+    "before": {
+     "A": 1,
+     "B": 1,
+     "C": 0,
+     "D": 0,
+     "E": 1
+    },
+    "after": {
+     "A": 1,
+     "B": 1,
+     "C": 1,
+     "D": 0,
+     "E": 0
+    },
+    "decision": "保留前 1 步",
+    "prefix": {
+     "gains": [
+      0,
+      9,
+      1
+     ],
+     "bestK": 1
+    },
+    "locks": [],
+    "metrics": {
+     "cut": 3,
+     "rollbackFromCut": 11,
+     "bestGain": 9
+    },
+    "sourceVersion": "1.0.0"
+   },
+   {
+    "eventId": "p2-start",
+    "phase": "pass-2",
+    "step": 4,
+    "kind": "pass-start",
+    "before": null,
+    "after": {
+     "A": 1,
+     "B": 1,
+     "C": 1,
+     "D": 0,
+     "E": 0
+    },
+    "decision": null,
+    "metrics": {
+     "cut": 3
+    },
+    "sourceVersion": "1.0.0"
+   },
+   {
+    "eventId": "p2-t1",
+    "phase": "pass-2",
+    "step": 5,
+    "kind": "trial-swap",
+    "before": {
+     "A": 1,
+     "B": 1,
+     "C": 1,
+     "D": 0,
+     "E": 0
+    },
+    "after": {
+     "A": 1,
+     "B": 1,
+     "C": 0,
+     "D": 0,
+     "E": 1
+    },
+    "decision": "试探交换 E↔C",
+    "candidates": [
+     {
+      "a": "E",
+      "b": "C",
+      "Da": -4,
+      "Db": -2,
+      "w": 1,
+      "gain": -8
+     },
+     {
+      "a": "D",
+      "b": "A",
+      "Da": -3,
+      "Db": -6,
+      "w": 0,
+      "gain": -9
+     },
+     {
+      "a": "D",
+      "b": "C",
+      "Da": -3,
+      "Db": -2,
+      "w": 2,
+      "gain": -9
+     },
+     {
+      "a": "E",
+      "b": "A",
+      "Da": -4,
+      "Db": -6,
+      "w": 0,
+      "gain": -10
+     },
+     {
+      "a": "D",
+      "b": "B",
+      "Da": -3,
+      "Db": -9,
+      "w": 0,
+      "gain": -12
+     },
+     {
+      "a": "E",
+      "b": "B",
+      "Da": -4,
+      "Db": -9,
+      "w": 0,
+      "gain": -13
+     }
+    ],
+    "dValues": {
+     "A": {
+      "ext": 0,
+      "int": 6,
+      "D": -6
+     },
+     "B": {
+      "ext": 0,
+      "int": 9,
+      "D": -9
+     },
+     "C": {
+      "ext": 3,
+      "int": 5,
+      "D": -2
+     },
+     "D": {
+      "ext": 2,
+      "int": 5,
+      "D": -3
+     },
+     "E": {
+      "ext": 1,
+      "int": 5,
+      "D": -4
+     }
+    },
+    "locks": [
+     "C",
+     "E"
+    ],
+    "trialGain": -8,
+    "metrics": {
+     "cutBefore": 3,
+     "cut": 11,
+     "cumulative": -8
+    },
+    "sourceVersion": "1.0.0"
+   },
+   {
+    "eventId": "p2-t2",
+    "phase": "pass-2",
+    "step": 6,
+    "kind": "trial-swap",
+    "before": {
+     "A": 1,
+     "B": 1,
+     "C": 0,
+     "D": 0,
+     "E": 1
+    },
+    "after": {
+     "A": 1,
+     "B": 0,
+     "C": 0,
+     "D": 1,
+     "E": 1
+    },
+    "decision": "试探交换 D↔B",
+    "candidates": [
+     {
+      "a": "D",
+      "b": "B",
+      "Da": 3,
+      "Db": -1,
+      "w": 0,
+      "gain": 2
+     },
+     {
+      "a": "D",
+      "b": "A",
+      "Da": 3,
+      "Db": -4,
+      "w": 0,
+      "gain": -1
+     }
+    ],
+    "dValues": {
+     "A": {
+      "ext": 1,
+      "int": 5,
+      "D": -4
+     },
+     "B": {
+      "ext": 4,
+      "int": 5,
+      "D": -1
+     },
+     "C": {
+      "ext": 6,
+      "int": 2,
+      "D": 4
+     },
+     "D": {
+      "ext": 5,
+      "int": 2,
+      "D": 3
+     },
+     "E": {
+      "ext": 6,
+      "int": 0,
+      "D": 6
+     }
+    },
+    "locks": [
+     "B",
+     "C",
+     "D",
+     "E"
+    ],
+    "trialGain": 2,
+    "metrics": {
+     "cutBefore": 11,
+     "cut": 9,
+     "cumulative": -6
+    },
+    "sourceVersion": "1.0.0"
+   },
+   {
+    "eventId": "p2-prefix",
+    "phase": "pass-2",
+    "step": 7,
+    "kind": "best-prefix",
+    "before": {
+     "A": 1,
+     "B": 0,
+     "C": 0,
+     "D": 1,
+     "E": 1
+    },
+    "after": {
+     "A": 1,
+     "B": 1,
+     "C": 1,
+     "D": 0,
+     "E": 0
+    },
+    "decision": "保留空前缀（不改变）",
+    "prefix": {
+     "gains": [
+      0,
+      -8,
+      -6
+     ],
+     "bestK": 0
+    },
+    "locks": [],
+    "metrics": {
+     "cut": 3,
+     "rollbackFromCut": 9,
+     "bestGain": 0
+    },
+    "sourceVersion": "1.0.0"
+   }
+  ],
+  "result": {
+   "assignment": {
+    "A": 1,
+    "B": 1,
+    "C": 1,
+    "D": 0,
+    "E": 0
+   },
+   "cut": 3,
+   "passes": [
+    {
+     "pass": 1,
+     "startCut": 12,
+     "swaps": [
+      {
+       "index": 1,
+       "a": "A",
+       "b": "D",
+       "Da": 6,
+       "Db": 3,
+       "w": 0,
+       "gain": 9,
+       "cutBefore": 12,
+       "cutAfter": 3,
+       "cumulative": 9
+      },
+      {
+       "index": 2,
+       "a": "E",
+       "b": "C",
+       "Da": -4,
+       "Db": -2,
+       "w": 1,
+       "gain": -8,
+       "cutBefore": 3,
+       "cutAfter": 11,
+       "cumulative": 1
+      }
+     ],
+     "prefixGains": [
+      0,
+      9,
+      1
+     ],
+     "bestK": 1,
+     "bestGain": 9,
+     "acceptedCut": 3,
+     "start": {
+      "A": 0,
+      "B": 1,
+      "C": 1,
+      "D": 1,
+      "E": 0
+     },
+     "accepted": {
+      "A": 1,
+      "B": 1,
+      "C": 1,
+      "D": 0,
+      "E": 0
+     }
+    },
+    {
+     "pass": 2,
+     "startCut": 3,
+     "swaps": [
+      {
+       "index": 1,
+       "a": "E",
+       "b": "C",
+       "Da": -4,
+       "Db": -2,
+       "w": 1,
+       "gain": -8,
+       "cutBefore": 3,
+       "cutAfter": 11,
+       "cumulative": -8
+      },
+      {
+       "index": 2,
+       "a": "D",
+       "b": "B",
+       "Da": 3,
+       "Db": -1,
+       "w": 0,
+       "gain": 2,
+       "cutBefore": 11,
+       "cutAfter": 9,
+       "cumulative": -6
+      }
+     ],
+     "prefixGains": [
+      0,
+      -8,
+      -6
+     ],
+     "bestK": 0,
+     "bestGain": 0,
+     "acceptedCut": 3,
+     "start": {
+      "A": 1,
+      "B": 1,
+      "C": 1,
+      "D": 0,
+      "E": 0
+     },
+     "accepted": {
+      "A": 1,
+      "B": 1,
+      "C": 1,
+      "D": 0,
+      "E": 0
+     }
+    }
+   ],
+   "stopReason": "no-positive-prefix",
+   "sideSizes": [
+    2,
+    3
+   ]
+  },
+  "status": "completed",
+  "metadata": {
+   "engine": "kernighan-lin",
+   "version": "1.0.0",
+   "balance": "node count per side fixed"
+  }
+ },
+ "ab1": {
+  "events": [
+   {
+    "eventId": "p1-start",
+    "phase": "pass-1",
+    "step": 0,
+    "kind": "pass-start",
+    "before": null,
+    "after": {
+     "A": 0,
+     "B": 1,
+     "C": 1,
+     "D": 1,
+     "E": 0
+    },
+    "decision": null,
+    "metrics": {
+     "cut": 8
+    },
+    "sourceVersion": "1.0.0"
+   },
+   {
+    "eventId": "p1-t1",
+    "phase": "pass-1",
+    "step": 1,
+    "kind": "trial-swap",
+    "before": {
+     "A": 0,
+     "B": 1,
+     "C": 1,
+     "D": 1,
+     "E": 0
+    },
+    "after": {
+     "A": 1,
+     "B": 1,
+     "C": 1,
+     "D": 0,
+     "E": 0
+    },
+    "decision": "试探交换 A↔D",
+    "candidates": [
+     {
+      "a": "A",
+      "b": "D",
+      "Da": 2,
+      "Db": 3,
+      "w": 0,
+      "gain": 5
+     },
+     {
+      "a": "E",
+      "b": "B",
+      "Da": 6,
+      "Db": -3,
+      "w": 0,
+      "gain": 3
+     },
+     {
+      "a": "E",
+      "b": "C",
+      "Da": 6,
+      "Db": -4,
+      "w": 1,
+      "gain": 0
+     },
+     {
+      "a": "E",
+      "b": "D",
+      "Da": 6,
+      "Db": 3,
+      "w": 5,
+      "gain": -1
+     },
+     {
+      "a": "A",
+      "b": "B",
+      "Da": 2,
+      "Db": -3,
+      "w": 1,
+      "gain": -3
+     },
+     {
+      "a": "A",
+      "b": "C",
+      "Da": 2,
+      "Db": -4,
+      "w": 1,
+      "gain": -4
+     }
+    ],
+    "dValues": {
+     "A": {
+      "ext": 2,
+      "int": 0,
+      "D": 2
+     },
+     "B": {
+      "ext": 1,
+      "int": 4,
+      "D": -3
+     },
+     "C": {
+      "ext": 2,
+      "int": 6,
+      "D": -4
+     },
+     "D": {
+      "ext": 5,
+      "int": 2,
+      "D": 3
+     },
+     "E": {
+      "ext": 6,
+      "int": 0,
+      "D": 6
+     }
+    },
+    "locks": [
+     "A",
+     "D"
+    ],
+    "trialGain": 5,
+    "metrics": {
+     "cutBefore": 8,
+     "cut": 3,
+     "cumulative": 5
+    },
+    "sourceVersion": "1.0.0"
+   },
+   {
+    "eventId": "p1-t2",
+    "phase": "pass-1",
+    "step": 2,
+    "kind": "trial-swap",
+    "before": {
+     "A": 1,
+     "B": 1,
+     "C": 1,
+     "D": 0,
+     "E": 0
+    },
+    "after": {
+     "A": 1,
+     "B": 1,
+     "C": 0,
+     "D": 0,
+     "E": 1
+    },
+    "decision": "试探交换 E↔C",
+    "candidates": [
+     {
+      "a": "E",
+      "b": "C",
+      "Da": -4,
+      "Db": -2,
+      "w": 1,
+      "gain": -8
+     },
+     {
+      "a": "E",
+      "b": "B",
+      "Da": -4,
+      "Db": -5,
+      "w": 0,
+      "gain": -9
+     }
+    ],
+    "dValues": {
+     "A": {
+      "ext": 0,
+      "int": 2,
+      "D": -2
+     },
+     "B": {
+      "ext": 0,
+      "int": 5,
+      "D": -5
+     },
+     "C": {
+      "ext": 3,
+      "int": 5,
+      "D": -2
+     },
+     "D": {
+      "ext": 2,
+      "int": 5,
+      "D": -3
+     },
+     "E": {
+      "ext": 1,
+      "int": 5,
+      "D": -4
+     }
+    },
+    "locks": [
+     "A",
+     "C",
+     "D",
+     "E"
+    ],
+    "trialGain": -8,
+    "metrics": {
+     "cutBefore": 3,
+     "cut": 11,
+     "cumulative": -3
+    },
+    "sourceVersion": "1.0.0"
+   },
+   {
+    "eventId": "p1-prefix",
+    "phase": "pass-1",
+    "step": 3,
+    "kind": "best-prefix",
+    "before": {
+     "A": 1,
+     "B": 1,
+     "C": 0,
+     "D": 0,
+     "E": 1
+    },
+    "after": {
+     "A": 1,
+     "B": 1,
+     "C": 1,
+     "D": 0,
+     "E": 0
+    },
+    "decision": "保留前 1 步",
+    "prefix": {
+     "gains": [
+      0,
+      5,
+      -3
+     ],
+     "bestK": 1
+    },
+    "locks": [],
+    "metrics": {
+     "cut": 3,
+     "rollbackFromCut": 11,
+     "bestGain": 5
+    },
+    "sourceVersion": "1.0.0"
+   },
+   {
+    "eventId": "p2-start",
+    "phase": "pass-2",
+    "step": 4,
+    "kind": "pass-start",
+    "before": null,
+    "after": {
+     "A": 1,
+     "B": 1,
+     "C": 1,
+     "D": 0,
+     "E": 0
+    },
+    "decision": null,
+    "metrics": {
+     "cut": 3
+    },
+    "sourceVersion": "1.0.0"
+   },
+   {
+    "eventId": "p2-t1",
+    "phase": "pass-2",
+    "step": 5,
+    "kind": "trial-swap",
+    "before": {
+     "A": 1,
+     "B": 1,
+     "C": 1,
+     "D": 0,
+     "E": 0
+    },
+    "after": {
+     "A": 0,
+     "B": 1,
+     "C": 1,
+     "D": 1,
+     "E": 0
+    },
+    "decision": "试探交换 D↔A",
+    "candidates": [
+     {
+      "a": "D",
+      "b": "A",
+      "Da": -3,
+      "Db": -2,
+      "w": 0,
+      "gain": -5
+     },
+     {
+      "a": "E",
+      "b": "A",
+      "Da": -4,
+      "Db": -2,
+      "w": 0,
+      "gain": -6
+     },
+     {
+      "a": "D",
+      "b": "B",
+      "Da": -3,
+      "Db": -5,
+      "w": 0,
+      "gain": -8
+     },
+     {
+      "a": "E",
+      "b": "C",
+      "Da": -4,
+      "Db": -2,
+      "w": 1,
+      "gain": -8
+     },
+     {
+      "a": "D",
+      "b": "C",
+      "Da": -3,
+      "Db": -2,
+      "w": 2,
+      "gain": -9
+     },
+     {
+      "a": "E",
+      "b": "B",
+      "Da": -4,
+      "Db": -5,
+      "w": 0,
+      "gain": -9
+     }
+    ],
+    "dValues": {
+     "A": {
+      "ext": 0,
+      "int": 2,
+      "D": -2
+     },
+     "B": {
+      "ext": 0,
+      "int": 5,
+      "D": -5
+     },
+     "C": {
+      "ext": 3,
+      "int": 5,
+      "D": -2
+     },
+     "D": {
+      "ext": 2,
+      "int": 5,
+      "D": -3
+     },
+     "E": {
+      "ext": 1,
+      "int": 5,
+      "D": -4
+     }
+    },
+    "locks": [
+     "A",
+     "D"
+    ],
+    "trialGain": -5,
+    "metrics": {
+     "cutBefore": 3,
+     "cut": 8,
+     "cumulative": -5
+    },
+    "sourceVersion": "1.0.0"
+   },
+   {
+    "eventId": "p2-t2",
+    "phase": "pass-2",
+    "step": 6,
+    "kind": "trial-swap",
+    "before": {
+     "A": 0,
+     "B": 1,
+     "C": 1,
+     "D": 1,
+     "E": 0
+    },
+    "after": {
+     "A": 0,
+     "B": 0,
+     "C": 1,
+     "D": 1,
+     "E": 1
+    },
+    "decision": "试探交换 E↔B",
+    "candidates": [
+     {
+      "a": "E",
+      "b": "B",
+      "Da": 6,
+      "Db": -3,
+      "w": 0,
+      "gain": 3
+     },
+     {
+      "a": "E",
+      "b": "C",
+      "Da": 6,
+      "Db": -4,
+      "w": 1,
+      "gain": 0
+     }
+    ],
+    "dValues": {
+     "A": {
+      "ext": 2,
+      "int": 0,
+      "D": 2
+     },
+     "B": {
+      "ext": 1,
+      "int": 4,
+      "D": -3
+     },
+     "C": {
+      "ext": 2,
+      "int": 6,
+      "D": -4
+     },
+     "D": {
+      "ext": 5,
+      "int": 2,
+      "D": 3
+     },
+     "E": {
+      "ext": 6,
+      "int": 0,
+      "D": 6
+     }
+    },
+    "locks": [
+     "A",
+     "B",
+     "D",
+     "E"
+    ],
+    "trialGain": 3,
+    "metrics": {
+     "cutBefore": 8,
+     "cut": 5,
+     "cumulative": -2
+    },
+    "sourceVersion": "1.0.0"
+   },
+   {
+    "eventId": "p2-prefix",
+    "phase": "pass-2",
+    "step": 7,
+    "kind": "best-prefix",
+    "before": {
+     "A": 0,
+     "B": 0,
+     "C": 1,
+     "D": 1,
+     "E": 1
+    },
+    "after": {
+     "A": 1,
+     "B": 1,
+     "C": 1,
+     "D": 0,
+     "E": 0
+    },
+    "decision": "保留空前缀（不改变）",
+    "prefix": {
+     "gains": [
+      0,
+      -5,
+      -2
+     ],
+     "bestK": 0
+    },
+    "locks": [],
+    "metrics": {
+     "cut": 3,
+     "rollbackFromCut": 5,
+     "bestGain": 0
+    },
+    "sourceVersion": "1.0.0"
+   }
+  ],
+  "result": {
+   "assignment": {
+    "A": 1,
+    "B": 1,
+    "C": 1,
+    "D": 0,
+    "E": 0
+   },
+   "cut": 3,
+   "passes": [
+    {
+     "pass": 1,
+     "startCut": 8,
+     "swaps": [
+      {
+       "index": 1,
+       "a": "A",
+       "b": "D",
+       "Da": 2,
+       "Db": 3,
+       "w": 0,
+       "gain": 5,
+       "cutBefore": 8,
+       "cutAfter": 3,
+       "cumulative": 5
+      },
+      {
+       "index": 2,
+       "a": "E",
+       "b": "C",
+       "Da": -4,
+       "Db": -2,
+       "w": 1,
+       "gain": -8,
+       "cutBefore": 3,
+       "cutAfter": 11,
+       "cumulative": -3
+      }
+     ],
+     "prefixGains": [
+      0,
+      5,
+      -3
+     ],
+     "bestK": 1,
+     "bestGain": 5,
+     "acceptedCut": 3,
+     "start": {
+      "A": 0,
+      "B": 1,
+      "C": 1,
+      "D": 1,
+      "E": 0
+     },
+     "accepted": {
+      "A": 1,
+      "B": 1,
+      "C": 1,
+      "D": 0,
+      "E": 0
+     }
+    },
+    {
+     "pass": 2,
+     "startCut": 3,
+     "swaps": [
+      {
+       "index": 1,
+       "a": "D",
+       "b": "A",
+       "Da": -3,
+       "Db": -2,
+       "w": 0,
+       "gain": -5,
+       "cutBefore": 3,
+       "cutAfter": 8,
+       "cumulative": -5
+      },
+      {
+       "index": 2,
+       "a": "E",
+       "b": "B",
+       "Da": 6,
+       "Db": -3,
+       "w": 0,
+       "gain": 3,
+       "cutBefore": 8,
+       "cutAfter": 5,
+       "cumulative": -2
+      }
+     ],
+     "prefixGains": [
+      0,
+      -5,
+      -2
+     ],
+     "bestK": 0,
+     "bestGain": 0,
+     "acceptedCut": 3,
+     "start": {
+      "A": 1,
+      "B": 1,
+      "C": 1,
+      "D": 0,
+      "E": 0
+     },
+     "accepted": {
+      "A": 1,
+      "B": 1,
+      "C": 1,
+      "D": 0,
+      "E": 0
+     }
+    }
+   ],
+   "stopReason": "no-positive-prefix",
+   "sideSizes": [
+    2,
+    3
+   ]
+  },
+  "status": "completed",
+  "metadata": {
+   "engine": "kernighan-lin",
+   "version": "1.0.0",
+   "balance": "node count per side fixed"
+  }
+ }
+}

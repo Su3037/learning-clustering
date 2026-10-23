@@ -1,0 +1,1 @@
+{"id": "greedy_trap", "nodes": ["A", "B", "C", "D"], "sizes": {"A": 2, "B": 2, "C": 1, "D": 1}, "edges": [["C", "D", 10], ["A", "C", 4], ["B", "D", 4]], "source": "GateUltra/eda-clustering-lab4 source/graphs.json（原作者的反例，数值由本课程引擎复算）"}

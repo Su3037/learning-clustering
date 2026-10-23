@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>如何挑战 · Learning Clustering</title>
+<meta name="description" content="整合 8 份已关闭的 Clustering 课程提交（Module 02–09）：中文讲解、二维科普影片、带页码课件、浏览器内实验、分组挑战与 Python 练习。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%2032%2032%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Ccircle%20cx%3D%229%22%20cy%3D%2211%22%20r%3D%225%22%20fill%3D%22%230f6b5c%22%2F%3E%3Ccircle%20cx%3D%2223%22%20cy%3D%229%22%20r%3D%224%22%20fill%3D%22%232f5e9e%22%2F%3E%3Ccircle%20cx%3D%2220%22%20cy%3D%2223%22%20r%3D%225%22%20fill%3D%22%238a6114%22%2F%3E%3Cpath%20d%3D%22M9%2011%2023%209M9%2011%2020%2023%22%20stroke%3D%22%2356625b%22%20stroke-width%3D%221.6%22%2F%3E%3Cpath%20d%3D%22M23%209%2020%2023%22%20stroke%3D%22%23a33b3b%22%20stroke-width%3D%221.6%22%20stroke-dasharray%3D%222.5%202%22%2F%3E%3C%2Fsvg%3E">
+<link rel="stylesheet" href="../assets/course.css">
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="topbar"><div class="wrap">
+<a class="brand" href="../index.html"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="9" cy="11" r="5" fill="#0f6b5c"/><circle cx="23" cy="9" r="4" fill="#2f5e9e"/><circle cx="20" cy="23" r="5" fill="#8a6114"/><path d="M9 11 23 9M9 11 20 23" stroke="#56625b" stroke-width="1.6"/><path d="M23 9 20 23" stroke="#a33b3b" stroke-width="1.6" stroke-dasharray="2.5 2"/></svg><span>Learning Clustering<br><small>连接与分组 · Clustering for EDA</small></span></a>
+<nav class="topnav" aria-label="课程"><a href="../index.html">首页</a><a href="../foundations/index.html">基础速查</a><a href="../glossary/index.html">术语表</a><a href="../guide/index.html" aria-current="page">如何挑战</a><a href="../credits/index.html">资源与贡献</a><a href="../progress/index.html">学习记录</a></nav>
+</div></header>
+<main id="main"><section class="section"><div class="wrap"><div class="prose"><p>&lt;p class=&quot;eyebrow&quot;&gt;挑战使用指南&lt;/p&gt;</p>
+<h2>如何挑战</h2>
+<p>每个模块的挑战都按同一流程进行。它们检查的是“能否用规则算出结果并解释”，不是“有没有看完视频”。</p>
+<ol><li><strong>读任务</strong>：每题开头写着 <code>[类别] 题名</code>、难度，以及“这题检查什么”。</li><li><strong>先预测</strong>：在动手前写下你认为的答案。很多题故意挑了容易猜错的地方（例如没有直接连线的节点对也有分数）。</li><li><strong>操作</strong>：填数字、选选项、点选节点或边、给列表排序。需要时可以去上方的实验里单步验证。</li><li><strong>提交</strong>：判定来自本页同一个算法引擎或明确规则。分组题不在乎组的名字和左右顺序，只看谁和谁在一起。</li><li><strong>看解释</strong>：答对后会显示“为什么”；答错时会告诉你违反了哪条规则。</li><li><strong>再试</strong>：“提示”有两级——先给方向，再给具体关系。“重置重试”会清空本题记录。</li></ol>
+<h3>记录怎么算</h3>
+<table><thead><tr><th>状态</th><th>含义</th></tr></thead><tbody><tr><td>未开始</td><td>还没提交过</td></tr><tr><td>尝试中</td><td>提交过但还没答对</td></tr><tr><td>独立完成</td><td>没看答案就答对</td></tr><tr><td>看过答案后完成</td><td>看过答案与解析之后答对</td></tr></tbody></table>
+<p>看答案不扣分，也不会锁题。两种完成方式分开记录，只是为了让你知道哪些是自己做出来的。记录保存在本机浏览器里（<code>localStorage</code>），可以在<a href="../progress/index.html">学习记录</a>导出或导入。浏览器禁止存储时，页面仍然可用，只是关闭后不保留。</p>
+<h3>类别与难度是两回事</h3>
+<p>类别说明题目的用途：<strong>概念</strong>（区分两个容易混的东西）、<strong>推演</strong>（按规则手算一步）、<strong>探索</strong>（改参数看变化）、<strong>约束</strong>（检查合法性）、<strong>纠错</strong>（找出错误说法）、<strong>解释 / 决策</strong>（说明为什么这样选）、<strong>实现</strong>（与 Python 练习对应）、<strong>应用</strong>（放回 EDA 场景）。难度另标“入门 / 练习 / 挑战”。同一类别可以有不同难度。</p>
+<h3>两个需要额外说明的操作</h3>
+<ul><li><strong>Module 02 手工排序</strong>：用每行的 ↑ ↓ 按钮（或 Tab 加回车）调整顺序，排好后提交。</li><li><strong>Module 08 回退</strong>：题目给出一轮试探的累计收益，你要选出保留前几步；“保留 0 步”也是合法答案。</li></ul></div></div></section></main>
+<footer class="footer"><div class="wrap">
+<span>Learning Clustering · 整合已关闭 Clustering 提交 Module 02–09。原作者署名见<a href="../credits/index.html">资源与贡献</a>。</span>
+<span><button class="btn quiet small" type="button" data-pref="reduceMotion">减少动态</button> <button class="btn quiet small" type="button" data-pref="sound">声音</button> · 内容版本 2026.10.23-1</span>
+</div></footer>
+<script type="module">import { initShell } from '../assets/core.js'; initShell();</script>
+
+</body>
+</html>

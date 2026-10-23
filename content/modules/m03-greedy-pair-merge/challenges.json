@@ -1,0 +1,50 @@
+[
+  {
+    "id": "c1",
+    "type": "推演",
+    "difficulty": "Intro",
+    "title": "第一步合并哪一对",
+    "objectiveId": "o3",
+    "validatorId": "m03-greedy-pair-merge/c1"
+  },
+  {
+    "id": "c2",
+    "type": "推演",
+    "difficulty": "Intro",
+    "title": "选出下一对",
+    "objectiveId": "o2",
+    "validatorId": "m03-greedy-pair-merge/c2"
+  },
+  {
+    "id": "c3",
+    "type": "探索",
+    "difficulty": "Practice",
+    "title": "画出剩余的 cut",
+    "objectiveId": "o4",
+    "validatorId": "m03-greedy-pair-merge/c3"
+  },
+  {
+    "id": "c4",
+    "type": "约束",
+    "difficulty": "Practice",
+    "title": "不能强行凑 K",
+    "objectiveId": "o5",
+    "validatorId": "m03-greedy-pair-merge/c4"
+  },
+  {
+    "id": "c5",
+    "type": "纠错",
+    "difficulty": "Stretch",
+    "title": "字符串比较选错了谁",
+    "objectiveId": "o3",
+    "validatorId": "m03-greedy-pair-merge/c5"
+  },
+  {
+    "id": "c6",
+    "type": "实现",
+    "difficulty": "Stretch",
+    "title": "多位数与小数",
+    "objectiveId": "o6",
+    "validatorId": "m03-greedy-pair-merge/c6"
+  }
+]

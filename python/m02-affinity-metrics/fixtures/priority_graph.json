@@ -1,0 +1,1 @@
+{"nodes": ["P", "Q", "R", "X", "Y"], "edges": [["P", "Q", 4], ["P", "R", 4], ["Q", "R", 4], ["X", "Y", 5]], "note": "三角形 PQR 每边 4，单独一对 XY 权重 5。原作者 Capeur 的 priority_graph。"}

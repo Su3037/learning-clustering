@@ -1,0 +1,247 @@
+{
+  "moduleId": "m09-rajaraman-wong",
+  "objectives": [
+    {
+      "id": "o1",
+      "sections": [
+        "m09-goal"
+      ],
+      "sceneIds": [
+        "a01-goal"
+      ],
+      "slideIds": [
+        "m09-goal"
+      ],
+      "experiment": "A · 链：切换三个边界",
+      "challenges": [
+        "c1",
+        "c2"
+      ],
+      "python": [
+        "evaluate_instance_delay"
+      ],
+      "video": [
+        {
+          "sceneId": "a01-goal",
+          "film": "rw1",
+          "start": 3
+        }
+      ],
+      "slides": [
+        {
+          "slideId": "m09-goal",
+          "page": 2
+        }
+      ]
+    },
+    {
+      "id": "o2",
+      "sections": [
+        "m09-model"
+      ],
+      "sceneIds": [
+        "a02-model"
+      ],
+      "slideIds": [
+        "m09-model"
+      ],
+      "experiment": "B · 改 D 与容量 M 后重算",
+      "challenges": [],
+      "python": [
+        "topological_order"
+      ],
+      "video": [
+        {
+          "sceneId": "a02-model",
+          "film": "rw1",
+          "start": 24.6
+        }
+      ],
+      "slides": [
+        {
+          "slideId": "m09-model",
+          "page": 3
+        }
+      ]
+    },
+    {
+      "id": "o3",
+      "sections": [
+        "m09-replication"
+      ],
+      "sceneIds": [
+        "a03-replica",
+        "b03-instances"
+      ],
+      "slideIds": [
+        "m09-replication"
+      ],
+      "experiment": "B · 恢复阶段的实例图：金色虚线圈为复制节点",
+      "challenges": [
+        "c3"
+      ],
+      "python": [
+        "rw_reconstruct"
+      ],
+      "video": [
+        {
+          "sceneId": "a03-replica",
+          "film": "rw1",
+          "start": 47.44
+        },
+        {
+          "sceneId": "b03-instances",
+          "film": "rw2",
+          "start": 45.8
+        }
+      ],
+      "slides": [
+        {
+          "slideId": "m09-replication",
+          "page": 4
+        }
+      ]
+    },
+    {
+      "id": "o4",
+      "sections": [
+        "m09-init",
+        "m09-label"
+      ],
+      "sceneIds": [
+        "a04-dag",
+        "a05-early",
+        "a06-label-i",
+        "a07-rest"
+      ],
+      "slideIds": [
+        "m09-delta",
+        "m09-label",
+        "m09-labels"
+      ],
+      "experiment": "B · 标记阶段：得分表与 l1 / l2",
+      "challenges": [
+        "c4"
+      ],
+      "python": [
+        "longest_node_delays",
+        "rw_label"
+      ],
+      "video": [
+        {
+          "sceneId": "a04-dag",
+          "film": "rw1",
+          "start": 68.38
+        },
+        {
+          "sceneId": "a05-early",
+          "film": "rw1",
+          "start": 91.09
+        },
+        {
+          "sceneId": "a06-label-i",
+          "status": "scene-not-a-chapter"
+        },
+        {
+          "sceneId": "a07-rest",
+          "status": "scene-not-a-chapter"
+        }
+      ],
+      "slides": [
+        {
+          "slideId": "m09-delta",
+          "page": 5
+        },
+        {
+          "slideId": "m09-label",
+          "page": 6
+        },
+        {
+          "slideId": "m09-labels",
+          "page": 7
+        }
+      ]
+    },
+    {
+      "id": "o5",
+      "sections": [
+        "m09-reconstruct"
+      ],
+      "sceneIds": [
+        "b02-select",
+        "b04-arrival",
+        "b05-compare"
+      ],
+      "slideIds": [
+        "m09-reconstruct",
+        "m09-compare"
+      ],
+      "experiment": "B · 最后一步：8 簇、20 实例、输出 8；与不复制的 10 对照",
+      "challenges": [
+        "c5"
+      ],
+      "python": [
+        "rw_reconstruct",
+        "rajaraman_wong"
+      ],
+      "video": [
+        {
+          "sceneId": "b02-select",
+          "film": "rw2",
+          "start": 13.22
+        },
+        {
+          "sceneId": "b04-arrival",
+          "status": "scene-not-a-chapter"
+        },
+        {
+          "sceneId": "b05-compare",
+          "film": "rw2",
+          "start": 79.18
+        }
+      ],
+      "slides": [
+        {
+          "slideId": "m09-reconstruct",
+          "page": 8
+        },
+        {
+          "slideId": "m09-compare",
+          "page": 9
+        }
+      ]
+    },
+    {
+      "id": "o6",
+      "sections": [
+        "m09-scope"
+      ],
+      "sceneIds": [
+        "b06-scope"
+      ],
+      "slideIds": [
+        "m09-scope"
+      ],
+      "experiment": "B · 顶部“候选数据”说明",
+      "challenges": [
+        "c6"
+      ],
+      "python": [],
+      "video": [
+        {
+          "sceneId": "b06-scope",
+          "film": "rw2",
+          "start": 99
+        }
+      ],
+      "slides": [
+        {
+          "slideId": "m09-scope",
+          "page": 11
+        }
+      ]
+    }
+  ],
+  "contentVersion": "2026.10.23-1",
+  "generated": "2026-10-23"
+}

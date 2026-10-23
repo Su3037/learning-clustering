@@ -1,0 +1,353 @@
+{
+ "id": "kl",
+ "title": "先试探，再回退",
+ "status": "ready",
+ "src": "kl.mp4",
+ "vtt": "kl.zh.vtt",
+ "poster": "kl-poster.jpg",
+ "duration": 198.2,
+ "chapters": [
+  {
+   "t": 3.0,
+   "title": "一 · 固定人数的改进",
+   "sceneId": "s01-hook"
+  },
+  {
+   "t": 20.47,
+   "title": "二 · cut 与 D 值",
+   "sceneId": "s02-dvalue"
+  },
+  {
+   "t": 40.07,
+   "title": "三 · 成对收益与 −2w",
+   "sceneId": "s03-pairs"
+  },
+  {
+   "t": 84.16,
+   "title": "四 · 试探与锁定",
+   "sceneId": "s05-trial1"
+  },
+  {
+   "t": 112.87,
+   "title": "五 · 最佳前缀与回退",
+   "sceneId": "s07-prefix"
+  },
+  {
+   "t": 149.84,
+   "title": "六 · 伪代码与局限",
+   "sceneId": "s09-code"
+  }
+ ],
+ "scenes": [
+  {
+   "sceneId": "s00-title",
+   "start": 0.0,
+   "end": 3.0
+  },
+  {
+   "sceneId": "s01-hook",
+   "start": 3.0,
+   "end": 20.47
+  },
+  {
+   "sceneId": "s02-dvalue",
+   "start": 20.47,
+   "end": 40.07
+  },
+  {
+   "sceneId": "s03-pairs",
+   "start": 40.07,
+   "end": 56.42
+  },
+  {
+   "sceneId": "s04-minus2w",
+   "start": 56.42,
+   "end": 84.16
+  },
+  {
+   "sceneId": "s05-trial1",
+   "start": 84.16,
+   "end": 96.73
+  },
+  {
+   "sceneId": "s06-trial2",
+   "start": 96.73,
+   "end": 112.87
+  },
+  {
+   "sceneId": "s07-prefix",
+   "start": 112.87,
+   "end": 137.04
+  },
+  {
+   "sceneId": "s08-pass2",
+   "start": 137.04,
+   "end": 149.84
+  },
+  {
+   "sceneId": "s09-code",
+   "start": 149.84,
+   "end": 168.78
+  },
+  {
+   "sceneId": "s10-ab1",
+   "start": 168.78,
+   "end": 183.13
+  },
+  {
+   "sceneId": "s11-limits",
+   "start": 183.13,
+   "end": 198.2
+  }
+ ],
+ "transcript": [
+  {
+   "start": 3.0,
+   "end": 9.356,
+   "text": "两个机房：左边放 2 个单元，右边放 3 个。人数不能变。",
+   "sceneId": "s01-hook"
+  },
+  {
+   "start": 9.356,
+   "end": 15.267,
+   "text": "跨房间的连线越多，代价越大：现在 cut = 12。",
+   "sceneId": "s01-hook"
+  },
+  {
+   "start": 15.267,
+   "end": 20.067,
+   "text": "能不能用一对一交换，把 cut 降下来？",
+   "sceneId": "s01-hook"
+  },
+  {
+   "start": 20.467,
+   "end": 26.156,
+   "text": "先给每个点算一个数：D = 外部边权 − 内部边权。",
+   "sceneId": "s02-dvalue"
+  },
+  {
+   "start": 26.156,
+   "end": 31.4,
+   "text": "A 的连线全在对面：D(A) = 6 − 0 = 6。",
+   "sceneId": "s02-dvalue"
+  },
+  {
+   "start": 31.4,
+   "end": 35.533,
+   "text": "D 大，说明这个点“想去对面”。",
+   "sceneId": "s02-dvalue"
+  },
+  {
+   "start": 35.533,
+   "end": 39.667,
+   "text": "五个点的 D 值都由当前分组算出。",
+   "sceneId": "s02-dvalue"
+  },
+  {
+   "start": 40.067,
+   "end": 47.311,
+   "text": "交换一对 a、b，收益是 D(a) + D(b) − 2w(a,b)。",
+   "sceneId": "s03-pairs"
+  },
+  {
+   "start": 47.311,
+   "end": 51.667,
+   "text": "把左右各一点配成 6 对，逐一计算。",
+   "sceneId": "s03-pairs"
+  },
+  {
+   "start": 51.667,
+   "end": 56.022,
+   "text": "最大的是 A↔D：6 + 3 − 0 = 9。",
+   "sceneId": "s03-pairs"
+  },
+  {
+   "start": 56.422,
+   "end": 60.111,
+   "text": "为什么要减 2w？看 E 与 D。",
+   "sceneId": "s04-minus2w"
+  },
+  {
+   "start": 60.111,
+   "end": 67.578,
+   "text": "D(E) + D(D) = 9，可是两个 D 都把边 DE 算成了“外部”。",
+   "sceneId": "s04-minus2w"
+  },
+  {
+   "start": 67.578,
+   "end": 73.489,
+   "text": "交换以后，E、D 依旧分处两侧——DE 还是被切。",
+   "sceneId": "s04-minus2w"
+  },
+  {
+   "start": 73.489,
+   "end": 78.067,
+   "text": "这条边被多算了两次，要扣回 2 × 5。",
+   "sceneId": "s04-minus2w"
+  },
+  {
+   "start": 78.067,
+   "end": 83.756,
+   "text": "所以 g(E, D) = 9 − 10 = −1，并不划算。",
+   "sceneId": "s04-minus2w"
+  },
+  {
+   "start": 84.156,
+   "end": 88.067,
+   "text": "第一步：选收益最大的 A↔D。",
+   "sceneId": "s05-trial1"
+  },
+  {
+   "start": 88.067,
+   "end": 91.978,
+   "text": "交换——cut 从 12 降到 3。",
+   "sceneId": "s05-trial1"
+  },
+  {
+   "start": 91.978,
+   "end": 96.333,
+   "text": "A、D 锁定。注意：这还只是试探。",
+   "sceneId": "s05-trial1"
+  },
+  {
+   "start": 96.733,
+   "end": 101.756,
+   "text": "重新计算 D。剩下的候选，收益全是负数。",
+   "sceneId": "s06-trial2"
+  },
+  {
+   "start": 101.756,
+   "end": 107.444,
+   "text": "KL 不停下：照样选最大的那个，E↔C，−8。",
+   "sceneId": "s06-trial2"
+  },
+  {
+   "start": 107.444,
+   "end": 112.467,
+   "text": "cut 暂时升到 11。这一步也只是试探。",
+   "sceneId": "s06-trial2"
+  },
+  {
+   "start": 112.867,
+   "end": 118.333,
+   "text": "一轮走完，回头看累计收益：0、+9、+1。",
+   "sceneId": "s07-prefix"
+  },
+  {
+   "start": 118.333,
+   "end": 122.022,
+   "text": "最大的是前 1 步，累计 +9。",
+   "sceneId": "s07-prefix"
+  },
+  {
+   "start": 122.022,
+   "end": 125.711,
+   "text": "所以只保留连续的前 1 步——",
+   "sceneId": "s07-prefix"
+  },
+  {
+   "start": 125.711,
+   "end": 130.956,
+   "text": "从本轮起点重来：只做 A↔D，cut = 3。",
+   "sceneId": "s07-prefix"
+  },
+  {
+   "start": 130.956,
+   "end": 136.644,
+   "text": "这就是回退：试探可以变差，接受只看最佳前缀。",
+   "sceneId": "s07-prefix"
+  },
+  {
+   "start": 137.044,
+   "end": 140.511,
+   "text": "从 ABC | DE 再来一轮。",
+   "sceneId": "s08-pass2"
+  },
+  {
+   "start": 140.511,
+   "end": 144.2,
+   "text": "累计收益：−8，然后 −6。",
+   "sceneId": "s08-pass2"
+  },
+  {
+   "start": 144.2,
+   "end": 149.444,
+   "text": "都不如什么都不做：空前缀胜出，算法停止。",
+   "sceneId": "s08-pass2"
+  },
+  {
+   "start": 149.844,
+   "end": 154.422,
+   "text": "把规则写成伪代码：外层一轮接一轮。",
+   "sceneId": "s09-code"
+  },
+  {
+   "start": 154.422,
+   "end": 160.111,
+   "text": "内层：选最大收益的一对，交换、锁定、更新 D。",
+   "sceneId": "s09-code"
+  },
+  {
+   "start": 160.111,
+   "end": 165.578,
+   "text": "一轮结束：取最佳前缀，从起点只应用这几步。",
+   "sceneId": "s09-code"
+  },
+  {
+   "start": 165.578,
+   "end": 168.378,
+   "text": "直到最佳前缀为空。",
+   "sceneId": "s09-code"
+  },
+  {
+   "start": 168.778,
+   "end": 172.689,
+   "text": "换一张图：把 AB 从 5 改成 1。",
+   "sceneId": "s10-ab1"
+  },
+  {
+   "start": 172.689,
+   "end": 177.711,
+   "text": "初始 cut 变成 8，A↔D 的收益变成 5。",
+   "sceneId": "s10-ab1"
+  },
+  {
+   "start": 177.711,
+   "end": 182.733,
+   "text": "同一个种子，图一变，所有 D 值都要重算。",
+   "sceneId": "s10-ab1"
+  },
+  {
+   "start": 183.133,
+   "end": 185.267,
+   "text": "KL 的边界：",
+   "sceneId": "s11-limits"
+  },
+  {
+   "start": 185.267,
+   "end": 188.733,
+   "text": "人数平衡不等于面积平衡。",
+   "sceneId": "s11-limits"
+  },
+  {
+   "start": 188.733,
+   "end": 192.867,
+   "text": "从不同种子出发，结果可能不同。",
+   "sceneId": "s11-limits"
+  },
+  {
+   "start": 192.867,
+   "end": 197.0,
+   "text": "下一章 FM：一次只移动一个点。",
+   "sceneId": "s11-limits"
+  }
+ ],
+ "music": "本课程原创程序合成配乐（NumPy），CC BY 4.0",
+ "why": "约 5 分钟：负收益试探、−2w 与回退各留出阅读停顿，其余公共定义回链 Module 03 与基础速查。",
+ "readingViolations": 0,
+ "fps": 30,
+ "size": [
+  1920,
+  1080
+ ]
+}

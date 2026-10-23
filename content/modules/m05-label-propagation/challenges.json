@@ -1,0 +1,50 @@
+[
+  {
+    "id": "c1",
+    "type": "概念",
+    "difficulty": "Intro",
+    "title": "名字与标签",
+    "objectiveId": "o1",
+    "validatorId": "m05-label-propagation/c1"
+  },
+  {
+    "id": "c2",
+    "type": "推演",
+    "difficulty": "Intro",
+    "title": "C 的票数",
+    "objectiveId": "o2",
+    "validatorId": "m05-label-propagation/c2"
+  },
+  {
+    "id": "c3",
+    "type": "推演",
+    "difficulty": "Practice",
+    "title": "几轮才算停下",
+    "objectiveId": "o3",
+    "validatorId": "m05-label-propagation/c3"
+  },
+  {
+    "id": "c4",
+    "type": "探索",
+    "difficulty": "Practice",
+    "title": "找到振荡",
+    "objectiveId": "o4",
+    "validatorId": "m05-label-propagation/c4"
+  },
+  {
+    "id": "c5",
+    "type": "探索",
+    "difficulty": "Stretch",
+    "title": "加粗一条桥",
+    "objectiveId": "o5",
+    "validatorId": "m05-label-propagation/c5"
+  },
+  {
+    "id": "c6",
+    "type": "实现",
+    "difficulty": "Stretch",
+    "title": "换个顺序再跑",
+    "objectiveId": "o6",
+    "validatorId": "m05-label-propagation/c6"
+  }
+]

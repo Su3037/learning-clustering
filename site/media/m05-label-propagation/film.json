@@ -1,0 +1,575 @@
+{
+ "status": "ready",
+ "films": [
+  {
+   "id": "circles",
+   "title": "圈子从哪里来",
+   "status": "ready",
+   "src": "circles.mp4",
+   "vtt": "circles.zh.vtt",
+   "poster": "circles-poster.jpg",
+   "duration": 176.9,
+   "chapters": [
+    {
+     "t": 3.0,
+     "title": "序 · 通讯录",
+     "sceneId": "s01-contacts"
+    },
+    {
+     "t": 14.24,
+     "title": "一 · 一个极简的办法",
+     "sceneId": "s02-gather"
+    },
+    {
+     "t": 29.84,
+     "title": "二 · 芯片里的同一个问题",
+     "sceneId": "s03-chip"
+    },
+    {
+     "t": 47.09,
+     "title": "三 · 一条局部规则",
+     "sceneId": "s04-rule"
+    },
+    {
+     "t": 62.56,
+     "title": "四 · 逐层拆开",
+     "sceneId": "s05-labels"
+    },
+    {
+     "t": 112.42,
+     "title": "五 · 同步、平票与边权",
+     "sceneId": "s08-sync"
+    },
+    {
+     "t": 143.8,
+     "title": "六 · 回到芯片",
+     "sceneId": "s10-circuit"
+    }
+   ],
+   "scenes": [
+    {
+     "sceneId": "s00-title",
+     "start": 0.0,
+     "end": 3.0
+    },
+    {
+     "sceneId": "s01-contacts",
+     "start": 3.0,
+     "end": 14.24
+    },
+    {
+     "sceneId": "s02-gather",
+     "start": 14.24,
+     "end": 29.84
+    },
+    {
+     "sceneId": "s03-chip",
+     "start": 29.84,
+     "end": 47.09
+    },
+    {
+     "sceneId": "s04-rule",
+     "start": 47.09,
+     "end": 62.56
+    },
+    {
+     "sceneId": "s05-labels",
+     "start": 62.56,
+     "end": 78.02
+    },
+    {
+     "sceneId": "s06-vote",
+     "start": 78.02,
+     "end": 96.29
+    },
+    {
+     "sceneId": "s07-round",
+     "start": 96.29,
+     "end": 112.42
+    },
+    {
+     "sceneId": "s08-sync",
+     "start": 112.42,
+     "end": 128.78
+    },
+    {
+     "sceneId": "s09-bridge",
+     "start": 128.78,
+     "end": 143.8
+    },
+    {
+     "sceneId": "s10-circuit",
+     "start": 143.8,
+     "end": 162.51
+    },
+    {
+     "sceneId": "s11-limits",
+     "start": 162.51,
+     "end": 176.91
+    }
+   ],
+   "transcript": [
+    {
+     "start": 3.0,
+     "end": 6.467,
+     "text": "一本通讯录，几十个名字。",
+     "sceneId": "s01-contacts"
+    },
+    {
+     "start": 6.467,
+     "end": 9.711,
+     "text": "只要看：谁和谁常联系。",
+     "sceneId": "s01-contacts"
+    },
+    {
+     "start": 9.711,
+     "end": 13.844,
+     "text": "没有人画圈，圈子能自己浮现吗？",
+     "sceneId": "s01-contacts"
+    },
+    {
+     "start": 14.244,
+     "end": 18.822,
+     "text": "每个人看看朋友们现在属于哪个圈子，",
+     "sceneId": "s02-gather"
+    },
+    {
+     "start": 18.822,
+     "end": 22.511,
+     "text": "然后加入联系最多的那一个。",
+     "sceneId": "s02-gather"
+    },
+    {
+     "start": 22.511,
+     "end": 24.867,
+     "text": "一遍遍重复……",
+     "sceneId": "s02-gather"
+    },
+    {
+     "start": 24.867,
+     "end": 29.444,
+     "text": "圈子自己浮现，切开的联系越来越少。",
+     "sceneId": "s02-gather"
+    },
+    {
+     "start": 29.844,
+     "end": 35.311,
+     "text": "芯片里是同一个问题：单元由导线连成一张网。",
+     "sceneId": "s03-chip"
+    },
+    {
+     "start": 35.311,
+     "end": 40.333,
+     "text": "按位置拿尺子切成三块，会切断很多连线。",
+     "sceneId": "s03-chip"
+    },
+    {
+     "start": 40.333,
+     "end": 46.689,
+     "text": "试遍所有分法？光是 24 个单元平分三组就有十五亿种。",
+     "sceneId": "s03-chip"
+    },
+    {
+     "start": 47.089,
+     "end": 53.667,
+     "text": "把通讯录的规则借过来：看邻居的标签，跟最强的那一组。",
+     "sceneId": "s04-rule"
+    },
+    {
+     "start": 53.667,
+     "end": 57.133,
+     "text": "这一句话，留下六个问题。",
+     "sceneId": "s04-rule"
+    },
+    {
+     "start": 57.133,
+     "end": 62.156,
+     "text": "“最强”怎么算？谁先更新？什么时候停？",
+     "sceneId": "s04-rule"
+    },
+    {
+     "start": 62.556,
+     "end": 67.133,
+     "text": "回到课程的五节点图。先分清两个词。",
+     "sceneId": "s05-labels"
+    },
+    {
+     "start": 67.133,
+     "end": 72.822,
+     "text": "名字是身份，永远不变；标签是归属，可以改写。",
+     "sceneId": "s05-labels"
+    },
+    {
+     "start": 72.822,
+     "end": 77.622,
+     "text": "开始时，每个点的标签就是自己的名字。",
+     "sceneId": "s05-labels"
+    },
+    {
+     "start": 78.022,
+     "end": 82.822,
+     "text": "轮到 C。A 已经改为标签 B，B 仍是 B。",
+     "sceneId": "s06-vote"
+    },
+    {
+     "start": 82.822,
+     "end": 87.844,
+     "text": "同一标签的边权加起来：B = 1 + 4 = 5。",
+     "sceneId": "s06-vote"
+    },
+    {
+     "start": 87.844,
+     "end": 92.2,
+     "text": "D = 2，E = 1。C 的标签改为 B。",
+     "sceneId": "s06-vote"
+    },
+    {
+     "start": 92.2,
+     "end": 95.889,
+     "text": "比的是权重之和，不是人数。",
+     "sceneId": "s06-vote"
+    },
+    {
+     "start": 96.289,
+     "end": 102.644,
+     "text": "一整轮：A、B、C、D、E 依次更新，每次立刻写回。",
+     "sceneId": "s07-round"
+    },
+    {
+     "start": 102.644,
+     "end": 107.222,
+     "text": "第 1 轮结束：B B B E E，改了 3 个。",
+     "sceneId": "s07-round"
+    },
+    {
+     "start": 107.222,
+     "end": 112.022,
+     "text": "第 2 轮全部不变，才确认稳定：共 2 轮。",
+     "sceneId": "s07-round"
+    },
+    {
+     "start": 112.422,
+     "end": 116.556,
+     "text": "换成同步：大家读同一张旧快照。",
+     "sceneId": "s08-sync"
+    },
+    {
+     "start": 116.556,
+     "end": 122.022,
+     "text": "A 读到 B，B 读到 A——同时交换，再换回来。",
+     "sceneId": "s08-sync"
+    },
+    {
+     "start": 122.022,
+     "end": 128.378,
+     "text": "状态重复，永远停不下：这叫 cycle，不能叫收敛。",
+     "sceneId": "s08-sync"
+    },
+    {
+     "start": 128.778,
+     "end": 133.578,
+     "text": "把 C–D 这座桥加粗到 10，重新运行。",
+     "sceneId": "s09-bridge"
+    },
+    {
+     "start": 133.578,
+     "end": 138.822,
+     "text": "D 把 C 拉了过去：AB | CDE，cut 5。",
+     "sceneId": "s09-bridge"
+    },
+    {
+     "start": 138.822,
+     "end": 143.4,
+     "text": "改了参数，要从同一个起点重新比较。",
+     "sceneId": "s09-bridge"
+    },
+    {
+     "start": 143.8,
+     "end": 147.044,
+     "text": "回到 24 个单元的电路。",
+     "sceneId": "s10-circuit"
+    },
+    {
+     "start": 147.044,
+     "end": 150.511,
+     "text": "颜色沿着最强的连线扩散。",
+     "sceneId": "s10-circuit"
+    },
+    {
+     "start": 150.511,
+     "end": 155.089,
+     "text": "几轮之后，各块之间只剩很少的连线。",
+     "sceneId": "s10-circuit"
+    },
+    {
+     "start": 155.089,
+     "end": 162.111,
+     "text": "尺子切 88，标签传播只切 2——这只是这张虚构图上的结果。",
+     "sceneId": "s10-circuit"
+    },
+    {
+     "start": 162.511,
+     "end": 165.089,
+     "text": "标签传播的边界：",
+     "sceneId": "s11-limits"
+    },
+    {
+     "start": 165.089,
+     "end": 169.222,
+     "text": "规则一变，轮数和结果都可能变。",
+     "sceneId": "s11-limits"
+    },
+    {
+     "start": 169.222,
+     "end": 171.578,
+     "text": "同步可能振荡。",
+     "sceneId": "s11-limits"
+    },
+    {
+     "start": 171.578,
+     "end": 175.711,
+     "text": "下一模块：用全图的谱信息来分。",
+     "sceneId": "s11-limits"
+    }
+   ],
+   "music": "本课程原创程序合成配乐（NumPy），CC BY 4.0",
+   "why": "核心片约 3 分半：通讯录→芯片→一条规则→逐层拆开；慢速推演另成一段，一票一票走完 G01。",
+   "readingViolations": 0,
+   "fps": 30,
+   "size": [
+    1920,
+    1080
+   ]
+  },
+  {
+   "id": "slow",
+   "title": "一票一票（慢速推演）",
+   "status": "ready",
+   "src": "slow.mp4",
+   "vtt": "slow.zh.vtt",
+   "poster": "slow-poster.jpg",
+   "duration": 88.33,
+   "chapters": [
+    {
+     "t": 0.0,
+     "title": "慢速推演 · 第 1 轮",
+     "sceneId": "t00-intro"
+    },
+    {
+     "t": 44.09,
+     "title": "第 2 轮 · 确认零变化",
+     "sceneId": "t06-A2"
+    },
+    {
+     "t": 81.2,
+     "title": "结果 · 稳定",
+     "sceneId": "t99-end"
+    }
+   ],
+   "scenes": [
+    {
+     "sceneId": "t00-intro",
+     "start": 0.0,
+     "end": 5.64
+    },
+    {
+     "sceneId": "t01-A1",
+     "start": 5.64,
+     "end": 12.98
+    },
+    {
+     "sceneId": "t02-B1",
+     "start": 12.98,
+     "end": 20.76
+    },
+    {
+     "sceneId": "t03-C1",
+     "start": 20.76,
+     "end": 28.98
+    },
+    {
+     "sceneId": "t04-D1",
+     "start": 28.98,
+     "end": 36.31
+    },
+    {
+     "sceneId": "t05-E1",
+     "start": 36.31,
+     "end": 44.09
+    },
+    {
+     "sceneId": "t06-A2",
+     "start": 44.09,
+     "end": 50.98
+    },
+    {
+     "sceneId": "t07-B2",
+     "start": 50.98,
+     "end": 57.87
+    },
+    {
+     "sceneId": "t08-C2",
+     "start": 57.87,
+     "end": 65.64
+    },
+    {
+     "sceneId": "t09-D2",
+     "start": 65.64,
+     "end": 73.42
+    },
+    {
+     "sceneId": "t10-E2",
+     "start": 73.42,
+     "end": 81.2
+    },
+    {
+     "sceneId": "t99-end",
+     "start": 81.2,
+     "end": 88.33
+    }
+   ],
+   "transcript": [
+    {
+     "start": 0.0,
+     "end": 5.244,
+     "text": "慢速推演：按 A→E 异步更新，平票取最小。",
+     "sceneId": "t00-intro"
+    },
+    {
+     "start": 5.644,
+     "end": 10.0,
+     "text": "第 1 轮，轮到 A：B = 5，C = 1。",
+     "sceneId": "t01-A1"
+    },
+    {
+     "start": 10.0,
+     "end": 12.578,
+     "text": "A 的标签改为 B。",
+     "sceneId": "t01-A1"
+    },
+    {
+     "start": 12.978,
+     "end": 17.333,
+     "text": "第 1 轮，轮到 B：B = 5，C = 4。",
+     "sceneId": "t02-B1"
+    },
+    {
+     "start": 17.333,
+     "end": 20.356,
+     "text": "B 最大，B 保持不变。",
+     "sceneId": "t02-B1"
+    },
+    {
+     "start": 20.756,
+     "end": 26.0,
+     "text": "第 1 轮，轮到 C：B = 5，D = 2，E = 1。",
+     "sceneId": "t03-C1"
+    },
+    {
+     "start": 26.0,
+     "end": 28.578,
+     "text": "C 的标签改为 B。",
+     "sceneId": "t03-C1"
+    },
+    {
+     "start": 28.978,
+     "end": 33.333,
+     "text": "第 1 轮，轮到 D：E = 5，B = 2。",
+     "sceneId": "t04-D1"
+    },
+    {
+     "start": 33.333,
+     "end": 35.911,
+     "text": "D 的标签改为 E。",
+     "sceneId": "t04-D1"
+    },
+    {
+     "start": 36.311,
+     "end": 40.667,
+     "text": "第 1 轮，轮到 E：E = 5，B = 1。",
+     "sceneId": "t05-E1"
+    },
+    {
+     "start": 40.667,
+     "end": 43.689,
+     "text": "E 最大，E 保持不变。",
+     "sceneId": "t05-E1"
+    },
+    {
+     "start": 44.089,
+     "end": 47.556,
+     "text": "第 2 轮，轮到 A：B = 6。",
+     "sceneId": "t06-A2"
+    },
+    {
+     "start": 47.556,
+     "end": 50.578,
+     "text": "B 最大，A 保持不变。",
+     "sceneId": "t06-A2"
+    },
+    {
+     "start": 50.978,
+     "end": 54.444,
+     "text": "第 2 轮，轮到 B：B = 9。",
+     "sceneId": "t07-B2"
+    },
+    {
+     "start": 54.444,
+     "end": 57.467,
+     "text": "B 最大，B 保持不变。",
+     "sceneId": "t07-B2"
+    },
+    {
+     "start": 57.867,
+     "end": 62.222,
+     "text": "第 2 轮，轮到 C：B = 5，E = 3。",
+     "sceneId": "t08-C2"
+    },
+    {
+     "start": 62.222,
+     "end": 65.244,
+     "text": "B 最大，C 保持不变。",
+     "sceneId": "t08-C2"
+    },
+    {
+     "start": 65.644,
+     "end": 70.0,
+     "text": "第 2 轮，轮到 D：E = 5，B = 2。",
+     "sceneId": "t09-D2"
+    },
+    {
+     "start": 70.0,
+     "end": 73.022,
+     "text": "E 最大，D 保持不变。",
+     "sceneId": "t09-D2"
+    },
+    {
+     "start": 73.422,
+     "end": 77.778,
+     "text": "第 2 轮，轮到 E：E = 5，B = 1。",
+     "sceneId": "t10-E2"
+    },
+    {
+     "start": 77.778,
+     "end": 80.8,
+     "text": "E 最大，E 保持不变。",
+     "sceneId": "t10-E2"
+    },
+    {
+     "start": 81.2,
+     "end": 87.333,
+     "text": "第 2 轮没有任何改变：确认稳定，共 2 轮，cut 3。",
+     "sceneId": "t99-end"
+    }
+   ],
+   "music": "本课程原创程序合成配乐（NumPy），CC BY 4.0",
+   "why": "慢速推演：两轮共 10 次更新，每次停留到票数读完。",
+   "readingViolations": 0,
+   "fps": 30,
+   "size": [
+    1920,
+    1080
+   ]
+  }
+ ]
+}

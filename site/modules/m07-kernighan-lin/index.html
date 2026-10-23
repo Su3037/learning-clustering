@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Module 07 Kernighan–Lin 改进 · Learning Clustering</title>
+<meta name="description" content="两侧人数固定的二分改进：成对交换的收益要减 2w；负收益也要试探；一轮后只保留最佳前缀，空前缀即停止。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%2032%2032%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Ccircle%20cx%3D%229%22%20cy%3D%2211%22%20r%3D%225%22%20fill%3D%22%230f6b5c%22%2F%3E%3Ccircle%20cx%3D%2223%22%20cy%3D%229%22%20r%3D%224%22%20fill%3D%22%232f5e9e%22%2F%3E%3Ccircle%20cx%3D%2220%22%20cy%3D%2223%22%20r%3D%225%22%20fill%3D%22%238a6114%22%2F%3E%3Cpath%20d%3D%22M9%2011%2023%209M9%2011%2020%2023%22%20stroke%3D%22%2356625b%22%20stroke-width%3D%221.6%22%2F%3E%3Cpath%20d%3D%22M23%209%2020%2023%22%20stroke%3D%22%23a33b3b%22%20stroke-width%3D%221.6%22%20stroke-dasharray%3D%222.5%202%22%2F%3E%3C%2Fsvg%3E">
+<link rel="stylesheet" href="../../assets/course.css">
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="topbar"><div class="wrap">
+<a class="brand" href="../../index.html"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="9" cy="11" r="5" fill="#0f6b5c"/><circle cx="23" cy="9" r="4" fill="#2f5e9e"/><circle cx="20" cy="23" r="5" fill="#8a6114"/><path d="M9 11 23 9M9 11 20 23" stroke="#56625b" stroke-width="1.6"/><path d="M23 9 20 23" stroke="#a33b3b" stroke-width="1.6" stroke-dasharray="2.5 2"/></svg><span>Learning Clustering<br><small>连接与分组 · Clustering for EDA</small></span></a>
+<nav class="topnav" aria-label="课程"><a href="../../index.html">首页</a><a href="../../foundations/index.html">基础速查</a><a href="../../glossary/index.html">术语表</a><a href="../../guide/index.html">如何挑战</a><a href="../../credits/index.html">资源与贡献</a><a href="../../progress/index.html">学习记录</a></nav>
+</div></header>
+
+<nav class="module-nav" aria-label="本模块"><div class="wrap"><a href="#goals">目标与问题</a><a href="#film">影片</a><a href="#lesson">讲解</a><a href="#slides">课件</a><a href="#lab">实验</a><a href="#challenges">挑战</a><a href="#python">Python</a><a href="#mistakes">易错与局限</a><a href="#sources">来源</a></div></nav>
+<main id="main">
+<section class="mod-hero"><div class="wrap">
+<div>
+<p class="eyebrow">Module 07 · Kernighan–Lin refinement</p>
+<h1>Kernighan–Lin 改进</h1>
+<p class="sub">一次交换让结果变差了，为什么还要继续换下去？</p>
+<div class="btn-row"><span class="tag">原作者 FanqinZeng</span><span class="tag">来源 Issue #6</span><span class="tag ok">来源映射已核对</span></div>
+
+<nav class="pager" aria-label="上一模块与下一模块"><a href="../m06-spectral-bisection/index.html">← Module 06 谱二分</a><a href="../m08-fiduccia-mattheyses/index.html">Module 08 Fiduccia–Mattheyses 改进 →</a></nav>
+</div>
+<aside class="factbox" aria-label="本模块概况"><dl>
+<dt>前置</dt><dd><a href="../m06-spectral-bisection/index.html">Module 06</a>：二分与 cut；任何给定的初始二分都可作为起点。</dd>
+<dt>接下来</dt><dd>Module 08 把成对交换改成单点移动，用平衡窗口代替“一换一”。</dd>
+<dt>影片</dt><dd>3:18</dd>
+<dt>课件</dt><dd>14 页，16:9，含页码</dd>
+<dt>挑战</dt><dd>6 题（[推演][解释][决策][实现]）</dd>
+<dt>Python</dt><dd>下载练习包，本地运行（网页不运行 Python）</dd>
+</dl></aside>
+</div></section>
+
+<section class="section" id="goals"><div class="wrap">
+<div class="section-head"><div><p class="eyebrow">目标与问题</p><h2>这一模块要解决什么</h2></div><p>先看问题和成功标准，再看算法。每个目标后面的链接指向讲它的地方。</p></div>
+<p class="review"><b>复习卡</b> · Module 06 给出一个二分；本章<strong>从一个已有的二分出发</strong>，通过成对交换减少 cut。为了比较公平，本章固定用同一个“坏种子” AE | BCD（cut 12）。</p>
+<div class="grid-2"><div><h3 style="margin-top:0">学习目标</h3><ol class="objectives"><li id="obj-o1">说出 KL 的输入（图与人数固定的初始二分）、操作（成对交换）和输出（试探轨迹、最佳前缀、接受的分组、停止原因）。<span class="links"><a href="#m07-problem">固定人数的改进问题</a></span></li><li id="obj-o2">计算 D(v) = 外部 − 内部，以及成对收益 g = D(a) + D(b) − 2w(a,b)，解释为什么要减 2w。<span class="links"><a href="#m07-gain">D 值与成对收益：为什么减 2w</a> · <a href="#challenge-c1">[推演] D 值从哪里来</a> · <a href="#challenge-c2">[推演] 找到最大收益对</a></span></li><li id="obj-o3">按“选最大收益对 → 试探交换 → 锁定 → 更新 D”走完一轮，包括收益为负的步骤（cut 暂升到 11）。<span class="links"><a href="#m07-pass">一轮：试探、锁定、更新</a> · <a href="#challenge-c3">[解释] 为什么还要走负收益</a></span></li><li id="obj-o4">从累计收益中选出最佳前缀（允许空前缀），区分试探状态与接受状态，并判断何时停止。<span class="links"><a href="#m07-prefix">最佳前缀、回退与停止</a> · <a href="#challenge-c4">[决策] 保留几步</a></span></li><li id="obj-o5">逐行读懂伪代码，在 Python 中实现最大收益对与最佳前缀。<span class="links"><a href="#m07-pseudocode">逐行读懂伪代码</a> · <a href="#challenge-c6">[实现] 换一张图重算</a> · <a href="#python">Python</a></span></li><li id="obj-o6">说出 KL 的局限：只保持两侧人数（不是面积）、依赖初始分组、启发式不保证全局最优。<span class="links"><a href="#m07-limits">局限与应用</a> · <a href="#lab">实验</a></span></li></ol></div>
+<div><h3 style="margin-top:0">问题定义</h3><div class="problem" style="grid-template-columns:1fr 1fr"><div><b>输入</b><p>带权无向图；一个初始二分（两侧节点数固定，例如 AE | BCD）。</p></div><div><b>输出</b><p>每一轮的试探交换序列（收益、交换前后 cut、锁定）、累计收益、最佳前缀、接受的二分、最终 cut 与停止原因。</p></div><div><b>目标</b><p>通过成对交换减少 cut。</p></div><div><b>约束</b><p>每次交换左右各一个未锁定节点，两侧人数始终不变；每轮每个节点最多交换一次。</p></div><div><b>假设</b><p>收益可以为负；平票按 (−收益, a, b) 的字典序；最佳前缀在并列时取较短者；允许空前缀。</p></div><div><b>停止 / 完成</b><p>某一轮的最佳前缀为空（累计收益没有正值），或达到轮数上限。</p></div></div></div></div>
+</div></section>
+
+<section class="section dark" id="film"><div class="wrap">
+<div class="section-head"><div><p class="eyebrow">影片 · 二维科普短片</p><h2>先试探，再回退</h2></div><p>这部影片也是本课程的代表性小样：负收益试探让 cut 暂升到 11，再回退到最佳前缀 cut 3。</p></div>
+<div id="film-root"><p class="muted">正在载入影片…</p></div>
+</div></section>
+
+<section class="section" id="lesson"><div class="wrap">
+<div class="section-head"><div><p class="eyebrow">讲解 · 由浅入深</p><h2>从例子到伪代码</h2></div><p>章节编号与影片章节、课件页对应；完整对应表见本页末尾的 crosswalk。</p></div>
+<nav class="btn-row" aria-label="讲解小节" style="margin-bottom:24px"><a class="btn small" href="#m07-problem">1. 固定人数的改进问题</a> <a class="btn small" href="#m07-gain">2. D 值与成对收益：为什么减 2w</a> <a class="btn small" href="#m07-pass">3. 一轮：试探、锁定、更新</a> <a class="btn small" href="#m07-prefix">4. 最佳前缀、回退与停止</a> <a class="btn small" href="#m07-pseudocode">5. 逐行读懂伪代码</a> <a class="btn small" href="#m07-limits">6. 局限与应用</a></nav>
+<div class="prose"><section class="lesson-part" aria-labelledby="m07-problem"><h3 id="m07-problem"><span class="eyebrow" style="display:block;margin:0">第 1 节</span>固定人数的改进问题</h3><p>前面的方法都在“从无到有”地产生分组。KL 换了一个问题：<strong>已经有一个二分，怎样把它改好？</strong></p>
+<p>设想两个机房，左边放 2 个单元，右边放 3 个，人数不能变。跨机房的连线越多，代价越大。唯一允许的操作是<strong>一对一交换</strong>：左边一个和右边一个互换位置。为了比较公平，本章固定从一个故意不太好的种子出发：</p>
+<blockquote class="callout"><p><strong>AE | BCD</strong>：跨组的边是 A–B 5、A–C 1、C–E 1、D–E 5，cut = 12。</p></blockquote>
+<div class="terms"><div class="term" id="term-initial-bisection"><h4>二分种子</h4><span class="en">initial bisection</span><p>改进开始时的二分。KL 的结果依赖它。</p></div><div class="term" id="term-swap"><h4>交换</h4><span class="en">swap</span><p>左侧一个节点与右侧一个节点互换所在的组。两侧人数不变。</p></div></div>
+<p>KL 由 Kernighan 和 Lin 在 1970 年提出，是二分改进最经典的启发式之一。原作者 FanqinZeng 用五位同学分组的虚构故事引入了“人数固定”的约束；本章保留这个约束，用课程公共图讲规则。</p></section>
+<section class="lesson-part" aria-labelledby="m07-gain"><h3 id="m07-gain"><span class="eyebrow" style="display:block;margin:0">第 2 节</span>D 值与成对收益：为什么减 2w</h3><div class="terms"><div class="term" id="term-external"><h4>外部边权</h4><span class="en">external</span><p>v 与对面节点之间的边权之和。</p></div><div class="term" id="term-internal"><h4>内部边权</h4><span class="en">internal</span><p>v 与同侧节点之间的边权之和。</p></div><div class="term" id="term-d-v-"><h4>D 值</h4><span class="en">D(v) = 外部 − 内部</span><p>只把 v 换到对面时，cut 会下降多少。</p></div><div class="term" id="term-gain"><h4>收益</h4><span class="en">gain</span><p>一次交换前的 cut 减去交换后的 cut。</p></div></div>
+<p>在种子 AE | BCD 上：</p>
+<table><thead><tr><th>节点</th><th>侧</th><th>外部</th><th>内部</th><th>D</th></tr></thead><tbody><tr><td>A</td><td>左</td><td>5 + 1 = 6</td><td>0</td><td>+6</td></tr><tr><td>B</td><td>右</td><td>5</td><td>4</td><td>+1</td></tr><tr><td>C</td><td>右</td><td>1 + 1 = 2</td><td>4 + 2 = 6</td><td>−4</td></tr><tr><td>D</td><td>右</td><td>5</td><td>2</td><td>+3</td></tr><tr><td>E</td><td>左</td><td>1 + 5 = 6</td><td>0</td><td>+6</td></tr></tbody></table>
+<p>交换 a（左）与 b（右）的收益：</p>
+<blockquote class="callout"><p><strong>g(a, b) = D(a) + D(b) − 2·w(a, b)</strong></p></blockquote>
+<p>为什么要减 2w？看 E 与 D：D(E) + D(D) = 9，但两个 D 都把边 DE（5）算成了“外部边”。交换以后，E 到了右边、D 到了左边——它们仍然分处两侧，DE <strong>依旧被切</strong>。这条边被多算了两次，所以要扣回 2 × 5：g(E, D) = 9 − 10 = −1。</p>
+<p>六个候选对的收益：A↔D <strong>+9</strong>，E↔B +7，A↔C 0，E↔C 0，E↔D −1，A↔B −3。最大的是 A↔D（A 与 D 之间没有边，不用扣）。</p></section>
+<section class="lesson-part" aria-labelledby="m07-pass"><h3 id="m07-pass"><span class="eyebrow" style="display:block;margin:0">第 3 节</span>一轮：试探、锁定、更新</h3><p>一轮（pass）里重复：</p>
+<ol><li>在<strong>未锁定</strong>的左右节点对中选收益最大的一对——<strong>即使收益是负数</strong>；</li><li>交换它们（这只是<strong>试探</strong>）；</li><li>锁定这两个节点，本轮不再移动；</li><li>按新的分组重新计算 D。</li></ol>
+<p>G01 的第一轮：</p>
+<table><thead><tr><th>步</th><th>试探交换</th><th>收益</th><th>交换后的 cut</th><th>累计收益</th></tr></thead><tbody><tr><td>1</td><td>A↔D</td><td>+9</td><td>3</td><td>+9</td></tr><tr><td>2</td><td>E↔C</td><td>−8</td><td><strong>11</strong></td><td>+1</td></tr></tbody></table>
+<p>第 2 步时只剩 E（左）与 B、C（右）未锁定：E↔C −8、E↔B −13，全是负数。KL 不在这里停下，而是照样选最大的 E↔C，cut 暂时升到 11。左侧再没有未锁定的点，本轮试探结束。</p>
+<div class="callout warn"><strong>为什么要走负收益</strong><p>在这张小图上第 2 步只会变差；但在更大的图上，先变差的一步可能“打开”后面更大的正收益。只有把一整轮走完，才能看清所有前缀，再决定保留几步。</p></div></section>
+<section class="lesson-part" aria-labelledby="m07-prefix"><h3 id="m07-prefix"><span class="eyebrow" style="display:block;margin:0">第 4 节</span>最佳前缀、回退与停止</h3><div class="terms"><div class="term" id="term-prefix"><h4>前缀</h4><span class="en">prefix</span><p>一轮试探序列中从第 1 步起连续的前 k 步。</p></div><div class="term" id="term-best-prefix-k-"><h4>最佳前缀</h4><span class="en">best prefix k*</span><p>累计收益最大的前缀；k = 0（什么都不做）也是候选。</p></div><div class="term" id="term-trial-accepted"><h4>试探 / 接受</h4><span class="en">trial / accepted</span><p>试探状态是一轮中途的临时分组；接受状态是从本轮起点只应用前 k* 步得到的分组。</p></div></div>
+<p>第一轮的累计收益：k = 0 → 0，k = 1 → <strong>+9</strong>，k = 2 → +1。最大的是 k* = 1：<strong>从本轮起点只应用 A↔D</strong>，接受 ABC | DE，cut 3。第 2 步被撤回——它只是为了看清后面还有没有更好的。</p>
+<p><strong>第二轮</strong>从 ABC | DE 出发，所有节点解锁：试探 E↔C −8，D↔B +2，累计 −8、−6。都不如什么都不做：**空前缀 k* = 0 胜出**，cut 保持 3，算法停止。</p></section>
+<section class="lesson-part" aria-labelledby="m07-pseudocode"><h3 id="m07-pseudocode"><span class="eyebrow" style="display:block;margin:0">第 5 节</span>逐行读懂伪代码</h3><div class="pseudo" data-pseudo="kl"><ol aria-label="伪代码"><li data-line="1" data-note="一轮 pass；每轮开始时全部解锁。">repeat:</li><li data-line="2" data-note="记下本轮起点：回退要回到这里。">    start ← 当前二分；trial ← start</li><li data-line="3" data-note="一轮最多 min(左, 右) 次交换。">    while 两侧都有未锁定的节点:</li><li data-line="4" data-note="D 由 trial（试探状态）计算，而不是 start。">        计算所有未锁定节点的 D = 外部 − 内部</li><li data-line="5" data-note="收益可以为负；平票按 (−g, a, b)。">        (a, b) ← 未锁定跨侧对中 g = D(a)+D(b)−2w(a,b) 最大者</li><li data-line="6" data-note="这是试探，不是接受。">        在 trial 中交换 a、b；锁定 a、b</li><li data-line="7" data-note="并列时取较短的前缀。">    k* ← 累计收益最大的前缀（允许 k* = 0）</li><li data-line="8" data-note="回退：试探状态被丢弃。">    当前二分 ← 从 start 只应用前 k* 步</li><li data-line="9" data-note="空前缀：没有任何改善，停止。">until k* = 0</li></ol><div class="explain"><p class="muted">点击任一行看解释；在实验中单步时，当前执行的行会自动高亮。</p></div></div>
+<p><strong>和 Python 的对应</strong>：第 4–5 行 → <code>best_swap()</code>；第 7 行 → <code>best_prefix()</code>；第 1–9 行 → <code>kernighan_lin()</code>。</p></section>
+<section class="lesson-part" aria-labelledby="m07-limits"><h3 id="m07-limits"><span class="eyebrow" style="display:block;margin:0">第 6 节</span>局限与应用</h3><ul><li><strong>启发式</strong>：G01 上恰好到达 cut 3，不说明 KL 一般能找到全局最优；它可能停在局部最优。</li><li><strong>依赖种子</strong>：从不同初始二分出发，结果可能不同；比较方法时要用同一个种子。本模块的种子与 Module 08 相同。</li><li><strong>只保持人数</strong>：一换一保持两侧节点个数，不保持面积。</li><li><strong>代价</strong>：朴素实现每一步都要枚举所有未锁定的跨侧对。</li><li><strong>工程含义</strong>：KL 与下一模块的 FM 都常用来在谱方法或其他初始划分之后做局部改进。改一条边的权重就要重算所有 D 值——例如把 A–B 从 5 改成 1，初始 cut 变为 8，A↔D 的收益变为 5。</li></ul></section></div>
+</div></section>
+
+<section class="section" id="slides"><div class="wrap">
+<div class="section-head"><div><p class="eyebrow">课件 · 带页码与讲稿</p><h2>课堂课件</h2></div><p>页码与 PDF 完全一致；当前页的讲稿在幻灯片下方，不遮挡图。</p></div>
+<div id="slides-root"><p class="muted">正在载入课件…</p></div>
+</div></section>
+
+<section class="section dark" id="lab"><div class="wrap">
+<div class="section-head"><div><p class="eyebrow">实验 · 浏览器内实时计算</p><h2>成对交换与最佳前缀</h2></div><p>单步看每一次试探交换：候选表里列出所有未锁定的跨侧对和它们的收益。一轮结束时，累计收益图标出最佳前缀，图上的分组回退到被接受的状态。</p></div>
+<div id="lab-root" tabindex="-1"><p class="muted">正在载入实验…（需要通过 HTTP 打开页面；直接双击 HTML 时浏览器会阻止模块脚本。）</p></div>
+</div></section>
+
+<section class="section" id="challenges"><div class="wrap">
+<div class="section-head"><div><p class="eyebrow">挑战 · 由易到难</p><h2>分组挑战</h2></div><p>类别写在方括号里，难度单独标注。答案由引擎或明确规则判定；看答案不扣分，记录会如实区分。</p></div>
+<p class="ch-guide">第一次用？先读<a href="../../guide/index.html">如何挑战</a>：读任务 → 预测 → 操作 → 提交 → 看解释 → 再试。第 4 题里“保留 0 步”也是一个合法答案。</p>
+<div class="ch-list" id="challenge-root"><p class="muted">正在载入挑战…</p></div>
+</div></section>
+
+<section class="section" id="python"><div class="wrap">
+<div class="section-head"><div><p class="eyebrow">Python 实现轨道 · 可选</p><h2>实现最大收益对与最佳前缀</h2></div><p>网页基础轨道不需要 Python。下载后在任意空目录运行；只用标准库。</p></div>
+<div class="grid-2"><div class="prose"><p><strong>任务</strong>（<code>starter.py</code>）：</p>
+<ol><li><code>best_swap(adj, side, locked)</code>：在未锁定的左右节点对中找收益最大的一对（收益可为负）。</li><li><code>best_prefix(gains)</code>：返回 (k, 累计收益)，k = 0 合法。</li></ol>
+<p><strong>提示一</strong>：先算每个节点的 D = 外部 − 内部，再对每一对算 D(a) + D(b) − 2w(a,b)。</p>
+<p><strong>提示二</strong>：前缀必须从第 1 步起连续；只在累计收益严格变大时更新 k。检查器会在 120 个随机图上检查：两侧人数不变、每点每轮最多交换一次、收益 = 交换前后 cut 之差。</p></div>
+<div><div class="py-files"><div><code>starter.py</code><br>起始代码：留有 TODO</div><div><code>check.py</code><br>检查器：未完成报 INCOMPLETE，不算 PASS</div><div><code>reference.py</code><br>参考实现：卡住时再看</div><div><code>fixtures/</code><br>本章例子的 JSON</div><div><code>README.md</code><br>任务、两级提示与样例</div></div>
+<p><a class="btn primary" href="../../downloads/m07-kernighan-lin-python.zip" download>下载练习包（.zip）</a></p>
+<pre><code>python3 check.py              # 检查你的 starter.py
+python3 check.py reference.py # 看参考实现全部通过</code></pre></div></div>
+</div></section>
+
+<section class="section" id="mistakes"><div class="wrap">
+<div class="section-head"><div><p class="eyebrow">常见错误与局限</p><h2>容易错在哪里</h2></div><p>每条都给错误结果、错因、反例和修正；反例的数值都由测试复算。</p></div>
+<div class="mistakes"><article class="mistake"><h4>忘记减 2w</h4><dl><dt>错误结果</dt><dd>g(E, D) = D(E) + D(D) = 6 + 3 = 9，以为 E↔D 很划算。</dd><dt>错因</dt><dd>两个 D 都把边 DE 算成了外部边；交换后 E、D 仍分处两侧，这条边依旧被切，被多算了两次。</dd><dt>反例 / 证据</dt><dd>g(E, D) = 9 − 2×5 = −1；真正的最佳对是 A↔D（A、D 之间没有边），g = 9。</dd><dt>修正</dt><dd>g = D(a) + D(b) − 2w(a, b)。</dd></dl></article><article class="mistake"><h4>遇到负收益就停</h4><dl><dt>错误结果</dt><dd>第一轮做完 A↔D 后看到剩下的收益全是负数，就结束本轮。</dd><dt>错因</dt><dd>KL 要走完整轮，才能比较所有前缀；在更大的图上，先变差的一步后面可能出现更大的正收益。</dd><dt>反例 / 证据</dt><dd>G01 第一轮第二步 E↔C 收益 −8，cut 暂升到 11——这一步只是试探，最终会被撤回。</dd><dt>修正</dt><dd>继续试探直到没有未锁定的跨侧对，再选最佳前缀。</dd></dl></article><article class="mistake"><h4>把任意几个正收益步当作“前缀”</h4><dl><dt>错误结果</dt><dd>从一轮的试探里挑出所有正收益的步骤一起应用。</dd><dt>错因</dt><dd>后面的收益是在前面步骤已经做过的情况下算的；跳过中间某一步，后面的收益就不再成立。</dd><dt>反例 / 证据</dt><dd>第二轮的试探收益是 −8、+2：单独取 +2 的那一步，并不能从起点得到 +2 的改善。</dd><dt>修正</dt><dd>只取从第 1 步开始的连续前缀；累计收益最大处为 k<em>，k</em> = 0 合法。</dd></dl></article><article class="mistake"><h4>把试探状态当成结果</h4><dl><dt>错误结果</dt><dd>报告第一轮结束时的 cut 11。</dd><dt>错因</dt><dd>一轮结束时的状态是全部试探都做完的状态；接受的是回退到最佳前缀后的状态。</dd><dt>反例 / 证据</dt><dd>第一轮试探结束 cut 11，接受的是前 1 步：ABC | DE，cut 3。</dd><dt>修正</dt><dd>分开显示 trial 与 accepted；只报告 accepted。</dd></dl></article><article class="mistake"><h4>以为人数平衡就是面积平衡</h4><dl><dt>错误结果</dt><dd>单元面积不同时，仍认为 KL 交换保持了两侧面积。</dd><dt>错因</dt><dd>KL 一换一只保持两侧的节点个数。</dd><dt>反例 / 证据</dt><dd>一个大单元与一个小单元互换，人数不变，面积会变。</dd><dt>修正</dt><dd>需要面积约束时另加检查，或使用支持加权平衡的方法；不要套用 Module 04 的 capacity 字段假装等价。</dd></dl></article></div>
+<div class="prose" style="margin-top:26px"><h3>适用范围与局限</h3><ul><li>KL 是启发式：G01 上得到 cut 3 只说明这张图；一般不保证全局最优。</li><li>结果依赖初始二分；比较方法时从同一个种子出发才公平。</li><li>只保持两侧节点数，不保持面积。</li><li>朴素实现每一步枚举所有未锁定的跨侧对，一轮约 O(n³)；实际实现会维护排序的 D 值。</li><li>只适合两侧人数固定的二分；下一模块的 FM 用单点移动和平衡窗口放宽这一点。</li></ul></div>
+</div></section>
+
+<section class="section" id="sources"><div class="wrap">
+<div class="section-head"><div><p class="eyebrow">资料与原作者</p><h2>来源</h2></div><p>本模块在统一课程中重写了讲解、引擎与媒体；原作的贡献在此署名，未复制无许可的源代码或音轨。</p></div>
+<div class="grid-2"><div class="prose">
+<h3 style="margin-top:0">原作者与保留的贡献</h3>
+<p><strong>FanqinZeng</strong> · <a href="https://fanqinzeng.github.io/eda-clustering-lab7-kl/">原网站</a> · <a href="https://github.com/FanqinZeng/eda-clustering-lab7-kl">原仓库</a>（固定 <code>b47cd64</code>）</p>
+<ul><li>人数约束与边权关系的引入，逐步解释 D 值、−2w、锁定与最佳前缀（本章讲解顺序沿用）。</li><li>实验里 trial、prefix、accepted 三种状态分开显示；负收益试探时 cut 暂升到 11 的现象（原页面实测，本课程复现）。</li><li>改边权、改种子的实验；AB = 1 时 g(A,D) = 5 的变体例子。</li><li>531 个案例的独立枚举测试思路：本课程的随机测试同样用独立枚举核对首步收益。</li></ul>
+<p class="small muted">原仓库未声明统一许可，本模块未复制其代码、课件、讲义或人物插画；原作的浅色手绘风格在统一课程中改为深色二维影片。原制作脚本依赖的专用课件工具未使用。</p>
+</div><div class="prose">
+<h3 style="margin-top:0">来源映射</h3>
+<table><tbody><tr><th>本课程</th><td>Module 07 · <code>m07-kernighan-lin</code></td></tr><tr><th>提交</th><td><a href="https://github.com/yongfu-li/eda-learning/issues/6">Issue #6</a>（Clustering Module - Lesson 7）</td></tr><tr><th>教师目录</th><td>module02-05-kernighan-lin（Lab 07）</td></tr><tr><th>状态</th><td>已核对</td></tr></tbody></table>
+<h3>参考文献</h3><ul><li>Kernighan, B. W., &amp; Lin, S. (1970). An efficient heuristic procedure for partitioning graphs. <em>Bell System Technical Journal</em>, 49(2), 291–307.</li><li>教师原课程 <a href="https://github.com/yongfu-li/eda-learning/tree/003bcd49e3794e6cfd2680181cdbd347d673ad07/courses/learn_clustering/module02-05-kernighan-lin" rel="noopener">Module 材料</a></li></ul>
+<p><a href="../../data/m07-kernighan-lin/crosswalk.json">本模块 crosswalk（目标 → 讲解 → 影片 → 课件 → 实验 → 挑战 → Python）</a> · <a href="../../downloads/m07-kernighan-lin-outline.md">Markdown 大纲</a></p>
+</div></div>
+</div></section>
+</main>
+<footer class="footer"><div class="wrap">
+<span>Learning Clustering · 整合已关闭 Clustering 提交 Module 02–09。原作者署名见<a href="../../credits/index.html">资源与贡献</a>。</span>
+<span><button class="btn quiet small" type="button" data-pref="reduceMotion">减少动态</button> <button class="btn quiet small" type="button" data-pref="sound">声音</button> · 内容版本 2026.10.23-1</span>
+</div></footer>
+<script type="module">import { initShell } from '../../assets/core.js'; initShell();</script>
+<script type="module" src="./lab.js"></script>
+</body>
+</html>

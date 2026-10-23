@@ -1,0 +1,237 @@
+{
+  "moduleId": "m08-fiduccia-mattheyses",
+  "objectives": [
+    {
+      "id": "o1",
+      "sections": [
+        "m08-diff"
+      ],
+      "sceneIds": [
+        "s01-diff"
+      ],
+      "slideIds": [
+        "m08-problem"
+      ],
+      "experiment": "右上“两侧人数”指标随移动变化",
+      "challenges": [],
+      "python": [
+        "balance_ok"
+      ],
+      "video": [
+        {
+          "sceneId": "s01-diff",
+          "film": "fm",
+          "start": 3
+        }
+      ],
+      "slides": [
+        {
+          "slideId": "m08-problem",
+          "page": 2
+        }
+      ]
+    },
+    {
+      "id": "o2",
+      "sections": [
+        "m08-legal"
+      ],
+      "sceneIds": [
+        "s02-gains"
+      ],
+      "slideIds": [
+        "m08-legal"
+      ],
+      "experiment": "课程种子 · 第 1 次移动：A、E 标为不合法（红圈）",
+      "challenges": [
+        "c1"
+      ],
+      "python": [
+        "legal_moves"
+      ],
+      "video": [
+        {
+          "sceneId": "s02-gains",
+          "film": "fm",
+          "start": 20.02
+        }
+      ],
+      "slides": [
+        {
+          "slideId": "m08-legal",
+          "page": 3
+        }
+      ]
+    },
+    {
+      "id": "o3",
+      "sections": [
+        "m08-legal"
+      ],
+      "sceneIds": [
+        "s03-fste"
+      ],
+      "slideIds": [
+        "m08-fste"
+      ],
+      "experiment": "状态栏的 FS / TE 分解",
+      "challenges": [
+        "c2"
+      ],
+      "python": [
+        "gain"
+      ],
+      "video": [
+        {
+          "sceneId": "s03-fste",
+          "status": "scene-not-a-chapter"
+        }
+      ],
+      "slides": [
+        {
+          "slideId": "m08-fste",
+          "page": 4
+        }
+      ]
+    },
+    {
+      "id": "o4",
+      "sections": [
+        "m08-walk"
+      ],
+      "sceneIds": [
+        "s04-walk",
+        "s05-prefix"
+      ],
+      "slideIds": [
+        "m08-walk",
+        "m08-prefix"
+      ],
+      "experiment": "第 1 轮最后一个事件：累计收益图与回退",
+      "challenges": [
+        "c3"
+      ],
+      "python": [
+        "fm_pass",
+        "best_prefix"
+      ],
+      "video": [
+        {
+          "sceneId": "s04-walk",
+          "film": "fm",
+          "start": 56.87
+        },
+        {
+          "sceneId": "s05-prefix",
+          "film": "fm",
+          "start": 84.73
+        }
+      ],
+      "slides": [
+        {
+          "slideId": "m08-walk",
+          "page": 5
+        },
+        {
+          "slideId": "m08-prefix",
+          "page": 6
+        }
+      ]
+    },
+    {
+      "id": "o5",
+      "sections": [
+        "m08-escape"
+      ],
+      "sceneIds": [
+        "s06-legacy",
+        "s07-escape"
+      ],
+      "slideIds": [
+        "m08-legacy",
+        "m08-escape"
+      ],
+      "experiment": "例子切到“原附件 hillclimb”与“替换反例”",
+      "challenges": [
+        "c4",
+        "c5"
+      ],
+      "python": [
+        "fm_pass"
+      ],
+      "video": [
+        {
+          "sceneId": "s06-legacy",
+          "film": "fm",
+          "start": 102.11
+        },
+        {
+          "sceneId": "s07-escape",
+          "status": "scene-not-a-chapter"
+        }
+      ],
+      "slides": [
+        {
+          "slideId": "m08-legacy",
+          "page": 7
+        },
+        {
+          "slideId": "m08-escape",
+          "page": 8
+        }
+      ]
+    },
+    {
+      "id": "o6",
+      "sections": [
+        "m08-bucket",
+        "m08-pseudocode"
+      ],
+      "sceneIds": [
+        "s08-bucket",
+        "s09-multipin",
+        "s10-code"
+      ],
+      "slideIds": [
+        "m08-bucket",
+        "m08-pseudo"
+      ],
+      "experiment": "桶的文字行；例子“拓展：含 4 引脚 net”",
+      "challenges": [
+        "c6"
+      ],
+      "python": [
+        "gain",
+        "legal_moves"
+      ],
+      "video": [
+        {
+          "sceneId": "s08-bucket",
+          "film": "fm",
+          "start": 157.58
+        },
+        {
+          "sceneId": "s09-multipin",
+          "status": "scene-not-a-chapter"
+        },
+        {
+          "sceneId": "s10-code",
+          "film": "fm",
+          "start": 192.96
+        }
+      ],
+      "slides": [
+        {
+          "slideId": "m08-bucket",
+          "page": 9
+        },
+        {
+          "slideId": "m08-pseudo",
+          "page": 10
+        }
+      ]
+    }
+  ],
+  "contentVersion": "2026.10.23-1",
+  "generated": "2026-10-23"
+}

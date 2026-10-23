@@ -1,0 +1,1 @@
+{"id": "chain", "nodes": ["P", "X", "Y", "O"], "edges": [["P", "X"], ["X", "Y"], ["Y", "O"]], "node_delay": 1, "capacity": 2, "D": 3, "note": "本课程自建的手算练习链"}

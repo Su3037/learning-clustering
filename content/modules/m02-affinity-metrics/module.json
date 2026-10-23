@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "moduleId": "m02-affinity-metrics",
+  "displayOrder": 2,
+  "display": "Module 02",
+  "title": "亲和度指标",
+  "topic": "Affinity metrics",
+  "description": "同一组电路单元，直接连线和共同邻居给出的“最亲近的一对”为什么不同：边权、共同邻居与 pin-count 三种评分。",
+  "hook": "同一组电路单元，按“直接连线”和按“共同邻居”看，谁和谁最亲近的答案为什么不一样？",
+  "cardText": "给每一对单元打分：直接边权、共同邻居、多引脚 net 的 pin-count。评分只排名，不分组。",
+  "sourceIssue": { "number": 1, "title": "Clustering Module - Lesson 2", "url": "https://github.com/yongfu-li/eda-learning/issues/1" },
+  "teacherFolder": "module01-01-affinity-metrics（Lab 02）",
+  "teacherMappingStatus": "verified",
+  "compatSlug": "affinity-metrics",
+  "prerequisites": [],
+  "prerequisitesText": "[基础速查](../../foundations/index.html)：图、边权、net、簇。",
+  "nextText": "Module 03 用本章的“簇间边权和”执行合并。",
+  "review": "上一层基础：图的节点是单元，边权越大越希望放在一起；一个 net 可以连三个以上的单元。[基础速查](../../foundations/index.html)",
+  "objectives": [
+    { "id": "o1", "text": "说清评分（排名）和分组（partition）的区别，以及亲和度不是距离或概率。", "where": ["m02-why", "challenge-c1"] },
+    { "id": "o2", "text": "手算直接边权评分，并按 (分数降序, u, v) 给出与输入顺序无关的稳定排名。", "where": ["m02-edge", "challenge-c5"] },
+    { "id": "o3", "text": "把共同邻居评分拆成“直接边 + 每个共同邻居的较弱边”，包括没有直接连线的节点对。", "where": ["m02-shared", "challenge-c2", "challenge-c3"] },
+    { "id": "o4", "text": "解释为什么换一种评分，第一对要合并的单元会改变（priority 图 X–Y@5 与 P–Q@8）。", "where": ["m02-priority", "challenge-c4", "challenge-c6"] },
+    { "id": "o5", "text": "用 clique 模型的 pin-count 处理宽 net：每对得到 w/(|e|−1)，私有的两引脚 net 胜过两条 5 引脚宽 net。", "where": ["m02-pincount", "challenge-c7"] },
+    { "id": "o6", "text": "逐行读懂伪代码，并在 Python 中实现三种评分。", "where": ["m02-pseudocode", "python"] }
+  ],
+  "problem": {
+    "input": "带权无向图（节点、边权），或多引脚网表（每个 net 是一组引脚和权重）。",
+    "output": "所有正分节点对的列表 (u, v, score)，u < v，按分数降序、再按 u、v 字典序排列。",
+    "objective": "在一个**明确声明**的模型下量化“这一对有多该放在一起”。",
+    "constraints": "不允许自环和重复边；同一 net 内重复的引脚只算一次；少于两个不同引脚的 net 忽略。",
+    "assumptions": "边权非负、表示连接强度；共同邻居经过 x 的贡献取 min(w(u,x), w(v,x))；clique 模型把一个 net 摊给 |e|−1 份。",
+    "stop": "每个无序节点对都检查过一次即完成。本模块**不输出分组**；分组从 Module 03 开始。"
+  },
+  "filmTitle": "谁和谁最亲近",
+  "filmNote": "影片先让你预测 priority 图的第一对，再把共同邻居的贡献一项项叠起来。每个分数都来自本页同一个引擎。",
+  "labTitle": "三种评分，同一张图",
+  "labNote": "切换评分方式、改一条边的权重，排名立即由引擎重算。逐步播放会按排名顺序揭示每一对的分数来源。",
+  "challengeTip": "本章的[实现]题需要手工排序：用每行的 ↑ ↓ 调整顺序。",
+  "mistakes": [
+    { "title": "只给有直接连线的节点对打共同邻居分", "wrong": "五节点图只列出 6 对，B–D 不见了。", "why": "共同邻居评分要检查**所有**无序节点对；没有直接边的对也可能有共同邻居。", "counter": "B–D 没有直接连线，但共同邻居 C 让它得到 min(4, 2) = 2；完整列表有 10 对。", "fix": "双重循环遍历所有 u < v，再查共同邻居。" },
+    { "title": "以为“所有聚类算法都先合并最高分的一对”", "wrong": "把本章的排名当成所有后续模块的共同第一步。", "why": "评分只是一种模型的输出。标签传播按邻居投票改标签，谱二分用特征向量排序，KL/FM 交换或移动节点——它们都不按“最高分对”合并。", "counter": "Module 05 第一轮里 A 先采用 B 的标签，并没有任何“合并一对”的动作。", "fix": "说“贪心合并（Module 03）使用最高亲和度的一对”，而不是推广到所有算法。" },
+    { "title": "宽 net 不摊薄，按出现次数计分", "wrong": "两条 5 引脚 net（enable、reset）让 A–B 得 2 分，胜过私有 net 的 E–F（1 分）。", "why": "一条 5 引脚 net 同时连着 10 对单元，每一对的“专属程度”远低于一条只连 E、F 的 net。", "counter": "pin-count：A–B = 1/4 + 1/4 = 0.5，E–F = 1/(2−1) = 1，排名第一变成 E–F。", "fix": "声明使用 clique 模型并把权重除以 |e|−1；不要把它说成唯一正确的模型。" },
+    { "title": "平票时顺序取决于输入", "wrong": "把边倒过来输入，A–B 与 D–E 的先后就变了。", "why": "只按分数排序时，并列项的顺序取决于排序前的顺序。", "counter": "A–B 与 D–E 都是 5（直接边权）或 6（共同邻居）。", "fix": "排序键用 (−score, u, v)，并要求每对写成 u < v。" },
+    { "title": "把亲和度当成距离或概率", "wrong": "说“A–B 的亲和度 6 比 B–D 的 2 近三倍”或“A–B 有 60% 可能在同组”。", "why": "亲和度是一个模型给出的排序分数，换模型数值就变；它不满足距离的三角不等式，也不是概率。", "counter": "同一对 A–B，直接边权是 5、共同邻居是 6、在 pin-count 网表里又是另一套数。", "fix": "只比较同一模型下的大小顺序，并写明用的是哪种评分。" }
+  ],
+  "limits": "- 评分的选择会改变后续合并的结果。本章三种评分都是教学中常用的简单模型，不是唯一或“最好”的通用亲和度；真实工具可能还考虑时序、面积、物理距离。\n- 共同邻居评分要检查所有节点对，朴素做法对 n 个节点约有 n(n−1)/2 对；大规模网表需要只沿邻接关系枚举。\n- clique 模型是对多引脚 net 的近似：它把一个 net 画成两两之间的“示意贡献”，并不存在这些物理导线。\n- 本章不输出分组；把排名转成簇需要 Module 03 的合并规则。",
+  "pythonPackage": {
+    "title": "实现三种评分",
+    "md": "**任务**（`starter.py` 中三个 `TODO`）：\n\n1. `affinity_edge_weight(edges)`：直接边权。\n2. `affinity_shared_neighbors(nodes, edges)`：检查所有无序节点对，只列正分。\n3. `affinity_pin_count(nodes, nets)`：clique 模型，重复引脚只算一次。\n\n三个函数都返回 `[(u, v, score), ...]`，u < v，按 (分数降序, u, v) 排序。\n\n**提示一**：先写出“所有无序节点对”的双重循环，再决定每一对加什么。\n\n**提示二**：共同邻居是同时出现在 u 和 v 邻接表中的 x；它贡献 `min(w(u,x), w(v,x))`。检查器还会用一张新图测试，不能只记住五节点答案。"
+  },
+  "credits": {
+    "student": { "name": "Capeur", "website": "https://capeur.github.io/eda-clustering-module-lab2/", "repository": "https://github.com/Capeur/eda-clustering-module-lab2", "commit": "49b87257d4df69ce24a7256bb47a8dcce3c8d69a" },
+    "kept": [
+      "同一张图并排比较 edge、shared-neighbor 与 pin-count 三种评分。",
+      "priority_graph：第一对要合并的单元从 X–Y@5 变成 P–Q@8（本章挑战与影片的核心例子）。",
+      "tiny_netlist：两条 5 引脚宽 net 与一条私有 net，展示宽 net 的稀释。",
+      "手工排序、改边权与“看解析后再判分”的练习思路；原作的英文/法文双语资源作为参考入口保留在原网站。"
+    ],
+    "licenseNote": "原仓库未声明统一许可。本模块的讲解、引擎、影片和课件均为重写；priority_graph 与 tiny_netlist 两个小例子的数值来自原作，并在此署名。",
+    "references": ["教师原课程 [Module 材料](https://github.com/yongfu-li/eda-learning/blob/003bcd49e3794e6cfd2680181cdbd347d673ad07/courses/learn_clustering/module01-01-affinity-metrics/README.md)", "clique 模型等多引脚 net 近似见常见 VLSI 物理设计教材的“net models”一节；本章不把它说成唯一模型。"]
+  }
+}

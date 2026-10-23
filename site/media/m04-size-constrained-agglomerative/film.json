@@ -1,0 +1,354 @@
+{
+ "id": "capacity",
+ "title": "装得下吗",
+ "status": "ready",
+ "src": "capacity.mp4",
+ "vtt": "capacity.zh.vtt",
+ "poster": "capacity-poster.jpg",
+ "duration": 190.17,
+ "chapters": [
+  {
+   "t": 3.0,
+   "title": "一 · 装得下吗",
+   "sceneId": "s01-hook"
+  },
+  {
+   "t": 17.8,
+   "title": "二 · 四个报告项",
+   "sceneId": "s02-terms"
+  },
+  {
+   "t": 35.31,
+   "title": "三 · 同图两容量",
+   "sceneId": "s03-fork"
+  },
+  {
+   "t": 56.91,
+   "title": "四 · 不可能，还是走错了路",
+   "sceneId": "s04-bound"
+  },
+  {
+   "t": 111.93,
+   "title": "五 · 合法但不是最优",
+   "sceneId": "s07-sub"
+  },
+  {
+   "t": 156.02,
+   "title": "六 · 伪代码与局限",
+   "sceneId": "s09-code"
+  }
+ ],
+ "scenes": [
+  {
+   "sceneId": "s00-title",
+   "start": 0.0,
+   "end": 3.0
+  },
+  {
+   "sceneId": "s01-hook",
+   "start": 3.0,
+   "end": 17.8
+  },
+  {
+   "sceneId": "s02-terms",
+   "start": 17.8,
+   "end": 35.31
+  },
+  {
+   "sceneId": "s03-fork",
+   "start": 35.31,
+   "end": 56.91
+  },
+  {
+   "sceneId": "s04-bound",
+   "start": 56.91,
+   "end": 75.62
+  },
+  {
+   "sceneId": "s05-trap",
+   "start": 75.62,
+   "end": 95.0
+  },
+  {
+   "sceneId": "s06-trap2",
+   "start": 95.0,
+   "end": 111.93
+  },
+  {
+   "sceneId": "s07-sub",
+   "start": 111.93,
+   "end": 135.31
+  },
+  {
+   "sceneId": "s08-uneven",
+   "start": 135.31,
+   "end": 156.02
+  },
+  {
+   "sceneId": "s09-code",
+   "start": 156.02,
+   "end": 174.87
+  },
+  {
+   "sceneId": "s10-limits",
+   "start": 174.87,
+   "end": 190.16
+  }
+ ],
+ "transcript": [
+  {
+   "start": 3.0,
+   "end": 8.467,
+   "text": "规则和上一模块一样：每次合并最亲近的一对。",
+   "sceneId": "s01-hook"
+  },
+  {
+   "start": 8.467,
+   "end": 13.933,
+   "text": "可是 AB 已经装了 2 个单元，C 再进来就是 3。",
+   "sceneId": "s01-hook"
+  },
+  {
+   "start": 13.933,
+   "end": 17.4,
+   "text": "容器放不下时，该怎么办？",
+   "sceneId": "s01-hook"
+  },
+  {
+   "start": 17.8,
+   "end": 21.267,
+   "text": "先说清结果里要报告什么。",
+   "sceneId": "s02-terms"
+  },
+  {
+   "start": 21.267,
+   "end": 23.622,
+   "text": "实际有几个簇。",
+   "sceneId": "s02-terms"
+  },
+  {
+   "start": 23.622,
+   "end": 26.867,
+   "text": "每个簇有没有超过容量。",
+   "sceneId": "s02-terms"
+  },
+  {
+   "start": 26.867,
+   "end": 32.333,
+   "text": "有没有达到目标 K——这和“合法”是两回事。",
+   "sceneId": "s02-terms"
+  },
+  {
+   "start": 32.333,
+   "end": 34.911,
+   "text": "以及为什么停下。",
+   "sceneId": "s02-terms"
+  },
+  {
+   "start": 35.311,
+   "end": 39.889,
+   "text": "同一张图，左边容量 3，右边容量 2。",
+   "sceneId": "s03-fork"
+  },
+  {
+   "start": 39.889,
+   "end": 42.911,
+   "text": "第一步相同：A–B。",
+   "sceneId": "s03-fork"
+  },
+  {
+   "start": 42.911,
+   "end": 50.156,
+   "text": "第二步：左边 AB+C 大小 3，合法；右边超容量，改选 D–E。",
+   "sceneId": "s03-fork"
+  },
+  {
+   "start": 50.156,
+   "end": 56.511,
+   "text": "左边再合并 D–E，达到 K；右边再也没有合法的合并。",
+   "sceneId": "s03-fork"
+  },
+  {
+   "start": 56.911,
+   "end": 61.267,
+   "text": "容量 2 时停在 3 簇，是贪心的错吗？",
+   "sceneId": "s04-bound"
+  },
+  {
+   "start": 61.267,
+   "end": 65.4,
+   "text": "把 5 个单位装进最多放 2 个的簇：",
+   "sceneId": "s04-bound"
+  },
+  {
+   "start": 65.4,
+   "end": 69.756,
+   "text": "至少需要 5 ÷ 2 向上取整 = 3 个簇。",
+   "sceneId": "s04-bound"
+  },
+  {
+   "start": 69.756,
+   "end": 75.222,
+   "text": "所以 K = 2 根本不可能。贪心停下，没有犯错。",
+   "sceneId": "s04-bound"
+  },
+  {
+   "start": 75.622,
+   "end": 81.533,
+   "text": "另一张图：A、B 大小 2，C、D 大小 1，容量 3。",
+   "sceneId": "s05-trap"
+  },
+  {
+   "start": 81.533,
+   "end": 86.111,
+   "text": "下界是 6 ÷ 3 = 2，并没有排除 2 簇。",
+   "sceneId": "s05-trap"
+  },
+  {
+   "start": 86.111,
+   "end": 90.022,
+   "text": "贪心先拿最大的 C–D：10。",
+   "sceneId": "s05-trap"
+  },
+  {
+   "start": 90.022,
+   "end": 94.6,
+   "text": "之后 A、B 都放不进 CD，停在 3 簇。",
+   "sceneId": "s05-trap"
+  },
+  {
+   "start": 95.0,
+   "end": 98.689,
+   "text": "可是穷举找到了 AC | BD：",
+   "sceneId": "s06-trap2"
+  },
+  {
+   "start": 98.689,
+   "end": 102.378,
+   "text": "两个簇的大小都是 3，合法。",
+   "sceneId": "s06-trap2"
+  },
+  {
+   "start": 102.378,
+   "end": 105.4,
+   "text": "2 个簇，cut 10。",
+   "sceneId": "s06-trap2"
+  },
+  {
+   "start": 105.4,
+   "end": 111.533,
+   "text": "这是“可行，但贪心卡住”：第一步就走进了死胡同。",
+   "sceneId": "s06-trap2"
+  },
+  {
+   "start": 111.933,
+   "end": 117.178,
+   "text": "第三种结局：合法，也达到 K，但不是最优。",
+   "sceneId": "s07-sub"
+  },
+  {
+   "start": 117.178,
+   "end": 123.756,
+   "text": "贪心先合并 A–B（10），再合并 C–D：cut 18。",
+   "sceneId": "s07-sub"
+  },
+  {
+   "start": 123.756,
+   "end": 129.444,
+   "text": "合法的 AC | BD 只切断 10 和 1：cut 11。",
+   "sceneId": "s07-sub"
+  },
+  {
+   "start": 129.444,
+   "end": 134.911,
+   "text": "眼前最大的一步，把两条 9 都留在了 cut 里。",
+   "sceneId": "s07-sub"
+  },
+  {
+   "start": 135.311,
+   "end": 141.444,
+   "text": "单元大小也会改变结局：把 A 的大小改成 2，容量 3。",
+   "sceneId": "s08-uneven"
+  },
+  {
+   "start": 141.444,
+   "end": 146.467,
+   "text": "A–B 合并后已经满了，AB + C 被阻止。",
+   "sceneId": "s08-uneven"
+  },
+  {
+   "start": 146.467,
+   "end": 150.6,
+   "text": "改为合并 D–E，再把 C 放进去。",
+   "sceneId": "s08-uneven"
+  },
+  {
+   "start": 150.6,
+   "end": 155.622,
+   "text": "结果 AB | CDE，cut 5，而不是 3。",
+   "sceneId": "s08-uneven"
+  },
+  {
+   "start": 156.022,
+   "end": 159.489,
+   "text": "写成伪代码：先检查输入。",
+   "sceneId": "s09-code"
+  },
+  {
+   "start": 159.489,
+   "end": 163.178,
+   "text": "每一步先筛合法，再选最大。",
+   "sceneId": "s09-code"
+  },
+  {
+   "start": 163.178,
+   "end": 166.422,
+   "text": "选择键与上一模块相同。",
+   "sceneId": "s09-code"
+  },
+  {
+   "start": 166.422,
+   "end": 169.889,
+   "text": "停下以后，四项分开报告。",
+   "sceneId": "s09-code"
+  },
+  {
+   "start": 169.889,
+   "end": 174.467,
+   "text": "最后用下界和穷举诊断属于哪种结局。",
+   "sceneId": "s09-code"
+  },
+  {
+   "start": 174.867,
+   "end": 177.444,
+   "text": "容量约束的边界：",
+   "sceneId": "s10-limits"
+  },
+  {
+   "start": 177.444,
+   "end": 180.911,
+   "text": "小图可以穷举，大图不行。",
+   "sceneId": "s10-limits"
+  },
+  {
+   "start": 180.911,
+   "end": 184.6,
+   "text": "贪心不回撤，走不出死胡同。",
+   "sceneId": "s10-limits"
+  },
+  {
+   "start": 184.6,
+   "end": 188.956,
+   "text": "下一模块：节点不合并，只改标签。",
+   "sceneId": "s10-limits"
+  }
+ ],
+ "music": "本课程原创程序合成配乐（NumPy），CC BY 4.0",
+ "why": "约 4 分钟：五节点部分压缩为一段对照，把时间留给“不可能”与“走错路”两个独立反例。",
+ "readingViolations": 0,
+ "fps": 30,
+ "size": [
+  1920,
+  1080
+ ]
+}

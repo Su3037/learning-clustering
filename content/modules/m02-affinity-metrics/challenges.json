@@ -1,0 +1,58 @@
+[
+  {
+    "id": "c1",
+    "type": "概念",
+    "difficulty": "Intro",
+    "title": "评分不是分组",
+    "objectiveId": "o1",
+    "validatorId": "m02-affinity-metrics/c1"
+  },
+  {
+    "id": "c2",
+    "type": "推演",
+    "difficulty": "Intro",
+    "title": "没有直接边也能评分",
+    "objectiveId": "o3",
+    "validatorId": "m02-affinity-metrics/c2"
+  },
+  {
+    "id": "c3",
+    "type": "推演",
+    "difficulty": "Practice",
+    "title": "把 A–C 拆开",
+    "objectiveId": "o3",
+    "validatorId": "m02-affinity-metrics/c3"
+  },
+  {
+    "id": "c4",
+    "type": "探索",
+    "difficulty": "Practice",
+    "title": "换一种评分，第一对是谁",
+    "objectiveId": "o4",
+    "validatorId": "m02-affinity-metrics/c4"
+  },
+  {
+    "id": "c5",
+    "type": "实现",
+    "difficulty": "Practice",
+    "title": "手工排出稳定排名",
+    "objectiveId": "o2",
+    "validatorId": "m02-affinity-metrics/c5"
+  },
+  {
+    "id": "c6",
+    "type": "探索",
+    "difficulty": "Stretch",
+    "title": "让 X–Y 重新排第一",
+    "objectiveId": "o4",
+    "validatorId": "m02-affinity-metrics/c6"
+  },
+  {
+    "id": "c7",
+    "type": "应用",
+    "difficulty": "Stretch",
+    "title": "宽 net 的稀释",
+    "objectiveId": "o5",
+    "validatorId": "m02-affinity-metrics/c7"
+  }
+]

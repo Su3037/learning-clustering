@@ -1,0 +1,34 @@
+# 交接状态
+
+更新：2026-10-23。contentVersion 1，ENGINE_VERSION 1.0.0。本地 git 仓库在 `main`，没有远程，没有推送。
+
+## 已完成
+
+- 8 个模块（Module 02–09）的引擎、模块页、实验、挑战、影片（10 部）、课件（8 套 96 页，PDF / PPTX / 预览图）、Python 练习包、crosswalk、旧路径兼容入口（M02–M08）。
+- 公共页：首页（含综合对比）、基础速查、术语表、如何挑战、学习记录、资源与贡献、404。
+- 测试与验收全部通过，详见 `implementation-log.md` §5、`docs/COMPLETION_REPORT.md`、`docs/teacher-feedback-verification.md`。
+- 部署配置已写好未执行：`.github/workflows/pages.yml`、`docs/DEPLOYMENT.md`；README、LICENSE（MIT）、LICENSE-CONTENT.md、THIRD_PARTY_NOTICES.md。
+
+## 作者已决定（2026-10-23）
+
+- 仓库 `Su3037/learning-clustering`（公开）；代码 MIT，内容、影片与原创配乐 CC BY 4.0；字体 Noto Sans SC（OFL，已下载并全部重渲染）。
+
+## 下一步（需要作者在线程里最终确认）
+
+1. 按 `docs/DEPLOYMENT.md` 创建仓库、推送 `main`、开启 Pages（GitHub Actions）。
+2. 在 https://su3037.github.io/learning-clustering/ 上重做浏览器检查（COMPLETION_REPORT §4），并把结果补进完成报告。
+
+## 如何继续
+
+- 改文本：编辑 `content/`，运行 `./scripts/build.sh`。
+- 改影片：编辑 `video/<id>/film.py`，运行 `python3 scripts/film/render.py <id>`（`--stills` 出静帧，`--sample a b` 出片段）。
+- 改课件：`~/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 scripts/slides/build_slides.py <id>`（需要 python-pptx）。
+- 改了内容里的字：`./scripts/build.sh` 会重新裁剪网站字体（需要 fontTools）。
+- 每次改动后：`node --test tests/*.test.mjs`、`python3 tests/crosscheck.py`。
+
+## 不要做
+
+- 不推送、不发布、不评论 Issue、不联系教师或同学（除非用户明确同意）。
+- 不把 M09 改名 Multilevel，不为 `multilevel-clustering` 旧路径生成跳转。
+- 不把 `legacyComparator`、`LEGACY_HILLCLIMB` 当教学结论展示（只作“已修复错误”说明与回归）。
+- 不改动参考包 `output/clustering-course-prompt-pack`。

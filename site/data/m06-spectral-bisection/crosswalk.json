@@ -1,0 +1,224 @@
+{
+  "moduleId": "m06-spectral-bisection",
+  "objectives": [
+    {
+      "id": "o1",
+      "sections": [
+        "m06-goal"
+      ],
+      "sceneIds": [
+        "s02-goal"
+      ],
+      "slideIds": [
+        "m06-problem"
+      ],
+      "experiment": "平衡窗口切到“不限”，比较合法切点",
+      "challenges": [
+        "c3"
+      ],
+      "python": [
+        "count_bipartitions"
+      ],
+      "video": [
+        {
+          "sceneId": "s02-goal",
+          "status": "scene-not-a-chapter"
+        }
+      ],
+      "slides": [
+        {
+          "slideId": "m06-problem",
+          "page": 2
+        }
+      ]
+    },
+    {
+      "id": "o2",
+      "sections": [
+        "m06-laplacian"
+      ],
+      "sceneIds": [
+        "s03-lap"
+      ],
+      "slideIds": [
+        "m06-laplacian"
+      ],
+      "experiment": "左下 L 表格与行和列",
+      "challenges": [
+        "c1"
+      ],
+      "python": [
+        "laplacian"
+      ],
+      "video": [
+        {
+          "sceneId": "s03-lap",
+          "film": "spectral",
+          "start": 38.51
+        }
+      ],
+      "slides": [
+        {
+          "slideId": "m06-laplacian",
+          "page": 3
+        }
+      ]
+    },
+    {
+      "id": "o3",
+      "sections": [
+        "m06-quadratic"
+      ],
+      "sceneIds": [
+        "s04-quad"
+      ],
+      "slideIds": [
+        "m06-quadratic"
+      ],
+      "experiment": "—（讲解与影片承担）",
+      "challenges": [],
+      "python": [],
+      "video": [
+        {
+          "sceneId": "s04-quad",
+          "film": "spectral",
+          "start": 59.93
+        }
+      ],
+      "slides": [
+        {
+          "slideId": "m06-quadratic",
+          "page": 4
+        }
+      ]
+    },
+    {
+      "id": "o4",
+      "sections": [
+        "m06-fiedler"
+      ],
+      "sceneIds": [
+        "s05-fiedler",
+        "s07-flip",
+        "s09-disc"
+      ],
+      "slideIds": [
+        "m06-fiedler",
+        "m06-disconnected"
+      ],
+      "experiment": "例子切到“两个分量”或“四节点环”：诊断区警告",
+      "challenges": [
+        "c5",
+        "c6"
+      ],
+      "python": [
+        "spectral_bisection"
+      ],
+      "video": [
+        {
+          "sceneId": "s05-fiedler",
+          "film": "spectral",
+          "start": 85.98
+        },
+        {
+          "sceneId": "s07-flip",
+          "status": "scene-not-a-chapter"
+        },
+        {
+          "sceneId": "s09-disc",
+          "status": "scene-not-a-chapter"
+        }
+      ],
+      "slides": [
+        {
+          "slideId": "m06-fiedler",
+          "page": 5
+        },
+        {
+          "slideId": "m06-disconnected",
+          "page": 8
+        }
+      ]
+    },
+    {
+      "id": "o5",
+      "sections": [
+        "m06-sweep"
+      ],
+      "sceneIds": [
+        "s06-sweep"
+      ],
+      "slideIds": [
+        "m06-sweep"
+      ],
+      "experiment": "逐步播放切点 k=1..4，数轴上的金线",
+      "challenges": [
+        "c2"
+      ],
+      "python": [
+        "sweep"
+      ],
+      "video": [
+        {
+          "sceneId": "s06-sweep",
+          "film": "spectral",
+          "start": 107.36
+        }
+      ],
+      "slides": [
+        {
+          "slideId": "m06-sweep",
+          "page": 6
+        }
+      ]
+    },
+    {
+      "id": "o6",
+      "sections": [
+        "m06-errors",
+        "m06-pseudocode"
+      ],
+      "sceneIds": [
+        "s08-fix",
+        "s10-code"
+      ],
+      "slideIds": [
+        "m06-fix",
+        "m06-pseudo"
+      ],
+      "experiment": "特征向量来源切到“原作存储值”：残差 0.0044",
+      "challenges": [
+        "c4"
+      ],
+      "python": [
+        "laplacian",
+        "sweep",
+        "count_bipartitions"
+      ],
+      "video": [
+        {
+          "sceneId": "s08-fix",
+          "film": "spectral",
+          "start": 151.8
+        },
+        {
+          "sceneId": "s10-code",
+          "film": "spectral",
+          "start": 188.96
+        }
+      ],
+      "slides": [
+        {
+          "slideId": "m06-fix",
+          "page": 7
+        },
+        {
+          "slideId": "m06-pseudo",
+          "page": 9
+        }
+      ]
+    }
+  ],
+  "contentVersion": "2026.10.23-1",
+  "generated": "2026-10-23"
+}

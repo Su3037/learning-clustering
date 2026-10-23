@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "moduleId": "m06-spectral-bisection",
+  "displayOrder": 6,
+  "display": "Module 06",
+  "title": "谱二分",
+  "topic": "Spectral bisection",
+  "description": "用拉普拉斯矩阵 L = D − A 的第二特征向量给每个节点一个数，排序后在平衡窗口内扫描切分；浏览器内实时求解并显示残差。",
+  "hook": "同一张连接图，能否先给每个点一个数，再沿一条数轴选择边界？",
+  "cardText": "构造 L = D − A，取 Fiedler 向量给节点排序，在平衡窗口里逐个位置试切。翻号只交换左右。",
+  "sourceIssue": { "number": 5, "title": "Clustering Module - Lesson 6", "url": "https://github.com/yongfu-li/eda-learning/issues/5" },
+  "teacherFolder": "module02-03-spectral-bisection（Lab 06）",
+  "teacherMappingStatus": "verified",
+  "compatSlug": "spectral-bisection",
+  "prerequisitesText": "[基础速查](../../foundations/index.html)：cut；线性代数中的矩阵与特征值（本章会从定义讲起）。",
+  "nextText": "Module 07 在一个给定的二分上继续局部改进。",
+  "review": "Module 05 的标签传播只看邻居；本章用**整张图**的信息：一个矩阵，一个特征向量，一条数轴。",
+  "objectives": [
+    { "id": "o1", "text": "说明二分问题为什么必须声明“两组非空”和平衡窗口，并算出 5 个节点的非空无标签二分数 15。", "where": ["m06-goal", "challenge-c3"] },
+    { "id": "o2", "text": "从边权构造未归一化拉普拉斯矩阵 L = D − A，检验对称与每行和为 0（A 行：6, −5, −1, 0, 0）。", "where": ["m06-laplacian", "challenge-c1"] },
+    { "id": "o3", "text": "用二次型 xᵀLx = Σ w(u,v)(x_u − x_v)² 解释“连得紧的节点数值接近”；弹簧只作类比。", "where": ["m06-quadratic"] },
+    { "id": "o4", "text": "说明 λ1 = 0、Fiedler 向量的条件（连通、λ2 简并）与翻号等价。", "where": ["m06-fiedler", "challenge-c5", "challenge-c6"] },
+    { "id": "o5", "text": "按 Fiedler 排序 E, D, C, B, A 扫描切分（cut 6, 3, 5, 6），在 40/60 窗口内选 k = 2。", "where": ["m06-sweep", "challenge-c2"] },
+    { "id": "o6", "text": "纠正三个常见误解（16 vs 15、无约束必切单点、存储向量当求解器），并在 Python 中做数值自检。", "where": ["m06-errors", "m06-pseudocode", "challenge-c4", "python"] }
+  ],
+  "problem": {
+    "input": "非负权无向图；平衡窗口（例如每组占 40%–60% 的节点）。",
+    "output": "两组节点、cut、Fiedler 排序、每个扫描位置的 cut 与合法性，以及数值诊断（λ、残差、连通性、简并）。",
+    "objective": "在平衡窗口内找 cut 尽量小的二分；Fiedler 排序提供一组候选切分位置。",
+    "constraints": "两组都非空；每组大小在窗口内；只在排序的相邻位置之间切（共 n − 1 个候选）。",
+    "assumptions": "未归一化 L = D − A（D 为度矩阵）；连通图；排序平票按节点名；向量整体翻号视为同一结果。",
+    "stop": "扫描完全部 n − 1 个位置后，在合法位置中选 cut 最小者。谱方法给出的是好的候选，不保证全局最优。"
+  },
+  "filmTitle": "给每个点一个数",
+  "filmNote": "影片把矩阵、数轴和扫描放在同一屏：先装配 L，再用二次型解释排序，最后让光标走过四个切点。弹簧只出现在二次型那一段，并标为类比。",
+  "labTitle": "矩阵 · 数轴 · 扫描",
+  "labNote": "这里的特征向量由浏览器实时求解（Jacobi 旋转），改边权会真的重算；也可以切换到原作页面存储的三位小数向量作对照。",
+  "challengeTip": "第 1 题用逗号分隔五个数。",
+  "mistakes": [
+    { "title": "把 5 个节点的二分数算成 16", "wrong": "原题库：“5 个节点分成两组共 16 种”。", "why": "2⁵ = 32 种左右标记里，有 2 种是“一组为空”，再除以 2 去掉左右交换：(32 − 2) / 2 = 15。16 把空组/全集那一对也算进去了。", "counter": "穷举 G01 的非空无标签二分：恰好 15 个（本课程测试断言）。", "fix": "先说清“两组都非空、不区分左右”，再计数。" },
+    { "title": "以为没有平衡约束时最优一定切出单点", "wrong": "原文：“无平衡约束，答案永远是切掉一个点”。", "why": "孤立一个点的 cut 等于它的度数；这张图上最小的单点 cut 是 6，而 ABC | DE 只有 3。", "counter": "G01 无约束最小 cut 是 ABC | DE = 3，不是单点。", "fix": "改为“可能出现过小的分组”，所以要声明平衡窗口。" },
+    { "title": "把 Fiedler 的正负号当成平衡的分法", "wrong": "直接按正负号切，认为两边一定差不多大。", "why": "正负号只是一个阈值；它不保证两组大小在窗口内，也不代替扫描。", "counter": "在 G01 上正负号恰好切在 k = 2；换别的图，正负号可能切出 1 : n−1。", "fix": "按排序逐个位置扫描，只在窗口内的位置里选最小 cut。" },
+    { "title": "把存储的三位小数向量当成求解器", "wrong": "原页面改 k 时会实时算 cut，但特征向量是写死的三位小数；改图后仍用旧向量。", "why": "向量由预先计算得到，改图不会重算；三位小数的残差约 0.0044，只够展示。", "counter": "本课程实时求解的残差约 10⁻¹⁵；存储向量的残差 0.0044。两者在 G01 上排序相同。", "fix": "标明“预计算”，或像本课程一样在浏览器里真的求解并显示残差。" },
+    { "title": "以为翻号会改变结果", "wrong": "两次运行得到的向量正负相反，就认为分组不同。", "why": "若 x 是特征向量，−x 也是；排序整体反向，同一刀两侧互换名字。", "counter": "G01 上 x 与 −x 都切出 DE | ABC，cut 3。", "fix": "比较分组时不区分左右。" }
+  ],
+  "limits": "- 谱二分给出一个“好的候选”，不保证全局最优；它常作为划分的初始解，交给 Module 07/08 改进。\n- 本章用未归一化 L；归一化拉普拉斯等变体会给出不同的排序。\n- 图不连通时 λ2 = 0，特征向量只反映连通分量；λ2 简并时方向不唯一。\n- 浏览器内的 Jacobi 求解适合教学规模（本页限制 40 个节点）；大规模问题用稀疏迭代方法（如 Lanczos）。\n- 弹簧比喻只帮助理解二次型；本页没有运行任何物理模拟。",
+  "pythonPackage": {
+    "title": "构造 L、扫描切分、数值自检",
+    "md": "**任务**（`starter.py`）：\n\n1. `laplacian(nodes, edges)`：构造 L = D − A。\n2. `sweep(order, edges, lo, hi)`：沿排序逐个位置切分，标出是否合法。\n3. `count_bipartitions(n)`：两组非空、不分左右的二分数。\n\n已提供纯 Python 的 Jacobi 求解器；检查器在装有 NumPy 时会额外与 `numpy.linalg.eigvalsh` 对照（没有 NumPy 时报 SKIP，不算通过）。\n\n**提示一**：每条边对 L 的四个位置做贡献：两个对角 +w，两个非对角 −w。\n\n**提示二**：2ⁿ 种左右标记里要去掉哪两种？再除以几？"
+  },
+  "credits": {
+    "student": { "name": "xingguangyaoyu", "website": "https://xingguangyaoyu.github.io/eda-clustering-module-lab6/", "repository": "https://github.com/xingguangyaoyu/eda-clustering-module-lab6", "commit": "cb892be765b3f9ab80a05bb8c4333e47ecc3589c" },
+    "kept": [
+      "“每点一个分数，再切一刀”的低门槛路径，与 L、Fiedler 排序、扫描表并排的版面（本章实验沿用这一布局）。",
+      "让学生亲手选择切点 k 并实时看到 cut（原页面 k = 3 显示 5，本课程复现）。",
+      "讲稿中“行和为零”“翻号不改变分组”两条自检。",
+      "中英两套视频与课件的双语思路：原作资源作为参考入口保留在原网站。"
+    ],
+    "licenseNote": "原仓库未声明统一许可，本模块未复制其代码、视频或字幕。原题库“16 种”与“无约束总切单点”两处错误在本章更正；原页面的特征向量是三位小数的预计算值，本课程改为浏览器内实时求解并保留原值作对照。原作页数、题数、字幕格式的不一致不再沿用。",
+    "references": ["Fiedler, M. (1973). Algebraic connectivity of graphs. *Czechoslovak Mathematical Journal*, 23(2), 298–305.", "Pothen, A., Simon, H. D., & Liou, K.-P. (1990). Partitioning sparse matrices with eigenvectors of graphs. *SIAM J. Matrix Anal. Appl.*, 11(3), 430–452.", "教师原课程 [Module 材料](https://github.com/yongfu-li/eda-learning/tree/003bcd49e3794e6cfd2680181cdbd347d673ad07/courses/learn_clustering/module02-03-spectral-bisection)"]
+  }
+}

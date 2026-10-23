@@ -1,0 +1,50 @@
+[
+  {
+    "id": "c1",
+    "type": "概念",
+    "difficulty": "Intro",
+    "title": "合法与目标是两回事",
+    "objectiveId": "o1",
+    "validatorId": "m04-size-constrained-agglomerative/c1"
+  },
+  {
+    "id": "c2",
+    "type": "推演",
+    "difficulty": "Intro",
+    "title": "被挡住时选谁",
+    "objectiveId": "o2",
+    "validatorId": "m04-size-constrained-agglomerative/c2"
+  },
+  {
+    "id": "c3",
+    "type": "约束",
+    "difficulty": "Practice",
+    "title": "至少要几个簇",
+    "objectiveId": "o3",
+    "validatorId": "m04-size-constrained-agglomerative/c3"
+  },
+  {
+    "id": "c4",
+    "type": "探索",
+    "difficulty": "Practice",
+    "title": "卡住还是不可能",
+    "objectiveId": "o4",
+    "validatorId": "m04-size-constrained-agglomerative/c4"
+  },
+  {
+    "id": "c5",
+    "type": "探索",
+    "difficulty": "Stretch",
+    "title": "合法但差多少",
+    "objectiveId": "o5",
+    "validatorId": "m04-size-constrained-agglomerative/c5"
+  },
+  {
+    "id": "c6",
+    "type": "应用",
+    "difficulty": "Stretch",
+    "title": "面积不同，结局不同",
+    "objectiveId": "o5",
+    "validatorId": "m04-size-constrained-agglomerative/c6"
+  }
+]

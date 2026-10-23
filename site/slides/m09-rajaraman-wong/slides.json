@@ -1,0 +1,186 @@
+{
+ "status": "ready",
+ "moduleId": "m09-rajaraman-wong",
+ "slides": [
+  {
+   "slideId": "m09-title",
+   "pageNumber": 1,
+   "pageCount": 12,
+   "title": "关键路径的代价",
+   "image": "p01.jpg",
+   "thumb": "t01.jpg",
+   "alt": "关键路径的代价：",
+   "transcript": "这一模块把目标从 cut 换成延迟：组合电路的最长路径延迟。跨簇一次，路径就多一个固定延迟 D；允许把同一个逻辑节点复制到多个簇里。注意：这份提交是 Lesson 9，而教师目录的 Lab 09 是 Multilevel，对应关系待确认。",
+   "videoAnchor": "《关键路径的代价（上）：模型与标记》 00:00",
+   "sceneId": "a00-title",
+   "objectiveIds": []
+  },
+  {
+   "slideId": "m09-goal",
+   "pageNumber": 2,
+   "pageCount": 12,
+   "title": "目标变了：从 cut 到延迟",
+   "image": "p02.jpg",
+   "thumb": "t02.jpg",
+   "alt": "目标变了：从 cut 到延迟：链 P→X→Y→O：δ = 1，跨簇 D = 3，容量 2；{P,X} | {Y,O}：跨界 1 次，延迟 7；{P} | {X,Y} | {O}：跨界 2 次，延迟 10；延迟看关键路径跨了几次边界",
+   "transcript": "先看一条链。两种分法都满足容量，但第一种只跨一次边界，延迟 7；第二种跨两次，延迟 10。延迟只看最长路径跨了几次边界，而不是总共切断了多少连线。",
+   "videoAnchor": "《关键路径的代价（上）：模型与标记》 00:03",
+   "sceneId": "a01-goal",
+   "objectiveIds": [
+    "o1"
+   ]
+  },
+  {
+   "slideId": "m09-model",
+   "pageNumber": 3,
+   "pageCount": 12,
+   "title": "RW 的模型",
+   "image": "p03.jpg",
+   "thumb": "t03.jpg",
+   "alt": "RW 的模型：组合电路 DAG；PI 为输入，PO 为输出；节点延迟 δ(v)；簇内连线 0，跨簇连线 D；簇容量 M（按节点大小之和）；允许复制逻辑节点；目标：最小化 PI→PO 最大延迟",
+   "transcript": "RW 的模型是一张有向无环图。每个节点有延迟，簇内连线不加延迟，跨簇连线固定加 D，每个簇有容量上限，而且允许复制节点。目标是最小化从输入到输出的最大延迟。",
+   "videoAnchor": "《关键路径的代价（上）：模型与标记》 00:24",
+   "sceneId": "a02-model",
+   "objectiveIds": [
+    "o2"
+   ]
+  },
+  {
+   "slideId": "m09-replication",
+   "pageNumber": 4,
+   "pageCount": 12,
+   "title": "复制：逻辑节点与实例",
+   "image": "p04.jpg",
+   "thumb": "t04.jpg",
+   "alt": "复制：逻辑节点与实例：一个逻辑节点（logicalId）可有多个物理实例（instanceId）；实例写作“节点@簇根”；复制让多个簇在簇内拿到同一信号；代价：每个副本都占面积；“节点 → 簇”的映射表示不了复制",
+   "transcript": "复制把同一个逻辑节点放进多个簇，每一份叫一个实例。它让多个簇都能在簇内拿到同一个信号，但每个副本都占面积。数据结构上要把逻辑节点和实例分开记录。",
+   "videoAnchor": "《关键路径的代价（上）：模型与标记》 00:47",
+   "sceneId": "a03-replica",
+   "objectiveIds": [
+    "o3"
+   ]
+  },
+  {
+   "slideId": "m09-delta",
+   "pageNumber": 5,
+   "pageCount": 12,
+   "title": "初始化：候选 DAG 与 Δ",
+   "image": "p05.jpg",
+   "thumb": "t05.jpg",
+   "alt": "初始化：候选 DAG 与 Δ：原作 12 节点算例：PI a、b、c；PO k、l；δ = 1，D = 3，容量 4；Δ(x, v)：x 到 v 的最长节点延迟（计 v 不计 x）；Δ(b, k) = 4（b→e→g→i→k）；图由原作影片复原：候选数据",
+   "transcript": "原作的 12 节点算例由影片画面复原。Δ 是从 x 到 v 的最长节点延迟，计 v 不计 x，例如 b 到 k 是 4。这张图是候选数据，原始边表待原作者确认。",
+   "videoAnchor": "《关键路径的代价（上）：模型与标记》 01:08",
+   "sceneId": "a04-dag",
+   "objectiveIds": [
+    "o4"
+   ]
+  },
+  {
+   "slideId": "m09-label",
+   "pageNumber": 6,
+   "pageCount": 12,
+   "title": "标记：l(v) = max(l1, l2)",
+   "image": "p06.jpg",
+   "thumb": "t06.jpg",
+   "alt": "标记：l(v) = max(l1, l2)：得分 score(x) = l(x) + Δ(x, v)；候选簇：v + 得分最高的祖先，直到容量；平票：拓扑序靠后者优先（本课程的假设）；l1 = 簇内 PI 最大得分；l2 = 簇外最大得分 + D；i：l1 = 4，l2 = 7 → l(i) = 7",
+   "transcript": "标记阶段按拓扑序处理每个节点。对每个祖先算得分，把得分最高的放进候选簇，直到容量。l1 是簇内 PI 的最大得分，l2 是簇外最大得分加 D。节点 i 的 l1 是 4，l2 是 7，所以标签是 7。",
+   "videoAnchor": "《关键路径的代价（上）：模型与标记》 01:51",
+   "sceneId": "a06-label-i",
+   "objectiveIds": [
+    "o4"
+   ]
+  },
+  {
+   "slideId": "m09-labels",
+   "pageNumber": 7,
+   "pageCount": 12,
+   "title": "全部标签",
+   "image": "p07.jpg",
+   "thumb": "t07.jpg",
+   "alt": "全部标签：PI：l = 1；d、e、f、h：2；g：3；i、j：7；k、l：8；RW 的标签是时间，不是群体",
+   "transcript": "全部标签：输入是 1；d、e、f、h 是 2，g 是 3；i 和 j 是 7；两个输出都是 8。RW 的标签是时间，和标签传播里的群体标签完全不同。",
+   "videoAnchor": "《关键路径的代价（上）：模型与标记》 02:22",
+   "sceneId": "a07-rest",
+   "objectiveIds": [
+    "o4"
+   ]
+  },
+  {
+   "slideId": "m09-reconstruct",
+   "pageNumber": 8,
+   "pageCount": 12,
+   "title": "恢复：从输出倒推",
+   "image": "p08.jpg",
+   "thumb": "t08.jpg",
+   "alt": "恢复：从输出倒推：从 k、l 取候选簇；簇外输入成为新的簇根；共 8 个簇：k、l、d、e、f、h、b、c；20 个实例；g、j、e、a 各 2 个，b、c 各 3 个；每个实例的输入都完整；输出到达时间 8 = 标签",
+   "transcript": "恢复阶段从输出端倒推：取 k 和 l 的候选簇，簇外的输入节点成为新的簇根，直到不再需要新的簇。一共 8 个簇、20 个实例，每个实例的输入都完整，两个输出都在时间 8 到达。",
+   "videoAnchor": "《关键路径的代价（下）：恢复与复制》 00:13",
+   "sceneId": "b02-select",
+   "objectiveIds": [
+    "o5"
+   ]
+  },
+  {
+   "slideId": "m09-compare",
+   "pageNumber": 9,
+   "pageCount": 12,
+   "title": "复制换来了什么",
+   "image": "p09.jpg",
+   "thumb": "t09.jpg",
+   "alt": "复制换来了什么：允许复制：延迟 8，20 个实例；禁止复制：穷举所有容量合法分组，最好 10；多 8 个实例，换来 2 个单位延迟；最优性结论以“允许复制”为前提",
+   "transcript": "允许复制时最大延迟是 8，用了 20 个实例。如果禁止复制，穷举所有容量合法的分组，最好也只能做到 10。复制用面积换来了速度，而论文的最优性结论正是以允许复制为前提。",
+   "videoAnchor": "《关键路径的代价（下）：恢复与复制》 01:19",
+   "sceneId": "b05-compare",
+   "objectiveIds": [
+    "o5"
+   ]
+  },
+  {
+   "slideId": "m09-pseudo",
+   "pageNumber": 10,
+   "pageCount": 12,
+   "title": "伪代码：标记与恢复",
+   "image": "p10.jpg",
+   "thumb": "t10.jpg",
+   "alt": "伪代码：标记与恢复：标记：拓扑序，score、候选簇、l1、l2（Python：rw_label）；恢复：从 PO 倒推，簇外输入成为新簇根（rw_reconstruct）；实例：m@r；簇内 +0，跨簇 +D；到达时间：evaluate_instance_delay",
+   "transcript": "伪代码分两段：标记阶段按拓扑序计算得分、候选簇和标签；恢复阶段从输出倒推，为每个选中的簇生成实例并连接实例边，簇内加 0，跨簇加 D。",
+   "videoAnchor": "《关键路径的代价（下）：恢复与复制》 02:01",
+   "sceneId": "b07-code",
+   "objectiveIds": [
+    "o5"
+   ]
+  },
+  {
+   "slideId": "m09-scope",
+   "pageNumber": 11,
+   "pageCount": 12,
+   "title": "适用边界与待确认事项",
+   "image": "p11.jpg",
+   "thumb": "t11.jpg",
+   "alt": "适用边界与待确认事项：最优性来自论文（IEEE TCAD 1995；DAC 1993），只在其模型内成立；12 节点例子是候选复原；平票规则是假设，待原作者确认；本课程测试检查实现一致与实例合法，不证明最优；提交为 Lesson 9，教师目录 Lab 09 是 Multilevel：对应待教师确认；复制带来面积代价；引脚、功耗等不在本模型内",
+   "transcript": "最后说清边界：最优性来自论文，只在它的模型内成立。12 节点例子是候选复原，平票规则是假设。本课程的测试只检查实现一致与实例合法，不证明最优。这份提交与教师目录的 Lab 09 不一致，对应关系待教师确认。",
+   "videoAnchor": "《关键路径的代价（下）：恢复与复制》 01:39",
+   "sceneId": "b06-scope",
+   "objectiveIds": [
+    "o6"
+   ]
+  },
+  {
+   "slideId": "m09-summary",
+   "pageNumber": 12,
+   "pageCount": 12,
+   "title": "小结",
+   "image": "p12.jpg",
+   "thumb": "t12.jpg",
+   "alt": "小结：",
+   "transcript": "小结：目标换成延迟，跨界一次路径就多 D。标记阶段给出每个节点的最早时间，恢复阶段从输出倒推出簇与实例；逻辑节点与实例要分开表示，复制有面积代价。最后可以回到首页，对比八个模块的不同操作。",
+   "videoAnchor": null,
+   "sceneId": null,
+   "objectiveIds": []
+  }
+ ],
+ "pdf": "m09-rajaraman-wong.pdf",
+ "pptx": "m09-rajaraman-wong.pptx",
+ "contentVersion": "2026.10.23-1",
+ "aspectNote": "16:9 是本课程的设计选择（与影片一致、适合投影），不是教师指定的比例。PDF 页码与网页 p/total 完全一致；PPTX 中文字、形状与表格均可编辑，讲稿在备注里。"
+}

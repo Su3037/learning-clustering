@@ -1,0 +1,32 @@
+{
+  "terms": [
+    {"id": "module", "zh": "模块", "en": "Module", "meaning": "本课程的学习单元，Module 02–09。", "notConfuse": "原 Lab、Lesson、Issue 编号只作来源映射，不是学习单元的名字。", "modules": ["m02-affinity-metrics"]},
+    {"id": "node", "zh": "节点 / 电路单元", "en": "node / cell", "meaning": "图中的一个点；在 EDA 中通常代表一个标准单元或模块。", "notConfuse": "图中节点的坐标只是为了画图，不代表芯片上的真实位置。", "modules": ["m02-affinity-metrics"]},
+    {"id": "edge", "zh": "连边 / 边权", "en": "edge / weight", "meaning": "两个节点之间的连接；边权表示连接强度（例如连线数量或信号重要性），每门模块都声明它的含义。", "notConfuse": "边权不是物理硬度，也不是距离；权重越大通常表示越该放在一起。", "modules": ["m02-affinity-metrics"]},
+    {"id": "net", "zh": "信号网 / 引脚", "en": "net / pin", "meaning": "一个 net 把多个单元的引脚连成同一信号；可以有两个以上的端点。", "notConfuse": "多引脚 net 不等价于一条普通边；展开成“团”是一种近似模型。", "modules": ["m02-affinity-metrics", "m08-fiduccia-mattheyses"]},
+    {"id": "affinity", "zh": "亲和度", "en": "affinity", "meaning": "在指定模型下给一对节点（或一对簇）的“应该放在一起”的评分。", "notConfuse": "不是概率，也不是距离；不同模块用不同亲和度，甚至不用亲和度（LP、谱、KL/FM）。", "modules": ["m02-affinity-metrics", "m03-greedy-pair-merge"]},
+    {"id": "cluster", "zh": "簇", "en": "cluster", "meaning": "一组被分在一起的单元。", "notConfuse": "是否允许同一单元出现在多个簇里（复制）要看算法：只有 RW 允许。", "modules": ["m03-greedy-pair-merge"]},
+    {"id": "partition", "zh": "划分", "en": "partition", "meaning": "把所有节点分成互不重叠、合起来覆盖全部节点的若干组。", "notConfuse": "RW 复制以后，逻辑节点可以出现在多个簇中，结果不再是互斥的划分。", "modules": ["m03-greedy-pair-merge", "m09-rajaraman-wong"]},
+    {"id": "cutsize", "zh": "割边权和", "en": "cutsize / cut", "meaning": "两端在不同组的边的权重之和；每条无向边只算一次。", "notConfuse": "不是被切的边条数；超图的 hypercut 按 net 计，和图的 cut 不同。", "modules": ["m03-greedy-pair-merge"]},
+    {"id": "capacity", "zh": "容量 / 单元大小", "en": "capacity / size", "meaning": "每个簇允许的大小上限；簇的大小是其中单元大小之和。", "notConfuse": "按节点个数平衡不等于按面积平衡；单元面积可以不同。", "modules": ["m04-size-constrained-agglomerative"]},
+    {"id": "contraction", "zh": "收缩 / 粗化", "en": "contraction / coarsening", "meaning": "把两个簇合成一个超节点：它们之间的边变成内部边，与外部的平行边权重相加。", "notConfuse": "内部边只是不再计入 cut，原电路的连线并没有被删除。", "modules": ["m03-greedy-pair-merge"]},
+    {"id": "target-k", "zh": "目标簇数 K", "en": "target K", "meaning": "希望最终得到的簇数；达到 K 就停止合并。", "notConfuse": "“达到 K”与“满足容量”是两件独立的事，不能用一个换另一个。", "modules": ["m03-greedy-pair-merge", "m04-size-constrained-agglomerative"]},
+    {"id": "label", "zh": "标签", "en": "label", "meaning": "LP 中节点当前所属群体的记号；节点名字不变，标签会变。", "notConfuse": "不是节点身份；RW 中的“延迟标签 l(v)”是一个数，含义完全不同。", "modules": ["m05-label-propagation"]},
+    {"id": "async-sync", "zh": "异步 / 同步更新", "en": "asynchronous / synchronous", "meaning": "异步：算出新标签立即写回；同步：整轮读同一张旧快照，轮末一起提交。", "notConfuse": "同一张图换更新方式，结果和是否停止都可能不同。", "modules": ["m05-label-propagation"]},
+    {"id": "stable-cycle", "zh": "稳定 / 周期 / 上限", "en": "stable / cycle / limit", "meaning": "整轮零变化为 stable；标签状态重复出现为 cycle；达到轮数上限为 limit。", "notConfuse": "只有 stable 可以叫“收敛”。", "modules": ["m05-label-propagation"]},
+    {"id": "sweep", "zh": "扫描", "en": "sweep", "meaning": "谱二分中沿排序逐个位置试切；LP 中有时也把“一轮遍历”叫 sweep。", "notConfuse": "两个用法不同，课程里谱方法说“扫描切分”，LP 说“一轮”。", "modules": ["m06-spectral-bisection"]},
+    {"id": "laplacian", "zh": "拉普拉斯矩阵", "en": "Laplacian L = D − A", "meaning": "度矩阵减邻接矩阵；对称、每行和为 0；xᵀLx = Σ w(u,v)(x_u − x_v)²。", "notConfuse": "这里的 D 是度矩阵，不是 RW 的跨簇延迟 D。", "modules": ["m06-spectral-bisection"]},
+    {"id": "fiedler", "zh": "菲德勒向量", "en": "Fiedler vector", "meaning": "第二小特征值 λ2 的特征向量，给每个节点一个数用于排序。", "notConfuse": "λ2 简并时不唯一；正负号不保证两侧平衡，也不能代替扫描。", "modules": ["m06-spectral-bisection"]},
+    {"id": "gain", "zh": "收益", "en": "gain", "meaning": "一次交换或移动前的 cut 减去之后的 cut。", "notConfuse": "收益 ≤ 0 的步骤也可以作为试探；是否保留由最佳前缀决定。", "modules": ["m07-kernighan-lin", "m08-fiduccia-mattheyses"]},
+    {"id": "pass-lock", "zh": "一轮 / 锁定", "en": "pass / lock", "meaning": "一轮改进中，每个节点最多动一次，动过就锁定。", "notConfuse": "下一轮开始时全部解锁；锁定不是永久不可改。", "modules": ["m07-kernighan-lin"]},
+    {"id": "best-prefix", "zh": "最佳前缀", "en": "best prefix", "meaning": "一轮试探序列中，连续保留前 k 步使累计收益最大；k = 0（空前缀）合法。", "notConfuse": "不是任意挑几个正收益步；必须是从头开始连续的一段。", "modules": ["m07-kernighan-lin", "m08-fiduccia-mattheyses"]},
+    {"id": "trial-accepted", "zh": "试探 / 接受", "en": "trial / accepted", "meaning": "试探状态是一轮中途的临时分组；接受状态是按最佳前缀回退后真正采用的分组。", "notConfuse": "试探时 cut 可以暂时变差。", "modules": ["m07-kernighan-lin"]},
+    {"id": "balance", "zh": "平衡约束", "en": "balance constraint", "meaning": "限制两侧大小的规则：KL 固定两侧人数；FM 允许两侧人数差在窗口内；谱二分声明比例窗口。", "notConfuse": "按人数平衡不等于按面积平衡。", "modules": ["m06-spectral-bisection", "m07-kernighan-lin", "m08-fiduccia-mattheyses"]},
+    {"id": "fs-te", "zh": "FS / TE", "en": "from-side / to-side terms", "meaning": "FM 的收益分解：v 是某 net 在本侧唯一引脚则 +w（FS）；某 net 在目标侧没有引脚则 −w（TE）。", "notConfuse": "二端图上 FS−TE 等于外部边权减内部边权。", "modules": ["m08-fiduccia-mattheyses"]},
+    {"id": "dag", "zh": "有向无环图 / 主输入 / 主输出", "en": "DAG / PI / PO", "meaning": "组合电路的信号沿有向边流动且不成环；PI 是没有输入的源，PO 是输出端。", "notConfuse": "无向五节点图没有方向和时序，不能承担 RW 的延迟语义。", "modules": ["m09-rajaraman-wong"]},
+    {"id": "inter-delay", "zh": "跨簇延迟 D", "en": "inter-cluster delay D", "meaning": "RW 模型中每条跨簇连线增加的固定延迟；簇内连线为 0。", "notConfuse": "和拉普拉斯矩阵里的度矩阵 D 无关。", "modules": ["m09-rajaraman-wong"]},
+    {"id": "replication", "zh": "复制 / 逻辑与实例", "en": "replication / logicalId and instanceId", "meaning": "同一个逻辑节点可以在多个簇里各放一个物理实例，每个实例的输入都要完整。", "notConfuse": "复制有面积代价，不是免费的；一个“节点→簇”的映射表示不了复制。", "modules": ["m09-rajaraman-wong"]},
+    {"id": "tts", "zh": "文本转语音", "en": "TTS", "meaning": "可选的影片配音工具。本课程首版为中文字幕、无配音。", "notConfuse": "教师课堂关键词里出现 tts，不等于要求配音。", "modules": []}
+  ],
+  "pronunciationMd": "### 专名读法（若日后制作配音版）\n\n| 写法 | 建议读法 |\n| --- | --- |\n| Affinity | 讲解中优先说“亲和度” |\n| KL、FM | 逐个字母读：K-L、F-M |\n| Fiedler | 菲德勒 |\n| Rajaraman–Wong | 首次给英文全名“拉贾拉曼与王（Rajaraman–Wong）”，配音前需要试音确认 |\n| DAG、PI、PO | 逐个字母读 |\n| λ2 | “拉姆达二” |\n\n首版影片无配音，这张表只为可选旁白版准备；没有试听就不声称读法自然。"
+}

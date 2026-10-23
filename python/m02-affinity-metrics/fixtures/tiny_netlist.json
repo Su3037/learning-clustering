@@ -1,0 +1,1 @@
+{"nodes": ["A", "B", "C", "D", "E", "F"], "nets": [{"id": "en", "pins": ["A", "B", "C", "D", "E"], "w": 1}, {"id": "rst", "pins": ["A", "B", "C", "D", "E"], "w": 1}, {"id": "n1", "pins": ["E", "F"], "w": 1}], "note": "两条 5 引脚宽 net 加一条私有 2 引脚 net。原作者 Capeur 的 tiny_netlist。"}

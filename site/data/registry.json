@@ -1,0 +1,184 @@
+{
+  "schemaVersion": 1,
+  "contentVersion": "2026.10.23-1",
+  "generated": "2026-10-23",
+  "modules": [
+    {
+      "moduleId": "m02-affinity-metrics",
+      "displayOrder": 2,
+      "display": "Module 02",
+      "title": "亲和度指标",
+      "topic": "Affinity metrics",
+      "author": "Capeur",
+      "sourceIssue": {
+        "number": 1,
+        "title": "Clustering Module - Lesson 2",
+        "url": "https://github.com/yongfu-li/eda-learning/issues/1"
+      },
+      "teacherMappingStatus": "verified",
+      "challenges": [
+        "c1",
+        "c2",
+        "c3",
+        "c4",
+        "c5",
+        "c6",
+        "c7"
+      ]
+    },
+    {
+      "moduleId": "m03-greedy-pair-merge",
+      "displayOrder": 3,
+      "display": "Module 03",
+      "title": "贪心成对合并",
+      "topic": "Greedy pair merge",
+      "author": "thy031",
+      "sourceIssue": {
+        "number": 2,
+        "title": "Clustering Module - Lesson 3",
+        "url": "https://github.com/yongfu-li/eda-learning/issues/2"
+      },
+      "teacherMappingStatus": "verified",
+      "challenges": [
+        "c1",
+        "c2",
+        "c3",
+        "c4",
+        "c5",
+        "c6"
+      ]
+    },
+    {
+      "moduleId": "m04-size-constrained-agglomerative",
+      "displayOrder": 4,
+      "display": "Module 04",
+      "title": "容量约束凝聚聚类",
+      "topic": "Size-constrained agglomerative clustering",
+      "author": "GateUltra",
+      "sourceIssue": {
+        "number": 3,
+        "title": "Clustering Module - Lesson 4",
+        "url": "https://github.com/yongfu-li/eda-learning/issues/3"
+      },
+      "teacherMappingStatus": "verified",
+      "challenges": [
+        "c1",
+        "c2",
+        "c3",
+        "c4",
+        "c5",
+        "c6"
+      ]
+    },
+    {
+      "moduleId": "m05-label-propagation",
+      "displayOrder": 5,
+      "display": "Module 05",
+      "title": "标签传播",
+      "topic": "Label propagation clustering",
+      "author": "Su3037",
+      "sourceIssue": {
+        "number": 4,
+        "title": "Clustering Module - Lesson 5",
+        "url": "https://github.com/yongfu-li/eda-learning/issues/4"
+      },
+      "teacherMappingStatus": "verified",
+      "challenges": [
+        "c1",
+        "c2",
+        "c3",
+        "c4",
+        "c5",
+        "c6"
+      ]
+    },
+    {
+      "moduleId": "m06-spectral-bisection",
+      "displayOrder": 6,
+      "display": "Module 06",
+      "title": "谱二分",
+      "topic": "Spectral bisection",
+      "author": "xingguangyaoyu",
+      "sourceIssue": {
+        "number": 5,
+        "title": "Clustering Module - Lesson 6",
+        "url": "https://github.com/yongfu-li/eda-learning/issues/5"
+      },
+      "teacherMappingStatus": "verified",
+      "challenges": [
+        "c1",
+        "c2",
+        "c3",
+        "c4",
+        "c5",
+        "c6"
+      ]
+    },
+    {
+      "moduleId": "m07-kernighan-lin",
+      "displayOrder": 7,
+      "display": "Module 07",
+      "title": "Kernighan–Lin 改进",
+      "topic": "Kernighan–Lin refinement",
+      "author": "FanqinZeng",
+      "sourceIssue": {
+        "number": 6,
+        "title": "Clustering Module - Lesson 7",
+        "url": "https://github.com/yongfu-li/eda-learning/issues/6"
+      },
+      "teacherMappingStatus": "verified",
+      "challenges": [
+        "c1",
+        "c2",
+        "c3",
+        "c4",
+        "c5",
+        "c6"
+      ]
+    },
+    {
+      "moduleId": "m08-fiduccia-mattheyses",
+      "displayOrder": 8,
+      "display": "Module 08",
+      "title": "Fiduccia–Mattheyses 改进",
+      "topic": "Fiduccia–Mattheyses refinement",
+      "author": "stephQ-lab",
+      "sourceIssue": {
+        "number": 7,
+        "title": "Clustering Module - Lesson 8",
+        "url": "https://github.com/yongfu-li/eda-learning/issues/7"
+      },
+      "teacherMappingStatus": "verified",
+      "challenges": [
+        "c1",
+        "c2",
+        "c3",
+        "c4",
+        "c5",
+        "c6"
+      ]
+    },
+    {
+      "moduleId": "m09-rajaraman-wong",
+      "displayOrder": 9,
+      "display": "Module 09",
+      "title": "Rajaraman–Wong 延迟导向聚类",
+      "topic": "Rajaraman–Wong delay-oriented clustering",
+      "author": "muranfei",
+      "sourceIssue": {
+        "number": 8,
+        "title": "Clustering Module - Lesson 9",
+        "url": "https://github.com/yongfu-li/eda-learning/issues/8"
+      },
+      "teacherMappingStatus": "pending",
+      "challenges": [
+        "c1",
+        "c2",
+        "c3",
+        "c4",
+        "c5",
+        "c6"
+      ]
+    }
+  ]
+}

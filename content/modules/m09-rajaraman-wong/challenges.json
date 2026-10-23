@@ -1,0 +1,50 @@
+[
+  {
+    "id": "c1",
+    "type": "概念",
+    "difficulty": "Intro",
+    "title": "目标变了",
+    "objectiveId": "o1",
+    "validatorId": "m09-rajaraman-wong/c1"
+  },
+  {
+    "id": "c2",
+    "type": "推演",
+    "difficulty": "Intro",
+    "title": "一条路径的延迟",
+    "objectiveId": "o1",
+    "validatorId": "m09-rajaraman-wong/c2"
+  },
+  {
+    "id": "c3",
+    "type": "解释",
+    "difficulty": "Practice",
+    "title": "复制与实例",
+    "objectiveId": "o3",
+    "validatorId": "m09-rajaraman-wong/c3"
+  },
+  {
+    "id": "c4",
+    "type": "推演",
+    "difficulty": "Practice",
+    "title": "i 的标签",
+    "objectiveId": "o4",
+    "validatorId": "m09-rajaraman-wong/c4"
+  },
+  {
+    "id": "c5",
+    "type": "探索",
+    "difficulty": "Stretch",
+    "title": "复制换来了多少",
+    "objectiveId": "o5",
+    "validatorId": "m09-rajaraman-wong/c5"
+  },
+  {
+    "id": "c6",
+    "type": "解释",
+    "difficulty": "Stretch",
+    "title": "哪些说法站得住",
+    "objectiveId": "o6",
+    "validatorId": "m09-rajaraman-wong/c6"
+  }
+]

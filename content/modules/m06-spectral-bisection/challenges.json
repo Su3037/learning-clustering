@@ -1,0 +1,50 @@
+[
+  {
+    "id": "c1",
+    "type": "概念",
+    "difficulty": "Intro",
+    "title": "写出 L 的一行",
+    "objectiveId": "o2",
+    "validatorId": "m06-spectral-bisection/c1"
+  },
+  {
+    "id": "c2",
+    "type": "推演",
+    "difficulty": "Intro",
+    "title": "不在中间切",
+    "objectiveId": "o5",
+    "validatorId": "m06-spectral-bisection/c2"
+  },
+  {
+    "id": "c3",
+    "type": "纠错",
+    "difficulty": "Practice",
+    "title": "有多少种非空二分",
+    "objectiveId": "o1",
+    "validatorId": "m06-spectral-bisection/c3"
+  },
+  {
+    "id": "c4",
+    "type": "纠错",
+    "difficulty": "Practice",
+    "title": "无约束一定切单点吗",
+    "objectiveId": "o6",
+    "validatorId": "m06-spectral-bisection/c4"
+  },
+  {
+    "id": "c5",
+    "type": "探索",
+    "difficulty": "Stretch",
+    "title": "翻号会改变结果吗",
+    "objectiveId": "o4",
+    "validatorId": "m06-spectral-bisection/c5"
+  },
+  {
+    "id": "c6",
+    "type": "实现",
+    "difficulty": "Stretch",
+    "title": "断开的图",
+    "objectiveId": "o4",
+    "validatorId": "m06-spectral-bisection/c6"
+  }
+]

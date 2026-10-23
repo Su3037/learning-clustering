@@ -1,0 +1,1636 @@
+{
+ "moduleId": "m09-rajaraman-wong",
+ "engineVersion": "1.0.0",
+ "generatedBy": "scripts/build-traces.mjs",
+ "chain": {
+  "nodes": [
+   "P",
+   "X",
+   "Y",
+   "O"
+  ],
+  "edges": [
+   [
+    "P",
+    "X"
+   ],
+   [
+    "X",
+    "Y"
+   ],
+   [
+    "Y",
+    "O"
+   ]
+  ],
+  "nodeDelay": 1,
+  "capacity": 2,
+  "D": 3
+ },
+ "chainOne": {
+  "ok": true,
+  "arrival": {
+   "P": 1,
+   "X": 2,
+   "Y": 6,
+   "O": 7
+  },
+  "maxDelay": 7,
+  "crossings": 1,
+  "instances": [
+   {
+    "instanceId": "P",
+    "logicalId": "P",
+    "clusterId": 0
+   },
+   {
+    "instanceId": "X",
+    "logicalId": "X",
+    "clusterId": 0
+   },
+   {
+    "instanceId": "Y",
+    "logicalId": "Y",
+    "clusterId": 1
+   },
+   {
+    "instanceId": "O",
+    "logicalId": "O",
+    "clusterId": 1
+   }
+  ],
+  "instanceEdges": [
+   {
+    "from": "P",
+    "to": "X",
+    "cost": 0
+   },
+   {
+    "from": "X",
+    "to": "Y",
+    "cost": 3
+   },
+   {
+    "from": "Y",
+    "to": "O",
+    "cost": 0
+   }
+  ]
+ },
+ "chainTwo": {
+  "ok": true,
+  "arrival": {
+   "P": 1,
+   "X": 5,
+   "Y": 6,
+   "O": 10
+  },
+  "maxDelay": 10,
+  "crossings": 2,
+  "instances": [
+   {
+    "instanceId": "P",
+    "logicalId": "P",
+    "clusterId": 0
+   },
+   {
+    "instanceId": "X",
+    "logicalId": "X",
+    "clusterId": 1
+   },
+   {
+    "instanceId": "Y",
+    "logicalId": "Y",
+    "clusterId": 1
+   },
+   {
+    "instanceId": "O",
+    "logicalId": "O",
+    "clusterId": 2
+   }
+  ],
+  "instanceEdges": [
+   {
+    "from": "P",
+    "to": "X",
+    "cost": 3
+   },
+   {
+    "from": "X",
+    "to": "Y",
+    "cost": 0
+   },
+   {
+    "from": "Y",
+    "to": "O",
+    "cost": 3
+   }
+  ]
+ },
+ "dag": {
+  "status": "candidate — reconstructed from the student video; original edge list and tie rule unconfirmed",
+  "nodes": [
+   "a",
+   "b",
+   "c",
+   "d",
+   "e",
+   "f",
+   "g",
+   "h",
+   "i",
+   "j",
+   "k",
+   "l"
+  ],
+  "edges": [
+   [
+    "a",
+    "d"
+   ],
+   [
+    "a",
+    "f"
+   ],
+   [
+    "b",
+    "d"
+   ],
+   [
+    "b",
+    "e"
+   ],
+   [
+    "c",
+    "e"
+   ],
+   [
+    "c",
+    "h"
+   ],
+   [
+    "d",
+    "i"
+   ],
+   [
+    "e",
+    "g"
+   ],
+   [
+    "f",
+    "i"
+   ],
+   [
+    "g",
+    "i"
+   ],
+   [
+    "g",
+    "j"
+   ],
+   [
+    "h",
+    "j"
+   ],
+   [
+    "i",
+    "k"
+   ],
+   [
+    "j",
+    "k"
+   ],
+   [
+    "j",
+    "l"
+   ]
+  ],
+  "PI": [
+   "a",
+   "b",
+   "c"
+  ],
+  "PO": [
+   "k",
+   "l"
+  ],
+  "nodeDelay": 1,
+  "nodeSize": 1,
+  "capacity": 4,
+  "D": 3,
+  "positions": {
+   "a": [
+    80,
+    90
+   ],
+   "b": [
+    80,
+    250
+   ],
+   "c": [
+    80,
+    410
+   ],
+   "d": [
+    240,
+    140
+   ],
+   "e": [
+    240,
+    300
+   ],
+   "f": [
+    240,
+    30
+   ],
+   "h": [
+    240,
+    450
+   ],
+   "g": [
+    400,
+    300
+   ],
+   "i": [
+    560,
+    150
+   ],
+   "j": [
+    560,
+    370
+   ],
+   "k": [
+    720,
+    220
+   ],
+   "l": [
+    720,
+    420
+   ]
+  }
+ },
+ "run": {
+  "events": [
+   {
+    "eventId": "init",
+    "phase": "init",
+    "step": 0,
+    "kind": "pi-labels",
+    "before": null,
+    "after": {
+     "a": 1,
+     "b": 1,
+     "c": 1
+    },
+    "decision": null,
+    "metrics": {
+     "delta": {
+      "a": {
+       "a": 0,
+       "b": null,
+       "c": null,
+       "d": 1,
+       "e": null,
+       "f": 1,
+       "g": null,
+       "h": null,
+       "i": 2,
+       "j": null,
+       "k": 3,
+       "l": null
+      },
+      "b": {
+       "a": null,
+       "b": 0,
+       "c": null,
+       "d": 1,
+       "e": 1,
+       "f": null,
+       "g": 2,
+       "h": null,
+       "i": 3,
+       "j": 3,
+       "k": 4,
+       "l": 4
+      },
+      "c": {
+       "a": null,
+       "b": null,
+       "c": 0,
+       "d": null,
+       "e": 1,
+       "f": null,
+       "g": 2,
+       "h": 1,
+       "i": 3,
+       "j": 3,
+       "k": 4,
+       "l": 4
+      },
+      "d": {
+       "a": null,
+       "b": null,
+       "c": null,
+       "d": 0,
+       "e": null,
+       "f": null,
+       "g": null,
+       "h": null,
+       "i": 1,
+       "j": null,
+       "k": 2,
+       "l": null
+      },
+      "e": {
+       "a": null,
+       "b": null,
+       "c": null,
+       "d": null,
+       "e": 0,
+       "f": null,
+       "g": 1,
+       "h": null,
+       "i": 2,
+       "j": 2,
+       "k": 3,
+       "l": 3
+      },
+      "f": {
+       "a": null,
+       "b": null,
+       "c": null,
+       "d": null,
+       "e": null,
+       "f": 0,
+       "g": null,
+       "h": null,
+       "i": 1,
+       "j": null,
+       "k": 2,
+       "l": null
+      },
+      "g": {
+       "a": null,
+       "b": null,
+       "c": null,
+       "d": null,
+       "e": null,
+       "f": null,
+       "g": 0,
+       "h": null,
+       "i": 1,
+       "j": 1,
+       "k": 2,
+       "l": 2
+      },
+      "h": {
+       "a": null,
+       "b": null,
+       "c": null,
+       "d": null,
+       "e": null,
+       "f": null,
+       "g": null,
+       "h": 0,
+       "i": null,
+       "j": 1,
+       "k": 2,
+       "l": 2
+      },
+      "i": {
+       "a": null,
+       "b": null,
+       "c": null,
+       "d": null,
+       "e": null,
+       "f": null,
+       "g": null,
+       "h": null,
+       "i": 0,
+       "j": null,
+       "k": 1,
+       "l": null
+      },
+      "j": {
+       "a": null,
+       "b": null,
+       "c": null,
+       "d": null,
+       "e": null,
+       "f": null,
+       "g": null,
+       "h": null,
+       "i": null,
+       "j": 0,
+       "k": 1,
+       "l": 1
+      },
+      "k": {
+       "a": null,
+       "b": null,
+       "c": null,
+       "d": null,
+       "e": null,
+       "f": null,
+       "g": null,
+       "h": null,
+       "i": null,
+       "j": null,
+       "k": 0,
+       "l": null
+      },
+      "l": {
+       "a": null,
+       "b": null,
+       "c": null,
+       "d": null,
+       "e": null,
+       "f": null,
+       "g": null,
+       "h": null,
+       "i": null,
+       "j": null,
+       "k": null,
+       "l": 0
+      }
+     }
+    },
+    "sourceVersion": "1.0.0"
+   },
+   {
+    "eventId": "label-d",
+    "phase": "label",
+    "step": 1,
+    "kind": "label",
+    "before": null,
+    "after": {
+     "node": "d",
+     "label": 2,
+     "cluster": [
+      "d",
+      "b",
+      "a"
+     ]
+    },
+    "decision": "l(d) = max(l1=2, l2=0) = 2",
+    "candidates": [
+     {
+      "x": "b",
+      "l": 1,
+      "delta": 1,
+      "score": 2,
+      "inCluster": true
+     },
+     {
+      "x": "a",
+      "l": 1,
+      "delta": 1,
+      "score": 2,
+      "inCluster": true
+     }
+    ],
+    "metrics": {
+     "l1": 2,
+     "l2": 0,
+     "label": 2,
+     "clusterSize": 3
+    },
+    "sourceVersion": "1.0.0"
+   },
+   {
+    "eventId": "label-e",
+    "phase": "label",
+    "step": 2,
+    "kind": "label",
+    "before": null,
+    "after": {
+     "node": "e",
+     "label": 2,
+     "cluster": [
+      "e",
+      "c",
+      "b"
+     ]
+    },
+    "decision": "l(e) = max(l1=2, l2=0) = 2",
+    "candidates": [
+     {
+      "x": "c",
+      "l": 1,
+      "delta": 1,
+      "score": 2,
+      "inCluster": true
+     },
+     {
+      "x": "b",
+      "l": 1,
+      "delta": 1,
+      "score": 2,
+      "inCluster": true
+     }
+    ],
+    "metrics": {
+     "l1": 2,
+     "l2": 0,
+     "label": 2,
+     "clusterSize": 3
+    },
+    "sourceVersion": "1.0.0"
+   },
+   {
+    "eventId": "label-f",
+    "phase": "label",
+    "step": 3,
+    "kind": "label",
+    "before": null,
+    "after": {
+     "node": "f",
+     "label": 2,
+     "cluster": [
+      "f",
+      "a"
+     ]
+    },
+    "decision": "l(f) = max(l1=2, l2=0) = 2",
+    "candidates": [
+     {
+      "x": "a",
+      "l": 1,
+      "delta": 1,
+      "score": 2,
+      "inCluster": true
+     }
+    ],
+    "metrics": {
+     "l1": 2,
+     "l2": 0,
+     "label": 2,
+     "clusterSize": 2
+    },
+    "sourceVersion": "1.0.0"
+   },
+   {
+    "eventId": "label-g",
+    "phase": "label",
+    "step": 4,
+    "kind": "label",
+    "before": null,
+    "after": {
+     "node": "g",
+     "label": 3,
+     "cluster": [
+      "g",
+      "e",
+      "c",
+      "b"
+     ]
+    },
+    "decision": "l(g) = max(l1=3, l2=0) = 3",
+    "candidates": [
+     {
+      "x": "e",
+      "l": 2,
+      "delta": 1,
+      "score": 3,
+      "inCluster": true
+     },
+     {
+      "x": "c",
+      "l": 1,
+      "delta": 2,
+      "score": 3,
+      "inCluster": true
+     },
+     {
+      "x": "b",
+      "l": 1,
+      "delta": 2,
+      "score": 3,
+      "inCluster": true
+     }
+    ],
+    "metrics": {
+     "l1": 3,
+     "l2": 0,
+     "label": 3,
+     "clusterSize": 4
+    },
+    "sourceVersion": "1.0.0"
+   },
+   {
+    "eventId": "label-h",
+    "phase": "label",
+    "step": 5,
+    "kind": "label",
+    "before": null,
+    "after": {
+     "node": "h",
+     "label": 2,
+     "cluster": [
+      "h",
+      "c"
+     ]
+    },
+    "decision": "l(h) = max(l1=2, l2=0) = 2",
+    "candidates": [
+     {
+      "x": "c",
+      "l": 1,
+      "delta": 1,
+      "score": 2,
+      "inCluster": true
+     }
+    ],
+    "metrics": {
+     "l1": 2,
+     "l2": 0,
+     "label": 2,
+     "clusterSize": 2
+    },
+    "sourceVersion": "1.0.0"
+   },
+   {
+    "eventId": "label-i",
+    "phase": "label",
+    "step": 6,
+    "kind": "label",
+    "before": null,
+    "after": {
+     "node": "i",
+     "label": 7,
+     "cluster": [
+      "i",
+      "g",
+      "e",
+      "c"
+     ]
+    },
+    "decision": "l(i) = max(l1=4, l2=7) = 7",
+    "candidates": [
+     {
+      "x": "g",
+      "l": 3,
+      "delta": 1,
+      "score": 4,
+      "inCluster": true
+     },
+     {
+      "x": "e",
+      "l": 2,
+      "delta": 2,
+      "score": 4,
+      "inCluster": true
+     },
+     {
+      "x": "c",
+      "l": 1,
+      "delta": 3,
+      "score": 4,
+      "inCluster": true
+     },
+     {
+      "x": "b",
+      "l": 1,
+      "delta": 3,
+      "score": 4,
+      "inCluster": false
+     },
+     {
+      "x": "f",
+      "l": 2,
+      "delta": 1,
+      "score": 3,
+      "inCluster": false
+     },
+     {
+      "x": "d",
+      "l": 2,
+      "delta": 1,
+      "score": 3,
+      "inCluster": false
+     },
+     {
+      "x": "a",
+      "l": 1,
+      "delta": 2,
+      "score": 3,
+      "inCluster": false
+     }
+    ],
+    "metrics": {
+     "l1": 4,
+     "l2": 7,
+     "label": 7,
+     "clusterSize": 4
+    },
+    "sourceVersion": "1.0.0"
+   },
+   {
+    "eventId": "label-j",
+    "phase": "label",
+    "step": 7,
+    "kind": "label",
+    "before": null,
+    "after": {
+     "node": "j",
+     "label": 7,
+     "cluster": [
+      "j",
+      "g",
+      "e",
+      "c"
+     ]
+    },
+    "decision": "l(j) = max(l1=4, l2=7) = 7",
+    "candidates": [
+     {
+      "x": "g",
+      "l": 3,
+      "delta": 1,
+      "score": 4,
+      "inCluster": true
+     },
+     {
+      "x": "e",
+      "l": 2,
+      "delta": 2,
+      "score": 4,
+      "inCluster": true
+     },
+     {
+      "x": "c",
+      "l": 1,
+      "delta": 3,
+      "score": 4,
+      "inCluster": true
+     },
+     {
+      "x": "b",
+      "l": 1,
+      "delta": 3,
+      "score": 4,
+      "inCluster": false
+     },
+     {
+      "x": "h",
+      "l": 2,
+      "delta": 1,
+      "score": 3,
+      "inCluster": false
+     }
+    ],
+    "metrics": {
+     "l1": 4,
+     "l2": 7,
+     "label": 7,
+     "clusterSize": 4
+    },
+    "sourceVersion": "1.0.0"
+   },
+   {
+    "eventId": "label-k",
+    "phase": "label",
+    "step": 8,
+    "kind": "label",
+    "before": null,
+    "after": {
+     "node": "k",
+     "label": 8,
+     "cluster": [
+      "k",
+      "j",
+      "i",
+      "g"
+     ]
+    },
+    "decision": "l(k) = max(l1=0, l2=8) = 8",
+    "candidates": [
+     {
+      "x": "j",
+      "l": 7,
+      "delta": 1,
+      "score": 8,
+      "inCluster": true
+     },
+     {
+      "x": "i",
+      "l": 7,
+      "delta": 1,
+      "score": 8,
+      "inCluster": true
+     },
+     {
+      "x": "g",
+      "l": 3,
+      "delta": 2,
+      "score": 5,
+      "inCluster": true
+     },
+     {
+      "x": "e",
+      "l": 2,
+      "delta": 3,
+      "score": 5,
+      "inCluster": false
+     },
+     {
+      "x": "c",
+      "l": 1,
+      "delta": 4,
+      "score": 5,
+      "inCluster": false
+     },
+     {
+      "x": "b",
+      "l": 1,
+      "delta": 4,
+      "score": 5,
+      "inCluster": false
+     },
+     {
+      "x": "h",
+      "l": 2,
+      "delta": 2,
+      "score": 4,
+      "inCluster": false
+     },
+     {
+      "x": "f",
+      "l": 2,
+      "delta": 2,
+      "score": 4,
+      "inCluster": false
+     },
+     {
+      "x": "d",
+      "l": 2,
+      "delta": 2,
+      "score": 4,
+      "inCluster": false
+     },
+     {
+      "x": "a",
+      "l": 1,
+      "delta": 3,
+      "score": 4,
+      "inCluster": false
+     }
+    ],
+    "metrics": {
+     "l1": 0,
+     "l2": 8,
+     "label": 8,
+     "clusterSize": 4
+    },
+    "sourceVersion": "1.0.0"
+   },
+   {
+    "eventId": "label-l",
+    "phase": "label",
+    "step": 9,
+    "kind": "label",
+    "before": null,
+    "after": {
+     "node": "l",
+     "label": 8,
+     "cluster": [
+      "l",
+      "j",
+      "g",
+      "e"
+     ]
+    },
+    "decision": "l(l) = max(l1=0, l2=8) = 8",
+    "candidates": [
+     {
+      "x": "j",
+      "l": 7,
+      "delta": 1,
+      "score": 8,
+      "inCluster": true
+     },
+     {
+      "x": "g",
+      "l": 3,
+      "delta": 2,
+      "score": 5,
+      "inCluster": true
+     },
+     {
+      "x": "e",
+      "l": 2,
+      "delta": 3,
+      "score": 5,
+      "inCluster": true
+     },
+     {
+      "x": "c",
+      "l": 1,
+      "delta": 4,
+      "score": 5,
+      "inCluster": false
+     },
+     {
+      "x": "b",
+      "l": 1,
+      "delta": 4,
+      "score": 5,
+      "inCluster": false
+     },
+     {
+      "x": "h",
+      "l": 2,
+      "delta": 2,
+      "score": 4,
+      "inCluster": false
+     }
+    ],
+    "metrics": {
+     "l1": 0,
+     "l2": 8,
+     "label": 8,
+     "clusterSize": 4
+    },
+    "sourceVersion": "1.0.0"
+   },
+   {
+    "eventId": "select-k",
+    "phase": "reconstruct",
+    "step": 10,
+    "kind": "select-cluster",
+    "before": null,
+    "after": {
+     "root": "k",
+     "members": [
+      "k",
+      "j",
+      "i",
+      "g"
+     ],
+     "inputs": [
+      "d",
+      "e",
+      "f",
+      "h"
+     ]
+    },
+    "decision": "选中以 k 为根的簇",
+    "metrics": {
+     "selected": 1
+    },
+    "sourceVersion": "1.0.0"
+   },
+   {
+    "eventId": "select-l",
+    "phase": "reconstruct",
+    "step": 11,
+    "kind": "select-cluster",
+    "before": null,
+    "after": {
+     "root": "l",
+     "members": [
+      "l",
+      "j",
+      "g",
+      "e"
+     ],
+     "inputs": [
+      "b",
+      "c",
+      "h"
+     ]
+    },
+    "decision": "选中以 l 为根的簇",
+    "metrics": {
+     "selected": 2
+    },
+    "sourceVersion": "1.0.0"
+   },
+   {
+    "eventId": "select-d",
+    "phase": "reconstruct",
+    "step": 12,
+    "kind": "select-cluster",
+    "before": null,
+    "after": {
+     "root": "d",
+     "members": [
+      "d",
+      "b",
+      "a"
+     ],
+     "inputs": []
+    },
+    "decision": "选中以 d 为根的簇",
+    "metrics": {
+     "selected": 3
+    },
+    "sourceVersion": "1.0.0"
+   },
+   {
+    "eventId": "select-e",
+    "phase": "reconstruct",
+    "step": 13,
+    "kind": "select-cluster",
+    "before": null,
+    "after": {
+     "root": "e",
+     "members": [
+      "e",
+      "c",
+      "b"
+     ],
+     "inputs": []
+    },
+    "decision": "选中以 e 为根的簇",
+    "metrics": {
+     "selected": 4
+    },
+    "sourceVersion": "1.0.0"
+   },
+   {
+    "eventId": "select-f",
+    "phase": "reconstruct",
+    "step": 14,
+    "kind": "select-cluster",
+    "before": null,
+    "after": {
+     "root": "f",
+     "members": [
+      "f",
+      "a"
+     ],
+     "inputs": []
+    },
+    "decision": "选中以 f 为根的簇",
+    "metrics": {
+     "selected": 5
+    },
+    "sourceVersion": "1.0.0"
+   },
+   {
+    "eventId": "select-h",
+    "phase": "reconstruct",
+    "step": 15,
+    "kind": "select-cluster",
+    "before": null,
+    "after": {
+     "root": "h",
+     "members": [
+      "h",
+      "c"
+     ],
+     "inputs": []
+    },
+    "decision": "选中以 h 为根的簇",
+    "metrics": {
+     "selected": 6
+    },
+    "sourceVersion": "1.0.0"
+   },
+   {
+    "eventId": "select-b",
+    "phase": "reconstruct",
+    "step": 16,
+    "kind": "select-cluster",
+    "before": null,
+    "after": {
+     "root": "b",
+     "members": [
+      "b"
+     ],
+     "inputs": []
+    },
+    "decision": "选中以 b 为根的簇",
+    "metrics": {
+     "selected": 7
+    },
+    "sourceVersion": "1.0.0"
+   },
+   {
+    "eventId": "select-c",
+    "phase": "reconstruct",
+    "step": 17,
+    "kind": "select-cluster",
+    "before": null,
+    "after": {
+     "root": "c",
+     "members": [
+      "c"
+     ],
+     "inputs": []
+    },
+    "decision": "选中以 c 为根的簇",
+    "metrics": {
+     "selected": 8
+    },
+    "sourceVersion": "1.0.0"
+   }
+  ],
+  "result": {
+   "labels": {
+    "a": 1,
+    "b": 1,
+    "c": 1,
+    "d": 2,
+    "e": 2,
+    "f": 2,
+    "g": 3,
+    "h": 2,
+    "i": 7,
+    "j": 7,
+    "k": 8,
+    "l": 8
+   },
+   "clusters": {
+    "k": [
+     "g",
+     "i",
+     "j",
+     "k"
+    ],
+    "l": [
+     "e",
+     "g",
+     "j",
+     "l"
+    ],
+    "d": [
+     "a",
+     "b",
+     "d"
+    ],
+    "e": [
+     "b",
+     "c",
+     "e"
+    ],
+    "f": [
+     "a",
+     "f"
+    ],
+    "h": [
+     "c",
+     "h"
+    ],
+    "b": [
+     "b"
+    ],
+    "c": [
+     "c"
+    ]
+   },
+   "selected": [
+    "k",
+    "l",
+    "d",
+    "e",
+    "f",
+    "h",
+    "b",
+    "c"
+   ],
+   "instances": [
+    {
+     "instanceId": "g@k",
+     "logicalId": "g",
+     "clusterId": "k"
+    },
+    {
+     "instanceId": "i@k",
+     "logicalId": "i",
+     "clusterId": "k"
+    },
+    {
+     "instanceId": "j@k",
+     "logicalId": "j",
+     "clusterId": "k"
+    },
+    {
+     "instanceId": "k@k",
+     "logicalId": "k",
+     "clusterId": "k"
+    },
+    {
+     "instanceId": "e@l",
+     "logicalId": "e",
+     "clusterId": "l"
+    },
+    {
+     "instanceId": "g@l",
+     "logicalId": "g",
+     "clusterId": "l"
+    },
+    {
+     "instanceId": "j@l",
+     "logicalId": "j",
+     "clusterId": "l"
+    },
+    {
+     "instanceId": "l@l",
+     "logicalId": "l",
+     "clusterId": "l"
+    },
+    {
+     "instanceId": "a@d",
+     "logicalId": "a",
+     "clusterId": "d"
+    },
+    {
+     "instanceId": "b@d",
+     "logicalId": "b",
+     "clusterId": "d"
+    },
+    {
+     "instanceId": "d@d",
+     "logicalId": "d",
+     "clusterId": "d"
+    },
+    {
+     "instanceId": "b@e",
+     "logicalId": "b",
+     "clusterId": "e"
+    },
+    {
+     "instanceId": "c@e",
+     "logicalId": "c",
+     "clusterId": "e"
+    },
+    {
+     "instanceId": "e@e",
+     "logicalId": "e",
+     "clusterId": "e"
+    },
+    {
+     "instanceId": "a@f",
+     "logicalId": "a",
+     "clusterId": "f"
+    },
+    {
+     "instanceId": "f@f",
+     "logicalId": "f",
+     "clusterId": "f"
+    },
+    {
+     "instanceId": "c@h",
+     "logicalId": "c",
+     "clusterId": "h"
+    },
+    {
+     "instanceId": "h@h",
+     "logicalId": "h",
+     "clusterId": "h"
+    },
+    {
+     "instanceId": "b@b",
+     "logicalId": "b",
+     "clusterId": "b"
+    },
+    {
+     "instanceId": "c@c",
+     "logicalId": "c",
+     "clusterId": "c"
+    }
+   ],
+   "instanceEdges": [
+    {
+     "from": "e@e",
+     "to": "g@k",
+     "cost": 3
+    },
+    {
+     "from": "d@d",
+     "to": "i@k",
+     "cost": 3
+    },
+    {
+     "from": "f@f",
+     "to": "i@k",
+     "cost": 3
+    },
+    {
+     "from": "g@k",
+     "to": "i@k",
+     "cost": 0
+    },
+    {
+     "from": "g@k",
+     "to": "j@k",
+     "cost": 0
+    },
+    {
+     "from": "h@h",
+     "to": "j@k",
+     "cost": 3
+    },
+    {
+     "from": "i@k",
+     "to": "k@k",
+     "cost": 0
+    },
+    {
+     "from": "j@k",
+     "to": "k@k",
+     "cost": 0
+    },
+    {
+     "from": "b@b",
+     "to": "e@l",
+     "cost": 3
+    },
+    {
+     "from": "c@c",
+     "to": "e@l",
+     "cost": 3
+    },
+    {
+     "from": "e@l",
+     "to": "g@l",
+     "cost": 0
+    },
+    {
+     "from": "g@l",
+     "to": "j@l",
+     "cost": 0
+    },
+    {
+     "from": "h@h",
+     "to": "j@l",
+     "cost": 3
+    },
+    {
+     "from": "j@l",
+     "to": "l@l",
+     "cost": 0
+    },
+    {
+     "from": "a@d",
+     "to": "d@d",
+     "cost": 0
+    },
+    {
+     "from": "b@d",
+     "to": "d@d",
+     "cost": 0
+    },
+    {
+     "from": "b@e",
+     "to": "e@e",
+     "cost": 0
+    },
+    {
+     "from": "c@e",
+     "to": "e@e",
+     "cost": 0
+    },
+    {
+     "from": "a@f",
+     "to": "f@f",
+     "cost": 0
+    },
+    {
+     "from": "c@h",
+     "to": "h@h",
+     "cost": 0
+    }
+   ],
+   "arrival": {
+    "b@e": 1,
+    "c@e": 1,
+    "e@e": 2,
+    "g@k": 6,
+    "a@d": 1,
+    "b@d": 1,
+    "d@d": 2,
+    "a@f": 1,
+    "f@f": 2,
+    "i@k": 7,
+    "c@h": 1,
+    "h@h": 2,
+    "j@k": 7,
+    "k@k": 8,
+    "b@b": 1,
+    "c@c": 1,
+    "e@l": 5,
+    "g@l": 6,
+    "j@l": 7,
+    "l@l": 8
+   },
+   "outputDelays": {
+    "k": 8,
+    "l": 8
+   },
+   "maxDelay": 8,
+   "instanceCount": 20,
+   "logicalCount": 12,
+   "replicated": [
+    {
+     "id": "g",
+     "copies": 2
+    },
+    {
+     "id": "j",
+     "copies": 2
+    },
+    {
+     "id": "e",
+     "copies": 2
+    },
+    {
+     "id": "a",
+     "copies": 2
+    },
+    {
+     "id": "b",
+     "copies": 3
+    },
+    {
+     "id": "c",
+     "copies": 3
+    }
+   ],
+   "totalSize": 20,
+   "legality": {
+    "ok": true,
+    "errors": []
+   },
+   "delta": {
+    "a": {
+     "a": 0,
+     "b": null,
+     "c": null,
+     "d": 1,
+     "e": null,
+     "f": 1,
+     "g": null,
+     "h": null,
+     "i": 2,
+     "j": null,
+     "k": 3,
+     "l": null
+    },
+    "b": {
+     "a": null,
+     "b": 0,
+     "c": null,
+     "d": 1,
+     "e": 1,
+     "f": null,
+     "g": 2,
+     "h": null,
+     "i": 3,
+     "j": 3,
+     "k": 4,
+     "l": 4
+    },
+    "c": {
+     "a": null,
+     "b": null,
+     "c": 0,
+     "d": null,
+     "e": 1,
+     "f": null,
+     "g": 2,
+     "h": 1,
+     "i": 3,
+     "j": 3,
+     "k": 4,
+     "l": 4
+    },
+    "d": {
+     "a": null,
+     "b": null,
+     "c": null,
+     "d": 0,
+     "e": null,
+     "f": null,
+     "g": null,
+     "h": null,
+     "i": 1,
+     "j": null,
+     "k": 2,
+     "l": null
+    },
+    "e": {
+     "a": null,
+     "b": null,
+     "c": null,
+     "d": null,
+     "e": 0,
+     "f": null,
+     "g": 1,
+     "h": null,
+     "i": 2,
+     "j": 2,
+     "k": 3,
+     "l": 3
+    },
+    "f": {
+     "a": null,
+     "b": null,
+     "c": null,
+     "d": null,
+     "e": null,
+     "f": 0,
+     "g": null,
+     "h": null,
+     "i": 1,
+     "j": null,
+     "k": 2,
+     "l": null
+    },
+    "g": {
+     "a": null,
+     "b": null,
+     "c": null,
+     "d": null,
+     "e": null,
+     "f": null,
+     "g": 0,
+     "h": null,
+     "i": 1,
+     "j": 1,
+     "k": 2,
+     "l": 2
+    },
+    "h": {
+     "a": null,
+     "b": null,
+     "c": null,
+     "d": null,
+     "e": null,
+     "f": null,
+     "g": null,
+     "h": 0,
+     "i": null,
+     "j": 1,
+     "k": 2,
+     "l": 2
+    },
+    "i": {
+     "a": null,
+     "b": null,
+     "c": null,
+     "d": null,
+     "e": null,
+     "f": null,
+     "g": null,
+     "h": null,
+     "i": 0,
+     "j": null,
+     "k": 1,
+     "l": null
+    },
+    "j": {
+     "a": null,
+     "b": null,
+     "c": null,
+     "d": null,
+     "e": null,
+     "f": null,
+     "g": null,
+     "h": null,
+     "i": null,
+     "j": 0,
+     "k": 1,
+     "l": 1
+    },
+    "k": {
+     "a": null,
+     "b": null,
+     "c": null,
+     "d": null,
+     "e": null,
+     "f": null,
+     "g": null,
+     "h": null,
+     "i": null,
+     "j": null,
+     "k": 0,
+     "l": null
+    },
+    "l": {
+     "a": null,
+     "b": null,
+     "c": null,
+     "d": null,
+     "e": null,
+     "f": null,
+     "g": null,
+     "h": null,
+     "i": null,
+     "j": null,
+     "k": null,
+     "l": 0
+    }
+   },
+   "tieRule": "score desc, then reverse topological index (candidate assumption)"
+  },
+  "status": "completed",
+  "metadata": {
+   "engine": "rajaraman-wong",
+   "version": "1.0.0",
+   "model": "DAG, δ(v), size, capacity M, intra 0, inter D, replication allowed"
+  }
+ }
+}

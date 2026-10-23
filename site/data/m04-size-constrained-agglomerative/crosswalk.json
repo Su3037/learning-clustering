@@ -1,0 +1,214 @@
+{
+  "moduleId": "m04-size-constrained-agglomerative",
+  "objectives": [
+    {
+      "id": "o1",
+      "sections": [
+        "m04-size"
+      ],
+      "sceneIds": [
+        "s02-terms"
+      ],
+      "slideIds": [
+        "m04-problem"
+      ],
+      "experiment": "最后一步的状态栏：四项报告",
+      "challenges": [
+        "c1"
+      ],
+      "python": [
+        "report"
+      ],
+      "video": [
+        {
+          "sceneId": "s02-terms",
+          "film": "capacity",
+          "start": 17.8
+        }
+      ],
+      "slides": [
+        {
+          "slideId": "m04-problem",
+          "page": 2
+        }
+      ]
+    },
+    {
+      "id": "o2",
+      "sections": [
+        "m04-fork"
+      ],
+      "sceneIds": [
+        "s03-fork"
+      ],
+      "slideIds": [
+        "m04-fork"
+      ],
+      "experiment": "G01 · 容量 2：第 2 步候选表中 AB–C 标红",
+      "challenges": [
+        "c2"
+      ],
+      "python": [
+        "solve"
+      ],
+      "video": [
+        {
+          "sceneId": "s03-fork",
+          "film": "capacity",
+          "start": 35.31
+        }
+      ],
+      "slides": [
+        {
+          "slideId": "m04-fork",
+          "page": 3
+        }
+      ]
+    },
+    {
+      "id": "o3",
+      "sections": [
+        "m04-infeasible"
+      ],
+      "sceneIds": [
+        "s04-bound"
+      ],
+      "slideIds": [
+        "m04-bound"
+      ],
+      "experiment": "诊断栏：下界与最少合法簇数",
+      "challenges": [
+        "c3"
+      ],
+      "python": [
+        "oracle"
+      ],
+      "video": [
+        {
+          "sceneId": "s04-bound",
+          "film": "capacity",
+          "start": 56.91
+        }
+      ],
+      "slides": [
+        {
+          "slideId": "m04-bound",
+          "page": 4
+        }
+      ]
+    },
+    {
+      "id": "o4",
+      "sections": [
+        "m04-infeasible"
+      ],
+      "sceneIds": [
+        "s05-trap",
+        "s06-trap2"
+      ],
+      "slideIds": [
+        "m04-trap"
+      ],
+      "experiment": "greedy_trap · 诊断：总体可行，但贪心卡住",
+      "challenges": [
+        "c4"
+      ],
+      "python": [
+        "classify"
+      ],
+      "video": [
+        {
+          "sceneId": "s05-trap",
+          "status": "scene-not-a-chapter"
+        },
+        {
+          "sceneId": "s06-trap2",
+          "status": "scene-not-a-chapter"
+        }
+      ],
+      "slides": [
+        {
+          "slideId": "m04-trap",
+          "page": 5
+        }
+      ]
+    },
+    {
+      "id": "o5",
+      "sections": [
+        "m04-suboptimal"
+      ],
+      "sceneIds": [
+        "s07-sub",
+        "s08-uneven"
+      ],
+      "slideIds": [
+        "m04-sub",
+        "m04-uneven"
+      ],
+      "experiment": "suboptimal · 诊断：非最优；G01 把 A 的大小改为 2、容量 3",
+      "challenges": [
+        "c5",
+        "c6"
+      ],
+      "python": [
+        "classify"
+      ],
+      "video": [
+        {
+          "sceneId": "s07-sub",
+          "film": "capacity",
+          "start": 111.93
+        },
+        {
+          "sceneId": "s08-uneven",
+          "status": "scene-not-a-chapter"
+        }
+      ],
+      "slides": [
+        {
+          "slideId": "m04-sub",
+          "page": 6
+        },
+        {
+          "slideId": "m04-uneven",
+          "page": 7
+        }
+      ]
+    },
+    {
+      "id": "o6",
+      "sections": [
+        "m04-pseudocode"
+      ],
+      "sceneIds": [
+        "s09-code"
+      ],
+      "slideIds": [
+        "m04-pseudo"
+      ],
+      "experiment": "伪代码随事件高亮",
+      "challenges": [],
+      "python": [
+        "solve",
+        "report",
+        "classify"
+      ],
+      "video": [
+        {
+          "sceneId": "s09-code",
+          "film": "capacity",
+          "start": 156.02
+        }
+      ],
+      "slides": [
+        {
+          "slideId": "m04-pseudo",
+          "page": 8
+        }
+      ]
+    }
+  ],
+  "contentVersion": "2026.10.23-1",
+  "generated": "2026-10-23"
+}
