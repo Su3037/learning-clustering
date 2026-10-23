@@ -2,11 +2,136 @@
   "moduleId": "m02-affinity-metrics",
   "note": "video.start 与 slides.page 由 build-site.mjs 从实际渲染的 film.json 与 slides.json 填入；未制作时为 planned。",
   "objectives": [
-    { "id": "o1", "sections": ["m02-why"], "sceneIds": ["s01-hook", "s09-eda"], "slideIds": ["m02-problem", "m02-summary"], "experiment": "任一例子：右侧只显示排名，不显示簇", "challenges": ["c1"], "python": [] },
-    { "id": "o2", "sections": ["m02-edge"], "sceneIds": ["s03-edge"], "slideIds": ["m02-edge"], "experiment": "G01 · 直接边权 · 逐步播放排名", "challenges": ["c5"], "python": ["affinity_edge_weight"] },
-    { "id": "o3", "sections": ["m02-shared"], "sceneIds": ["s04-ac", "s05-bd"], "slideIds": ["m02-shared-formula", "m02-shared-hand"], "experiment": "G01 · 共同邻居 · 第 3 名 A–C 与第 7 名 B–D 的分解表", "challenges": ["c2", "c3"], "python": ["affinity_shared_neighbors"] },
-    { "id": "o4", "sections": ["m02-priority"], "sceneIds": ["s06-priority"], "slideIds": ["m02-priority"], "experiment": "priority 图 · 切换评分方式；把 X–Y 改为 8 与 9", "challenges": ["c4", "c6"], "python": ["affinity_edge_weight", "affinity_shared_neighbors"] },
-    { "id": "o5", "sections": ["m02-pincount"], "sceneIds": ["s07-pin", "s02-model"], "slideIds": ["m02-model", "m02-pincount"], "experiment": "tiny netlist · pin-count 与 net 计数对照", "challenges": ["c7"], "python": ["affinity_pin_count"] },
-    { "id": "o6", "sections": ["m02-pseudocode"], "sceneIds": ["s08-code"], "slideIds": ["m02-pseudo"], "experiment": "共同邻居逐步播放时伪代码自动高亮", "challenges": ["c5"], "python": ["affinity_edge_weight", "affinity_shared_neighbors", "affinity_pin_count"] }
+    {
+      "id": "o1",
+      "sections": [
+        "m02-why"
+      ],
+      "sceneIds": [
+        "p-count",
+        "p-outro",
+        "k01-question"
+      ],
+      "slideIds": [
+        "m02-problem",
+        "m02-summary"
+      ],
+      "experiment": "任一例子：右侧只显示排名，不显示簇",
+      "challenges": [
+        "c1"
+      ],
+      "python": []
+    },
+    {
+      "id": "o2",
+      "sections": [
+        "m02-edge"
+      ],
+      "sceneIds": [
+        "p-direct",
+        "k02-edge",
+        "a06-ties"
+      ],
+      "slideIds": [
+        "m02-edge"
+      ],
+      "experiment": "G01 · 直接边权 · 逐步播放排名",
+      "challenges": [
+        "c5"
+      ],
+      "python": [
+        "affinity_edge_weight"
+      ]
+    },
+    {
+      "id": "o3",
+      "sections": [
+        "m02-shared"
+      ],
+      "sceneIds": [
+        "p-shared",
+        "k03-shared",
+        "k04-bd",
+        "a02-min"
+      ],
+      "slideIds": [
+        "m02-shared-formula",
+        "m02-shared-hand"
+      ],
+      "experiment": "G01 · 共同邻居 · 第 3 名 A–C 与第 7 名 B–D 的分解表",
+      "challenges": [
+        "c2",
+        "c3"
+      ],
+      "python": [
+        "affinity_shared_neighbors"
+      ]
+    },
+    {
+      "id": "o4",
+      "sections": [
+        "m02-priority"
+      ],
+      "sceneIds": [
+        "p-flip",
+        "k05-priority"
+      ],
+      "slideIds": [
+        "m02-priority"
+      ],
+      "experiment": "priority 图 · 切换评分方式；把 X–Y 改为 8 与 9",
+      "challenges": [
+        "c4",
+        "c6"
+      ],
+      "python": [
+        "affinity_edge_weight",
+        "affinity_shared_neighbors"
+      ]
+    },
+    {
+      "id": "o5",
+      "sections": [
+        "m02-pincount"
+      ],
+      "sceneIds": [
+        "p-dilute",
+        "k06-pin",
+        "a05-conserve"
+      ],
+      "slideIds": [
+        "m02-model",
+        "m02-pincount"
+      ],
+      "experiment": "tiny netlist · pin-count 与 net 计数对照",
+      "challenges": [
+        "c7"
+      ],
+      "python": [
+        "affinity_pin_count"
+      ]
+    },
+    {
+      "id": "o6",
+      "sections": [
+        "m02-pseudocode"
+      ],
+      "sceneIds": [
+        "p-list",
+        "a04-cost"
+      ],
+      "slideIds": [
+        "m02-pseudo"
+      ],
+      "experiment": "共同邻居逐步播放时伪代码自动高亮",
+      "challenges": [
+        "c5"
+      ],
+      "python": [
+        "affinity_edge_weight",
+        "affinity_shared_neighbors",
+        "affinity_pin_count"
+      ]
+    }
   ]
 }

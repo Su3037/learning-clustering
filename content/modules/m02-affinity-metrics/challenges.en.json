@@ -1,0 +1,9 @@
+[
+  { "type": "Concept", "title": "A score is not a grouping" },
+  { "type": "Trace", "title": "A score without a direct edge" },
+  { "type": "Trace", "title": "Take A–C apart" },
+  { "type": "Explore", "title": "A different score, a different first pair" },
+  { "type": "Implement", "title": "Sort the stable ranking by hand" },
+  { "type": "Explore", "title": "Put X–Y back on top" },
+  { "type": "Apply", "title": "Diluting wide nets" }
+]

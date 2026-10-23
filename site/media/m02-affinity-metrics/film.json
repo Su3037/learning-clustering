@@ -1,318 +1,1771 @@
 {
- "id": "affinity",
- "title": "谁和谁最亲近",
+ "schema": 2,
  "status": "ready",
- "src": "affinity.mp4",
- "vtt": "affinity.zh.vtt",
- "poster": "affinity-poster.jpg",
- "duration": 201.4,
- "chapters": [
+ "films": [
   {
-   "t": 3.0,
-   "title": "一 · 先预测",
-   "sceneId": "s01-hook"
+   "id": "story",
+   "kind": "popular",
+   "status": "ready",
+   "title": {
+    "zh": "谁和谁最亲近",
+    "en": "Who Is Closest?"
+   },
+   "why": {
+    "zh": "从群聊讲起：数共同群聊会得出“老板最亲近”；再到芯片，讲清直接连线、共同邻居和按群大小摊薄三种评分。",
+    "en": "It starts with group chats, where counting them says the boss is your closest person, then moves to a chip: direct wires, shared neighbours, and sharing a net out by its size."
+   },
+   "music": {
+    "zh": "《We Never (Remix)（若如初见）》Hi Noise / 秋成（第三方录音，不在本课程许可范围内）",
+    "en": "“We Never (Remix)” by Hi Noise / 秋成 (third-party recording, not covered by this course's licences)"
+   },
+   "scenes": [
+    {
+     "sceneId": "p-chats",
+     "start": 0.0,
+     "end": 10.75
+    },
+    {
+     "sceneId": "p-count",
+     "start": 10.75,
+     "end": 17.41
+    },
+    {
+     "sceneId": "p-chip",
+     "start": 17.41,
+     "end": 32.03
+    },
+    {
+     "sceneId": "p-title",
+     "start": 32.03,
+     "end": 37.0
+    },
+    {
+     "sceneId": "p-direct",
+     "start": 37.0,
+     "end": 51.18
+    },
+    {
+     "sceneId": "p-shared",
+     "start": 51.18,
+     "end": 66.08
+    },
+    {
+     "sceneId": "p-list",
+     "start": 66.08,
+     "end": 71.3
+    },
+    {
+     "sceneId": "p-predict",
+     "start": 71.3,
+     "end": 80.16
+    },
+    {
+     "sceneId": "p-flip",
+     "start": 80.16,
+     "end": 89.0
+    },
+    {
+     "sceneId": "p-models",
+     "start": 89.0,
+     "end": 97.19
+    },
+    {
+     "sceneId": "p-boss",
+     "start": 97.19,
+     "end": 102.5
+    },
+    {
+     "sceneId": "p-dilute",
+     "start": 102.5,
+     "end": 117.14
+    },
+    {
+     "sceneId": "p-rank",
+     "start": 117.14,
+     "end": 120.8
+    },
+    {
+     "sceneId": "p-netlist",
+     "start": 120.8,
+     "end": 134.16
+    },
+    {
+     "sceneId": "p-pipeline",
+     "start": 134.16,
+     "end": 141.5
+    },
+    {
+     "sceneId": "p-outro",
+     "start": 141.5,
+     "end": 170.6
+    },
+    {
+     "sceneId": "p-end",
+     "start": 170.6,
+     "end": 189.82
+    }
+   ],
+   "fps": 30,
+   "size": [
+    1920,
+    1080
+   ],
+   "versions": {
+    "zh": {
+     "src": "story.zh.mp4",
+     "vtt": "story.zh.vtt",
+     "poster": "story.zh.jpg",
+     "duration": 189.83,
+     "captions": "zh+en",
+     "chapters": [
+      {
+       "t": 0.0,
+       "title": "序 · 群聊",
+       "sceneId": "p-chats"
+      },
+      {
+       "t": 17.41,
+       "title": "序 · 芯片",
+       "sceneId": "p-chip"
+      },
+      {
+       "t": 37.0,
+       "title": "一 · 直接连线",
+       "sceneId": "p-direct"
+      },
+      {
+       "t": 51.18,
+       "title": "二 · 朋友的朋友",
+       "sceneId": "p-shared"
+      },
+      {
+       "t": 71.3,
+       "title": "三 · 换一种算法",
+       "sceneId": "p-predict"
+      },
+      {
+       "t": 97.19,
+       "title": "四 · 大群与私聊",
+       "sceneId": "p-boss"
+      },
+      {
+       "t": 141.5,
+       "title": "尾声",
+       "sceneId": "p-outro"
+      }
+     ],
+     "transcript": [
+      {
+       "start": 0.0,
+       "end": 6.0,
+       "text": "要排座位、分小组，先得回答一个更小的问题：",
+       "sceneId": "p-chats"
+      },
+      {
+       "start": 6.0,
+       "end": 8.4,
+       "text": "谁和谁最亲近？",
+       "sceneId": "p-chats"
+      },
+      {
+       "start": 11.95,
+       "end": 16.972,
+       "text": "按共同群聊数，你最亲近的人……是老板。",
+       "sceneId": "p-count"
+      },
+      {
+       "start": 17.41,
+       "end": 24.21,
+       "text": "芯片里是同一个问题：成千上万个单元，哪两个最该挨着放？",
+       "sceneId": "p-chip"
+      },
+      {
+       "start": 24.21,
+       "end": 30.11,
+       "text": "所以先给每一对打分：分数越高，越该放在一起。",
+       "sceneId": "p-chip"
+      },
+      {
+       "start": 37.0,
+       "end": 43.4,
+       "text": "第一种算法：两个单元之间的线有多粗，分数就是多少。",
+       "sceneId": "p-direct"
+      },
+      {
+       "start": 43.4,
+       "end": 50.0,
+       "text": "A–B 和 D–E 都是 5：平票按名字排，与输入顺序无关。",
+       "sceneId": "p-direct"
+      },
+      {
+       "start": 51.18,
+       "end": 56.647,
+       "text": "B 和 D 之间没有线：按第一种算法，毫无关系。",
+       "sceneId": "p-shared"
+      },
+      {
+       "start": 56.647,
+       "end": 62.713,
+       "text": "但都连着 C：经过 C 的联系，只和较弱的边一样强：",
+       "sceneId": "p-shared"
+      },
+      {
+       "start": 62.713,
+       "end": 65.958,
+       "text": "min(4, 2) = 2。",
+       "sceneId": "p-shared"
+      },
+      {
+       "start": 66.08,
+       "end": 71.102,
+       "text": "检查所有对：10 对都有分，包括 B–D。",
+       "sceneId": "p-list"
+      },
+      {
+       "start": 71.3,
+       "end": 74.5,
+       "text": "先猜：哪一对最亲近？",
+       "sceneId": "p-predict"
+      },
+      {
+       "start": 74.5,
+       "end": 79.744,
+       "text": "X–Y 的线最粗：5；三角形每条边只有 4。",
+       "sceneId": "p-predict"
+      },
+      {
+       "start": 80.16,
+       "end": 84.071,
+       "text": "按直接连线，第一对是 X–Y；",
+       "sceneId": "p-flip"
+      },
+      {
+       "start": 84.071,
+       "end": 88.871,
+       "text": "按共同邻居，P–Q = 8，跑到了前面。",
+       "sceneId": "p-flip"
+      },
+      {
+       "start": 89.0,
+       "end": 95.578,
+       "text": "两个答案都没错：一个问线有多粗，一个问一群人有多紧。",
+       "sceneId": "p-models"
+      },
+      {
+       "start": 97.19,
+       "end": 100.19,
+       "text": "还记得老板吗？",
+       "sceneId": "p-boss"
+      },
+      {
+       "start": 102.5,
+       "end": 109.744,
+       "text": "一个 5 人群同时连着 10 对人，对其中任何一对都说明不了多少。",
+       "sceneId": "p-dilute"
+      },
+      {
+       "start": 109.744,
+       "end": 117.011,
+       "text": "把一个群的分量摊开：5 人群里每对只得 1/4，私聊得整整 1。",
+       "sceneId": "p-dilute"
+      },
+      {
+       "start": 117.14,
+       "end": 120.607,
+       "text": "这样算，最亲近的是小林。",
+       "sceneId": "p-rank"
+      },
+      {
+       "start": 120.8,
+       "end": 128.267,
+       "text": "时钟线、复位线连着成千上万个单元：不摊薄，谁都显得一样亲近。",
+       "sceneId": "p-netlist"
+      },
+      {
+       "start": 128.267,
+       "end": 133.956,
+       "text": "原作者的小网表：A–B 得 0.5，E–F 得 1。",
+       "sceneId": "p-netlist"
+      },
+      {
+       "start": 134.16,
+       "end": 140.56,
+       "text": "分数只决定先合并谁；真正的合并，从下一章开始。",
+       "sceneId": "p-pipeline"
+      },
+      {
+       "start": 141.5,
+       "end": 147.5,
+       "text": "同一对单元，换一种算法，分数就变了。",
+       "sceneId": "p-outro"
+      },
+      {
+       "start": 147.5,
+       "end": 155.5,
+       "text": "亲和度不是距离，也不是概率：它是某个模型给出的排名。",
+       "sceneId": "p-outro"
+      },
+      {
+       "start": 155.5,
+       "end": 162.5,
+       "text": "下次有人说“我们最熟”，可以问一句：",
+       "sceneId": "p-outro"
+      },
+      {
+       "start": 162.5,
+       "end": 168.5,
+       "text": "按哪种算法？",
+       "sceneId": "p-outro"
+      },
+      {
+       "start": 170.6,
+       "end": 176.6,
+       "text": "下面的实验里，改一条边的权重，看排名怎么变。",
+       "sceneId": "p-end"
+      }
+     ],
+     "readingViolations": 0,
+     "bytes": 8825321
+    },
+    "en": {
+     "src": "story.en.mp4",
+     "vtt": "story.en.vtt",
+     "poster": "story.en.jpg",
+     "duration": 189.83,
+     "captions": "en",
+     "chapters": [
+      {
+       "t": 0.0,
+       "title": "PROLOGUE · GROUP CHATS",
+       "sceneId": "p-chats"
+      },
+      {
+       "t": 17.41,
+       "title": "PROLOGUE · THE CHIP",
+       "sceneId": "p-chip"
+      },
+      {
+       "t": 37.0,
+       "title": "I · DIRECT WIRES",
+       "sceneId": "p-direct"
+      },
+      {
+       "t": 51.18,
+       "title": "II · FRIENDS OF FRIENDS",
+       "sceneId": "p-shared"
+      },
+      {
+       "t": 71.3,
+       "title": "III · ANOTHER RULE",
+       "sceneId": "p-predict"
+      },
+      {
+       "t": 97.19,
+       "title": "IV · BIG GROUPS, PRIVATE CHATS",
+       "sceneId": "p-boss"
+      },
+      {
+       "t": 141.5,
+       "title": "CODA",
+       "sceneId": "p-outro"
+      }
+     ],
+     "transcript": [
+      {
+       "start": 0.0,
+       "end": 6.0,
+       "text": "Before you seat people or split them into teams, there is a smaller question:",
+       "sceneId": "p-chats"
+      },
+      {
+       "start": 6.0,
+       "end": 8.4,
+       "text": "who is closest to whom?",
+       "sceneId": "p-chats"
+      },
+      {
+       "start": 11.95,
+       "end": 16.972,
+       "text": "Count shared group chats, and your closest person is… the boss.",
+       "sceneId": "p-count"
+      },
+      {
+       "start": 17.41,
+       "end": 24.21,
+       "text": "A chip has the same problem: thousands of cells. Which two belong side by side?",
+       "sceneId": "p-chip"
+      },
+      {
+       "start": 24.21,
+       "end": 30.11,
+       "text": "So first, give every pair a score: the higher it is, the closer they belong.",
+       "sceneId": "p-chip"
+      },
+      {
+       "start": 37.0,
+       "end": 43.4,
+       "text": "The first way: a pair's score is the weight of the wire between them.",
+       "sceneId": "p-direct"
+      },
+      {
+       "start": 43.4,
+       "end": 50.0,
+       "text": "A–B and D–E both score 5: ties go by name, whatever the input order.",
+       "sceneId": "p-direct"
+      },
+      {
+       "start": 51.18,
+       "end": 56.647,
+       "text": "B and D share no wire: by the first rule, nothing in common.",
+       "sceneId": "p-shared"
+      },
+      {
+       "start": 56.647,
+       "end": 62.713,
+       "text": "Both are wired to C, and a link through C is only as strong as its weaker wire:",
+       "sceneId": "p-shared"
+      },
+      {
+       "start": 62.713,
+       "end": 65.958,
+       "text": "min(4, 2) = 2.",
+       "sceneId": "p-shared"
+      },
+      {
+       "start": 66.08,
+       "end": 71.102,
+       "text": "Check every pair: all 10 score, B–D included.",
+       "sceneId": "p-list"
+      },
+      {
+       "start": 71.3,
+       "end": 74.5,
+       "text": "Take a guess: which pair is closest?",
+       "sceneId": "p-predict"
+      },
+      {
+       "start": 74.5,
+       "end": 79.744,
+       "text": "X–Y has the thickest wire, 5; each triangle edge is only 4.",
+       "sceneId": "p-predict"
+      },
+      {
+       "start": 80.16,
+       "end": 84.071,
+       "text": "By direct wires, the first pair is X–Y;",
+       "sceneId": "p-flip"
+      },
+      {
+       "start": 84.071,
+       "end": 88.871,
+       "text": "by shared neighbours, P–Q = 4 + 4 = 8 moves ahead.",
+       "sceneId": "p-flip"
+      },
+      {
+       "start": 89.0,
+       "end": 95.578,
+       "text": "Both answers are right: one asks how thick a wire is, the other how tight a group is.",
+       "sceneId": "p-models"
+      },
+      {
+       "start": 97.19,
+       "end": 100.19,
+       "text": "Remember the boss?",
+       "sceneId": "p-boss"
+      },
+      {
+       "start": 102.5,
+       "end": 109.744,
+       "text": "One five-person chat ties ten pairs at once, so it says little about any one of them.",
+       "sceneId": "p-dilute"
+      },
+      {
+       "start": 109.744,
+       "end": 117.011,
+       "text": "So share each chat out: in a five-person chat each pair gets 1/4; a private chat gives a whole 1.",
+       "sceneId": "p-dilute"
+      },
+      {
+       "start": 117.14,
+       "end": 120.607,
+       "text": "Counted this way, your closest is Lin.",
+       "sceneId": "p-rank"
+      },
+      {
+       "start": 120.8,
+       "end": 128.267,
+       "text": "Clock and reset nets reach thousands of cells: unshared, every pair looks equally close.",
+       "sceneId": "p-netlist"
+      },
+      {
+       "start": 128.267,
+       "end": 133.956,
+       "text": "In the original tiny netlist: A–B gets 0.5, E–F gets 1.",
+       "sceneId": "p-netlist"
+      },
+      {
+       "start": 134.16,
+       "end": 140.56,
+       "text": "A score only decides who merges first; the merging itself starts in the next module.",
+       "sceneId": "p-pipeline"
+      },
+      {
+       "start": 141.5,
+       "end": 147.5,
+       "text": "The same pair of cells gets a different score under a different rule.",
+       "sceneId": "p-outro"
+      },
+      {
+       "start": 147.5,
+       "end": 155.5,
+       "text": "Affinity is not a distance and not a probability: it is a ranking under one model.",
+       "sceneId": "p-outro"
+      },
+      {
+       "start": 155.5,
+       "end": 162.5,
+       "text": "Next time someone says “we are the closest”, you can ask:",
+       "sceneId": "p-outro"
+      },
+      {
+       "start": 162.5,
+       "end": 168.5,
+       "text": "by which score?",
+       "sceneId": "p-outro"
+      },
+      {
+       "start": 170.6,
+       "end": 176.6,
+       "text": "In the lab below, change one wire's weight and watch the ranking move.",
+       "sceneId": "p-end"
+      }
+     ],
+     "readingViolations": 0,
+     "bytes": 8604089
+    }
+   }
   },
   {
-   "t": 14.33,
-   "title": "二 · 图与 net",
-   "sceneId": "s02-model"
+   "id": "concise",
+   "kind": "concise",
+   "status": "ready",
+   "title": {
+    "zh": "精讲：三种评分",
+    "en": "The essentials"
+   },
+   "why": {
+    "zh": "只讲必须掌握的：三种评分怎么算、稳定排名、换评分为什么换第一对。",
+    "en": "Only what you must know: how the three scores work, the stable ranking, and why a different score picks a different first pair."
+   },
+   "music": {
+    "zh": "本课程原创程序合成配乐（NumPy），CC BY 4.0",
+    "en": "Original score synthesised for this course (NumPy), CC BY 4.0"
+   },
+   "scenes": [
+    {
+     "sceneId": "k00-title",
+     "start": 0.0,
+     "end": 3.4
+    },
+    {
+     "sceneId": "k01-question",
+     "start": 3.4,
+     "end": 16.89
+    },
+    {
+     "sceneId": "k02-edge",
+     "start": 16.89,
+     "end": 33.69
+    },
+    {
+     "sceneId": "k03-shared",
+     "start": 33.69,
+     "end": 48.07
+    },
+    {
+     "sceneId": "k04-bd",
+     "start": 48.07,
+     "end": 61.53
+    },
+    {
+     "sceneId": "k05-priority",
+     "start": 61.53,
+     "end": 78.33
+    },
+    {
+     "sceneId": "k06-pin",
+     "start": 78.33,
+     "end": 96.24
+    },
+    {
+     "sceneId": "k07-take",
+     "start": 96.24,
+     "end": 112.91
+    }
+   ],
+   "fps": 30,
+   "size": [
+    1920,
+    1080
+   ],
+   "versions": {
+    "zh": {
+     "src": "concise.zh.mp4",
+     "vtt": "concise.zh.vtt",
+     "poster": "concise.zh.jpg",
+     "duration": 112.9,
+     "captions": "zh+en",
+     "chapters": [
+      {
+       "t": 3.4,
+       "title": "问题",
+       "sceneId": "k01-question"
+      },
+      {
+       "t": 16.89,
+       "title": "直接边权",
+       "sceneId": "k02-edge"
+      },
+      {
+       "t": 33.69,
+       "title": "共同邻居",
+       "sceneId": "k03-shared"
+      },
+      {
+       "t": 61.53,
+       "title": "换评分",
+       "sceneId": "k05-priority"
+      },
+      {
+       "t": 78.33,
+       "title": "PIN-COUNT",
+       "sceneId": "k06-pin"
+      },
+      {
+       "t": 96.24,
+       "title": "小结",
+       "sceneId": "k07-take"
+      }
+     ],
+     "transcript": [
+      {
+       "start": 3.4,
+       "end": 7.756,
+       "text": "聚类的第一步：谁和谁更该在一起？",
+       "sceneId": "k01-question"
+      },
+      {
+       "start": 7.756,
+       "end": 12.356,
+       "text": "给每一对打一个分，再从高到低排好。",
+       "sceneId": "k01-question"
+      },
+      {
+       "start": 12.356,
+       "end": 16.489,
+       "text": "注意：分数只排名，不分组。",
+       "sceneId": "k01-question"
+      },
+      {
+       "start": 16.889,
+       "end": 22.356,
+       "text": "第一种：直接边权，线有多粗，分数就是多少。",
+       "sceneId": "k02-edge"
+      },
+      {
+       "start": 22.356,
+       "end": 26.044,
+       "text": "G01 的 6 条边，就是 6 对。",
+       "sceneId": "k02-edge"
+      },
+      {
+       "start": 26.044,
+       "end": 33.289,
+       "text": "A–B 和 D–E 并列 5：按 (−分数, u, v) 排，A–B 在前。",
+       "sceneId": "k02-edge"
+      },
+      {
+       "start": 33.689,
+       "end": 36.489,
+       "text": "第二种：共同邻居。",
+       "sceneId": "k03-shared"
+      },
+      {
+       "start": 36.489,
+       "end": 39.289,
+       "text": "A–C：直接边 1。",
+       "sceneId": "k03-shared"
+      },
+      {
+       "start": 39.289,
+       "end": 45.867,
+       "text": "再加经过 B 的联系：取较弱的边，min(5, 4) = 4。",
+       "sceneId": "k03-shared"
+      },
+      {
+       "start": 45.867,
+       "end": 47.667,
+       "text": "合计 5。",
+       "sceneId": "k03-shared"
+      },
+      {
+       "start": 48.067,
+       "end": 50.867,
+       "text": "B 和 D 之间没有线，",
+       "sceneId": "k04-bd"
+      },
+      {
+       "start": 50.867,
+       "end": 55.444,
+       "text": "但经过 C 得到 min(4, 2) = 2。",
+       "sceneId": "k04-bd"
+      },
+      {
+       "start": 55.444,
+       "end": 61.133,
+       "text": "所以要检查所有 10 对，没有线的对也可能有分。",
+       "sceneId": "k04-bd"
+      },
+      {
+       "start": 61.533,
+       "end": 68.333,
+       "text": "换评分，第一对会变。看原作者的 priority 图。",
+       "sceneId": "k05-priority"
+      },
+      {
+       "start": 68.333,
+       "end": 72.244,
+       "text": "直接边权：X–Y = 5 排第一。",
+       "sceneId": "k05-priority"
+      },
+      {
+       "start": 72.244,
+       "end": 77.933,
+       "text": "共同邻居：P–Q = 4 + 4 = 8，超过了 X–Y。",
+       "sceneId": "k05-priority"
+      },
+      {
+       "start": 78.333,
+       "end": 86.022,
+       "text": "第三种用于多引脚 net：两条 5 引脚的宽 net，一条私有 net。",
+       "sceneId": "k06-pin"
+      },
+      {
+       "start": 86.022,
+       "end": 89.933,
+       "text": "每个 net 摊成 |e| − 1 份。",
+       "sceneId": "k06-pin"
+      },
+      {
+       "start": 89.933,
+       "end": 95.844,
+       "text": "A–B 只得 1/4 + 1/4 = 0.5，E–F 得 1。",
+       "sceneId": "k06-pin"
+      },
+      {
+       "start": 96.244,
+       "end": 98.378,
+       "text": "记住四点。",
+       "sceneId": "k07-take"
+      },
+      {
+       "start": 98.378,
+       "end": 101.044,
+       "text": "只排名，不分组；",
+       "sceneId": "k07-take"
+      },
+      {
+       "start": 101.044,
+       "end": 103.644,
+       "text": "排名要稳定；",
+       "sceneId": "k07-take"
+      },
+      {
+       "start": 103.644,
+       "end": 111.511,
+       "text": "换评分会换第一对，也不要把分数当距离。下面的实验里试一试。",
+       "sceneId": "k07-take"
+      }
+     ],
+     "readingViolations": 0,
+     "bytes": 4964367
+    },
+    "en": {
+     "src": "concise.en.mp4",
+     "vtt": "concise.en.vtt",
+     "poster": "concise.en.jpg",
+     "duration": 112.9,
+     "captions": "en",
+     "chapters": [
+      {
+       "t": 3.4,
+       "title": "THE PROBLEM",
+       "sceneId": "k01-question"
+      },
+      {
+       "t": 16.89,
+       "title": "DIRECT WEIGHT",
+       "sceneId": "k02-edge"
+      },
+      {
+       "t": 33.69,
+       "title": "SHARED NEIGHBOURS",
+       "sceneId": "k03-shared"
+      },
+      {
+       "t": 61.53,
+       "title": "ANOTHER SCORE",
+       "sceneId": "k05-priority"
+      },
+      {
+       "t": 78.33,
+       "title": "PIN-COUNT",
+       "sceneId": "k06-pin"
+      },
+      {
+       "t": 96.24,
+       "title": "SUMMARY",
+       "sceneId": "k07-take"
+      }
+     ],
+     "transcript": [
+      {
+       "start": 3.4,
+       "end": 7.756,
+       "text": "Step one of clustering: which pairs belong together?",
+       "sceneId": "k01-question"
+      },
+      {
+       "start": 7.756,
+       "end": 12.356,
+       "text": "Give every pair a score, then rank them from high to low.",
+       "sceneId": "k01-question"
+      },
+      {
+       "start": 12.356,
+       "end": 16.489,
+       "text": "Note: a score ranks pairs; it does not group them.",
+       "sceneId": "k01-question"
+      },
+      {
+       "start": 16.889,
+       "end": 22.356,
+       "text": "One: direct weight. The score is the weight of the wire.",
+       "sceneId": "k02-edge"
+      },
+      {
+       "start": 22.356,
+       "end": 26.044,
+       "text": "G01's six edges give six pairs.",
+       "sceneId": "k02-edge"
+      },
+      {
+       "start": 26.044,
+       "end": 33.289,
+       "text": "A–B and D–E tie at 5: sorted by (−score, u, v), A–B comes first.",
+       "sceneId": "k02-edge"
+      },
+      {
+       "start": 33.689,
+       "end": 36.489,
+       "text": "Two: shared neighbours.",
+       "sceneId": "k03-shared"
+      },
+      {
+       "start": 36.489,
+       "end": 39.289,
+       "text": "A–C: the direct wire is 1.",
+       "sceneId": "k03-shared"
+      },
+      {
+       "start": 39.289,
+       "end": 45.867,
+       "text": "Add the link through B, at its weaker wire: min(5, 4) = 4.",
+       "sceneId": "k03-shared"
+      },
+      {
+       "start": 45.867,
+       "end": 47.667,
+       "text": "Total: 5.",
+       "sceneId": "k03-shared"
+      },
+      {
+       "start": 48.067,
+       "end": 50.867,
+       "text": "B and D share no wire,",
+       "sceneId": "k04-bd"
+      },
+      {
+       "start": 50.867,
+       "end": 55.444,
+       "text": "but through C they get min(4, 2) = 2.",
+       "sceneId": "k04-bd"
+      },
+      {
+       "start": 55.444,
+       "end": 61.133,
+       "text": "So check all 10 pairs: a pair with no wire can still score.",
+       "sceneId": "k04-bd"
+      },
+      {
+       "start": 61.533,
+       "end": 68.333,
+       "text": "Change the score and the first pair changes. Look at the original author's priority graph.",
+       "sceneId": "k05-priority"
+      },
+      {
+       "start": 68.333,
+       "end": 72.244,
+       "text": "Direct weight: X–Y = 5 comes first.",
+       "sceneId": "k05-priority"
+      },
+      {
+       "start": 72.244,
+       "end": 77.933,
+       "text": "Shared neighbours: P–Q = 4 + 4 = 8 overtakes X–Y.",
+       "sceneId": "k05-priority"
+      },
+      {
+       "start": 78.333,
+       "end": 86.022,
+       "text": "Three, for multi-pin nets: two wide 5-pin nets and one private net.",
+       "sceneId": "k06-pin"
+      },
+      {
+       "start": 86.022,
+       "end": 89.933,
+       "text": "Share each net out over |e| − 1.",
+       "sceneId": "k06-pin"
+      },
+      {
+       "start": 89.933,
+       "end": 95.844,
+       "text": "A–B gets only 1/4 + 1/4 = 0.5; E–F gets 1.",
+       "sceneId": "k06-pin"
+      },
+      {
+       "start": 96.244,
+       "end": 98.378,
+       "text": "Four things to keep.",
+       "sceneId": "k07-take"
+      },
+      {
+       "start": 98.378,
+       "end": 101.044,
+       "text": "It ranks; it does not group;",
+       "sceneId": "k07-take"
+      },
+      {
+       "start": 101.044,
+       "end": 103.644,
+       "text": "the ranking must be stable;",
+       "sceneId": "k07-take"
+      },
+      {
+       "start": 103.644,
+       "end": 111.511,
+       "text": "a different score can pick a different first pair, and a score is not a distance. Try it in the lab below.",
+       "sceneId": "k07-take"
+      }
+     ],
+     "readingViolations": 0,
+     "bytes": 4790219
+    }
+   }
   },
   {
-   "t": 29.8,
-   "title": "三 · 直接边权",
-   "sceneId": "s03-edge"
+   "id": "advanced",
+   "kind": "advanced",
+   "status": "ready",
+   "title": {
+    "zh": "进阶：评分背后的假设",
+    "en": "In depth: what a score assumes"
+   },
+   "why": {
+    "zh": "为什么取 min、共同邻居的枢纽问题、只沿邻居枚举的代价、pin-count 守恒了什么，以及平票为什么必须有规则。",
+    "en": "Why min, the hub problem of shared neighbours, the cost of enumerating along neighbours, what pin-count preserves, and why ties need a rule."
+   },
+   "music": {
+    "zh": "本课程原创程序合成配乐（NumPy），CC BY 4.0",
+    "en": "Original score synthesised for this course (NumPy), CC BY 4.0"
+   },
+   "scenes": [
+    {
+     "sceneId": "a00-title",
+     "start": 0.0,
+     "end": 3.4
+    },
+    {
+     "sceneId": "a01-recap",
+     "start": 3.4,
+     "end": 11.44
+    },
+    {
+     "sceneId": "a02-min",
+     "start": 11.44,
+     "end": 35.93
+    },
+    {
+     "sceneId": "a03-hub",
+     "start": 35.93,
+     "end": 62.02
+    },
+    {
+     "sceneId": "a04-cost",
+     "start": 62.02,
+     "end": 88.04
+    },
+    {
+     "sceneId": "a05-conserve",
+     "start": 88.04,
+     "end": 107.29
+    },
+    {
+     "sceneId": "a06-ties",
+     "start": 107.29,
+     "end": 123.02
+    },
+    {
+     "sceneId": "a07-clusters",
+     "start": 123.02,
+     "end": 142.11
+    },
+    {
+     "sceneId": "a08-summary",
+     "start": 142.11,
+     "end": 163.64
+    }
+   ],
+   "fps": 30,
+   "size": [
+    1920,
+    1080
+   ],
+   "versions": {
+    "zh": {
+     "src": "advanced.zh.mp4",
+     "vtt": "advanced.zh.vtt",
+     "poster": "advanced.zh.jpg",
+     "duration": 163.63,
+     "captions": "zh+en",
+     "chapters": [
+      {
+       "t": 3.4,
+       "title": "回顾",
+       "sceneId": "a01-recap"
+      },
+      {
+       "t": 11.44,
+       "title": "一 · 为什么取 min",
+       "sceneId": "a02-min"
+      },
+      {
+       "t": 35.93,
+       "title": "二 · 枢纽问题",
+       "sceneId": "a03-hub"
+      },
+      {
+       "t": 62.02,
+       "title": "三 · 代价",
+       "sceneId": "a04-cost"
+      },
+      {
+       "t": 88.04,
+       "title": "四 · pin-count 守恒什么",
+       "sceneId": "a05-conserve"
+      },
+      {
+       "t": 107.29,
+       "title": "五 · 平票",
+       "sceneId": "a06-ties"
+      },
+      {
+       "t": 123.02,
+       "title": "六 · 从一对到一簇",
+       "sceneId": "a07-clusters"
+      },
+      {
+       "t": 142.11,
+       "title": "小结",
+       "sceneId": "a08-summary"
+      }
+     ],
+     "transcript": [
+      {
+       "start": 3.4,
+       "end": 5.8,
+       "text": "回顾三种评分。",
+       "sceneId": "a01-recap"
+      },
+      {
+       "start": 5.8,
+       "end": 11.044,
+       "text": "每一种都在假设：什么样的联系才“算数”。",
+       "sceneId": "a01-recap"
+      },
+      {
+       "start": 11.444,
+       "end": 18.467,
+       "text": "U 和 V 之间没有线，都连着 X：U–X 是 10，V–X 只有 1。",
+       "sceneId": "a02-min"
+      },
+      {
+       "start": 18.467,
+       "end": 22.6,
+       "text": "取较弱的边：经过 X 的联系是 1。",
+       "sceneId": "a02-min"
+      },
+      {
+       "start": 22.6,
+       "end": 28.956,
+       "text": "如果改用和，会得到 11，比 U–X 本身还像“亲近”。",
+       "sceneId": "a02-min"
+      },
+      {
+       "start": 28.956,
+       "end": 35.533,
+       "text": "V 只是轻轻碰了 X 一下。链条的强度，由最弱的一环决定。",
+       "sceneId": "a02-min"
+      },
+      {
+       "start": 35.933,
+       "end": 44.511,
+       "text": "再看一个枢纽：H 连着 6 个叶子，每条边 3；旁边 P–Q 真有一根线，权重 2。",
+       "sceneId": "a03-hub"
+      },
+      {
+       "start": 44.511,
+       "end": 50.422,
+       "text": "叶子两两没有线，却都经过 H 得到 3：一共 15 对。",
+       "sceneId": "a03-hub"
+      },
+      {
+       "start": 50.422,
+       "end": 55.089,
+       "text": "它们全都排在真正连着的 P–Q 前面。",
+       "sceneId": "a03-hub"
+      },
+      {
+       "start": 55.089,
+       "end": 61.622,
+       "text": "这是共同邻居的已知弱点；常见的修正是按度数归一化。",
+       "sceneId": "a03-hub"
+      },
+      {
+       "start": 62.022,
+       "end": 68.022,
+       "text": "代价：一万个单元，所有无序对将近五千万。",
+       "sceneId": "a04-cost"
+      },
+      {
+       "start": 68.022,
+       "end": 73.822,
+       "text": "只沿邻居枚举，在这张网格上只要不到六万次。",
+       "sceneId": "a04-cost"
+      },
+      {
+       "start": 73.822,
+       "end": 79.511,
+       "text": "因为有分的对，要么有直接线，要么有共同邻居。",
+       "sceneId": "a04-cost"
+      },
+      {
+       "start": 79.511,
+       "end": 87.644,
+       "text": "但超大的 net 本身就会带来几十万对，所以很多工具会把它们单独处理。",
+       "sceneId": "a04-cost"
+      },
+      {
+       "start": 88.044,
+       "end": 93.289,
+       "text": "pin-count 为什么除以 |e| − 1？",
+       "sceneId": "a05-conserve"
+      },
+      {
+       "start": 93.289,
+       "end": 97.2,
+       "text": "把每个单元收到的分数加起来：",
+       "sceneId": "a05-conserve"
+      },
+      {
+       "start": 97.2,
+       "end": 106.889,
+       "text": "正好等于它所在 net 的权重之和。一个 net 不论多大，都只给每个引脚整整 w(e)。",
+       "sceneId": "a05-conserve"
+      },
+      {
+       "start": 107.289,
+       "end": 109.422,
+       "text": "最后，平票。",
+       "sceneId": "a06-ties"
+      },
+      {
+       "start": 109.422,
+       "end": 114.556,
+       "text": "把节点和边全部倒序输入，排名一模一样。",
+       "sceneId": "a06-ties"
+      },
+      {
+       "start": 114.556,
+       "end": 122.622,
+       "text": "这很重要：下一章先合并第一名，平票没有规则，结果就不可复现。",
+       "sceneId": "a06-ties"
+      },
+      {
+       "start": 123.022,
+       "end": 130.933,
+       "text": "排名第一的 A–B 合并之后，下一步要比的就不再是两个单元，而是簇。",
+       "sceneId": "a07-clusters"
+      },
+      {
+       "start": 130.933,
+       "end": 135.511,
+       "text": "AB 和 C 之间有两根线：1 + 4 = 5。",
+       "sceneId": "a07-clusters"
+      },
+      {
+       "start": 135.511,
+       "end": 141.711,
+       "text": "把两簇之间的边权加起来，这就是下一章用的亲和度。",
+       "sceneId": "a07-clusters"
+      },
+      {
+       "start": 142.111,
+       "end": 144.178,
+       "text": "六点小结。",
+       "sceneId": "a08-summary"
+      },
+      {
+       "start": 157.178,
+       "end": 162.244,
+       "text": "下一章：用簇间边权和真正开始合并。",
+       "sceneId": "a08-summary"
+      }
+     ],
+     "readingViolations": 0,
+     "bytes": 7223945
+    },
+    "en": {
+     "src": "advanced.en.mp4",
+     "vtt": "advanced.en.vtt",
+     "poster": "advanced.en.jpg",
+     "duration": 163.63,
+     "captions": "en",
+     "chapters": [
+      {
+       "t": 3.4,
+       "title": "RECAP",
+       "sceneId": "a01-recap"
+      },
+      {
+       "t": 11.44,
+       "title": "I · WHY MIN",
+       "sceneId": "a02-min"
+      },
+      {
+       "t": 35.93,
+       "title": "II · THE HUB PROBLEM",
+       "sceneId": "a03-hub"
+      },
+      {
+       "t": 62.02,
+       "title": "III · COST",
+       "sceneId": "a04-cost"
+      },
+      {
+       "t": 88.04,
+       "title": "IV · WHAT PIN-COUNT PRESERVES",
+       "sceneId": "a05-conserve"
+      },
+      {
+       "t": 107.29,
+       "title": "V · TIES",
+       "sceneId": "a06-ties"
+      },
+      {
+       "t": 123.02,
+       "title": "VI · FROM PAIRS TO CLUSTERS",
+       "sceneId": "a07-clusters"
+      },
+      {
+       "t": 142.11,
+       "title": "SUMMARY",
+       "sceneId": "a08-summary"
+      }
+     ],
+     "transcript": [
+      {
+       "start": 3.4,
+       "end": 5.8,
+       "text": "The three scores again.",
+       "sceneId": "a01-recap"
+      },
+      {
+       "start": 5.8,
+       "end": 11.044,
+       "text": "Each one assumes something about which links count.",
+       "sceneId": "a01-recap"
+      },
+      {
+       "start": 11.444,
+       "end": 18.467,
+       "text": "U and V share no wire; both touch X: U–X is 10, V–X only 1.",
+       "sceneId": "a02-min"
+      },
+      {
+       "start": 18.467,
+       "end": 22.6,
+       "text": "Take the weaker wire: the link through X is 1.",
+       "sceneId": "a02-min"
+      },
+      {
+       "start": 22.6,
+       "end": 28.956,
+       "text": "With a sum it would be 11, and look almost as close as U–X itself.",
+       "sceneId": "a02-min"
+      },
+      {
+       "start": 28.956,
+       "end": 35.533,
+       "text": "V barely touches X. A chain is as strong as its weakest link.",
+       "sceneId": "a02-min"
+      },
+      {
+       "start": 35.933,
+       "end": 44.511,
+       "text": "Now a hub: H reaches six leaves at weight 3; nearby, P–Q share a real wire of weight 2.",
+       "sceneId": "a03-hub"
+      },
+      {
+       "start": 44.511,
+       "end": 50.422,
+       "text": "No two leaves are wired, yet each pair gets 3 through H: 15 pairs in all.",
+       "sceneId": "a03-hub"
+      },
+      {
+       "start": 50.422,
+       "end": 55.089,
+       "text": "Every one of them ranks above P–Q, which really are wired.",
+       "sceneId": "a03-hub"
+      },
+      {
+       "start": 55.089,
+       "end": 61.622,
+       "text": "This is a known weakness of shared neighbours; a common fix is to normalise by degree.",
+       "sceneId": "a03-hub"
+      },
+      {
+       "start": 62.022,
+       "end": 68.022,
+       "text": "Cost: with ten thousand cells, there are almost fifty million unordered pairs.",
+       "sceneId": "a04-cost"
+      },
+      {
+       "start": 68.022,
+       "end": 73.822,
+       "text": "Enumerating along neighbours takes under sixty thousand steps on this grid.",
+       "sceneId": "a04-cost"
+      },
+      {
+       "start": 73.822,
+       "end": 79.511,
+       "text": "Because a pair that scores has either a wire or a shared neighbour.",
+       "sceneId": "a04-cost"
+      },
+      {
+       "start": 79.511,
+       "end": 87.644,
+       "text": "But one huge net alone brings hundreds of thousands of pairs, so many tools treat such nets separately.",
+       "sceneId": "a04-cost"
+      },
+      {
+       "start": 88.044,
+       "end": 93.289,
+       "text": "Why does pin-count divide by |e| − 1?",
+       "sceneId": "a05-conserve"
+      },
+      {
+       "start": 93.289,
+       "end": 97.2,
+       "text": "Add up the score each cell receives:",
+       "sceneId": "a05-conserve"
+      },
+      {
+       "start": 97.2,
+       "end": 106.889,
+       "text": "it equals the total weight of the cell's nets. Whatever its size, a net gives each pin exactly w(e).",
+       "sceneId": "a05-conserve"
+      },
+      {
+       "start": 107.289,
+       "end": 109.422,
+       "text": "Last, ties.",
+       "sceneId": "a06-ties"
+      },
+      {
+       "start": 109.422,
+       "end": 114.556,
+       "text": "Feed the nodes and edges in reverse and the ranking is identical.",
+       "sceneId": "a06-ties"
+      },
+      {
+       "start": 114.556,
+       "end": 122.622,
+       "text": "It matters: the next module merges the top pair first, and without a tie rule the result is not reproducible.",
+       "sceneId": "a06-ties"
+      },
+      {
+       "start": 123.022,
+       "end": 130.933,
+       "text": "Once the top pair A–B merges, the next comparison is no longer between two cells but between clusters.",
+       "sceneId": "a07-clusters"
+      },
+      {
+       "start": 130.933,
+       "end": 135.511,
+       "text": "AB and C share two wires: 1 + 4 = 5.",
+       "sceneId": "a07-clusters"
+      },
+      {
+       "start": 135.511,
+       "end": 141.711,
+       "text": "Add up the wires between two clusters: that is the affinity the next module uses.",
+       "sceneId": "a07-clusters"
+      },
+      {
+       "start": 142.111,
+       "end": 144.178,
+       "text": "Six things to keep.",
+       "sceneId": "a08-summary"
+      },
+      {
+       "start": 157.178,
+       "end": 162.244,
+       "text": "Next: merging for real, with the summed weight between clusters.",
+       "sceneId": "a08-summary"
+      }
+     ],
+     "readingViolations": 0,
+     "bytes": 7058630
+    }
+   }
   },
   {
-   "t": 48.82,
-   "title": "四 · 共同邻居",
-   "sceneId": "s04-ac"
-  },
-  {
-   "t": 94.6,
-   "title": "五 · 换评分，第一对就变",
-   "sceneId": "s06-priority"
-  },
-  {
-   "t": 121.09,
-   "title": "六 · 宽 net 的稀释",
-   "sceneId": "s07-pin"
-  },
-  {
-   "t": 158.82,
-   "title": "七 · 伪代码与 EDA",
-   "sceneId": "s08-code"
+   "id": "lab",
+   "kind": "lab",
+   "status": "ready",
+   "title": {
+    "zh": "实验演示",
+    "en": "Lab Walkthrough"
+   },
+   "why": {
+    "zh": "从真实页面录下的操作演示：切换评分方式、看 B–D 的分数从哪里来、改一条边权，再在浏览器里写完三个评分函数并通过全部检查。",
+    "en": "Recorded from the real page: switching the score, seeing where B–D's score comes from, changing an edge weight, then writing the three scoring functions in the browser and passing every check."
+   },
+   "music": {
+    "zh": "本课程原创程序合成配乐（NumPy），CC BY 4.0",
+    "en": "Original score synthesised for this course (NumPy), CC BY 4.0"
+   },
+   "recorded": "scripts/film/recorder.mjs + video/m02-affinity-metrics/walkthrough.mjs",
+   "fps": 30,
+   "size": [
+    1920,
+    1080
+   ],
+   "versions": {
+    "zh": {
+     "src": "lab.zh.mp4",
+     "vtt": "lab.zh.vtt",
+     "poster": "lab.zh.jpg",
+     "duration": 163.83,
+     "captions": "zh+en",
+     "chapters": [
+      {
+       "t": 0.0,
+       "title": "开始",
+       "sceneId": "title"
+      },
+      {
+       "t": 3.2,
+       "title": "实验台",
+       "sceneId": "shot-00"
+      },
+      {
+       "t": 72.89,
+       "title": "在线编程",
+       "sceneId": "shot-09"
+      },
+      {
+       "t": 138.6,
+       "title": "用你的代码跑",
+       "sceneId": "shot-15"
+      },
+      {
+       "t": 153.59,
+       "title": "挑战",
+       "sceneId": "shot-17"
+      }
+     ],
+     "transcript": [
+      {
+       "start": 3.2,
+       "end": 11.733,
+       "text": "这是本章的实验台：先选例子，这里用课程公共图 G01，再选评分方式。",
+       "sceneId": "shot-00"
+      },
+      {
+       "start": 11.733,
+       "end": 20.267,
+       "text": "直接边权：G01 只有 6 对。A–B 和 D–E 都是 5，按名字 A–B 在前。",
+       "sceneId": "shot-01"
+      },
+      {
+       "start": 20.267,
+       "end": 26.356,
+       "text": "换成共同邻居：10 对全部有分。A–B 变成 6。",
+       "sceneId": "shot-02"
+      },
+      {
+       "start": 26.356,
+       "end": 34.222,
+       "text": "在记录表里点 B–D：没有直接边，经 C 得 min(4, 2) = 2。",
+       "sceneId": "shot-03"
+      },
+      {
+       "start": 34.222,
+       "end": 40.978,
+       "text": "换成 priority 图：按直接边权第一对是 X–Y。",
+       "sceneId": "shot-04"
+      },
+      {
+       "start": 40.978,
+       "end": 47.956,
+       "text": "按共同邻居，三角形里的三对都是 8，第一对变成 P–Q。",
+       "sceneId": "shot-05"
+      },
+      {
+       "start": 47.956,
+       "end": 53.156,
+       "text": "把 X–Y 改成 9：它刚好重新排到第一。",
+       "sceneId": "shot-06"
+      },
+      {
+       "start": 53.156,
+       "end": 64.8,
+       "text": "换成 tiny netlist，用 pin-count：私有的 E–F 得 1，排第一；A–B 只有 0.5。",
+       "sceneId": "shot-07"
+      },
+      {
+       "start": 64.8,
+       "end": 72.889,
+       "text": "对照“按 net 计数”：不摊薄的话，A–B 以 2 分排在 E–F 前面。",
+       "sceneId": "shot-08"
+      },
+      {
+       "start": 72.889,
+       "end": 79.867,
+       "text": "在线编程：代码在浏览器里运行，不用安装 Python。",
+       "sceneId": "shot-09"
+      },
+      {
+       "start": 79.867,
+       "end": 87.511,
+       "text": "先运行检查：三个函数都还没写，结果是 INCOMPLETE。",
+       "sceneId": "shot-10"
+      },
+      {
+       "start": 87.511,
+       "end": 94.489,
+       "text": "任务一：直接边权就是把规范化后的边排个名，一行就够。",
+       "sceneId": "shot-11"
+      },
+      {
+       "start": 94.489,
+       "end": 113.348,
+       "text": "任务二：先建邻接表，再检查每一个无序节点对，包括没有直接边的。",
+       "sceneId": "shot-12"
+      },
+      {
+       "start": 113.348,
+       "end": 128.735,
+       "text": "任务三：每条 net 去掉重复引脚，把 w/(|e|−1) 加给其中每一对。",
+       "sceneId": "shot-13"
+      },
+      {
+       "start": 128.735,
+       "end": 138.602,
+       "text": "运行检查：全部通过，包括作者原作的 priority 图和 tiny netlist。",
+       "sceneId": "shot-14"
+      },
+      {
+       "start": 138.602,
+       "end": 146.913,
+       "text": "下面用你自己的函数跑一张练习里没出现过的新图，逐行对照课程引擎。",
+       "sceneId": "shot-15"
+      },
+      {
+       "start": 146.913,
+       "end": 153.586,
+       "text": "每一行都和引擎一致。",
+       "sceneId": "shot-16"
+      },
+      {
+       "start": 153.586,
+       "end": 161.23,
+       "text": "最后做挑战题，确认自己真的懂了。结果只保存在你的浏览器里。",
+       "sceneId": "shot-17"
+      }
+     ],
+     "readingViolations": 0,
+     "bytes": 10905045
+    },
+    "en": {
+     "src": "lab.en.mp4",
+     "vtt": "lab.en.vtt",
+     "poster": "lab.en.jpg",
+     "duration": 145.7,
+     "captions": "en",
+     "chapters": [
+      {
+       "t": 0.0,
+       "title": "START",
+       "sceneId": "title"
+      },
+      {
+       "t": 3.2,
+       "title": "THE LAB",
+       "sceneId": "shot-00"
+      },
+      {
+       "t": 61.49,
+       "title": "CODE LAB",
+       "sceneId": "shot-09"
+      },
+      {
+       "t": 120.42,
+       "title": "YOUR CODE, VISUALISED",
+       "sceneId": "shot-15"
+      },
+      {
+       "t": 135.98,
+       "title": "CHALLENGES",
+       "sceneId": "shot-17"
+      }
+     ],
+     "transcript": [
+      {
+       "start": 3.2,
+       "end": 10.6,
+       "text": "This is the chapter's lab: choose an example, here the course graph G01, then a way to score.",
+       "sceneId": "shot-00"
+      },
+      {
+       "start": 10.6,
+       "end": 17.533,
+       "text": "Direct weight: G01 has only 6 pairs. A–B and D–E are both 5; by name, A–B comes first.",
+       "sceneId": "shot-01"
+      },
+      {
+       "start": 17.533,
+       "end": 22.933,
+       "text": "Switch to shared neighbours: all 10 pairs score. A–B becomes 6.",
+       "sceneId": "shot-02"
+      },
+      {
+       "start": 22.933,
+       "end": 30.021,
+       "text": "Click B–D in the log: no direct edge, and through C it gets min(4, 2) = 2.",
+       "sceneId": "shot-03"
+      },
+      {
+       "start": 30.021,
+       "end": 35.888,
+       "text": "Switch to the priority graph: by direct weight, the first pair is X–Y.",
+       "sceneId": "shot-04"
+      },
+      {
+       "start": 35.888,
+       "end": 42.888,
+       "text": "By shared neighbours, the three triangle pairs score 8, and the first pair becomes P–Q.",
+       "sceneId": "shot-05"
+      },
+      {
+       "start": 42.888,
+       "end": 47.626,
+       "text": "Change X–Y to 9: it just takes first place again.",
+       "sceneId": "shot-06"
+      },
+      {
+       "start": 47.626,
+       "end": 55.493,
+       "text": "Switch to the tiny netlist with pin-count: the private E–F gets 1 and comes first; A–B has only 0.5.",
+       "sceneId": "shot-07"
+      },
+      {
+       "start": 55.493,
+       "end": 61.493,
+       "text": "Compare with net count: without sharing out, A–B scores 2 and beats E–F.",
+       "sceneId": "shot-08"
+      },
+      {
+       "start": 61.493,
+       "end": 67.426,
+       "text": "The code lab: your code runs in the browser, with no Python to install.",
+       "sceneId": "shot-09"
+      },
+      {
+       "start": 67.426,
+       "end": 74.626,
+       "text": "Run the checks first: none of the three functions is written, so the result is INCOMPLETE.",
+       "sceneId": "shot-10"
+      },
+      {
+       "start": 74.626,
+       "end": 80.759,
+       "text": "Task 1: direct weight just ranks the normalised edges. One line is enough.",
+       "sceneId": "shot-11"
+      },
+      {
+       "start": 80.759,
+       "end": 97.789,
+       "text": "Task 2: build the adjacency first, then check every unordered pair, including pairs with no direct edge.",
+       "sceneId": "shot-12"
+      },
+      {
+       "start": 97.789,
+       "end": 112.624,
+       "text": "Task 3: drop repeated pins in each net, and add w/(|e|−1) to every pair in it.",
+       "sceneId": "shot-13"
+      },
+      {
+       "start": 112.624,
+       "end": 120.424,
+       "text": "Run the checks: everything passes, including the original author's priority graph and tiny netlist.",
+       "sceneId": "shot-14"
+      },
+      {
+       "start": 120.424,
+       "end": 129.158,
+       "text": "Below, your own function runs on a new graph the exercise never used, compared row by row with the course engine.",
+       "sceneId": "shot-15"
+      },
+      {
+       "start": 129.158,
+       "end": 135.977,
+       "text": "Every row matches the engine.",
+       "sceneId": "shot-16"
+      },
+      {
+       "start": 135.977,
+       "end": 143.11,
+       "text": "Finally, try the challenges to check you really understand. Results stay in your browser.",
+       "sceneId": "shot-17"
+      }
+     ],
+     "readingViolations": 0,
+     "bytes": 10106092
+    }
+   }
   }
- ],
- "scenes": [
-  {
-   "sceneId": "s00-title",
-   "start": 0.0,
-   "end": 3.0
-  },
-  {
-   "sceneId": "s01-hook",
-   "start": 3.0,
-   "end": 14.33
-  },
-  {
-   "sceneId": "s02-model",
-   "start": 14.33,
-   "end": 29.8
-  },
-  {
-   "sceneId": "s03-edge",
-   "start": 29.8,
-   "end": 48.82
-  },
-  {
-   "sceneId": "s04-ac",
-   "start": 48.82,
-   "end": 69.31
-  },
-  {
-   "sceneId": "s05-bd",
-   "start": 69.31,
-   "end": 94.6
-  },
-  {
-   "sceneId": "s06-priority",
-   "start": 94.6,
-   "end": 121.09
-  },
-  {
-   "sceneId": "s07-pin",
-   "start": 121.09,
-   "end": 158.82
-  },
-  {
-   "sceneId": "s08-code",
-   "start": 158.82,
-   "end": 182.56
-  },
-  {
-   "sceneId": "s09-eda",
-   "start": 182.56,
-   "end": 201.4
-  }
- ],
- "transcript": [
-  {
-   "start": 3.0,
-   "end": 9.578,
-   "text": "一个三角形 PQR，每条边 4；旁边一对 X–Y，边权 5。",
-   "sceneId": "s01-hook"
-  },
-  {
-   "start": 9.578,
-   "end": 13.933,
-   "text": "如果要先合并一对，你会选哪一对？",
-   "sceneId": "s01-hook"
-  },
-  {
-   "start": 14.333,
-   "end": 18.911,
-   "text": "先说清输入：普通的边只连两个单元。",
-   "sceneId": "s02-model"
-  },
-  {
-   "start": 18.911,
-   "end": 23.933,
-   "text": "一个 net 可以连五个、甚至上千个单元。",
-   "sceneId": "s02-model"
-  },
-  {
-   "start": 23.933,
-   "end": 29.4,
-   "text": "要给其中的“一对”打分，就得先选一个模型。",
-   "sceneId": "s02-model"
-  },
-  {
-   "start": 29.8,
-   "end": 34.822,
-   "text": "最直接的模型：两点之间的边权就是分数。",
-   "sceneId": "s03-edge"
-  },
-  {
-   "start": 34.822,
-   "end": 41.178,
-   "text": "A–B 和 D–E 都是 5，谁排前面？按名字：A 在 D 前。",
-   "sceneId": "s03-edge"
-  },
-  {
-   "start": 41.178,
-   "end": 48.422,
-   "text": "A–C 与 C–E 也并列：同样按名字。排名就与输入顺序无关了。",
-   "sceneId": "s03-edge"
-  },
-  {
-   "start": 48.822,
-   "end": 54.733,
-   "text": "第二个模型：共同邻居。先看 A–C 的直接边：1。",
-   "sceneId": "s04-ac"
-  },
-  {
-   "start": 54.733,
-   "end": 57.311,
-   "text": "A 和 C 都连着 B。",
-   "sceneId": "s04-ac"
-  },
-  {
-   "start": 57.311,
-   "end": 64.556,
-   "text": "经过 B 的联系只和较弱的那条边一样强：min(5, 4) = 4。",
-   "sceneId": "s04-ac"
-  },
-  {
-   "start": 64.556,
-   "end": 68.911,
-   "text": "A–C 的共同邻居分 = 1 + 4 = 5。",
-   "sceneId": "s04-ac"
-  },
-  {
-   "start": 69.311,
-   "end": 75.0,
-   "text": "再看 B–D：它们之间没有导线，直接部分是 0。",
-   "sceneId": "s05-bd"
-  },
-  {
-   "start": 75.0,
-   "end": 78.022,
-   "text": "可是 B 和 D 都连着 C。",
-   "sceneId": "s05-bd"
-  },
-  {
-   "start": 78.022,
-   "end": 81.933,
-   "text": "经 C：min(4, 2) = 2。",
-   "sceneId": "s05-bd"
-  },
-  {
-   "start": 81.933,
-   "end": 88.511,
-   "text": "B–D 的分数是 2——只在已有的边上打分，就会漏掉它。",
-   "sceneId": "s05-bd"
-  },
-  {
-   "start": 88.511,
-   "end": 94.2,
-   "text": "这不是新增导线：图没变，变的是这一对的分数。",
-   "sceneId": "s05-bd"
-  },
-  {
-   "start": 94.6,
-   "end": 101.622,
-   "text": "回到开头的问题。按直接边权：X–Y 最粗，第一对是 X–Y。",
-   "sceneId": "s06-priority"
-  },
-  {
-   "start": 101.622,
-   "end": 107.089,
-   "text": "按共同邻居：三角形里每一对都经过第三个点。",
-   "sceneId": "s06-priority"
-  },
-  {
-   "start": 107.089,
-   "end": 114.111,
-   "text": "P–Q = 4 + min(4, 4) = 8，P–R、Q–R 也是 8。",
-   "sceneId": "s06-priority"
-  },
-  {
-   "start": 114.111,
-   "end": 120.689,
-   "text": "三对并列，按名字取 P–Q。换一种评分，第一对就变了。",
-   "sceneId": "s06-priority"
-  },
-  {
-   "start": 121.089,
-   "end": 128.778,
-   "text": "网表也一样。两条宽 net 连着 A 到 E，一条私有 net 只连 E、F。",
-   "sceneId": "s07-pin"
-  },
-  {
-   "start": 128.778,
-   "end": 136.689,
-   "text": "如果只数“有几条 net 同时连着”：A–B 有 2 条，E–F 只有 1 条。",
-   "sceneId": "s07-pin"
-  },
-  {
-   "start": 136.689,
-   "end": 146.156,
-   "text": "clique 模型把一个 net 摊成 |e|−1 份：A–B = 1/4 + 1/4 = 0.5。",
-   "sceneId": "s07-pin"
-  },
-  {
-   "start": 146.156,
-   "end": 153.844,
-   "text": "E–F 的 net 只有两个引脚：1/(2−1) = 1。E–F 排第一。",
-   "sceneId": "s07-pin"
-  },
-  {
-   "start": 153.844,
-   "end": 158.422,
-   "text": "宽 net 被稀释，私有连接才显出来。",
-   "sceneId": "s07-pin"
-  },
-  {
-   "start": 158.822,
-   "end": 164.289,
-   "text": "把共同邻居评分写成伪代码，用 B–D 走一遍。",
-   "sceneId": "s08-code"
-  },
-  {
-   "start": 164.289,
-   "end": 167.533,
-   "text": "没有直接边：从 0 开始。",
-   "sceneId": "s08-code"
-  },
-  {
-   "start": 167.533,
-   "end": 172.111,
-   "text": "对每个共同邻居，加上较弱的那条边。",
-   "sceneId": "s08-code"
-  },
-  {
-   "start": 172.111,
-   "end": 175.356,
-   "text": "分数为正，记下这一对。",
-   "sceneId": "s08-code"
-  },
-  {
-   "start": 175.356,
-   "end": 182.156,
-   "text": "最后按分数降序、名字升序排好。输出的是排名，不是分组。",
-   "sceneId": "s08-code"
-  },
-  {
-   "start": 182.556,
-   "end": 184.911,
-   "text": "回到芯片设计。",
-   "sceneId": "s09-eda"
-  },
-  {
-   "start": 184.911,
-   "end": 189.933,
-   "text": "评分是模型的选择，要写明用的是哪一种。",
-   "sceneId": "s09-eda"
-  },
-  {
-   "start": 189.933,
-   "end": 194.956,
-   "text": "宽 net 不摊薄，会掩盖真正的局部结构。",
-   "sceneId": "s09-eda"
-  },
-  {
-   "start": 194.956,
-   "end": 200.2,
-   "text": "下一模块：用簇间边权和，开始真正的合并。",
-   "sceneId": "s09-eda"
-  }
- ],
- "music": "本课程原创程序合成配乐（NumPy），CC BY 4.0",
- "why": "约 3 分半：先预测、再拆分数。B–D 的“无直接边也有分”与宽 net 稀释各留足停顿。",
- "readingViolations": 0,
- "fps": 30,
- "size": [
-  1920,
-  1080
  ]
 }

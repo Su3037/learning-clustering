@@ -8,8 +8,9 @@
         "m02-why"
       ],
       "sceneIds": [
-        "s01-hook",
-        "s09-eda"
+        "p-count",
+        "p-outro",
+        "k01-question"
       ],
       "slideIds": [
         "m02-problem",
@@ -22,14 +23,19 @@
       "python": [],
       "video": [
         {
-          "sceneId": "s01-hook",
-          "film": "affinity",
-          "start": 3
+          "sceneId": "p-count",
+          "film": "story",
+          "start": 10.75
         },
         {
-          "sceneId": "s09-eda",
-          "film": "affinity",
-          "start": 182.56
+          "sceneId": "p-outro",
+          "film": "story",
+          "start": 141.5
+        },
+        {
+          "sceneId": "k01-question",
+          "film": "concise",
+          "start": 3.4
         }
       ],
       "slides": [
@@ -49,7 +55,9 @@
         "m02-edge"
       ],
       "sceneIds": [
-        "s03-edge"
+        "p-direct",
+        "k02-edge",
+        "a06-ties"
       ],
       "slideIds": [
         "m02-edge"
@@ -63,9 +71,19 @@
       ],
       "video": [
         {
-          "sceneId": "s03-edge",
-          "film": "affinity",
-          "start": 29.8
+          "sceneId": "p-direct",
+          "film": "story",
+          "start": 37
+        },
+        {
+          "sceneId": "k02-edge",
+          "film": "concise",
+          "start": 16.89
+        },
+        {
+          "sceneId": "a06-ties",
+          "film": "advanced",
+          "start": 107.29
         }
       ],
       "slides": [
@@ -81,8 +99,10 @@
         "m02-shared"
       ],
       "sceneIds": [
-        "s04-ac",
-        "s05-bd"
+        "p-shared",
+        "k03-shared",
+        "k04-bd",
+        "a02-min"
       ],
       "slideIds": [
         "m02-shared-formula",
@@ -98,14 +118,24 @@
       ],
       "video": [
         {
-          "sceneId": "s04-ac",
-          "film": "affinity",
-          "start": 48.82
+          "sceneId": "p-shared",
+          "film": "story",
+          "start": 51.18
         },
         {
-          "sceneId": "s05-bd",
-          "film": "affinity",
-          "start": 69.31
+          "sceneId": "k03-shared",
+          "film": "concise",
+          "start": 33.69
+        },
+        {
+          "sceneId": "k04-bd",
+          "film": "concise",
+          "start": 48.07
+        },
+        {
+          "sceneId": "a02-min",
+          "film": "advanced",
+          "start": 11.44
         }
       ],
       "slides": [
@@ -125,7 +155,8 @@
         "m02-priority"
       ],
       "sceneIds": [
-        "s06-priority"
+        "p-flip",
+        "k05-priority"
       ],
       "slideIds": [
         "m02-priority"
@@ -141,9 +172,14 @@
       ],
       "video": [
         {
-          "sceneId": "s06-priority",
-          "film": "affinity",
-          "start": 94.6
+          "sceneId": "p-flip",
+          "film": "story",
+          "start": 80.16
+        },
+        {
+          "sceneId": "k05-priority",
+          "film": "concise",
+          "start": 61.53
         }
       ],
       "slides": [
@@ -159,8 +195,9 @@
         "m02-pincount"
       ],
       "sceneIds": [
-        "s07-pin",
-        "s02-model"
+        "p-dilute",
+        "k06-pin",
+        "a05-conserve"
       ],
       "slideIds": [
         "m02-model",
@@ -175,14 +212,19 @@
       ],
       "video": [
         {
-          "sceneId": "s07-pin",
-          "film": "affinity",
-          "start": 121.09
+          "sceneId": "p-dilute",
+          "film": "story",
+          "start": 102.5
         },
         {
-          "sceneId": "s02-model",
-          "film": "affinity",
-          "start": 14.33
+          "sceneId": "k06-pin",
+          "film": "concise",
+          "start": 78.33
+        },
+        {
+          "sceneId": "a05-conserve",
+          "film": "advanced",
+          "start": 88.04
         }
       ],
       "slides": [
@@ -202,7 +244,8 @@
         "m02-pseudocode"
       ],
       "sceneIds": [
-        "s08-code"
+        "p-list",
+        "a04-cost"
       ],
       "slideIds": [
         "m02-pseudo"
@@ -218,9 +261,14 @@
       ],
       "video": [
         {
-          "sceneId": "s08-code",
-          "film": "affinity",
-          "start": 158.82
+          "sceneId": "p-list",
+          "film": "story",
+          "start": 66.08
+        },
+        {
+          "sceneId": "a04-cost",
+          "film": "advanced",
+          "start": 62.02
         }
       ],
       "slides": [

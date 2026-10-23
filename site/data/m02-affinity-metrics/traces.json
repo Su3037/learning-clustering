@@ -772,5 +772,1318 @@
    }
   ],
   "ignored": []
- }
+ },
+ "chats": {
+  "netlist": {
+   "nodes": [
+    "Me",
+    "Boss",
+    "Lin",
+    "Zhou",
+    "Chen",
+    "Wu"
+   ],
+   "nets": [
+    {
+     "id": "all",
+     "pins": [
+      "Me",
+      "Boss",
+      "Lin",
+      "Zhou",
+      "Chen",
+      "Wu"
+     ],
+     "w": 1
+    },
+    {
+     "id": "project",
+     "pins": [
+      "Me",
+      "Boss",
+      "Lin",
+      "Zhou",
+      "Chen"
+     ],
+     "w": 1
+    },
+    {
+     "id": "weekly",
+     "pins": [
+      "Me",
+      "Boss",
+      "Lin",
+      "Zhou",
+      "Wu"
+     ],
+     "w": 1
+    },
+    {
+     "id": "notice",
+     "pins": [
+      "Me",
+      "Boss",
+      "Zhou",
+      "Chen",
+      "Wu"
+     ],
+     "w": 1
+    },
+    {
+     "id": "outing",
+     "pins": [
+      "Me",
+      "Boss",
+      "Zhou",
+      "Chen",
+      "Wu"
+     ],
+     "w": 1
+    },
+    {
+     "id": "dm",
+     "pins": [
+      "Me",
+      "Lin"
+     ],
+     "w": 1
+    }
+   ]
+  },
+  "pin": {
+   "scores": [
+    {
+     "u": "Lin",
+     "v": "Me",
+     "score": 1.7,
+     "raw": 4,
+     "parts": {
+      "nets": [
+       {
+        "id": "all",
+        "size": 6,
+        "w": 1,
+        "share": 0.2
+       },
+       {
+        "id": "project",
+        "size": 5,
+        "w": 1,
+        "share": 0.25
+       },
+       {
+        "id": "weekly",
+        "size": 5,
+        "w": 1,
+        "share": 0.25
+       },
+       {
+        "id": "dm",
+        "size": 2,
+        "w": 1,
+        "share": 1
+       }
+      ]
+     }
+    },
+    {
+     "u": "Boss",
+     "v": "Me",
+     "score": 1.2,
+     "raw": 5,
+     "parts": {
+      "nets": [
+       {
+        "id": "all",
+        "size": 6,
+        "w": 1,
+        "share": 0.2
+       },
+       {
+        "id": "project",
+        "size": 5,
+        "w": 1,
+        "share": 0.25
+       },
+       {
+        "id": "weekly",
+        "size": 5,
+        "w": 1,
+        "share": 0.25
+       },
+       {
+        "id": "notice",
+        "size": 5,
+        "w": 1,
+        "share": 0.25
+       },
+       {
+        "id": "outing",
+        "size": 5,
+        "w": 1,
+        "share": 0.25
+       }
+      ]
+     }
+    },
+    {
+     "u": "Boss",
+     "v": "Zhou",
+     "score": 1.2,
+     "raw": 5,
+     "parts": {
+      "nets": [
+       {
+        "id": "all",
+        "size": 6,
+        "w": 1,
+        "share": 0.2
+       },
+       {
+        "id": "project",
+        "size": 5,
+        "w": 1,
+        "share": 0.25
+       },
+       {
+        "id": "weekly",
+        "size": 5,
+        "w": 1,
+        "share": 0.25
+       },
+       {
+        "id": "notice",
+        "size": 5,
+        "w": 1,
+        "share": 0.25
+       },
+       {
+        "id": "outing",
+        "size": 5,
+        "w": 1,
+        "share": 0.25
+       }
+      ]
+     }
+    },
+    {
+     "u": "Me",
+     "v": "Zhou",
+     "score": 1.2,
+     "raw": 5,
+     "parts": {
+      "nets": [
+       {
+        "id": "all",
+        "size": 6,
+        "w": 1,
+        "share": 0.2
+       },
+       {
+        "id": "project",
+        "size": 5,
+        "w": 1,
+        "share": 0.25
+       },
+       {
+        "id": "weekly",
+        "size": 5,
+        "w": 1,
+        "share": 0.25
+       },
+       {
+        "id": "notice",
+        "size": 5,
+        "w": 1,
+        "share": 0.25
+       },
+       {
+        "id": "outing",
+        "size": 5,
+        "w": 1,
+        "share": 0.25
+       }
+      ]
+     }
+    },
+    {
+     "u": "Boss",
+     "v": "Chen",
+     "score": 0.95,
+     "raw": 4,
+     "parts": {
+      "nets": [
+       {
+        "id": "all",
+        "size": 6,
+        "w": 1,
+        "share": 0.2
+       },
+       {
+        "id": "project",
+        "size": 5,
+        "w": 1,
+        "share": 0.25
+       },
+       {
+        "id": "notice",
+        "size": 5,
+        "w": 1,
+        "share": 0.25
+       },
+       {
+        "id": "outing",
+        "size": 5,
+        "w": 1,
+        "share": 0.25
+       }
+      ]
+     }
+    },
+    {
+     "u": "Boss",
+     "v": "Wu",
+     "score": 0.95,
+     "raw": 4,
+     "parts": {
+      "nets": [
+       {
+        "id": "all",
+        "size": 6,
+        "w": 1,
+        "share": 0.2
+       },
+       {
+        "id": "weekly",
+        "size": 5,
+        "w": 1,
+        "share": 0.25
+       },
+       {
+        "id": "notice",
+        "size": 5,
+        "w": 1,
+        "share": 0.25
+       },
+       {
+        "id": "outing",
+        "size": 5,
+        "w": 1,
+        "share": 0.25
+       }
+      ]
+     }
+    },
+    {
+     "u": "Chen",
+     "v": "Me",
+     "score": 0.95,
+     "raw": 4,
+     "parts": {
+      "nets": [
+       {
+        "id": "all",
+        "size": 6,
+        "w": 1,
+        "share": 0.2
+       },
+       {
+        "id": "project",
+        "size": 5,
+        "w": 1,
+        "share": 0.25
+       },
+       {
+        "id": "notice",
+        "size": 5,
+        "w": 1,
+        "share": 0.25
+       },
+       {
+        "id": "outing",
+        "size": 5,
+        "w": 1,
+        "share": 0.25
+       }
+      ]
+     }
+    },
+    {
+     "u": "Chen",
+     "v": "Zhou",
+     "score": 0.95,
+     "raw": 4,
+     "parts": {
+      "nets": [
+       {
+        "id": "all",
+        "size": 6,
+        "w": 1,
+        "share": 0.2
+       },
+       {
+        "id": "project",
+        "size": 5,
+        "w": 1,
+        "share": 0.25
+       },
+       {
+        "id": "notice",
+        "size": 5,
+        "w": 1,
+        "share": 0.25
+       },
+       {
+        "id": "outing",
+        "size": 5,
+        "w": 1,
+        "share": 0.25
+       }
+      ]
+     }
+    },
+    {
+     "u": "Me",
+     "v": "Wu",
+     "score": 0.95,
+     "raw": 4,
+     "parts": {
+      "nets": [
+       {
+        "id": "all",
+        "size": 6,
+        "w": 1,
+        "share": 0.2
+       },
+       {
+        "id": "weekly",
+        "size": 5,
+        "w": 1,
+        "share": 0.25
+       },
+       {
+        "id": "notice",
+        "size": 5,
+        "w": 1,
+        "share": 0.25
+       },
+       {
+        "id": "outing",
+        "size": 5,
+        "w": 1,
+        "share": 0.25
+       }
+      ]
+     }
+    },
+    {
+     "u": "Wu",
+     "v": "Zhou",
+     "score": 0.95,
+     "raw": 4,
+     "parts": {
+      "nets": [
+       {
+        "id": "all",
+        "size": 6,
+        "w": 1,
+        "share": 0.2
+       },
+       {
+        "id": "weekly",
+        "size": 5,
+        "w": 1,
+        "share": 0.25
+       },
+       {
+        "id": "notice",
+        "size": 5,
+        "w": 1,
+        "share": 0.25
+       },
+       {
+        "id": "outing",
+        "size": 5,
+        "w": 1,
+        "share": 0.25
+       }
+      ]
+     }
+    },
+    {
+     "u": "Boss",
+     "v": "Lin",
+     "score": 0.7,
+     "raw": 3,
+     "parts": {
+      "nets": [
+       {
+        "id": "all",
+        "size": 6,
+        "w": 1,
+        "share": 0.2
+       },
+       {
+        "id": "project",
+        "size": 5,
+        "w": 1,
+        "share": 0.25
+       },
+       {
+        "id": "weekly",
+        "size": 5,
+        "w": 1,
+        "share": 0.25
+       }
+      ]
+     }
+    },
+    {
+     "u": "Chen",
+     "v": "Wu",
+     "score": 0.7,
+     "raw": 3,
+     "parts": {
+      "nets": [
+       {
+        "id": "all",
+        "size": 6,
+        "w": 1,
+        "share": 0.2
+       },
+       {
+        "id": "notice",
+        "size": 5,
+        "w": 1,
+        "share": 0.25
+       },
+       {
+        "id": "outing",
+        "size": 5,
+        "w": 1,
+        "share": 0.25
+       }
+      ]
+     }
+    },
+    {
+     "u": "Lin",
+     "v": "Zhou",
+     "score": 0.7,
+     "raw": 3,
+     "parts": {
+      "nets": [
+       {
+        "id": "all",
+        "size": 6,
+        "w": 1,
+        "share": 0.2
+       },
+       {
+        "id": "project",
+        "size": 5,
+        "w": 1,
+        "share": 0.25
+       },
+       {
+        "id": "weekly",
+        "size": 5,
+        "w": 1,
+        "share": 0.25
+       }
+      ]
+     }
+    },
+    {
+     "u": "Chen",
+     "v": "Lin",
+     "score": 0.45,
+     "raw": 2,
+     "parts": {
+      "nets": [
+       {
+        "id": "all",
+        "size": 6,
+        "w": 1,
+        "share": 0.2
+       },
+       {
+        "id": "project",
+        "size": 5,
+        "w": 1,
+        "share": 0.25
+       }
+      ]
+     }
+    },
+    {
+     "u": "Lin",
+     "v": "Wu",
+     "score": 0.45,
+     "raw": 2,
+     "parts": {
+      "nets": [
+       {
+        "id": "all",
+        "size": 6,
+        "w": 1,
+        "share": 0.2
+       },
+       {
+        "id": "weekly",
+        "size": 5,
+        "w": 1,
+        "share": 0.25
+       }
+      ]
+     }
+    }
+   ],
+   "raw": [
+    {
+     "u": "Boss",
+     "v": "Me",
+     "score": 5
+    },
+    {
+     "u": "Boss",
+     "v": "Zhou",
+     "score": 5
+    },
+    {
+     "u": "Me",
+     "v": "Zhou",
+     "score": 5
+    },
+    {
+     "u": "Boss",
+     "v": "Chen",
+     "score": 4
+    },
+    {
+     "u": "Boss",
+     "v": "Wu",
+     "score": 4
+    },
+    {
+     "u": "Chen",
+     "v": "Me",
+     "score": 4
+    },
+    {
+     "u": "Chen",
+     "v": "Zhou",
+     "score": 4
+    },
+    {
+     "u": "Lin",
+     "v": "Me",
+     "score": 4
+    },
+    {
+     "u": "Me",
+     "v": "Wu",
+     "score": 4
+    },
+    {
+     "u": "Wu",
+     "v": "Zhou",
+     "score": 4
+    },
+    {
+     "u": "Boss",
+     "v": "Lin",
+     "score": 3
+    },
+    {
+     "u": "Chen",
+     "v": "Wu",
+     "score": 3
+    },
+    {
+     "u": "Lin",
+     "v": "Zhou",
+     "score": 3
+    },
+    {
+     "u": "Chen",
+     "v": "Lin",
+     "score": 2
+    },
+    {
+     "u": "Lin",
+     "v": "Wu",
+     "score": 2
+    }
+   ],
+   "ignored": []
+  }
+ },
+ "hub": {
+  "graph": {
+   "nodes": [
+    "H",
+    "a",
+    "b",
+    "c",
+    "d",
+    "e",
+    "f",
+    "P",
+    "Q"
+   ],
+   "edges": [
+    [
+     "H",
+     "a",
+     3
+    ],
+    [
+     "H",
+     "b",
+     3
+    ],
+    [
+     "H",
+     "c",
+     3
+    ],
+    [
+     "H",
+     "d",
+     3
+    ],
+    [
+     "H",
+     "e",
+     3
+    ],
+    [
+     "H",
+     "f",
+     3
+    ],
+    [
+     "P",
+     "Q",
+     2
+    ]
+   ]
+  },
+  "shared": [
+   {
+    "u": "H",
+    "v": "a",
+    "score": 3,
+    "parts": {
+     "direct": 3,
+     "via": []
+    }
+   },
+   {
+    "u": "H",
+    "v": "b",
+    "score": 3,
+    "parts": {
+     "direct": 3,
+     "via": []
+    }
+   },
+   {
+    "u": "H",
+    "v": "c",
+    "score": 3,
+    "parts": {
+     "direct": 3,
+     "via": []
+    }
+   },
+   {
+    "u": "H",
+    "v": "d",
+    "score": 3,
+    "parts": {
+     "direct": 3,
+     "via": []
+    }
+   },
+   {
+    "u": "H",
+    "v": "e",
+    "score": 3,
+    "parts": {
+     "direct": 3,
+     "via": []
+    }
+   },
+   {
+    "u": "H",
+    "v": "f",
+    "score": 3,
+    "parts": {
+     "direct": 3,
+     "via": []
+    }
+   },
+   {
+    "u": "a",
+    "v": "b",
+    "score": 3,
+    "parts": {
+     "direct": 0,
+     "via": [
+      {
+       "x": "H",
+       "wu": 3,
+       "wv": 3,
+       "min": 3
+      }
+     ]
+    }
+   },
+   {
+    "u": "a",
+    "v": "c",
+    "score": 3,
+    "parts": {
+     "direct": 0,
+     "via": [
+      {
+       "x": "H",
+       "wu": 3,
+       "wv": 3,
+       "min": 3
+      }
+     ]
+    }
+   },
+   {
+    "u": "a",
+    "v": "d",
+    "score": 3,
+    "parts": {
+     "direct": 0,
+     "via": [
+      {
+       "x": "H",
+       "wu": 3,
+       "wv": 3,
+       "min": 3
+      }
+     ]
+    }
+   },
+   {
+    "u": "a",
+    "v": "e",
+    "score": 3,
+    "parts": {
+     "direct": 0,
+     "via": [
+      {
+       "x": "H",
+       "wu": 3,
+       "wv": 3,
+       "min": 3
+      }
+     ]
+    }
+   },
+   {
+    "u": "a",
+    "v": "f",
+    "score": 3,
+    "parts": {
+     "direct": 0,
+     "via": [
+      {
+       "x": "H",
+       "wu": 3,
+       "wv": 3,
+       "min": 3
+      }
+     ]
+    }
+   },
+   {
+    "u": "b",
+    "v": "c",
+    "score": 3,
+    "parts": {
+     "direct": 0,
+     "via": [
+      {
+       "x": "H",
+       "wu": 3,
+       "wv": 3,
+       "min": 3
+      }
+     ]
+    }
+   },
+   {
+    "u": "b",
+    "v": "d",
+    "score": 3,
+    "parts": {
+     "direct": 0,
+     "via": [
+      {
+       "x": "H",
+       "wu": 3,
+       "wv": 3,
+       "min": 3
+      }
+     ]
+    }
+   },
+   {
+    "u": "b",
+    "v": "e",
+    "score": 3,
+    "parts": {
+     "direct": 0,
+     "via": [
+      {
+       "x": "H",
+       "wu": 3,
+       "wv": 3,
+       "min": 3
+      }
+     ]
+    }
+   },
+   {
+    "u": "b",
+    "v": "f",
+    "score": 3,
+    "parts": {
+     "direct": 0,
+     "via": [
+      {
+       "x": "H",
+       "wu": 3,
+       "wv": 3,
+       "min": 3
+      }
+     ]
+    }
+   },
+   {
+    "u": "c",
+    "v": "d",
+    "score": 3,
+    "parts": {
+     "direct": 0,
+     "via": [
+      {
+       "x": "H",
+       "wu": 3,
+       "wv": 3,
+       "min": 3
+      }
+     ]
+    }
+   },
+   {
+    "u": "c",
+    "v": "e",
+    "score": 3,
+    "parts": {
+     "direct": 0,
+     "via": [
+      {
+       "x": "H",
+       "wu": 3,
+       "wv": 3,
+       "min": 3
+      }
+     ]
+    }
+   },
+   {
+    "u": "c",
+    "v": "f",
+    "score": 3,
+    "parts": {
+     "direct": 0,
+     "via": [
+      {
+       "x": "H",
+       "wu": 3,
+       "wv": 3,
+       "min": 3
+      }
+     ]
+    }
+   },
+   {
+    "u": "d",
+    "v": "e",
+    "score": 3,
+    "parts": {
+     "direct": 0,
+     "via": [
+      {
+       "x": "H",
+       "wu": 3,
+       "wv": 3,
+       "min": 3
+      }
+     ]
+    }
+   },
+   {
+    "u": "d",
+    "v": "f",
+    "score": 3,
+    "parts": {
+     "direct": 0,
+     "via": [
+      {
+       "x": "H",
+       "wu": 3,
+       "wv": 3,
+       "min": 3
+      }
+     ]
+    }
+   },
+   {
+    "u": "e",
+    "v": "f",
+    "score": 3,
+    "parts": {
+     "direct": 0,
+     "via": [
+      {
+       "x": "H",
+       "wu": 3,
+       "wv": 3,
+       "min": 3
+      }
+     ]
+    }
+   },
+   {
+    "u": "P",
+    "v": "Q",
+    "score": 2,
+    "parts": {
+     "direct": 2,
+     "via": []
+    }
+   }
+  ],
+  "edge": [
+   {
+    "u": "H",
+    "v": "a",
+    "score": 3,
+    "parts": {
+     "direct": 3,
+     "via": []
+    }
+   },
+   {
+    "u": "H",
+    "v": "b",
+    "score": 3,
+    "parts": {
+     "direct": 3,
+     "via": []
+    }
+   },
+   {
+    "u": "H",
+    "v": "c",
+    "score": 3,
+    "parts": {
+     "direct": 3,
+     "via": []
+    }
+   },
+   {
+    "u": "H",
+    "v": "d",
+    "score": 3,
+    "parts": {
+     "direct": 3,
+     "via": []
+    }
+   },
+   {
+    "u": "H",
+    "v": "e",
+    "score": 3,
+    "parts": {
+     "direct": 3,
+     "via": []
+    }
+   },
+   {
+    "u": "H",
+    "v": "f",
+    "score": 3,
+    "parts": {
+     "direct": 3,
+     "via": []
+    }
+   },
+   {
+    "u": "P",
+    "v": "Q",
+    "score": 2,
+    "parts": {
+     "direct": 2,
+     "via": []
+    }
+   }
+  ]
+ },
+ "lopsided": {
+  "graph": {
+   "nodes": [
+    "U",
+    "V",
+    "X"
+   ],
+   "edges": [
+    [
+     "U",
+     "X",
+     10
+    ],
+    [
+     "V",
+     "X",
+     1
+    ]
+   ]
+  },
+  "shared": [
+   {
+    "u": "U",
+    "v": "X",
+    "score": 10,
+    "parts": {
+     "direct": 10,
+     "via": []
+    }
+   },
+   {
+    "u": "U",
+    "v": "V",
+    "score": 1,
+    "parts": {
+     "direct": 0,
+     "via": [
+      {
+       "x": "X",
+       "wu": 10,
+       "wv": 1,
+       "min": 1
+      }
+     ]
+    }
+   },
+   {
+    "u": "V",
+    "v": "X",
+    "score": 1,
+    "parts": {
+     "direct": 1,
+     "via": []
+    }
+   }
+  ]
+ },
+ "cost": {
+  "g01": {
+   "n": 5,
+   "m": 6,
+   "allPairs": 10,
+   "viaNeighbours": 10,
+   "maxDegree": 4,
+   "positive": 10
+  },
+  "circuit": {
+   "n": 24,
+   "m": 56,
+   "allPairs": 276,
+   "viaNeighbours": 229,
+   "maxDegree": 7,
+   "positive": 103
+  },
+  "grid": {
+   "n": 10000,
+   "m": 19800,
+   "allPairs": 49995000,
+   "viaNeighbours": 58804,
+   "maxDegree": 4,
+   "positive": null
+  }
+ },
+ "reversedShared": [
+  {
+   "u": "A",
+   "v": "B",
+   "score": 6,
+   "parts": {
+    "direct": 5,
+    "via": [
+     {
+      "x": "C",
+      "wu": 1,
+      "wv": 4,
+      "min": 1
+     }
+    ]
+   }
+  },
+  {
+   "u": "D",
+   "v": "E",
+   "score": 6,
+   "parts": {
+    "direct": 5,
+    "via": [
+     {
+      "x": "C",
+      "wu": 2,
+      "wv": 1,
+      "min": 1
+     }
+    ]
+   }
+  },
+  {
+   "u": "A",
+   "v": "C",
+   "score": 5,
+   "parts": {
+    "direct": 1,
+    "via": [
+     {
+      "x": "B",
+      "wu": 5,
+      "wv": 4,
+      "min": 4
+     }
+    ]
+   }
+  },
+  {
+   "u": "B",
+   "v": "C",
+   "score": 5,
+   "parts": {
+    "direct": 4,
+    "via": [
+     {
+      "x": "A",
+      "wu": 5,
+      "wv": 1,
+      "min": 1
+     }
+    ]
+   }
+  },
+  {
+   "u": "C",
+   "v": "D",
+   "score": 3,
+   "parts": {
+    "direct": 2,
+    "via": [
+     {
+      "x": "E",
+      "wu": 1,
+      "wv": 5,
+      "min": 1
+     }
+    ]
+   }
+  },
+  {
+   "u": "C",
+   "v": "E",
+   "score": 3,
+   "parts": {
+    "direct": 1,
+    "via": [
+     {
+      "x": "D",
+      "wu": 2,
+      "wv": 5,
+      "min": 2
+     }
+    ]
+   }
+  },
+  {
+   "u": "B",
+   "v": "D",
+   "score": 2,
+   "parts": {
+    "direct": 0,
+    "via": [
+     {
+      "x": "C",
+      "wu": 4,
+      "wv": 2,
+      "min": 2
+     }
+    ]
+   }
+  },
+  {
+   "u": "A",
+   "v": "D",
+   "score": 1,
+   "parts": {
+    "direct": 0,
+    "via": [
+     {
+      "x": "C",
+      "wu": 1,
+      "wv": 2,
+      "min": 1
+     }
+    ]
+   }
+  },
+  {
+   "u": "A",
+   "v": "E",
+   "score": 1,
+   "parts": {
+    "direct": 0,
+    "via": [
+     {
+      "x": "C",
+      "wu": 1,
+      "wv": 1,
+      "min": 1
+     }
+    ]
+   }
+  },
+  {
+   "u": "B",
+   "v": "E",
+   "score": 1,
+   "parts": {
+    "direct": 0,
+    "via": [
+     {
+      "x": "C",
+      "wu": 4,
+      "wv": 1,
+      "min": 1
+     }
+    ]
+   }
+  }
+ ]
 }

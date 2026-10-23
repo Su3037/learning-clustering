@@ -4,6 +4,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
+import os from 'node:os';
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
 const course = JSON.parse(fs.readFileSync(path.join(ROOT, 'content/course.json'), 'utf8'));
 for (const id of course.modules) {
@@ -16,7 +17,7 @@ for (const id of course.modules) {
   const numpy = id === 'm06-spectral-bisection' ? '\n可选：NumPy（检查器中“与 NumPy 对照”一项需要它；没有时报 SKIP，不算通过）。' : '';
   const md = `# ${m.display} ${m.title} · Python 练习包
 
-${m.pythonPackage.title}。来自 Learning Clustering 统一课程（${m.display}）。网页上的实验与挑战不需要 Python；这个包是可选的实现轨道。
+${m.pythonPackage.title}。来自 Learning Clustering 统一课程（${m.display}）。${m.codelab ? '这个练习也可以直接在模块页面的在线编程里完成，无需安装；这个包用于离线练习。' : '网页上的实验与挑战不需要 Python；这个包是可选的实现轨道。'}
 
 ## 环境
 
@@ -61,7 +62,15 @@ ${sample}
   if (!fs.existsSync(enDir) || !fs.existsSync(enJson)) continue;
   const e = { ...m, ...JSON.parse(fs.readFileSync(enJson, 'utf8')) };
   e.pythonPackage = { ...m.pythonPackage, ...(e.pythonPackage || {}) };
-  const sampleEn = sample; // same code, same output; the English reference reads ../fixtures only once packed
+  // Run the English reference as it sits in the packed zip: next to fixtures/.
+  let sampleEn = sample;
+  if (fs.existsSync(path.join(enDir, 'reference.py'))) {
+    const tmp = fs.mkdtempSync(path.join(os.tmpdir(), `pack-${id}-`));
+    fs.copyFileSync(path.join(enDir, 'reference.py'), path.join(tmp, 'reference.py'));
+    if (fs.existsSync(path.join(dir, 'fixtures'))) fs.cpSync(path.join(dir, 'fixtures'), path.join(tmp, 'fixtures'), { recursive: true });
+    try { sampleEn = execFileSync('python3', ['reference.py'], { cwd: tmp, encoding: 'utf8', timeout: 20000 }).trim(); } catch (err) { sampleEn = `(run failed: ${err.message})`; }
+    fs.rmSync(tmp, { recursive: true, force: true });
+  }
   fs.writeFileSync(path.join(enDir, 'README.md'), `# ${m.display} ${e.title} · Python exercise pack
 
 ${e.pythonPackage.title}. From the Learning Clustering course (${m.display}). You can also do this exercise in the browser on the module page, with nothing to install; this pack is for working offline.

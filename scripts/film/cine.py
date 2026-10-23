@@ -35,6 +35,8 @@ FACES = {
     "en": {"sans": "Noto Sans", "serif": "Newsreader", "mono": "JetBrains Mono"},
 }
 SYMBOLS = set("ℓ→←↔⇄⇒Σ∑≤≥≠×÷∈√✓✗↻")  # missing from the Latin faces; drawn with Noto Sans SC
+MONO_SYMBOLS = set("⌈⌉⌊⌋")  # in neither the Latin nor the CJK sans faces; JetBrains Mono has them
+LATIN_PUNCT = set("“”‘’…—")  # the Latin faces have these; the CJK face would set them full-width
 CJK_FACE = {"sans": "Noto Sans SC", "serif": "Noto Serif SC", "mono": "Noto Sans SC"}
 
 
@@ -245,11 +247,15 @@ class Frame:
     # ---- text: runs of CJK / Latin get the matching face (the toy API has no glyph fallback)
     def _runs(self, s, role):
         fam = FACES[LANG][role]
-        if LANG == "zh" and role != "mono":
+        if LANG == "zh" and role != "mono" and not MONO_SYMBOLS.intersection(s):
             return [(s, fam)]
         out, cur, key = [], "", None
         for ch in s:
-            if is_cjk(ch) or ch in SYMBOLS:
+            if ch in MONO_SYMBOLS:
+                k = FACES[LANG]["mono"]
+            elif LANG == "zh" and role != "mono":
+                k = fam
+            elif (is_cjk(ch) and ch not in LATIN_PUNCT) or ch in SYMBOLS:
                 k = CJK_FACE["sans"] if role == "mono" else CJK_FACE[role] if ch not in SYMBOLS else "Noto Sans SC"
             else:
                 k = fam
@@ -592,8 +598,10 @@ class Beat:
 
 
 class Scene:
-    def __init__(self, sid, draw, beats, chapter=None, tail=0.4, fade=True):
-        self.id, self.draw, self.chapter, self.fade = sid, draw, chapter, fade
+    """until: absolute film time at which the scene must end (music-pinned films); the tail stretches to fit."""
+
+    def __init__(self, sid, draw, beats, chapter=None, tail=0.4, fade=True, until=None):
+        self.id, self.draw, self.chapter, self.fade, self.until = sid, draw, chapter, fade, until
         self.beats = [b if isinstance(b, Beat) else Beat(*b) if isinstance(b, list) else Beat(b) for b in beats]
         self.starts, acc = [], 0.0
         for b in self.beats:
@@ -607,6 +615,7 @@ class Clock:
 
     def __init__(self, scene, t):
         self.scene, self.t = scene, t
+        self.T = t  # absolute film time; Film.render sets it
         self.k = max([i for i, s in enumerate(scene.starts) if s <= t + 1e-9] or [0])
 
     def at(self, k):
@@ -633,6 +642,11 @@ class Film:
         self.SCENES, self.MUSIC, self.SEED, self.POSTER_AT, self.WHY, self.LANGS = scenes, music, seed, poster_at, why, langs
         self.rows, t = [], 0.0
         for sc in scenes:
+            if sc.until is not None:
+                need = sc.starts[-1] + sc.beats[-1].dur if sc.beats else 0.0
+                if sc.until - t < need + 0.05:
+                    raise ValueError(f"{id}/{sc.id}: beats need {need:.2f} s but the slot {t:.2f}–{sc.until:.2f} has {sc.until - t:.2f} s")
+                sc.dur = sc.until - t
             self.rows.append((t, sc))
             t += sc.dur
         self.total = t
@@ -651,6 +665,7 @@ class Film:
         fr.clear()
         backdrop(fr)
         clock = Clock(sc, lt)
+        clock.T = T
         fade = clamp(lt / 0.45) * clamp((sc.dur - lt) / 0.45) if sc.fade else 1.0
         fr.alpha = fade
         sc.draw(fr, clock)
@@ -721,3 +736,26 @@ def math_line(fr, parts, cx, y, size=60, alpha=1.0, anchor="c"):
         last = (x, w)
         x += w
     return total
+
+
+# ---------------------------------------------------------------- music cues (measured onsets of a track)
+def cues(name):
+    """Onset map of a track (scripts/film/cues/<name>.json: times only, never audio)."""
+    import json
+    from pathlib import Path
+    d = json.loads((Path(__file__).resolve().parent / "cues" / f"{name}.json").read_text())
+    return [o["time"] for o in d["onsets"]], {round(o["time"], 3): o["strength"] for o in d["onsets"]}
+
+
+def hits_between(times, a, b):
+    return [t for t in times if a <= t < b]
+
+
+def pulse(T, times, decay=0.35):
+    """1 at each hit, decaying afterwards: for flashes that land on the music."""
+    past = [t for t in times if t <= T]
+    return math.exp(-(T - past[-1]) / decay) if past else 0.0
+
+
+def count_hits(T, times):
+    return sum(1 for t in times if t <= T)

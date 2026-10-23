@@ -34,10 +34,10 @@
 <aside class="factbox" aria-label="本模块概况"><dl>
 <dt>前置</dt><dd><a href="../../foundations/index.html">基础速查</a>：图、边权、net、簇。</dd>
 <dt>接下来</dt><dd>Module 03 用本章的“簇间边权和”执行合并。</dd>
-<dt>影片</dt><dd>3:21</dd>
+<dt>影片</dt><dd>3:10 + 1:53 + 2:44 + 2:44</dd>
 <dt>课件</dt><dd>12 页，16:9，含页码</dd>
 <dt>挑战</dt><dd>7 题 · [概念] [推演] [探索] [实现] [应用]</dd>
-<dt>Python</dt><dd>下载练习包，本地运行</dd>
+<dt>Python</dt><dd>在浏览器里直接写、直接运行</dd>
 </dl></aside>
 </div></section>
 
@@ -49,7 +49,7 @@
 </div></section>
 
 <section class="section dark" id="film"><div class="wrap">
-<div class="section-head"><div><p class="eyebrow"><span class="eyebrow-no">02</span> / 影片</p><h2>谁和谁最亲近</h2></div><p>影片先让你预测 priority 图的第一对，再把共同邻居的贡献一项项叠起来。每个分数都来自本页同一个引擎。</p></div>
+<div class="section-head"><div><p class="eyebrow"><span class="eyebrow-no">02</span> / 影片</p><h2>四部影片</h2></div><p>科普片从群聊讲起：按共同群聊数，你最亲近的人竟是老板；再到芯片，讲清三种评分。精讲片两分钟讲清必须掌握的内容；进阶片讲为什么取 min、枢纽问题、枚举代价、pin-count 守恒什么和平票规则；实验演示从真实页面录下，带你做一遍实验和在线编程。每个分数都来自本页同一个引擎。</p></div>
 <div id="film-root"><p class="muted">正在载入影片…</p></div>
 </div></section>
 
@@ -116,16 +116,15 @@
 </div></section>
 
 <section class="section" id="python"><div class="wrap">
-<div class="section-head"><div><p class="eyebrow"><span class="eyebrow-no">07</span> / Python 实现轨道 · 可选</p><h2>实现三种评分</h2></div><p>网页基础轨道不需要 Python。下载后在任意空目录运行；只用标准库。</p></div>
-<div class="grid-2"><div class="prose"><p><strong>任务</strong>（<code>starter.py</code> 中三个 <code>TODO</code>）：</p>
+<div class="section-head"><div><p class="eyebrow"><span class="eyebrow-no">07</span> / 在线编程 · 在浏览器里运行 Python</p><h2>实现三种评分</h2></div><p>不用安装任何东西：Python 在你的浏览器里运行（Pyodide），代码只保存在本机。检查器与下载包里的 check.py 完全相同。</p></div>
+<div class="grid-2 cl-intro"><div class="prose"><p><strong>任务</strong>（<code>starter.py</code> 中三个 <code>TODO</code>）：</p>
 <ol><li><code>affinity_edge_weight(edges)</code>：直接边权。</li><li><code>affinity_shared_neighbors(nodes, edges)</code>：检查所有无序节点对，只列正分。</li><li><code>affinity_pin_count(nodes, nets)</code>：clique 模型，重复引脚只算一次。</li></ol>
 <p>三个函数都返回 <code>[(u, v, score), ...]</code>，u &lt; v，按 (分数降序, u, v) 排序。</p>
 <p><strong>提示一</strong>：先写出“所有无序节点对”的双重循环，再决定每一对加什么。</p>
 <p><strong>提示二</strong>：共同邻居是同时出现在 u 和 v 邻接表中的 x；它贡献 <code>min(w(u,x), w(v,x))</code>。检查器还会用一张新图测试，不能只记住五节点答案。</p></div>
-<div><div class="py-files"><div><code>starter.py</code>起始代码：留有 TODO</div><div><code>check.py</code>检查器：未完成报 INCOMPLETE，不算 PASS</div><div><code>reference.py</code>参考实现：卡住时再看</div><div><code>fixtures/</code>本章例子的 JSON</div><div><code>README.md</code>任务、两级提示与样例</div></div>
-<p><a class="btn primary" href="../../downloads/m02-affinity-metrics-python.zip" download>下载练习包（.zip）</a></p>
-<pre><code>python3 check.py              # 检查你的 starter.py
-python3 check.py reference.py # 看参考实现全部通过</code></pre></div></div>
+<div class="cl-howto"><h3>怎么用</h3><ol><li>在编辑器里补全标着 TODO 的函数。</li><li>按 <b>运行检查</b>（Ctrl/⌘ + Enter）：每一项给出 PASS、FAIL 或 INCOMPLETE。</li><li>全部通过后，在下方用<b>你自己的</b>函数跑一遍例子，逐步对照课程引擎。</li></ol>
+<p class="small muted">第一次运行会下载约 12 MB 的 Python 运行环境，之后由浏览器缓存。想离线做？ <a href="../../downloads/m02-affinity-metrics-python.zip" download>下载练习包（.zip）</a></p></div></div>
+<div id="codelab-root" class="cl-root"><p class="muted">正在载入在线编程…</p></div>
 </div></section>
 
 <section class="section" id="mistakes"><div class="wrap">
@@ -140,7 +139,7 @@ python3 check.py reference.py # 看参考实现全部通过</code></pre></div></
 <h3>原作者与保留的贡献</h3>
 <p><strong>Capeur</strong> · <a href="https://capeur.github.io/eda-clustering-module-lab2/">原网站</a> · <a href="https://github.com/Capeur/eda-clustering-module-lab2">原仓库</a>（固定 <code>49b8725</code>）</p>
 <ul><li>同一张图并排比较 edge、shared-neighbor 与 pin-count 三种评分。</li><li>priority_graph：第一对要合并的单元从 X–Y@5 变成 P–Q@8（本章挑战与影片的核心例子）。</li><li>tiny_netlist：两条 5 引脚宽 net 与一条私有 net，展示宽 net 的稀释。</li><li>手工排序、改边权与“看解析后再判分”的练习思路；原作的英文/法文双语资源作为参考入口保留在原网站。</li></ul>
-<p class="small muted">原仓库未声明统一许可。本模块的讲解、引擎、影片和课件均为重写；priority_graph 与 tiny_netlist 两个小例子的数值来自原作，并在此署名。</p>
+<p class="small muted">原仓库未声明统一许可。本模块的讲解、引擎、影片和课件均为重写；priority_graph 与 tiny_netlist 两个小例子的数值来自原作，并在此署名。科普片使用作者指定的第三方音乐《We Never (Remix)（若如初见）》（Hi Noise / 秋成），它不在本课程许可范围内，本课程不授予其任何使用权，也不提供单独的音轨；其余三部影片的配乐为本课程原创合成。</p>
 </div><div class="prose">
 <h3>来源映射</h3>
 <table><tbody><tr><th>本课程</th><td>Module 02 · <code>m02-affinity-metrics</code></td></tr><tr><th>提交</th><td><a href="https://github.com/yongfu-li/eda-learning/issues/1">Issue #1</a> (Clustering Module - Lesson 2)</td></tr><tr><th>教师目录</th><td>module01-01-affinity-metrics（Lab 02）</td></tr><tr><th>状态</th><td>已核对</td></tr></tbody></table>

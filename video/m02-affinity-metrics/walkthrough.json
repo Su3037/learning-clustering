@@ -1,0 +1,10 @@
+{
+ "title": {"zh": "实验演示", "en": "Lab Walkthrough"},
+ "subtitle": {"zh": "实验台 · 在线编程 · 挑战", "en": "THE LAB  ·  THE CODE LAB  ·  CHALLENGES"},
+ "kicker": {"zh": "MODULE 02 · 亲和度指标", "en": "MODULE 02 · AFFINITY METRICS"},
+ "brand": {"zh": "Learning Clustering · Module 02 · 亲和度指标", "en": "Learning Clustering · Module 02 · Affinity metrics"},
+ "why": {"zh": "从真实页面录下的操作演示：切换评分方式、看 B–D 的分数从哪里来、改一条边权，再在浏览器里写完三个评分函数并通过全部检查。",
+         "en": "Recorded from the real page: switching the score, seeing where B–D's score comes from, changing an edge weight, then writing the three scoring functions in the browser and passing every check."},
+ "posterShot": 2,
+ "order": ["story", "concise", "advanced", "lab"]
+}

@@ -1,0 +1,101 @@
+WEBVTT
+
+1
+00:00:03.400 --> 00:00:05.800
+The three scores again.
+
+2
+00:00:05.800 --> 00:00:11.044
+Each one assumes something about which links count.
+
+3
+00:00:11.444 --> 00:00:18.467
+U and V share no wire; both touch X: U–X is 10, V–X only 1.
+
+4
+00:00:18.467 --> 00:00:22.600
+Take the weaker wire: the link through X is 1.
+
+5
+00:00:22.600 --> 00:00:28.956
+With a sum it would be 11, and look almost as close as U–X itself.
+
+6
+00:00:28.956 --> 00:00:35.533
+V barely touches X. A chain is as strong as its weakest link.
+
+7
+00:00:35.933 --> 00:00:44.511
+Now a hub: H reaches six leaves at weight 3; nearby, P–Q share a real wire of weight 2.
+
+8
+00:00:44.511 --> 00:00:50.422
+No two leaves are wired, yet each pair gets 3 through H: 15 pairs in all.
+
+9
+00:00:50.422 --> 00:00:55.089
+Every one of them ranks above P–Q, which really are wired.
+
+10
+00:00:55.089 --> 00:01:01.622
+This is a known weakness of shared neighbours; a common fix is to normalise by degree.
+
+11
+00:01:02.022 --> 00:01:08.022
+Cost: with ten thousand cells, there are almost fifty million unordered pairs.
+
+12
+00:01:08.022 --> 00:01:13.822
+Enumerating along neighbours takes under sixty thousand steps on this grid.
+
+13
+00:01:13.822 --> 00:01:19.511
+Because a pair that scores has either a wire or a shared neighbour.
+
+14
+00:01:19.511 --> 00:01:27.644
+But one huge net alone brings hundreds of thousands of pairs, so many tools treat such nets separately.
+
+15
+00:01:28.044 --> 00:01:33.289
+Why does pin-count divide by |e| − 1?
+
+16
+00:01:33.289 --> 00:01:37.200
+Add up the score each cell receives:
+
+17
+00:01:37.200 --> 00:01:46.889
+it equals the total weight of the cell's nets. Whatever its size, a net gives each pin exactly w(e).
+
+18
+00:01:47.289 --> 00:01:49.422
+Last, ties.
+
+19
+00:01:49.422 --> 00:01:54.556
+Feed the nodes and edges in reverse and the ranking is identical.
+
+20
+00:01:54.556 --> 00:02:02.622
+It matters: the next module merges the top pair first, and without a tie rule the result is not reproducible.
+
+21
+00:02:03.022 --> 00:02:10.933
+Once the top pair A–B merges, the next comparison is no longer between two cells but between clusters.
+
+22
+00:02:10.933 --> 00:02:15.511
+AB and C share two wires: 1 + 4 = 5.
+
+23
+00:02:15.511 --> 00:02:21.711
+Add up the wires between two clusters: that is the affinity the next module uses.
+
+24
+00:02:22.111 --> 00:02:24.178
+Six things to keep.
+
+25
+00:02:37.178 --> 00:02:42.244
+Next: merging for real, with the summed weight between clusters.

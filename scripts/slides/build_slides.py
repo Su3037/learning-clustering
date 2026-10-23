@@ -26,6 +26,13 @@ sys.path.insert(0, str(ROOT / "scripts" / "film"))
 os.environ.setdefault("LC_MONO_FONT", "Noto Sans SC")
 from cairo_ctx import Canvas, SANS, SERIF, MONO, hexc, runs  # noqa: E402
 import kit  # noqa: E402
+
+# The bundled Noto Sans SC draws curly quotes as full-width CJK glyphs; English decks use straight quotes instead.
+_EN_QUOTES = str.maketrans({"‘": "'", "’": "'", "“": '"', "”": '"'})
+
+
+def latin_quotes(s):
+    return s.translate(_EN_QUOTES) if kit.LANG == "en" else s
 from kit import INK, MUTED, FAINT, GOLD, TEAL, RED, BLUE, PANEL2  # noqa: E402
 
 W, H = 1920, 1080
@@ -94,7 +101,7 @@ class Recorder:
     def text(self, x, y, s, size=32, c=INK, weight="normal", align="left", family=None, alpha=1.0, baseline=True):
         if s is None or s == "":
             return 0
-        s = str(s)
+        s = latin_quotes(str(s))
         w = self.measure(s, size, weight, family)
         if not baseline:
             y += size * 0.88
@@ -117,6 +124,7 @@ class Recorder:
 
     def paragraph(self, x, y, s, size, max_w, c=INK, lh=1.55, weight="normal", family=None, alpha=1.0, align="left"):
         """One wrapped paragraph: PDF/PNG draw the wrapped lines, PPTX gets a single wrapping text box."""
+        s = latin_quotes(str(s))
         lines = self.wrap(s, size, max_w, weight, family)
         tx, ty = self._T(x, y)
         self.ops.append(("para", dict(x=tx, y=ty, s=str(s), lines=lines, size=self._S(size), max_w=self._S(max_w), c=c, lh=lh, weight=weight,

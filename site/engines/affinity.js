@@ -3,6 +3,7 @@
  * Scores are rankings, not clusters, distances or probabilities.
  */
 import { requireGraph, weightMap, compareKeys, ENGINE_VERSION } from './graph.js';
+import { L } from '../assets/i18n.js';
 
 const pairKey = (u, v) => u < v ? [u, v] : [v, u];
 /** Ranking order: score descending, then u, then v (u < v inside a pair). */
@@ -39,18 +40,18 @@ export function validateNetlist(input) {
   const errors = [], ignored = [];
   const nodes = (input?.nodes || []).map(n => typeof n === 'string' ? n : n.id);
   const ids = new Set(nodes);
-  if (!nodes.length) errors.push('需要 nodes 数组');
+  if (!nodes.length) errors.push(L('需要 nodes 数组', 'needs a nodes array'));
   const raw = input?.nets || input?.hyperedges;
-  if (!Array.isArray(raw)) errors.push('需要 nets 数组');
+  if (!Array.isArray(raw)) errors.push(L('需要 nets 数组', 'needs a nets array'));
   const nets = [];
   for (const [i, n] of (raw || []).entries()) {
     const id = n.id ?? `n${i}`, w = n.w ?? 1;
-    if (!Array.isArray(n.pins)) { errors.push(`net ${id} 缺少 pins`); continue; }
-    if (!Number.isFinite(w) || w <= 0) { errors.push(`net ${id} 权重须为正数`); continue; }
+    if (!Array.isArray(n.pins)) { errors.push(L(`net ${id} 缺少 pins`, `net ${id} has no pins`)); continue; }
+    if (!Number.isFinite(w) || w <= 0) { errors.push(L(`net ${id} 权重须为正数`, `the weight of net ${id} must be positive`)); continue; }
     const missing = n.pins.filter(p => !ids.has(p));
-    if (missing.length) { errors.push(`net ${id} 引用了不存在的节点 ${missing.join(',')}`); continue; }
+    if (missing.length) { errors.push(L(`net ${id} 引用了不存在的节点 ${missing.join(',')}`, `net ${id} refers to missing nodes ${missing.join(', ')}`)); continue; }
     const pins = [...new Set(n.pins)].sort();
-    if (pins.length < 2) { ignored.push({ id, reason: '少于两个不同引脚' }); continue; }
+    if (pins.length < 2) { ignored.push({ id, reason: L('少于两个不同引脚', 'fewer than two distinct pins') }); continue; }
     nets.push({ id, pins, w, duplicatePins: n.pins.length - pins.length });
   }
   return { ok: errors.length === 0, errors, ignored, netlist: { nodes, nets } };
@@ -59,7 +60,7 @@ export function validateNetlist(input) {
 /** pin-count (clique model): Σ_{nets e ∋ u,v} w(e)/(|e|−1). `raw` is the plain Σ w(e) for comparison. */
 export function pinCount(input) {
   const r = validateNetlist(input);
-  if (!r.ok) { const e = new Error(r.errors.join('；')); e.errors = r.errors; throw e; }
+  if (!r.ok) { const e = new Error(r.errors.join(L('；', '; '))); e.errors = r.errors; throw e; }
   const acc = new Map();
   for (const net of r.netlist.nets) {
     const share = net.w / (net.pins.length - 1);
