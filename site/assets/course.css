@@ -438,3 +438,47 @@ textarea.graph-input{width:100%;min-height:120px;background:#0a1d22;color:var(--
   h1{letter-spacing:.03em}
 }
 @media print{.topbar,.module-nav,.lab,.player,.btn,.lang-hint{display:none!important}.dark{background:#fff;color:#000}}
+
+/* ---------- code lab (in-browser Python) ---------- */
+.cl-intro{margin-bottom:34px}
+.cl-howto{border-left:1px solid var(--line);padding-left:28px}
+.cl-howto h3{margin-top:0}
+.cl-howto ol{padding-left:20px;margin:0 0 16px;font-size:15px}
+.cl-howto li{margin-bottom:8px}
+.codelab{border:1px solid var(--line);border-radius:10px;background:var(--paper);overflow:hidden;box-shadow:0 12px 30px #263b2e0a}
+.cl-bar{display:flex;justify-content:space-between;align-items:center;gap:10px 16px;flex-wrap:wrap;padding:10px 14px;border-bottom:1px solid var(--line);background:#f8f5ee}
+.cl-pill{font:400 11.5px/1.4 var(--mono);color:var(--muted);padding:4px 10px;border:1px solid var(--line);border-radius:99px;background:var(--paper)}
+.cl-pill[data-state="ready"]{color:var(--accent);border-color:#9cc9b9}
+.cl-pill[data-state="loading"]{color:var(--gold);border-color:#d8bf86}
+.cl-pill[data-state="failed"],.cl-pill[data-state="stopped"]{color:var(--red);border-color:#e0b4ae}
+.cl-banner{margin:0;padding:8px 14px;background:#fbf4e3;border-bottom:1px solid #e6d3a8;font-size:13.5px;color:#6b5420}
+.cl-main{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,.85fr);min-height:520px}
+.cl-file{display:flex;flex-direction:column;min-width:0;border-right:1px solid var(--line)}
+.cl-tab{display:flex;gap:12px;align-items:baseline;padding:8px 14px;border-bottom:1px solid var(--line-soft);font-size:12px;color:var(--faint)}
+.cl-tab code{background:none;padding:0;color:var(--ink);font-size:12.5px}
+.cl-editor{flex:1;min-height:480px;max-height:640px;overflow:auto;position:relative}
+.cl-editor .cm-editor{height:100%;min-height:480px}
+.cl-loading{padding:16px}
+.cl-fallback{width:100%;height:100%;min-height:480px;border:0;padding:14px;font:13.5px/1.7 var(--mono);background:#fffdf8;resize:vertical;tab-size:4}
+.cl-side{padding:16px 18px;min-width:0;display:flex;flex-direction:column;background:#fbf9f3}
+.cl-side h4{margin:0 0 8px;font:400 11px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
+.cl-side h4:not(:first-child){margin-top:16px}
+.cl-summary{font-size:14px;margin:0 0 8px;color:var(--muted)}
+.cl-summary[data-ok="true"]{color:var(--accent-ink);font-weight:600}
+.cl-checks{list-style:none;margin:0;padding:0;border-top:1px solid var(--line-soft)}
+.cl-checks li{display:grid;grid-template-columns:auto 1fr;gap:2px 10px;padding:8px 0;border-bottom:1px solid var(--line-soft);font-size:13.5px;line-height:1.5}
+.cl-chip{font:500 10px/1 var(--mono);letter-spacing:.06em;padding:4px 6px;border-radius:4px;background:#ece7db;color:var(--muted);min-width:76px;text-align:center;align-self:start;margin-top:1px}
+.cl-checks li[data-status="PASS"] .cl-chip{background:#dcebe3;color:var(--accent-ink)}
+.cl-checks li[data-status="FAIL"] .cl-chip,.cl-checks li[data-status="ERROR"] .cl-chip{background:#f4dcd8;color:var(--red)}
+.cl-checks li[data-status="INCOMPLETE"] .cl-chip{background:#f6ecd5;color:#7a5410}
+.cl-note{grid-column:2;font-size:12.5px;color:var(--muted)}
+.cl-checks li[data-status="FAIL"] .cl-note,.cl-checks li[data-status="ERROR"] .cl-note{color:var(--red)}
+.cl-console{flex:1;min-height:120px;max-height:260px;margin:0;font-size:12.5px;line-height:1.6;background:#1c2925;color:#d8e8d8;padding:12px 14px;border-radius:6px;white-space:pre-wrap;word-break:break-word}
+.cl-console .err{color:#f0a49b}
+.cl-viz:not(:empty){border-top:1px solid var(--line);padding:22px 22px 24px;background:var(--cinema);color:var(--c-ink)}
+.cl-viz h3{color:var(--c-ink);margin:0 0 6px}
+.cl-viz .lab-toolbar{margin:14px 0}
+.cl-viz .lab{margin-top:4px}
+.cl-viz .match{font-size:13.5px;margin:10px 0 0}
+.cl-viz .match.ok{color:var(--c-teal)}.cl-viz .match.no{color:var(--c-gold)}
+@media (max-width:980px){.cl-main{grid-template-columns:minmax(0,1fr)}.cl-file{border-right:0;border-bottom:1px solid var(--line)}.cl-howto{border-left:0;padding-left:0}}

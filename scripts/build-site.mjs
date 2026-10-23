@@ -170,7 +170,7 @@ ${status}
 <dt>${T('影片', 'Films')}</dt><dd>${filmDuration(m)}</dd>
 <dt>${T('课件', 'Slides')}</dt><dd>${m.deck.status === 'ready' ? T(`${m.deck.slides.length} 页，16:9，含页码`, `${m.deck.slides.length} pages, 16:9, numbered`) : T('计划中', 'planned')}</dd>
 <dt>${T('挑战', 'Challenges')}</dt><dd>${T(`${m.challengeMeta.length} 题`, `${m.challengeMeta.length}`)} · ${[...new Set(m.challengeMeta.map(x => x.type))].map(t => `[${esc(t)}]`).join(' ')}</dd>
-<dt>Python</dt><dd>${T('下载练习包，本地运行', 'Download the exercise pack and run it locally')}</dd>
+<dt>Python</dt><dd>${m.codelab ? T('在浏览器里直接写、直接运行', 'Write and run it right in the browser') : T('下载练习包，本地运行', 'Download the exercise pack and run it locally')}</dd>
 </dl></aside>
 </div></section>
 
@@ -209,12 +209,16 @@ ${m.review ? `<p class="review"><b>${T('复习', 'Recap')}</b>${inline(m.review)
 </div></section>
 
 <section class="section" id="python"><div class="wrap">
-<div class="section-head"><div>${eyebrow(7, 'Python 实现轨道 · 可选', 'Python track · optional')}<h2>${esc(py.title)}</h2></div><p>${T(`网页基础轨道不需要 Python。下载后在任意空目录运行；只用标准库${py.optional ? `（${esc(py.optional)}）` : ''}。`, `The web track needs no Python. Unzip anywhere and run it; it uses only the standard library${py.optional ? ` (${esc(py.optional)})` : ''}.`)}</p></div>
+${m.codelab ? `<div class="section-head"><div>${eyebrow(7, '在线编程 · 在浏览器里运行 Python', 'Code it · Python in your browser')}<h2>${esc(py.title)}</h2></div><p>${T('不用安装任何东西：Python 在你的浏览器里运行（Pyodide），代码只保存在本机。检查器与下载包里的 check.py 完全相同。', 'Nothing to install: Python runs in your browser (Pyodide) and your code stays on this device. The checker is the same check.py as in the download.')}</p></div>
+<div class="grid-2 cl-intro"><div class="prose">${render(py.md)}</div>
+<div class="cl-howto"><h3>${T('怎么用', 'How it works')}</h3><ol><li>${T('在编辑器里补全标着 TODO 的函数。', 'Fill in the functions marked TODO in the editor.')}</li><li>${T('按 <b>运行检查</b>（Ctrl/⌘ + Enter）：每一项给出 PASS、FAIL 或 INCOMPLETE。', 'Press <b>Run checks</b> (Ctrl/⌘ + Enter): each check reports PASS, FAIL or INCOMPLETE.')}</li><li>${T('全部通过后，在下方用<b>你自己的</b>函数跑一遍例子，逐步对照课程引擎。', 'Once everything passes, run the examples below with <b>your own</b> functions and compare them step by step with the course engine.')}</li></ol>
+<p class="small muted">${T('第一次运行会下载约 12 MB 的 Python 运行环境，之后由浏览器缓存。想离线做？', 'The first run downloads about 12 MB of Python runtime; the browser caches it afterwards. Prefer working offline?')} <a href="${root}downloads/${m.moduleId}-python${EN ? '-en' : ''}.zip" download>${T('下载练习包（.zip）', 'Download the pack (.zip)')}</a></p></div></div>
+<div id="codelab-root" class="cl-root"><p class="muted">${T('正在载入在线编程…', 'Loading the code lab…')}</p></div>` : `<div class="section-head"><div>${eyebrow(7, 'Python 实现轨道 · 可选', 'Python track · optional')}<h2>${esc(py.title)}</h2></div><p>${T(`网页基础轨道不需要 Python。下载后在任意空目录运行；只用标准库${py.optional ? `（${esc(py.optional)}）` : ''}。`, `The web track needs no Python. Unzip anywhere and run it; it uses only the standard library${py.optional ? ` (${esc(py.optional)})` : ''}.`)}</p></div>
 <div class="grid-2"><div class="prose">${render(py.md)}</div>
 <div><div class="py-files"><div><code>starter.py</code>${T('起始代码：留有 TODO', 'Starter code with TODOs')}</div><div><code>check.py</code>${T('检查器：未完成报 INCOMPLETE，不算 PASS', 'Checker: unfinished work reports INCOMPLETE, never PASS')}</div><div><code>reference.py</code>${T('参考实现：卡住时再看', 'Reference solution, for when you are stuck')}</div><div><code>fixtures/</code>${T('本章例子的 JSON', 'The chapter’s examples as JSON')}</div><div><code>README.md</code>${T('任务、两级提示与样例', 'Task, two hints and samples')}</div></div>
 <p><a class="btn primary" href="${root}downloads/${m.moduleId}-python.zip" download>${T('下载练习包（.zip）', 'Download the pack (.zip)')}</a></p>
 <pre><code>python3 check.py              ${T('# 检查你的 starter.py', '# check your starter.py')}
-python3 check.py reference.py ${T('# 看参考实现全部通过', '# the reference passes every check')}</code></pre></div></div>
+python3 check.py reference.py ${T('# 看参考实现全部通过', '# the reference passes every check')}</code></pre></div></div>`}
 </div></section>
 
 <section class="section" id="mistakes"><div class="wrap">

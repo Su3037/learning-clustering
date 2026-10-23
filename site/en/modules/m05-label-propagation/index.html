@@ -37,7 +37,7 @@
 <dt>Films</dt><dd>2:57 + 1:28</dd>
 <dt>Slides</dt><dd>12 pages, 16:9, numbered</dd>
 <dt>Challenges</dt><dd>6 · [Concept] [Trace] [Explore] [Implement]</dd>
-<dt>Python</dt><dd>Download the exercise pack and run it locally</dd>
+<dt>Python</dt><dd>Write and run it right in the browser</dd>
 </dl></aside>
 </div></section>
 
@@ -106,15 +106,14 @@
 </div></section>
 
 <section class="section" id="python"><div class="wrap">
-<div class="section-head"><div><p class="eyebrow"><span class="eyebrow-no">07</span> / Python track · optional</p><h2>Implement vote counting and the stopping test</h2></div><p>The web track needs no Python. Unzip anywhere and run it; it uses only the standard library.</p></div>
-<div class="grid-2"><div class="prose"><p><strong>Task</strong> (<code>starter.py</code>):</p>
+<div class="section-head"><div><p class="eyebrow"><span class="eyebrow-no">07</span> / Code it · Python in your browser</p><h2>Implement vote counting and the stopping test</h2></div><p>Nothing to install: Python runs in your browser (Pyodide) and your code stays on this device. The checker is the same check.py as in the download.</p></div>
+<div class="grid-2 cl-intro"><div class="prose"><p><strong>Task</strong> (<code>starter.py</code>):</p>
 <ol><li><code>count_votes(adj, labels, vertex)</code>: add up neighbour edge weights by label.</li><li>The stopping test in the main loop: stable / cycle (limit is handled by the loop bound).</li></ol>
 <p><strong>Hint 1</strong>: for neighbours with the same label, add their edge weights; C’s votes should be B = 5, D = 2, E = 1.</p>
 <p><strong>Hint 2</strong>: a full round with zero changes → stable; if the complete label state at the end of the round has appeared before → cycle. The checker also runs the author’s original 24-cell circuit and 28-person contact graph.</p></div>
-<div><div class="py-files"><div><code>starter.py</code>Starter code with TODOs</div><div><code>check.py</code>Checker: unfinished work reports INCOMPLETE, never PASS</div><div><code>reference.py</code>Reference solution, for when you are stuck</div><div><code>fixtures/</code>The chapter’s examples as JSON</div><div><code>README.md</code>Task, two hints and samples</div></div>
-<p><a class="btn primary" href="../../../downloads/m05-label-propagation-python.zip" download>Download the pack (.zip)</a></p>
-<pre><code>python3 check.py              # check your starter.py
-python3 check.py reference.py # the reference passes every check</code></pre></div></div>
+<div class="cl-howto"><h3>How it works</h3><ol><li>Fill in the functions marked TODO in the editor.</li><li>Press <b>Run checks</b> (Ctrl/⌘ + Enter): each check reports PASS, FAIL or INCOMPLETE.</li><li>Once everything passes, run the examples below with <b>your own</b> functions and compare them step by step with the course engine.</li></ol>
+<p class="small muted">The first run downloads about 12 MB of Python runtime; the browser caches it afterwards. Prefer working offline? <a href="../../../downloads/m05-label-propagation-python-en.zip" download>Download the pack (.zip)</a></p></div></div>
+<div id="codelab-root" class="cl-root"><p class="muted">Loading the code lab…</p></div>
 </div></section>
 
 <section class="section" id="mistakes"><div class="wrap">

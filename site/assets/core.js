@@ -4,10 +4,8 @@
  * Every page and every module uses this one implementation.
  */
 export const SCHEMA_VERSION = 1;
-/** Page language, from <html lang>. Chinese pages live at the original paths, English ones under en/. */
-export const LANG = typeof document !== 'undefined' && document.documentElement.lang.startsWith('en') ? 'en' : 'zh';
-/** Pick the string for the page language: L('中文', 'English'). Falls back to Chinese when no English is given. */
-export const L = (zh, en) => (LANG === 'en' && en != null ? en : zh);
+import { LANG, L } from './i18n.js';
+export { LANG, L };
 const LANG_KEY = 'learning-clustering:lang';
 export const STORE_KEY = 'learning-clustering:v1';
 export const MODULE_IDS = ['m02-affinity-metrics', 'm03-greedy-pair-merge', 'm04-size-constrained-agglomerative',

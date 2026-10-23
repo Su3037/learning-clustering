@@ -7,6 +7,7 @@
  * hitting the round limit is `limit`. None of these three is called "converged" unless stable.
  */
 import { normalizeGraph, cutsize, groupsKey, ENGINE_VERSION } from './graph.js';
+import { L } from '../assets/i18n.js';
 
 export function votesFor(adj, labels, node) {
   const votes = {}, neighbors = [];
@@ -30,12 +31,12 @@ export function chooseLabel(votes, current, tie = 'min') {
 export function validate(input, { mode = 'async', tie = 'min', order = null, maxRounds = 50 } = {}) {
   const r = normalizeGraph(input, { maxNodes: 40, maxEdges: 400 });
   const errors = [...r.errors];
-  if (!['async', 'sync'].includes(mode)) errors.push('更新方式须为 async 或 sync');
-  if (!['min', 'max', 'keep'].includes(tie)) errors.push('平票规则须为 min、max 或 keep');
-  if (!Number.isInteger(maxRounds) || maxRounds < 1 || maxRounds > 200) errors.push('最大轮数为 1–200');
+  if (!['async', 'sync'].includes(mode)) errors.push(L('更新方式须为 async 或 sync', 'the update mode must be async or sync'));
+  if (!['min', 'max', 'keep'].includes(tie)) errors.push(L('平票规则须为 min、max 或 keep', 'the tie rule must be min, max or keep'));
+  if (!Number.isInteger(maxRounds) || maxRounds < 1 || maxRounds > 200) errors.push(L('最大轮数为 1–200', 'the maximum number of rounds is 1–200'));
   if (r.ok && order) {
     const ids = r.graph.nodes.map(n => n.id);
-    if (order.length !== ids.length || new Set(order).size !== ids.length || order.some(n => !ids.includes(n))) errors.push('访问顺序须恰好包含每个节点一次');
+    if (order.length !== ids.length || new Set(order).size !== ids.length || order.some(n => !ids.includes(n))) errors.push(L('访问顺序须恰好包含每个节点一次', 'the visiting order must contain every node exactly once'));
   }
   return { ok: errors.length === 0, errors, graph: r.graph };
 }
@@ -69,7 +70,7 @@ export function run(input, options = {}) {
         eventId: `r${round + 1}-${node}`, phase: `round-${round + 1}`, step: step++, kind: roundEnd ? 'update-round-end' : 'update',
         round: round + 1, index, node, old, label, changed, votes, tied, neighbors, before, after: { ...labels },
         pending: { ...pending }, committed: mode === 'async' || roundEnd, mode, tie,
-        decision: changed ? `${node}: ${old} → ${label}` : `${node} 保持 ${old}`,
+        decision: changed ? `${node}: ${old} → ${label}` : L(`${node} 保持 ${old}`, `${node} keeps ${old}`),
         sourceVersion: ENGINE_VERSION
       };
       if (roundEnd) {
