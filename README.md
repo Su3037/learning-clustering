@@ -15,7 +15,7 @@
 
 公开地址（发布后）：https://su3037.github.io/learning-clustering/
 
-每个模块包含：二维讲解短片（中文字幕、无配音、原创配乐）、带页码与讲稿的课件（网页 / PDF / PPTX）、讲义与伪代码、由真实算法引擎驱动的实验台、带两级提示的挑战题、Python 练习包（starter / reference / check / fixtures）。
+每个模块包含：讲解影片（Module 05 起每章四部：科普、精讲、进阶、实验演示，中英两版）、带页码与讲稿的课件（网页 / PDF / PPTX）、讲义与伪代码、由真实算法引擎驱动的实验台、带两级提示的挑战题、浏览器内在线编程（Pyodide，无需安装）与可下载的 Python 练习包。全站可在中文与英文之间切换。
 
 ## 本地运行
 
@@ -41,7 +41,7 @@ python3 python/m07-kernighan-lin/check.py python/m07-kernighan-lin/reference.py
 
 - `site/`：发布内容（引擎 `site/engines/`、公共组件 `site/assets/`、各模块页、媒体、课件、下载）
 - `content/`：课程文本源（每模块 `module.json`、`module.md` 大纲、`lesson.md`、`slides.json`）
-- `video/`、`scripts/film/`：影片脚本与渲染器（cairo + FFmpeg）
+- `video/`、`scripts/film/`：影片脚本与渲染器（cairo + FFmpeg；新管线 `cine.py` / `cinema.py` / `walkthrough.py` / `recorder.mjs`）
 - `scripts/slides/`：课件生成（PDF / PNG / PPTX）
 - `python/`：练习包
 - `tests/`：自动测试

@@ -1,0 +1,221 @@
+WEBVTT
+
+1
+00:00:03.600 --> 00:00:09.289
+The rule is unchanged: follow the label with the most neighbour weight.
+
+2
+00:00:09.289 --> 00:00:13.289
+This film answers four questions.
+
+3
+00:00:13.689 --> 00:00:21.156
+Treat the cut as a counter. At the start every edge is cut: cut = 18.
+
+4
+00:00:21.156 --> 00:00:26.844
+A switches to B: 5 of weight is no longer cut, so the cut drops by 5.
+
+5
+00:00:26.844 --> 00:00:30.089
+B stays, and so does the cut.
+
+6
+00:00:30.089 --> 00:00:35.778
+C switches to B: 5 of weight is no longer cut, so the cut drops by 5.
+
+7
+00:00:35.778 --> 00:00:41.467
+D switches to E: 5 of weight is no longer cut, so the cut drops by 5.
+
+8
+00:00:41.467 --> 00:00:44.711
+E stays, and so does the cut.
+
+9
+00:00:44.711 --> 00:00:47.956
+A stays, and so does the cut.
+
+10
+00:00:47.956 --> 00:00:51.200
+B stays, and so does the cut.
+
+11
+00:00:51.200 --> 00:00:54.444
+C stays, and so does the cut.
+
+12
+00:00:54.444 --> 00:00:57.689
+D stays, and so does the cut.
+
+13
+00:00:57.689 --> 00:01:00.933
+E stays, and so does the cut.
+
+14
+00:01:00.933 --> 00:01:07.511
+The law: one asynchronous change lowers the cut by exactly new votes − old votes.
+
+15
+00:01:07.911 --> 00:01:13.111
+If a node changes only when the new label has strictly more votes,
+
+16
+00:01:13.111 --> 00:01:16.644
+each change lowers the cut by at least 1,
+
+17
+00:01:16.644 --> 00:01:19.667
+and the cut cannot go below 0,
+
+18
+00:01:19.667 --> 00:01:25.133
+so there can only be finitely many changes: asynchronous updates stop.
+
+19
+00:01:25.133 --> 00:01:29.867
+Rules that also change on a tie fall outside this argument.
+
+20
+00:01:30.267 --> 00:01:36.667
+Synchronous updates are different: every node changes at once, from an old snapshot.
+
+21
+00:01:36.667 --> 00:01:41.933
+A star: the hub follows the leaves while the leaves follow the hub.
+
+22
+00:01:41.933 --> 00:01:46.511
+So the two sides trade labels and the cut stays at 4.
+
+23
+00:01:46.511 --> 00:01:51.089
+Round 3 repeats round 1: a cycle of period 2.
+
+24
+00:01:51.489 --> 00:01:57.622
+G01 under synchronous updates does the same: the cut sits at 17, period 2.
+
+25
+00:01:57.622 --> 00:02:03.089
+Bipartite and near-bipartite structures swap like this most easily.
+
+26
+00:02:03.489 --> 00:02:09.400
+This course's test: stable means a full round with no change.
+
+27
+00:02:09.400 --> 00:02:15.756
+Store the labelling at each round end; a repeat is reported as a cycle.
+
+28
+00:02:15.756 --> 00:02:20.956
+The paper shuffles the order each round and breaks ties at random.
+
+29
+00:02:20.956 --> 00:02:27.978
+So it uses another test: stop when each node holds one of its neighbours' most common labels.
+
+30
+00:02:28.378 --> 00:02:34.289
+What does the visit order change? All 120 orders on G01:
+
+31
+00:02:34.289 --> 00:02:39.311
+the groups never change; only the rounds vary between 2 and 3.
+
+32
+00:02:39.311 --> 00:02:43.667
+On the 24-cell circuit, 300 random orders:
+
+33
+00:02:43.667 --> 00:02:51.578
+287 give 8+8+8 with cut 2; 13 split a group in two, cut 21.
+
+34
+00:02:51.978 --> 00:02:55.044
+Most orders find the three blocks;
+
+35
+00:02:55.044 --> 00:03:02.289
+a few let two labels share the middle block, and it stops in a worse stable state.
+
+36
+00:03:02.689 --> 00:03:09.156
+Cost: in one round every node reads its neighbours once, so every edge is read twice.
+
+37
+00:03:09.156 --> 00:03:15.067
+The 61 contact ties: 122 reads per round, stable after 3 rounds.
+
+38
+00:03:15.067 --> 00:03:20.067
+Exhaustive search, by contrast, cannot even be counted through.
+
+39
+00:03:20.067 --> 00:03:25.867
+With few rounds, the total work grows in proportion to the number of edges.
+
+40
+00:03:26.267 --> 00:03:31.289
+One more trap: two triangles joined by a bridge.
+
+41
+00:03:31.289 --> 00:03:37.867
+Ties to the smallest: every node ends up with one label, cut = 0.
+
+42
+00:03:37.867 --> 00:03:45.778
+The lowest cut of all is “everything in one group”. Nothing in the rule resists merging.
+
+43
+00:03:45.778 --> 00:03:50.778
+With ties to the largest it happens to split the two triangles.
+
+44
+00:03:50.778 --> 00:03:56.689
+Cap each group at U = 3, and the result no longer rests on luck with ties.
+
+45
+00:03:57.089 --> 00:03:59.889
+Two common fixes.
+
+46
+00:03:59.889 --> 00:04:06.289
+The size-constrained version is a common coarsening step in multilevel partitioners.
+
+47
+00:04:06.289 --> 00:04:12.289
+Besides that: run several random orders and compare how much the results move.
+
+48
+00:04:12.689 --> 00:04:17.711
+Back to the 24-cell circuit, with a cap of U = 4 per group.
+
+49
+00:04:17.711 --> 00:04:23.178
+Label propagation forms 7 small groups, none over 4 cells.
+
+50
+00:04:23.178 --> 00:04:29.533
+Each group contracts to one node: the 24-cell graph becomes a 7-node graph.
+
+51
+00:04:29.533 --> 00:04:37.533
+Partition the small graph, then expand and refine level by level: the first step of multilevel partitioning.
+
+52
+00:04:37.933 --> 00:04:40.400
+Four things to take away:
+
+53
+00:04:40.400 --> 00:04:44.067
+async with strict improvement always stops;
+
+54
+00:04:44.067 --> 00:04:46.867
+sync can trade labels forever;
+
+55
+00:04:46.867 --> 00:04:53.000
+state your rules; it is fast, but partitioning a chip needs constraints.

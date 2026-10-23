@@ -140,11 +140,13 @@
         },
         {
           "sceneId": "a06-label-i",
-          "status": "scene-not-a-chapter"
+          "film": "rw1",
+          "start": 111.49
         },
         {
           "sceneId": "a07-rest",
-          "status": "scene-not-a-chapter"
+          "film": "rw1",
+          "start": 142.56
         }
       ],
       "slides": [
@@ -192,7 +194,8 @@
         },
         {
           "sceneId": "b04-arrival",
-          "status": "scene-not-a-chapter"
+          "film": "rw2",
+          "start": 68.29
         },
         {
           "sceneId": "b05-compare",

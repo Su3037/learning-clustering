@@ -34,8 +34,8 @@
     "assumptions": "Edge weights are positive and mean connection strength; each node starts with its own name as its label; an isolated node keeps its label.",
     "stop": "stable: a full round with zero changes; cycle: a label state repeats; limit: the maximum number of rounds is reached. Only stable may be called “converged”."
   },
-  "filmTitle": "Where Do Circles Come From?",
-  "filmNote": "Continues the story of the author’s original Lab05 film: from an address book to a chip, then the rule taken apart layer by layer. A slow walkthrough follows the two rounds on G01 vote by vote.",
+  "filmTitle": "Four films",
+  "filmNote": "The popular-science film is the author’s original “Where Do Clusters Come From?”, included as made. The concise film covers what you must know in two and a half minutes; the advanced film explains why it stops, why it can oscillate, what it costs and how it is varied; the walkthrough, recorded from the real page, takes you through the lab and the code lab.",
   "labTitle": "The Label Relay Lab",
   "labNote": "Update one node at a time or play whole rounds; switch async/sync, the tie rule and the visiting order, and change the weight of C–D. The panel on the right itemises the current vote; the log below records every step.",
   "challengeTip": "Challenge 4 asks you to find a setting that cycles on your own: try it in the lab first.",
@@ -86,9 +86,9 @@
       "The narrative “address book → chip → one local rule → taken apart layer by layer”, and the phrasing “a name is identity, a label is membership”.",
       "Real node-by-node voting, async/sync, three tie rules, visiting order, editing the bridge weight, and the cycle counterexample; this module’s engine is adapted directly from the author’s `site/algorithm.js` (MIT).",
       "The data of the 24-cell fictional circuit (geometric cut 88, LP cut 2) and the 28-person contact graph (3 rounds, cut 4).",
-      "The idea of a slow walkthrough of about a minute and a half: this module’s film comes with a slow vote-by-vote walkthrough."
+      "The author’s original popular-science film (version 4, 6:20) is included as made as this module’s popular-science film; its story is also the backbone of the concise film and the slides."
     ],
-    "licenseNote": "Original code MIT, original content CC BY 4.0. The original film’s music, “We Never (Remix)”, is third-party and not covered by these licences; this course neither uses nor extracts it, and the new film’s score is original and synthesised. The original README’s statement that the repository is private is out of date (it is now public).",
+    "licenseNote": "Original code MIT, original content CC BY 4.0. The popular-science film uses third-party music chosen by the author, “We Never (Remix)” by Hi Noise / 秋成; it is not covered by these licences, this course grants no rights to it, and no separate audio track is offered. The scores of the other three films are original to this course. The original README’s statement that the repository is private is out of date (it is now public).",
     "references": [
       "Raghavan, U. N., Albert, R., & Kumara, S. (2007). Near linear time algorithm to detect community structures in large-scale networks. *Physical Review E*, 76, 036106.",
       "The teacher’s original course: [module materials](https://github.com/yongfu-li/eda-learning/tree/003bcd49e3794e6cfd2680181cdbd347d673ad07/courses/learn_clustering/module02-01-label-propagation)"

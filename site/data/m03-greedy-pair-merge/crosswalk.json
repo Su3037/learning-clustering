@@ -65,7 +65,8 @@
       "video": [
         {
           "sceneId": "s04-step2",
-          "status": "scene-not-a-chapter"
+          "film": "merge",
+          "start": 58.2
         }
       ],
       "slides": [
@@ -147,11 +148,13 @@
         },
         {
           "sceneId": "s04-step2",
-          "status": "scene-not-a-chapter"
+          "film": "merge",
+          "start": 58.2
         },
         {
           "sceneId": "s05-step3",
-          "status": "scene-not-a-chapter"
+          "film": "merge",
+          "start": 78.69
         }
       ],
       "slides": [
@@ -223,7 +226,8 @@
         },
         {
           "sceneId": "s09-limits",
-          "status": "scene-not-a-chapter"
+          "film": "merge",
+          "start": 179.58
         }
       ],
       "slides": [

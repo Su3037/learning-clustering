@@ -80,8 +80,8 @@
     "assumptions": "边权为正，表示连接强度；初始每个节点的标签就是它自己的名字；孤立点保留自己的标签。",
     "stop": "stable：完整一轮零变化；cycle：标签状态重复出现；limit：达到最大轮数。只有 stable 才能叫“收敛”。"
   },
-  "filmTitle": "圈子从哪里来",
-  "filmNote": "延续原作（作者的 Lab05 仓库）影片的叙事：从通讯录到芯片，再逐层拆开规则。另附一段慢速推演，一票一票走完 G01 的两轮。",
+  "filmTitle": "四部影片",
+  "filmNote": "科普片是作者原作《圈子从哪里来》，原样收录；精讲片用两分半讲清必须掌握的内容；进阶片讲为什么会停、为什么会振荡、代价与变体；实验演示从真实页面录下，带你做一遍实验和在线编程。",
   "labTitle": "标签接力实验室",
   "labNote": "逐个节点更新、整轮播放；切换异步/同步、平票规则、访问顺序，改 C–D 的权重。右侧是这一票的明细，下面是逐节点记录。",
   "challengeTip": "第 4 题要你自己找出一个会振荡的设置：可以先在实验里试。",
@@ -138,9 +138,9 @@
       "“通讯录 → 芯片 → 一条局部规则 → 逐层拆解”的叙事与“名字是身份、标签是归属”的说法。",
       "真实逐节点投票、异步/同步、三种平票、访问顺序、桥边权修改与振荡反例；本章引擎直接改写自作者的 `site/algorithm.js`（MIT）。",
       "24 单元虚构电路（几何切法 cut 88、LP cut 2）与 28 人联系人图（3 轮 cut 4）的数据。",
-      "约 1 分半的慢速推演分工：本章影片附一段慢速逐票推演。"
+      "作者原作科普片（第四版，6:20）原样收录为本章的科普片；它的叙事也是本章精讲片和课件的骨架。"
     ],
-    "licenseNote": "原作代码 MIT、原创内容 CC BY 4.0。原片配乐《We Never (Remix)》是第三方音乐，不在这些许可内，本课程没有使用或提取它；新片配乐为原创合成。原 README 中“仓库私有”的说法已过期（仓库现为公开）。",
+    "licenseNote": "原作代码 MIT、原创内容 CC BY 4.0。科普片使用作者指定的第三方音乐《We Never (Remix)（若如初见）》（Hi Noise / 秋成），它不在这些许可范围内，本课程不授予其任何使用权，也不提供单独的音轨。其余三部影片的配乐为本课程原创合成。原 README 中“仓库私有”的说法已过期（仓库现为公开）。",
     "references": [
       "Raghavan, U. N., Albert, R., & Kumara, S. (2007). Near linear time algorithm to detect community structures in large-scale networks. *Physical Review E*, 76, 036106.",
       "教师原课程 [Module 材料](https://github.com/yongfu-li/eda-learning/tree/003bcd49e3794e6cfd2680181cdbd347d673ad07/courses/learn_clustering/module02-01-label-propagation)"

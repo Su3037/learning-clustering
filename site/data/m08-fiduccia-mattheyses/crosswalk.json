@@ -84,7 +84,8 @@
       "video": [
         {
           "sceneId": "s03-fste",
-          "status": "scene-not-a-chapter"
+          "film": "fm",
+          "start": 38.38
         }
       ],
       "slides": [
@@ -167,7 +168,8 @@
         },
         {
           "sceneId": "s07-escape",
-          "status": "scene-not-a-chapter"
+          "film": "fm",
+          "start": 127.71
         }
       ],
       "slides": [
@@ -212,7 +214,8 @@
         },
         {
           "sceneId": "s09-multipin",
-          "status": "scene-not-a-chapter"
+          "film": "fm",
+          "start": 176.16
         },
         {
           "sceneId": "s10-code",

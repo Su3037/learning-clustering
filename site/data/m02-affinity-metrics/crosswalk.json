@@ -28,7 +28,8 @@
         },
         {
           "sceneId": "s09-eda",
-          "status": "scene-not-a-chapter"
+          "film": "affinity",
+          "start": 182.56
         }
       ],
       "slides": [
@@ -103,7 +104,8 @@
         },
         {
           "sceneId": "s05-bd",
-          "status": "scene-not-a-chapter"
+          "film": "affinity",
+          "start": 69.31
         }
       ],
       "slides": [

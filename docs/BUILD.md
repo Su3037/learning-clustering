@@ -8,6 +8,7 @@
 | --- | --- | --- |
 | 页面、trace、测试 | Node.js ≥ 20 | 26.5.0 |
 | Python 练习、交叉测试、影片 | Python ≥ 3.9，NumPy | 3.13.9，NumPy 2.3.5 |
+| 新影片套件 | pycairo、Pillow；实验演示录制用 Playwright（Chromium） | pycairo 1.29 |
 | 影片逐帧绘制 / 课件 PDF | libcairo（`brew install cairo`；通过 ctypes 调用，不需要 pycairo） | Homebrew cairo |
 | 编码 | FFmpeg（libx264、aac） | 本机 Homebrew 版 |
 | 可编辑 PPTX | python-pptx | 1.0.2 |
@@ -40,6 +41,30 @@ for d in python/m0*; do python3 $d/check.py $d/reference.py; done
 python3 scripts/research/rw_no_replication.py   # M09 不复制时的穷举对照
 ```
 
+## 四部影片（新管线，Module 05 起）
+
+每章四部：科普（popular）、精讲（concise）、进阶（advanced）、实验演示（lab）。每部都有中文版与英文版（`<film>.zh.mp4` / `<film>.en.mp4`），`film.json` 为 schema 2。
+
+```sh
+# 精讲、进阶：video/<id>/films.py（scripts/film/cine.py 绘图套件，pycairo + Pillow）
+python3 scripts/film/cinema.py m05-label-propagation --film concise --stills            # 每种语言一张审片接触表
+python3 scripts/film/cinema.py m05-label-propagation --film advanced --lang en --sample 20 40
+python3 scripts/film/cinema.py m05-label-propagation                                    # 全部 → site/media/<id>/
+
+# 实验演示：Playwright 录制真实页面（先在本地起服务），再合成
+python3 scripts/serve.py 8800
+node video/m05-label-propagation/walkthrough.mjs http://127.0.0.1:8800/learning-clustering/ zh
+node video/m05-label-propagation/walkthrough.mjs http://127.0.0.1:8800/learning-clustering/ en
+python3 scripts/film/walkthrough.py m05-label-propagation
+
+# Module 05 的科普片是作者原作，按原样导入
+python3 video/m05-label-propagation/import_story.py
+```
+
+配乐：精讲、进阶、实验演示用课程原创的 NumPy 合成配乐（`score:<mood>`）。科普片按作者的选择用《We Never (Remix)》（`track:wenever`）；这段录音是第三方作品，**不进仓库**：设置 `LC_MUSIC_WENEVER=/path/to/audio`，或放在 `/mnt/project-files/private-music/wenever.m4a`。
+
+字幕时长：每条字幕同时满足中文（4.5 字/秒）与英文（15 字符/秒）的最短阅读时间，两种语言共用一条时间线；`readingViolations` 必须为 0（测试会检查）。
+
 ## 本地预览（模拟 GitHub Pages 子路径）
 
 ```sh
@@ -54,7 +79,8 @@ python3 scripts/serve.py 8790            # http://127.0.0.1:8790/learning-cluste
 | --- | --- | --- |
 | `site/modules/<id>/index.html` | `content/modules/<id>/module.json` + `lesson.md` | `scripts/build-site.mjs` |
 | `site/data/<id>/traces.json` | `site/engines/*.js` 真实运行 | `scripts/build-traces.mjs` |
-| `site/media/<id>/*.mp4/.vtt/film.json` | `video/<id>/film.py` + traces | `scripts/film/render.py` |
+| `site/media/<id>/*.mp4/.vtt/film.json`（旧管线） | `video/<id>/film.py` + traces | `scripts/film/render.py` |
+| `site/media/<id>/<film>.<lang>.*`（四部影片） | `video/<id>/films.py`、`walkthrough.mjs` | `scripts/film/cinema.py`、`scripts/film/walkthrough.py` |
 | `site/slides/<id>/*` | `content/modules/<id>/slides.json` + `video/<id>/figures.py` | `scripts/slides/build_slides.py` |
 | `site/downloads/<id>-python.zip` | `python/<id>/` | `scripts/package-downloads.mjs` |
 | `site/assets/fonts/*.woff` | `fonts/noto-sans-sc/*.otf`，按全站用字裁剪 | `scripts/build-fonts.py` |

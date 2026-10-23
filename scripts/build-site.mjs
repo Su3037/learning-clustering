@@ -122,7 +122,7 @@ ${body}
     `Learning Clustering · Modules 02–09, built from eight closed Clustering submissions. Original authors are credited on the <a href="${rel}credits/index.html">Credits</a> page.`)}</p>
 <p><button class="btn quiet small" type="button" data-pref="reduceMotion">${T('减少动态', 'Reduce motion')}</button> <button class="btn quiet small" type="button" data-pref="sound">${T('声音', 'Sound')}</button> · ${T('内容版本', 'Content version')} ${course.contentVersion}</p>
 </div></footer>
-<script type="module">import { initShell } from '${root}assets/core.js'; initShell();</script>
+<script type="module">import { initShell } from '${root || './'}assets/core.js'; initShell();</script>
 ${scripts}
 </body>
 </html>
@@ -130,7 +130,8 @@ ${scripts}
   }
 
   const mmss = t => `${Math.floor(t / 60)}:${String(Math.round(t % 60)).padStart(2, '0')}`;
-  const filmDuration = m => m.film.status === 'ready' ? (m.film.films ? m.film.films.map(f => mmss(f.duration)).join(' + ') : mmss(m.film.duration)) : T('计划中', 'planned');
+  const filmVersion = f => f.versions ? (f.versions[lang] || f.versions.zh) : f;
+  const filmDuration = m => m.film.status === 'ready' ? (m.film.films ? m.film.films.map(f => mmss(filmVersion(f).duration)).join(' + ') : mmss(m.film.duration)) : T('计划中', 'planned');
   const eyebrow = (n, zh, en) => `<p class="eyebrow"><span class="eyebrow-no">${String(n).padStart(2, '0')}</span> / ${T(zh, en)}</p>`;
   // Course-authored links inside content point at Chinese pages (../../foundations/…); they resolve the same way on English pages.
 
@@ -228,7 +229,7 @@ python3 check.py reference.py ${T('# 看参考实现全部通过', '# the refere
 </div></section>
 
 <section class="section" id="sources"><div class="wrap">
-<div class="section-head"><div>${eyebrow(9, '资料与原作者', 'References and original author')}<h2>${T('来源', 'Sources')}</h2></div><p>${T('本模块在统一课程中重写了讲解、引擎与媒体；原作的贡献在此署名，未复制无许可的源代码或音轨。', 'This module rewrote the lesson, engine and media for the unified course; the original work is credited here, and no unlicensed code or music was copied.')}</p></div>
+<div class="section-head"><div>${eyebrow(9, '资料与原作者', 'References and original author')}<h2>${T('来源', 'Sources')}</h2></div><p>${T('本模块在统一课程中重写了讲解、引擎与媒体；原作的贡献在此署名。第三方音乐只在作者指定的影片里使用，并单独注明不在本课程许可范围内。', 'This module rewrote the lesson, engine and media for the unified course; the original work is credited here. Third-party music appears only in films where the author chose it, and is marked as outside this course\'s licences.')}</p></div>
 <div class="grid-2"><div class="prose">
 <h3>${T('原作者与保留的贡献', 'Original author and what was kept')}</h3>
 <p><strong>${esc(c.student.name)}</strong> · <a href="${c.student.website}">${T('原网站', 'original site')}</a> · <a href="${c.student.repository}">${c.student.repository.includes('/user-attachments/') ? T('Issue 附件', 'Issue attachment') : T('原仓库', 'original repository')}</a>${c.student.commit ? T(`（固定 <code>${c.student.commit.slice(0, 7)}</code>）`, ` (pinned at <code>${c.student.commit.slice(0, 7)}</code>)`) : ''}</p>
@@ -337,9 +338,12 @@ function compat(modules) {
 function crosswalk(m) {
   const cw = readJSON(path.join(CONTENT, 'modules', m.moduleId, 'crosswalk.json'));
   // Fill in actual video chapter times and slide numbers from the rendered assets (never typed by hand).
-  const chapters = m.film.status === 'ready' ? (m.film.films || [m.film]).flatMap((f, fi) => (f.chapters || []).map(c => ({ ...c, film: f.id || fi }))) : [];
+  // Schema 2 films list their scenes once (shared by both language versions); older films carry chapters only.
+  const films = m.film.status === 'ready' ? (m.film.films || [m.film]) : [];
+  const scenes = films.flatMap((f, fi) => [...(f.scenes || []).map(s => ({ sceneId: s.sceneId, t: s.start, film: f.id || fi })),
+    ...((f.versions ? (f.versions.zh || Object.values(f.versions)[0]).chapters : f.chapters) || []).map(c => ({ ...c, film: f.id || fi }))]);
   for (const o of cw.objectives) {
-    o.video = (o.sceneIds || []).map(sid => { const c = chapters.find(x => x.sceneId === sid); return c ? { sceneId: sid, film: c.film, start: c.t } : { sceneId: sid, status: m.film.status === 'ready' ? 'scene-not-a-chapter' : 'planned' }; });
+    o.video = (o.sceneIds || []).map(sid => { const c = scenes.find(x => x.sceneId === sid); return c ? { sceneId: sid, film: c.film, start: c.t } : { sceneId: sid, status: m.film.status === 'ready' ? 'scene-not-found' : 'planned' }; });
     o.slides = (o.slideIds || []).map(sid => { const s = m.deck.slides?.find(x => x.slideId === sid); return s ? { slideId: sid, page: s.pageNumber } : { slideId: sid, status: 'planned' }; });
   }
   cw.contentVersion = course0.contentVersion; cw.generated = new Date().toISOString().slice(0, 10);

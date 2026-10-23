@@ -22,7 +22,8 @@
       "video": [
         {
           "sceneId": "s02-goal",
-          "status": "scene-not-a-chapter"
+          "film": "spectral",
+          "start": 15.8
         }
       ],
       "slides": [
@@ -122,11 +123,13 @@
         },
         {
           "sceneId": "s07-flip",
-          "status": "scene-not-a-chapter"
+          "film": "spectral",
+          "start": 137.44
         },
         {
           "sceneId": "s09-disc",
-          "status": "scene-not-a-chapter"
+          "film": "spectral",
+          "start": 177.84
         }
       ],
       "slides": [

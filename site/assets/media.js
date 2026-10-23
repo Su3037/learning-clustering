@@ -2,25 +2,56 @@
  * VideoPlayer (real chapters from the render, transcript in sync, visible failure state) and
  * SlideViewer (stable slideId, "Module 0X · p/total", notes under the slide, thumbnails, search).
  */
-import { h, $, fetchJSON, L } from './core.js';
+import { h, $, fetchJSON, L, LANG } from './core.js';
 
 const mmss = t => `${Math.floor(t / 60)}:${String(Math.floor(t % 60)).padStart(2, '0')}`;
+
+const KINDS = {
+  popular: [L('科普', 'Popular science'), L('从生活里的问题讲起，适合第一次接触', 'Starts from an everyday problem; good for a first look')],
+  concise: [L('精讲', 'Concise'), L('只讲必须掌握的内容', 'Only what you must know')],
+  advanced: [L('进阶', 'Advanced'), L('为什么成立、什么时候失效、真实用法', 'Why it works, when it fails, how it is used')],
+  lab: [L('实验演示', 'Walkthrough'), L('跟着做一遍实验和在线编程', 'Follow along with the lab and the code lab')]
+};
+
+// Schema 2 (one entry per film, one version per language) → the flat shape renderFilm expects.
+function flatten(f) {
+  if (!f.versions) return f;
+  const v = f.versions[LANG] || f.versions.zh || Object.values(f.versions)[0];
+  const title = typeof f.title === 'object' ? L(f.title.zh, f.title.en) : f.title;
+  const music = f.music && typeof f.music === 'object' ? L(f.music.zh, f.music.en) : f.music;
+  const why = f.why && typeof f.why === 'object' ? L(f.why.zh, f.why.en) : f.why;
+  const tracks = Object.entries(f.versions).filter(([, x]) => x.vtt).map(([lg, x]) => ({ lang: lg, src: x.vtt }));
+  const uniq = [...new Map(tracks.map(t => [t.src, t])).values()];
+  return { ...v, id: f.id, kind: f.kind, status: f.status, title, music, why, tracks: uniq, external: f.external, captionsNote: v.captions };
+}
 
 export async function mountVideo(root, manifestUrl) {
   const m = await fetchJSON(manifestUrl, root);
   if (!m) return;
-  const films = m.films || [m];
+  const films = (m.films || [m]).map(flatten);
+  const base = new URL('.', manifestUrl);
   root.replaceChildren();
   if (films.length > 1) {
-    const tabs = h('div.btn-row', { role: 'tablist', style: 'margin-bottom:14px' });
     const area = h('div');
-    films.forEach((f, i) => tabs.append(h('button.btn.small', { type: 'button', role: 'tab', 'aria-selected': i === 0, onclick: ev => {
-      tabs.querySelectorAll('button').forEach(b => b.setAttribute('aria-selected', b === ev.currentTarget));
-      renderFilm(area, f, new URL('.', manifestUrl));
-    } }, f.title)));
-    root.append(tabs, area);
-    renderFilm(area, films[0], new URL('.', manifestUrl));
-  } else renderFilm(root, films[0], new URL('.', manifestUrl));
+    const picker = h('div.film-picker', { role: 'tablist', 'aria-label': L('本章影片', 'Films in this chapter') });
+    const pick = (i, focus) => {
+      [...picker.children].forEach((b, j) => { b.setAttribute('aria-selected', j === i); b.tabIndex = j === i ? 0 : -1; });
+      renderFilm(area, films[i], base);
+      if (focus) picker.children[i].focus();
+    };
+    films.forEach((f, i) => {
+      const kind = KINDS[f.kind];
+      picker.append(h('button.film-card', { type: 'button', role: 'tab', 'aria-selected': i === 0, onclick: () => pick(i),
+        onkeydown: ev => { if (ev.key === 'ArrowRight' || ev.key === 'ArrowLeft') { ev.preventDefault(); pick((i + (ev.key === 'ArrowRight' ? 1 : films.length - 1)) % films.length, true); } } },
+        f.poster ? h('img', { src: new URL(f.poster, base), alt: '', loading: 'lazy' }) : h('span.film-card-blank'),
+        h('span.film-card-text', {},
+          h('span.film-kind', kind ? kind[0] : (f.kind || L(`影片 ${i + 1}`, `Film ${i + 1}`))),
+          h('strong', f.title),
+          h('span.film-len', f.duration ? mmss(f.duration) : L('计划中', 'planned')))));
+    });
+    root.append(picker, area);
+    pick(0);
+  } else renderFilm(root, films[0], base);
 }
 
 function renderFilm(root, f, base) {
@@ -30,7 +61,7 @@ function renderFilm(root, f, base) {
   }
   const video = h('video', { controls: true, preload: 'metadata', playsinline: true, poster: f.poster ? new URL(f.poster, base) : null, 'aria-label': f.title },
     h('source', { src: new URL(f.src, base), type: 'video/mp4' }),
-    f.vtt ? h('track', { kind: 'subtitles', srclang: 'zh', label: L('中文（外挂字幕，画面已烧录，可不开）', 'Chinese (also burned into the picture)'), src: new URL(f.vtt, base) }) : null);
+    ...(f.tracks || (f.vtt ? [{ lang: 'zh', src: f.vtt }] : [])).map(t => h('track', { kind: 'subtitles', srclang: t.lang, label: t.lang === 'en' ? 'English' : '中文', src: new URL(t.src, base) })));
   const frame = h('div.film-frame', {}, video);
   video.addEventListener('error', () => frame.replaceChildren(h('div.film-missing', {}, h('strong', L('影片加载失败', 'The film failed to load')), h('span', L('网络中断或文件不可用。可刷新重试，或先阅读下方文字稿。', 'The network dropped or the file is unavailable. Reload to retry, or read the transcript below.')))), true);
   const chapterBtns = (f.chapters || []).map(c => h('button', { type: 'button', onclick: () => { video.currentTime = c.t; video.play?.().catch(() => {}); } }, h('span', mmss(c.t)), c.title));
@@ -46,8 +77,9 @@ function renderFilm(root, f, base) {
   });
   root.replaceChildren(h('div.film-layout', {},
     h('div', {}, frame,
-      h('div.film-meta', {}, h('span', L(`时长 ${mmss(f.duration)}`, `Length ${mmss(f.duration)}`)), h('span', L('中文字幕已烧录 · 无配音', 'Chinese captions burned in · no narration')), f.music ? h('span', L(`配乐：${f.music}`, `Music: ${f.music}`)) : null,
+      h('div.film-meta', {}, h('span', L(`时长 ${mmss(f.duration)}`, `Length ${mmss(f.duration)}`)), h('span', f.captionsNote === 'en' ? L('英文字幕已烧录 · 无配音', 'English captions burned in · no narration') : f.captionsNote === 'zh+en' ? L('中英字幕已烧录 · 无配音', 'Chinese and English captions burned in · no narration') : L('中文字幕已烧录 · 无配音', 'Chinese captions burned in · no narration')), f.music ? h('span', L(`配乐：${f.music}`, `Music: ${f.music}`)) : null,
         h('a', { href: new URL(f.src, base), download: '' }, L('下载 MP4', 'Download MP4')), f.vtt ? h('a', { href: new URL(f.vtt, base), download: '' }, 'WebVTT') : null),
+      f.kind && KINDS[f.kind] ? h('p.film-kind-note', {}, h('b', KINDS[f.kind][0]), ' · ', KINDS[f.kind][1]) : null,
       h('details', {}, h('summary', { style: 'cursor:pointer;margin-top:12px;color:var(--c-muted)' }, L('展开全文字稿', 'Show the full transcript')), transcript)),
     h('nav.chapters', { 'aria-label': L('影片章节', 'Film chapters') }, h('h3', L('章节', 'Chapters')), chapterBtns, f.why ? h('p.small.muted', { style: 'margin-top:12px' }, f.why) : null)));
 }

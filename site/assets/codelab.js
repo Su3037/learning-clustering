@@ -173,6 +173,7 @@ export async function mountCodeLab(root, { moduleId, base, data, visualize }) {
       })
     });
     editorBox.querySelector('.cl-loading')?.remove();
+    editorBox.editorView = view; // for scripted walkthroughs and tests
     setDoc = (text, readOnly) => {
       view.dispatch({ changes: { from: 0, to: view.state.doc.length, insert: text }, effects: editable.reconfigure(CM.EditorView.editable.of(!readOnly)) });
     };

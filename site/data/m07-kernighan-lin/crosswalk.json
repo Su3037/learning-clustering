@@ -73,7 +73,8 @@
         },
         {
           "sceneId": "s04-minus2w",
-          "status": "scene-not-a-chapter"
+          "film": "kl",
+          "start": 56.42
         }
       ],
       "slides": [
@@ -119,7 +120,8 @@
         },
         {
           "sceneId": "s06-trial2",
-          "status": "scene-not-a-chapter"
+          "film": "kl",
+          "start": 96.73
         }
       ],
       "slides": [
@@ -161,7 +163,8 @@
         },
         {
           "sceneId": "s08-pass2",
-          "status": "scene-not-a-chapter"
+          "film": "kl",
+          "start": 137.04
         }
       ],
       "slides": [
@@ -227,11 +230,13 @@
       "video": [
         {
           "sceneId": "s10-ab1",
-          "status": "scene-not-a-chapter"
+          "film": "kl",
+          "start": 168.78
         },
         {
           "sceneId": "s11-limits",
-          "status": "scene-not-a-chapter"
+          "film": "kl",
+          "start": 183.13
         }
       ],
       "slides": [

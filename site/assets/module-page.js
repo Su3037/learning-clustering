@@ -1,17 +1,25 @@
 // ModuleRenderer runtime: mounts the shared film player, slide viewer, challenge engine and pseudocode
 // panels on a generated module page, then hands the lab root to the module's own experiment code.
-import { $, $$, h, fetchJSON, L } from './core.js';
+import { $, $$, h, fetchJSON, L, LANG } from './core.js';
 import { mountVideo, mountSlides } from './media.js';
 import { mountChallenges } from './challenges.js';
 import { mountCodeLab } from './codelab.js';
 import { Pseudocode } from './lab.js';
+
+// English pages use the English deck when one has been built (site/slides/<id>/en/), else the Chinese one.
+async function slidesUrl(base, moduleId) {
+  const zh = new URL(`slides/${moduleId}/slides.json`, base);
+  if (LANG !== 'en') return zh;
+  const en = new URL(`slides/${moduleId}/en/slides.json`, base);
+  try { const r = await fetch(en, { method: 'HEAD' }); return r.ok ? en : zh; } catch { return zh; }
+}
 
 export async function bootModule({ moduleId, display, challenges, lab, visualize }) {
   const base = new URL('../', import.meta.url);
   const pseudo = Object.fromEntries($$('.pseudo').map(el => [el.dataset.pseudo, new Pseudocode(el)]));
   const tasks = [
     mountVideo($('#film-root'), new URL(`media/${moduleId}/film.json`, base)),
-    mountSlides($('#slides-root'), new URL(`slides/${moduleId}/slides.json`, base), display)
+    slidesUrl(base, moduleId).then(url => mountSlides($('#slides-root'), url, display))
   ];
   try { mountChallenges($('#challenge-root'), moduleId, challenges); }
   catch (e) { $('#challenge-root').replaceChildren(h('p.lab-error', L(`挑战加载失败：${e.message}`, `The challenges failed to load: ${e.message}`))); }

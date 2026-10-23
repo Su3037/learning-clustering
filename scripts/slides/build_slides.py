@@ -250,7 +250,7 @@ def chrome(cv, deck, s, page, total, anchor):
     cv.text(90, 1050, f"{deck['display']} · {deck['title']}", 24, FAINT)
     cv.text(W - 90, 1050, f"p{page}/{total}", 26, MUTED, "bold", "right")
     if anchor:
-        cv.text(W - 90, 84, f"影片 {anchor}", 24, FAINT, align="right")
+        cv.text(W - 90, 84, kit.X(f"影片 {anchor}", f"Film {anchor}"), 24, FAINT, align="right")
 
 
 def kit_bg(cv):
@@ -303,9 +303,24 @@ def mmss(t):
     return f"{int(t // 60):02d}:{int(t % 60):02d}"
 
 
-def main(module_id):
+def overlay(base, extra):
+    """Deep merge: dicts by key, lists of dicts by index (same rule as scripts/build-site.mjs)."""
+    if isinstance(base, dict) and isinstance(extra, dict):
+        out = dict(base)
+        for k, v in extra.items():
+            out[k] = overlay(base[k], v) if k in base else v
+        return out
+    if isinstance(base, list) and isinstance(extra, list) and all(isinstance(x, dict) for x in base):
+        return [overlay(b, extra[i]) if i < len(extra) else b for i, b in enumerate(base)]
+    return extra if extra is not None else base
+
+
+def main(module_id, lang="zh"):
+    kit.LANG = lang
     spec_path = ROOT / "content" / "modules" / module_id / "slides.json"
     deck = json.loads(spec_path.read_text(encoding="utf-8"))
+    if lang == "en":
+        deck = overlay(deck, json.loads(spec_path.with_name("slides.en.json").read_text(encoding="utf-8")))
     figmod = ROOT / "video" / module_id / "figures.py"
     sp = importlib.util.spec_from_file_location("figs", figmod)
     fm = importlib.util.module_from_spec(sp)
@@ -316,9 +331,11 @@ def main(module_id):
     if film.exists():
         fj = json.loads(film.read_text())
         for f in (fj.get("films") or [fj]):
+            title = f.get("title", "")
+            title = title.get(lang, title.get("zh")) if isinstance(title, dict) else title
             for sc in f.get("scenes", []):
-                scenes[sc["sceneId"]] = (f.get("title", ""), sc["start"], f.get("id"))
-    out = ROOT / "site" / "slides" / module_id
+                scenes[sc["sceneId"]] = (title, sc["start"], f.get("id"))
+    out = ROOT / "site" / "slides" / module_id / ("en" if lang == "en" else "")
     out.mkdir(parents=True, exist_ok=True)
     slides = deck["slides"]
     total = len(slides)
@@ -329,12 +346,13 @@ def main(module_id):
         anchor = None
         if s.get("scene") and s["scene"] in scenes:
             ftitle, start, fid = scenes[s["scene"]]
-            anchor = (f"《{ftitle}》 " if len(fj.get("films", [])) > 1 else "") + mmss(start)
+            anchor = ((kit.X(f"《{ftitle}》 ", f"“{ftitle}” ")) if len(fj.get("films", [])) > 1 else "") + mmss(start)
         rec = Recorder()
         draw_slide(rec, deck, s, i, total, figs, anchor)
         recs.append((s, rec, anchor))
     # PDF (960×540 pt) with selectable text
-    pdf = out / f"{module_id}.pdf"
+    stem = module_id + ("-en" if lang == "en" else "")
+    pdf = out / f"{stem}.pdf"
     cv = Canvas(960, 540, "pdf", str(pdf))
     for s, rec, _ in recs:
         replay_cairo(rec.ops, cv, 0.5)
@@ -351,7 +369,7 @@ def main(module_id):
         subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", str(p), "-vf", "scale=320:-1", "-q:v", "5", str(out / f"t{i:02d}.jpg")], check=True)
         p.unlink()
         manifest.append({"slideId": s["id"], "pageNumber": i, "pageCount": total, "title": s["title"], "image": f"p{i:02d}.jpg", "thumb": f"t{i:02d}.jpg",
-                         "alt": s.get("alt") or s["title"] + "：" + "；".join(b if isinstance(b, str) else b.get("text", "") for b in s.get("bullets", []))[:300],
+                         "alt": s.get("alt") or s["title"] + kit.X("：", ": ") + kit.X("；", "; ").join(b if isinstance(b, str) else b.get("text", "") for b in s.get("bullets", []))[:300],
                          "transcript": s.get("transcript", ""), "videoAnchor": anchor, "sceneId": s.get("scene"), "objectiveIds": s.get("objectives", [])})
     # PPTX
     try:
@@ -369,18 +387,25 @@ def main(module_id):
             replay_pptx(rec.ops, sl, Emu, RGBColor, MSO_SHAPE, MSO_CONNECTOR, MSO_LINE, PP_ALIGN)
             sl.notes_slide.notes_text_frame.text = s.get("transcript", "")
         prs.core_properties.title = f"{deck['display']} {deck['title']}"
-        prs.core_properties.author = "Learning Clustering（统一课程）"
-        prs.save(out / f"{module_id}.pptx")
-        pptx_name = f"{module_id}.pptx"
+        prs.core_properties.author = kit.X("Learning Clustering（统一课程）", "Learning Clustering")
+        prs.save(out / f"{stem}.pptx")
+        pptx_name = f"{stem}.pptx"
     except ImportError:
         print("python-pptx 不可用：跳过 PPTX（不会把 PNG 截图冒充可编辑课件）")
         pptx_name = None
     data = {"status": "ready", "moduleId": module_id, "slides": manifest, "pdf": pdf.name, "pptx": pptx_name, "contentVersion": deck.get("contentVersion"),
-            "aspectNote": "16:9 是本课程的设计选择（与影片一致、适合投影），不是教师指定的比例。PDF 页码与网页 p/total 完全一致；PPTX 中文字、形状与表格均可编辑，讲稿在备注里。"}
+            "lang": lang,
+            "aspectNote": kit.X("16:9 是本课程的设计选择（与影片一致、适合投影），不是教师指定的比例。PDF 页码与网页 p/total 完全一致；PPTX 中文字、形状与表格均可编辑，讲稿在备注里。",
+                                "16:9 is this course's choice (it matches the films and suits projection), not a ratio the teacher set. PDF page numbers match the web p/total exactly; in the PPTX the text, shapes and tables are editable and the notes hold the script.")}
     (out / "slides.json").write_text(json.dumps(data, ensure_ascii=False, indent=1), encoding="utf-8")
     print(f"{module_id}: {total} slides → {pdf.name}, {pptx_name}, previews")
 
 
 if __name__ == "__main__":
-    for m in sys.argv[1:]:
-        main(m)
+    args = [a for a in sys.argv[1:] if not a.startswith("--")]
+    langs = ["en"] if "--lang=en" in sys.argv else ["zh"] if "--lang=zh" in sys.argv else ["zh", "en"]
+    for m in args:
+        for lg in langs:
+            if lg == "en" and not (ROOT / "content" / "modules" / m / "slides.en.json").exists():
+                continue
+            main(m, lg)

@@ -119,11 +119,13 @@
       "video": [
         {
           "sceneId": "s05-trap",
-          "status": "scene-not-a-chapter"
+          "film": "capacity",
+          "start": 75.62
         },
         {
           "sceneId": "s06-trap2",
-          "status": "scene-not-a-chapter"
+          "film": "capacity",
+          "start": 95
         }
       ],
       "slides": [
@@ -162,7 +164,8 @@
         },
         {
           "sceneId": "s08-uneven",
-          "status": "scene-not-a-chapter"
+          "film": "capacity",
+          "start": 135.31
         }
       ],
       "slides": [
