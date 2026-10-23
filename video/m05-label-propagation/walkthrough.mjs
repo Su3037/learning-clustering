@@ -18,9 +18,9 @@ await rec.scrollTo('#lab', { duration: 10 });
 await rec.shot({ chapter: CH.lab, zh: '这是本章的实验台：先选例子、更新方式、平票规则和访问顺序。', en: 'This is the chapter\'s lab: choose an example, the update mode, the tie rule and the visiting order.' },
   async r => { await r.moveTo(sel(lab, '例子', 'Example')); await r.moveTo(sel(lab, '平票规则', 'Tie rule')); await r.wait(600); }, { hold: 1 });
 await rec.shot({ zh: '按“下一步”，更新一个节点。右边是这一票的明细。', en: 'Press Step to update one node. The panel on the right shows that vote in detail.', zoom: '#lab-root .lab' },
-  async r => { await r.click(btn(lab, '下一步', 'Step')); await r.wait(900); });
+  async r => { await r.click(btn(lab, '下一步', 'Next step')); await r.wait(900); });
 await rec.shot({ zh: '再按两次轮到 C：B = 1 + 4 = 5，D = 2，E = 1。金色那一行是赢家。', en: 'Two more steps and it is C\'s turn: B = 1 + 4 = 5, D = 2, E = 1. The gold row wins.', zoom: '#lab-root .lab' },
-  async r => { await r.click(btn(lab, '下一步', 'Step'), { glide: 0.3 }); await r.wait(500); await r.click(btn(lab, '下一步', 'Step'), { glide: 0.2 }); await r.wait(1200); });
+  async r => { await r.click(btn(lab, '下一步', 'Next step'), { glide: 0.3 }); await r.wait(500); await r.click(btn(lab, '下一步', 'Next step'), { glide: 0.2 }); await r.wait(1200); });
 await rec.shot({ zh: '“跳到结束”：2 轮，状态 stable，cut 3。', en: 'To the end: 2 rounds, status stable, cut 3.', zoom: '#lab-root .lab-side' },
   async r => { await r.click(btn(lab, '跳到结束', 'To the end')); await r.wait(1200); });
 await rec.shot({ zh: '下面的记录表列出每一步；点任一行就回到那一步。', en: 'The log below lists every step; click any row to jump back to it.' },

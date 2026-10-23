@@ -2540,8 +2540,8 @@
        "sceneId": "a13-summary"
       }
      ],
-     "bytes": 13965493,
-     "readingViolations": 0
+     "readingViolations": 0,
+     "bytes": 13965758
     }
    }
   },
@@ -2712,7 +2712,7 @@
      "src": "lab.en.mp4",
      "vtt": "lab.en.vtt",
      "poster": "lab.en.jpg",
-     "duration": 130.0,
+     "duration": 131.8,
      "captions": "en",
      "chapters": [
       {
@@ -2726,17 +2726,17 @@
        "sceneId": "shot-00"
       },
       {
-       "t": 55.54,
+       "t": 55.35,
        "title": "CODE LAB",
        "sceneId": "shot-08"
       },
       {
-       "t": 104.9,
+       "t": 106.75,
        "title": "YOUR CODE, VISUALISED",
        "sceneId": "shot-14"
       },
       {
-       "t": 120.27,
+       "t": 122.07,
        "title": "CHALLENGES",
        "sceneId": "shot-16"
       }
@@ -2768,85 +2768,85 @@
       },
       {
        "start": 28.267,
-       "end": 34.212,
+       "end": 34.052,
        "text": "The log below lists every step; click any row to jump back to it.",
        "sceneId": "shot-04"
       },
       {
-       "start": 34.212,
-       "end": 42.212,
+       "start": 34.052,
+       "end": 42.052,
        "text": "Switch to synchronous updates and jump to the end: the same graph oscillates, and the status is cycle.",
        "sceneId": "shot-05"
       },
       {
-       "start": 42.212,
-       "end": 49.212,
+       "start": 42.052,
+       "end": 49.052,
        "text": "Back to asynchronous, then Reverse order: 3 rounds, other label names, the same groups.",
        "sceneId": "shot-06"
       },
       {
-       "start": 49.212,
-       "end": 55.536,
+       "start": 49.052,
+       "end": 55.348,
        "text": "Raise the C–D bridge to 10: the groups become AB | CDE, cut 5.",
        "sceneId": "shot-07"
       },
       {
-       "start": 55.536,
-       "end": 61.469,
+       "start": 55.348,
+       "end": 61.281,
        "text": "The code lab: your code runs in the browser, with no Python to install.",
        "sceneId": "shot-08"
       },
       {
-       "start": 61.469,
-       "end": 67.936,
+       "start": 61.281,
+       "end": 67.748,
        "text": "Run the checks first: neither task is written yet, so the result is INCOMPLETE.",
        "sceneId": "shot-09"
       },
       {
-       "start": 67.936,
-       "end": 78.138,
+       "start": 67.748,
+       "end": 78.814,
        "text": "Task 1, count_votes: add up the neighbours' edge weights per label.",
        "sceneId": "shot-10"
       },
       {
-       "start": 78.138,
-       "end": 84.871,
+       "start": 78.814,
+       "end": 85.547,
        "text": "Run the checks again: the vote counting passes; the stopping test is still missing.",
        "sceneId": "shot-11"
       },
       {
-       "start": 84.871,
-       "end": 96.968,
+       "start": 85.547,
+       "end": 98.814,
        "text": "Task 2: a round with no change is stable; a state seen before is a cycle.",
        "sceneId": "shot-12"
       },
       {
-       "start": 96.968,
-       "end": 104.901,
+       "start": 98.814,
+       "end": 106.747,
        "text": "Run the checks: everything passes, including the original 24-cell circuit and 28-person contact list.",
        "sceneId": "shot-13"
       },
       {
-       "start": 104.901,
-       "end": 113.435,
+       "start": 106.747,
+       "end": 115.281,
        "text": "Below, your own solve() runs and is compared with the course engine step by step. Pick two nodes, synchronous.",
        "sceneId": "shot-14"
       },
       {
-       "start": 113.435,
-       "end": 120.267,
+       "start": 115.281,
+       "end": 122.072,
        "text": "Your code reports a cycle too, and agrees with the course engine at every step.",
        "sceneId": "shot-15"
       },
       {
-       "start": 120.267,
-       "end": 127.4,
+       "start": 122.072,
+       "end": 129.205,
        "text": "Finally, try the challenges to check you really understand. Results stay in your browser.",
        "sceneId": "shot-16"
       }
      ],
      "readingViolations": 0,
-     "bytes": 10055083
+     "bytes": 10090250
     }
    }
   }
