@@ -7,7 +7,9 @@
         "m08-diff"
       ],
       "sceneIds": [
-        "s01-diff"
+        "p-ask",
+        "p-rule",
+        "k01-problem"
       ],
       "slideIds": [
         "m08-problem"
@@ -19,9 +21,19 @@
       ],
       "video": [
         {
-          "sceneId": "s01-diff",
-          "film": "fm",
-          "start": 3
+          "sceneId": "p-ask",
+          "film": "story",
+          "start": 10.75
+        },
+        {
+          "sceneId": "p-rule",
+          "film": "story",
+          "start": 17.41
+        },
+        {
+          "sceneId": "k01-problem",
+          "film": "concise",
+          "start": 3.4
         }
       ],
       "slides": [
@@ -37,7 +49,9 @@
         "m08-legal"
       ],
       "sceneIds": [
-        "s02-gains"
+        "p-blocked",
+        "p-dev",
+        "k02-legal"
       ],
       "slideIds": [
         "m08-legal"
@@ -51,9 +65,19 @@
       ],
       "video": [
         {
-          "sceneId": "s02-gains",
-          "film": "fm",
-          "start": 20.02
+          "sceneId": "p-blocked",
+          "film": "story",
+          "start": 37
+        },
+        {
+          "sceneId": "p-dev",
+          "film": "story",
+          "start": 51.18
+        },
+        {
+          "sceneId": "k02-legal",
+          "film": "concise",
+          "start": 19.76
         }
       ],
       "slides": [
@@ -69,7 +93,7 @@
         "m08-legal"
       ],
       "sceneIds": [
-        "s03-fste"
+        "k03-fste"
       ],
       "slideIds": [
         "m08-fste"
@@ -83,9 +107,9 @@
       ],
       "video": [
         {
-          "sceneId": "s03-fste",
-          "film": "fm",
-          "start": 38.38
+          "sceneId": "k03-fste",
+          "film": "concise",
+          "start": 34.33
         }
       ],
       "slides": [
@@ -101,8 +125,12 @@
         "m08-walk"
       ],
       "sceneIds": [
-        "s04-walk",
-        "s05-prefix"
+        "p-ada",
+        "p-rest",
+        "p-keep",
+        "p-round2",
+        "k04-pass",
+        "k05-prefix"
       ],
       "slideIds": [
         "m08-walk",
@@ -118,14 +146,34 @@
       ],
       "video": [
         {
-          "sceneId": "s04-walk",
-          "film": "fm",
-          "start": 56.87
+          "sceneId": "p-ada",
+          "film": "story",
+          "start": 63.15
         },
         {
-          "sceneId": "s05-prefix",
-          "film": "fm",
-          "start": 84.73
+          "sceneId": "p-rest",
+          "film": "story",
+          "start": 74
+        },
+        {
+          "sceneId": "p-keep",
+          "film": "story",
+          "start": 89
+        },
+        {
+          "sceneId": "p-round2",
+          "film": "story",
+          "start": 119.27
+        },
+        {
+          "sceneId": "k04-pass",
+          "film": "concise",
+          "start": 55.73
+        },
+        {
+          "sceneId": "k05-prefix",
+          "film": "concise",
+          "start": 74
         }
       ],
       "slides": [
@@ -145,8 +193,9 @@
         "m08-escape"
       ],
       "sceneIds": [
-        "s06-legacy",
-        "s07-escape"
+        "p-escape",
+        "a01-escape",
+        "a02-legacy"
       ],
       "slideIds": [
         "m08-legacy",
@@ -162,14 +211,19 @@
       ],
       "video": [
         {
-          "sceneId": "s06-legacy",
-          "film": "fm",
-          "start": 102.11
+          "sceneId": "p-escape",
+          "film": "story",
+          "start": 102.5
         },
         {
-          "sceneId": "s07-escape",
-          "film": "fm",
-          "start": 127.71
+          "sceneId": "a01-escape",
+          "film": "advanced",
+          "start": 3.4
+        },
+        {
+          "sceneId": "a02-legacy",
+          "film": "advanced",
+          "start": 32.44
         }
       ],
       "slides": [
@@ -190,9 +244,9 @@
         "m08-pseudocode"
       ],
       "sceneIds": [
-        "s08-bucket",
-        "s09-multipin",
-        "s10-code"
+        "a03-multipin",
+        "a04-bucket",
+        "a05-area"
       ],
       "slideIds": [
         "m08-bucket",
@@ -208,19 +262,19 @@
       ],
       "video": [
         {
-          "sceneId": "s08-bucket",
-          "film": "fm",
-          "start": 157.58
+          "sceneId": "a03-multipin",
+          "film": "advanced",
+          "start": 55.96
         },
         {
-          "sceneId": "s09-multipin",
-          "film": "fm",
-          "start": 176.16
+          "sceneId": "a04-bucket",
+          "film": "advanced",
+          "start": 77.89
         },
         {
-          "sceneId": "s10-code",
-          "film": "fm",
-          "start": 192.96
+          "sceneId": "a05-area",
+          "film": "advanced",
+          "start": 102.58
         }
       ],
       "slides": [

@@ -1,0 +1,133 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:04.600
+The same five friends, in two rooms.
+
+2
+00:00:04.600 --> 00:00:09.000
+This time each room has three beds.
+
+3
+00:00:10.750 --> 00:00:13.772
+Friendships split: 12.
+
+4
+00:00:13.772 --> 00:00:17.239
+New rule: one person moves at a time.
+
+5
+00:00:17.410 --> 00:00:21.810
+But the rooms may differ by one at most.
+
+6
+00:00:21.810 --> 00:00:26.610
+Each person's gain: friends outside minus inside.
+
+7
+00:00:26.610 --> 00:00:30.610
+Ada and Eva: 6 each, the biggest.
+
+8
+00:00:37.000 --> 00:00:41.200
+Move Ada? The left room would keep just one.
+
+9
+00:00:41.200 --> 00:00:45.200
+One to four is too lopsided: not allowed.
+
+10
+00:00:45.200 --> 00:00:47.800
+The same for Eva.
+
+11
+00:00:51.180 --> 00:00:55.313
+Among the legal ones, Dev is best: +3.
+
+12
+00:00:55.313 --> 00:00:58.780
+Dev moves across: 12 → 9.
+
+13
+00:00:58.780 --> 00:01:01.780
+Now the left room has three.
+
+14
+00:01:03.150 --> 00:01:06.839
+Now Ada may go: +6.
+
+15
+00:01:06.839 --> 00:01:09.239
+9 → 3.
+
+16
+00:01:09.239 --> 00:01:12.928
+Both lock for the rest of the round.
+
+17
+00:01:14.000 --> 00:01:17.000
+Keep going, even at a loss:
+
+18
+00:01:17.000 --> 00:01:21.800
+Cai −2, Eva −6, Ben −1.
+
+19
+00:01:21.800 --> 00:01:25.400
+Back to 12: all of it trials.
+
+20
+00:01:29.000 --> 00:01:32.400
+The best prefix: the first two steps.
+
+21
+00:01:32.400 --> 00:01:35.000
+Roll back to 3.
+
+22
+00:01:42.500 --> 00:01:47.522
+Six others: at first every legal move loses.
+
+23
+00:01:47.522 --> 00:01:51.522
+Take two small losses: 6 → 7 → 8.
+
+24
+00:01:51.522 --> 00:01:56.122
+Then E gains 4: down to 4, the best split.
+
+25
+00:01:59.270 --> 00:02:03.181
+Back to the five: round two starts from 3.
+
+26
+00:02:03.181 --> 00:02:06.781
+Every prefix is worse than staying put.
+
+27
+00:02:06.781 --> 00:02:09.781
+The empty prefix wins: stop.
+
+28
+00:02:14.160 --> 00:02:19.627
+On a chip: the halves may differ a little; cells move one by one.
+
+29
+00:02:21.500 --> 00:02:27.500
+One at a time, the head count inside the window.
+
+30
+00:02:27.500 --> 00:02:33.500
+The biggest gain must be legal first.
+
+31
+00:02:33.500 --> 00:02:40.500
+Try the losses; keep only the best prefix.
+
+32
+00:02:40.500 --> 00:02:48.500
+What if distance matters, not ties? Next module.
+
+33
+00:02:50.600 --> 00:02:56.600
+In the lab below, see which moves the balance blocks.
