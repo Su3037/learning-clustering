@@ -11,8 +11,8 @@
    "thumb": "t01.jpg",
    "alt": "合并，再合并：",
    "transcript": "这一模块从单点出发，每次把最亲近的两个簇合在一起。我们会手算 G01 的完整轨迹，解释平票规则，看清原网页比较器的错误，并预览容量约束。",
-   "videoAnchor": "00:00",
-   "sceneId": "s00-title",
+   "videoAnchor": null,
+   "sceneId": "k00-title",
    "objectiveIds": []
   },
   {
@@ -24,8 +24,8 @@
    "thumb": "t02.jpg",
    "alt": "问题定义：输入：带权无向图、目标簇数 K、可选容量 C；每一步：合并亲和度 > 0 且合法的“最亲近”一对；停止：簇数达到 K，或没有合法的正亲和度对；输出：簇、cut、是否达到 K、停止原因、每步记录；绝不为凑 K 强行合并，也不撤销已做的合并",
    "transcript": "输入是图、目标簇数 K 和可选的容量。每一步合并最亲近的合法一对。停止有两种情况：簇数达到 K，或者已经没有合法的正亲和度对。后一种情况要如实报告没有达到 K。",
-   "videoAnchor": "00:03",
-   "sceneId": "s01-hook",
+   "videoAnchor": null,
+   "sceneId": "k01-problem",
    "objectiveIds": [
     "o1"
    ]
@@ -39,8 +39,8 @@
    "thumb": "t03.jpg",
    "alt": "单点簇、K 与簇间亲和度：单点簇：开始时每个节点自成一簇，cut = 全部边权 18；簇间亲和度：两个簇之间所有边权之和；收缩：两簇之间的边变成内部边，平行边相加；每次合并，cut 恰好下降这一次的亲和度",
    "transcript": "开始时每个节点自己是一个簇，所有边都被切断，cut 等于 18。两个簇的亲和度是它们之间所有边权的和。合并以后这些边成为内部边，所以每次合并，cut 恰好减少这一次的亲和度。",
-   "videoAnchor": "00:19",
-   "sceneId": "s02-setup",
+   "videoAnchor": null,
+   "sceneId": "p-rule",
    "objectiveIds": [
     "o2"
    ]
@@ -54,8 +54,8 @@
    "thumb": "t04.jpg",
    "alt": "选择键与平票规则：选择键 (−亲和度, 簇 A 成员, 簇 B 成员)，逐字段比较取最小；第一字段取负：亲和度大的排前；第一步 A–B 与 D–E 都是 5：比较 A 与 D，选 A–B；cut 18 → 13",
    "transcript": "每一步用选择键比较候选：先比亲和度，大的优先；并列时比较成员名字。第一步 A–B 和 D–E 都是 5，A 排在 D 前，所以合并 A–B，cut 从 18 降到 13。",
-   "videoAnchor": "00:42",
-   "sceneId": "s03-step1",
+   "videoAnchor": null,
+   "sceneId": "k02-step1",
    "objectiveIds": [
     "o3"
    ]
@@ -69,8 +69,8 @@
    "thumb": "t05.jpg",
    "alt": "收缩：平行边相加：A、B 收缩为超节点 AB（原作者 thy031 的核心示意）；AB–C = A–C 1 + B–C 4 = 5；与 D–E 再次并列 5：[A, B] < [D]，选 AB–C；cut 13 → 8",
    "transcript": "A 和 B 收缩成超节点之后，A–C 和 B–C 是两条连到 C 的平行边，加起来是 5，又和 D–E 并列。比较成员 [A, B] 与 [D]，选 AB–C，cut 从 13 降到 8。",
-   "videoAnchor": "00:58",
-   "sceneId": "s04-step2",
+   "videoAnchor": null,
+   "sceneId": "k03-step2",
    "objectiveIds": [
     "o2"
    ]
@@ -84,8 +84,8 @@
    "thumb": "t06.jpg",
    "alt": "完整轨迹：18 → 13 → 8 → 3：第 3 步：D–E = 5，cut 8 → 3，簇数到 2，停止；结果 ABC | DE；剩余 cut：C–D 2 + C–E 1 = 3；K = 3 时在第 2 步后停：ABC | D | E，cut 8",
    "transcript": "第三步合并 D–E，cut 从 8 降到 3，簇数达到 2，停止。结果是 ABC 对 DE，剩下被切断的是 C–D 和 C–E。如果 K 等于 3，就在第二步之后停下，cut 是 8。",
-   "videoAnchor": "01:18",
-   "sceneId": "s05-step3",
+   "videoAnchor": null,
+   "sceneId": "k04-step3",
    "objectiveIds": [
     "o4"
    ]
@@ -99,8 +99,8 @@
    "thumb": "t07.jpg",
    "alt": "原网页的比较器错误（已修正）：原 JS：if (!best || cand < best)，cand 是数组；JavaScript 比较数组前先转成字符串；\"-1,A,C\" < \"-5,A,B\"：亲和度 1 被当成更好；四个配置 9/16/12/16，正确为 3/8/8/3；修正：逐字段比较；回归测试 10 vs 2、2.5 vs 2",
    "transcript": "原网页的 JavaScript 用小于号比较数组。JavaScript 会先把数组转成字符串，再逐个字符比较，于是负 1 开头的字符串排在负 5 前面，亲和度 1 的 A–C 被当成更好的一对。四个配置都因此出错。原作的 Python 参考是对的。本课程改成逐字段比较，并加了多位数和小数的回归测试。",
-   "videoAnchor": "01:36",
-   "sceneId": "s06-bug",
+   "videoAnchor": null,
+   "sceneId": "k05-bug",
    "objectiveIds": [
     "o3"
    ]
@@ -114,8 +114,8 @@
    "thumb": "t08.jpg",
    "alt": "容量预览与停止状态：容量 C = 2：AB + C 的大小 3 > 2，被阻止；转选 D–E；之后 AB+C、C+DE 都超容量；停止：AB | C | DE，3 簇，cut 8；合法（每簇 ≤ 2）但未达到 K = 2；容量 3：轨迹与不限容量相同",
    "transcript": "容量为 2 时，第二步想把 C 加入 AB，大小变成 3，超过容量，被阻止，于是转选 D–E。之后再也没有合法的合并，停在三个簇，cut 8。这个结果是合法的，但没有达到 K。",
-   "videoAnchor": "02:06",
-   "sceneId": "s07-capacity",
+   "videoAnchor": null,
+   "sceneId": "k06-capacity",
    "objectiveIds": [
     "o5"
    ]
@@ -129,8 +129,8 @@
    "thumb": "t09.jpg",
    "alt": "伪代码逐行：第 2 行：簇数达到 K 就停；第 3–4 行：列出正亲和度候选，过滤超容量；第 5 行：没有合法候选就停，如实报告；第 6 行：逐字段比较选择键；第 7 行：收缩，cut 下降该亲和度",
    "transcript": "伪代码中，第二行检查是否达到 K；第三、四行列出候选并过滤超容量的；第五行在没有合法候选时停止；第六行逐字段比较选择键；第七行收缩，cut 下降这一次的亲和度。",
-   "videoAnchor": "02:35",
-   "sceneId": "s08-code",
+   "videoAnchor": null,
+   "sceneId": "a01-drop",
    "objectiveIds": [
     "o6"
    ]
@@ -160,8 +160,8 @@
    "thumb": "t11.jpg",
    "alt": "局限与工程含义：不回撤：早期合并错了，后面无法纠正（反例见 Module 04）；依赖评分与平票规则；朴素实现每步检查所有簇对；实际工具用优先队列与局部更新；芯片设计中常用于把大量单元粗化成较少的簇，并限制簇面积",
    "transcript": "贪心合并不回撤，早期的错误无法纠正，下一模块会给出反例。它依赖评分与平票规则。朴素实现每一步都要检查所有簇对。在芯片设计中，这类合并常用来先把大量单元粗化成较少的簇，同时限制簇的面积。",
-   "videoAnchor": "02:59",
-   "sceneId": "s09-limits",
+   "videoAnchor": null,
+   "sceneId": "a05-noback",
    "objectiveIds": [
     "o6"
    ]
@@ -183,5 +183,6 @@
  "pdf": "m03-greedy-pair-merge.pdf",
  "pptx": "m03-greedy-pair-merge.pptx",
  "contentVersion": "2026.10.23-1",
+ "lang": "zh",
  "aspectNote": "16:9 是本课程的设计选择（与影片一致、适合投影），不是教师指定的比例。PDF 页码与网页 p/total 完全一致；PPTX 中文字、形状与表格均可编辑，讲稿在备注里。"
 }

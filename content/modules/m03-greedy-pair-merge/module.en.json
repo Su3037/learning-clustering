@@ -1,6 +1,51 @@
 {
   "title": "Greedy Pair Merge",
   "hook": "If the two most tightly connected blocks always merge first, do we always end with the best grouping?",
-  "cardText": "Start from single cells and repeatedly merge the pair with the largest inter-cluster weight. Value first, names break ties; stop at K or when nothing can merge.",
-  "description": "Starting from single-cell clusters, repeatedly merge the legal pair with the highest affinity until K is reached or no positive legal pair remains; includes the fixed comparator bug and its regression test."
+  "cardText": "Start from single cells and repeatedly merge the pair with the largest weight between them. Value first, names break ties; stop at K or when nothing can merge.",
+  "description": "Starting from single-cell clusters, repeatedly merge the legal pair with the highest affinity until K is reached or no positive legal pair remains; includes the fixed comparator bug and its regression test.",
+  "prerequisitesText": "[Module 02](../m02-affinity-metrics/index.html): scores and the stable ranking; [Foundations](../../foundations/index.html): the cut.",
+  "nextText": "Module 04 turns capacity from a preview into the main problem.",
+  "review": "The last module’s point: a score only ranks, and the tie rule must be fixed. This module picks one score, **the total weight between two clusters**, and merges with it again and again.",
+  "objectives": [
+    { "id": "o1", "text": "State greedy merging’s input (graph, K, optional capacity), output (clusters, cut, whether K is reached, stop reason) and its two stopping conditions." },
+    { "id": "o2", "text": "Compute the affinity between two clusters (the total weight of the wires between them), including adding parallel wires after a contraction." },
+    { "id": "o3", "text": "Choose the next pair by comparing (−affinity, members, members) field by field, and explain why the arrays must not be compared as strings." },
+    { "id": "o4", "text": "Trace G01 with K = 2 by hand, AB → ABC → DE with the cut going 18 → 13 → 8 → 3, and mark the remaining cut on the result." },
+    { "id": "o5", "text": "Explain why capacity 2 stops at 3 clusters (AB + C has size 3 > 2), and tell “legal” apart from “K reached”." },
+    { "id": "o6", "text": "Name greedy merging’s limits (no backtracking, depends on the score), and implement the merge with a correct comparator in Python." }
+  ],
+  "problem": {
+    "input": "A weighted undirected graph (node size 1 by default), a target number of clusters K, and an optional capacity C.",
+    "output": "The clusters actually obtained, the cut, the number of clusters, whether K is reached, the stop reason, and a record of every merge.",
+    "objective": "Keep the wires between clusters (the cut) small by repeatedly merging the “closest” pair of clusters.",
+    "constraints": "Merge only pairs with affinity > 0; with a capacity, a merged cluster’s size may not exceed C; a merge is never undone.",
+    "assumptions": "Affinity = the total weight of every edge between the two clusters; the selection key (−affinity, members of A, members of B) is compared field by field.",
+    "stop": "The number of clusters reaches K, or no legal pair with positive affinity remains (then say honestly that K is not reached; never force a merge)."
+  },
+  "filmTitle": "Four films",
+  "filmNote": "The popular-science film starts on a graduation trip: five friends split into two cars by merging the groups that get along best, a folder that sorts 10 before 2 explains the original page’s comparator bug, and twin rooms at the hotel show why you never force K. The concise film covers the rule, ties, contraction and the full path; the advanced film covers why the cut drops by exactly the affinity, how a sum affinity snowballs, the three stop states, the price of never backtracking, and local updates; the walkthrough, recorded from the real page, takes you through the lab and the code lab. Every trajectory comes from the same engine as this page.",
+  "labTitle": "Greedy merge lab",
+  "labNote": "Change K, the capacity or an edge weight, and the engine recomputes the whole path. The table lists every candidate at each step: gold is chosen, red is blocked by the capacity.",
+  "challengeTip": "Challenge 3 asks you to pick edges on the graph: click the edge buttons below to select or clear them.",
+  "mistakes": [
+    { "title": "Comparing candidate arrays as strings", "wrong": "The original page merged A–C (affinity 1) first, ending at ACDE | B, cut 9.", "why": "JavaScript’s `cand < best` turns the arrays into strings before comparing: \"-1,A,C\" sorts before \"-5,A,B\" because the character 1 is less than 5. Character order replaces the value-first rule.", "counter": "On the same graph with the same rule, a correct comparison gives ABC | DE, cut 3; across four settings the original page gives 9/16/12/16 and the correct values are 3/8/8/3 (this course’s tests reproduce both).", "fix": "Compare field by field: numbers by value, names alphabetically. This course’s engine uses `compareKeys()`, with regression tests for 10 versus 2 and 2.5 versus 2." },
+    { "title": "Forcing a merge to reach K", "wrong": "With capacity 2, squeezing C into AB or DE and reporting “2 clusters”.", "why": "The stopping rule is “K is reached, or no legal positive pair remains”. With no legal pair, stop and say so.", "counter": "With capacity 2, AB + C has size 3 > 2, and so does C + DE; the correct result is AB | C | DE, 3 clusters, cut 8, targetReached = false.", "fix": "Report separately: the number of clusters, whether the capacity holds, whether K is reached, and the stop reason." },
+    { "title": "Forgetting to add parallel wires after a contraction", "wrong": "After merging A and B, taking the affinity of AB–C as just 4 (only B–C).", "why": "The affinity between clusters is the total of **every** wire between them: both A–C and B–C reach C.", "counter": "AB–C = 1 + 4 = 5, tying D–E; counted as 4, step 2 would merge D–E first.", "fix": "At every step, add up the crossing wires again for each cluster pair." },
+    { "title": "Thinking greedy always finds the best grouping", "wrong": "Seeing G01 end at cut 3 and concluding that greedy merging is optimal in general.", "why": "Greedy only takes the largest pair at each step and never undoes a merge; early choices limit what can happen later.", "counter": "Module 04’s suboptimal graph: greedy reaches cut 18, while the best legal grouping has cut 11.", "fix": "Keep “this example gives 3” apart from “the algorithm is always optimal”; when you need a guarantee, compare with exhaustive search or another method." }
+  ],
+  "limits": "- Greedy never backtracks: a wrong early merge cannot be corrected later (Module 04 gives a counterexample).\n- The result depends on the score and the tie rule; with another score (Module 02) the result can be entirely different.\n- A naive implementation checks every cluster pair at every step; large circuits usually use a priority queue with local updates.\n- In this module capacity is only a preview, counted as the sum of node sizes; cells of different areas get proper treatment in Module 04.\n- The course’s small graphs use invented teaching values.",
+  "pythonPackage": {
+    "title": "Fix the comparator, then write the main loop",
+    "md": "**Tasks** (`starter.py`):\n\n1. `selection_key(c)`: return a candidate’s selection key so that `min(...)` picks the pair to merge.\n2. `greedy_pair_merge(nodes, edges, k, capacity)`: write the main loop and the stop reason.\n\n**Hint 1**: Python tuples compare field by field, and numbers compare as numbers: exactly what the original page’s JS lacked.\n\n**Hint 2**: at each step, list every candidate with positive affinity first, then drop the ones over capacity; with no legal candidate, stop, and tell `capacity-blocked` from `no-positive-affinity`. The checker also tests multi-digit weights, 10 > 9 > 2."
+  },
+  "credits": {
+    "kept": [
+      "The split into Lab, Game and Course notes: this module keeps the structure of “lab + challenges + notes”.",
+      "The merge illustration: AB–C weighs 1 + 4 = 5, and on a tie with D–E the member names decide (the core picture of this module’s films and explanation).",
+      "The task of marking the remaining cut on a real result (challenge 3).",
+      "The Python reference `common/solvers.py`, with its per-step cut log and four settings: this course rewrote it independently and matches it (3/8/8/3)."
+    ],
+    "licenseNote": "The original repository declares no overall licence, and this module copies none of its code or videos; the resubmitted URL appears in a comment on Issue #2 and belongs to the same work. The problem in the original page’s JS comparator is reproduced and fixed in this course; this is a note on an improvement, not a criticism of the author. The popular-science film uses third-party music chosen by the author, “We Never (Remix)” by Hi Noise / 秋成; it is not covered by this course’s licences, this course grants no rights to it, and no separate audio track is offered. The scores of the other three films are original to this course.",
+    "references": ["The teacher’s original course: [module materials](https://github.com/yongfu-li/eda-learning/blob/003bcd49e3794e6cfd2680181cdbd347d673ad07/courses/learn_clustering/module01-03-greedy-pair-merge/README.md)", "Agglomerative clustering in general is covered in common data-mining and VLSI physical-design textbooks; this module uses only one affinity, the total weight between clusters."]
+  }
 }

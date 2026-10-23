@@ -8,7 +8,11 @@
   "description": "从单点簇开始，每次合并亲和度最大的合法簇对，直到达到 K 或没有合法的正亲和度对；含已修复的比较器错误与回归。",
   "hook": "连接最紧的两个模块先合并，就一定能分出最好的结果吗？",
   "cardText": "从单点出发，每次合并“簇间边权和”最大的一对。数值优先、平票看名字；达到 K 或无法合并就停。",
-  "sourceIssue": { "number": 2, "title": "Clustering Module - Lesson 3", "url": "https://github.com/yongfu-li/eda-learning/issues/2" },
+  "sourceIssue": {
+    "number": 2,
+    "title": "Clustering Module - Lesson 3",
+    "url": "https://github.com/yongfu-li/eda-learning/issues/2"
+  },
   "teacherFolder": "module01-03-greedy-pair-merge（Lab 03）",
   "teacherMappingStatus": "verified",
   "compatSlug": "greedy-pair-merge",
@@ -16,12 +20,57 @@
   "nextText": "Module 04 把容量从“预览”变成核心问题。",
   "review": "上一模块的要点：评分只排名，并且要固定平票规则。本模块选定一种评分——**簇与簇之间的边权和**——并用它反复合并。",
   "objectives": [
-    { "id": "o1", "text": "说出贪心合并的输入（图、K、可选容量）、输出（簇、cut、是否达到 K、停止原因）和两条停止条件。", "where": ["m03-local", "m03-setup"] },
-    { "id": "o2", "text": "计算两个簇之间的亲和度（跨簇边权之和），包括收缩后平行边的相加。", "where": ["m03-setup", "challenge-c2"] },
-    { "id": "o3", "text": "按 (−亲和度, 成员, 成员) 逐字段比较选择下一对，解释为什么不能把数组当字符串比较。", "where": ["m03-tie", "challenge-c1", "challenge-c5"] },
-    { "id": "o4", "text": "手算 G01 在 K=2 时的完整轨迹 AB → ABC → DE，cut 18 → 13 → 8 → 3，并在结果上画出剩余的 cut。", "where": ["m03-walk", "challenge-c3"] },
-    { "id": "o5", "text": "解释容量为 2 时为何停在 3 簇（AB+C 大小 3 > 2），并区分“合法”与“达到 K”。", "where": ["m03-capacity", "challenge-c4"] },
-    { "id": "o6", "text": "说出贪心合并的局限（不回撤、依赖评分），并在 Python 中实现带正确比较器的合并。", "where": ["m03-limits", "m03-pseudocode", "challenge-c6", "python"] }
+    {
+      "id": "o1",
+      "text": "说出贪心合并的输入（图、K、可选容量）、输出（簇、cut、是否达到 K、停止原因）和两条停止条件。",
+      "where": [
+        "m03-local",
+        "m03-setup"
+      ]
+    },
+    {
+      "id": "o2",
+      "text": "计算两个簇之间的亲和度（跨簇边权之和），包括收缩后平行边的相加。",
+      "where": [
+        "m03-setup",
+        "challenge-c2"
+      ]
+    },
+    {
+      "id": "o3",
+      "text": "按 (−亲和度, 成员, 成员) 逐字段比较选择下一对，解释为什么不能把数组当字符串比较。",
+      "where": [
+        "m03-tie",
+        "challenge-c1",
+        "challenge-c5"
+      ]
+    },
+    {
+      "id": "o4",
+      "text": "手算 G01 在 K=2 时的完整轨迹 AB → ABC → DE，cut 18 → 13 → 8 → 3，并在结果上画出剩余的 cut。",
+      "where": [
+        "m03-walk",
+        "challenge-c3"
+      ]
+    },
+    {
+      "id": "o5",
+      "text": "解释容量为 2 时为何停在 3 簇（AB+C 大小 3 > 2），并区分“合法”与“达到 K”。",
+      "where": [
+        "m03-capacity",
+        "challenge-c4"
+      ]
+    },
+    {
+      "id": "o6",
+      "text": "说出贪心合并的局限（不回撤、依赖评分），并在 Python 中实现带正确比较器的合并。",
+      "where": [
+        "m03-limits",
+        "m03-pseudocode",
+        "challenge-c6",
+        "python"
+      ]
+    }
   ],
   "problem": {
     "input": "带权无向图（节点大小默认 1）、目标簇数 K、可选容量 C。",
@@ -31,16 +80,40 @@
     "assumptions": "亲和度 = 两簇之间所有边权之和；选择键 (−亲和度, 簇 A 成员, 簇 B 成员) 逐字段比较。",
     "stop": "簇数达到 K；或者没有合法的正亲和度簇对（此时如实报告未达到 K，绝不强行合并）。"
   },
-  "filmTitle": "合并，再合并",
-  "filmNote": "影片逐步展示每一次收缩：平行边相加、并列时按成员名字决定、cut 条下降多少。",
+  "filmTitle": "四部影片",
+  "filmNote": "科普片从毕业旅行讲起：五个朋友分两辆车，每次把最投机的两组合并；一个把 10 排在 2 前面的文件夹讲清原网页的比较器错误；酒店的双人房讲清为什么不能硬凑 K。精讲片讲清规则、平票、收缩和完整轨迹；进阶片讲 cut 为什么恰好下降亲和度、“和”亲和度的滚雪球效应、三种停止状态、不回撤的代价和局部更新；实验演示从真实页面录下，带你做一遍实验和在线编程。所有轨迹都来自本页同一个引擎。",
   "labTitle": "贪心合并实验台",
   "labNote": "改 K、改容量、改边权，引擎重新计算整条轨迹。表格列出每一步的全部候选：金色是被选中的，红色是超容量被阻止的。",
   "challengeTip": "第 3 题需要在图上点选边：点击下方的边按钮即可选中或取消。",
   "mistakes": [
-    { "title": "把候选数组当字符串比较", "wrong": "原网页第一步合并了 A–C（亲和度 1），最终 ACDE | B，cut 9。", "why": "JavaScript 的 `cand < best` 会把数组转成字符串再比较：\"-1,A,C\" 排在 \"-5,A,B\" 前面，因为字符 1 小于 5。数值优先的规则被字符顺序取代。", "counter": "同一张图、同一规则，正确比较得 ABC | DE，cut 3；四个配置原网页为 9/16/12/16，正确值为 3/8/8/3（本课程测试复现了两者）。", "fix": "逐字段比较：数字按数值，名字按字典序。本课程引擎用 `compareKeys()`，并对 10 与 2、2.5 与 2 做回归测试。" },
-    { "title": "为了凑够 K 强行合并", "wrong": "容量 2 时把 C 硬塞进 AB 或 DE，报告“得到 2 簇”。", "why": "停止条件是“达到 K 或没有合法的正亲和度对”。没有合法对时就停，如实报告。", "counter": "容量 2 时 AB+C 的大小是 3 > 2，C+DE 同样超容量；正确结果是 AB | C | DE，3 簇，cut 8，targetReached = false。", "fix": "结果里分开报告：实际簇数、是否满足容量、是否达到 K、停止原因。" },
-    { "title": "忘记收缩后平行边相加", "wrong": "合并 A、B 之后认为 AB–C 的亲和度只有 4（只看 B–C）。", "why": "簇间亲和度是两簇之间**所有**边权之和：A–C 和 B–C 都连到 C。", "counter": "AB–C = 1 + 4 = 5，和 D–E 并列；如果算成 4，第二步就会先合并 D–E。", "fix": "每一步按“簇对”重新累加跨簇边。" },
-    { "title": "以为贪心总能找到最好的分组", "wrong": "看到 G01 得到 cut 3，就认为贪心合并一般是最优的。", "why": "贪心每一步只看当前最大的一对，合并后不能撤回；早期的选择会限制后面的可能。", "counter": "Module 04 的 suboptimal 图：贪心得 cut 18，合法的最优分组 cut 11。", "fix": "把“这个例子得到 3”和“算法总是最优”分开说；需要保证时用穷举或其他方法对照。" }
+    {
+      "title": "把候选数组当字符串比较",
+      "wrong": "原网页第一步合并了 A–C（亲和度 1），最终 ACDE | B，cut 9。",
+      "why": "JavaScript 的 `cand < best` 会把数组转成字符串再比较：\"-1,A,C\" 排在 \"-5,A,B\" 前面，因为字符 1 小于 5。数值优先的规则被字符顺序取代。",
+      "counter": "同一张图、同一规则，正确比较得 ABC | DE，cut 3；四个配置原网页为 9/16/12/16，正确值为 3/8/8/3（本课程测试复现了两者）。",
+      "fix": "逐字段比较：数字按数值，名字按字典序。本课程引擎用 `compareKeys()`，并对 10 与 2、2.5 与 2 做回归测试。"
+    },
+    {
+      "title": "为了凑够 K 强行合并",
+      "wrong": "容量 2 时把 C 硬塞进 AB 或 DE，报告“得到 2 簇”。",
+      "why": "停止条件是“达到 K 或没有合法的正亲和度对”。没有合法对时就停，如实报告。",
+      "counter": "容量 2 时 AB+C 的大小是 3 > 2，C+DE 同样超容量；正确结果是 AB | C | DE，3 簇，cut 8，targetReached = false。",
+      "fix": "结果里分开报告：实际簇数、是否满足容量、是否达到 K、停止原因。"
+    },
+    {
+      "title": "忘记收缩后平行边相加",
+      "wrong": "合并 A、B 之后认为 AB–C 的亲和度只有 4（只看 B–C）。",
+      "why": "簇间亲和度是两簇之间**所有**边权之和：A–C 和 B–C 都连到 C。",
+      "counter": "AB–C = 1 + 4 = 5，和 D–E 并列；如果算成 4，第二步就会先合并 D–E。",
+      "fix": "每一步按“簇对”重新累加跨簇边。"
+    },
+    {
+      "title": "以为贪心总能找到最好的分组",
+      "wrong": "看到 G01 得到 cut 3，就认为贪心合并一般是最优的。",
+      "why": "贪心每一步只看当前最大的一对，合并后不能撤回；早期的选择会限制后面的可能。",
+      "counter": "Module 04 的 suboptimal 图：贪心得 cut 18，合法的最优分组 cut 11。",
+      "fix": "把“这个例子得到 3”和“算法总是最优”分开说；需要保证时用穷举或其他方法对照。"
+    }
   ],
   "limits": "- 贪心不回撤：早期合并错了，后面无法纠正（Module 04 给出反例）。\n- 结果依赖评分与平票规则；换评分（Module 02）结果可能完全不同。\n- 朴素实现每步检查所有簇对；大规模电路通常配合优先队列与局部更新。\n- 容量在本模块只作预览，按节点大小之和计算；面积不同的单元要在 Module 04 里认真对待。\n- 本课程小图是教学用虚构数值。",
   "pythonPackage": {
@@ -48,14 +121,23 @@
     "md": "**任务**（`starter.py`）：\n\n1. `selection_key(c)`：返回候选的选择键，使 `min(...)` 选出应合并的一对。\n2. `greedy_pair_merge(nodes, edges, k, capacity)`：完成主循环与停止原因。\n\n**提示一**：Python 的元组逐字段比较，数字按数值比——这正是原网页 JS 缺少的。\n\n**提示二**：每一步先列出全部正亲和度候选，再过滤掉超容量的；没有合法候选时停止，并区分 `capacity-blocked` 与 `no-positive-affinity`。检查器还会测 10 > 9 > 2 的多位数权重。"
   },
   "credits": {
-    "student": { "name": "thy031", "website": "https://thy031.github.io/lab-03/#lab", "repository": "https://github.com/thy031/lab-03", "commit": "491283a3895b38f5de94c81f65b396000ba431cd" },
+    "student": {
+      "name": "thy031",
+      "website": "https://thy031.github.io/lab-03/#lab",
+      "repository": "https://github.com/thy031/lab-03",
+      "commit": "491283a3895b38f5de94c81f65b396000ba431cd"
+    },
     "kept": [
       "Lab、Game、Course notes 的分工：本模块保留“实验台 + 挑战 + 讲义”的结构。",
       "合并示意：AB–C 的权重是 1 + 4 = 5，与 D–E 平票时按成员名排序（本模块影片与讲解的核心画面）。",
       "在真实结果上画出剩余 cut 的任务（挑战第 3 题）。",
       "Python 参考 `common/solvers.py` 的逐次 cut 日志与四个配置：本课程独立重写并与之对齐（3/8/8/3）。"
     ],
-    "licenseNote": "原仓库未声明统一许可，本模块未复制其代码或视频；补交网址已在 Issue #2 评论中出现，属于同一份作品。原网页 JS 比较器的问题在本课程中复现并修正，这是对原作的改进说明，不是批评作者。",
-    "references": ["教师原课程 [Module 材料](https://github.com/yongfu-li/eda-learning/blob/003bcd49e3794e6cfd2680181cdbd347d673ad07/courses/learn_clustering/module01-03-greedy-pair-merge/README.md)", "凝聚式（agglomerative）聚类的一般概念见常见数据挖掘与 VLSI 物理设计教材；本模块只使用“簇间边权和”这一种亲和度。"]
-  }
+    "licenseNote": "原仓库未声明统一许可，本模块未复制其代码或视频；补交网址已在 Issue #2 评论中出现，属于同一份作品。原网页 JS 比较器的问题在本课程中复现并修正，这是对原作的改进说明，不是批评作者。科普片使用作者指定的第三方音乐《We Never (Remix)（若如初见）》（Hi Noise / 秋成），它不在本课程许可范围内，本课程不授予其任何使用权，也不提供单独的音轨；其余三部影片的配乐为本课程原创合成。",
+    "references": [
+      "教师原课程 [Module 材料](https://github.com/yongfu-li/eda-learning/blob/003bcd49e3794e6cfd2680181cdbd347d673ad07/courses/learn_clustering/module01-03-greedy-pair-merge/README.md)",
+      "凝聚式（agglomerative）聚类的一般概念见常见数据挖掘与 VLSI 物理设计教材；本模块只使用“簇间边权和”这一种亲和度。"
+    ]
+  },
+  "codelab": true
 }

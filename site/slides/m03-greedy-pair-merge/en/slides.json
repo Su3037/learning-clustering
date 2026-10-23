@@ -1,0 +1,188 @@
+{
+ "status": "ready",
+ "moduleId": "m03-greedy-pair-merge",
+ "slides": [
+  {
+   "slideId": "m03-title",
+   "pageNumber": 1,
+   "pageCount": 12,
+   "title": "Merge, and merge again",
+   "image": "p01.jpg",
+   "thumb": "t01.jpg",
+   "alt": "Merge, and merge again: ",
+   "transcript": "This module starts from single nodes and each time puts the two closest clusters together. We trace G01’s full path by hand, explain the tie rule, look closely at the original page’s comparator bug, and preview the capacity constraint.",
+   "videoAnchor": null,
+   "sceneId": "k00-title",
+   "objectiveIds": []
+  },
+  {
+   "slideId": "m03-problem",
+   "pageNumber": 2,
+   "pageCount": 12,
+   "title": "The problem",
+   "image": "p02.jpg",
+   "thumb": "t02.jpg",
+   "alt": "The problem: Input: a weighted undirected graph, a target K, an optional capacity C; Each step: merge the closest legal pair with affinity > 0; Stop: the count reaches K, or no legal positive pair remains; Output: clusters, cut, whether K is reached, stop reason, a record of each step; Never force a merge to rea",
+   "transcript": "The input is a graph, a target number of clusters K and an optional capacity. Each step merges the closest legal pair. It stops in one of two cases: the count reaches K, or no legal pair with positive affinity remains. In the second case, report honestly that K is not reached.",
+   "videoAnchor": null,
+   "sceneId": "k01-problem",
+   "objectiveIds": [
+    "o1"
+   ]
+  },
+  {
+   "slideId": "m03-setup",
+   "pageNumber": 3,
+   "pageCount": 12,
+   "title": "Singletons, K and the affinity between clusters",
+   "image": "p03.jpg",
+   "thumb": "t03.jpg",
+   "alt": "Singletons, K and the affinity between clusters: Singletons: at the start every node is its own cluster, and cut = all 18 of the weight; Inter-cluster affinity: the total weight of every wire between two clusters; Contraction: wires between the two become inside wires, and parallel wires add up; Every merge lowers the cut by exactly that merge’s a",
+   "transcript": "At the start every node is a cluster of its own, every wire is cut, and the cut is 18. The affinity of two clusters is the total weight of the wires between them. After a merge those wires are inside, so every merge lowers the cut by exactly that merge’s affinity.",
+   "videoAnchor": null,
+   "sceneId": "p-rule",
+   "objectiveIds": [
+    "o2"
+   ]
+  },
+  {
+   "slideId": "m03-tie",
+   "pageNumber": 4,
+   "pageCount": 12,
+   "title": "The selection key and the tie rule",
+   "image": "p04.jpg",
+   "thumb": "t04.jpg",
+   "alt": "The selection key and the tie rule: Selection key (−affinity, members of A, members of B): compare field by field, take the smallest; The first field is negated: higher affinity comes first; Step 1: A–B and D–E are both 5; compare A with D, so A–B; cut 18 → 13",
+   "transcript": "Each step compares candidates by the selection key: affinity first, higher is better; on a tie, compare member names. At step one, A–B and D–E are both 5, A comes before D, so A–B merges and the cut drops from 18 to 13.",
+   "videoAnchor": null,
+   "sceneId": "k02-step1",
+   "objectiveIds": [
+    "o3"
+   ]
+  },
+  {
+   "slideId": "m03-step2",
+   "pageNumber": 5,
+   "pageCount": 12,
+   "title": "Contraction: parallel wires add up",
+   "image": "p05.jpg",
+   "thumb": "t05.jpg",
+   "alt": "Contraction: parallel wires add up: A and B contract into the supernode AB (the core illustration by the original author, thy031); AB–C = A–C 1 + B–C 4 = 5; Another tie at 5 with D–E: [A, B] < [D], so AB–C; cut 13 → 8",
+   "transcript": "Once A and B contract into a supernode, A–C and B–C are two parallel wires to C that add up to 5, tying D–E again. Comparing members [A, B] with [D], AB–C merges, and the cut drops from 13 to 8.",
+   "videoAnchor": null,
+   "sceneId": "k03-step2",
+   "objectiveIds": [
+    "o2"
+   ]
+  },
+  {
+   "slideId": "m03-trajectory",
+   "pageNumber": 6,
+   "pageCount": 12,
+   "title": "The full path: 18 → 13 → 8 → 3",
+   "image": "p06.jpg",
+   "thumb": "t06.jpg",
+   "alt": "The full path: 18 → 13 → 8 → 3: Step 3: D–E = 5, cut 8 → 3, the count reaches 2: stop; Result: ABC | DE; Remaining cut: C–D 2 + C–E 1 = 3; With K = 3 it stops after step 2: ABC | D | E, cut 8",
+   "transcript": "Step three merges D–E, the cut drops from 8 to 3, the count reaches 2, and it stops. The result is ABC against DE, and what remains cut is C–D and C–E. With K equal to 3, it stops after step two, at cut 8.",
+   "videoAnchor": null,
+   "sceneId": "k04-step3",
+   "objectiveIds": [
+    "o4"
+   ]
+  },
+  {
+   "slideId": "m03-bug",
+   "pageNumber": 7,
+   "pageCount": 12,
+   "title": "The original page’s comparator bug (fixed)",
+   "image": "p07.jpg",
+   "thumb": "t07.jpg",
+   "alt": "The original page’s comparator bug (fixed): Original JS: if (!best || cand < best), where cand is an array; JavaScript turns arrays into strings before comparing; \"-1,A,C\" < \"-5,A,B\": affinity 1 counts as better; Four settings give 9/16/12/16; correct is 3/8/8/3; Fix: compare field by field; regression tests 10 vs 2, 2.5 vs 2",
+   "transcript": "The original page’s JavaScript compared arrays with a less-than sign. JavaScript first turns the arrays into strings and compares them character by character, so the string starting with minus 1 sorts before minus 5, and A–C, with affinity 1, looks like the better pair. All four settings came out wrong. The original Python reference is correct. This course compares field by field and adds regression tests for multi-digit and decimal weights.",
+   "videoAnchor": null,
+   "sceneId": "k05-bug",
+   "objectiveIds": [
+    "o3"
+   ]
+  },
+  {
+   "slideId": "m03-capacity",
+   "pageNumber": 8,
+   "pageCount": 12,
+   "title": "A capacity preview and the stopping state",
+   "image": "p08.jpg",
+   "thumb": "t08.jpg",
+   "alt": "A capacity preview and the stopping state: Capacity C = 2: AB + C has size 3 > 2, blocked; D–E merges instead; after that AB+C and C+DE are both over capacity; Stop: AB | C | DE, 3 clusters, cut 8; Legal (every cluster ≤ 2) but K = 2 not reached; Capacity 3: the same path as with no capacity",
+   "transcript": "With capacity 2, step two would add C to AB, making size 3, over the capacity, so it is blocked and D–E merges instead. After that no legal merge remains, and it stops at three clusters, cut 8. The result is legal, but K is not reached.",
+   "videoAnchor": null,
+   "sceneId": "k06-capacity",
+   "objectiveIds": [
+    "o5"
+   ]
+  },
+  {
+   "slideId": "m03-pseudo",
+   "pageNumber": 9,
+   "pageCount": 12,
+   "title": "The pseudocode, line by line",
+   "image": "p09.jpg",
+   "thumb": "t09.jpg",
+   "alt": "The pseudocode, line by line: Line 2: stop once the count reaches K; Lines 3–4: list positive candidates, drop those over capacity; Line 5: with no legal candidate, stop and say so; Line 6: compare selection keys field by field; Line 7: contract; the cut drops by that affinity",
+   "transcript": "In the pseudocode, line two checks whether K is reached; lines three and four list the candidates and drop those over capacity; line five stops when no legal candidate remains; line six compares selection keys field by field; line seven contracts, and the cut drops by that affinity.",
+   "videoAnchor": null,
+   "sceneId": "a01-drop",
+   "objectiveIds": [
+    "o6"
+   ]
+  },
+  {
+   "slideId": "m03-mistakes",
+   "pageNumber": 10,
+   "pageCount": 12,
+   "title": "Common mistakes",
+   "image": "p10.jpg",
+   "thumb": "t10.jpg",
+   "alt": "Common mistakes: Comparing candidate arrays as strings: step 1 wrongly picks A–C; Forcing an over-capacity merge to reach K; Forgetting to add parallel wires after a contraction: AB–C taken as 4; Seeing cut 3 and assuming greedy is always optimal",
+   "transcript": "Common mistakes: comparing arrays as strings; forcing an over-capacity merge to reach K; forgetting to add parallel wires after a contraction; and seeing this graph reach cut 3 and concluding that greedy always finds the optimum.",
+   "videoAnchor": null,
+   "sceneId": null,
+   "objectiveIds": [
+    "o3",
+    "o5"
+   ]
+  },
+  {
+   "slideId": "m03-limits",
+   "pageNumber": 11,
+   "pageCount": 12,
+   "title": "Limits and practical meaning",
+   "image": "p11.jpg",
+   "thumb": "t11.jpg",
+   "alt": "Limits and practical meaning: No backtracking: a wrong early merge cannot be corrected (counterexample in Module 04); Depends on the score and the tie rule; A naive version checks every cluster pair each step; real tools use a priority queue and local updates; In chip design it often coarsens many cells into fewer clusters, with",
+   "transcript": "Greedy merging never backtracks, so early mistakes cannot be corrected; the next module gives a counterexample. It depends on the score and the tie rule. A naive implementation checks every cluster pair at every step. In chip design, this kind of merging often coarsens a great many cells into fewer clusters first, while limiting each cluster’s area.",
+   "videoAnchor": null,
+   "sceneId": "a05-noback",
+   "objectiveIds": [
+    "o6"
+   ]
+  },
+  {
+   "slideId": "m03-summary",
+   "pageNumber": 12,
+   "pageCount": 12,
+   "title": "Summary",
+   "image": "p12.jpg",
+   "thumb": "t12.jpg",
+   "alt": "Summary: ",
+   "transcript": "In summary: each step merges the closest legal pair, value first, names on a tie. Every merge lowers the cut by that merge’s affinity. Stop when K is reached or no legal positive pair remains, and report it honestly. The next module is about capacity: does it simply not fit, or did greedy take a wrong turn?",
+   "videoAnchor": null,
+   "sceneId": null,
+   "objectiveIds": []
+  }
+ ],
+ "pdf": "m03-greedy-pair-merge-en.pdf",
+ "pptx": "m03-greedy-pair-merge-en.pptx",
+ "contentVersion": "2026.10.23-1",
+ "lang": "en",
+ "aspectNote": "16:9 is this course's choice (it matches the films and suits projection), not a ratio the teacher set. PDF page numbers match the web p/total exactly; in the PPTX the text, shapes and tables are editable and the notes hold the script."
+}

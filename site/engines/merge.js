@@ -5,6 +5,7 @@
  * force an illegal or zero-affinity merge just to reach K.
  */
 import { requireGraph, compareKeys, cutsize, ENGINE_VERSION } from './graph.js';
+import { L } from '../assets/i18n.js';
 
 /** A cluster's canonical label: its sorted member names. Labels are compared as arrays. */
 const label = members => members.join('');
@@ -20,9 +21,9 @@ export function validate(input, { k = 2, capacity = null } = {}) {
   const errors = [];
   let g = null;
   try { g = requireGraph(input); } catch (e) { return { ok: false, errors: e.errors || [e.message] }; }
-  if (!Number.isInteger(k) || k < 1) errors.push('目标簇数 K 须为正整数');
-  if (capacity !== null && capacity !== undefined && !(Number.isFinite(capacity) && capacity > 0)) errors.push('容量须为正数或留空');
-  if (capacity) for (const n of g.nodes) if (n.size > capacity) errors.push(`节点 ${n.id} 大小 ${n.size} 已超过容量 ${capacity}：任何分组都不合法`);
+  if (!Number.isInteger(k) || k < 1) errors.push(L('目标簇数 K 须为正整数', 'the target K must be a positive integer'));
+  if (capacity !== null && capacity !== undefined && !(Number.isFinite(capacity) && capacity > 0)) errors.push(L('容量须为正数或留空', 'the capacity must be a positive number or empty'));
+  if (capacity) for (const n of g.nodes) if (n.size > capacity) errors.push(L(`节点 ${n.id} 大小 ${n.size} 已超过容量 ${capacity}：任何分组都不合法`, `node ${n.id} has size ${n.size}, above the capacity ${capacity}: no grouping is legal`));
   return { ok: errors.length === 0, errors };
 }
 
@@ -48,7 +49,7 @@ export function candidates(graph, clusters, capacity, { compare = compareKeys } 
       a: A.members, b: B.members, labelA: A.label, labelB: B.label, affinity: c.affinity,
       parts: c.edges.map(e => ({ u: e.u, v: e.v, w: e.w })), size,
       legal: capacity == null || size <= capacity,
-      reason: capacity != null && size > capacity ? `合并后大小 ${size} > 容量 ${capacity}` : null,
+      reason: capacity != null && size > capacity ? L(`合并后大小 ${size} > 容量 ${capacity}`, `merged size ${size} > capacity ${capacity}`) : null,
       i: c.i, j: c.j
     };
   });
@@ -120,7 +121,7 @@ function legacyPick(cands) {
 /** Exhaustive oracle for small graphs (≤ 10 nodes): every set partition, checked for capacity. */
 export function exhaustive(input, { k = 2, capacity = null } = {}) {
   const g = requireGraph(input), ids = g.nodes.map(n => n.id), size = Object.fromEntries(g.nodes.map(n => [n.id, n.size]));
-  if (ids.length > 10) throw new Error('穷举只用于不超过 10 个节点的教学例子');
+  if (ids.length > 10) throw new Error(L('穷举只用于不超过 10 个节点的教学例子', 'exhaustive search is only for teaching examples of at most 10 nodes'));
   let minParts = Infinity, bestExactK = null, count = 0;
   const groups = [];
   const rec = i => {

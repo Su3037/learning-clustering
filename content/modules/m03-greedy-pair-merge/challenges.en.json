@@ -1,0 +1,8 @@
+[
+  { "type": "Trace", "title": "Which pair merges first" },
+  { "type": "Trace", "title": "Pick the next pair" },
+  { "type": "Explore", "title": "Mark the remaining cut" },
+  { "type": "Constraint", "title": "Never force K" },
+  { "type": "Debug", "title": "Whom string comparison picks wrongly" },
+  { "type": "Implement", "title": "Multi-digit and decimal weights" }
+]

@@ -34,8 +34,9 @@ FACES = {
     "zh": {"sans": "Noto Sans SC", "serif": "Noto Serif SC", "mono": "JetBrains Mono"},
     "en": {"sans": "Noto Sans", "serif": "Newsreader", "mono": "JetBrains Mono"},
 }
-SYMBOLS = set("ℓ→←↔⇄⇒Σ∑≤≥≠×÷∈√✓✗↻")  # missing from the Latin faces; drawn with Noto Sans SC
-MONO_SYMBOLS = set("⌈⌉⌊⌋")  # in neither the Latin nor the CJK sans faces; JetBrains Mono has them
+SYMBOLS = set("ℓ→←↔⇄⇒Σ∑≤≥≠×÷∈√✓✗↻⊥")  # missing from the Latin faces; drawn with Noto Sans SC
+MONO_SYMBOLS = set("⌈⌉⌊⌋₀₁₂₃₄₅₆₇₈₉")  # in neither the Latin nor the CJK sans faces; JetBrains Mono has them
+SANS_SYMBOLS = set("ᵀ")  # only the Latin sans face has these
 LATIN_PUNCT = set("“”‘’…—")  # the Latin faces have these; the CJK face would set them full-width
 CJK_FACE = {"sans": "Noto Sans SC", "serif": "Noto Serif SC", "mono": "Noto Sans SC"}
 
@@ -247,12 +248,14 @@ class Frame:
     # ---- text: runs of CJK / Latin get the matching face (the toy API has no glyph fallback)
     def _runs(self, s, role):
         fam = FACES[LANG][role]
-        if LANG == "zh" and role != "mono" and not MONO_SYMBOLS.intersection(s):
+        if LANG == "zh" and role != "mono" and not (MONO_SYMBOLS | SANS_SYMBOLS).intersection(s):
             return [(s, fam)]
         out, cur, key = [], "", None
         for ch in s:
             if ch in MONO_SYMBOLS:
                 k = FACES[LANG]["mono"]
+            elif ch in SANS_SYMBOLS:
+                k = FACES["en"]["sans"]
             elif LANG == "zh" and role != "mono":
                 k = fam
             elif (is_cjk(ch) and ch not in LATIN_PUNCT) or ch in SYMBOLS:

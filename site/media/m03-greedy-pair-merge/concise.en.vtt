@@ -1,0 +1,101 @@
+WEBVTT
+
+1
+00:00:03.400 --> 00:00:10.200
+Start from single nodes: each is its own cluster, and the cut is all 18 of the weight.
+
+2
+00:00:10.200 --> 00:00:14.867
+Each step merges the legal pair with the highest affinity.
+
+3
+00:00:14.867 --> 00:00:19.267
+Affinity is the total weight between the two clusters.
+
+4
+00:00:19.267 --> 00:00:23.844
+Stop when K is reached, or no legal pair remains.
+
+5
+00:00:24.244 --> 00:00:28.378
+Step one: A–B and D–E both score 5.
+
+6
+00:00:28.378 --> 00:00:32.733
+A tie goes by name: A before D, so A–B.
+
+7
+00:00:32.733 --> 00:00:35.978
+The cut drops from 18 to 13.
+
+8
+00:00:36.378 --> 00:00:39.444
+A and B contract into one cluster.
+
+9
+00:00:39.444 --> 00:00:50.022
+AB and C share two wires, 1 + 4 = 5, tying D–E again; by members [A, B] < [D], so AB–C.
+
+10
+00:00:50.022 --> 00:00:53.044
+The cut drops from 13 to 8.
+
+11
+00:00:53.444 --> 00:00:56.022
+Step three: D–E.
+
+12
+00:00:56.022 --> 00:00:57.933
+Merge them.
+
+13
+00:00:57.933 --> 00:01:02.733
+Two clusters left, stop: ABC | DE, cut 3.
+
+14
+00:01:02.733 --> 00:01:07.756
+Every merge lowers the cut by exactly its affinity.
+
+15
+00:01:08.156 --> 00:01:12.756
+The original page compared arrays with a plain less-than.
+
+16
+00:01:12.756 --> 00:01:20.667
+JavaScript turns the arrays into strings first: “-1” sorts before “-5”.
+
+17
+00:01:20.667 --> 00:01:23.667
+All four settings came out wrong.
+
+18
+00:01:23.667 --> 00:01:27.933
+The fix: compare field by field, numbers as numbers.
+
+19
+00:01:28.333 --> 00:01:34.467
+Capacity 2: AB plus C is 3, blocked, so D–E merges instead.
+
+20
+00:01:34.467 --> 00:01:38.467
+After that, both candidates exceed the capacity.
+
+21
+00:01:38.467 --> 00:01:43.711
+It stops at 3 clusters, cut 8: legal, but K is not reached.
+
+22
+00:01:44.111 --> 00:01:46.244
+Four things to keep.
+
+23
+00:01:46.244 --> 00:01:50.711
+Merge the legal pair with the most weight between them;
+
+24
+00:01:50.711 --> 00:01:54.178
+ties by name, field by field;
+
+25
+00:01:54.178 --> 00:02:02.311
+the cut drops by each affinity; with no legal pair, stop. Try it in the lab below.
