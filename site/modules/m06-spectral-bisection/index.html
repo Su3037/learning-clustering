@@ -34,10 +34,10 @@
 <aside class="factbox" aria-label="本模块概况"><dl>
 <dt>前置</dt><dd><a href="../../foundations/index.html">基础速查</a>：cut；线性代数中的矩阵与特征值（本章会从定义讲起）。</dd>
 <dt>接下来</dt><dd>Module 07 在一个给定的二分上继续局部改进。</dd>
-<dt>影片</dt><dd>3:42</dd>
+<dt>影片</dt><dd>3:10 + 2:02 + 2:27 + 2:57</dd>
 <dt>课件</dt><dd>11 页，16:9，含页码</dd>
 <dt>挑战</dt><dd>6 题 · [概念] [推演] [纠错] [探索] [实现]</dd>
-<dt>Python</dt><dd>下载练习包，本地运行</dd>
+<dt>Python</dt><dd>在浏览器里直接写、直接运行</dd>
 </dl></aside>
 </div></section>
 
@@ -49,7 +49,7 @@
 </div></section>
 
 <section class="section dark" id="film"><div class="wrap">
-<div class="section-head"><div><p class="eyebrow"><span class="eyebrow-no">02</span> / 影片</p><h2>给每个点一个数</h2></div><p>影片把矩阵、数轴和扫描放在同一屏：先装配 L，再用二次型解释排序，最后让光标走过四个切点。弹簧只出现在二次型那一段，并标为类比。</p></div>
+<div class="section-head"><div><p class="eyebrow"><span class="eyebrow-no">02</span> / 影片</p><h2>四部影片</h2></div><p>科普片让五个朋友在一条长凳上排成一排：交情越深的橡皮筋越粗，放手后大家停在各自的位置，这串位置就是 Fiedler 向量；再沿长凳每个缝隙试一刀，看镜像翻号、两群互不认识的人，以及为什么是 15 不是 16。精讲片讲平衡窗口、L = D − A、二次型、Fiedler 排序与扫描；进阶片讲 cut 为什么是二次型、松弛与取整、平衡窗口、特征值简并与数值残差；实验演示从真实页面录下，带你做一遍实验和在线编程。所有数值都来自本页同一个引擎。</p></div>
 <div id="film-root"><p class="muted">正在载入影片…</p></div>
 </div></section>
 
@@ -105,16 +105,15 @@
 </div></section>
 
 <section class="section" id="python"><div class="wrap">
-<div class="section-head"><div><p class="eyebrow"><span class="eyebrow-no">07</span> / Python 实现轨道 · 可选</p><h2>构造 L、扫描切分、数值自检</h2></div><p>网页基础轨道不需要 Python。下载后在任意空目录运行；只用标准库。</p></div>
-<div class="grid-2"><div class="prose"><p><strong>任务</strong>（<code>starter.py</code>）：</p>
+<div class="section-head"><div><p class="eyebrow"><span class="eyebrow-no">07</span> / 在线编程 · 在浏览器里运行 Python</p><h2>构造 L、扫描切分、数值自检</h2></div><p>不用安装任何东西：Python 在你的浏览器里运行（Pyodide），代码只保存在本机。检查器与下载包里的 check.py 完全相同。</p></div>
+<div class="grid-2 cl-intro"><div class="prose"><p><strong>任务</strong>（<code>starter.py</code>）：</p>
 <ol><li><code>laplacian(nodes, edges)</code>：构造 L = D − A。</li><li><code>sweep(order, edges, lo, hi)</code>：沿排序逐个位置切分，标出是否合法。</li><li><code>count_bipartitions(n)</code>：两组非空、不分左右的二分数。</li></ol>
 <p>已提供纯 Python 的 Jacobi 求解器；检查器在装有 NumPy 时会额外与 <code>numpy.linalg.eigvalsh</code> 对照（没有 NumPy 时报 SKIP，不算通过）。</p>
 <p><strong>提示一</strong>：每条边对 L 的四个位置做贡献：两个对角 +w，两个非对角 −w。</p>
 <p><strong>提示二</strong>：2ⁿ 种左右标记里要去掉哪两种？再除以几？</p></div>
-<div><div class="py-files"><div><code>starter.py</code>起始代码：留有 TODO</div><div><code>check.py</code>检查器：未完成报 INCOMPLETE，不算 PASS</div><div><code>reference.py</code>参考实现：卡住时再看</div><div><code>fixtures/</code>本章例子的 JSON</div><div><code>README.md</code>任务、两级提示与样例</div></div>
-<p><a class="btn primary" href="../../downloads/m06-spectral-bisection-python.zip" download>下载练习包（.zip）</a></p>
-<pre><code>python3 check.py              # 检查你的 starter.py
-python3 check.py reference.py # 看参考实现全部通过</code></pre></div></div>
+<div class="cl-howto"><h3>怎么用</h3><ol><li>在编辑器里补全标着 TODO 的函数。</li><li>按 <b>运行检查</b>（Ctrl/⌘ + Enter）：每一项给出 PASS、FAIL 或 INCOMPLETE。</li><li>全部通过后，在下方用<b>你自己的</b>函数跑一遍例子，逐步对照课程引擎。</li></ol>
+<p class="small muted">第一次运行会下载约 12 MB 的 Python 运行环境，之后由浏览器缓存。想离线做？ <a href="../../downloads/m06-spectral-bisection-python.zip" download>下载练习包（.zip）</a></p></div></div>
+<div id="codelab-root" class="cl-root"><p class="muted">正在载入在线编程…</p></div>
 </div></section>
 
 <section class="section" id="mistakes"><div class="wrap">
@@ -129,7 +128,7 @@ python3 check.py reference.py # 看参考实现全部通过</code></pre></div></
 <h3>原作者与保留的贡献</h3>
 <p><strong>xingguangyaoyu</strong> · <a href="https://xingguangyaoyu.github.io/eda-clustering-module-lab6/">原网站</a> · <a href="https://github.com/xingguangyaoyu/eda-clustering-module-lab6">原仓库</a>（固定 <code>cb892be</code>）</p>
 <ul><li>“每点一个分数，再切一刀”的低门槛路径，与 L、Fiedler 排序、扫描表并排的版面（本章实验沿用这一布局）。</li><li>让学生亲手选择切点 k 并实时看到 cut（原页面 k = 3 显示 5，本课程复现）。</li><li>讲稿中“行和为零”“翻号不改变分组”两条自检。</li><li>中英两套视频与课件的双语思路：原作资源作为参考入口保留在原网站。</li></ul>
-<p class="small muted">原仓库未声明统一许可，本模块未复制其代码、视频或字幕。原题库“16 种”与“无约束总切单点”两处错误在本章更正；原页面的特征向量是三位小数的预计算值，本课程改为浏览器内实时求解并保留原值作对照。原作页数、题数、字幕格式的不一致不再沿用。</p>
+<p class="small muted">原仓库未声明统一许可，本模块未复制其代码、视频或字幕。原题库“16 种”与“无约束总切单点”两处错误在本章更正；原页面的特征向量是三位小数的预计算值，本课程改为浏览器内实时求解并保留原值作对照。原作页数、题数、字幕格式的不一致不再沿用。科普片使用作者指定的第三方音乐《We Never (Remix)（若如初见）》（Hi Noise / 秋成），它不在本课程许可范围内，本课程不授予其任何使用权，也不提供单独的音轨；其余三部影片的配乐为本课程原创合成。</p>
 </div><div class="prose">
 <h3>来源映射</h3>
 <table><tbody><tr><th>本课程</th><td>Module 06 · <code>m06-spectral-bisection</code></td></tr><tr><th>提交</th><td><a href="https://github.com/yongfu-li/eda-learning/issues/5">Issue #5</a> (Clustering Module - Lesson 6)</td></tr><tr><th>教师目录</th><td>module02-03-spectral-bisection（Lab 06）</td></tr><tr><th>状态</th><td>已核对</td></tr></tbody></table>

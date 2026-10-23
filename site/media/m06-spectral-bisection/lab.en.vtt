@@ -1,0 +1,73 @@
+WEBVTT
+
+1
+00:00:03.200 --> 00:00:13.067
+This is the chapter's lab: choose an example, a balance window and where the eigenvector comes from, and change any edge's weight.
+
+2
+00:00:13.067 --> 00:00:22.667
+Playback starts by building L: each edge adds +w to two diagonal entries and −w to two off-diagonal ones; every row sums to 0.
+
+3
+00:00:22.667 --> 00:00:31.133
+Step two finds the eigenvalues: λ₂ ≈ 1.7733, and the Fiedler order E, D, C, B, A lines up on the number line.
+
+4
+00:00:31.133 --> 00:00:39.333
+The sweep begins: k = 1 cuts off only E, cut 6, but one side has a single node, outside the 40/60 window.
+
+5
+00:00:39.333 --> 00:00:45.133
+k = 2: ED | CBA, cut 3, inside the window. The gold line is this cut.
+
+6
+00:00:45.133 --> 00:00:53.600
+Jump to the end: k = 3 gives 5 and k = 4 is not legal; the least inside the window is k = 2, DE | ABC, cut 3.
+
+7
+00:00:53.600 --> 00:01:04.600
+Switch the source to the original's stored three decimals: the order is the same, but the residual is 0.0044, against about 10⁻¹⁵ when solved live.
+
+8
+00:01:04.600 --> 00:01:15.000
+Switch to the disconnected graph with two components: λ₂ = 0, the diagnostics raise a warning, and the order only reflects the components.
+
+9
+00:01:15.000 --> 00:01:25.763
+Back to G01, with C–D set to 6: C is pulled towards D and E, and the best cut moves to k = 3, EDC | BA, cut 5.
+
+10
+00:01:25.763 --> 00:01:35.963
+The code lab: your code runs in the browser, with no Python to install. The Jacobi solver and the bisection driver are already written.
+
+11
+00:01:35.963 --> 00:01:43.163
+Run the checks first: none of the three tasks is written yet, so the result is INCOMPLETE.
+
+12
+00:01:43.163 --> 00:01:57.824
+Task 1: build L. Each edge makes four contributions: +w on two diagonals, −w on two off-diagonals.
+
+13
+00:01:57.824 --> 00:02:10.232
+Task 2: the sweep. The first k form one side; compute every cut point's cut and check both sizes are inside the window.
+
+14
+00:02:10.232 --> 00:02:16.499
+Task 3: of the 2ⁿ labellings, drop all-left and all-right, then divide by 2.
+
+15
+00:02:16.499 --> 00:02:25.432
+Run the checks: everything passes, including the residual, sign-flip equivalence and λ₂ = 0 on a disconnected graph.
+
+16
+00:02:25.432 --> 00:02:32.499
+Below, your functions run on a new graph: two four-node blocks joined by two weak wires.
+
+17
+00:02:32.499 --> 00:02:40.032
+Your sweep cuts between the blocks: WUVT | SRQP, cut 2, and every cut point matches the engine.
+
+18
+00:02:40.032 --> 00:02:47.165
+Finally, try the challenges to check you really understand. Results stay in your browser.

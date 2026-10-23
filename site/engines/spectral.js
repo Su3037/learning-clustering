@@ -6,6 +6,7 @@
  * illustrates the quadratic form xᵀLx = Σ_edges w(u,v)(x_u − x_v)².
  */
 import { requireGraph, cutsize, components, compareKeys, ENGINE_VERSION } from './graph.js';
+import { L as tl } from '../assets/i18n.js';  // L is the Laplacian here
 
 export function laplacian(input) {
   const g = requireGraph(input), ids = g.nodes.map(n => n.id), idx = Object.fromEntries(ids.map((id, i) => [id, i]));
@@ -77,9 +78,9 @@ export function validate(input, { balance = { minFraction: 0.4, maxFraction: 0.6
   try {
     const g = requireGraph(input, { maxNodes: 40 });
     const errors = [];
-    if (g.nodes.length < 2) errors.push('至少需要 2 个节点才能二分');
+    if (g.nodes.length < 2) errors.push(tl('至少需要 2 个节点才能二分', 'Bisection needs at least 2 nodes'));
     const w = balanceWindow(g.nodes.length, balance);
-    if (w.lo > w.hi) errors.push(`平衡窗口 ${balance.minFraction}–${balance.maxFraction} 在 ${g.nodes.length} 个节点上没有合法大小`);
+    if (w.lo > w.hi) errors.push(tl(`平衡窗口 ${balance.minFraction}–${balance.maxFraction} 在 ${g.nodes.length} 个节点上没有合法大小`, `The balance window ${balance.minFraction}–${balance.maxFraction} allows no legal size on ${g.nodes.length} nodes`));
     return { ok: errors.length === 0, errors };
   } catch (e) { return { ok: false, errors: e.errors || [e.message] }; }
 }
@@ -104,7 +105,7 @@ export function run(input, { balance = { minFraction: 0.4, maxFraction: 0.6 }, v
   const res = residual(L, lambda2, fiedler);
   const ones = new Array(n).fill(1 / Math.sqrt(n));
   const diagnostics = {
-    solver: vector ? `${vectorSource}（外部给定向量）` : 'Jacobi（浏览器实时求解）',
+    solver: vector ? tl(`${vectorSource}（外部给定向量）`, `${vectorSource} (a given vector)`) : tl('Jacobi（浏览器实时求解）', 'Jacobi (solved live in the browser)'),
     sweeps: eig.sweeps,
     rowSumMax: Math.max(...rowSums.map(Math.abs)),
     lambda1: eig.values[0], lambda2, lambda3, gap,
@@ -114,8 +115,8 @@ export function run(input, { balance = { minFraction: 0.4, maxFraction: 0.6 }, v
     orthogonalityToOnes: Math.abs(dot(fiedler, ones)) / (norm(fiedler) || 1),
     warnings: []
   };
-  if (!diagnostics.connected) diagnostics.warnings.push(`图有 ${comps.length} 个连通分量：λ2 = 0，特征向量方向不唯一，排序可能只反映分量而非连接强弱。`);
-  if (diagnostics.degenerate) diagnostics.warnings.push('λ2 与 λ3 相等（简并）：第二特征向量不唯一，任何该特征空间内的方向都同样合法。');
+  if (!diagnostics.connected) diagnostics.warnings.push(tl(`图有 ${comps.length} 个连通分量：λ2 = 0，特征向量方向不唯一，排序可能只反映分量而非连接强弱。`, `The graph has ${comps.length} connected components: λ2 = 0, the eigenvector direction is not unique, and the order may only reflect the components, not connection strength.`));
+  if (diagnostics.degenerate) diagnostics.warnings.push(tl('λ2 与 λ3 相等（简并）：第二特征向量不唯一，任何该特征空间内的方向都同样合法。', 'λ2 equals λ3 (repeated): the second eigenvector is not unique, and any direction in that eigenspace is equally valid.'));
   // Stable order: ascending entry, ties by id.
   const order = ids.map((id, i) => ({ id, x: fiedler[i] })).sort((a, b) => (a.x - b.x) || compareKeys([a.id], [b.id]));
   const win = balanceWindow(n, balance);

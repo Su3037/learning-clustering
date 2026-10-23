@@ -11,8 +11,8 @@
    "thumb": "t01.jpg",
    "alt": "给每个点一个数：",
    "transcript": "这一模块用整张图的信息做二分：构造拉普拉斯矩阵，取第二特征向量给每个节点一个数，排序后在平衡窗口里逐个位置试切。",
-   "videoAnchor": "00:00",
-   "sceneId": "s00-title",
+   "videoAnchor": null,
+   "sceneId": "k00-title",
    "objectiveIds": []
   },
   {
@@ -24,8 +24,8 @@
    "thumb": "t02.jpg",
    "alt": "问题定义：两组都非空，不区分左右；5 个节点：(2⁵ − 2) ÷ 2 = 15 种（不是 16）；平衡窗口：每组 40%–60%（这里每组 2–3 个）；输出：二分、cut、Fiedler 排序、扫描表、数值诊断；谱方法给出好的候选，不保证全局最优",
    "transcript": "二分必须先写清约定：两组都非空，不区分左右，再给一个平衡窗口。5 个节点一共有 15 种非空无标签的分法，原题库写的 16 多算了空组那一种。",
-   "videoAnchor": "00:15",
-   "sceneId": "s02-goal",
+   "videoAnchor": null,
+   "sceneId": "k01-problem",
    "objectiveIds": [
     "o1"
    ]
@@ -39,8 +39,8 @@
    "thumb": "t03.jpg",
    "alt": "拉普拉斯矩阵 L = D − A：对角：度数（相连边权之和）；非对角：负的边权；没有边为 0；每条边贡献四处：±w；自检：L 对称、每行和为 0；注意：这里的 D 是度矩阵，不是 Module 09 的跨簇延迟",
    "transcript": "拉普拉斯矩阵的对角线是每个节点的度数，非对角是负的边权。每条边对四个位置做贡献。两个自检：矩阵对称，每行和为 0。这里的 D 是度矩阵，和 Module 09 里的跨簇延迟 D 不是一回事。",
-   "videoAnchor": "00:38",
-   "sceneId": "s03-lap",
+   "videoAnchor": null,
+   "sceneId": "k02-laplacian",
    "objectiveIds": [
     "o2"
    ]
@@ -54,8 +54,8 @@
    "thumb": "t04.jpg",
    "alt": "二次型：为什么连得紧的点数值接近：xᵀLx = Σ w(u,v)·(x_u − x_v)²；x 取 ±1：被切的边贡献 4w → xᵀLx = 4 × cut；放松：x 取任意实数、与全 1 正交；放松后的最优解：第二小特征值的特征向量；弹簧只是类比，本页没有物理模拟",
    "transcript": "L 有一个关键性质：x 转置 L x 等于每条边的权重乘上两端数值差的平方。如果 x 只取正负 1，被切的边各贡献 4w，所以它等于 4 倍的 cut。把 x 放松为任意实数，最优解就是第二小特征值的特征向量。可以把边想成弹簧，但这只是类比。",
-   "videoAnchor": "00:59",
-   "sceneId": "s04-quad",
+   "videoAnchor": null,
+   "sceneId": "k03-quad",
    "objectiveIds": [
     "o3"
    ]
@@ -69,8 +69,8 @@
    "thumb": "t05.jpg",
    "alt": "Fiedler 向量与它的条件：λ1 = 0（全 1 向量）；λ2 ≈ 1.7733；Fiedler 向量：A 0.519，B 0.418，C 0.106，D −0.489，E −0.553；条件：图连通；λ2 不简并；翻号等价：−x 也是特征向量，只交换左右",
    "transcript": "G01 的最小特征值是 0，第二小是约 1.7733。它的特征向量叫 Fiedler 向量。使用时要注意：图要连通，λ2 不能简并；向量整体翻号只会交换左右。",
-   "videoAnchor": "01:25",
-   "sceneId": "s05-fiedler",
+   "videoAnchor": null,
+   "sceneId": "k04-fiedler",
    "objectiveIds": [
     "o4"
    ]
@@ -84,8 +84,8 @@
    "thumb": "t06.jpg",
    "alt": "排序扫描：排序：E, D, C, B, A；k = 1…4 的 cut：6, 3, 5, 6；40/60 窗口只允许 k = 2、3；选 k = 2：DE | ABC，cut 3；“切在正中间”k = 3 反而是 5",
    "transcript": "按 Fiedler 值排序是 E、D、C、B、A。沿着数轴在四个位置试切，cut 依次是 6、3、5、6。窗口只允许 k 等于 2 和 3，选 cut 更小的 k 等于 2，得到 DE 对 ABC。切在正中间反而更差。",
-   "videoAnchor": "01:47",
-   "sceneId": "s06-sweep",
+   "videoAnchor": null,
+   "sceneId": "k05-sweep",
    "objectiveIds": [
     "o5"
    ]
@@ -99,8 +99,8 @@
    "thumb": "t07.jpg",
    "alt": "两个误解的更正：“无约束最优总是孤立一个点”——错：单点最小 6，ABC | DE 只有 3；应说：无约束时可能出现过小的分组；“存储的向量就是求解器”——错：三位小数残差 0.0044 是舍入；存储值不会随改图重算；本页实时求解，残差约 10⁻¹⁵",
    "transcript": "更正两个误解。第一，没有平衡约束时，最优并不总是孤立一个点：这张图上孤立一个点最少切 6，而 ABC 对 DE 只切 3。第二，原页面存储的是三位小数的特征向量，残差 0.0044 是舍入造成的，但改了图它不会重算。本课程在浏览器里实时求解。",
-   "videoAnchor": "02:31",
-   "sceneId": "s08-fix",
+   "videoAnchor": null,
+   "sceneId": "a04-window",
    "objectiveIds": [
     "o6"
    ]
@@ -114,8 +114,8 @@
    "thumb": "t08.jpg",
    "alt": "断开的图：两个分量 → λ1 = λ2 = 0；Fiedler 向量只反映“谁在同一个分量”；使用前先检查连通性与简并；本页实验的诊断区会给出警告",
    "transcript": "图不连通时，每个分量各贡献一个零特征值，λ2 也是 0。这时 Fiedler 向量只告诉你谁在同一个分量。使用前要先检查连通性。",
-   "videoAnchor": "02:57",
-   "sceneId": "s09-disc",
+   "videoAnchor": null,
+   "sceneId": "k06-warn",
    "objectiveIds": [
     "o4"
    ]
@@ -129,8 +129,8 @@
    "thumb": "t09.jpg",
    "alt": "伪代码与数值自检：第 1 行：构造 L，检查对称与行和；第 2–3 行：特征分解；检查连通、简并、残差；第 4–5 行：统一符号后排序；第 6–7 行：扫描 n − 1 个位置，只在窗口内选最小 cut",
    "transcript": "伪代码先构造 L 并自检，然后做特征分解并检查连通性、简并和残差，统一符号后排序，最后扫描所有位置，在窗口内选 cut 最小的那一刀。",
-   "videoAnchor": "03:08",
-   "sceneId": "s10-code",
+   "videoAnchor": null,
+   "sceneId": "a03-round",
    "objectiveIds": [
     "o6"
    ]
@@ -144,8 +144,8 @@
    "thumb": "t10.jpg",
    "alt": "局限与应用：给出好的初始二分，常交给 KL/FM 改进；未归一化 L；归一化变体会给出不同排序；大规模用稀疏迭代求解（如 Lanczos）；弹簧只是类比",
    "transcript": "谱二分常用来给出一个好的初始二分，再交给 KL 或 FM 改进。本章使用未归一化的 L。大规模问题需要稀疏迭代求解。弹簧只是帮助理解的类比。",
-   "videoAnchor": "03:26",
-   "sceneId": "s11-limits",
+   "videoAnchor": null,
+   "sceneId": "a06-numerics",
    "objectiveIds": [
     "o6"
    ]
@@ -167,5 +167,6 @@
  "pdf": "m06-spectral-bisection.pdf",
  "pptx": "m06-spectral-bisection.pptx",
  "contentVersion": "2026.10.23-1",
+ "lang": "zh",
  "aspectNote": "16:9 是本课程的设计选择（与影片一致、适合投影），不是教师指定的比例。PDF 页码与网页 p/total 完全一致；PPTX 中文字、形状与表格均可编辑，讲稿在备注里。"
 }

@@ -2,5 +2,51 @@
   "title": "Spectral Bisection",
   "hook": "Can we give every node of a graph a single number, then pick a boundary along that number line?",
   "cardText": "Build L = D − A, sort the nodes by the Fiedler vector, and try every cut inside the balance window. Flipping the sign only swaps left and right.",
-  "description": "The second eigenvector of the Laplacian L = D − A gives each node a number; sort and sweep the cuts inside a balance window. Solved live in the browser, residual shown."
+  "description": "The second eigenvector of the Laplacian L = D − A gives each node a number; sort and sweep the cuts inside a balance window. Solved live in the browser, residual shown.",
+  "prerequisitesText": "[Foundations](../../foundations/index.html): cut; matrices and eigenvalues from linear algebra (this chapter starts from the definitions).",
+  "nextText": "Module 07 keeps improving a given bisection locally.",
+  "review": "Module 05’s label propagation only looks at neighbours; this chapter uses information from the **whole graph**: one matrix, one eigenvector, one number line.",
+  "objectives": [
+    { "id": "o1", "text": "Explain why a bisection must declare “both groups non-empty” and a balance window, and count the 15 non-empty, unlabelled bisections of 5 nodes." },
+    { "id": "o2", "text": "Build the unnormalised Laplacian L = D − A from the edge weights, and check symmetry and zero row sums (row A: 6, −5, −1, 0, 0)." },
+    { "id": "o3", "text": "Use the quadratic form xᵀLx = Σ w(u,v)(x_u − x_v)² to explain why tightly linked nodes get close values; springs are only an analogy." },
+    { "id": "o4", "text": "State λ1 = 0, the conditions on the Fiedler vector (connected, λ2 not degenerate), and the equivalence of a sign flip." },
+    { "id": "o5", "text": "Sweep the cuts along the Fiedler order E, D, C, B, A (cuts 6, 3, 5, 6) and choose k = 2 inside the 40/60 window." },
+    { "id": "o6", "text": "Correct three common misunderstandings (16 vs 15, an unconstrained cut always isolating one node, a stored vector taken for a solver), and self-check the numerics in Python." }
+  ],
+  "problem": {
+    "input": "An undirected graph with non-negative weights; a balance window (for example, 40%–60% of the nodes per group).",
+    "output": "Two groups of nodes, the cut, the Fiedler order, the cut and legality at each sweep position, and numerical diagnostics (λ, residual, connectivity, degeneracy).",
+    "objective": "Find a bisection inside the balance window with as small a cut as possible; the Fiedler order supplies a set of candidate cut positions.",
+    "constraints": "Both groups non-empty; each group’s size inside the window; cut only between neighbours in the order (n − 1 candidates).",
+    "assumptions": "Unnormalised L = D − A (D the degree matrix); a connected graph; ties in the order broken by node name; a vector and its sign flip count as the same result.",
+    "stop": "After sweeping all n − 1 positions, take the legal position with the least cut. The spectral method gives a good candidate, not a guaranteed global optimum."
+  },
+  "filmTitle": "Four films",
+  "filmNote": "The popular-science film lines up five friends on one long bench: the closer two friends, the thicker the rubber band between them; let go, and everyone settles into place, and those places are the Fiedler vector. Then a cut is tried at every gap along the bench, with a mirror flip, two groups who never met, and why the count is 15, not 16. The concise film covers the balance window, L = D − A, the quadratic form, the Fiedler order and the sweep; the advanced film covers why the cut is a quadratic form, relaxation and rounding, the balance window, repeated eigenvalues and the numerical residual; the lab walkthrough, recorded from the real page, takes you through the lab and the in-browser code once. Every value comes from this page’s engine.",
+  "labTitle": "Matrix · number line · sweep",
+  "labNote": "The eigenvector here is solved live in the browser (Jacobi rotations), so changing an edge weight really recomputes it; you can also switch to the original page’s stored three-decimal vector for comparison.",
+  "challengeTip": "For question 1, separate the five numbers with commas.",
+  "mistakes": [
+    { "title": "Counting 16 bisections of 5 nodes", "wrong": "The original quiz: “5 nodes split into two groups in 16 ways”.", "why": "Of the 2⁵ = 32 left/right labellings, 2 leave a group empty; dividing by 2 for swapped sides gives (32 − 2) / 2 = 15. The 16 also counts the empty-set/everything pair.", "counter": "Enumerating the non-empty, unlabelled bisections of G01 gives exactly 15 (asserted by this course’s tests).", "fix": "State “both groups non-empty, sides not distinguished” first, then count." },
+    { "title": "Thinking that without a balance constraint the optimum isolates one node", "wrong": "The original text: “with no balance constraint, the answer always cuts off one node”.", "why": "Isolating a node cuts exactly its degree; the least single-node cut on this graph is 6, while ABC | DE is only 3.", "counter": "G01’s least unconstrained cut is ABC | DE = 3, not a single node.", "fix": "Say “a group can come out too small” instead, and so declare a balance window." },
+    { "title": "Taking the sign of the Fiedler vector as a balanced split", "wrong": "Cutting directly by sign and assuming both sides come out about equal.", "why": "The sign is just one threshold; it does not keep the group sizes inside the window, and it does not replace the sweep.", "counter": "On G01 the sign happens to cut at k = 2; on another graph it can cut 1 : n−1.", "fix": "Sweep every position along the order and choose the least cut among positions inside the window." },
+    { "title": "Taking a stored three-decimal vector for a solver", "wrong": "The original page recomputes the cut when k changes, but the eigenvector is hard-coded to three decimals; after the graph changes the old vector is still used.", "why": "The vector was precomputed and is not recomputed when the graph changes; its residual of about 0.0044 is only good enough for display.", "counter": "This course’s live solve has a residual of about 10⁻¹⁵; the stored vector’s is 0.0044. On G01 both give the same order.", "fix": "Label it “precomputed”, or, as this course does, really solve it in the browser and show the residual." },
+    { "title": "Thinking a sign flip changes the result", "wrong": "Two runs give vectors of opposite sign, so the groupings are taken to differ.", "why": "If x is an eigenvector, so is −x; the order reverses as a whole, and the same cut just swaps the names of its sides.", "counter": "On G01, x and −x both give DE | ABC, cut 3.", "fix": "Compare groupings without distinguishing left and right." }
+  ],
+  "limits": "- Spectral bisection gives a “good candidate”, not a guaranteed global optimum; it is often the initial solution handed to Modules 07/08 to improve.\n- This chapter uses the unnormalised L; variants such as the normalised Laplacian give different orders.\n- When the graph is disconnected, λ2 = 0 and the eigenvector only reflects the components; when λ2 is degenerate, the direction is not unique.\n- The in-browser Jacobi solver suits teaching sizes (this page is limited to 40 nodes); large problems use sparse iterative methods (such as Lanczos).\n- The spring metaphor only helps with the quadratic form; this page runs no physical simulation.",
+  "pythonPackage": {
+    "title": "Build L, sweep the cuts, self-check the numerics",
+    "md": "**Tasks** (`starter.py`):\n\n1. `laplacian(nodes, edges)`: build L = D − A.\n2. `sweep(order, edges, lo, hi)`: cut at every position along the order and mark whether it is legal.\n3. `count_bipartitions(n)`: the number of bisections with both groups non-empty and sides not distinguished.\n\nA pure-Python Jacobi solver is provided; with NumPy installed, the checker also compares against `numpy.linalg.eigvalsh` (without NumPy it reports SKIP, which does not count as a pass).\n\n**Hint 1**: each edge contributes to four entries of L: +w on the two diagonals, −w on the two off-diagonals.\n\n**Hint 2**: which two of the 2ⁿ left/right labellings go, and what do you divide by?"
+  },
+  "credits": {
+    "kept": [
+      "The low-threshold path “one score per point, then one cut”, and the layout that puts L, the Fiedler order and the sweep table side by side (this chapter’s lab keeps that layout).",
+      "Letting students pick the cut point k themselves and see the cut live (the original page shows 5 at k = 3, reproduced here).",
+      "The two self-checks from the slides: “rows sum to zero” and “a sign flip does not change the grouping”.",
+      "The bilingual approach of separate Chinese and English videos and slides: the original resources stay on the original site as a reference."
+    ],
+    "licenseNote": "The original repository declares no overall licence, and this module copies none of its code, videos or subtitles. Two errors in the original quiz, “16 ways” and “with no constraint you always cut off one node”, are corrected in this chapter; the original page’s eigenvector is a precomputed three-decimal value, which this course replaces with a live in-browser solve, keeping the original values for comparison. The inconsistencies in the original’s page counts, question counts and subtitle formats are not carried over. The popular-science film uses third-party music chosen by the author, “We Never (Remix)” by Hi Noise / 秋成; it is not covered by this course’s licences, this course grants no rights to it, and no separate audio track is offered. The scores of the other three films are original to this course.",
+    "references": ["Fiedler, M. (1973). Algebraic connectivity of graphs. *Czechoslovak Mathematical Journal*, 23(2), 298–305.", "Pothen, A., Simon, H. D., & Liou, K.-P. (1990). Partitioning sparse matrices with eigenvectors of graphs. *SIAM J. Matrix Anal. Appl.*, 11(3), 430–452.", "The teacher’s original course: [module materials](https://github.com/yongfu-li/eda-learning/tree/003bcd49e3794e6cfd2680181cdbd347d673ad07/courses/learn_clustering/module02-03-spectral-bisection)"]
+  }
 }

@@ -1,0 +1,10 @@
+{
+ "title": {"zh": "实验演示", "en": "Lab Walkthrough"},
+ "subtitle": {"zh": "实验台 · 在线编程 · 挑战", "en": "THE LAB  ·  THE CODE LAB  ·  CHALLENGES"},
+ "kicker": {"zh": "MODULE 06 · 谱二分", "en": "MODULE 06 · SPECTRAL BISECTION"},
+ "brand": {"zh": "Learning Clustering · Module 06 · 谱二分", "en": "Learning Clustering · Module 06 · Spectral bisection"},
+ "why": {"zh": "从真实页面录下的操作演示：逐步构造 L、求 Fiedler 排序、沿数轴扫描四个切点，对照原作的三位小数向量，看断开的图怎样报警、改一条边权怎样让切点移动，再在浏览器里写完 laplacian()、sweep() 和 count_bipartitions() 并通过全部检查。",
+         "en": "Recorded from the real page: building L step by step, getting the Fiedler order, sweeping the four cut points along the number line, comparing the original's three-decimal vector, seeing how a disconnected graph raises a warning and how changing one weight moves the cut, then writing laplacian(), sweep() and count_bipartitions() in the browser and passing every check."},
+ "posterShot": 4,
+ "order": ["story", "concise", "advanced", "lab"]
+}
