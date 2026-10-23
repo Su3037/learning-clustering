@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Module 06 Spectral Bisection · Learning Clustering</title>
+<meta name="description" content="The second eigenvector of the Laplacian L = D − A gives each node a number; sort and sweep the cuts inside a balance window. Solved live in the browser, residual shown.">
+<link rel="alternate" hreflang="zh-CN" href="../../../modules/m06-spectral-bisection/index.html">
+<link rel="alternate" hreflang="en" href="../../../en/modules/m06-spectral-bisection/index.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%2032%2032%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M9%2011%2023%209M9%2011%2020%2023%22%20stroke%3D%22%238b958e%22%20stroke-width%3D%221.3%22%2F%3E%3Cpath%20d%3D%22M23%209%2020%2023%22%20stroke%3D%22%23a33b3b%22%20stroke-width%3D%221.3%22%20stroke-dasharray%3D%222.2%202%22%2F%3E%3Ccircle%20cx%3D%229%22%20cy%3D%2211%22%20r%3D%224.6%22%20fill%3D%22%230f6b5c%22%2F%3E%3Ccircle%20cx%3D%2223%22%20cy%3D%229%22%20r%3D%223.6%22%20fill%3D%22%232f5e9e%22%2F%3E%3Ccircle%20cx%3D%2220%22%20cy%3D%2223%22%20r%3D%224.6%22%20fill%3D%22%23946a17%22%2F%3E%3C%2Fsvg%3E">
+<link rel="preload" href="../../../assets/fonts/newsreader-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../../assets/course.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar"><div class="wrap">
+<a class="brand" href="../../index.html"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M9 11 23 9M9 11 20 23" stroke="#8b958e" stroke-width="1.3"/><path d="M23 9 20 23" stroke="#a33b3b" stroke-width="1.3" stroke-dasharray="2.2 2"/><circle cx="9" cy="11" r="4.6" fill="#0f6b5c"/><circle cx="23" cy="9" r="3.6" fill="#2f5e9e"/><circle cx="20" cy="23" r="4.6" fill="#946a17"/></svg><span class="brand-name">Learning Clustering</span><span class="brand-sub">Connect & group</span></a>
+<nav class="topnav" aria-label="Course"><a href="../../index.html">Home</a><a href="../../foundations/index.html">Foundations</a><a href="../../glossary/index.html">Glossary</a><a href="../../guide/index.html">Challenges</a><a href="../../credits/index.html">Credits</a><a href="../../progress/index.html">Progress</a></nav>
+<div class="lang-switch" role="group" aria-label="Language"><a href="../../../modules/m06-spectral-bisection/index.html" hreflang="zh-CN" lang="zh-CN" data-lang-link="zh">中文</a><span aria-current="true">EN</span></div>
+</div></header>
+
+<nav class="module-nav" aria-label="This module"><div class="wrap"><a href="#goals"><span>01</span>Goals</a><a href="#film"><span>02</span>Films</a><a href="#lesson"><span>03</span>Lesson</a><a href="#slides"><span>04</span>Slides</a><a href="#lab"><span>05</span>Lab</a><a href="#challenges"><span>06</span>Challenges</a><a href="#python"><span>07</span>Python</a><a href="#mistakes"><span>08</span>Pitfalls</a><a href="#sources"><span>09</span>Sources</a></div></nav>
+<main id="main">
+<div class="wrap"><p class="i18n-note" lang="en"><b>Translation in progress.</b> This chapter is still shown in the original Chinese. The English edition is being written chapter by chapter. <a href="../../../modules/m06-spectral-bisection/index.html" hreflang="zh-CN" data-lang-link="zh">Open the Chinese page</a></p></div>
+<section class="mod-hero"><div class="wrap">
+<div class="mod-hero-text">
+<p class="eyebrow">Module 06 / Spectral bisection</p>
+<h1>Spectral Bisection</h1>
+<p class="sub">Can we give every node of a graph a single number, then pick a boundary along that number line?</p>
+<p class="byline">Original author xingguangyaoyu · Source Issue #5 · Source mapping verified</p>
+
+<nav class="pager" aria-label="Previous and next module"><a href="../m05-label-propagation/index.html">← Module 05 Label Propagation</a><a href="../m07-kernighan-lin/index.html">Module 07 Kernighan–Lin Refinement →</a></nav>
+</div>
+<aside class="factbox" aria-label="At a glance"><dl>
+<dt>Before</dt><dd><a href="../../foundations/index.html">基础速查</a>：cut；线性代数中的矩阵与特征值（本章会从定义讲起）。</dd>
+<dt>Next</dt><dd>Module 07 在一个给定的二分上继续局部改进。</dd>
+<dt>Films</dt><dd>3:42</dd>
+<dt>Slides</dt><dd>11 pages, 16:9, numbered</dd>
+<dt>Challenges</dt><dd>6 · [概念] [推演] [纠错] [探索] [实现]</dd>
+<dt>Python</dt><dd>Download the exercise pack and run it locally</dd>
+</dl></aside>
+</div></section>
+
+<section class="section" id="goals"><div class="wrap">
+<div class="section-head"><div><p class="eyebrow"><span class="eyebrow-no">01</span> / Goals and problem</p><h2>What this module solves</h2></div><p>Start with the problem and what counts as success, then the algorithm. Each goal links to where it is taught.</p></div>
+<p class="review"><b>Recap</b>Module 05 的标签传播只看邻居；本章用<strong>整张图</strong>的信息：一个矩阵，一个特征向量，一条数轴。</p>
+<div class="grid-2 goals"><div><h3>Learning goals</h3><ol class="objectives"><li id="obj-o1">说明二分问题为什么必须声明“两组非空”和平衡窗口，并算出 5 个节点的非空无标签二分数 15。<span class="links"><a href="#m06-goal">二分：为什么必须声明“非空”与“平衡”</a> · <a href="#challenge-c3">[纠错] 有多少种非空二分</a></span></li><li id="obj-o2">从边权构造未归一化拉普拉斯矩阵 L = D − A，检验对称与每行和为 0（A 行：6, −5, −1, 0, 0）。<span class="links"><a href="#m06-laplacian">从边权到拉普拉斯矩阵</a> · <a href="#challenge-c1">[概念] 写出 L 的一行</a></span></li><li id="obj-o3">用二次型 xᵀLx = Σ w(u,v)(x_u − x_v)² 解释“连得紧的节点数值接近”；弹簧只作类比。<span class="links"><a href="#m06-quadratic">二次型：为什么连得紧的点数值接近</a></span></li><li id="obj-o4">说明 λ1 = 0、Fiedler 向量的条件（连通、λ2 简并）与翻号等价。<span class="links"><a href="#m06-fiedler">Fiedler 向量与它的条件</a> · <a href="#challenge-c5">[探索] 翻号会改变结果吗</a> · <a href="#challenge-c6">[实现] 断开的图</a></span></li><li id="obj-o5">按 Fiedler 排序 E, D, C, B, A 扫描切分（cut 6, 3, 5, 6），在 40/60 窗口内选 k = 2。<span class="links"><a href="#m06-sweep">排序扫描：在窗口里试每一刀</a> · <a href="#challenge-c2">[推演] 不在中间切</a></span></li><li id="obj-o6">纠正三个常见误解（16 vs 15、无约束必切单点、存储向量当求解器），并在 Python 中做数值自检。<span class="links"><a href="#m06-errors">三个常见误解的更正</a> · <a href="#m06-pseudocode">伪代码与数值自检</a> · <a href="#challenge-c4">[纠错] 无约束一定切单点吗</a> · <a href="#python">Python</a></span></li></ol></div>
+<div><h3>Problem statement</h3><div class="problem"><div><b>Input</b><p>非负权无向图；平衡窗口（例如每组占 40%–60% 的节点）。</p></div><div><b>Output</b><p>两组节点、cut、Fiedler 排序、每个扫描位置的 cut 与合法性，以及数值诊断（λ、残差、连通性、简并）。</p></div><div><b>Objective</b><p>在平衡窗口内找 cut 尽量小的二分；Fiedler 排序提供一组候选切分位置。</p></div><div><b>Constraints</b><p>两组都非空；每组大小在窗口内；只在排序的相邻位置之间切（共 n − 1 个候选）。</p></div><div><b>Assumptions</b><p>未归一化 L = D − A（D 为度矩阵）；连通图；排序平票按节点名；向量整体翻号视为同一结果。</p></div><div><b>Stopping</b><p>扫描完全部 n − 1 个位置后，在合法位置中选 cut 最小者。谱方法给出的是好的候选，不保证全局最优。</p></div></div></div></div>
+</div></section>
+
+<section class="section dark" id="film"><div class="wrap">
+<div class="section-head"><div><p class="eyebrow"><span class="eyebrow-no">02</span> / Films</p><h2>给每个点一个数</h2></div><p>影片把矩阵、数轴和扫描放在同一屏：先装配 L，再用二次型解释排序，最后让光标走过四个切点。弹簧只出现在二次型那一段，并标为类比。</p></div>
+<div id="film-root"><p class="muted">Loading the film…</p></div>
+</div></section>
+
+<section class="section" id="lesson"><div class="wrap">
+<div class="section-head"><div><p class="eyebrow"><span class="eyebrow-no">03</span> / Lesson · from intuition to pseudocode</p><h2>From an example to pseudocode</h2></div><p>Section numbers match the film chapters and slide pages; the full map is in the crosswalk at the end of this page.</p></div>
+<div class="lesson-layout"><nav class="lesson-toc" aria-label="Lesson sections"><a href="#m06-goal"><span>01</span>二分：为什么必须声明“非空”与“平衡”</a><a href="#m06-laplacian"><span>02</span>从边权到拉普拉斯矩阵</a><a href="#m06-quadratic"><span>03</span>二次型：为什么连得紧的点数值接近</a><a href="#m06-fiedler"><span>04</span>Fiedler 向量与它的条件</a><a href="#m06-sweep"><span>05</span>排序扫描：在窗口里试每一刀</a><a href="#m06-errors"><span>06</span>三个常见误解的更正</a><a href="#m06-pseudocode"><span>07</span>伪代码与数值自检</a></nav>
+<div class="prose"><section class="lesson-part" aria-labelledby="m06-goal"><h3 id="m06-goal"><span class="part-no">§ 1</span>二分：为什么必须声明“非空”与“平衡”</h3><p><strong>二分（bisection）</strong>把节点分成两组。如果只追求 cut 最小，有一个毫无用处的答案：把所有节点放进同一组，cut = 0。所以问题必须先写清：</p>
+<ol><li><strong>两组都非空</strong>；</li><li><strong>不区分左右</strong>——ABC | DE 与 DE | ABC 是同一个分法；</li><li><strong>平衡窗口</strong>：每组的大小必须在某个范围内，例如占全部节点的 40%–60%。</li></ol>
+<p>在这些约定下，5 个节点一共有多少种分法？2⁵ = 32 种“每个节点贴左或右”的标记中，去掉“全在左”“全在右”两种，再除以 2（左右交换算一种）：</p>
+<blockquote class="callout"><p>(2⁵ − 2) / 2 = <strong>15</strong></p></blockquote>
+<div class="callout mistake"><strong>原题库的 16</strong><p>原作题库写的是 16。差的那一种，就是“一组为空、另一组是全集”。本课程穷举 G01 的非空无标签二分，测试断言恰好 15 种。</p></div>
+<p>穷举 15 种对 5 个节点还可以，节点一多就不现实。谱二分的想法是：<strong>先给每个点一个数，把它们排成一条线，只在线上的相邻位置之间切</strong>——n 个节点只有 n − 1 个候选。</p></section>
+<section class="lesson-part" aria-labelledby="m06-laplacian"><h3 id="m06-laplacian"><span class="part-no">§ 2</span>从边权到拉普拉斯矩阵</h3><div class="terms"><div class="term" id="term--"><h4>度</h4><span class="en" lang="zh-CN">degree d(v)</span><p>与 v 相连的边权之和。A 的度 = 5 + 1 = 6。</p></div><div class="term" id="term--"><h4>邻接矩阵</h4><span class="en" lang="zh-CN">adjacency matrix A</span><p>A[u][v] = w(u, v)，没有边为 0。</p></div><div class="term" id="term--"><h4>拉普拉斯矩阵</h4><span class="en" lang="zh-CN">Laplacian L = D − A</span><p>对角线放度数，非对角放负的边权。本章的 D 是度矩阵，不是 Module 09 的跨簇延迟 D。</p></div></div>
+<p>每条无向边 (u, v, w) 对 L 做四处贡献：L[u][u] += w，L[v][v] += w，L[u][v] −= w，L[v][u] −= w。G01 的 L（行列顺序 A–E）：</p>
+<table><thead><tr><th></th><th>A</th><th>B</th><th>C</th><th>D</th><th>E</th></tr></thead><tbody><tr><td>A</td><td>6</td><td>−5</td><td>−1</td><td>0</td><td>0</td></tr><tr><td>B</td><td>−5</td><td>9</td><td>−4</td><td>0</td><td>0</td></tr><tr><td>C</td><td>−1</td><td>−4</td><td>8</td><td>−2</td><td>−1</td></tr><tr><td>D</td><td>0</td><td>0</td><td>−2</td><td>7</td><td>−5</td></tr><tr><td>E</td><td>0</td><td>0</td><td>−1</td><td>−5</td><td>6</td></tr></tbody></table>
+<p>两个自检：<strong>L 对称</strong>；<strong>每行和为 0</strong>（对角的度数正好等于这一行负边权之和）。行和为 0 意味着全 1 向量满足 L·1 = 0：λ = 0 永远是 L 的特征值。</p></section>
+<section class="lesson-part" aria-labelledby="m06-quadratic"><h3 id="m06-quadratic"><span class="part-no">§ 3</span>二次型：为什么连得紧的点数值接近</h3><p>给每个节点一个数 x_v。L 有一个关键性质：</p>
+<blockquote class="callout"><p><strong>xᵀLx = Σ w(u, v)·(x_u − x_v)²</strong>，求和对每条无向边一次。</p></blockquote>
+<p>如果让 x 只取 +1（左组）或 −1（右组），被切断的边贡献 w·(2)² = 4w，没被切断的贡献 0——所以 <strong>xᵀLx = 4·cut</strong>。ABC | DE 的指示向量给出 4 × 3 = 12。</p>
+<p>最小化 cut 很难，因为 x 只能取 ±1。谱方法把这个条件<strong>放松</strong>：允许 x 取任意实数，只要求它不是常数向量（与全 1 正交）、长度固定。放松后的最优解就是第二小特征值 λ2 对应的特征向量。</p>
+<div class="callout analogy"><strong>弹簧类比（仅限这里）</strong><p>可以把每条边想象成一根弹簧，边权越大弹簧越硬；xᵀLx 像是所有弹簧被拉伸的总“能量”。连得紧的节点被硬弹簧拉近，数值相近。这只是帮助理解二次型的比喻：本页没有运行任何物理模拟，边权也不是真的硬度；其他模块的算法与弹簧无关。</p></div></section>
+<section class="lesson-part" aria-labelledby="m06-fiedler"><h3 id="m06-fiedler"><span class="part-no">§ 4</span>Fiedler 向量与它的条件</h3><div class="terms"><div class="term" id="term--"><h4>特征值 / 特征向量</h4><span class="en" lang="zh-CN">eigenvalue / eigenvector</span><p>满足 Lx = λx 的数 λ 与非零向量 x。</p></div><div class="term" id="term-fiedler-"><h4>Fiedler 向量</h4><span class="en" lang="zh-CN">Fiedler vector</span><p>第二小特征值 λ2 的特征向量（读作“菲德勒”）。λ2 也叫代数连通度。</p></div></div>
+<p>G01 的特征值（本页浏览器实时求解，与 NumPy 对照一致）：</p>
+<blockquote class="callout"><p>λ1 ≈ 0，<strong>λ2 ≈ 1.7733143437</strong>，λ3 ≈ 8.455，λ4 ≈ 11.605，λ5 ≈ 14.166</p></blockquote>
+<p>Fiedler 向量（统一符号，使 A 为正）约为 A 0.519，B 0.418，C 0.106，D −0.489，E −0.553。</p>
+<p>使用它要注意三个条件：</p>
+<ul><li><strong>连通</strong>：图连通时 λ1 = 0 只有一个；图断开时 λ2 也是 0，向量只告诉你“哪些点在同一个连通分量”。</li><li><strong>简并</strong>：如果 λ2 = λ3，第二特征向量不唯一，任何该特征空间中的方向都同样合法，排序可能不同。</li><li><strong>翻号</strong>：x 是特征向量，−x 也是。整体翻号只让排序反向、左右互换，分组不变。</li></ul></section>
+<section class="lesson-part" aria-labelledby="m06-sweep"><h3 id="m06-sweep"><span class="part-no">§ 5</span>排序扫描：在窗口里试每一刀</h3><p>按 Fiedler 值从小到大排序：<strong>E, D, C, B, A</strong>。在相邻位置之间切，前 k 个为一组：</p>
+<table><thead><tr><th>k</th><th>左组</th><th>右组</th><th>cut</th><th>40/60 窗口（每组 2–3 个）</th></tr></thead><tbody><tr><td>1</td><td>E</td><td>D C B A</td><td>6</td><td>不合法</td></tr><tr><td>2</td><td>E D</td><td>C B A</td><td><strong>3</strong></td><td>合法</td></tr><tr><td>3</td><td>E D C</td><td>B A</td><td>5</td><td>合法</td></tr><tr><td>4</td><td>E D C B</td><td>A</td><td>6</td><td>不合法</td></tr></tbody></table>
+<p>窗口内 k = 2 的 cut 最小，结果 <strong>DE | ABC，cut 3</strong>。注意两点：</p>
+<ul><li>“切在正中间”（k = 3）并不更好：cut 是 5。</li><li>在这张图上，正负号的分界恰好也在 k = 2；但一般情况下正负号并不保证落在窗口内，所以要扫描。</li></ul>
+<p>原作者的页面让学生亲手选择 k 并实时看到 cut——本章实验保留了这一操作。</p></section>
+<section class="lesson-part" aria-labelledby="m06-errors"><h3 id="m06-errors"><span class="part-no">§ 6</span>三个常见误解的更正</h3><ol><li><strong>二分数是 15，不是 16</strong>（见第 1 节）。</li><li><strong>无平衡约束时，最优不一定是孤立一个点。</strong> 孤立一个点的 cut 等于它的度数：A 6、B 9、C 8、D 7、E 6，最小是 6；而 ABC | DE 只有 3。正确的说法是：没有约束时<strong>可能</strong>出现过小的分组，所以要声明窗口。</li><li><strong>预计算向量不是求解器。</strong> 原作页面存储了三位小数的向量，改 k 会实时算 cut，但改图不会重算向量。三位小数向量的残差 ‖Lx − λx‖/‖x‖ 约 0.0044——这是舍入造成的，不是求解失败。本课程在浏览器中用 Jacobi 旋转实时求解（残差约 10⁻¹⁵），并保留原值作对照。</li></ol></section>
+<section class="lesson-part" aria-labelledby="m06-pseudocode"><h3 id="m06-pseudocode"><span class="part-no">§ 7</span>伪代码与数值自检</h3><div class="pseudo" data-pseudo="spectral"><ol aria-label="Pseudocode"><li data-line="1" data-note="每条边贡献四处；检查对称与行和为 0。">L ← D − A</li><li data-line="2" data-note="本页：Jacobi 旋转；Python：同样的纯 Python 实现，NumPy 可选对照。">(λ, x) ← L 的特征分解，升序排列</li><li data-line="3" data-note="断开或简并时给出警告：排序可能只反映分量，或方向不唯一。">检查 λ1 ≈ 0、连通、λ2 是否简并、残差</li><li data-line="4" data-note="翻号只交换左右；统一符号只为了显示稳定。">f ← λ2 的特征向量，统一符号</li><li data-line="5" data-note="一条数轴上的 n 个点。">order ← 节点按 f 升序，平票按名字</li><li data-line="6" data-note="n − 1 个候选切点；每个都记录是否在平衡窗口内。">for k = 1 … n−1: 左 = order[:k]，算 cut</li><li data-line="7" data-note="谱方法给出好的候选，不保证全局最优。">返回窗口内 cut 最小的 k</li></ol><div class="explain"><p class="muted">Click any line for its explanation. When you step through the lab, the line being executed lights up.</p></div></div>
+<p><strong>和 Python 的对应</strong>：第 1 行 → <code>laplacian()</code>；第 2 行 → 已提供的 <code>jacobi_eigen()</code>；第 6–7 行 → <code>sweep()</code> 与 <code>spectral_bisection()</code>。检查器还会核对残差、翻号等价、断开图 λ2 = 0。</p>
+<p><strong>在 EDA 中</strong>，谱方法常用来给大规模划分一个全局视角的初始解，之后交给 KL/FM 这类局部改进方法——这正是下面两个模块。</p></section></div></div>
+</div></section>
+
+<section class="section" id="slides"><div class="wrap">
+<div class="section-head"><div><p class="eyebrow"><span class="eyebrow-no">04</span> / Slides · numbered, with notes</p><h2>Classroom slides</h2></div><p>Page numbers match the PDF exactly; the notes for each page sit below the slide.</p></div>
+<div id="slides-root"><p class="muted">Loading the slides…</p></div>
+</div></section>
+
+<section class="section dark" id="lab"><div class="wrap">
+<div class="section-head"><div><p class="eyebrow"><span class="eyebrow-no">05</span> / Lab · computed live in your browser</p><h2>矩阵 · 数轴 · 扫描</h2></div><p>这里的特征向量由浏览器实时求解（Jacobi 旋转），改边权会真的重算；也可以切换到原作页面存储的三位小数向量作对照。</p></div>
+<div id="lab-root" tabindex="-1"><p class="muted">Loading the lab… (open the page over HTTP; browsers block module scripts in files opened directly.)</p></div>
+</div></section>
+
+<section class="section" id="challenges"><div class="wrap">
+<div class="section-head"><div><p class="eyebrow"><span class="eyebrow-no">06</span> / Challenges · easy to hard</p><h2>Grouping challenges</h2></div><p>The category is in brackets and the difficulty is marked separately. Answers are checked by the engine or an explicit rule; looking at an answer costs nothing, and your record says so honestly.</p></div>
+<p class="ch-guide">First time? Read <a href="../../guide/index.html">how challenges work</a>: read the task, predict, act, submit, read the explanation, try again. 第 1 题用逗号分隔五个数。</p>
+<div class="ch-list" id="challenge-root"><p class="muted">Loading the challenges…</p></div>
+</div></section>
+
+<section class="section" id="python"><div class="wrap">
+<div class="section-head"><div><p class="eyebrow"><span class="eyebrow-no">07</span> / Python track · optional</p><h2>构造 L、扫描切分、数值自检</h2></div><p>The web track needs no Python. Unzip anywhere and run it; it uses only the standard library.</p></div>
+<div class="grid-2"><div class="prose"><p><strong>任务</strong>（<code>starter.py</code>）：</p>
+<ol><li><code>laplacian(nodes, edges)</code>：构造 L = D − A。</li><li><code>sweep(order, edges, lo, hi)</code>：沿排序逐个位置切分，标出是否合法。</li><li><code>count_bipartitions(n)</code>：两组非空、不分左右的二分数。</li></ol>
+<p>已提供纯 Python 的 Jacobi 求解器；检查器在装有 NumPy 时会额外与 <code>numpy.linalg.eigvalsh</code> 对照（没有 NumPy 时报 SKIP，不算通过）。</p>
+<p><strong>提示一</strong>：每条边对 L 的四个位置做贡献：两个对角 +w，两个非对角 −w。</p>
+<p><strong>提示二</strong>：2ⁿ 种左右标记里要去掉哪两种？再除以几？</p></div>
+<div><div class="py-files"><div><code>starter.py</code>Starter code with TODOs</div><div><code>check.py</code>Checker: unfinished work reports INCOMPLETE, never PASS</div><div><code>reference.py</code>Reference solution, for when you are stuck</div><div><code>fixtures/</code>The chapter’s examples as JSON</div><div><code>README.md</code>Task, two hints and samples</div></div>
+<p><a class="btn primary" href="../../../downloads/m06-spectral-bisection-python.zip" download>Download the pack (.zip)</a></p>
+<pre><code>python3 check.py              # check your starter.py
+python3 check.py reference.py # the reference passes every check</code></pre></div></div>
+</div></section>
+
+<section class="section" id="mistakes"><div class="wrap">
+<div class="section-head"><div><p class="eyebrow"><span class="eyebrow-no">08</span> / Common mistakes and limits</p><h2>Where it goes wrong</h2></div><p>Each entry gives the wrong result, the cause, a counterexample and the fix; every number in the counterexamples is recomputed by the tests.</p></div>
+<div class="mistakes"><article class="mistake"><h4>把 5 个节点的二分数算成 16</h4><dl><dt>Wrong result</dt><dd>原题库：“5 个节点分成两组共 16 种”。</dd><dt>Why</dt><dd>2⁵ = 32 种左右标记里，有 2 种是“一组为空”，再除以 2 去掉左右交换：(32 − 2) / 2 = 15。16 把空组/全集那一对也算进去了。</dd><dt>Counterexample</dt><dd>穷举 G01 的非空无标签二分：恰好 15 个（本课程测试断言）。</dd><dt>Fix</dt><dd>先说清“两组都非空、不区分左右”，再计数。</dd></dl></article><article class="mistake"><h4>以为没有平衡约束时最优一定切出单点</h4><dl><dt>Wrong result</dt><dd>原文：“无平衡约束，答案永远是切掉一个点”。</dd><dt>Why</dt><dd>孤立一个点的 cut 等于它的度数；这张图上最小的单点 cut 是 6，而 ABC | DE 只有 3。</dd><dt>Counterexample</dt><dd>G01 无约束最小 cut 是 ABC | DE = 3，不是单点。</dd><dt>Fix</dt><dd>改为“可能出现过小的分组”，所以要声明平衡窗口。</dd></dl></article><article class="mistake"><h4>把 Fiedler 的正负号当成平衡的分法</h4><dl><dt>Wrong result</dt><dd>直接按正负号切，认为两边一定差不多大。</dd><dt>Why</dt><dd>正负号只是一个阈值；它不保证两组大小在窗口内，也不代替扫描。</dd><dt>Counterexample</dt><dd>在 G01 上正负号恰好切在 k = 2；换别的图，正负号可能切出 1 : n−1。</dd><dt>Fix</dt><dd>按排序逐个位置扫描，只在窗口内的位置里选最小 cut。</dd></dl></article><article class="mistake"><h4>把存储的三位小数向量当成求解器</h4><dl><dt>Wrong result</dt><dd>原页面改 k 时会实时算 cut，但特征向量是写死的三位小数；改图后仍用旧向量。</dd><dt>Why</dt><dd>向量由预先计算得到，改图不会重算；三位小数的残差约 0.0044，只够展示。</dd><dt>Counterexample</dt><dd>本课程实时求解的残差约 10⁻¹⁵；存储向量的残差 0.0044。两者在 G01 上排序相同。</dd><dt>Fix</dt><dd>标明“预计算”，或像本课程一样在浏览器里真的求解并显示残差。</dd></dl></article><article class="mistake"><h4>以为翻号会改变结果</h4><dl><dt>Wrong result</dt><dd>两次运行得到的向量正负相反，就认为分组不同。</dd><dt>Why</dt><dd>若 x 是特征向量，−x 也是；排序整体反向，同一刀两侧互换名字。</dd><dt>Counterexample</dt><dd>G01 上 x 与 −x 都切出 DE | ABC，cut 3。</dd><dt>Fix</dt><dd>比较分组时不区分左右。</dd></dl></article></div>
+<div class="prose limits"><h3>Scope and limits</h3><ul><li>谱二分给出一个“好的候选”，不保证全局最优；它常作为划分的初始解，交给 Module 07/08 改进。</li><li>本章用未归一化 L；归一化拉普拉斯等变体会给出不同的排序。</li><li>图不连通时 λ2 = 0，特征向量只反映连通分量；λ2 简并时方向不唯一。</li><li>浏览器内的 Jacobi 求解适合教学规模（本页限制 40 个节点）；大规模问题用稀疏迭代方法（如 Lanczos）。</li><li>弹簧比喻只帮助理解二次型；本页没有运行任何物理模拟。</li></ul></div>
+</div></section>
+
+<section class="section" id="sources"><div class="wrap">
+<div class="section-head"><div><p class="eyebrow"><span class="eyebrow-no">09</span> / References and original author</p><h2>Sources</h2></div><p>This module rewrote the lesson, engine and media for the unified course; the original work is credited here, and no unlicensed code or music was copied.</p></div>
+<div class="grid-2"><div class="prose">
+<h3>Original author and what was kept</h3>
+<p><strong>xingguangyaoyu</strong> · <a href="https://xingguangyaoyu.github.io/eda-clustering-module-lab6/">original site</a> · <a href="https://github.com/xingguangyaoyu/eda-clustering-module-lab6">original repository</a> (pinned at <code>cb892be</code>)</p>
+<ul><li>“每点一个分数，再切一刀”的低门槛路径，与 L、Fiedler 排序、扫描表并排的版面（本章实验沿用这一布局）。</li><li>让学生亲手选择切点 k 并实时看到 cut（原页面 k = 3 显示 5，本课程复现）。</li><li>讲稿中“行和为零”“翻号不改变分组”两条自检。</li><li>中英两套视频与课件的双语思路：原作资源作为参考入口保留在原网站。</li></ul>
+<p class="small muted">原仓库未声明统一许可，本模块未复制其代码、视频或字幕。原题库“16 种”与“无约束总切单点”两处错误在本章更正；原页面的特征向量是三位小数的预计算值，本课程改为浏览器内实时求解并保留原值作对照。原作页数、题数、字幕格式的不一致不再沿用。</p>
+</div><div class="prose">
+<h3>Source mapping</h3>
+<table><tbody><tr><th>This course</th><td>Module 06 · <code>m06-spectral-bisection</code></td></tr><tr><th>Submission</th><td><a href="https://github.com/yongfu-li/eda-learning/issues/5">Issue #5</a> (Clustering Module - Lesson 6)</td></tr><tr><th>Teacher’s catalogue</th><td>module02-03-spectral-bisection（Lab 06）</td></tr><tr><th>Status</th><td>verified</td></tr></tbody></table>
+<h3>References</h3><ul><li>Fiedler, M. (1973). Algebraic connectivity of graphs. <em>Czechoslovak Mathematical Journal</em>, 23(2), 298–305.</li><li>Pothen, A., Simon, H. D., &amp; Liou, K.-P. (1990). Partitioning sparse matrices with eigenvectors of graphs. <em>SIAM J. Matrix Anal. Appl.</em>, 11(3), 430–452.</li><li>教师原课程 <a href="https://github.com/yongfu-li/eda-learning/tree/003bcd49e3794e6cfd2680181cdbd347d673ad07/courses/learn_clustering/module02-03-spectral-bisection" rel="noopener">Module 材料</a></li></ul>
+<p><a href="../../../data/m06-spectral-bisection/crosswalk.json">Crosswalk for this module (goal → lesson → film → slide → lab → challenge → Python)</a> · <a href="../../../downloads/m06-spectral-bisection-outline.md">Markdown outline</a></p>
+</div></div>
+</div></section>
+</main>
+<footer class="footer"><div class="wrap">
+<p>Learning Clustering · Modules 02–09, built from eight closed Clustering submissions. Original authors are credited on the <a href="../../credits/index.html">Credits</a> page.</p>
+<p><button class="btn quiet small" type="button" data-pref="reduceMotion">Reduce motion</button> <button class="btn quiet small" type="button" data-pref="sound">Sound</button> · Content version 2026.10.23-1</p>
+</div></footer>
+<script type="module">import { initShell } from '../../../assets/core.js'; initShell();</script>
+<script type="module" src="../../../modules/m06-spectral-bisection/lab.js"></script>
+</body>
+</html>

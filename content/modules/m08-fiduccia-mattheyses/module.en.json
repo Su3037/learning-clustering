@@ -1,0 +1,6 @@
+{
+  "title": "Fiduccia–Mattheyses Refinement",
+  "hook": "The node with the biggest gain is not allowed to move. What does the algorithm do?",
+  "cardText": "Move one node at a time, keeping both sides inside the balance window. Only legal moves count; exploring, locking and the best prefix work as in KL.",
+  "description": "Single-node moves: choose the largest gain among balance-legal nodes, explore negative gains, roll back to the best prefix at the end of a pass; includes the disproved original counterexample, a replacement verified by exhaustive search, and multi-pin nets."
+}

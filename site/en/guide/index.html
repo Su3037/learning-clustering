@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How challenges work · Learning Clustering</title>
+<meta name="description" content="Eight closed Clustering course submissions (Modules 02–09) rebuilt as one course: lessons, explainer films, numbered slides, in-browser labs, grouping challenges and Python exercises.">
+<link rel="alternate" hreflang="zh-CN" href="../../guide/index.html">
+<link rel="alternate" hreflang="en" href="../../en/guide/index.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%2032%2032%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M9%2011%2023%209M9%2011%2020%2023%22%20stroke%3D%22%238b958e%22%20stroke-width%3D%221.3%22%2F%3E%3Cpath%20d%3D%22M23%209%2020%2023%22%20stroke%3D%22%23a33b3b%22%20stroke-width%3D%221.3%22%20stroke-dasharray%3D%222.2%202%22%2F%3E%3Ccircle%20cx%3D%229%22%20cy%3D%2211%22%20r%3D%224.6%22%20fill%3D%22%230f6b5c%22%2F%3E%3Ccircle%20cx%3D%2223%22%20cy%3D%229%22%20r%3D%223.6%22%20fill%3D%22%232f5e9e%22%2F%3E%3Ccircle%20cx%3D%2220%22%20cy%3D%2223%22%20r%3D%224.6%22%20fill%3D%22%23946a17%22%2F%3E%3C%2Fsvg%3E">
+<link rel="preload" href="../../assets/fonts/newsreader-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../../assets/course.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar"><div class="wrap">
+<a class="brand" href="../index.html"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M9 11 23 9M9 11 20 23" stroke="#8b958e" stroke-width="1.3"/><path d="M23 9 20 23" stroke="#a33b3b" stroke-width="1.3" stroke-dasharray="2.2 2"/><circle cx="9" cy="11" r="4.6" fill="#0f6b5c"/><circle cx="23" cy="9" r="3.6" fill="#2f5e9e"/><circle cx="20" cy="23" r="4.6" fill="#946a17"/></svg><span class="brand-name">Learning Clustering</span><span class="brand-sub">Connect & group</span></a>
+<nav class="topnav" aria-label="Course"><a href="../index.html">Home</a><a href="../foundations/index.html">Foundations</a><a href="../glossary/index.html">Glossary</a><a href="../guide/index.html" aria-current="page">Challenges</a><a href="../credits/index.html">Credits</a><a href="../progress/index.html">Progress</a></nav>
+<div class="lang-switch" role="group" aria-label="Language"><a href="../../guide/index.html" hreflang="zh-CN" lang="zh-CN" data-lang-link="zh">中文</a><span aria-current="true">EN</span></div>
+</div></header>
+<main id="main"><div class="wrap"><p class="i18n-note" lang="en"><b>Translation in progress.</b> This page is still shown in the original Chinese. The English edition is being written chapter by chapter. <a href="../../guide/index.html" hreflang="zh-CN" data-lang-link="zh">Open the Chinese page</a></p></div><section class="section page"><div class="wrap"><div class="prose"><p>&lt;p class=&quot;eyebrow&quot;&gt;挑战使用指南&lt;/p&gt;</p>
+<h2>如何挑战</h2>
+<p>每个模块的挑战都按同一流程进行。它们检查的是“能否用规则算出结果并解释”，不是“有没有看完视频”。</p>
+<ol><li><strong>读任务</strong>：每题开头写着 <code>[类别] 题名</code>、难度，以及“这题检查什么”。</li><li><strong>先预测</strong>：在动手前写下你认为的答案。很多题故意挑了容易猜错的地方（例如没有直接连线的节点对也有分数）。</li><li><strong>操作</strong>：填数字、选选项、点选节点或边、给列表排序。需要时可以去上方的实验里单步验证。</li><li><strong>提交</strong>：判定来自本页同一个算法引擎或明确规则。分组题不在乎组的名字和左右顺序，只看谁和谁在一起。</li><li><strong>看解释</strong>：答对后会显示“为什么”；答错时会告诉你违反了哪条规则。</li><li><strong>再试</strong>：“提示”有两级——先给方向，再给具体关系。“重置重试”会清空本题记录。</li></ol>
+<h3>记录怎么算</h3>
+<table><thead><tr><th>状态</th><th>含义</th></tr></thead><tbody><tr><td>未开始</td><td>还没提交过</td></tr><tr><td>尝试中</td><td>提交过但还没答对</td></tr><tr><td>独立完成</td><td>没看答案就答对</td></tr><tr><td>看过答案后完成</td><td>看过答案与解析之后答对</td></tr></tbody></table>
+<p>看答案不扣分，也不会锁题。两种完成方式分开记录，只是为了让你知道哪些是自己做出来的。记录保存在本机浏览器里（<code>localStorage</code>），可以在<a href="../progress/index.html">学习记录</a>导出或导入。浏览器禁止存储时，页面仍然可用，只是关闭后不保留。</p>
+<h3>类别与难度是两回事</h3>
+<p>类别说明题目的用途：<strong>概念</strong>（区分两个容易混的东西）、<strong>推演</strong>（按规则手算一步）、<strong>探索</strong>（改参数看变化）、<strong>约束</strong>（检查合法性）、<strong>纠错</strong>（找出错误说法）、<strong>解释 / 决策</strong>（说明为什么这样选）、<strong>实现</strong>（与 Python 练习对应）、<strong>应用</strong>（放回 EDA 场景）。难度另标“入门 / 练习 / 挑战”。同一类别可以有不同难度。</p>
+<h3>两个需要额外说明的操作</h3>
+<ul><li><strong>Module 02 手工排序</strong>：用每行的 ↑ ↓ 按钮（或 Tab 加回车）调整顺序，排好后提交。</li><li><strong>Module 08 回退</strong>：题目给出一轮试探的累计收益，你要选出保留前几步；“保留 0 步”也是合法答案。</li></ul></div></div></section></main>
+<footer class="footer"><div class="wrap">
+<p>Learning Clustering · Modules 02–09, built from eight closed Clustering submissions. Original authors are credited on the <a href="../credits/index.html">Credits</a> page.</p>
+<p><button class="btn quiet small" type="button" data-pref="reduceMotion">Reduce motion</button> <button class="btn quiet small" type="button" data-pref="sound">Sound</button> · Content version 2026.10.23-1</p>
+</div></footer>
+<script type="module">import { initShell } from '../../assets/core.js'; initShell();</script>
+
+</body>
+</html>

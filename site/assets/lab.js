@@ -3,7 +3,7 @@
  * Pseudocode panel and run export. The player only moves an index over events that an
  * engine already computed; changing inputs means a new run (new runId), never a silent recompute.
  */
-import { h, $, $$, download, reducedMotion } from './core.js';
+import { h, $, $$, download, reducedMotion, L } from './core.js';
 
 let runCounter = 0;
 
@@ -11,11 +11,11 @@ export class Player {
   constructor(root, { onIndex, speed = 1100 } = {}) {
     this.root = root; this.onIndex = onIndex; this.events = []; this.i = 0; this.timer = null; this.speed = speed;
     this.btn = {
-      reset: h('button.btn.small', { type: 'button', onclick: () => this.go(0) }, '⟲ 重置'),
-      prev: h('button.btn.small', { type: 'button', onclick: () => this.go(this.i - 1), 'aria-label': '上一步' }, '‹ 上一步'),
-      next: h('button.btn.small.primary', { type: 'button', onclick: () => this.go(this.i + 1), 'aria-label': '下一步' }, '下一步 ›'),
-      play: h('button.btn.small', { type: 'button', onclick: () => this.toggle() }, '▶ 自动播放'),
-      end: h('button.btn.small', { type: 'button', onclick: () => this.go(this.events.length - 1) }, '跳到结束 ⇥')
+      reset: h('button.btn.small', { type: 'button', onclick: () => this.go(0) }, L('⟲ 重置', '⟲ Reset')),
+      prev: h('button.btn.small', { type: 'button', onclick: () => this.go(this.i - 1), 'aria-label': L('上一步', 'Previous step') }, L('‹ 上一步', '‹ Back')),
+      next: h('button.btn.small.primary', { type: 'button', onclick: () => this.go(this.i + 1), 'aria-label': L('下一步', 'Next step') }, L('下一步 ›', 'Step ›')),
+      play: h('button.btn.small', { type: 'button', onclick: () => this.toggle() }, L('▶ 自动播放', '▶ Play')),
+      end: h('button.btn.small', { type: 'button', onclick: () => this.go(this.events.length - 1) }, L('跳到结束 ⇥', 'To the end ⇥'))
     };
     this.pos = h('span.pos', { 'aria-live': 'polite' });
     root.replaceChildren(h('div.player', {}, Object.values(this.btn), this.pos));
@@ -27,27 +27,27 @@ export class Player {
   }
   load(events, start = 0) { this.stop(); this.events = events; this.runId = ++runCounter; this.go(start); }
   go(i) {
-    if (!this.events.length) { this.pos.textContent = '没有事件'; return; }
+    if (!this.events.length) { this.pos.textContent = L('没有事件', 'No events'); return; }
     this.i = Math.max(0, Math.min(this.events.length - 1, i));
     this.btn.prev.disabled = this.i === 0; this.btn.reset.disabled = this.i === 0;
     this.btn.next.disabled = this.btn.end.disabled = this.i === this.events.length - 1;
-    this.pos.textContent = `事件 ${this.i + 1} / ${this.events.length}`;
+    this.pos.textContent = L(`事件 ${this.i + 1} / ${this.events.length}`, `Event ${this.i + 1} / ${this.events.length}`);
     this.onIndex?.(this.i, this.events[this.i], this.events);
     if (this.i === this.events.length - 1) this.stop();
   }
   toggle() { this.timer ? this.stop() : this.play(); }
   play() {
     if (this.i >= this.events.length - 1) this.go(0);
-    this.btn.play.textContent = '❚❚ 暂停';
+    this.btn.play.textContent = L('❚❚ 暂停', '❚❚ Pause');
     const tick = () => { this.go(this.i + 1); if (this.timer) this.timer = setTimeout(tick, reducedMotion() ? this.speed * 1.6 : this.speed); };
     this.timer = setTimeout(tick, this.speed);
   }
-  stop() { clearTimeout(this.timer); this.timer = null; this.btn.play.textContent = '▶ 自动播放'; }
+  stop() { clearTimeout(this.timer); this.timer = null; this.btn.play.textContent = L('▶ 自动播放', '▶ Play'); }
 }
 
 export class TraceInspector {
   /** columns: [{label, get(event)}] */
-  constructor(root, { columns, onPick, title = '逐步记录（表格视图）' }) {
+  constructor(root, { columns, onPick, title = L('逐步记录（表格视图）', 'Step-by-step log (table)') }) {
     this.columns = columns; this.onPick = onPick;
     this.body = h('tbody');
     root.replaceChildren(h('details.trace', {}, h('summary', title),
@@ -76,7 +76,7 @@ export class Pseudocode {
     this.lines.forEach(li => li.classList.toggle('on', lines.includes(+li.dataset.line)));
     if (!this.explain) return;
     this.explain.replaceChildren(
-      h('p', {}, h('span.line-no', `第 ${lines.join('、')} 行`), context ? ' · ' + context : ''),
+      h('p', {}, h('span.line-no', L(`第 ${lines.join('、')} 行`, `Line${lines.length > 1 ? 's' : ''} ${lines.join(', ')}`)), context ? ' · ' + context : ''),
       ...lines.map(l => h('p', this.notes[l] || '')));
   }
 }
@@ -99,7 +99,7 @@ export function select(label, options, value, onchange) {
   return h('label', {}, label, s);
 }
 export function numberInput(label, value, onchange, { min = 0, max = 99, step = 1, allowEmpty = false } = {}) {
-  const i = h('input', { type: 'number', value: value ?? '', min, max, step, placeholder: allowEmpty ? '不限' : '' });
+  const i = h('input', { type: 'number', value: value ?? '', min, max, step, placeholder: allowEmpty ? L('不限', 'any') : '' });
   i.addEventListener('change', () => onchange(i.value === '' && allowEmpty ? null : Number(i.value)));
   return h('label', {}, label, i);
 }

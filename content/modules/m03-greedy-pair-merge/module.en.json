@@ -1,0 +1,6 @@
+{
+  "title": "Greedy Pair Merge",
+  "hook": "If the two most tightly connected blocks always merge first, do we always end with the best grouping?",
+  "cardText": "Start from single cells and repeatedly merge the pair with the largest inter-cluster weight. Value first, names break ties; stop at K or when nothing can merge.",
+  "description": "Starting from single-cell clusters, repeatedly merge the legal pair with the highest affinity until K is reached or no positive legal pair remains; includes the fixed comparator bug and its regression test."
+}

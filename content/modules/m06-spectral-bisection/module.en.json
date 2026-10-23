@@ -1,0 +1,6 @@
+{
+  "title": "Spectral Bisection",
+  "hook": "Can we give every node of a graph a single number, then pick a boundary along that number line?",
+  "cardText": "Build L = D − A, sort the nodes by the Fiedler vector, and try every cut inside the balance window. Flipping the sign only swaps left and right.",
+  "description": "The second eigenvector of the Laplacian L = D − A gives each node a number; sort and sweep the cuts inside a balance window. Solved live in the browser, residual shown."
+}

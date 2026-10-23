@@ -48,7 +48,7 @@ test('T01: learners see "Module", Lab/Lesson appear only as source mapping', () 
     if (f.includes('/labs/')) continue; // compatibility stubs mention the old path on purpose
     const visible = fs.readFileSync(f, 'utf8').replace(/<script[\s\S]*?<\/script>/g, '').replace(/<[^>]+>/g, ' ');
     const lines = visible.split(/[。\n]/).filter(l => /\bLab ?0\d\b/.test(l));
-    for (const l of lines) assert.ok(/教师|目录|来源|映射|旧|Lesson|原课程|Issue|实现|仓库/.test(l), `“Lab” used as a learning unit in ${path.relative(SITE, f)}: ${l.trim().slice(0, 80)}`);
+    for (const l of lines) assert.ok(/教师|目录|来源|映射|旧|Lesson|原课程|Issue|实现|仓库|teacher|catalogue|source|mapping|original|repository/i.test(l), `“Lab” used as a learning unit in ${path.relative(SITE, f)}: ${l.trim().slice(0, 80)}`);
   }
 });
 
@@ -145,8 +145,12 @@ test('GitHub Pages: CSS url() targets exist with exact case; bundled font and it
   assert.ok(urls.length >= 2);
   for (const u of urls) assert.ok(existsExact(path.resolve(SITE, 'assets', u)), `css url ${u}`);
   assert.ok(/Noto Sans SC Course/.test(css.match(/--sans:[^;]+/)[0]));
-  const ofl = read('assets/fonts/OFL.txt');
-  assert.ok(ofl.includes('SIL Open Font License') && ofl.includes('Adobe'));
+  assert.ok(/Noto Serif SC Course/.test(css.match(/--display:[^;]+/)[0]));
+  for (const face of ['noto-sans-sc', 'noto-serif-sc', 'newsreader', 'jetbrains-mono']) {
+    const ofl = read(`assets/fonts/OFL-${face}.txt`);
+    assert.ok(ofl.includes('SIL OPEN FONT LICENSE') && /Copyright/.test(ofl), face);
+    assert.ok(!/Reserved Font Name/i.test(ofl.split('---')[0]), `${face}: subsetting is only allowed without a Reserved Font Name`);
+  }
 });
 
 test('font subset covers the Chinese text of every page (the rest falls back to system fonts)', () => {

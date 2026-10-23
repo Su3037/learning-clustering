@@ -1,0 +1,7 @@
+{
+  "title": "Rajaraman–Wong Delay-Oriented Clustering",
+  "hook": "Two groupings cut about the same number of wires. Why can their critical-path delay differ so much?",
+  "cardText": "The goal becomes the longest path delay. Each crossing between clusters adds D, and one logic node may be copied into several clusters.",
+  "description": "From cut to delay: a combinational DAG, node delays, a fixed inter-cluster delay D and cluster capacity, with replication allowed; labelling and reverse recovery, keeping logic nodes and physical instances apart.",
+  "mappingNote": "Issue #8 (Lesson 9) submitted Rajaraman–Wong delay-oriented clustering, while Lab 09 in the teacher’s current catalogue is Multilevel. The course keeps the topic actually submitted, numbered Module 09 by order of submission; the correspondence awaits the teacher’s confirmation. This page does not replace Multilevel, and the old multilevel path does not redirect here."
+}

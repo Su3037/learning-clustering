@@ -1,0 +1,6 @@
+{
+  "title": "Size-Constrained Agglomerative Clustering",
+  "hook": "Two tightly linked blocks want to merge, but the container is too small. What now?",
+  "cardText": "No cluster may exceed capacity C. Impossible, stuck on a wrong path, and legal-but-not-optimal are three different endings.",
+  "description": "Greedy merging with a hard capacity: telling apart “provably impossible”, “greedy walked into a dead end” and “legal but not optimal”, and reporting legality separately from reaching K."
+}

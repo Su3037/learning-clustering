@@ -1,0 +1,6 @@
+{
+  "title": "Affinity Metrics",
+  "hook": "Look at the same circuit cells by direct wires, then by shared neighbours. Why do the two disagree about which pair is closest?",
+  "cardText": "Score every pair of cells: direct edge weight, shared neighbours, and pin-count on multi-pin nets. A score ranks pairs; it does not group them.",
+  "description": "Why direct wires and shared neighbours name different “closest pairs” among the same circuit cells: edge weight, shared neighbours and pin-count."
+}

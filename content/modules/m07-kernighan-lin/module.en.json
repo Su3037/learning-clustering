@@ -1,0 +1,6 @@
+{
+  "title": "Kernighan–Lin Refinement",
+  "hook": "A swap just made things worse. Why keep swapping?",
+  "cardText": "Swap pairs, lock them, keep exploring, then roll back to the best prefix. Trial moves may hurt; only the best stretch is kept.",
+  "description": "Improving a bisection with fixed side sizes: a pair swap’s gain subtracts 2w; negative gains are explored too; after each pass only the best prefix is kept, and an empty prefix means stop."
+}
