@@ -1,6 +1,6 @@
 # Module 04 容量约束凝聚聚类 · Python 练习包
 
-补全停止报告与诊断分类。来自 Learning Clustering 统一课程（Module 04）。网页上的实验与挑战不需要 Python；这个包是可选的实现轨道。
+补全停止报告与诊断分类。来自 Learning Clustering 统一课程（Module 04）。这个练习也可以直接在模块页面的在线编程里完成，无需安装；这个包用于离线练习。
 
 ## 环境
 

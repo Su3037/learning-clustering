@@ -94,54 +94,55 @@ def j(parts):
 
 def c_cap2(impl):
     r = s(impl, "five_node.json", 2, 2)
-    expect(j(r["clusters"]) == ["AB", "C", "DE"] and r["cutsize"] == 8, f"原图 K2 C2 应得 AB|C|DE cut8，得到 {r['clusters']}")
-    expect(r["capacity_compliant"] is True, "每簇都 ≤ 2：capacity_compliant 应为 True")
-    expect(r["target_reached"] is False, "只有 3 簇：target_reached 应为 False")
-    expect(r["count"] == 3 and r["stop_reason"] == "capacity-blocked", f"应报告 3 簇、capacity-blocked，得到 {r.get('count')}、{r.get('stop_reason')}")
+    expect(j(r["clusters"]) == ["AB", "C", "DE"] and r["cutsize"] == 8, T(f"原图 K2 C2 应得 AB|C|DE cut8，得到 {r['clusters']}", f"G01 K2 C2 should give AB|C|DE, cut 8; got {r['clusters']}"))
+    expect(r["capacity_compliant"] is True, T("每簇都 ≤ 2：capacity_compliant 应为 True", "every cluster is ≤ 2: capacity_compliant should be True"))
+    expect(r["target_reached"] is False, T("只有 3 簇：target_reached 应为 False", "there are only 3 clusters: target_reached should be False"))
+    expect(r["count"] == 3 and r["stop_reason"] == "capacity-blocked", T(f"应报告 3 簇、capacity-blocked，得到 {r.get('count')}、{r.get('stop_reason')}", f"should report 3 clusters and capacity-blocked; got {r.get('count')}, {r.get('stop_reason')}"))
 
 
 def c_cap3(impl):
     r = s(impl, "five_node.json", 2, 3)
-    expect(j(r["clusters"]) == ["ABC", "DE"] and r["target_reached"], "K2 C3 应得 ABC|DE 并达到 K")
+    expect(j(r["clusters"]) == ["ABC", "DE"] and r["target_reached"], T("K2 C3 应得 ABC|DE 并达到 K", "K2 C3 should give ABC|DE and reach K"))
 
 
 def c_k3(impl):
     r = s(impl, "five_node.json", 3, 2)
-    expect(r["target_reached"] and r["cutsize"] == 8, "K3 C2：同样的 AB|C|DE 这次达到了 K")
+    expect(r["target_reached"] and r["cutsize"] == 8, T("K3 C2：同样的 AB|C|DE 这次达到了 K", "K3 C2: the same AB|C|DE reaches K this time"))
 
 
 def c_classes(impl):
+    g01 = T("原图 K2 C2", "G01 K2 C2")
     got = {
-        "原图 K2 C2": impl.classify(fixture("five_node.json"), 2, 2),
+        g01: impl.classify(fixture("five_node.json"), 2, 2),
         "greedy_trap K2 C3": impl.classify(fixture("greedy_trap.json"), 2, 3),
         "suboptimal K2 C2": impl.classify(fixture("suboptimal.json"), 2, 2),
     }
-    want = {"原图 K2 C2": "infeasible-by-bound", "greedy_trap K2 C3": "greedy-stuck", "suboptimal K2 C2": "feasible-suboptimal"}
+    want = {g01: "infeasible-by-bound", "greedy_trap K2 C3": "greedy-stuck", "suboptimal K2 C2": "feasible-suboptimal"}
     for key in want:
-        expect(got[key] == want[key], f"{key} 应为 {want[key]}，得到 {got[key]}")
+        expect(got[key] == want[key], T(f"{key} 应为 {want[key]}，得到 {got[key]}", f"{key} should be {want[key]}; got {got[key]}"))
 
 
 def c_oracle(impl):
     o = impl.oracle(fixture("greedy_trap.json"), 2, 3)
-    expect(o["best_cut_at_k"][0] == 10, "greedy_trap 穷举存在 2 簇合法划分 AC|BD，cut 10")
+    expect(o["best_cut_at_k"][0] == 10, T("greedy_trap 穷举存在 2 簇合法划分 AC|BD，cut 10", "greedy_trap: exhaustive search finds the legal 2-cluster partition AC|BD, cut 10"))
     o = impl.oracle(fixture("suboptimal.json"), 2, 2)
-    expect(o["best_cut_at_k"][0] == 11, "suboptimal 穷举最优 cut 11，贪心得 18")
+    expect(o["best_cut_at_k"][0] == 11, T("suboptimal 穷举最优 cut 11，贪心得 18", "suboptimal: the exhaustive optimum is cut 11; greedy gets 18"))
 
 
 def c_edge_cases(impl):
     r = impl.solve({"nodes": ["A", "B"], "sizes": {"A": 3}, "edges": [("A", "B", 1)]}, 1, 2)
-    expect(r["capacity_compliant"] is False and r["stop_reason"] == "invalid-input", "单点已超容量：应报告 invalid-input，不做非法合并")
+    expect(r["capacity_compliant"] is False and r["stop_reason"] == "invalid-input", T("单点已超容量：应报告 invalid-input，不做非法合并", "a single node is already over capacity: report invalid-input and make no illegal merge"))
     r = impl.solve({"nodes": ["A", "B", "C"], "edges": []}, 1, 5)
-    expect(r["stop_reason"] == "no-positive-affinity" and r["count"] == 3, "无边图：没有正亲和度对，停在 3 簇")
+    expect(r["stop_reason"] == "no-positive-affinity" and r["count"] == 3, T("无边图：没有正亲和度对，停在 3 簇", "a graph with no edges: no positive pair, stop at 3 clusters"))
 
 
 CHECKS = [
-    ("[概念] 合法与目标不同：cap2 的 3 簇结果", c_cap2),
-    ("[推演] cap3 达到 K", c_cap3),
-    ("[推演] K3 C2 同一分组达到 K", c_k3),
-    ("[工具] 已提供的 oracle：trap 10，suboptimal 11", c_oracle),
-    ("[探索] 三种情况的分类", c_classes),
-    ("[约束] 超容量单点与无边图", c_edge_cases),
+    (T("[概念] 合法与目标不同：cap2 的 3 簇结果", "[concept] legal is not the same as on target: the 3-cluster result at cap 2"), c_cap2),
+    (T("[推演] cap3 达到 K", "[trace] cap 3 reaches K"), c_cap3),
+    (T("[推演] K3 C2 同一分组达到 K", "[trace] K3 C2: the same grouping reaches K"), c_k3),
+    (T("[工具] 已提供的 oracle：trap 10，suboptimal 11", "[tool] the provided oracle: trap 10, suboptimal 11"), c_oracle),
+    (T("[探索] 三种情况的分类", "[explore] classifying the three situations"), c_classes),
+    (T("[约束] 超容量单点与无边图", "[constraint] an over-capacity node and a graph with no edges"), c_edge_cases),
 ]
 
 if __name__ == "__main__":

@@ -1,0 +1,65 @@
+WEBVTT
+
+1
+00:00:03.200 --> 00:00:11.467
+This is the chapter's lab: choose an example, the target K and the capacity C, and change any node's size.
+
+2
+00:00:11.467 --> 00:00:16.267
+G01 at capacity 2: step one merges A–B, size 2, legal.
+
+3
+00:00:16.267 --> 00:00:24.067
+Step two: the highest-affinity AB–C has size 3, over capacity, marked red and skipped; D–E instead.
+
+4
+00:00:24.067 --> 00:00:31.533
+Jump to the end: it stops at AB | C | DE. The report is separate: legal, but K is not reached.
+
+5
+00:00:31.533 --> 00:00:40.667
+The diagnosis: the bound ⌈5/2⌉ = 3 already exceeds K, so the target is impossible and greedy stopping is not a mistake.
+
+6
+00:00:40.667 --> 00:00:50.933
+Switch to the original author's greedy_trap: greedy stops at 3 clusters, yet search finds the legal AC | BD. Diagnosis: greedy is stuck.
+
+7
+00:00:50.933 --> 00:00:58.200
+suboptimal: greedy cut 18, the exhaustive optimum 11. Legal and K reached, but not optimal.
+
+8
+00:00:58.200 --> 00:01:08.136
+Back to G01 at capacity 3, with A's size set to 2: the result changes from ABC | DE to AB | CDE, cut 5.
+
+9
+00:01:08.136 --> 00:01:18.269
+The code lab: your code runs in the browser, with no Python to install. The greedy loop and the exhaustive oracle are already written.
+
+10
+00:01:18.269 --> 00:01:24.736
+Run the checks first: neither task is written yet, so the result is INCOMPLETE.
+
+11
+00:01:24.736 --> 00:01:36.308
+Task 1: report four separate items. Legal checks every cluster's size, K reached checks the count, and the main loop gives the stop reason.
+
+12
+00:01:36.308 --> 00:01:55.342
+Task 2: classify. If K is not reached, check the bound, then the search; if it is, compare the cuts.
+
+13
+00:01:55.342 --> 00:02:02.742
+Run the checks: everything passes, including an over-capacity node and a graph with no edges.
+
+14
+00:02:02.742 --> 00:02:11.275
+Below, your functions run on eight cases, including a new graph, compared item by item with the course engine.
+
+15
+00:02:11.275 --> 00:02:19.142
+All five diagnoses appear, and all agree. Click the greedy_trap row to draw your result on the left.
+
+16
+00:02:19.142 --> 00:02:26.275
+Finally, try the challenges to check you really understand. Results stay in your browser.

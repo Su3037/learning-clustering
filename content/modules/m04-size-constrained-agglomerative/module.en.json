@@ -2,5 +2,51 @@
   "title": "Size-Constrained Agglomerative Clustering",
   "hook": "Two tightly linked blocks want to merge, but the container is too small. What now?",
   "cardText": "No cluster may exceed capacity C. Impossible, stuck on a wrong path, and legal-but-not-optimal are three different endings.",
-  "description": "Greedy merging with a hard capacity: telling apart “provably impossible”, “greedy walked into a dead end” and “legal but not optimal”, and reporting legality separately from reaching K."
+  "description": "Greedy merging with a hard capacity: telling apart “provably impossible”, “greedy walked into a dead end” and “legal but not optimal”, and reporting legality separately from reaching K.",
+  "prerequisitesText": "[Module 03](../m03-greedy-pair-merge/index.html): the greedy merge rule and its stopping conditions.",
+  "nextText": "Module 05 stops merging nodes and lets them change “labels” instead.",
+  "review": "Module 03’s rule is unchanged: each time, merge the legal pair with the most weight between them, compare selection keys field by field, never undo. This module asks only one more thing: **does the merged cluster fit?**",
+  "objectives": [
+    { "id": "o1", "text": "Tell apart the four report items: the actual number of clusters, whether the capacity holds, whether K is reached, and the stop reason." },
+    { "id": "o2", "text": "Run capacity-constrained merging in the order “filter for legality, then take the largest”, and point out the blocked candidates." },
+    { "id": "o3", "text": "Use the lower bound ⌈total size / C⌉ to prove a K impossible, and understand that meeting the bound does not make it feasible." },
+    { "id": "o4", "text": "Explain the difference between “feasible overall, but greedy is stuck” (greedy_trap) and “impossible in principle”." },
+    { "id": "o5", "text": "Explain “legal but not optimal” (suboptimal: greedy 18, optimum 11), and show that different node sizes change the result." },
+    { "id": "o6", "text": "Read the pseudocode with capacity and diagnosis, and complete the stop report and the classification in Python." }
+  ],
+  "problem": {
+    "input": "A weighted undirected graph, a size s(v) for each node (area or cell count), a capacity C, and a target number of clusters K.",
+    "output": "Legal clusters, the cut, the actual number of clusters, capacityCompliant, targetReached, the stop reason; optionally an exhaustive diagnosis.",
+    "objective": "Reduce the cut by greedy merging while every cluster’s total size stays ≤ C, and reach K if possible.",
+    "constraints": "Hard capacity: no merge may produce a cluster larger than C; K never overrides the capacity; if a single node already exceeds C, the input itself is invalid.",
+    "assumptions": "A cluster’s size = the sum of its members’ sizes; legal candidates are filtered first, then chosen by (−affinity, members, members); the exhaustive diagnosis is only for teaching graphs of at most 10 nodes.",
+    "stop": "K is reached, or no legal pair with positive affinity remains (capacity-blocked / no-positive-affinity). Then the lower bound and exhaustive search tell which ending it is."
+  },
+  "filmTitle": "Four films",
+  "filmNote": "The popular-science film follows the same five friends as the last chapter, but seats are limited: two-seaters cannot take five in two cars (impossible), two cellos lead the taxis into a dead end (stuck), and on tandem bikes the closest pair splits the most (not the best). The concise film covers the four report items, filtering before choosing, the lower bound, greedy_trap and suboptimal; the advanced film covers why the filter must come first, what a bound can prove, how exhaustive search explodes, comparing cuts only at the same K, how far from optimal greedy can land, and capacity by area; the walkthrough, recorded from the real page, takes you through the lab and the code lab. Every number comes from the same engine and exhaustive oracle as this page.",
+  "labTitle": "Capacity lab and diagnosis",
+  "labNote": "Change the capacity or a node’s size and see at which step a merge is blocked. The diagnosis panel uses the lower bound and exhaustive search to tell you whether it is impossible, greedy is stuck, or the result is legal but not optimal.",
+  "challengeTip": "Challenge 4 asks you to write a grouping, in the form `AC|BD`.",
+  "mistakes": [
+    { "title": "Calling “legal” “done”", "wrong": "At capacity 2, getting AB | C | DE and reporting “clustering succeeded”.", "why": "Legal only says no cluster is over capacity; the target is K = 2 and there are 3 clusters.", "counter": "The same grouping is legal and on target at K = 3, and legal but off target at K = 2.", "fix": "Report four items separately: count, capacityCompliant, targetReached, stopReason." },
+    { "title": "Breaking the capacity to reach K", "wrong": "Squeezing C into AB to get ABC | DE, size 3 > 2.", "why": "The capacity is a hard constraint; K is only a target and never overrides it.", "counter": "5 units of size at capacity 2 need at least ⌈5/2⌉ = 3 clusters: no legal solution with K = 2 exists at all.", "fix": "Compute the lower bound first; when it exceeds K, say plainly that it is impossible." },
+    { "title": "Taking “greedy is stuck” for “impossible”", "wrong": "greedy_trap stops at 3 clusters, so you declare “2 clusters are impossible at capacity 3”.", "why": "Stopping only says greedy’s path is blocked; another legal grouping may exist.", "counter": "greedy_trap: greedy merges C–D (10) first, after which neither A nor B fits; exhaustive search finds AC | BD (sizes 3 and 3), 2 clusters, cut 10.", "fix": "Check with exhaustive search (small graphs) or another method before concluding." },
+    { "title": "Assuming a legal result is optimal", "wrong": "On the suboptimal graph greedy gets AB | CD, cut 18, and you take it as the answer.", "why": "Greedy took the largest A–B (10) first and left both 9s in the cut.", "counter": "The legal AC | BD cuts only A–B 10 and C–D 1: cut 11.", "fix": "Say “legal” and “optimal” separately; when you need the optimum, compare against something." },
+    { "title": "Treating node count as area", "wrong": "Counting every cell as size 1 and ignoring differences in area.", "why": "Real cells differ in area; the capacity counts the sum of sizes.", "counter": "Set A’s size in G01 to 2 with capacity 3: the result changes from ABC | DE (cut 3) to AB | CDE (cut 5).", "fix": "State every node’s size explicitly in the input." }
+  ],
+  "limits": "- The lower bound ⌈total size / C⌉ can only prove “impossible”, never “possible”: bin packing itself is hard.\n- The exhaustive oracle only suits teaching graphs of at most 10 nodes (the number of set partitions grows extremely fast); real sizes need heuristics or mathematical programming.\n- Greedy never backtracks: once in a dead end it can only report it, not find a way out.\n- This module has a single constraint (capacity); real designs also have timing, pin counts and more (Module 09 discusses delay).",
+  "pythonPackage": {
+    "title": "Complete the stop report and the diagnosis",
+    "md": "**Tasks** (`starter.py`):\n\n1. `report(parts, k, capacity, size, stop)`: return the four items count, capacity_compliant, target_reached and stop_reason.\n2. `classify(graph, k, capacity)`: combine `solve()` with the provided `oracle()` and return one of the five endings.\n\n**Hint 1**: the four items are independent; at capacity 2, AB | C | DE is legal but does not reach K.\n\n**Hint 2**: first check whether K is reached; if not, check whether the lower bound already exceeds K, then whether exhaustive search finds a legal partition into exactly K clusters. The checker also tests an over-capacity node and a graph with no edges."
+  },
+  "credits": {
+    "kept": [
+      "The candidate table shows affinity, merged size and the reason a pair is blocked; “Target reached: No” is written out on its own.",
+      "Three situations are taught separately: an infeasible target, feasible but greedy stuck, legal but not optimal (the greedy_trap and suboptimal graphs come from the original `source/graphs.json`).",
+      "The structure of a Python starter, an independent reference and an exhaustive oracle; the original’s practice of comparing 47 JS/Python traces continues in this course’s cross-tests.",
+      "The 16-page HTML deck with page numbers and a transcript area below: a positive reference for this course’s slide layout."
+    ],
+    "licenseNote": "The original repository declares no overall licence, and this module copies none of its code, videos or per-page audio; the values of the two counterexample graphs are credited here and recomputed by this course’s engine. The original README’s “not yet deployed” is out of date (the public URL works). The popular-science film uses third-party music chosen by the author, “We Never (Remix)” by Hi Noise / 秋成; it is not covered by this course’s licences, this course grants no rights to it, and no separate audio track is offered. The scores of the other three films are original to this course.",
+    "references": ["The teacher’s original course: [module materials](https://github.com/yongfu-li/eda-learning/blob/003bcd49e3794e6cfd2680181cdbd347d673ad07/courses/learn_clustering/module01-05-size-constrained-agglomerative/README.md)", "The hardness of capacitated partitioning and bin packing is covered in standard algorithms textbooks; this module only uses a lower bound and exhaustive search on small graphs, and claims no general solution."]
+  }
 }
