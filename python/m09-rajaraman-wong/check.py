@@ -90,14 +90,14 @@ def c_cycle(impl):
     except ValueError:
         pass
     else:
-        raise Fail("有环输入必须报错")
-    expect(impl.topological_order(["P", "X", "Y", "O"], [("P", "X"), ("X", "Y"), ("Y", "O")]) == ["P", "X", "Y", "O"], "链的拓扑序")
+        raise Fail(T("有环输入必须报错", "an input with a cycle must raise an error"))
+    expect(impl.topological_order(["P", "X", "Y", "O"], [("P", "X"), ("X", "Y"), ("Y", "O")]) == ["P", "X", "Y", "O"], T("链的拓扑序", "the chain's topological order"))
 
 
 def c_delta(impl):
     g = fixture("candidate_dag.json")
     d = impl.longest_node_delays(g["nodes"], [tuple(e) for e in g["edges"]], {v: 1 for v in g["nodes"]})
-    expect(d["b"]["k"] == 4 and d["a"]["k"] == 3 and d["a"]["e"] is None, f"Δ[b][k]=4、Δ[a][k]=3、a 到不了 e；得到 {d['b']['k']}, {d['a']['k']}, {d['a']['e']}")
+    expect(d["b"]["k"] == 4 and d["a"]["k"] == 3 and d["a"]["e"] is None, T(f"Δ[b][k]=4、Δ[a][k]=3、a 到不了 e；得到 {d['b']['k']}, {d['a']['k']}, {d['a']['e']}", f"Δ[b][k]=4, Δ[a][k]=3, a cannot reach e; got {d['b']['k']}, {d['a']['k']}, {d['a']['e']}"))
 
 
 def chain_instances(groups, D=3):
@@ -110,41 +110,41 @@ def chain_instances(groups, D=3):
 def c_chain(impl):
     inst, e = chain_instances([["P", "X"], ["Y", "O"]])
     t = impl.evaluate_instance_delay(inst, e, {v: 1 for v in "PXYO"})
-    expect(t["O"] == 7, f"一次跨簇：4 个节点延迟 + 一次 D=3，共 7；得到 {t['O']}")
+    expect(t["O"] == 7, T(f"一次跨簇：4 个节点延迟 + 一次 D=3，共 7；得到 {t['O']}", f"one crossing: 4 node delays + one D=3, 7 in all; got {t['O']}"))
     inst, e = chain_instances([["P"], ["X", "Y"], ["O"]])
     t = impl.evaluate_instance_delay(inst, e, {v: 1 for v in "PXYO"})
-    expect(t["O"] == 10, f"两次跨簇：4 + 3 + 3 = 10；得到 {t['O']}")
+    expect(t["O"] == 10, T(f"两次跨簇：4 + 3 + 3 = 10；得到 {t['O']}", f"two crossings: 4 + 3 + 3 = 10; got {t['O']}"))
 
 
 def c_labels(impl):
     g = fixture("candidate_dag.json")
     label, cluster, steps = impl.rw_label(g)
     want = {"a": 1, "b": 1, "c": 1, "d": 2, "e": 2, "f": 2, "g": 3, "h": 2, "i": 7, "j": 7, "k": 8, "l": 8}
-    expect(label == want, f"候选图的标签应为 {want}，得到 {label}")
-    expect(sorted(cluster["k"]) == ["g", "i", "j", "k"], "k 的候选簇为 {g,i,j,k}（容量 4）")
+    expect(label == want, T(f"候选图的标签应为 {want}，得到 {label}", f"the candidate graph's labels should be {want}; got {label}"))
+    expect(sorted(cluster["k"]) == ["g", "i", "j", "k"], T("k 的候选簇为 {g,i,j,k}（容量 4）", "k's candidate cluster is {g,i,j,k} (capacity 4)"))
 
 
 def c_reconstruct(impl):
     g = fixture("candidate_dag.json")
     r = impl.rajaraman_wong(g)
-    expect(len(r["clusters"]) == 8 and len(r["instances"]) == 20, f"在所述平票假设下应得 8 簇、20 个实例，得到 {len(r['clusters'])}、{len(r['instances'])}")
-    expect(r["output_delay"] == {"k": 8, "l": 8}, f"输出延迟应为 k=8、l=8，得到 {r['output_delay']}")
+    expect(len(r["clusters"]) == 8 and len(r["instances"]) == 20, T(f"在所述平票假设下应得 8 簇、20 个实例，得到 {len(r['clusters'])}、{len(r['instances'])}", f"under the stated tie assumption there should be 8 clusters and 20 instances; got {len(r['clusters'])}, {len(r['instances'])}"))
+    expect(r["output_delay"] == {"k": 8, "l": 8}, T(f"输出延迟应为 k=8、l=8，得到 {r['output_delay']}", f"the output delays should be k=8, l=8; got {r['output_delay']}"))
     logical = {}
     for inst, m in r["instances"].items():
         logical.setdefault(m, []).append(inst)
-    expect(len(logical["b"]) == 3, "逻辑节点 b 有 3 个实例：一个逻辑 id 可以对应多个物理实例")
+    expect(len(logical["b"]) == 3, T("逻辑节点 b 有 3 个实例：一个逻辑 id 可以对应多个物理实例", "logical node b has 3 instances: one logical id can map to several physical instances"))
     preds = {v: sorted(u for u, w in g["edges"] if w == v) for v in g["nodes"]}
     for inst, m in r["instances"].items():
         got = sorted(r["instances"][a] for a, b, _ in r["instance_edges"] if b == inst)
-        expect(got == preds[m], f"实例 {inst} 的输入必须完整：需要 {preds[m]}，得到 {got}")
+        expect(got == preds[m], T(f"实例 {inst} 的输入必须完整：需要 {preds[m]}，得到 {got}", f"instance {inst} must have all its inputs: needs {preds[m]}, got {got}"))
 
 
 CHECKS = [
-    ("[基础] 拓扑序；有环输入报错", c_cycle),
-    ("[基础] 最长节点延迟 Δ", c_delta),
-    ("[推演] 链：一次跨界 7，两次 10", c_chain),
-    ("[进阶] 标记阶段：候选图标签", c_labels),
-    ("[进阶] 恢复与复制：8 簇、20 实例、输出 8、fanin 完整", c_reconstruct),
+    (T("[基础] 拓扑序；有环输入报错", "[basic] topological order; a cycle raises an error"), c_cycle),
+    (T("[基础] 最长节点延迟 Δ", "[basic] longest node delay Δ"), c_delta),
+    (T("[推演] 链：一次跨界 7，两次 10", "[trace] the chain: one crossing 7, two crossings 10"), c_chain),
+    (T("[进阶] 标记阶段：候选图标签", "[advanced] labelling: the candidate graph's labels"), c_labels),
+    (T("[进阶] 恢复与复制：8 簇、20 实例、输出 8、fanin 完整", "[advanced] recovery and replication: 8 clusters, 20 instances, output 8, complete fan-in"), c_reconstruct),
 ]
 
 if __name__ == "__main__":

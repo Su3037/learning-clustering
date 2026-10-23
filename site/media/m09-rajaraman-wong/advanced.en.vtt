@@ -1,0 +1,81 @@
+WEBVTT
+
+1
+00:00:03.400 --> 00:00:06.644
+Walk the whole labelling phase.
+
+2
+00:00:06.644 --> 00:00:17.044
+d, e, f, h are 2, g is 3: every ancestor fits; i and j are 7; k and l are 8.
+
+3
+00:00:17.044 --> 00:00:23.911
+On equal scores this course prefers the later ancestor in topological order, an assumption.
+
+4
+00:00:24.311 --> 00:00:30.222
+In the 8 recovered clusters, one logic node can appear several times.
+
+5
+00:00:30.222 --> 00:00:35.244
+b has three instances: b@b, b@d, b@e.
+
+6
+00:00:35.244 --> 00:00:40.267
+So a “node → cluster” map cannot represent the result.
+
+7
+00:00:40.267 --> 00:00:47.067
+Each instance needs complete inputs: from inside, or across from the root u@u.
+
+8
+00:00:47.467 --> 00:00:50.044
+What does replication buy?
+
+9
+00:00:50.044 --> 00:00:57.978
+Without replication, exhaustive search over every capacity-legal grouping gives a best largest delay of 10.
+
+10
+00:00:57.978 --> 00:01:02.333
+RW brings it to 8 with 8 extra instances.
+
+11
+00:01:02.733 --> 00:01:08.067
+The optimality comes from the paper and holds only within its model.
+
+12
+00:01:08.067 --> 00:01:15.756
+The model: a DAG, node delays, 0 inside, a fixed D between, capacity, and replication.
+
+13
+00:01:15.756 --> 00:01:22.111
+Forbid replication, or also weigh area, pins or power, and it no longer applies.
+
+14
+00:01:22.111 --> 00:01:28.978
+This course's tests only check consistency and legal instances; they prove nothing optimal.
+
+15
+00:01:29.378 --> 00:01:34.044
+This 12-node graph comes from frames of the original film.
+
+16
+00:01:34.044 --> 00:01:39.511
+The film's Δ table agrees with the reconstructed edges entry by entry.
+
+17
+00:01:39.511 --> 00:01:47.178
+The tie rule is an assumption; it reproduces the original result, but awaits the author's confirmation.
+
+18
+00:01:47.178 --> 00:01:55.978
+And this module's place against Lab 09 (Multilevel) in the teacher's catalogue awaits confirmation.
+
+19
+00:01:56.378 --> 00:01:58.444
+Six things to keep.
+
+20
+00:02:11.444 --> 00:02:17.244
+Return to the comparison on the home page to see what all eight modules do.

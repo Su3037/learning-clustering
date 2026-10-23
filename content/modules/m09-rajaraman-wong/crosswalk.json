@@ -1,11 +1,11 @@
 {
   "moduleId": "m09-rajaraman-wong",
   "objectives": [
-    { "id": "o1", "sections": ["m09-goal"], "sceneIds": ["a01-goal"], "slideIds": ["m09-goal"], "experiment": "A · 链：切换三个边界", "challenges": ["c1", "c2"], "python": ["evaluate_instance_delay"] },
-    { "id": "o2", "sections": ["m09-model"], "sceneIds": ["a02-model"], "slideIds": ["m09-model"], "experiment": "B · 改 D 与容量 M 后重算", "challenges": [], "python": ["topological_order"] },
-    { "id": "o3", "sections": ["m09-replication"], "sceneIds": ["a03-replica", "b03-instances"], "slideIds": ["m09-replication"], "experiment": "B · 恢复阶段的实例图：金色虚线圈为复制节点", "challenges": ["c3"], "python": ["rw_reconstruct"] },
-    { "id": "o4", "sections": ["m09-init", "m09-label"], "sceneIds": ["a04-dag", "a05-early", "a06-label-i", "a07-rest"], "slideIds": ["m09-delta", "m09-label", "m09-labels"], "experiment": "B · 标记阶段：得分表与 l1 / l2", "challenges": ["c4"], "python": ["longest_node_delays", "rw_label"] },
-    { "id": "o5", "sections": ["m09-reconstruct"], "sceneIds": ["b02-select", "b04-arrival", "b05-compare"], "slideIds": ["m09-reconstruct", "m09-compare"], "experiment": "B · 最后一步：8 簇、20 实例、输出 8；与不复制的 10 对照", "challenges": ["c5"], "python": ["rw_reconstruct", "rajaraman_wong"] },
-    { "id": "o6", "sections": ["m09-scope"], "sceneIds": ["b06-scope"], "slideIds": ["m09-scope"], "experiment": "B · 顶部“候选数据”说明", "challenges": ["c6"], "python": [] }
+    { "id": "o1", "sections": ["m09-goal"], "sceneIds": ["p-ask", "p-rule", "k01-goal"], "slideIds": ["m09-goal"], "experiment": "A · 链：切换三个边界", "challenges": ["c1", "c2"], "python": ["evaluate_instance_delay"] },
+    { "id": "o2", "sections": ["m09-model"], "sceneIds": ["p-dag", "k02-model"], "slideIds": ["m09-model"], "experiment": "B · 改 D 与容量 M 后重算", "challenges": [], "python": ["topological_order"] },
+    { "id": "o3", "sections": ["m09-replication"], "sceneIds": ["p-twins", "a02-instances"], "slideIds": ["m09-replication"], "experiment": "B · 恢复阶段的实例图：金色虚线圈为复制节点", "challenges": ["c3"], "python": ["rw_reconstruct"] },
+    { "id": "o4", "sections": ["m09-init", "m09-label"], "sceneIds": ["p-time", "p-i", "p-labels", "k03-delta", "k04-label", "a01-labels"], "slideIds": ["m09-delta", "m09-label", "m09-labels"], "experiment": "B · 标记阶段：得分表与 l1 / l2", "challenges": ["c4"], "python": ["longest_node_delays", "rw_label"] },
+    { "id": "o5", "sections": ["m09-reconstruct"], "sceneIds": ["p-back", "p-compare", "k05-reconstruct", "a03-compare"], "slideIds": ["m09-reconstruct", "m09-compare"], "experiment": "B · 最后一步：8 簇、20 实例、输出 8；与不复制的 10 对照", "challenges": ["c5"], "python": ["rw_reconstruct", "rajaraman_wong"] },
+    { "id": "o6", "sections": ["m09-scope"], "sceneIds": ["a04-scope", "a05-candidate"], "slideIds": ["m09-scope"], "experiment": "B · 顶部“候选数据”说明", "challenges": ["c6"], "python": [] }
   ]
 }

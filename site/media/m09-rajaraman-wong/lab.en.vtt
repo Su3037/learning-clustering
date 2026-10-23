@@ -1,0 +1,61 @@
+WEBVTT
+
+1
+00:00:03.200 --> 00:00:10.733
+First, a chain: each node delay 1, crossing clusters adds D = 3. Only X→Y crosses now: delay 7.
+
+2
+00:00:10.733 --> 00:00:18.267
+Make P→X and Y→O cross instead: two crossings, delay 10. One more boundary on the path costs 3.
+
+3
+00:00:18.267 --> 00:00:27.000
+Below is the candidate DAG (reconstructed from the original film, tie rule assumed): PIs blue, capacity 4, D = 3.
+
+4
+00:00:27.000 --> 00:00:40.307
+Step to i: candidate cluster {i, g, e, c}; the PI c inside gives l1 = 4, b outside gives l2 = 7, so l(i) = 7.
+
+5
+00:00:40.307 --> 00:00:51.307
+Jump to the end: working back from the outputs gives 8 clusters and 20 instances, both outputs arrive at 8; gold dashed rings are replicated nodes.
+
+6
+00:00:51.307 --> 00:00:59.974
+Set the capacity to 3: the clusters no longer fit, the critical path crosses once more, and output k becomes 11.
+
+7
+00:00:59.974 --> 00:01:10.974
+The code lab: your code runs in the browser, with no Python to install. Five functions in two layers: evaluate delay first, then label and recover.
+
+8
+00:01:10.974 --> 00:01:17.840
+Run the checks first: none of the five tasks is written, so the result is INCOMPLETE.
+
+9
+00:01:17.840 --> 00:01:35.946
+Task 3: an instance's arrival = its own delay + the largest (input arrival + cost).
+
+10
+00:01:35.946 --> 00:01:42.413
+Run the checks again: the chain's 7 and 10 pass; the rest are still INCOMPLETE.
+
+11
+00:01:42.413 --> 00:01:50.013
+The other four functions are fast-forwarded here: filled in with the same code as the reference.
+
+12
+00:01:50.013 --> 00:02:00.880
+Run the checks: everything passes, including 8 clusters, 20 instances and output 8 on the candidate graph, with every instance's inputs complete.
+
+13
+00:02:00.880 --> 00:02:10.013
+Below, your functions run on six cases, compared with the course engine: labels, clusters, instances and output delays.
+
+14
+00:02:10.013 --> 00:02:18.813
+Click the new diamond graph's row: see the clusters and instances your code recovered; gold nodes were replicated.
+
+15
+00:02:18.813 --> 00:02:25.946
+Finally, try the challenges to check you really understand. Results stay in your browser.

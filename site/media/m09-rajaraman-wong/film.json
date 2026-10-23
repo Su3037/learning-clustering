@@ -1,568 +1,1692 @@
 {
+ "schema": 2,
  "status": "ready",
  "films": [
   {
-   "id": "rw1",
-   "title": "关键路径的代价（上）：模型与标记",
+   "id": "story",
+   "kind": "popular",
    "status": "ready",
-   "src": "rw1.mp4",
-   "vtt": "rw1.zh.vtt",
-   "poster": "rw1-poster.jpg",
-   "duration": 179.83,
-   "chapters": [
+   "title": {
+    "zh": "关键路径的代价",
+    "en": "The Cost of the Critical Path"
+   },
+   "why": {
+    "zh": "一道菜经过几位厨师，每人一分钟，端去另一间厨房要多走三分钟：快慢看最长的那条路跨了几次院子。十二道工序的大菜逐个得到“最早几分钟”；两间厨房都要 g 和 j，就各做一份；从成品往回推，开出八间厨房、二十个人；不许做两份时，最快只有 10。",
+    "en": "A dish passes through cooks a minute each, and carrying it to another kitchen costs three more: speed depends on how often the longest route crosses the yard. A twelve-step banquet gets its earliest minutes one by one; two kitchens both need g and j, so each makes its own; working back from the dishes opens eight kitchens with twenty cooks; without copies the best is 10."
+   },
+   "music": {
+    "zh": "《We Never (Remix)（若如初见）》Hi Noise / 秋成（第三方录音，不在本课程许可范围内）",
+    "en": "“We Never (Remix)” by Hi Noise / 秋成 (third-party recording, not covered by this course's licences)"
+   },
+   "scenes": [
     {
-     "t": 3.0,
-     "title": "一 · 目标变了",
-     "sceneId": "a01-goal"
+     "sceneId": "p-open",
+     "start": 0.0,
+     "end": 10.75
     },
     {
-     "t": 24.6,
-     "title": "二 · 模型",
-     "sceneId": "a02-model"
+     "sceneId": "p-ask",
+     "start": 10.75,
+     "end": 17.41
     },
     {
-     "t": 47.44,
-     "title": "三 · 复制",
-     "sceneId": "a03-replica"
+     "sceneId": "p-rule",
+     "start": 17.41,
+     "end": 32.03
     },
     {
-     "t": 68.38,
-     "title": "四 · 初始化",
-     "sceneId": "a04-dag"
+     "sceneId": "p-title",
+     "start": 32.03,
+     "end": 37.0
     },
     {
-     "t": 91.09,
-     "title": "五 · 标记",
-     "sceneId": "a05-early"
+     "sceneId": "p-dag",
+     "start": 37.0,
+     "end": 51.18
     },
     {
-     "t": 157.58,
-     "title": "六 · 伪代码",
-     "sceneId": "a08-code"
+     "sceneId": "p-time",
+     "start": 51.18,
+     "end": 63.15
+    },
+    {
+     "sceneId": "p-i",
+     "start": 63.15,
+     "end": 74.0
+    },
+    {
+     "sceneId": "p-labels",
+     "start": 74.0,
+     "end": 89.0
+    },
+    {
+     "sceneId": "p-twins",
+     "start": 89.0,
+     "end": 97.19
+    },
+    {
+     "sceneId": "p-breath",
+     "start": 97.19,
+     "end": 102.5
+    },
+    {
+     "sceneId": "p-back",
+     "start": 102.5,
+     "end": 119.27
+    },
+    {
+     "sceneId": "p-compare",
+     "start": 119.27,
+     "end": 134.16
+    },
+    {
+     "sceneId": "p-chip",
+     "start": 134.16,
+     "end": 141.5
+    },
+    {
+     "sceneId": "p-outro",
+     "start": 141.5,
+     "end": 170.6
+    },
+    {
+     "sceneId": "p-end",
+     "start": 170.6,
+     "end": 189.82
     }
    ],
+   "fps": 30,
+   "size": [
+    1920,
+    1080
+   ],
+   "versions": {
+    "zh": {
+     "src": "story.zh.mp4",
+     "vtt": "story.zh.vtt",
+     "poster": "story.zh.jpg",
+     "duration": 189.83,
+     "captions": "zh+en",
+     "chapters": [
+      {
+       "t": 0.0,
+       "title": "序 · 一道菜",
+       "sceneId": "p-open"
+      },
+      {
+       "t": 37.0,
+       "title": "一 · 最早几分钟",
+       "sceneId": "p-dag"
+      },
+      {
+       "t": 89.0,
+       "title": "二 · 做两份",
+       "sceneId": "p-twins"
+      },
+      {
+       "t": 119.27,
+       "title": "三 · 人手换时间",
+       "sceneId": "p-compare"
+      },
+      {
+       "t": 141.5,
+       "title": "尾声",
+       "sceneId": "p-outro"
+      }
+     ],
+     "transcript": [
+      {
+       "start": 0.0,
+       "end": 4.6,
+       "text": "一道菜要经过四个人，每人一分钟。",
+       "sceneId": "p-open"
+      },
+      {
+       "start": 4.6,
+       "end": 8.6,
+       "text": "一间厨房只放得下两个人。",
+       "sceneId": "p-open"
+      },
+      {
+       "start": 10.75,
+       "end": 15.083,
+       "text": "穿过院子去另一间：多 3 分钟。",
+       "sceneId": "p-ask"
+      },
+      {
+       "start": 15.083,
+       "end": 17.217,
+       "text": "这样分：7。",
+       "sceneId": "p-ask"
+      },
+      {
+       "start": 17.41,
+       "end": 20.81,
+       "text": "换个分法，也都放得下。",
+       "sceneId": "p-rule"
+      },
+      {
+       "start": 20.81,
+       "end": 24.721,
+       "text": "可是跨了两次院子：10 分钟。",
+       "sceneId": "p-rule"
+      },
+      {
+       "start": 24.721,
+       "end": 29.721,
+       "text": "快慢只看最长那条路跨了几次院子。",
+       "sceneId": "p-rule"
+      },
+      {
+       "start": 37.0,
+       "end": 42.467,
+       "text": "一桌大菜：十二道工序，三个起点，两道成品。",
+       "sceneId": "p-dag"
+      },
+      {
+       "start": 42.467,
+       "end": 47.489,
+       "text": "每间厨房最多四个人，穿院子还是 3 分钟。",
+       "sceneId": "p-dag"
+      },
+      {
+       "start": 47.489,
+       "end": 50.511,
+       "text": "最长的一条路：五步。",
+       "sceneId": "p-dag"
+      },
+      {
+       "start": 51.18,
+       "end": 55.536,
+       "text": "每道工序记一个数：最早几分钟到。",
+       "sceneId": "p-time"
+      },
+      {
+       "start": 55.536,
+       "end": 58.602,
+       "text": "起点是 1，往后加。",
+       "sceneId": "p-time"
+      },
+      {
+       "start": 58.602,
+       "end": 62.136,
+       "text": "g 和前面的都在一间：3。",
+       "sceneId": "p-time"
+      },
+      {
+       "start": 63.15,
+       "end": 67.283,
+       "text": "i 前面七道工序，只剩三个位置。",
+       "sceneId": "p-i"
+      },
+      {
+       "start": 67.283,
+       "end": 70.75,
+       "text": "b 在院子外：4 + 3 = 7。",
+       "sceneId": "p-i"
+      },
+      {
+       "start": 70.75,
+       "end": 73.35,
+       "text": "i 最早第 7 分钟。",
+       "sceneId": "p-i"
+      },
+      {
+       "start": 74.0,
+       "end": 76.6,
+       "text": "j 也是 7。",
+       "sceneId": "p-labels"
+      },
+      {
+       "start": 76.6,
+       "end": 80.0,
+       "text": "两道成品：都是 8。",
+       "sceneId": "p-labels"
+      },
+      {
+       "start": 80.0,
+       "end": 83.689,
+       "text": "这还只是时间，厨房还没分。",
+       "sceneId": "p-labels"
+      },
+      {
+       "start": 89.0,
+       "end": 93.356,
+       "text": "k 的厨房要 g 和 j，l 的厨房也要。",
+       "sceneId": "p-twins"
+      },
+      {
+       "start": 93.356,
+       "end": 95.956,
+       "text": "那就各做一份。",
+       "sceneId": "p-twins"
+      },
+      {
+       "start": 102.5,
+       "end": 107.833,
+       "text": "从成品往回推：缺什么，就再开一间厨房。",
+       "sceneId": "p-back"
+      },
+      {
+       "start": 107.833,
+       "end": 112.411,
+       "text": "八间厨房，二十个人，做十二道工序。",
+       "sceneId": "p-back"
+      },
+      {
+       "start": 112.411,
+       "end": 116.1,
+       "text": "两道成品都在第 8 分钟出来。",
+       "sceneId": "p-back"
+      },
+      {
+       "start": 119.27,
+       "end": 124.737,
+       "text": "不许做两份呢？试遍所有分法，最快也要 10。",
+       "sceneId": "p-compare"
+      },
+      {
+       "start": 124.737,
+       "end": 128.203,
+       "text": "多八个人手，快了两分钟。",
+       "sceneId": "p-compare"
+      },
+      {
+       "start": 128.203,
+       "end": 131.226,
+       "text": "快，是用地方换来的。",
+       "sceneId": "p-compare"
+      },
+      {
+       "start": 134.16,
+       "end": 139.56,
+       "text": "芯片上：信号跨出一块区域，就要多等。",
+       "sceneId": "p-chip"
+      },
+      {
+       "start": 141.5,
+       "end": 147.5,
+       "text": "快慢看最长的那条路。",
+       "sceneId": "p-outro"
+      },
+      {
+       "start": 147.5,
+       "end": 153.5,
+       "text": "每跨一次边界，就多等 D。",
+       "sceneId": "p-outro"
+      },
+      {
+       "start": 153.5,
+       "end": 160.5,
+       "text": "复制能换来速度，也要占面积。",
+       "sceneId": "p-outro"
+      },
+      {
+       "start": 160.5,
+       "end": 168.5,
+       "text": "这是最后一章：回到首页，对比八种分组。",
+       "sceneId": "p-outro"
+      },
+      {
+       "start": 170.6,
+       "end": 176.6,
+       "text": "下面的实验里，单步看标签和恢复出的实例。",
+       "sceneId": "p-end"
+      }
+     ],
+     "readingViolations": 0,
+     "bytes": 8139334
+    },
+    "en": {
+     "src": "story.en.mp4",
+     "vtt": "story.en.vtt",
+     "poster": "story.en.jpg",
+     "duration": 189.83,
+     "captions": "en",
+     "chapters": [
+      {
+       "t": 0.0,
+       "title": "PROLOGUE · ONE DISH",
+       "sceneId": "p-open"
+      },
+      {
+       "t": 37.0,
+       "title": "I · THE EARLIEST MINUTE",
+       "sceneId": "p-dag"
+      },
+      {
+       "t": 89.0,
+       "title": "II · MAKE TWO",
+       "sceneId": "p-twins"
+      },
+      {
+       "t": 119.27,
+       "title": "III · HANDS FOR TIME",
+       "sceneId": "p-compare"
+      },
+      {
+       "t": 141.5,
+       "title": "CODA",
+       "sceneId": "p-outro"
+      }
+     ],
+     "transcript": [
+      {
+       "start": 0.0,
+       "end": 4.6,
+       "text": "A dish passes through four cooks, a minute each.",
+       "sceneId": "p-open"
+      },
+      {
+       "start": 4.6,
+       "end": 8.6,
+       "text": "A kitchen fits only two cooks.",
+       "sceneId": "p-open"
+      },
+      {
+       "start": 10.75,
+       "end": 15.083,
+       "text": "Across the yard to the other kitchen: 3 more minutes.",
+       "sceneId": "p-ask"
+      },
+      {
+       "start": 15.083,
+       "end": 17.217,
+       "text": "This split: 7.",
+       "sceneId": "p-ask"
+      },
+      {
+       "start": 17.41,
+       "end": 20.81,
+       "text": "Another split, and everyone still fits.",
+       "sceneId": "p-rule"
+      },
+      {
+       "start": 20.81,
+       "end": 24.721,
+       "text": "But it crosses the yard twice: 10 minutes.",
+       "sceneId": "p-rule"
+      },
+      {
+       "start": 24.721,
+       "end": 29.721,
+       "text": "Speed depends on how often the longest route crosses the yard.",
+       "sceneId": "p-rule"
+      },
+      {
+       "start": 37.0,
+       "end": 42.467,
+       "text": "A banquet: twelve steps, three starts, two finished dishes.",
+       "sceneId": "p-dag"
+      },
+      {
+       "start": 42.467,
+       "end": 47.489,
+       "text": "Each kitchen holds four; crossing the yard is still 3 minutes.",
+       "sceneId": "p-dag"
+      },
+      {
+       "start": 47.489,
+       "end": 50.511,
+       "text": "The longest route: five steps.",
+       "sceneId": "p-dag"
+      },
+      {
+       "start": 51.18,
+       "end": 55.536,
+       "text": "Each step gets a number: its earliest minute.",
+       "sceneId": "p-time"
+      },
+      {
+       "start": 55.536,
+       "end": 58.602,
+       "text": "The starts are 1; then it adds up.",
+       "sceneId": "p-time"
+      },
+      {
+       "start": 58.602,
+       "end": 62.136,
+       "text": "g shares a kitchen with all before it: 3.",
+       "sceneId": "p-time"
+      },
+      {
+       "start": 63.15,
+       "end": 67.283,
+       "text": "Seven steps before i, room for three.",
+       "sceneId": "p-i"
+      },
+      {
+       "start": 67.283,
+       "end": 70.75,
+       "text": "b is across the yard: 4 + 3 = 7.",
+       "sceneId": "p-i"
+      },
+      {
+       "start": 70.75,
+       "end": 73.35,
+       "text": "i's earliest: minute 7.",
+       "sceneId": "p-i"
+      },
+      {
+       "start": 74.0,
+       "end": 76.6,
+       "text": "j is 7 too.",
+       "sceneId": "p-labels"
+      },
+      {
+       "start": 76.6,
+       "end": 80.0,
+       "text": "Both finished dishes: 8.",
+       "sceneId": "p-labels"
+      },
+      {
+       "start": 80.0,
+       "end": 83.689,
+       "text": "These are only times; no kitchens yet.",
+       "sceneId": "p-labels"
+      },
+      {
+       "start": 89.0,
+       "end": 93.356,
+       "text": "k's kitchen needs g and j; so does l's.",
+       "sceneId": "p-twins"
+      },
+      {
+       "start": 93.356,
+       "end": 95.956,
+       "text": "So each makes its own.",
+       "sceneId": "p-twins"
+      },
+      {
+       "start": 102.5,
+       "end": 107.833,
+       "text": "Work back from the dishes: whatever is missing gets its own kitchen.",
+       "sceneId": "p-back"
+      },
+      {
+       "start": 107.833,
+       "end": 112.411,
+       "text": "Eight kitchens, twenty cooks, twelve steps.",
+       "sceneId": "p-back"
+      },
+      {
+       "start": 112.411,
+       "end": 116.1,
+       "text": "Both dishes come out at minute 8.",
+       "sceneId": "p-back"
+      },
+      {
+       "start": 119.27,
+       "end": 124.737,
+       "text": "No copies? Try every split: the best is 10.",
+       "sceneId": "p-compare"
+      },
+      {
+       "start": 124.737,
+       "end": 128.203,
+       "text": "Eight more hands, two minutes faster.",
+       "sceneId": "p-compare"
+      },
+      {
+       "start": 128.203,
+       "end": 131.226,
+       "text": "The speed is paid for in space.",
+       "sceneId": "p-compare"
+      },
+      {
+       "start": 134.16,
+       "end": 139.56,
+       "text": "On a chip: a signal that leaves its region waits longer.",
+       "sceneId": "p-chip"
+      },
+      {
+       "start": 141.5,
+       "end": 147.5,
+       "text": "Speed is set by the longest route.",
+       "sceneId": "p-outro"
+      },
+      {
+       "start": 147.5,
+       "end": 153.5,
+       "text": "Each boundary crossed adds D.",
+       "sceneId": "p-outro"
+      },
+      {
+       "start": 153.5,
+       "end": 160.5,
+       "text": "Copies buy speed, and cost area.",
+       "sceneId": "p-outro"
+      },
+      {
+       "start": 160.5,
+       "end": 168.5,
+       "text": "The last module: compare all eight on the home page.",
+       "sceneId": "p-outro"
+      },
+      {
+       "start": 170.6,
+       "end": 176.6,
+       "text": "In the lab below, step through the labels and the recovered instances.",
+       "sceneId": "p-end"
+      }
+     ],
+     "readingViolations": 0,
+     "bytes": 8138291
+    }
+   }
+  },
+  {
+   "id": "concise",
+   "kind": "concise",
+   "status": "ready",
+   "title": {
+    "zh": "精讲：延迟、标签、恢复",
+    "en": "The essentials"
+   },
+   "why": {
+    "zh": "只讲必须掌握的：目标从 cut 换成延迟、RW 的模型、候选 DAG 上的 Δ、节点 i 的标签（l1、l2），以及从输出倒推得到 8 簇、20 实例、输出 8。",
+    "en": "Only what you must know: the goal changes from cut to delay, the RW model, Δ on the candidate DAG, the label of i (l1, l2), and the recovery from the outputs to 8 clusters, 20 instances and output 8."
+   },
+   "music": {
+    "zh": "本课程原创程序合成配乐（NumPy），CC BY 4.0",
+    "en": "Original score synthesised for this course (NumPy), CC BY 4.0"
+   },
+   "scenes": [
+    {
+     "sceneId": "k00-title",
+     "start": 0.0,
+     "end": 3.4
+    },
+    {
+     "sceneId": "k01-goal",
+     "start": 3.4,
+     "end": 21.53
+    },
+    {
+     "sceneId": "k02-model",
+     "start": 21.53,
+     "end": 43.6
+    },
+    {
+     "sceneId": "k03-delta",
+     "start": 43.6,
+     "end": 63.29
+    },
+    {
+     "sceneId": "k04-label",
+     "start": 63.29,
+     "end": 91.24
+    },
+    {
+     "sceneId": "k05-reconstruct",
+     "start": 91.24,
+     "end": 111.47
+    },
+    {
+     "sceneId": "k06-take",
+     "start": 111.47,
+     "end": 129.8
+    }
+   ],
+   "fps": 30,
+   "size": [
+    1920,
+    1080
+   ],
+   "versions": {
+    "zh": {
+     "src": "concise.zh.mp4",
+     "vtt": "concise.zh.vtt",
+     "poster": "concise.zh.jpg",
+     "duration": 129.8,
+     "captions": "zh+en",
+     "chapters": [
+      {
+       "t": 3.4,
+       "title": "目标",
+       "sceneId": "k01-goal"
+      },
+      {
+       "t": 21.53,
+       "title": "模型",
+       "sceneId": "k02-model"
+      },
+      {
+       "t": 43.6,
+       "title": "初始化",
+       "sceneId": "k03-delta"
+      },
+      {
+       "t": 63.29,
+       "title": "标记",
+       "sceneId": "k04-label"
+      },
+      {
+       "t": 91.24,
+       "title": "恢复",
+       "sceneId": "k05-reconstruct"
+      },
+      {
+       "t": 111.47,
+       "title": "小结",
+       "sceneId": "k06-take"
+      }
+     ],
+     "transcript": [
+      {
+       "start": 3.4,
+       "end": 11.533,
+       "text": "一条链，每个节点延迟 1，跨簇加 D = 3。分成两簇：跨界一次，延迟 7。",
+       "sceneId": "k01-goal"
+      },
+      {
+       "start": 11.533,
+       "end": 15.889,
+       "text": "换一种分法，跨界两次：延迟 10。",
+       "sceneId": "k01-goal"
+      },
+      {
+       "start": 15.889,
+       "end": 21.133,
+       "text": "目标变了：最长路径的延迟，而不是 cut。",
+       "sceneId": "k01-goal"
+      },
+      {
+       "start": 21.533,
+       "end": 26.733,
+       "text": "RW 的模型：组合电路是一张有向无环图。",
+       "sceneId": "k02-model"
+      },
+      {
+       "start": 26.733,
+       "end": 29.533,
+       "text": "每个节点有延迟 δ。",
+       "sceneId": "k02-model"
+      },
+      {
+       "start": 29.533,
+       "end": 35.2,
+       "text": "簇内连线不加延迟，跨簇连线固定加 D。",
+       "sceneId": "k02-model"
+      },
+      {
+       "start": 35.2,
+       "end": 38.0,
+       "text": "每个簇有容量 M。",
+       "sceneId": "k02-model"
+      },
+      {
+       "start": 38.0,
+       "end": 43.2,
+       "text": "而且允许复制节点：这是最优性的前提。",
+       "sceneId": "k02-model"
+      },
+      {
+       "start": 43.6,
+       "end": 51.733,
+       "text": "候选 DAG 由原作影片复原：12 个节点，PI a、b、c，PO k、l。",
+       "sceneId": "k03-delta"
+      },
+      {
+       "start": 51.733,
+       "end": 58.756,
+       "text": "Δ(b, k) = 4：沿 b、e、g、i、k，计终点不计起点。",
+       "sceneId": "k03-delta"
+      },
+      {
+       "start": 58.756,
+       "end": 62.889,
+       "text": "PI 的标签就是自己的延迟：1。",
+       "sceneId": "k03-delta"
+      },
+      {
+       "start": 63.289,
+       "end": 66.978,
+       "text": "按拓扑序打标签。看节点 i。",
+       "sceneId": "k04-label"
+      },
+      {
+       "start": 66.978,
+       "end": 72.222,
+       "text": "每个祖先的得分：l(x) + Δ(x, i)。",
+       "sceneId": "k04-label"
+      },
+      {
+       "start": 72.222,
+       "end": 80.356,
+       "text": "容量 4：取得分最高的 g、e、c；平票时拓扑序靠后的优先，这是假设。",
+       "sceneId": "k04-label"
+      },
+      {
+       "start": 80.356,
+       "end": 87.156,
+       "text": "簇内 PI c 给 l1 = 4；簇外最大的 b 给 l2 = 4 + 3 = 7。",
+       "sceneId": "k04-label"
+      },
+      {
+       "start": 87.156,
+       "end": 90.844,
+       "text": "l(i) = 7。标签是时间。",
+       "sceneId": "k04-label"
+      },
+      {
+       "start": 91.244,
+       "end": 96.444,
+       "text": "从输出倒推：先取 k 和 l 的候选簇。",
+       "sceneId": "k05-reconstruct"
+      },
+      {
+       "start": 96.444,
+       "end": 101.467,
+       "text": "簇外的输入 d、e、f、h 成为新的簇根。",
+       "sceneId": "k05-reconstruct"
+      },
+      {
+       "start": 101.467,
+       "end": 106.489,
+       "text": "b、c 各自成簇：一共 8 簇、20 个实例。",
+       "sceneId": "k05-reconstruct"
+      },
+      {
+       "start": 106.489,
+       "end": 111.067,
+       "text": "两个输出都在 8 到达，正好等于标签。",
+       "sceneId": "k05-reconstruct"
+      },
+      {
+       "start": 111.467,
+       "end": 113.6,
+       "text": "记住四点。",
+       "sceneId": "k06-take"
+      },
+      {
+       "start": 113.6,
+       "end": 117.667,
+       "text": "延迟看最长路径；标签是时间；",
+       "sceneId": "k06-take"
+      },
+      {
+       "start": 117.667,
+       "end": 124.0,
+       "text": "从输出倒推，实例与逻辑节点分开；复制有面积代价。",
+       "sceneId": "k06-take"
+      },
+      {
+       "start": 124.0,
+       "end": 128.4,
+       "text": "下面的实验里，单步看标记与恢复。",
+       "sceneId": "k06-take"
+      }
+     ],
+     "readingViolations": 0,
+     "bytes": 6152486
+    },
+    "en": {
+     "src": "concise.en.mp4",
+     "vtt": "concise.en.vtt",
+     "poster": "concise.en.jpg",
+     "duration": 129.8,
+     "captions": "en",
+     "chapters": [
+      {
+       "t": 3.4,
+       "title": "THE GOAL",
+       "sceneId": "k01-goal"
+      },
+      {
+       "t": 21.53,
+       "title": "THE MODEL",
+       "sceneId": "k02-model"
+      },
+      {
+       "t": 43.6,
+       "title": "INITIALISE",
+       "sceneId": "k03-delta"
+      },
+      {
+       "t": 63.29,
+       "title": "LABEL",
+       "sceneId": "k04-label"
+      },
+      {
+       "t": 91.24,
+       "title": "RECOVER",
+       "sceneId": "k05-reconstruct"
+      },
+      {
+       "t": 111.47,
+       "title": "SUMMARY",
+       "sceneId": "k06-take"
+      }
+     ],
+     "transcript": [
+      {
+       "start": 3.4,
+       "end": 11.533,
+       "text": "A chain, each node delay 1, crossing clusters adds D = 3. Two clusters: one crossing, delay 7.",
+       "sceneId": "k01-goal"
+      },
+      {
+       "start": 11.533,
+       "end": 15.889,
+       "text": "Another split crosses twice: delay 10.",
+       "sceneId": "k01-goal"
+      },
+      {
+       "start": 15.889,
+       "end": 21.133,
+       "text": "The goal has changed: the longest path's delay, not the cut.",
+       "sceneId": "k01-goal"
+      },
+      {
+       "start": 21.533,
+       "end": 26.733,
+       "text": "The RW model: a combinational circuit is a directed acyclic graph.",
+       "sceneId": "k02-model"
+      },
+      {
+       "start": 26.733,
+       "end": 29.533,
+       "text": "Each node has a delay δ.",
+       "sceneId": "k02-model"
+      },
+      {
+       "start": 29.533,
+       "end": 35.2,
+       "text": "Wires inside a cluster add nothing; wires between clusters add a fixed D.",
+       "sceneId": "k02-model"
+      },
+      {
+       "start": 35.2,
+       "end": 38.0,
+       "text": "Each cluster has a capacity M.",
+       "sceneId": "k02-model"
+      },
+      {
+       "start": 38.0,
+       "end": 43.2,
+       "text": "And nodes may be replicated: the premise of the optimality result.",
+       "sceneId": "k02-model"
+      },
+      {
+       "start": 43.6,
+       "end": 51.733,
+       "text": "The candidate DAG, reconstructed from the original film: 12 nodes, PIs a, b, c, POs k, l.",
+       "sceneId": "k03-delta"
+      },
+      {
+       "start": 51.733,
+       "end": 58.756,
+       "text": "Δ(b, k) = 4: along b, e, g, i, k, counting the end, not the start.",
+       "sceneId": "k03-delta"
+      },
+      {
+       "start": 58.756,
+       "end": 62.889,
+       "text": "A PI's label is its own delay: 1.",
+       "sceneId": "k03-delta"
+      },
+      {
+       "start": 63.289,
+       "end": 66.978,
+       "text": "Label in topological order. Take node i.",
+       "sceneId": "k04-label"
+      },
+      {
+       "start": 66.978,
+       "end": 72.222,
+       "text": "Each ancestor's score: l(x) + Δ(x, i).",
+       "sceneId": "k04-label"
+      },
+      {
+       "start": 72.222,
+       "end": 80.356,
+       "text": "Capacity 4: take the top scores g, e, c; ties go to the later node in topological order, an assumption.",
+       "sceneId": "k04-label"
+      },
+      {
+       "start": 80.356,
+       "end": 87.156,
+       "text": "PI c inside gives l1 = 4; b, the largest outside, gives l2 = 4 + 3 = 7.",
+       "sceneId": "k04-label"
+      },
+      {
+       "start": 87.156,
+       "end": 90.844,
+       "text": "l(i) = 7. The label is a time.",
+       "sceneId": "k04-label"
+      },
+      {
+       "start": 91.244,
+       "end": 96.444,
+       "text": "Recover from the outputs: first the candidate clusters of k and l.",
+       "sceneId": "k05-reconstruct"
+      },
+      {
+       "start": 96.444,
+       "end": 101.467,
+       "text": "The outside inputs d, e, f, h become new roots.",
+       "sceneId": "k05-reconstruct"
+      },
+      {
+       "start": 101.467,
+       "end": 106.489,
+       "text": "b and c form their own: 8 clusters, 20 instances.",
+       "sceneId": "k05-reconstruct"
+      },
+      {
+       "start": 106.489,
+       "end": 111.067,
+       "text": "Both outputs arrive at 8, exactly the labels.",
+       "sceneId": "k05-reconstruct"
+      },
+      {
+       "start": 111.467,
+       "end": 113.6,
+       "text": "Four things to keep.",
+       "sceneId": "k06-take"
+      },
+      {
+       "start": 113.6,
+       "end": 117.667,
+       "text": "Delay follows the longest path; labels are times;",
+       "sceneId": "k06-take"
+      },
+      {
+       "start": 117.667,
+       "end": 124.0,
+       "text": "recover from the outputs, instances apart from logic nodes; replication costs area.",
+       "sceneId": "k06-take"
+      },
+      {
+       "start": 124.0,
+       "end": 128.4,
+       "text": "In the lab below, step through labelling and recovery.",
+       "sceneId": "k06-take"
+      }
+     ],
+     "readingViolations": 0,
+     "bytes": 6009051
+    }
+   }
+  },
+  {
+   "id": "advanced",
+   "kind": "advanced",
+   "status": "ready",
+   "title": {
+    "zh": "进阶：标签、实例与边界",
+    "en": "In depth: labels, instances, limits"
+   },
+   "why": {
+    "zh": "全部标签与候选簇、假设的平票规则、逻辑节点与实例的区分、穷举得到的不复制对照、最优性结论覆盖什么不覆盖什么，以及本章哪些是待确认的候选数据。",
+    "en": "Every label with its candidate cluster and the assumed tie rule, logic nodes versus instances, the exhaustive comparison without replication, what the optimality result does and does not cover, and what in this chapter is candidate data awaiting confirmation."
+   },
+   "music": {
+    "zh": "本课程原创程序合成配乐（NumPy），CC BY 4.0",
+    "en": "Original score synthesised for this course (NumPy), CC BY 4.0"
+   },
    "scenes": [
     {
      "sceneId": "a00-title",
      "start": 0.0,
-     "end": 3.0
+     "end": 3.4
     },
     {
-     "sceneId": "a01-goal",
-     "start": 3.0,
-     "end": 24.6
+     "sceneId": "a01-labels",
+     "start": 3.4,
+     "end": 24.31
     },
     {
-     "sceneId": "a02-model",
-     "start": 24.6,
-     "end": 47.44
+     "sceneId": "a02-instances",
+     "start": 24.31,
+     "end": 47.47
     },
     {
-     "sceneId": "a03-replica",
-     "start": 47.44,
-     "end": 68.38
+     "sceneId": "a03-compare",
+     "start": 47.47,
+     "end": 62.73
     },
     {
-     "sceneId": "a04-dag",
-     "start": 68.38,
-     "end": 91.09
+     "sceneId": "a04-scope",
+     "start": 62.73,
+     "end": 89.38
     },
     {
-     "sceneId": "a05-early",
-     "start": 91.09,
-     "end": 111.49
+     "sceneId": "a05-candidate",
+     "start": 89.38,
+     "end": 116.38
     },
     {
-     "sceneId": "a06-label-i",
-     "start": 111.49,
-     "end": 142.56
-    },
-    {
-     "sceneId": "a07-rest",
-     "start": 142.56,
-     "end": 157.58
-    },
-    {
-     "sceneId": "a08-code",
-     "start": 157.58,
-     "end": 179.84
+     "sceneId": "a06-summary",
+     "start": 116.38,
+     "end": 138.64
     }
    ],
-   "transcript": [
-    {
-     "start": 3.0,
-     "end": 9.356,
-     "text": "一条链：P → X → Y → O，每个节点延迟 1，跨簇加 3。",
-     "sceneId": "a01-goal"
-    },
-    {
-     "start": 9.356,
-     "end": 15.489,
-     "text": "分成 {P,X} 和 {Y,O}：跨一次边界，延迟 7。",
-     "sceneId": "a01-goal"
-    },
-    {
-     "start": 15.489,
-     "end": 20.067,
-     "text": "换一种分法，跨两次边界：延迟 10。",
-     "sceneId": "a01-goal"
-    },
-    {
-     "start": 20.067,
-     "end": 24.2,
-     "text": "延迟只看最长路径跨了几次边界。",
-     "sceneId": "a01-goal"
-    },
-    {
-     "start": 24.6,
-     "end": 32.289,
-     "text": "Rajaraman 与 Wong 的模型：组合电路是一张有向无环图。",
-     "sceneId": "a02-model"
-    },
-    {
-     "start": 32.289,
-     "end": 35.089,
-     "text": "每个节点有延迟 δ。",
-     "sceneId": "a02-model"
-    },
-    {
-     "start": 35.089,
-     "end": 39.889,
-     "text": "簇内连线不加延迟，跨簇连线固定加 D。",
-     "sceneId": "a02-model"
-    },
-    {
-     "start": 39.889,
-     "end": 42.911,
-     "text": "每个簇有容量上限 M。",
-     "sceneId": "a02-model"
-    },
-    {
-     "start": 42.911,
-     "end": 47.044,
-     "text": "还有关键的一条：允许复制节点。",
-     "sceneId": "a02-model"
-    },
-    {
-     "start": 47.444,
-     "end": 52.911,
-     "text": "为什么要复制？g 同时供给两个簇里的 i 和 j。",
-     "sceneId": "a03-replica"
-    },
-    {
-     "start": 52.911,
-     "end": 58.6,
-     "text": "g 只能放在一边：另一边要跨簇取信号，多付 D。",
-     "sceneId": "a03-replica"
-    },
-    {
-     "start": 58.6,
-     "end": 62.956,
-     "text": "复制一份 g：两边都在簇内拿到它。",
-     "sceneId": "a03-replica"
-    },
-    {
-     "start": 62.956,
-     "end": 67.978,
-     "text": "代价是面积：多一个实例，多占一份面积。",
-     "sceneId": "a03-replica"
-    },
-    {
-     "start": 68.378,
-     "end": 74.956,
-     "text": "原作的 12 节点算例，由影片画面复原——这是候选数据。",
-     "sceneId": "a04-dag"
-    },
-    {
-     "start": 74.956,
-     "end": 79.311,
-     "text": "容量 4，D = 3，每个节点延迟 1。",
-     "sceneId": "a04-dag"
-    },
-    {
-     "start": 79.311,
-     "end": 85.667,
-     "text": "Δ(x, v)：从 x 到 v 的最长节点延迟，计 v 不计 x。",
-     "sceneId": "a04-dag"
-    },
-    {
-     "start": 85.667,
-     "end": 90.689,
-     "text": "例如 b 到 k 经过 e、g、i、k：Δ = 4。",
-     "sceneId": "a04-dag"
-    },
-    {
-     "start": 91.089,
-     "end": 97.0,
-     "text": "按拓扑序逐个打标签。d 的祖先 a、b 都能放进簇。",
-     "sceneId": "a05-early"
-    },
-    {
-     "start": 97.0,
-     "end": 100.467,
-     "text": "e、f 同理：标签都是 2。",
-     "sceneId": "a05-early"
-    },
-    {
-     "start": 100.467,
-     "end": 103.489,
-     "text": "f：只有一个祖先 a。",
-     "sceneId": "a05-early"
-    },
-    {
-     "start": 103.489,
-     "end": 108.956,
-     "text": "g 的祖先 b、c、e 都在簇内：l(g) = 3。",
-     "sceneId": "a05-early"
-    },
-    {
-     "start": 108.956,
-     "end": 111.089,
-     "text": "h：l = 2。",
-     "sceneId": "a05-early"
-    },
-    {
-     "start": 111.489,
-     "end": 115.622,
-     "text": "i 有 7 个祖先，容量只够放 3 个。",
-     "sceneId": "a06-label-i"
-    },
-    {
-     "start": 115.622,
-     "end": 120.867,
-     "text": "每个祖先的得分：l(x) + Δ(x, i)。",
-     "sceneId": "a06-label-i"
-    },
-    {
-     "start": 120.867,
-     "end": 129.0,
-     "text": "取得分最高的 g、e、c；得分相同时，拓扑序靠后的优先——这是假设。",
-     "sceneId": "a06-label-i"
-    },
-    {
-     "start": 129.0,
-     "end": 136.244,
-     "text": "簇内的 PI 是 c：l1 = 4。簇外最大是 b：l2 = 4 + 3 = 7。",
-     "sceneId": "a06-label-i"
-    },
-    {
-     "start": 136.244,
-     "end": 142.156,
-     "text": "l(i) = 7：在这个模型里，信号最早 7 到达 i。",
-     "sceneId": "a06-label-i"
-    },
-    {
-     "start": 142.556,
-     "end": 145.8,
-     "text": "j 同理：l(j) = 7。",
-     "sceneId": "a07-rest"
-    },
-    {
-     "start": 145.8,
-     "end": 151.489,
-     "text": "k：候选簇 {k, j, i, g}，l(k) = 8。",
-     "sceneId": "a07-rest"
-    },
-    {
-     "start": 151.489,
-     "end": 157.178,
-     "text": "l：候选簇 {l, j, g, e}，l(l) = 8。",
-     "sceneId": "a07-rest"
-    },
-    {
-     "start": 157.578,
-     "end": 163.933,
-     "text": "标记阶段的伪代码：先算 Δ，PI 的标签等于自身延迟。",
-     "sceneId": "a08-code"
-    },
-    {
-     "start": 163.933,
-     "end": 167.844,
-     "text": "对每个节点，按得分排序祖先。",
-     "sceneId": "a08-code"
-    },
-    {
-     "start": 167.844,
-     "end": 172.422,
-     "text": "把得分最高的放进候选簇，直到容量。",
-     "sceneId": "a08-code"
-    },
-    {
-     "start": 172.422,
-     "end": 179.444,
-     "text": "l = max(l1, l2)。下一集：从输出倒推出真正的簇。",
-     "sceneId": "a08-code"
-    }
-   ],
-   "music": "本课程原创程序合成配乐（NumPy），CC BY 4.0",
-   "why": "RW 内容多，拆成两集：上集讲目标、模型与标记阶段。",
-   "readingViolations": 0,
    "fps": 30,
    "size": [
     1920,
     1080
-   ]
+   ],
+   "versions": {
+    "zh": {
+     "src": "advanced.zh.mp4",
+     "vtt": "advanced.zh.vtt",
+     "poster": "advanced.zh.jpg",
+     "duration": 138.63,
+     "captions": "zh+en",
+     "chapters": [
+      {
+       "t": 3.4,
+       "title": "一 · 全部标签",
+       "sceneId": "a01-labels"
+      },
+      {
+       "t": 24.31,
+       "title": "二 · 逻辑节点与实例",
+       "sceneId": "a02-instances"
+      },
+      {
+       "t": 47.47,
+       "title": "三 · 复制的代价",
+       "sceneId": "a03-compare"
+      },
+      {
+       "t": 62.73,
+       "title": "四 · 结论的边界",
+       "sceneId": "a04-scope"
+      },
+      {
+       "t": 89.38,
+       "title": "五 · 候选数据",
+       "sceneId": "a05-candidate"
+      },
+      {
+       "t": 116.38,
+       "title": "小结",
+       "sceneId": "a06-summary"
+      }
+     ],
+     "transcript": [
+      {
+       "start": 3.4,
+       "end": 6.644,
+       "text": "把标记阶段完整走一遍。",
+       "sceneId": "a01-labels"
+      },
+      {
+       "start": 6.644,
+       "end": 17.044,
+       "text": "d、e、f、h 是 2，g 是 3：祖先都放得进簇；i、j 是 7；k、l 是 8。",
+       "sceneId": "a01-labels"
+      },
+      {
+       "start": 17.044,
+       "end": 23.911,
+       "text": "得分相同时，本课程让拓扑序靠后的祖先优先，这是假设。",
+       "sceneId": "a01-labels"
+      },
+      {
+       "start": 24.311,
+       "end": 30.222,
+       "text": "恢复出的 8 个簇里，同一个逻辑节点可以出现多次。",
+       "sceneId": "a02-instances"
+      },
+      {
+       "start": 30.222,
+       "end": 35.244,
+       "text": "b 有三个实例：b@b、b@d、b@e。",
+       "sceneId": "a02-instances"
+      },
+      {
+       "start": 35.244,
+       "end": 40.267,
+       "text": "所以不能用“节点 → 簇”的映射表示结果。",
+       "sceneId": "a02-instances"
+      },
+      {
+       "start": 40.267,
+       "end": 47.067,
+       "text": "每个实例的输入必须完整：簇内取，或从簇根 u@u 跨簇取。",
+       "sceneId": "a02-instances"
+      },
+      {
+       "start": 47.467,
+       "end": 50.044,
+       "text": "复制换来了多少？",
+       "sceneId": "a03-compare"
+      },
+      {
+       "start": 50.044,
+       "end": 57.978,
+       "text": "禁止复制时，穷举所有容量合法的分组，最好的最大延迟是 10。",
+       "sceneId": "a03-compare"
+      },
+      {
+       "start": 57.978,
+       "end": 62.333,
+       "text": "RW 用 8 个额外实例，把它降到 8。",
+       "sceneId": "a03-compare"
+      },
+      {
+       "start": 62.733,
+       "end": 68.067,
+       "text": "最优性来自论文，只在它的模型里成立。",
+       "sceneId": "a04-scope"
+      },
+      {
+       "start": 68.067,
+       "end": 75.756,
+       "text": "模型：DAG、节点延迟、簇内 0、跨簇固定 D、容量，并允许复制。",
+       "sceneId": "a04-scope"
+      },
+      {
+       "start": 75.756,
+       "end": 82.111,
+       "text": "禁止复制，或还要顾及面积、引脚、功耗，就不能沿用。",
+       "sceneId": "a04-scope"
+      },
+      {
+       "start": 82.111,
+       "end": 88.978,
+       "text": "本课程的测试只检查实现一致与实例合法，不证明最优。",
+       "sceneId": "a04-scope"
+      },
+      {
+       "start": 89.378,
+       "end": 94.044,
+       "text": "这张 12 节点图来自原作影片的画面。",
+       "sceneId": "a05-candidate"
+      },
+      {
+       "start": 94.044,
+       "end": 99.511,
+       "text": "影片里的 Δ 表与复原的边表逐项一致。",
+       "sceneId": "a05-candidate"
+      },
+      {
+       "start": 99.511,
+       "end": 107.178,
+       "text": "平票规则是假设；它重现了原作的结果，但仍待原作者确认。",
+       "sceneId": "a05-candidate"
+      },
+      {
+       "start": 107.178,
+       "end": 115.978,
+       "text": "另外，本模块与教师目录 Lab 09（Multilevel）的对应也待确认。",
+       "sceneId": "a05-candidate"
+      },
+      {
+       "start": 116.378,
+       "end": 118.444,
+       "text": "六点小结。",
+       "sceneId": "a06-summary"
+      },
+      {
+       "start": 131.444,
+       "end": 137.244,
+       "text": "回到首页的综合对比，看八个模块各在做什么。",
+       "sceneId": "a06-summary"
+      }
+     ],
+     "readingViolations": 0,
+     "bytes": 6751874
+    },
+    "en": {
+     "src": "advanced.en.mp4",
+     "vtt": "advanced.en.vtt",
+     "poster": "advanced.en.jpg",
+     "duration": 138.63,
+     "captions": "en",
+     "chapters": [
+      {
+       "t": 3.4,
+       "title": "I · EVERY LABEL",
+       "sceneId": "a01-labels"
+      },
+      {
+       "t": 24.31,
+       "title": "II · LOGIC NODES AND INSTANCES",
+       "sceneId": "a02-instances"
+      },
+      {
+       "t": 47.47,
+       "title": "III · THE COST OF COPIES",
+       "sceneId": "a03-compare"
+      },
+      {
+       "t": 62.73,
+       "title": "IV · THE LIMITS OF THE RESULT",
+       "sceneId": "a04-scope"
+      },
+      {
+       "t": 89.38,
+       "title": "V · CANDIDATE DATA",
+       "sceneId": "a05-candidate"
+      },
+      {
+       "t": 116.38,
+       "title": "SUMMARY",
+       "sceneId": "a06-summary"
+      }
+     ],
+     "transcript": [
+      {
+       "start": 3.4,
+       "end": 6.644,
+       "text": "Walk the whole labelling phase.",
+       "sceneId": "a01-labels"
+      },
+      {
+       "start": 6.644,
+       "end": 17.044,
+       "text": "d, e, f, h are 2, g is 3: every ancestor fits; i and j are 7; k and l are 8.",
+       "sceneId": "a01-labels"
+      },
+      {
+       "start": 17.044,
+       "end": 23.911,
+       "text": "On equal scores this course prefers the later ancestor in topological order, an assumption.",
+       "sceneId": "a01-labels"
+      },
+      {
+       "start": 24.311,
+       "end": 30.222,
+       "text": "In the 8 recovered clusters, one logic node can appear several times.",
+       "sceneId": "a02-instances"
+      },
+      {
+       "start": 30.222,
+       "end": 35.244,
+       "text": "b has three instances: b@b, b@d, b@e.",
+       "sceneId": "a02-instances"
+      },
+      {
+       "start": 35.244,
+       "end": 40.267,
+       "text": "So a “node → cluster” map cannot represent the result.",
+       "sceneId": "a02-instances"
+      },
+      {
+       "start": 40.267,
+       "end": 47.067,
+       "text": "Each instance needs complete inputs: from inside, or across from the root u@u.",
+       "sceneId": "a02-instances"
+      },
+      {
+       "start": 47.467,
+       "end": 50.044,
+       "text": "What does replication buy?",
+       "sceneId": "a03-compare"
+      },
+      {
+       "start": 50.044,
+       "end": 57.978,
+       "text": "Without replication, exhaustive search over every capacity-legal grouping gives a best largest delay of 10.",
+       "sceneId": "a03-compare"
+      },
+      {
+       "start": 57.978,
+       "end": 62.333,
+       "text": "RW brings it to 8 with 8 extra instances.",
+       "sceneId": "a03-compare"
+      },
+      {
+       "start": 62.733,
+       "end": 68.067,
+       "text": "The optimality comes from the paper and holds only within its model.",
+       "sceneId": "a04-scope"
+      },
+      {
+       "start": 68.067,
+       "end": 75.756,
+       "text": "The model: a DAG, node delays, 0 inside, a fixed D between, capacity, and replication.",
+       "sceneId": "a04-scope"
+      },
+      {
+       "start": 75.756,
+       "end": 82.111,
+       "text": "Forbid replication, or also weigh area, pins or power, and it no longer applies.",
+       "sceneId": "a04-scope"
+      },
+      {
+       "start": 82.111,
+       "end": 88.978,
+       "text": "This course's tests only check consistency and legal instances; they prove nothing optimal.",
+       "sceneId": "a04-scope"
+      },
+      {
+       "start": 89.378,
+       "end": 94.044,
+       "text": "This 12-node graph comes from frames of the original film.",
+       "sceneId": "a05-candidate"
+      },
+      {
+       "start": 94.044,
+       "end": 99.511,
+       "text": "The film's Δ table agrees with the reconstructed edges entry by entry.",
+       "sceneId": "a05-candidate"
+      },
+      {
+       "start": 99.511,
+       "end": 107.178,
+       "text": "The tie rule is an assumption; it reproduces the original result, but awaits the author's confirmation.",
+       "sceneId": "a05-candidate"
+      },
+      {
+       "start": 107.178,
+       "end": 115.978,
+       "text": "And this module's place against Lab 09 (Multilevel) in the teacher's catalogue awaits confirmation.",
+       "sceneId": "a05-candidate"
+      },
+      {
+       "start": 116.378,
+       "end": 118.444,
+       "text": "Six things to keep.",
+       "sceneId": "a06-summary"
+      },
+      {
+       "start": 131.444,
+       "end": 137.244,
+       "text": "Return to the comparison on the home page to see what all eight modules do.",
+       "sceneId": "a06-summary"
+      }
+     ],
+     "readingViolations": 0,
+     "bytes": 6849090
+    }
+   }
   },
   {
-   "id": "rw2",
-   "title": "关键路径的代价（下）：恢复与复制",
+   "id": "lab",
+   "kind": "lab",
    "status": "ready",
-   "src": "rw2.mp4",
-   "vtt": "rw2.zh.vtt",
-   "poster": "rw2-poster.jpg",
-   "duration": 141.9,
-   "chapters": [
-    {
-     "t": 3.0,
-     "title": "一 · 回顾",
-     "sceneId": "b01-recap"
-    },
-    {
-     "t": 13.22,
-     "title": "二 · 逆向恢复",
-     "sceneId": "b02-select"
-    },
-    {
-     "t": 45.8,
-     "title": "三 · 实例与复制",
-     "sceneId": "b03-instances"
-    },
-    {
-     "t": 79.18,
-     "title": "四 · 复制的代价",
-     "sceneId": "b05-compare"
-    },
-    {
-     "t": 99.0,
-     "title": "五 · 适用边界",
-     "sceneId": "b06-scope"
-    },
-    {
-     "t": 121.71,
-     "title": "六 · 伪代码",
-     "sceneId": "b07-code"
-    }
-   ],
-   "scenes": [
-    {
-     "sceneId": "b00-title",
-     "start": 0.0,
-     "end": 3.0
-    },
-    {
-     "sceneId": "b01-recap",
-     "start": 3.0,
-     "end": 13.22
-    },
-    {
-     "sceneId": "b02-select",
-     "start": 13.22,
-     "end": 45.8
-    },
-    {
-     "sceneId": "b03-instances",
-     "start": 45.8,
-     "end": 68.29
-    },
-    {
-     "sceneId": "b04-arrival",
-     "start": 68.29,
-     "end": 79.18
-    },
-    {
-     "sceneId": "b05-compare",
-     "start": 79.18,
-     "end": 99.0
-    },
-    {
-     "sceneId": "b06-scope",
-     "start": 99.0,
-     "end": 121.71
-    },
-    {
-     "sceneId": "b07-code",
-     "start": 121.71,
-     "end": 141.89
-    }
-   ],
-   "transcript": [
-    {
-     "start": 3.0,
-     "end": 8.467,
-     "text": "上一集，每个节点都得到了标签和一个候选簇。",
-     "sceneId": "b01-recap"
-    },
-    {
-     "start": 8.467,
-     "end": 12.822,
-     "text": "真正用到哪些簇，要从输出端倒推。",
-     "sceneId": "b01-recap"
-    },
-    {
-     "start": 13.222,
-     "end": 19.356,
-     "text": "从输出 k 开始：选中 k 的候选簇 {k, j, i, g}。",
-     "sceneId": "b02-select"
-    },
-    {
-     "start": 19.356,
-     "end": 25.933,
-     "text": "再看输出 l：{l, j, g, e}。g 和 j 又出现了一次。",
-     "sceneId": "b02-select"
-    },
-    {
-     "start": 25.933,
-     "end": 31.178,
-     "text": "k 的簇外输入 d：它的簇是 {d, b, a}。",
-     "sceneId": "b02-select"
-    },
-    {
-     "start": 31.178,
-     "end": 34.2,
-     "text": "e：{e, c, b}。",
-     "sceneId": "b02-select"
-    },
-    {
-     "start": 34.2,
-     "end": 36.778,
-     "text": "f：{f, a}。",
-     "sceneId": "b02-select"
-    },
-    {
-     "start": 36.778,
-     "end": 39.356,
-     "text": "h：{h, c}。",
-     "sceneId": "b02-select"
-    },
-    {
-     "start": 39.356,
-     "end": 43.267,
-     "text": "b 和 c 是输入，各自单独成簇。",
-     "sceneId": "b02-select"
-    },
-    {
-     "start": 43.267,
-     "end": 45.4,
-     "text": "一共 8 个簇。",
-     "sceneId": "b02-select"
-    },
-    {
-     "start": 45.8,
-     "end": 50.822,
-     "text": "把每个簇的成员生成为实例：节点@簇根。",
-     "sceneId": "b03-instances"
-    },
-    {
-     "start": 50.822,
-     "end": 56.289,
-     "text": "8 个簇，20 个实例——逻辑节点只有 12 个。",
-     "sceneId": "b03-instances"
-    },
-    {
-     "start": 56.289,
-     "end": 61.756,
-     "text": "b 有 3 个实例：每个都是同一个逻辑门的副本。",
-     "sceneId": "b03-instances"
-    },
-    {
-     "start": 61.756,
-     "end": 67.889,
-     "text": "每个实例的输入都要完整：簇内取，或跨簇从簇根取。",
-     "sceneId": "b03-instances"
-    },
-    {
-     "start": 68.289,
-     "end": 73.756,
-     "text": "沿实例图计算到达时间：簇内 +0，跨簇 +3。",
-     "sceneId": "b04-arrival"
-    },
-    {
-     "start": 73.756,
-     "end": 78.778,
-     "text": "两个输出都在时间 8 到达，正好等于标签。",
-     "sceneId": "b04-arrival"
-    },
-    {
-     "start": 79.178,
-     "end": 84.2,
-     "text": "允许复制：最大延迟 8，用了 20 个实例。",
-     "sceneId": "b05-compare"
-    },
-    {
-     "start": 84.2,
-     "end": 89.889,
-     "text": "禁止复制：穷举所有合法分组，最好也只有 10。",
-     "sceneId": "b05-compare"
-    },
-    {
-     "start": 89.889,
-     "end": 94.244,
-     "text": "多 8 个实例，换来 2 个单位的延迟。",
-     "sceneId": "b05-compare"
-    },
-    {
-     "start": 94.244,
-     "end": 98.6,
-     "text": "所以最优性结论以允许复制为前提。",
-     "sceneId": "b05-compare"
-    },
-    {
-     "start": 99.0,
-     "end": 105.356,
-     "text": "最后说清边界。最优性来自论文，只在它的模型里成立。",
-     "sceneId": "b06-scope"
-    },
-    {
-     "start": 105.356,
-     "end": 110.822,
-     "text": "这张 12 节点图是候选复原，平票规则是假设。",
-     "sceneId": "b06-scope"
-    },
-    {
-     "start": 110.822,
-     "end": 114.956,
-     "text": "测试检查实现一致，不证明最优。",
-     "sceneId": "b06-scope"
-    },
-    {
-     "start": 114.956,
-     "end": 121.311,
-     "text": "这份提交与教师目录的 Lab 09 不一致，对应待确认。",
-     "sceneId": "b06-scope"
-    },
-    {
-     "start": 121.711,
-     "end": 126.289,
-     "text": "恢复阶段的伪代码：从所有输出开始。",
-     "sceneId": "b07-code"
-    },
-    {
-     "start": 126.289,
-     "end": 131.533,
-     "text": "选中簇根的候选簇，簇外输入成为新的簇根。",
-     "sceneId": "b07-code"
-    },
-    {
-     "start": 131.533,
-     "end": 135.444,
-     "text": "每个选中的簇生成自己的实例。",
-     "sceneId": "b07-code"
-    },
-    {
-     "start": 135.444,
-     "end": 140.689,
-     "text": "每个实例的输入都必须完整——这就是复制。",
-     "sceneId": "b07-code"
-    }
-   ],
-   "music": "本课程原创程序合成配乐（NumPy），CC BY 4.0",
-   "why": "下集讲逆向恢复、实例与复制的代价，以及适用边界与待确认事项。",
-   "readingViolations": 0,
+   "title": {
+    "zh": "实验演示",
+    "en": "Lab Walkthrough"
+   },
+   "why": {
+    "zh": "从真实页面录下的操作演示：在链上切换跨簇的位置看延迟从 7 变成 10；在候选 DAG 上单步到 i 看 l1、l2，跳到结束看 8 簇、20 实例、输出 8，再把容量改成 3 看输出变成 11；然后在浏览器里写 evaluate_instance_delay()，快进其余四个函数，通过全部检查，并用自己的代码跑 6 个情形。",
+    "en": "Recorded from the real page: moving the crossings on the chain to see the delay go from 7 to 10; stepping to i on the candidate DAG for l1 and l2, jumping to the end for 8 clusters, 20 instances and output 8, then setting the capacity to 3 to see the output become 11; then writing evaluate_instance_delay() in the browser, fast-forwarding the other four functions, passing every check and running six cases with your own code."
+   },
+   "music": {
+    "zh": "本课程原创程序合成配乐（NumPy），CC BY 4.0",
+    "en": "Original score synthesised for this course (NumPy), CC BY 4.0"
+   },
+   "recorded": "scripts/film/recorder.mjs + video/m09-rajaraman-wong/walkthrough.mjs",
    "fps": 30,
    "size": [
     1920,
     1080
-   ]
+   ],
+   "versions": {
+    "zh": {
+     "src": "lab.zh.mp4",
+     "vtt": "lab.zh.vtt",
+     "poster": "lab.zh.jpg",
+     "duration": 154.37,
+     "captions": "zh+en",
+     "chapters": [
+      {
+       "t": 0.0,
+       "title": "开始",
+       "sceneId": "title"
+      },
+      {
+       "t": 3.2,
+       "title": "一条链",
+       "sceneId": "shot-00"
+      },
+      {
+       "t": 21.38,
+       "title": "标记与恢复",
+       "sceneId": "shot-02"
+      },
+      {
+       "t": 64.45,
+       "title": "在线编程",
+       "sceneId": "shot-06"
+      },
+      {
+       "t": 126.17,
+       "title": "用你的代码跑",
+       "sceneId": "shot-12"
+      },
+      {
+       "t": 144.13,
+       "title": "挑战",
+       "sceneId": "shot-14"
+      }
+     ],
+     "transcript": [
+      {
+       "start": 3.2,
+       "end": 12.178,
+       "text": "先看一条链：每个节点延迟 1，跨簇加 D = 3。现在只有 X→Y 跨簇：延迟 7。",
+       "sceneId": "shot-00"
+      },
+      {
+       "start": 12.178,
+       "end": 21.378,
+       "text": "改成 P→X、Y→O 跨簇：跨界两次，延迟 10。切断的线多一条，路径就慢 3。",
+       "sceneId": "shot-01"
+      },
+      {
+       "start": 21.378,
+       "end": 31.244,
+       "text": "下面是候选 DAG（由原作影片复原，平票规则为假设）：PI 蓝色，容量 4，D = 3。",
+       "sceneId": "shot-02"
+      },
+      {
+       "start": 31.244,
+       "end": 45.162,
+       "text": "单步到 i：候选簇 {i, g, e, c}；簇内 PI c 给 l1 = 4，簇外的 b 给 l2 = 7，所以 l(i) = 7。",
+       "sceneId": "shot-03"
+      },
+      {
+       "start": 45.162,
+       "end": 56.14,
+       "text": "跳到结束：从输出倒推出 8 个簇、20 个实例，两个输出都在 8 到达；金色虚线圈是被复制的节点。",
+       "sceneId": "shot-04"
+      },
+      {
+       "start": 56.14,
+       "end": 64.451,
+       "text": "把容量改成 3：簇装不下了，关键路径多跨一次边界，输出 k 变成 11。",
+       "sceneId": "shot-05"
+      },
+      {
+       "start": 64.451,
+       "end": 76.318,
+       "text": "在线编程：代码在浏览器里运行，不用安装 Python。五个函数分两层：先评估延迟，再做标记与恢复。",
+       "sceneId": "shot-06"
+      },
+      {
+       "start": 76.318,
+       "end": 83.74,
+       "text": "先运行检查：五个任务都没写，结果是 INCOMPLETE。",
+       "sceneId": "shot-07"
+      },
+      {
+       "start": 83.74,
+       "end": 101.459,
+       "text": "任务三：实例的到达时间 = 自身延迟 + 各输入的最大（到达时间 + 代价）。",
+       "sceneId": "shot-08"
+      },
+      {
+       "start": 101.459,
+       "end": 109.548,
+       "text": "再运行检查：链的 7 与 10 通过了，其余还是 INCOMPLETE。",
+       "sceneId": "shot-09"
+      },
+      {
+       "start": 109.548,
+       "end": 116.526,
+       "text": "其余四个函数这里快进：直接填入与参考实现相同的代码。",
+       "sceneId": "shot-10"
+      },
+      {
+       "start": 116.526,
+       "end": 126.17,
+       "text": "运行检查：全部通过，包括候选图的 8 簇、20 实例、输出 8 和每个实例的输入完整。",
+       "sceneId": "shot-11"
+      },
+      {
+       "start": 126.17,
+       "end": 135.593,
+       "text": "下面用你写的函数跑 6 个情形，与课程引擎对照：标签、簇数、实例数和输出延迟。",
+       "sceneId": "shot-12"
+      },
+      {
+       "start": 135.593,
+       "end": 144.126,
+       "text": "点菱形新图那一行：看你的代码恢复出的簇与实例，金色是被复制的节点。",
+       "sceneId": "shot-13"
+      },
+      {
+       "start": 144.126,
+       "end": 151.77,
+       "text": "最后做挑战题，确认自己真的懂了。结果只保存在你的浏览器里。",
+       "sceneId": "shot-14"
+      }
+     ],
+     "readingViolations": 0,
+     "bytes": 11102992
+    },
+    "en": {
+     "src": "lab.en.mp4",
+     "vtt": "lab.en.vtt",
+     "poster": "lab.en.jpg",
+     "duration": 148.53,
+     "captions": "en",
+     "chapters": [
+      {
+       "t": 0.0,
+       "title": "START",
+       "sceneId": "title"
+      },
+      {
+       "t": 3.2,
+       "title": "ONE CHAIN",
+       "sceneId": "shot-00"
+      },
+      {
+       "t": 18.27,
+       "title": "LABEL AND RECOVER",
+       "sceneId": "shot-02"
+      },
+      {
+       "t": 59.97,
+       "title": "CODE LAB",
+       "sceneId": "shot-06"
+      },
+      {
+       "t": 120.88,
+       "title": "YOUR CODE, VISUALISED",
+       "sceneId": "shot-12"
+      },
+      {
+       "t": 138.81,
+       "title": "CHALLENGES",
+       "sceneId": "shot-14"
+      }
+     ],
+     "transcript": [
+      {
+       "start": 3.2,
+       "end": 10.733,
+       "text": "First, a chain: each node delay 1, crossing clusters adds D = 3. Only X→Y crosses now: delay 7.",
+       "sceneId": "shot-00"
+      },
+      {
+       "start": 10.733,
+       "end": 18.267,
+       "text": "Make P→X and Y→O cross instead: two crossings, delay 10. One more boundary on the path costs 3.",
+       "sceneId": "shot-01"
+      },
+      {
+       "start": 18.267,
+       "end": 27.0,
+       "text": "Below is the candidate DAG (reconstructed from the original film, tie rule assumed): PIs blue, capacity 4, D = 3.",
+       "sceneId": "shot-02"
+      },
+      {
+       "start": 27.0,
+       "end": 40.307,
+       "text": "Step to i: candidate cluster {i, g, e, c}; the PI c inside gives l1 = 4, b outside gives l2 = 7, so l(i) = 7.",
+       "sceneId": "shot-03"
+      },
+      {
+       "start": 40.307,
+       "end": 51.307,
+       "text": "Jump to the end: working back from the outputs gives 8 clusters and 20 instances, both outputs arrive at 8; gold dashed rings are replicated nodes.",
+       "sceneId": "shot-04"
+      },
+      {
+       "start": 51.307,
+       "end": 59.974,
+       "text": "Set the capacity to 3: the clusters no longer fit, the critical path crosses once more, and output k becomes 11.",
+       "sceneId": "shot-05"
+      },
+      {
+       "start": 59.974,
+       "end": 70.974,
+       "text": "The code lab: your code runs in the browser, with no Python to install. Five functions in two layers: evaluate delay first, then label and recover.",
+       "sceneId": "shot-06"
+      },
+      {
+       "start": 70.974,
+       "end": 77.84,
+       "text": "Run the checks first: none of the five tasks is written, so the result is INCOMPLETE.",
+       "sceneId": "shot-07"
+      },
+      {
+       "start": 77.84,
+       "end": 95.946,
+       "text": "Task 3: an instance's arrival = its own delay + the largest (input arrival + cost).",
+       "sceneId": "shot-08"
+      },
+      {
+       "start": 95.946,
+       "end": 102.413,
+       "text": "Run the checks again: the chain's 7 and 10 pass; the rest are still INCOMPLETE.",
+       "sceneId": "shot-09"
+      },
+      {
+       "start": 102.413,
+       "end": 110.013,
+       "text": "The other four functions are fast-forwarded here: filled in with the same code as the reference.",
+       "sceneId": "shot-10"
+      },
+      {
+       "start": 110.013,
+       "end": 120.88,
+       "text": "Run the checks: everything passes, including 8 clusters, 20 instances and output 8 on the candidate graph, with every instance's inputs complete.",
+       "sceneId": "shot-11"
+      },
+      {
+       "start": 120.88,
+       "end": 130.013,
+       "text": "Below, your functions run on six cases, compared with the course engine: labels, clusters, instances and output delays.",
+       "sceneId": "shot-12"
+      },
+      {
+       "start": 130.013,
+       "end": 138.813,
+       "text": "Click the new diamond graph's row: see the clusters and instances your code recovered; gold nodes were replicated.",
+       "sceneId": "shot-13"
+      },
+      {
+       "start": 138.813,
+       "end": 145.946,
+       "text": "Finally, try the challenges to check you really understand. Results stay in your browser.",
+       "sceneId": "shot-14"
+      }
+     ],
+     "readingViolations": 0,
+     "bytes": 10791147
+    }
+   }
   }
  ]
 }

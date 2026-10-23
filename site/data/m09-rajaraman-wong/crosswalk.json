@@ -7,7 +7,9 @@
         "m09-goal"
       ],
       "sceneIds": [
-        "a01-goal"
+        "p-ask",
+        "p-rule",
+        "k01-goal"
       ],
       "slideIds": [
         "m09-goal"
@@ -22,9 +24,19 @@
       ],
       "video": [
         {
-          "sceneId": "a01-goal",
-          "film": "rw1",
-          "start": 3
+          "sceneId": "p-ask",
+          "film": "story",
+          "start": 10.75
+        },
+        {
+          "sceneId": "p-rule",
+          "film": "story",
+          "start": 17.41
+        },
+        {
+          "sceneId": "k01-goal",
+          "film": "concise",
+          "start": 3.4
         }
       ],
       "slides": [
@@ -40,7 +52,8 @@
         "m09-model"
       ],
       "sceneIds": [
-        "a02-model"
+        "p-dag",
+        "k02-model"
       ],
       "slideIds": [
         "m09-model"
@@ -52,9 +65,14 @@
       ],
       "video": [
         {
-          "sceneId": "a02-model",
-          "film": "rw1",
-          "start": 24.6
+          "sceneId": "p-dag",
+          "film": "story",
+          "start": 37
+        },
+        {
+          "sceneId": "k02-model",
+          "film": "concise",
+          "start": 21.53
         }
       ],
       "slides": [
@@ -70,8 +88,8 @@
         "m09-replication"
       ],
       "sceneIds": [
-        "a03-replica",
-        "b03-instances"
+        "p-twins",
+        "a02-instances"
       ],
       "slideIds": [
         "m09-replication"
@@ -85,14 +103,14 @@
       ],
       "video": [
         {
-          "sceneId": "a03-replica",
-          "film": "rw1",
-          "start": 47.44
+          "sceneId": "p-twins",
+          "film": "story",
+          "start": 89
         },
         {
-          "sceneId": "b03-instances",
-          "film": "rw2",
-          "start": 45.8
+          "sceneId": "a02-instances",
+          "film": "advanced",
+          "start": 24.31
         }
       ],
       "slides": [
@@ -109,10 +127,12 @@
         "m09-label"
       ],
       "sceneIds": [
-        "a04-dag",
-        "a05-early",
-        "a06-label-i",
-        "a07-rest"
+        "p-time",
+        "p-i",
+        "p-labels",
+        "k03-delta",
+        "k04-label",
+        "a01-labels"
       ],
       "slideIds": [
         "m09-delta",
@@ -129,24 +149,34 @@
       ],
       "video": [
         {
-          "sceneId": "a04-dag",
-          "film": "rw1",
-          "start": 68.38
+          "sceneId": "p-time",
+          "film": "story",
+          "start": 51.18
         },
         {
-          "sceneId": "a05-early",
-          "film": "rw1",
-          "start": 91.09
+          "sceneId": "p-i",
+          "film": "story",
+          "start": 63.15
         },
         {
-          "sceneId": "a06-label-i",
-          "film": "rw1",
-          "start": 111.49
+          "sceneId": "p-labels",
+          "film": "story",
+          "start": 74
         },
         {
-          "sceneId": "a07-rest",
-          "film": "rw1",
-          "start": 142.56
+          "sceneId": "k03-delta",
+          "film": "concise",
+          "start": 43.6
+        },
+        {
+          "sceneId": "k04-label",
+          "film": "concise",
+          "start": 63.29
+        },
+        {
+          "sceneId": "a01-labels",
+          "film": "advanced",
+          "start": 3.4
         }
       ],
       "slides": [
@@ -170,9 +200,10 @@
         "m09-reconstruct"
       ],
       "sceneIds": [
-        "b02-select",
-        "b04-arrival",
-        "b05-compare"
+        "p-back",
+        "p-compare",
+        "k05-reconstruct",
+        "a03-compare"
       ],
       "slideIds": [
         "m09-reconstruct",
@@ -188,19 +219,24 @@
       ],
       "video": [
         {
-          "sceneId": "b02-select",
-          "film": "rw2",
-          "start": 13.22
+          "sceneId": "p-back",
+          "film": "story",
+          "start": 102.5
         },
         {
-          "sceneId": "b04-arrival",
-          "film": "rw2",
-          "start": 68.29
+          "sceneId": "p-compare",
+          "film": "story",
+          "start": 119.27
         },
         {
-          "sceneId": "b05-compare",
-          "film": "rw2",
-          "start": 79.18
+          "sceneId": "k05-reconstruct",
+          "film": "concise",
+          "start": 91.24
+        },
+        {
+          "sceneId": "a03-compare",
+          "film": "advanced",
+          "start": 47.47
         }
       ],
       "slides": [
@@ -220,7 +256,8 @@
         "m09-scope"
       ],
       "sceneIds": [
-        "b06-scope"
+        "a04-scope",
+        "a05-candidate"
       ],
       "slideIds": [
         "m09-scope"
@@ -232,9 +269,14 @@
       "python": [],
       "video": [
         {
-          "sceneId": "b06-scope",
-          "film": "rw2",
-          "start": 99
+          "sceneId": "a04-scope",
+          "film": "advanced",
+          "start": 62.73
+        },
+        {
+          "sceneId": "a05-candidate",
+          "film": "advanced",
+          "start": 89.38
         }
       ],
       "slides": [

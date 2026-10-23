@@ -14,6 +14,7 @@
  * output delay 8 from the audit reconstruction; the author has not confirmed it.
  */
 import { ENGINE_VERSION } from './graph.js';
+import { L } from '../assets/i18n.js';
 
 const NAME = /^[A-Za-z][A-Za-z0-9_]{0,15}$/;
 
@@ -21,23 +22,23 @@ export function validateDAG(input) {
   const errors = [];
   const nodes = (input?.nodes || []).map(n => typeof n === 'string' ? { id: n } : n);
   const ids = nodes.map(n => n.id);
-  if (!ids.length) errors.push('需要 nodes');
-  if (new Set(ids).size !== ids.length) errors.push('节点名重复');
-  ids.forEach(id => { if (!NAME.test(id)) errors.push(`节点名 ${id} 不合法`); });
+  if (!ids.length) errors.push(L('需要 nodes', 'nodes is required'));
+  if (new Set(ids).size !== ids.length) errors.push(L('节点名重复', 'duplicate node names'));
+  ids.forEach(id => { if (!NAME.test(id)) errors.push(L(`节点名 ${id} 不合法`, `node name ${id} is not valid`)); });
   const delay = {}, size = {};
   for (const n of nodes) {
     delay[n.id] = n.delay ?? input.nodeDelay ?? 1;
     size[n.id] = n.size ?? input.nodeSize ?? 1;
-    if (!(delay[n.id] >= 0)) errors.push(`节点 ${n.id} 延迟须非负`);
-    if (!(size[n.id] > 0)) errors.push(`节点 ${n.id} 大小须为正`);
+    if (!(delay[n.id] >= 0)) errors.push(L(`节点 ${n.id} 延迟须非负`, `node ${n.id} needs a nonnegative delay`));
+    if (!(size[n.id] > 0)) errors.push(L(`节点 ${n.id} 大小须为正`, `node ${n.id} needs a positive size`));
   }
   const edges = [];
   const seen = new Set();
   for (const e of input?.edges || []) {
     const [u, v] = Array.isArray(e) ? e : [e.from ?? e.u, e.to ?? e.v];
-    if (!ids.includes(u) || !ids.includes(v)) { errors.push(`有向边 ${u}→${v} 引用了不存在的节点`); continue; }
-    if (u === v) { errors.push(`自环 ${u}→${v}`); continue; }
-    if (seen.has(u + '>' + v)) { errors.push(`重复有向边 ${u}→${v}`); continue; }
+    if (!ids.includes(u) || !ids.includes(v)) { errors.push(L(`有向边 ${u}→${v} 引用了不存在的节点`, `edge ${u}→${v} refers to a node that does not exist`)); continue; }
+    if (u === v) { errors.push(L(`自环 ${u}→${v}`, `self-loop ${u}→${v}`)); continue; }
+    if (seen.has(u + '>' + v)) { errors.push(L(`重复有向边 ${u}→${v}`, `duplicate edge ${u}→${v}`)); continue; }
     seen.add(u + '>' + v); edges.push([u, v]);
   }
   const pred = Object.fromEntries(ids.map(i => [i, []])), succ = Object.fromEntries(ids.map(i => [i, []]));
@@ -51,15 +52,15 @@ export function validateDAG(input) {
   let cycle = null;
   if (topo.length !== ids.length) {
     cycle = ids.filter(i => !topo.includes(i));
-    errors.push(`输入含有环（涉及 ${cycle.join(', ')}）：RW 只处理组合电路 DAG`);
+    errors.push(L(`输入含有环（涉及 ${cycle.join(', ')}）：RW 只处理组合电路 DAG`, `the input has a cycle (through ${cycle.join(', ')}): RW handles only combinational DAGs`));
   }
   const PI = input?.PI || ids.filter(i => pred[i].length === 0);
   const PO = input?.PO || ids.filter(i => succ[i].length === 0);
-  PI.forEach(p => { if (pred[p]?.length) errors.push(`PI ${p} 不应有输入边`); });
+  PI.forEach(p => { if (pred[p]?.length) errors.push(L(`PI ${p} 不应有输入边`, `PI ${p} should have no input edge`)); });
   const capacity = input?.capacity, D = input?.interClusterDelay ?? input?.D;
-  if (!(capacity > 0)) errors.push('容量 capacity 须为正');
-  if (!(D >= 0)) errors.push('跨簇延迟 D 须非负');
-  if (capacity > 0) ids.forEach(i => { if (size[i] > capacity) errors.push(`节点 ${i} 大小超过容量`); });
+  if (!(capacity > 0)) errors.push(L('容量 capacity 须为正', 'capacity must be positive'));
+  if (!(D >= 0)) errors.push(L('跨簇延迟 D 须非负', 'the inter-cluster delay D must be nonnegative'));
+  if (capacity > 0) ids.forEach(i => { if (size[i] > capacity) errors.push(L(`节点 ${i} 大小超过容量`, `node ${i} is larger than the capacity`)); });
   return { ok: errors.length === 0, errors, dag: { ids, edges, pred, succ, topo, PI, PO, delay, size, capacity, D }, cycle };
 }
 
@@ -81,7 +82,7 @@ export function evaluateInstances(instances, instanceEdges, delay) {
   const memo = {}, visiting = new Set();
   const arr = id => {
     if (id in memo) return memo[id];
-    if (visiting.has(id)) throw new Error('实例图含环');
+    if (visiting.has(id)) throw new Error(L('实例图含环', 'the instance graph has a cycle'));
     visiting.add(id);
     const t = delay[byId[id].logicalId] + Math.max(0, ...inc[id].map(e => arr(e.from) + e.cost));
     visiting.delete(id);
@@ -97,9 +98,9 @@ export function evaluatePartition(input, clusters) {
   if (!v.ok) return { ok: false, errors: v.errors };
   const { dag } = v, where = {};
   const errors = [];
-  clusters.forEach((c, ci) => c.forEach(n => { if (n in where) errors.push(`${n} 出现在多个簇（不复制模型）`); where[n] = ci; }));
-  dag.ids.forEach(n => { if (!(n in where)) errors.push(`${n} 未分配`); });
-  clusters.forEach((c, ci) => { const s = c.reduce((t, n) => t + dag.size[n], 0); if (s > dag.capacity) errors.push(`簇 ${ci + 1} 大小 ${s} 超过容量 ${dag.capacity}`); });
+  clusters.forEach((c, ci) => c.forEach(n => { if (n in where) errors.push(L(`${n} 出现在多个簇（不复制模型）`, `${n} is in several clusters (no-replication model)`)); where[n] = ci; }));
+  dag.ids.forEach(n => { if (!(n in where)) errors.push(L(`${n} 未分配`, `${n} is not assigned`)); });
+  clusters.forEach((c, ci) => { const s = c.reduce((t, n) => t + dag.size[n], 0); if (s > dag.capacity) errors.push(L(`簇 ${ci + 1} 大小 ${s} 超过容量 ${dag.capacity}`, `cluster ${ci + 1} has size ${s}, over the capacity ${dag.capacity}`)); });
   if (errors.length) return { ok: false, errors };
   const instances = dag.ids.map(n => ({ instanceId: n, logicalId: n, clusterId: where[n] }));
   const instanceEdges = dag.edges.map(([a, b]) => ({ from: a, to: b, cost: where[a] === where[b] ? 0 : dag.D }));
@@ -179,11 +180,11 @@ export function checkInstanceGraph(dag, instances, instanceEdges, selected, clus
   for (const inst of instances) {
     const inc = instanceEdges.filter(e => e.to === inst.instanceId).map(e => instances.find(i => i.instanceId === e.from)?.logicalId).sort();
     const need = [...dag.pred[inst.logicalId]].sort();
-    if (JSON.stringify(inc) !== JSON.stringify(need)) errors.push(`实例 ${inst.instanceId} 的输入不完整`);
+    if (JSON.stringify(inc) !== JSON.stringify(need)) errors.push(L(`实例 ${inst.instanceId} 的输入不完整`, `instance ${inst.instanceId} is missing inputs`));
   }
-  instanceEdges.forEach(e => { if (!ids.has(e.from)) errors.push(`边来自不存在的实例 ${e.from}`); });
-  dag.PO.forEach(p => { if (!ids.has(`${p}@${p}`)) errors.push(`PO ${p} 没有根实例`); });
-  selected.forEach(r => { const s = cluster[r].reduce((t, m) => t + dag.size[m], 0); if (s > dag.capacity) errors.push(`簇 ${r} 超容量`); });
+  instanceEdges.forEach(e => { if (!ids.has(e.from)) errors.push(L(`边来自不存在的实例 ${e.from}`, `an edge comes from a missing instance ${e.from}`)); });
+  dag.PO.forEach(p => { if (!ids.has(`${p}@${p}`)) errors.push(L(`PO ${p} 没有根实例`, `PO ${p} has no root instance`)); });
+  selected.forEach(r => { const s = cluster[r].reduce((t, m) => t + dag.size[m], 0); if (s > dag.capacity) errors.push(L(`簇 ${r} 超容量`, `cluster ${r} is over capacity`)); });
   return { ok: errors.length === 0, errors };
 }
 

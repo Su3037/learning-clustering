@@ -1,0 +1,187 @@
+{
+ "status": "ready",
+ "moduleId": "m09-rajaraman-wong",
+ "slides": [
+  {
+   "slideId": "m09-title",
+   "pageNumber": 1,
+   "pageCount": 12,
+   "title": "The Cost of the Critical Path",
+   "image": "p01.jpg",
+   "thumb": "t01.jpg",
+   "alt": "The Cost of the Critical Path: ",
+   "transcript": "This module changes the goal from the cut to delay: the longest path delay of a combinational circuit. Each crossing between clusters adds a fixed delay D to the path, and one logic node may be copied into several clusters. Note: this submission is Lesson 9, while Lab 09 in the teacher’s catalogue is Multilevel; the correspondence awaits confirmation.",
+   "videoAnchor": null,
+   "sceneId": "k00-title",
+   "objectiveIds": []
+  },
+  {
+   "slideId": "m09-goal",
+   "pageNumber": 2,
+   "pageCount": 12,
+   "title": "The goal has changed: from cut to delay",
+   "image": "p02.jpg",
+   "thumb": "t02.jpg",
+   "alt": "The goal has changed: from cut to delay: Chain P→X→Y→O: δ = 1, inter-cluster D = 3, capacity 2; {P,X} | {Y,O}: 1 crossing, delay 7; {P} | {X,Y} | {O}: 2 crossings, delay 10; Delay follows how often the critical path crosses a boundary",
+   "transcript": "Start with a chain. Both splits respect the capacity, but the first crosses a boundary once, delay 7; the second crosses twice, delay 10. Delay depends only on how many boundaries the longest path crosses, not on how many wires are cut in total.",
+   "videoAnchor": null,
+   "sceneId": "k01-goal",
+   "objectiveIds": [
+    "o1"
+   ]
+  },
+  {
+   "slideId": "m09-model",
+   "pageNumber": 3,
+   "pageCount": 12,
+   "title": "The RW model",
+   "image": "p03.jpg",
+   "thumb": "t03.jpg",
+   "alt": "The RW model: A combinational DAG; PIs are inputs, POs outputs; Node delay δ(v); 0 on wires inside a cluster, D between; Cluster capacity M (the sum of node sizes); Logic nodes may be replicated; Goal: minimise the largest PI→PO delay",
+   "transcript": "The RW model is a directed acyclic graph. Each node has a delay, wires inside a cluster add none, wires between clusters add a fixed D, each cluster has a capacity, and nodes may be replicated. The goal is to minimise the largest delay from input to output.",
+   "videoAnchor": null,
+   "sceneId": "k02-model",
+   "objectiveIds": [
+    "o2"
+   ]
+  },
+  {
+   "slideId": "m09-replication",
+   "pageNumber": 4,
+   "pageCount": 12,
+   "title": "Replication: logic nodes and instances",
+   "image": "p04.jpg",
+   "thumb": "t04.jpg",
+   "alt": "Replication: logic nodes and instances: One logic node (logicalId) may have several physical instances (instanceId); An instance is written “node@root”; Replication lets several clusters get the same signal inside; The cost: every copy takes area; A “node → cluster” map cannot express replication",
+   "transcript": "Replication puts the same logic node into several clusters; each copy is an instance. It lets several clusters get the same signal from inside, but every copy takes area. As data, logic nodes and instances must be recorded separately.",
+   "videoAnchor": null,
+   "sceneId": "a02-instances",
+   "objectiveIds": [
+    "o3"
+   ]
+  },
+  {
+   "slideId": "m09-delta",
+   "pageNumber": 5,
+   "pageCount": 12,
+   "title": "Initialisation: the candidate DAG and Δ",
+   "image": "p05.jpg",
+   "thumb": "t05.jpg",
+   "alt": "Initialisation: the candidate DAG and Δ: The original 12-node example: PIs a, b, c; POs k, l; δ = 1, D = 3, capacity 4; Δ(x, v): the longest node delay from x to v (counting v, not x); Δ(b, k) = 4 (b→e→g→i→k); The graph is reconstructed from the original film: candidate data",
+   "transcript": "The original 12-node example is reconstructed from frames of the film. Δ is the longest node delay from x to v, counting v but not x; for example from b to k it is 4. This graph is candidate data; the original edge list awaits the original author’s confirmation.",
+   "videoAnchor": null,
+   "sceneId": "k03-delta",
+   "objectiveIds": [
+    "o4"
+   ]
+  },
+  {
+   "slideId": "m09-label",
+   "pageNumber": 6,
+   "pageCount": 12,
+   "title": "Labelling: l(v) = max(l1, l2)",
+   "image": "p06.jpg",
+   "thumb": "t06.jpg",
+   "alt": "Labelling: l(v) = max(l1, l2): Score(x) = l(x) + Δ(x, v); Candidate cluster: v + the highest-scoring ancestors, up to capacity; Ties: the later in topological order (this course’s assumption); l1 = largest score of a PI inside; l2 = largest score outside + D; i: l1 = 4, l2 = 7 → l(i) = 7",
+   "transcript": "Labelling handles each node in topological order. Score each ancestor, and put the highest-scoring ones into the candidate cluster up to capacity. l1 is the largest score of a PI inside, l2 the largest score outside plus D. Node i has l1 4 and l2 7, so its label is 7.",
+   "videoAnchor": null,
+   "sceneId": "k04-label",
+   "objectiveIds": [
+    "o4"
+   ]
+  },
+  {
+   "slideId": "m09-labels",
+   "pageNumber": 7,
+   "pageCount": 12,
+   "title": "Every label",
+   "image": "p07.jpg",
+   "thumb": "t07.jpg",
+   "alt": "Every label: PIs: l = 1; d, e, f, h: 2; g: 3; i, j: 7; k, l: 8; RW’s labels are times, not groups",
+   "transcript": "Every label: the inputs are 1; d, e, f and h are 2, g is 3; i and j are 7; both outputs are 8. RW’s labels are times, entirely different from the group labels of label propagation.",
+   "videoAnchor": null,
+   "sceneId": "a01-labels",
+   "objectiveIds": [
+    "o4"
+   ]
+  },
+  {
+   "slideId": "m09-reconstruct",
+   "pageNumber": 8,
+   "pageCount": 12,
+   "title": "Recovery: working back from the outputs",
+   "image": "p08.jpg",
+   "thumb": "t08.jpg",
+   "alt": "Recovery: working back from the outputs: Take the candidate clusters of k and l; outside inputs become new roots; 8 clusters in all: k, l, d, e, f, h, b, c; 20 instances; g, j, e, a have 2 each, b and c 3 each; Every instance has complete inputs; Output arrival 8 = the labels",
+   "transcript": "Recovery works back from the outputs: take the candidate clusters of k and l, and the input nodes outside them become new roots, until no new cluster is needed. That gives 8 clusters and 20 instances, every instance has complete inputs, and both outputs arrive at time 8.",
+   "videoAnchor": null,
+   "sceneId": "k05-reconstruct",
+   "objectiveIds": [
+    "o5"
+   ]
+  },
+  {
+   "slideId": "m09-compare",
+   "pageNumber": 9,
+   "pageCount": 12,
+   "title": "What replication buys",
+   "image": "p09.jpg",
+   "thumb": "t09.jpg",
+   "alt": "What replication buys: With replication: delay 8, 20 instances; Without: exhaustive search over every capacity-legal grouping, best 10; 8 more instances buy 2 units of delay; The optimality result assumes replication is allowed",
+   "transcript": "With replication the largest delay is 8, using 20 instances. Forbid replication and search every capacity-legal grouping exhaustively, and the best is only 10. Replication trades area for speed, and the paper’s optimality result assumes exactly that replication is allowed.",
+   "videoAnchor": null,
+   "sceneId": "a03-compare",
+   "objectiveIds": [
+    "o5"
+   ]
+  },
+  {
+   "slideId": "m09-pseudo",
+   "pageNumber": 10,
+   "pageCount": 12,
+   "title": "Pseudocode: labelling and recovery",
+   "image": "p10.jpg",
+   "thumb": "t10.jpg",
+   "alt": "Pseudocode: labelling and recovery: Labelling: topological order; scores, candidate cluster, l1, l2 (Python: rw_label); Recovery: back from the POs; outside inputs become new roots (rw_reconstruct); Instances m@r; +0 inside, +D between; Arrival times: evaluate_instance_delay",
+   "transcript": "The pseudocode has two parts: labelling computes scores, candidate clusters and labels in topological order; recovery works back from the outputs, making instances for each selected cluster and connecting the instance wires, adding 0 inside a cluster and D between clusters.",
+   "videoAnchor": null,
+   "sceneId": "k05-reconstruct",
+   "objectiveIds": [
+    "o5"
+   ]
+  },
+  {
+   "slideId": "m09-scope",
+   "pageNumber": 11,
+   "pageCount": 12,
+   "title": "Limits and open questions",
+   "image": "p11.jpg",
+   "thumb": "t11.jpg",
+   "alt": "Limits and open questions: The optimality comes from the paper (IEEE TCAD 1995; DAC 1993) and holds only within its model; The 12-node example is a candidate reconstruction; the tie rule is an assumption awaiting the author’s confirmation; This course’s tests check consistency and legal instances; they do not prove optimality",
+   "transcript": "Finally, the limits: the optimality comes from the paper and holds only within its model. The 12-node example is a candidate reconstruction, and the tie rule is an assumption. This course’s tests only check consistency and legal instances; they do not prove optimality. This submission does not match Lab 09 in the teacher’s catalogue, and the correspondence awaits confirmation.",
+   "videoAnchor": null,
+   "sceneId": "a04-scope",
+   "objectiveIds": [
+    "o6"
+   ]
+  },
+  {
+   "slideId": "m09-summary",
+   "pageNumber": 12,
+   "pageCount": 12,
+   "title": "Summary",
+   "image": "p12.jpg",
+   "thumb": "t12.jpg",
+   "alt": "Summary: ",
+   "transcript": "In summary: the goal becomes delay, and each crossing adds D to the path. Labelling gives each node its earliest time, and recovery works back from the outputs to clusters and instances; logic nodes and instances are kept apart, and replication costs area. Finally, go back to the home page and compare the eight modules.",
+   "videoAnchor": null,
+   "sceneId": null,
+   "objectiveIds": []
+  }
+ ],
+ "pdf": "m09-rajaraman-wong-en.pdf",
+ "pptx": "m09-rajaraman-wong-en.pptx",
+ "contentVersion": "2026.10.23-1",
+ "lang": "en",
+ "aspectNote": "16:9 is this course's choice (it matches the films and suits projection), not a ratio the teacher set. PDF page numbers match the web p/total exactly; in the PPTX the text, shapes and tables are editable and the notes hold the script."
+}
