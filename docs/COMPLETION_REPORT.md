@@ -76,6 +76,12 @@
 - **字体**：全部改用 Noto Sans SC（OFL 1.1，随仓库附许可）。PPTX 不能内嵌字体：没有安装 Noto Sans SC 的电脑会替换字体，课件区已提示免费安装途径；PDF 已内嵌。网站子集不含个别上下标与符号（ᵀ ₀ ⌈ 等 17 个），这些由访问者系统字体补字。
 - **许可**：代码 MIT；内容、影片与原创配乐 CC BY 4.0；字体 OFL；学生原作保留原权利（`LICENSE-CONTENT.md`、`THIRD_PARTY_NOTICES.md`）。
 
-## 7. 待作者最终确认
+## 7. 发布与公开地址验证（2026-10-23）
 
-仓库名 `Su3037/learning-clustering`、许可与字体已由作者决定（2026-10-23）。剩下的一步是作者确认后执行 `docs/DEPLOYMENT.md`：创建公开仓库、推送、开启 Pages，然后在公开地址上重做第 4 节的检查。
+作者在线程中确认“push”后执行：
+
+- 创建公开仓库 https://github.com/Su3037/learning-clustering ，推送单提交的 `publish` 分支为 `main`，开启 Pages（GitHub Actions）。
+- 工作流 `pages` 第一次运行成功：测试作业（Node 引擎 / 挑战 / 站点测试、JS ↔ Python 交叉、8 个 Python 包）全部通过，随后部署。
+- 公开地址 https://su3037.github.io/learning-clustering/ ：首页、模块页、字体、影片、PDF、Python 下载包、旧路径入口均返回 200；`/learning-clustering` 301 到带斜杠的地址；`labs/multilevel-clustering/` 为 404（按要求不跳转）；任意不存在路径返回 404 页，页面上的链接指回课程首页。
+- 浏览器（公开地址）：网页字体两个字重均 loaded；M07 影片可播放（readyState 4）；实验单步正常；挑战 6 题渲染；`#slide-m08-walk` 打开第 5 页并停在课件区；375 px 宽无横向滚动；没有 4xx 资源请求。
+- 仍未做：真实手机与多浏览器测试、完整影片的人工审看。

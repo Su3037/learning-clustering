@@ -13,10 +13,10 @@
 
 - 仓库 `Su3037/learning-clustering`（公开）；代码 MIT，内容、影片与原创配乐 CC BY 4.0；字体 Noto Sans SC（OFL，已下载并全部重渲染）。
 
-## 下一步（需要作者在线程里最终确认）
+## 已发布（2026-10-23）
 
-1. 按 `docs/DEPLOYMENT.md` 创建仓库、推送 `main`、开启 Pages（GitHub Actions）。
-2. 在 https://su3037.github.io/learning-clustering/ 上重做浏览器检查（COMPLETION_REPORT §4），并把结果补进完成报告。
+- 公开仓库 https://github.com/Su3037/learning-clustering ，网站 https://su3037.github.io/learning-clustering/ 。远程 `main` 来自本地 `publish` 分支（单提交起点）；本地 `main` 保留完整开发历史，不推送。
+- 以后更新：在本地 `main` 提交后，把改动带到 `publish`（如 `git checkout publish && git checkout main -- . && git commit`），再 `git push origin publish:main`；工作流会先测试再部署。公开验证结果见 COMPLETION_REPORT §7。
 
 ## 如何继续
 
@@ -28,7 +28,7 @@
 
 ## 不要做
 
-- 不推送、不发布、不评论 Issue、不联系教师或同学（除非用户明确同意）。
+- 不再推送或改动公开仓库设置，除非用户明确要求；不评论 Issue、不联系教师或同学。
 - 不把 M09 改名 Multilevel，不为 `multilevel-clustering` 旧路径生成跳转。
 - 不把 `legacyComparator`、`LEGACY_HILLCLIMB` 当教学结论展示（只作“已修复错误”说明与回归）。
 - 不改动参考包 `output/clustering-course-prompt-pack`。
