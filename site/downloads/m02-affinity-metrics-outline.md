@@ -37,19 +37,12 @@
 - priority：edge 第一 X–Y@5；shared 第一 P–Q@8；X–Y 需 ≥ 9 才在 shared 中排第一。
 - tiny netlist：计数 A–B 2；pin-count A–B 0.5、E–F 1。
 
-## 影片（约 4 分钟，中文字幕，无配音）
+## 影片（四部）
 
-| sceneId | 画面与推理动作 | 绑定数据 |
-| --- | --- | --- |
-| s01-hook | priority 图出现，提问“先合并谁？”，留预测时间 | PRIORITY_GRAPH |
-| s02-model | 图与 net 的区别：一条 5 引脚 net 展开 | TINY_NETLIST |
-| s03-edge | G01 六条边按权重升起成排名，平票按字母 | edgeWeight(G01) |
-| s04-ac | A–C：直接 1 与经 B 的 min(5,4)=4 分别飞入总分框 | sharedNeighbors(G01) A–C |
-| s05-bd | B–D 无直接线，经 C 得 2；强调不新增导线 | sharedNeighbors(G01) B–D |
-| s06-priority | 左右双栏：X–Y=5 先亮；三角形贡献叠成 8 | 两种评分 |
-| s07-pin | 宽 net 每对 1/4，A–B=0.5，E–F=1 排第一 | pinCount |
-| s08-code | 伪代码逐行亮起，对应 B–D 一次循环 | 同上 |
-| s09-eda | 回到芯片：评分决定先粘谁；三条局限 | — |
+- 科普片《谁和谁最亲近》（约 190 秒，配 We Never (Remix)）：序 · 群聊；序 · 芯片；一 · 直接连线；二 · 朋友的朋友；三 · 换一种算法；四 · 大群与私聊；尾声
+- 精讲《精讲：三种评分》（约 113 秒）：问题；直接边权；共同邻居；换评分；PIN-COUNT；小结
+- 进阶《进阶：评分背后的假设》（约 164 秒）：回顾；一 · 为什么取 min；二 · 枢纽问题；三 · 代价；四 · pin-count 守恒什么；五 · 平票；六 · 从一对到一簇；小结
+- 实验演示：从真实页面录制（video/m02-affinity-metrics/walkthrough.mjs）。
 
 ## 课件（16:9，页脚 Module 02 · p/total，讲稿放网页下方）
 

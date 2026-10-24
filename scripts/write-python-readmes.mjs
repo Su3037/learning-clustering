@@ -4,6 +4,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
+import os from 'node:os';
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..');
 const course = JSON.parse(fs.readFileSync(path.join(ROOT, 'content/course.json'), 'utf8'));
 for (const id of course.modules) {
@@ -16,7 +17,7 @@ for (const id of course.modules) {
   const numpy = id === 'm06-spectral-bisection' ? '\n可选：NumPy（检查器中“与 NumPy 对照”一项需要它；没有时报 SKIP，不算通过）。' : '';
   const md = `# ${m.display} ${m.title} · Python 练习包
 
-${m.pythonPackage.title}。来自 Learning Clustering 统一课程（${m.display}）。网页上的实验与挑战不需要 Python；这个包是可选的实现轨道。
+${m.pythonPackage.title}。来自 Learning Clustering 统一课程（${m.display}）。${m.codelab ? '这个练习也可以直接在模块页面的在线编程里完成，无需安装；这个包用于离线练习。' : '网页上的实验与挑战不需要 Python；这个包是可选的实现轨道。'}
 
 ## 环境
 
@@ -56,4 +57,59 @@ ${sample}
 `;
   fs.writeFileSync(path.join(dir, 'README.md'), md);
   console.log('README', id);
+  // English README for the English pack (python/<id>/en/), from module.en.json.
+  const enDir = path.join(dir, 'en'), enJson = path.join(ROOT, 'content/modules', id, 'module.en.json');
+  if (!fs.existsSync(enDir) || !fs.existsSync(enJson)) continue;
+  const e = { ...m, ...JSON.parse(fs.readFileSync(enJson, 'utf8')) };
+  e.pythonPackage = { ...m.pythonPackage, ...(e.pythonPackage || {}) };
+  // Run the English reference as it sits in the packed zip: next to fixtures/.
+  let sampleEn = sample;
+  if (fs.existsSync(path.join(enDir, 'reference.py'))) {
+    const tmp = fs.mkdtempSync(path.join(os.tmpdir(), `pack-${id}-`));
+    fs.copyFileSync(path.join(enDir, 'reference.py'), path.join(tmp, 'reference.py'));
+    if (fs.existsSync(path.join(dir, 'fixtures'))) fs.cpSync(path.join(dir, 'fixtures'), path.join(tmp, 'fixtures'), { recursive: true });
+    try { sampleEn = execFileSync('python3', ['reference.py'], { cwd: tmp, encoding: 'utf8', timeout: 20000 }).trim(); } catch (err) { sampleEn = `(run failed: ${err.message})`; }
+    fs.rmSync(tmp, { recursive: true, force: true });
+  }
+  fs.writeFileSync(path.join(enDir, 'README.md'), `# ${m.display} ${e.title} · Python exercise pack
+
+${e.pythonPackage.title}. From the Learning Clustering course (${m.display}). You can also do this exercise in the browser on the module page, with nothing to install; this pack is for working offline.
+
+## Requirements
+
+Python 3.9 or newer, standard library only. Unzip into any empty folder; nothing else from the course repository is needed.
+
+## Files
+
+| File | Purpose |
+| --- | --- |
+| \`starter.py\` | Starter code with TODOs (\`NotImplementedError\`) |
+| \`check.py\` | Checker: reports PASS / FAIL / INCOMPLETE / ERROR / SKIP for each check |
+| \`reference.py\` | Reference solution, for when you are stuck |
+| \`fixtures/\` | ${fixtures.map(f => `\`${f}\``).join(', ')} |
+
+## Running
+
+\`\`\`
+python3 check.py --lang en              # check starter.py (unfinished functions report INCOMPLETE, never PASS)
+python3 check.py reference.py --lang en # the reference passes every check
+python3 reference.py                    # the reference on this module's example
+\`\`\`
+
+The exit code is 0 when everything passes, and 1 on any FAIL, ERROR or INCOMPLETE. SKIP means an optional dependency was missing and the check did not run; it is not a pass. Set \`COURSE_LANG=en\` to drop the \`--lang en\`.
+
+${e.pythonPackage.md}
+
+## Output of the reference (actually run for this pack)
+
+\`\`\`
+${sampleEn}
+\`\`\`
+
+## Notes
+
+- The checker tests the hand-worked examples of the module and new examples that are not in the lesson, so memorised answers will not pass.
+- Original author: ${m.credits.student.name} (${m.sourceIssue.title}). This pack was written for the unified course; code under MIT.
+`);
+  console.log('README (en)', id);
 }

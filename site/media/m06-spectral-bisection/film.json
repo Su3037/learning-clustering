@@ -1,370 +1,1790 @@
 {
- "id": "spectral",
- "title": "给每个点一个数",
+ "schema": 2,
  "status": "ready",
- "src": "spectral.mp4",
- "vtt": "spectral.zh.vtt",
- "poster": "spectral-poster.jpg",
- "duration": 221.83,
- "chapters": [
+ "films": [
   {
-   "t": 3.0,
-   "title": "一 · 二分目标",
-   "sceneId": "s01-hook"
+   "id": "story",
+   "kind": "popular",
+   "status": "ready",
+   "title": {
+    "zh": "给每个点一个数",
+    "en": "A Number for Every Point"
+   },
+   "why": {
+    "zh": "五个朋友沿一条长凳站开，交情越深的橡皮筋越粗、拉得越紧；他们停下的位置就是 Fiedler 向量，剪刀逐个缝隙试一刀。还有镜像翻号、彼此不认识的两群人，以及 15 而不是 16。",
+    "en": "Five friends spread along a bench, tied by rubber bands that pull harder the closer they are; where they settle is the Fiedler vector, and scissors try every gap. Plus a mirror flip, two groups who never met, and 15, not 16."
+   },
+   "music": {
+    "zh": "《We Never (Remix)（若如初见）》Hi Noise / 秋成（第三方录音，不在本课程许可范围内）",
+    "en": "“We Never (Remix)” by Hi Noise / 秋成 (third-party recording, not covered by this course's licences)"
+   },
+   "scenes": [
+    {
+     "sceneId": "p-open",
+     "start": 0.0,
+     "end": 10.75
+    },
+    {
+     "sceneId": "p-ask",
+     "start": 10.75,
+     "end": 17.41
+    },
+    {
+     "sceneId": "p-rule",
+     "start": 17.41,
+     "end": 32.03
+    },
+    {
+     "sceneId": "p-title",
+     "start": 32.03,
+     "end": 37.0
+    },
+    {
+     "sceneId": "p-settle",
+     "start": 37.0,
+     "end": 51.18
+    },
+    {
+     "sceneId": "p-numbers",
+     "start": 51.18,
+     "end": 63.15
+    },
+    {
+     "sceneId": "p-scissors",
+     "start": 63.15,
+     "end": 80.16
+    },
+    {
+     "sceneId": "p-mirror",
+     "start": 80.16,
+     "end": 89.0
+    },
+    {
+     "sceneId": "p-same",
+     "start": 89.0,
+     "end": 97.19
+    },
+    {
+     "sceneId": "p-breath",
+     "start": 97.19,
+     "end": 102.5
+    },
+    {
+     "sceneId": "p-apart",
+     "start": 102.5,
+     "end": 119.27
+    },
+    {
+     "sceneId": "p-count",
+     "start": 119.27,
+     "end": 134.16
+    },
+    {
+     "sceneId": "p-chip",
+     "start": 134.16,
+     "end": 141.5
+    },
+    {
+     "sceneId": "p-outro",
+     "start": 141.5,
+     "end": 170.6
+    },
+    {
+     "sceneId": "p-end",
+     "start": 170.6,
+     "end": 189.82
+    }
+   ],
+   "fps": 30,
+   "size": [
+    1920,
+    1080
+   ],
+   "versions": {
+    "zh": {
+     "src": "story.zh.mp4",
+     "vtt": "story.zh.vtt",
+     "poster": "story.zh.jpg",
+     "duration": 189.83,
+     "captions": "zh+en",
+     "chapters": [
+      {
+       "t": 0.0,
+       "title": "序 · 一条线",
+       "sceneId": "p-open"
+      },
+      {
+       "t": 37.0,
+       "title": "一 · 站好",
+       "sceneId": "p-settle"
+      },
+      {
+       "t": 63.15,
+       "title": "二 · 剪刀",
+       "sceneId": "p-scissors"
+      },
+      {
+       "t": 102.5,
+       "title": "三 · 断开",
+       "sceneId": "p-apart"
+      },
+      {
+       "t": 119.27,
+       "title": "四 · 数一数",
+       "sceneId": "p-count"
+      },
+      {
+       "t": 141.5,
+       "title": "尾声",
+       "sceneId": "p-outro"
+      }
+     ],
+     "transcript": [
+      {
+       "start": 0.0,
+       "end": 4.6,
+       "text": "还是那五个朋友。",
+       "sceneId": "p-open"
+      },
+      {
+       "start": 4.6,
+       "end": 9.4,
+       "text": "这次，他们要在一条长凳上站成一排。",
+       "sceneId": "p-open"
+      },
+      {
+       "start": 10.75,
+       "end": 13.35,
+       "text": "每人一个位置——",
+       "sceneId": "p-ask"
+      },
+      {
+       "start": 13.35,
+       "end": 16.35,
+       "text": "站哪里？",
+       "sceneId": "p-ask"
+      },
+      {
+       "start": 17.41,
+       "end": 22.41,
+       "text": "交情越深，橡皮筋越粗，拉得越紧。",
+       "sceneId": "p-rule"
+      },
+      {
+       "start": 22.41,
+       "end": 27.21,
+       "text": "总拉力：粗细乘以距离的平方，加起来。",
+       "sceneId": "p-rule"
+      },
+      {
+       "start": 27.21,
+       "end": 31.81,
+       "text": "不许挤在一点，散开后让拉力最小。",
+       "sceneId": "p-rule"
+      },
+      {
+       "start": 37.0,
+       "end": 41.2,
+       "text": "放手，让橡皮筋把大家拉到位。",
+       "sceneId": "p-settle"
+      },
+      {
+       "start": 41.2,
+       "end": 44.4,
+       "text": "交情深的被拉到一起。",
+       "sceneId": "p-settle"
+      },
+      {
+       "start": 44.4,
+       "end": 50.978,
+       "text": "Eva、Dev 在左，Ben、Ada 在右，Cai 居中。",
+       "sceneId": "p-settle"
+      },
+      {
+       "start": 51.18,
+       "end": 54.18,
+       "text": "读出每个人的位置。",
+       "sceneId": "p-numbers"
+      },
+      {
+       "start": 54.18,
+       "end": 58.313,
+       "text": "这串数就是 Fiedler 向量。",
+       "sceneId": "p-numbers"
+      },
+      {
+       "start": 58.313,
+       "end": 61.713,
+       "text": "交情深的人，数靠得近。",
+       "sceneId": "p-numbers"
+      },
+      {
+       "start": 63.15,
+       "end": 67.506,
+       "text": "现在，沿着长凳，每个缝隙试一刀。",
+       "sceneId": "p-scissors"
+      },
+      {
+       "start": 67.506,
+       "end": 71.417,
+       "text": "拆散的交情：6、3、5、6。",
+       "sceneId": "p-scissors"
+      },
+      {
+       "start": 71.417,
+       "end": 75.994,
+       "text": "两边各两三个人：选 3，不是正中间。",
+       "sceneId": "p-scissors"
+      },
+      {
+       "start": 80.16,
+       "end": 83.56,
+       "text": "把每个数都乘以负一——",
+       "sceneId": "p-mirror"
+      },
+      {
+       "start": 83.56,
+       "end": 86.56,
+       "text": "整排镜像翻过去。",
+       "sceneId": "p-mirror"
+      },
+      {
+       "start": 89.0,
+       "end": 93.133,
+       "text": "还是同一刀，只是左右换了名字。",
+       "sceneId": "p-same"
+      },
+      {
+       "start": 93.133,
+       "end": 96.133,
+       "text": "翻号不是新答案。",
+       "sceneId": "p-same"
+      },
+      {
+       "start": 102.5,
+       "end": 106.411,
+       "text": "如果是两群彼此不认识的人呢？",
+       "sceneId": "p-apart"
+      },
+      {
+       "start": 106.411,
+       "end": 110.211,
+       "text": "同一群的人挤在同一个数上。",
+       "sceneId": "p-apart"
+      },
+      {
+       "start": 110.211,
+       "end": 116.211,
+       "text": "这时 λ₂ = 0：数只说明谁连着谁。先检查连通。",
+       "sceneId": "p-apart"
+      },
+      {
+       "start": 119.27,
+       "end": 122.959,
+       "text": "五个人分两边，有几种分法？",
+       "sceneId": "p-count"
+      },
+      {
+       "start": 122.959,
+       "end": 127.759,
+       "text": "每人左或右：32 种，去掉全左、全右。",
+       "sceneId": "p-count"
+      },
+      {
+       "start": 127.759,
+       "end": 132.337,
+       "text": "左右交换算一种：15 种，不是 16。",
+       "sceneId": "p-count"
+      },
+      {
+       "start": 134.16,
+       "end": 139.56,
+       "text": "芯片上，这一刀常常是划分的起点。",
+       "sceneId": "p-chip"
+      },
+      {
+       "start": 141.5,
+       "end": 147.5,
+       "text": "一个数，来自整张图。",
+       "sceneId": "p-outro"
+      },
+      {
+       "start": 147.5,
+       "end": 153.5,
+       "text": "沿着数轴，每个缝隙都试一刀。",
+       "sceneId": "p-outro"
+      },
+      {
+       "start": 153.5,
+       "end": 160.5,
+       "text": "得到的是好的候选，不是最优的保证。",
+       "sceneId": "p-outro"
+      },
+      {
+       "start": 160.5,
+       "end": 168.5,
+       "text": "切好之后，换一换两边的人呢？下一章见。",
+       "sceneId": "p-outro"
+      },
+      {
+       "start": 170.6,
+       "end": 176.6,
+       "text": "下面的实验里，改边权，看数轴怎么动。",
+       "sceneId": "p-end"
+      }
+     ],
+     "readingViolations": 0,
+     "bytes": 7915230
+    },
+    "en": {
+     "src": "story.en.mp4",
+     "vtt": "story.en.vtt",
+     "poster": "story.en.jpg",
+     "duration": 189.83,
+     "captions": "en",
+     "chapters": [
+      {
+       "t": 0.0,
+       "title": "PROLOGUE · ONE LINE",
+       "sceneId": "p-open"
+      },
+      {
+       "t": 37.0,
+       "title": "I · SETTLING",
+       "sceneId": "p-settle"
+      },
+      {
+       "t": 63.15,
+       "title": "II · SCISSORS",
+       "sceneId": "p-scissors"
+      },
+      {
+       "t": 102.5,
+       "title": "III · APART",
+       "sceneId": "p-apart"
+      },
+      {
+       "t": 119.27,
+       "title": "IV · COUNTING",
+       "sceneId": "p-count"
+      },
+      {
+       "t": 141.5,
+       "title": "CODA",
+       "sceneId": "p-outro"
+      }
+     ],
+     "transcript": [
+      {
+       "start": 0.0,
+       "end": 4.6,
+       "text": "The same five friends.",
+       "sceneId": "p-open"
+      },
+      {
+       "start": 4.6,
+       "end": 9.4,
+       "text": "This time they line up along one bench.",
+       "sceneId": "p-open"
+      },
+      {
+       "start": 10.75,
+       "end": 13.35,
+       "text": "Everyone gets a spot —",
+       "sceneId": "p-ask"
+      },
+      {
+       "start": 13.35,
+       "end": 16.35,
+       "text": "but where?",
+       "sceneId": "p-ask"
+      },
+      {
+       "start": 17.41,
+       "end": 22.41,
+       "text": "Closer friends, thicker bands, harder pull.",
+       "sceneId": "p-rule"
+      },
+      {
+       "start": 22.41,
+       "end": 27.21,
+       "text": "Total pull: thickness times distance squared, added up.",
+       "sceneId": "p-rule"
+      },
+      {
+       "start": 27.21,
+       "end": 31.81,
+       "text": "No huddling on one spot: spread out, with the least pull.",
+       "sceneId": "p-rule"
+      },
+      {
+       "start": 37.0,
+       "end": 41.2,
+       "text": "Let go, and the bands pull everyone into place.",
+       "sceneId": "p-settle"
+      },
+      {
+       "start": 41.2,
+       "end": 44.4,
+       "text": "Close friends are pulled together.",
+       "sceneId": "p-settle"
+      },
+      {
+       "start": 44.4,
+       "end": 50.978,
+       "text": "Eva, Dev left; Ben, Ada right; Cai between.",
+       "sceneId": "p-settle"
+      },
+      {
+       "start": 51.18,
+       "end": 54.18,
+       "text": "Read off each person's position.",
+       "sceneId": "p-numbers"
+      },
+      {
+       "start": 54.18,
+       "end": 58.313,
+       "text": "That list of numbers is the Fiedler vector.",
+       "sceneId": "p-numbers"
+      },
+      {
+       "start": 58.313,
+       "end": 61.713,
+       "text": "Close friends get close numbers.",
+       "sceneId": "p-numbers"
+      },
+      {
+       "start": 63.15,
+       "end": 67.506,
+       "text": "Now try a cut at every gap along the bench.",
+       "sceneId": "p-scissors"
+      },
+      {
+       "start": 67.506,
+       "end": 71.417,
+       "text": "Friendship split: 6, 3, 5, 6.",
+       "sceneId": "p-scissors"
+      },
+      {
+       "start": 71.417,
+       "end": 75.994,
+       "text": "Two or three a side: take 3, not the middle.",
+       "sceneId": "p-scissors"
+      },
+      {
+       "start": 80.16,
+       "end": 83.56,
+       "text": "Multiply every number by minus one —",
+       "sceneId": "p-mirror"
+      },
+      {
+       "start": 83.56,
+       "end": 86.56,
+       "text": "the whole line mirrors over.",
+       "sceneId": "p-mirror"
+      },
+      {
+       "start": 89.0,
+       "end": 93.133,
+       "text": "Still the same cut, with left and right renamed.",
+       "sceneId": "p-same"
+      },
+      {
+       "start": 93.133,
+       "end": 96.133,
+       "text": "A sign flip is not a new answer.",
+       "sceneId": "p-same"
+      },
+      {
+       "start": 102.5,
+       "end": 106.411,
+       "text": "What if they are two groups who never met?",
+       "sceneId": "p-apart"
+      },
+      {
+       "start": 106.411,
+       "end": 110.211,
+       "text": "Everyone in a group lands on the same number.",
+       "sceneId": "p-apart"
+      },
+      {
+       "start": 110.211,
+       "end": 116.211,
+       "text": "Then λ₂ = 0: the numbers only say who connects. Check connectivity first.",
+       "sceneId": "p-apart"
+      },
+      {
+       "start": 119.27,
+       "end": 122.959,
+       "text": "How many ways to split five people in two?",
+       "sceneId": "p-count"
+      },
+      {
+       "start": 122.959,
+       "end": 127.759,
+       "text": "Left or right each: 32, minus all-left and all-right.",
+       "sceneId": "p-count"
+      },
+      {
+       "start": 127.759,
+       "end": 132.337,
+       "text": "Swapping sides is the same: 15, not 16.",
+       "sceneId": "p-count"
+      },
+      {
+       "start": 134.16,
+       "end": 139.56,
+       "text": "On a chip, this cut is often where partitioning starts.",
+       "sceneId": "p-chip"
+      },
+      {
+       "start": 141.5,
+       "end": 147.5,
+       "text": "One number each, from the whole graph.",
+       "sceneId": "p-outro"
+      },
+      {
+       "start": 147.5,
+       "end": 153.5,
+       "text": "Along the line, try every gap.",
+       "sceneId": "p-outro"
+      },
+      {
+       "start": 153.5,
+       "end": 160.5,
+       "text": "What you get is a good candidate, not a guarantee.",
+       "sceneId": "p-outro"
+      },
+      {
+       "start": 160.5,
+       "end": 168.5,
+       "text": "After the cut, what about swapping people across? See the next module.",
+       "sceneId": "p-outro"
+      },
+      {
+       "start": 170.6,
+       "end": 176.6,
+       "text": "In the lab below, change a weight and watch the line move.",
+       "sceneId": "p-end"
+      }
+     ],
+     "readingViolations": 0,
+     "bytes": 7862393
+    }
+   }
   },
   {
-   "t": 38.51,
-   "title": "二 · 拉普拉斯矩阵",
-   "sceneId": "s03-lap"
+   "id": "concise",
+   "kind": "concise",
+   "status": "ready",
+   "title": {
+    "zh": "精讲：矩阵、数轴、扫描",
+    "en": "The essentials"
+   },
+   "why": {
+    "zh": "只讲必须掌握的：问题与平衡窗口、构造 L = D − A、二次型、Fiedler 排序、扫描 6 / 3 / 5 / 6，以及翻号与断开两条警告。",
+    "en": "Only what you must know: the problem and its balance window, building L = D − A, the quadratic form, the Fiedler order, the sweep 6 / 3 / 5 / 6, and two warnings: sign flips and disconnected graphs."
+   },
+   "music": {
+    "zh": "本课程原创程序合成配乐（NumPy），CC BY 4.0",
+    "en": "Original score synthesised for this course (NumPy), CC BY 4.0"
+   },
+   "scenes": [
+    {
+     "sceneId": "k00-title",
+     "start": 0.0,
+     "end": 3.4
+    },
+    {
+     "sceneId": "k01-problem",
+     "start": 3.4,
+     "end": 21.8
+    },
+    {
+     "sceneId": "k02-laplacian",
+     "start": 21.8,
+     "end": 35.09
+    },
+    {
+     "sceneId": "k03-quad",
+     "start": 35.09,
+     "end": 57.58
+    },
+    {
+     "sceneId": "k04-fiedler",
+     "start": 57.58,
+     "end": 73.04
+    },
+    {
+     "sceneId": "k05-sweep",
+     "start": 73.04,
+     "end": 88.89
+    },
+    {
+     "sceneId": "k06-warn",
+     "start": 88.89,
+     "end": 105.2
+    },
+    {
+     "sceneId": "k07-take",
+     "start": 105.2,
+     "end": 122.11
+    }
+   ],
+   "fps": 30,
+   "size": [
+    1920,
+    1080
+   ],
+   "versions": {
+    "zh": {
+     "src": "concise.zh.mp4",
+     "vtt": "concise.zh.vtt",
+     "poster": "concise.zh.jpg",
+     "duration": 122.1,
+     "captions": "zh+en",
+     "chapters": [
+      {
+       "t": 3.4,
+       "title": "问题",
+       "sceneId": "k01-problem"
+      },
+      {
+       "t": 21.8,
+       "title": "拉普拉斯矩阵",
+       "sceneId": "k02-laplacian"
+      },
+      {
+       "t": 35.09,
+       "title": "二次型",
+       "sceneId": "k03-quad"
+      },
+      {
+       "t": 57.58,
+       "title": "Fiedler 向量",
+       "sceneId": "k04-fiedler"
+      },
+      {
+       "t": 73.04,
+       "title": "扫描",
+       "sceneId": "k05-sweep"
+      },
+      {
+       "t": 88.89,
+       "title": "警告",
+       "sceneId": "k06-warn"
+      },
+      {
+       "t": 105.2,
+       "title": "小结",
+       "sceneId": "k07-take"
+      }
+     ],
+     "transcript": [
+      {
+       "start": 3.4,
+       "end": 7.533,
+       "text": "谱二分要把一张图分成两组。",
+       "sceneId": "k01-problem"
+      },
+      {
+       "start": 7.533,
+       "end": 9.8,
+       "text": "两组都非空。",
+       "sceneId": "k01-problem"
+      },
+      {
+       "start": 9.8,
+       "end": 17.267,
+       "text": "还要声明平衡窗口：这里每组 2 到 3 个，在窗口内让 cut 尽量小。",
+       "sceneId": "k01-problem"
+      },
+      {
+       "start": 17.267,
+       "end": 21.4,
+       "text": "5 个节点一共有 15 种非空二分。",
+       "sceneId": "k01-problem"
+      },
+      {
+       "start": 21.8,
+       "end": 26.6,
+       "text": "第一步，构造拉普拉斯矩阵 L = D − A。",
+       "sceneId": "k02-laplacian"
+      },
+      {
+       "start": 26.6,
+       "end": 32.289,
+       "text": "A 行：度 5 + 1 = 6，和 B 是 −5，和 C 是 −1。",
+       "sceneId": "k02-laplacian"
+      },
+      {
+       "start": 32.289,
+       "end": 34.689,
+       "text": "每行和都是 0。",
+       "sceneId": "k02-laplacian"
+      },
+      {
+       "start": 35.089,
+       "end": 42.089,
+       "text": "为什么用 L？看二次型：每条边贡献 w 乘以两端之差的平方。",
+       "sceneId": "k03-quad"
+      },
+      {
+       "start": 42.089,
+       "end": 46.689,
+       "text": "边越重，两端的数就越要接近。",
+       "sceneId": "k03-quad"
+      },
+      {
+       "start": 46.689,
+       "end": 52.6,
+       "text": "在与全 1 正交、长度为 1 的向量里，最小值是 λ₂。",
+       "sceneId": "k03-quad"
+      },
+      {
+       "start": 52.6,
+       "end": 57.178,
+       "text": "取到它的，就是 Fiedler 向量。",
+       "sceneId": "k03-quad"
+      },
+      {
+       "start": 57.578,
+       "end": 63.267,
+       "text": "G01 的 Fiedler 向量给每个节点一个数。",
+       "sceneId": "k04-fiedler"
+      },
+      {
+       "start": 63.267,
+       "end": 66.956,
+       "text": "排序：E、D、C、B、A。",
+       "sceneId": "k04-fiedler"
+      },
+      {
+       "start": 66.956,
+       "end": 72.644,
+       "text": "连得紧的靠在一起；C 和两边都有边，落在中间。",
+       "sceneId": "k04-fiedler"
+      },
+      {
+       "start": 73.044,
+       "end": 77.778,
+       "text": "沿排序，在每个相邻位置之间试切。",
+       "sceneId": "k05-sweep"
+      },
+      {
+       "start": 77.778,
+       "end": 81.689,
+       "text": "cut 依次是 6、3、5、6。",
+       "sceneId": "k05-sweep"
+      },
+      {
+       "start": 81.689,
+       "end": 88.489,
+       "text": "窗口内只有 k = 2 和 3：选 cut 3 的 k = 2，不是正中间。",
+       "sceneId": "k05-sweep"
+      },
+      {
+       "start": 88.889,
+       "end": 94.133,
+       "text": "两条警告。第一，翻号：−x 也是特征向量。",
+       "sceneId": "k06-warn"
+      },
+      {
+       "start": 94.133,
+       "end": 98.267,
+       "text": "排序反向，同一刀只是左右互换。",
+       "sceneId": "k06-warn"
+      },
+      {
+       "start": 98.267,
+       "end": 104.8,
+       "text": "第二，图不连通时 λ₂ = 0，排序只反映分量。",
+       "sceneId": "k06-warn"
+      },
+      {
+       "start": 105.2,
+       "end": 107.333,
+       "text": "记住四点。",
+       "sceneId": "k07-take"
+      },
+      {
+       "start": 107.333,
+       "end": 110.6,
+       "text": "先声明非空与平衡窗口；",
+       "sceneId": "k07-take"
+      },
+      {
+       "start": 110.6,
+       "end": 115.178,
+       "text": "构造 L，按 Fiedler 排序扫描；",
+       "sceneId": "k07-take"
+      },
+      {
+       "start": 115.178,
+       "end": 120.711,
+       "text": "翻号不变，断开先查。下面的实验里试一试。",
+       "sceneId": "k07-take"
+      }
+     ],
+     "readingViolations": 0,
+     "bytes": 5261470
+    },
+    "en": {
+     "src": "concise.en.mp4",
+     "vtt": "concise.en.vtt",
+     "poster": "concise.en.jpg",
+     "duration": 122.1,
+     "captions": "en",
+     "chapters": [
+      {
+       "t": 3.4,
+       "title": "THE PROBLEM",
+       "sceneId": "k01-problem"
+      },
+      {
+       "t": 21.8,
+       "title": "THE LAPLACIAN",
+       "sceneId": "k02-laplacian"
+      },
+      {
+       "t": 35.09,
+       "title": "THE QUADRATIC FORM",
+       "sceneId": "k03-quad"
+      },
+      {
+       "t": 57.58,
+       "title": "THE FIEDLER VECTOR",
+       "sceneId": "k04-fiedler"
+      },
+      {
+       "t": 73.04,
+       "title": "THE SWEEP",
+       "sceneId": "k05-sweep"
+      },
+      {
+       "t": 88.89,
+       "title": "WARNINGS",
+       "sceneId": "k06-warn"
+      },
+      {
+       "t": 105.2,
+       "title": "SUMMARY",
+       "sceneId": "k07-take"
+      }
+     ],
+     "transcript": [
+      {
+       "start": 3.4,
+       "end": 7.533,
+       "text": "Spectral bisection splits a graph into two groups.",
+       "sceneId": "k01-problem"
+      },
+      {
+       "start": 7.533,
+       "end": 9.8,
+       "text": "Both groups non-empty.",
+       "sceneId": "k01-problem"
+      },
+      {
+       "start": 9.8,
+       "end": 17.267,
+       "text": "And a declared balance window, here 2 to 3 a side; inside it, make the cut small.",
+       "sceneId": "k01-problem"
+      },
+      {
+       "start": 17.267,
+       "end": 21.4,
+       "text": "Five nodes have 15 non-empty bipartitions.",
+       "sceneId": "k01-problem"
+      },
+      {
+       "start": 21.8,
+       "end": 26.6,
+       "text": "Step one: build the Laplacian L = D − A.",
+       "sceneId": "k02-laplacian"
+      },
+      {
+       "start": 26.6,
+       "end": 32.289,
+       "text": "Row A: degree 5 + 1 = 6, −5 to B, −1 to C.",
+       "sceneId": "k02-laplacian"
+      },
+      {
+       "start": 32.289,
+       "end": 34.689,
+       "text": "Every row sums to 0.",
+       "sceneId": "k02-laplacian"
+      },
+      {
+       "start": 35.089,
+       "end": 42.089,
+       "text": "Why L? Look at the quadratic form: each edge adds w times the squared difference of its ends.",
+       "sceneId": "k03-quad"
+      },
+      {
+       "start": 42.089,
+       "end": 46.689,
+       "text": "The heavier the edge, the closer its two numbers must be.",
+       "sceneId": "k03-quad"
+      },
+      {
+       "start": 46.689,
+       "end": 52.6,
+       "text": "Among unit vectors orthogonal to all-ones, the minimum is λ₂.",
+       "sceneId": "k03-quad"
+      },
+      {
+       "start": 52.6,
+       "end": 57.178,
+       "text": "The vector that attains it is the Fiedler vector.",
+       "sceneId": "k03-quad"
+      },
+      {
+       "start": 57.578,
+       "end": 63.267,
+       "text": "G01's Fiedler vector gives each node a number.",
+       "sceneId": "k04-fiedler"
+      },
+      {
+       "start": 63.267,
+       "end": 66.956,
+       "text": "The order: E, D, C, B, A.",
+       "sceneId": "k04-fiedler"
+      },
+      {
+       "start": 66.956,
+       "end": 72.644,
+       "text": "Tightly linked nodes sit together; C, linked to both sides, sits between.",
+       "sceneId": "k04-fiedler"
+      },
+      {
+       "start": 73.044,
+       "end": 77.778,
+       "text": "Along the order, try a cut between each pair of neighbours.",
+       "sceneId": "k05-sweep"
+      },
+      {
+       "start": 77.778,
+       "end": 81.689,
+       "text": "The cuts are 6, 3, 5, 6.",
+       "sceneId": "k05-sweep"
+      },
+      {
+       "start": 81.689,
+       "end": 88.489,
+       "text": "Only k = 2 and 3 are in the window: choose k = 2 with cut 3, not the middle.",
+       "sceneId": "k05-sweep"
+      },
+      {
+       "start": 88.889,
+       "end": 94.133,
+       "text": "Two warnings. First, the sign: −x is an eigenvector too.",
+       "sceneId": "k06-warn"
+      },
+      {
+       "start": 94.133,
+       "end": 98.267,
+       "text": "The order reverses; the same cut just swaps sides.",
+       "sceneId": "k06-warn"
+      },
+      {
+       "start": 98.267,
+       "end": 104.8,
+       "text": "Second, when the graph is disconnected λ₂ = 0, and the order only reflects components.",
+       "sceneId": "k06-warn"
+      },
+      {
+       "start": 105.2,
+       "end": 107.333,
+       "text": "Four things to keep.",
+       "sceneId": "k07-take"
+      },
+      {
+       "start": 107.333,
+       "end": 110.6,
+       "text": "Declare non-empty sides and a window;",
+       "sceneId": "k07-take"
+      },
+      {
+       "start": 110.6,
+       "end": 115.178,
+       "text": "build L, sort by Fiedler, sweep;",
+       "sceneId": "k07-take"
+      },
+      {
+       "start": 115.178,
+       "end": 120.711,
+       "text": "Sign flips change nothing; check connectivity. Try it in the lab below.",
+       "sceneId": "k07-take"
+      }
+     ],
+     "readingViolations": 0,
+     "bytes": 5411404
+    }
+   }
   },
   {
-   "t": 59.93,
-   "title": "三 · 二次型直觉",
-   "sceneId": "s04-quad"
+   "id": "advanced",
+   "kind": "advanced",
+   "status": "ready",
+   "title": {
+    "zh": "进阶：松弛、取整与数值",
+    "en": "In depth: relaxation and rounding"
+   },
+   "why": {
+    "zh": "cut 在 ±1 向量上是二次型、放宽成实数为什么得到特征向量、扫描取整与正负号取整、为什么要平衡窗口、简并与零特征值，以及残差和求解器。",
+    "en": "The cut as a quadratic form on ±1 vectors, why relaxing to real numbers gives an eigenvector, rounding by a sweep versus by sign, why a balance window, repeated and zero eigenvalues, and residuals and solvers."
+   },
+   "music": {
+    "zh": "本课程原创程序合成配乐（NumPy），CC BY 4.0",
+    "en": "Original score synthesised for this course (NumPy), CC BY 4.0"
+   },
+   "scenes": [
+    {
+     "sceneId": "a00-title",
+     "start": 0.0,
+     "end": 3.4
+    },
+    {
+     "sceneId": "a01-cutform",
+     "start": 3.4,
+     "end": 21.13
+    },
+    {
+     "sceneId": "a02-relax",
+     "start": 21.13,
+     "end": 44.4
+    },
+    {
+     "sceneId": "a03-round",
+     "start": 44.4,
+     "end": 62.38
+    },
+    {
+     "sceneId": "a04-window",
+     "start": 62.38,
+     "end": 82.64
+    },
+    {
+     "sceneId": "a05-degenerate",
+     "start": 82.64,
+     "end": 100.78
+    },
+    {
+     "sceneId": "a06-numerics",
+     "start": 100.78,
+     "end": 125.47
+    },
+    {
+     "sceneId": "a07-summary",
+     "start": 125.47,
+     "end": 146.73
+    }
+   ],
+   "fps": 30,
+   "size": [
+    1920,
+    1080
+   ],
+   "versions": {
+    "zh": {
+     "src": "advanced.zh.mp4",
+     "vtt": "advanced.zh.vtt",
+     "poster": "advanced.zh.jpg",
+     "duration": 146.73,
+     "captions": "zh+en",
+     "chapters": [
+      {
+       "t": 3.4,
+       "title": "一 · cut 是二次型",
+       "sceneId": "a01-cutform"
+      },
+      {
+       "t": 21.13,
+       "title": "二 · 松弛",
+       "sceneId": "a02-relax"
+      },
+      {
+       "t": 44.4,
+       "title": "三 · 取整",
+       "sceneId": "a03-round"
+      },
+      {
+       "t": 62.38,
+       "title": "四 · 平衡窗口",
+       "sceneId": "a04-window"
+      },
+      {
+       "t": 82.64,
+       "title": "五 · 简并",
+       "sceneId": "a05-degenerate"
+      },
+      {
+       "t": 100.78,
+       "title": "六 · 数值",
+       "sceneId": "a06-numerics"
+      },
+      {
+       "t": 125.47,
+       "title": "小结",
+       "sceneId": "a07-summary"
+      }
+     ],
+     "transcript": [
+      {
+       "start": 3.4,
+       "end": 8.422,
+       "text": "给每个节点贴 +1 或 −1，表示在哪一侧。",
+       "sceneId": "a01-cutform"
+      },
+      {
+       "start": 8.422,
+       "end": 14.156,
+       "text": "同侧的边差为 0，跨侧的边差的平方是 4。",
+       "sceneId": "a01-cutform"
+      },
+      {
+       "start": 14.156,
+       "end": 20.733,
+       "text": "所以 xᵀLx 恰好是 cut 的 4 倍：DE | ABC 得 12。",
+       "sceneId": "a01-cutform"
+      },
+      {
+       "start": 21.133,
+       "end": 29.0,
+       "text": "只允许 ±1，就得试遍所有分法。放宽成实数，问题变成求特征向量。",
+       "sceneId": "a02-relax"
+      },
+      {
+       "start": 29.0,
+       "end": 37.133,
+       "text": "同样单位长度：分组向量是 2.50，Fiedler 向量只有 1.77。",
+       "sceneId": "a02-relax"
+      },
+      {
+       "start": 37.133,
+       "end": 44.0,
+       "text": "λ₂ 是放宽后的最小值；代价是答案不再是 ±1，必须取整。",
+       "sceneId": "a02-relax"
+      },
+      {
+       "start": 44.4,
+       "end": 49.467,
+       "text": "最简单的取整：按正负号切，只试阈值 0。",
+       "sceneId": "a03-round"
+      },
+      {
+       "start": 49.467,
+       "end": 56.044,
+       "text": "它不看平衡：在重叶子的星形图上，一侧可能只剩一个点。",
+       "sceneId": "a03-round"
+      },
+      {
+       "start": 56.044,
+       "end": 61.978,
+       "text": "本课程试遍 n − 1 个阈值，只在窗口内取最小。",
+       "sceneId": "a03-round"
+      },
+      {
+       "start": 62.378,
+       "end": 66.733,
+       "text": "为什么要平衡窗口？比较三种约束。",
+       "sceneId": "a04-window"
+      },
+      {
+       "start": 66.733,
+       "end": 72.2,
+       "text": "孤立一个点最少要切 6；不限的话，最小是 3。",
+       "sceneId": "a04-window"
+      },
+      {
+       "start": 72.2,
+       "end": 75.667,
+       "text": "40/60 窗口里也是 3。",
+       "sceneId": "a04-window"
+      },
+      {
+       "start": 75.667,
+       "end": 82.244,
+       "text": "“无约束总切单点”不对；正确说法是可能切出过小的组。",
+       "sceneId": "a04-window"
+      },
+      {
+       "start": 82.644,
+       "end": 87.222,
+       "text": "四节点环的特征值：0、2、2、4。",
+       "sceneId": "a05-degenerate"
+      },
+      {
+       "start": 87.222,
+       "end": 93.356,
+       "text": "λ₂ = λ₃：第二特征向量不唯一，任何方向都合法。",
+       "sceneId": "a05-degenerate"
+      },
+      {
+       "start": 93.356,
+       "end": 100.378,
+       "text": "G01 的间隙有 6.68，排序稳定；间隙越小越容易被扰动。",
+       "sceneId": "a05-degenerate"
+      },
+      {
+       "start": 100.778,
+       "end": 104.311,
+       "text": "向量真不真，看残差。",
+       "sceneId": "a06-numerics"
+      },
+      {
+       "start": 104.311,
+       "end": 111.333,
+       "text": "原作存储的三位小数是 0.0044；实时求解是 10⁻¹⁵。",
+       "sceneId": "a06-numerics"
+      },
+      {
+       "start": 111.333,
+       "end": 117.6,
+       "text": "0.0044 是舍入，够展示，但改图后不会重算。",
+       "sceneId": "a06-numerics"
+      },
+      {
+       "start": 117.6,
+       "end": 125.067,
+       "text": "大电路用 Lanczos 这类稀疏迭代法，只求最小的几个特征对。",
+       "sceneId": "a06-numerics"
+      },
+      {
+       "start": 125.467,
+       "end": 127.533,
+       "text": "六点小结。",
+       "sceneId": "a07-summary"
+      },
+      {
+       "start": 140.533,
+       "end": 145.333,
+       "text": "下一章：在这一刀上，交换两边的节点。",
+       "sceneId": "a07-summary"
+      }
+     ],
+     "readingViolations": 0,
+     "bytes": 6367174
+    },
+    "en": {
+     "src": "advanced.en.mp4",
+     "vtt": "advanced.en.vtt",
+     "poster": "advanced.en.jpg",
+     "duration": 146.73,
+     "captions": "en",
+     "chapters": [
+      {
+       "t": 3.4,
+       "title": "I · THE CUT AS A QUADRATIC FORM",
+       "sceneId": "a01-cutform"
+      },
+      {
+       "t": 21.13,
+       "title": "II · RELAXATION",
+       "sceneId": "a02-relax"
+      },
+      {
+       "t": 44.4,
+       "title": "III · ROUNDING",
+       "sceneId": "a03-round"
+      },
+      {
+       "t": 62.38,
+       "title": "IV · THE BALANCE WINDOW",
+       "sceneId": "a04-window"
+      },
+      {
+       "t": 82.64,
+       "title": "V · REPEATED EIGENVALUES",
+       "sceneId": "a05-degenerate"
+      },
+      {
+       "t": 100.78,
+       "title": "VI · NUMERICS",
+       "sceneId": "a06-numerics"
+      },
+      {
+       "t": 125.47,
+       "title": "SUMMARY",
+       "sceneId": "a07-summary"
+      }
+     ],
+     "transcript": [
+      {
+       "start": 3.4,
+       "end": 8.422,
+       "text": "Mark each node +1 or −1 for its side.",
+       "sceneId": "a01-cutform"
+      },
+      {
+       "start": 8.422,
+       "end": 14.156,
+       "text": "A same-side edge contributes 0; a crossing edge's squared difference is 4.",
+       "sceneId": "a01-cutform"
+      },
+      {
+       "start": 14.156,
+       "end": 20.733,
+       "text": "So xᵀLx is exactly 4 times the cut: 12 for DE | ABC.",
+       "sceneId": "a01-cutform"
+      },
+      {
+       "start": 21.133,
+       "end": 29.0,
+       "text": "Allow only ±1 and you must try every split. Loosen to real numbers, and it becomes an eigenvector problem.",
+       "sceneId": "a02-relax"
+      },
+      {
+       "start": 29.0,
+       "end": 37.133,
+       "text": "At the same unit length: the split vector gives 2.50, the Fiedler vector only 1.77.",
+       "sceneId": "a02-relax"
+      },
+      {
+       "start": 37.133,
+       "end": 44.0,
+       "text": "λ₂ is the relaxed minimum; the price is an answer that is no longer ±1 and must be rounded.",
+       "sceneId": "a02-relax"
+      },
+      {
+       "start": 44.4,
+       "end": 49.467,
+       "text": "The simplest rounding: cut by sign, trying only the threshold 0.",
+       "sceneId": "a03-round"
+      },
+      {
+       "start": 49.467,
+       "end": 56.044,
+       "text": "It ignores balance: on a star with a heavy leaf, one side can hold a single node.",
+       "sceneId": "a03-round"
+      },
+      {
+       "start": 56.044,
+       "end": 61.978,
+       "text": "This course tries all n − 1 thresholds and takes the least inside the window.",
+       "sceneId": "a03-round"
+      },
+      {
+       "start": 62.378,
+       "end": 66.733,
+       "text": "Why a balance window? Compare three constraints.",
+       "sceneId": "a04-window"
+      },
+      {
+       "start": 66.733,
+       "end": 72.2,
+       "text": "Isolating one node cuts at least 6; with no limit, the least is 3.",
+       "sceneId": "a04-window"
+      },
+      {
+       "start": 72.2,
+       "end": 75.667,
+       "text": "Inside the 40/60 window it is also 3.",
+       "sceneId": "a04-window"
+      },
+      {
+       "start": 75.667,
+       "end": 82.244,
+       "text": "“No constraint always cuts off one node” is wrong; a group can come out too small.",
+       "sceneId": "a04-window"
+      },
+      {
+       "start": 82.644,
+       "end": 87.222,
+       "text": "The four-node ring's eigenvalues: 0, 2, 2, 4.",
+       "sceneId": "a05-degenerate"
+      },
+      {
+       "start": 87.222,
+       "end": 93.356,
+       "text": "λ₂ = λ₃: the second eigenvector is not unique; any direction is valid.",
+       "sceneId": "a05-degenerate"
+      },
+      {
+       "start": 93.356,
+       "end": 100.378,
+       "text": "G01's gap is 6.68, a stable order; the smaller the gap, the more fragile.",
+       "sceneId": "a05-degenerate"
+      },
+      {
+       "start": 100.778,
+       "end": 104.311,
+       "text": "Is the vector genuine? Read the residual.",
+       "sceneId": "a06-numerics"
+      },
+      {
+       "start": 104.311,
+       "end": 111.333,
+       "text": "The original's three stored decimals give 0.0044; the live solve gives 10⁻¹⁵.",
+       "sceneId": "a06-numerics"
+      },
+      {
+       "start": 111.333,
+       "end": 117.6,
+       "text": "0.0044 is rounding: fine for display, but never recomputed when the graph changes.",
+       "sceneId": "a06-numerics"
+      },
+      {
+       "start": 117.6,
+       "end": 125.067,
+       "text": "Large circuits use sparse iterative methods like Lanczos, for only the smallest eigenpairs.",
+       "sceneId": "a06-numerics"
+      },
+      {
+       "start": 125.467,
+       "end": 127.533,
+       "text": "Six things to keep.",
+       "sceneId": "a07-summary"
+      },
+      {
+       "start": 140.533,
+       "end": 145.333,
+       "text": "Next: improve the cut by swapping nodes across it.",
+       "sceneId": "a07-summary"
+      }
+     ],
+     "readingViolations": 0,
+     "bytes": 6574125
+    }
+   }
   },
   {
-   "t": 85.98,
-   "title": "四 · Fiedler 向量",
-   "sceneId": "s05-fiedler"
-  },
-  {
-   "t": 107.36,
-   "title": "五 · 排序扫描",
-   "sceneId": "s06-sweep"
-  },
-  {
-   "t": 151.8,
-   "title": "六 · 纠正误解",
-   "sceneId": "s08-fix"
-  },
-  {
-   "t": 188.96,
-   "title": "七 · 伪代码与局限",
-   "sceneId": "s10-code"
+   "id": "lab",
+   "kind": "lab",
+   "status": "ready",
+   "title": {
+    "zh": "实验演示",
+    "en": "Lab Walkthrough"
+   },
+   "why": {
+    "zh": "从真实页面录下的操作演示：逐步构造 L、求 Fiedler 排序、沿数轴扫描四个切点，对照原作的三位小数向量，看断开的图怎样报警、改一条边权怎样让切点移动，再在浏览器里写完 laplacian()、sweep() 和 count_bipartitions() 并通过全部检查。",
+    "en": "Recorded from the real page: building L step by step, getting the Fiedler order, sweeping the four cut points along the number line, comparing the original's three-decimal vector, seeing how a disconnected graph raises a warning and how changing one weight moves the cut, then writing laplacian(), sweep() and count_bipartitions() in the browser and passing every check."
+   },
+   "music": {
+    "zh": "本课程原创程序合成配乐（NumPy），CC BY 4.0",
+    "en": "Original score synthesised for this course (NumPy), CC BY 4.0"
+   },
+   "recorded": "scripts/film/recorder.mjs + video/m06-spectral-bisection/walkthrough.mjs",
+   "fps": 30,
+   "size": [
+    1920,
+    1080
+   ],
+   "versions": {
+    "zh": {
+     "src": "lab.zh.mp4",
+     "vtt": "lab.zh.vtt",
+     "poster": "lab.zh.jpg",
+     "duration": 177.33,
+     "captions": "zh+en",
+     "chapters": [
+      {
+       "t": 0.0,
+       "title": "开始",
+       "sceneId": "title"
+      },
+      {
+       "t": 3.2,
+       "title": "实验台",
+       "sceneId": "shot-00"
+      },
+      {
+       "t": 60.4,
+       "title": "对照与警告",
+       "sceneId": "shot-06"
+      },
+      {
+       "t": 79.47,
+       "title": "实验台",
+       "sceneId": "shot-08"
+      },
+      {
+       "t": 90.67,
+       "title": "在线编程",
+       "sceneId": "shot-09"
+      },
+      {
+       "t": 150.02,
+       "title": "用你的代码跑",
+       "sceneId": "shot-15"
+      },
+      {
+       "t": 167.09,
+       "title": "挑战",
+       "sceneId": "shot-17"
+      }
+     ],
+     "transcript": [
+      {
+       "start": 3.2,
+       "end": 13.067,
+       "text": "这是本章的实验台：选例子、平衡窗口和特征向量的来源，还可以改任意一条边的权重。",
+       "sceneId": "shot-00"
+      },
+      {
+       "start": 13.067,
+       "end": 21.822,
+       "text": "播放从构造 L 开始：每条边给两个对角 +w、两个非对角 −w，每行和为 0。",
+       "sceneId": "shot-01"
+      },
+      {
+       "start": 21.822,
+       "end": 33.022,
+       "text": "第二步求特征值：λ₂ ≈ 1.7733，Fiedler 排序 E, D, C, B, A，数轴上排成一行。",
+       "sceneId": "shot-02"
+      },
+      {
+       "start": 33.022,
+       "end": 42.444,
+       "text": "开始扫描：k = 1 只切下 E，cut 6，但一边只有 1 个，不在 40/60 窗口内。",
+       "sceneId": "shot-03"
+      },
+      {
+       "start": 42.444,
+       "end": 50.089,
+       "text": "k = 2：ED | CBA，cut 3，在窗口内。金线就是这一刀。",
+       "sceneId": "shot-04"
+      },
+      {
+       "start": 50.089,
+       "end": 60.4,
+       "text": "跳到结束：k = 3 是 5，k = 4 不合法；选窗口内最小的 k = 2，DE | ABC，cut 3。",
+       "sceneId": "shot-05"
+      },
+      {
+       "start": 60.4,
+       "end": 71.156,
+       "text": "把来源换成原作存储的三位小数：排序相同，但残差是 0.0044，而实时求解约 10⁻¹⁵。",
+       "sceneId": "shot-06"
+      },
+      {
+       "start": 71.156,
+       "end": 79.467,
+       "text": "换成两个分量的断开图：λ₂ = 0，诊断区发出警告，排序只反映分量。",
+       "sceneId": "shot-07"
+      },
+      {
+       "start": 79.467,
+       "end": 90.667,
+       "text": "回到 G01，把 C–D 改成 6：C 被拉向 D、E，最好的一刀移到 k = 3，EDC | BA，cut 5。",
+       "sceneId": "shot-08"
+      },
+      {
+       "start": 90.667,
+       "end": 101.867,
+       "text": "在线编程：代码在浏览器里运行，不用安装 Python。Jacobi 求解器和扫描框架已经写好。",
+       "sceneId": "shot-09"
+      },
+      {
+       "start": 101.867,
+       "end": 109.511,
+       "text": "先运行检查：三个任务都还没写，结果是 INCOMPLETE。",
+       "sceneId": "shot-10"
+      },
+      {
+       "start": 109.511,
+       "end": 123.186,
+       "text": "任务一：构造 L。每条边做四处贡献：两个对角加 w，两个非对角减 w。",
+       "sceneId": "shot-11"
+      },
+      {
+       "start": 123.186,
+       "end": 136.285,
+       "text": "任务二：扫描。前 k 个为一组，每个切点算 cut，并检查两边大小是否都在窗口内。",
+       "sceneId": "shot-12"
+      },
+      {
+       "start": 136.285,
+       "end": 142.374,
+       "text": "任务三：2ⁿ 种标记去掉全左、全右，再除以 2。",
+       "sceneId": "shot-13"
+      },
+      {
+       "start": 142.374,
+       "end": 150.018,
+       "text": "运行检查：全部通过，包括残差、翻号等价和断开图的 λ₂ = 0。",
+       "sceneId": "shot-14"
+      },
+      {
+       "start": 150.018,
+       "end": 157.663,
+       "text": "下面用你写的函数跑一张新图：两个四节点块，由两根弱线相连。",
+       "sceneId": "shot-15"
+      },
+      {
+       "start": 157.663,
+       "end": 167.085,
+       "text": "你的扫描切在两块之间：WUVT | SRQP，cut 2，每个切点都与引擎一致。",
+       "sceneId": "shot-16"
+      },
+      {
+       "start": 167.085,
+       "end": 174.73,
+       "text": "最后做挑战题，确认自己真的懂了。结果只保存在你的浏览器里。",
+       "sceneId": "shot-17"
+      }
+     ],
+     "readingViolations": 0,
+     "bytes": 11287213
+    },
+    "en": {
+     "src": "lab.en.mp4",
+     "vtt": "lab.en.vtt",
+     "poster": "lab.en.jpg",
+     "duration": 169.77,
+     "captions": "en",
+     "chapters": [
+      {
+       "t": 0.0,
+       "title": "START",
+       "sceneId": "title"
+      },
+      {
+       "t": 3.2,
+       "title": "THE LAB",
+       "sceneId": "shot-00"
+      },
+      {
+       "t": 53.6,
+       "title": "CHECKS AND WARNINGS",
+       "sceneId": "shot-06"
+      },
+      {
+       "t": 75.0,
+       "title": "THE LAB",
+       "sceneId": "shot-08"
+      },
+      {
+       "t": 85.76,
+       "title": "CODE LAB",
+       "sceneId": "shot-09"
+      },
+      {
+       "t": 145.43,
+       "title": "YOUR CODE, VISUALISED",
+       "sceneId": "shot-15"
+      },
+      {
+       "t": 160.03,
+       "title": "CHALLENGES",
+       "sceneId": "shot-17"
+      }
+     ],
+     "transcript": [
+      {
+       "start": 3.2,
+       "end": 13.067,
+       "text": "This is the chapter's lab: choose an example, a balance window and where the eigenvector comes from, and change any edge's weight.",
+       "sceneId": "shot-00"
+      },
+      {
+       "start": 13.067,
+       "end": 22.667,
+       "text": "Playback starts by building L: each edge adds +w to two diagonal entries and −w to two off-diagonal ones; every row sums to 0.",
+       "sceneId": "shot-01"
+      },
+      {
+       "start": 22.667,
+       "end": 31.133,
+       "text": "Step two finds the eigenvalues: λ₂ ≈ 1.7733, and the Fiedler order E, D, C, B, A lines up on the number line.",
+       "sceneId": "shot-02"
+      },
+      {
+       "start": 31.133,
+       "end": 39.333,
+       "text": "The sweep begins: k = 1 cuts off only E, cut 6, but one side has a single node, outside the 40/60 window.",
+       "sceneId": "shot-03"
+      },
+      {
+       "start": 39.333,
+       "end": 45.133,
+       "text": "k = 2: ED | CBA, cut 3, inside the window. The gold line is this cut.",
+       "sceneId": "shot-04"
+      },
+      {
+       "start": 45.133,
+       "end": 53.6,
+       "text": "Jump to the end: k = 3 gives 5 and k = 4 is not legal; the least inside the window is k = 2, DE | ABC, cut 3.",
+       "sceneId": "shot-05"
+      },
+      {
+       "start": 53.6,
+       "end": 64.6,
+       "text": "Switch the source to the original's stored three decimals: the order is the same, but the residual is 0.0044, against about 10⁻¹⁵ when solved live.",
+       "sceneId": "shot-06"
+      },
+      {
+       "start": 64.6,
+       "end": 75.0,
+       "text": "Switch to the disconnected graph with two components: λ₂ = 0, the diagnostics raise a warning, and the order only reflects the components.",
+       "sceneId": "shot-07"
+      },
+      {
+       "start": 75.0,
+       "end": 85.763,
+       "text": "Back to G01, with C–D set to 6: C is pulled towards D and E, and the best cut moves to k = 3, EDC | BA, cut 5.",
+       "sceneId": "shot-08"
+      },
+      {
+       "start": 85.763,
+       "end": 95.963,
+       "text": "The code lab: your code runs in the browser, with no Python to install. The Jacobi solver and the bisection driver are already written.",
+       "sceneId": "shot-09"
+      },
+      {
+       "start": 95.963,
+       "end": 103.163,
+       "text": "Run the checks first: none of the three tasks is written yet, so the result is INCOMPLETE.",
+       "sceneId": "shot-10"
+      },
+      {
+       "start": 103.163,
+       "end": 117.824,
+       "text": "Task 1: build L. Each edge makes four contributions: +w on two diagonals, −w on two off-diagonals.",
+       "sceneId": "shot-11"
+      },
+      {
+       "start": 117.824,
+       "end": 130.232,
+       "text": "Task 2: the sweep. The first k form one side; compute every cut point's cut and check both sizes are inside the window.",
+       "sceneId": "shot-12"
+      },
+      {
+       "start": 130.232,
+       "end": 136.499,
+       "text": "Task 3: of the 2ⁿ labellings, drop all-left and all-right, then divide by 2.",
+       "sceneId": "shot-13"
+      },
+      {
+       "start": 136.499,
+       "end": 145.432,
+       "text": "Run the checks: everything passes, including the residual, sign-flip equivalence and λ₂ = 0 on a disconnected graph.",
+       "sceneId": "shot-14"
+      },
+      {
+       "start": 145.432,
+       "end": 152.499,
+       "text": "Below, your functions run on a new graph: two four-node blocks joined by two weak wires.",
+       "sceneId": "shot-15"
+      },
+      {
+       "start": 152.499,
+       "end": 160.032,
+       "text": "Your sweep cuts between the blocks: WUVT | SRQP, cut 2, and every cut point matches the engine.",
+       "sceneId": "shot-16"
+      },
+      {
+       "start": 160.032,
+       "end": 167.165,
+       "text": "Finally, try the challenges to check you really understand. Results stay in your browser.",
+       "sceneId": "shot-17"
+      }
+     ],
+     "readingViolations": 0,
+     "bytes": 10984134
+    }
+   }
   }
- ],
- "scenes": [
-  {
-   "sceneId": "s00-title",
-   "start": 0.0,
-   "end": 3.0
-  },
-  {
-   "sceneId": "s01-hook",
-   "start": 3.0,
-   "end": 15.8
-  },
-  {
-   "sceneId": "s02-goal",
-   "start": 15.8,
-   "end": 38.51
-  },
-  {
-   "sceneId": "s03-lap",
-   "start": 38.51,
-   "end": 59.93
-  },
-  {
-   "sceneId": "s04-quad",
-   "start": 59.93,
-   "end": 85.98
-  },
-  {
-   "sceneId": "s05-fiedler",
-   "start": 85.98,
-   "end": 107.36
-  },
-  {
-   "sceneId": "s06-sweep",
-   "start": 107.36,
-   "end": 137.44
-  },
-  {
-   "sceneId": "s07-flip",
-   "start": 137.44,
-   "end": 151.8
-  },
-  {
-   "sceneId": "s08-fix",
-   "start": 151.8,
-   "end": 177.84
-  },
-  {
-   "sceneId": "s09-disc",
-   "start": 177.84,
-   "end": 188.96
-  },
-  {
-   "sceneId": "s10-code",
-   "start": 188.96,
-   "end": 206.78
-  },
-  {
-   "sceneId": "s11-limits",
-   "start": 206.78,
-   "end": 221.84
-  }
- ],
- "transcript": [
-  {
-   "start": 3.0,
-   "end": 6.689,
-   "text": "同一张连接图，换一种想法。",
-   "sceneId": "s01-hook"
-  },
-  {
-   "start": 6.689,
-   "end": 11.489,
-   "text": "先给每个点一个数，把它们排成一条线。",
-   "sceneId": "s01-hook"
-  },
-  {
-   "start": 11.489,
-   "end": 15.4,
-   "text": "然后只在相邻的位置之间试切。",
-   "sceneId": "s01-hook"
-  },
-  {
-   "start": 15.8,
-   "end": 23.489,
-   "text": "只要 cut 最小？把所有点放进一组就行——cut 是 0，毫无用处。",
-   "sceneId": "s02-goal"
-  },
-  {
-   "start": 23.489,
-   "end": 28.289,
-   "text": "所以要求两组都非空，并且不区分左右。",
-   "sceneId": "s02-goal"
-  },
-  {
-   "start": 28.289,
-   "end": 33.311,
-   "text": "这样 5 个节点一共 15 种分法，不是 16。",
-   "sceneId": "s02-goal"
-  },
-  {
-   "start": 33.311,
-   "end": 38.111,
-   "text": "再加一个平衡窗口：每组 2 到 3 个节点。",
-   "sceneId": "s02-goal"
-  },
-  {
-   "start": 38.511,
-   "end": 44.422,
-   "text": "先把边权装进一个矩阵：拉普拉斯矩阵 L = D − A。",
-   "sceneId": "s03-lap"
-  },
-  {
-   "start": 44.422,
-   "end": 50.822,
-   "text": "每条边贡献四处：两个对角加 w，两个非对角减 w。",
-   "sceneId": "s03-lap"
-  },
-  {
-   "start": 50.822,
-   "end": 55.4,
-   "text": "装完：对角是度数，其余是负的边权。",
-   "sceneId": "s03-lap"
-  },
-  {
-   "start": 55.4,
-   "end": 59.533,
-   "text": "检查一下：每一行加起来都是 0。",
-   "sceneId": "s03-lap"
-  },
-  {
-   "start": 59.933,
-   "end": 67.844,
-   "text": "这个矩阵有一个关键性质：xᵀLx 等于每条边的 w 乘上两端差的平方。",
-   "sceneId": "s04-quad"
-  },
-  {
-   "start": 67.844,
-   "end": 73.089,
-   "text": "如果 x 只取 +1 和 −1，被切的边贡献 4w。",
-   "sceneId": "s04-quad"
-  },
-  {
-   "start": 73.089,
-   "end": 80.111,
-   "text": "所以 xᵀLx = 4 × cut。最小化它，就是在最小化 cut。",
-   "sceneId": "s04-quad"
-  },
-  {
-   "start": 80.111,
-   "end": 85.578,
-   "text": "可以把边想成弹簧——这只是帮助理解的类比。",
-   "sceneId": "s04-quad"
-  },
-  {
-   "start": 85.978,
-   "end": 93.0,
-   "text": "放松条件，让 x 取任意实数：答案是第二小特征值的特征向量。",
-   "sceneId": "s05-fiedler"
-  },
-  {
-   "start": 93.0,
-   "end": 98.689,
-   "text": "它叫 Fiedler 向量。每个节点得到一个数。",
-   "sceneId": "s05-fiedler"
-  },
-  {
-   "start": 98.689,
-   "end": 103.267,
-   "text": "按这个数排序：E、D、C、B、A。",
-   "sceneId": "s05-fiedler"
-  },
-  {
-   "start": 103.267,
-   "end": 106.956,
-   "text": "连得紧的点，数值彼此接近。",
-   "sceneId": "s05-fiedler"
-  },
-  {
-   "start": 107.356,
-   "end": 111.489,
-   "text": "沿着数轴，在每个相邻位置试切。",
-   "sceneId": "s06-sweep"
-  },
-  {
-   "start": 111.489,
-   "end": 116.511,
-   "text": "k = 1：只切出 E，cut 6，超出窗口。",
-   "sceneId": "s06-sweep"
-  },
-  {
-   "start": 116.511,
-   "end": 121.978,
-   "text": "k = 2：ED | CBA，cut 3，在窗口内。",
-   "sceneId": "s06-sweep"
-  },
-  {
-   "start": 121.978,
-   "end": 126.333,
-   "text": "k = 3：正中间，cut 反而是 5。",
-   "sceneId": "s06-sweep"
-  },
-  {
-   "start": 126.333,
-   "end": 131.133,
-   "text": "k = 4：只剩 A，cut 6，超出窗口。",
-   "sceneId": "s06-sweep"
-  },
-  {
-   "start": 131.133,
-   "end": 137.044,
-   "text": "窗口内最小的是 k = 2：DE | ABC，cut 3。",
-   "sceneId": "s06-sweep"
-  },
-  {
-   "start": 137.444,
-   "end": 141.8,
-   "text": "特征向量乘以 −1 仍然是特征向量。",
-   "sceneId": "s07-flip"
-  },
-  {
-   "start": 141.8,
-   "end": 145.489,
-   "text": "翻号以后，数轴整个反过来。",
-   "sceneId": "s07-flip"
-  },
-  {
-   "start": 145.489,
-   "end": 151.4,
-   "text": "同一刀两侧只是换了名字：分组不变，cut 不变。",
-   "sceneId": "s07-flip"
-  },
-  {
-   "start": 151.8,
-   "end": 158.6,
-   "text": "纠正一个说法：没有平衡约束，最优并不一定是孤立一个点。",
-   "sceneId": "s08-fix"
-  },
-  {
-   "start": 158.6,
-   "end": 164.956,
-   "text": "这张图上孤立一个点最少切 6，而 ABC | DE 只切 3。",
-   "sceneId": "s08-fix"
-  },
-  {
-   "start": 164.956,
-   "end": 170.867,
-   "text": "再纠正一个：原页面的特征向量是存储的三位小数。",
-   "sceneId": "s08-fix"
-  },
-  {
-   "start": 170.867,
-   "end": 177.444,
-   "text": "它的残差 0.0044 只是舍入；但改了图，它不会重算。",
-   "sceneId": "s08-fix"
-  },
-  {
-   "start": 177.844,
-   "end": 182.867,
-   "text": "还有一个陷阱：图不连通时，λ2 也是 0。",
-   "sceneId": "s09-disc"
-  },
-  {
-   "start": 182.867,
-   "end": 188.556,
-   "text": "这时排序只说明谁在同一个分量。先检查连通性。",
-   "sceneId": "s09-disc"
-  },
-  {
-   "start": 188.956,
-   "end": 192.867,
-   "text": "写成伪代码：先构造 L 并自检。",
-   "sceneId": "s10-code"
-  },
-  {
-   "start": 192.867,
-   "end": 197.444,
-   "text": "求特征分解，检查连通、简并和残差。",
-   "sceneId": "s10-code"
-  },
-  {
-   "start": 197.444,
-   "end": 201.356,
-   "text": "取 Fiedler 向量，排序。",
-   "sceneId": "s10-code"
-  },
-  {
-   "start": 201.356,
-   "end": 206.378,
-   "text": "逐个位置扫描，只在窗口内选最小 cut。",
-   "sceneId": "s10-code"
-  },
-  {
-   "start": 206.778,
-   "end": 209.133,
-   "text": "谱二分的边界：",
-   "sceneId": "s11-limits"
-  },
-  {
-   "start": 209.133,
-   "end": 213.489,
-   "text": "条件不满足时，排序可能没有意义。",
-   "sceneId": "s11-limits"
-  },
-  {
-   "start": 213.489,
-   "end": 215.844,
-   "text": "弹簧只是类比。",
-   "sceneId": "s11-limits"
-  },
-  {
-   "start": 215.844,
-   "end": 220.644,
-   "text": "下一模块：从这个二分出发，继续改进。",
-   "sceneId": "s11-limits"
-  }
- ],
- "music": "本课程原创程序合成配乐（NumPy），CC BY 4.0",
- "why": "约 3 分半：矩阵装配与二次型放慢；扫描四个切点逐个停留。完整代数证明不放进主片。",
- "readingViolations": 0,
- "fps": 30,
- "size": [
-  1920,
-  1080
  ]
 }

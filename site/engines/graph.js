@@ -4,6 +4,7 @@
  * in the browser and in Node, so the page, the challenge checker, the film data
  * and the regression tests all read the same computation.
  */
+import { L } from '../assets/i18n.js';
 export const ENGINE_VERSION = '1.0.0';
 
 const NAME = /^[A-Za-z][A-Za-z0-9_]{0,15}$/;
@@ -28,27 +29,27 @@ export function compareKeys(a, b) {
 export function normalizeGraph(input, { maxNodes = 40, maxEdges = 400, allowZero = false } = {}) {
   const errors = [];
   if (!input || !Array.isArray(input.nodes) || !Array.isArray(input.edges)) {
-    return { ok: false, errors: ['需要 nodes 与 edges 两个数组'], graph: null };
+    return { ok: false, errors: [L('需要 nodes 与 edges 两个数组', 'needs two arrays, nodes and edges')], graph: null };
   }
   const sizes = input.sizes || input.node_sizes || {};
   const nodes = input.nodes.map(n => typeof n === 'string' ? { id: n, size: sizes[n] ?? 1 } : { id: n.id, size: n.size ?? sizes[n.id] ?? 1 });
-  if (nodes.length < 1 || nodes.length > maxNodes) errors.push(`节点数须在 1–${maxNodes} 之间`);
+  if (nodes.length < 1 || nodes.length > maxNodes) errors.push(L(`节点数须在 1–${maxNodes} 之间`, `the number of nodes must be 1–${maxNodes}`));
   const ids = new Set();
   for (const n of nodes) {
-    if (typeof n.id !== 'string' || !NAME.test(n.id)) errors.push(`节点名 “${n.id}” 须以字母开头、最多 16 个字母数字或下划线`);
-    if (ids.has(n.id)) errors.push(`节点 ${n.id} 重复`);
+    if (typeof n.id !== 'string' || !NAME.test(n.id)) errors.push(L(`节点名 “${n.id}” 须以字母开头、最多 16 个字母数字或下划线`, `node name “${n.id}” must start with a letter and have at most 16 letters, digits or underscores`));
+    if (ids.has(n.id)) errors.push(L(`节点 ${n.id} 重复`, `node ${n.id} appears twice`));
     ids.add(n.id);
-    if (!Number.isFinite(n.size) || n.size <= 0) errors.push(`节点 ${n.id} 的大小须为正数`);
+    if (!Number.isFinite(n.size) || n.size <= 0) errors.push(L(`节点 ${n.id} 的大小须为正数`, `the size of node ${n.id} must be positive`));
   }
-  if (input.edges.length > maxEdges) errors.push(`边数不能超过 ${maxEdges}`);
+  if (input.edges.length > maxEdges) errors.push(L(`边数不能超过 ${maxEdges}`, `at most ${maxEdges} edges`));
   const seen = new Set(), edges = [];
   for (const e of input.edges) {
     const [u, v, w] = Array.isArray(e) ? e : [e.u, e.v, e.w];
-    if (!ids.has(u) || !ids.has(v)) { errors.push(`边 ${u}–${v} 引用了不存在的节点`); continue; }
-    if (u === v) { errors.push(`不支持自环 ${u}–${v}`); continue; }
-    if (!Number.isFinite(w) || w < 0 || (!allowZero && w === 0) || w > 1e6) { errors.push(`边 ${u}–${v} 的权重须为${allowZero ? '非负' : '正'}有限数`); continue; }
+    if (!ids.has(u) || !ids.has(v)) { errors.push(L(`边 ${u}–${v} 引用了不存在的节点`, `edge ${u}–${v} refers to a missing node`)); continue; }
+    if (u === v) { errors.push(L(`不支持自环 ${u}–${v}`, `self-loops are not supported: ${u}–${v}`)); continue; }
+    if (!Number.isFinite(w) || w < 0 || (!allowZero && w === 0) || w > 1e6) { errors.push(L(`边 ${u}–${v} 的权重须为${allowZero ? '非负' : '正'}有限数`, `the weight of edge ${u}–${v} must be a finite ${allowZero ? 'non-negative' : 'positive'} number`)); continue; }
     const [a, b] = u < v ? [u, v] : [v, u], key = a + '\u0000' + b;
-    if (seen.has(key)) { errors.push(`重复边 ${a}–${b}：请先合并为一条并相加权重`); continue; }
+    if (seen.has(key)) { errors.push(L(`重复边 ${a}–${b}：请先合并为一条并相加权重`, `duplicate edge ${a}–${b}: merge them into one and add the weights`)); continue; }
     seen.add(key); edges.push({ u: a, v: b, w });
   }
   edges.sort((p, q) => compareKeys([p.u, p.v], [q.u, q.v]));
@@ -57,7 +58,7 @@ export function normalizeGraph(input, { maxNodes = 40, maxEdges = 400, allowZero
 
 export function requireGraph(input, options) {
   const r = normalizeGraph(input, options);
-  if (!r.ok) { const err = new Error(r.errors.join('；')); err.errors = r.errors; throw err; }
+  if (!r.ok) { const err = new Error(r.errors.join(L('；', '; '))); err.errors = r.errors; throw err; }
   return r.graph;
 }
 

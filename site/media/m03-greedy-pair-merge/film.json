@@ -1,319 +1,1727 @@
 {
- "id": "merge",
- "title": "合并，再合并",
+ "schema": 2,
  "status": "ready",
- "src": "merge.mp4",
- "vtt": "merge.zh.vtt",
- "poster": "merge-poster.jpg",
- "duration": 194.87,
- "chapters": [
+ "films": [
   {
-   "t": 3.0,
-   "title": "一 · 连接与局部选择",
-   "sceneId": "s01-hook"
+   "id": "story",
+   "kind": "popular",
+   "status": "ready",
+   "title": {
+    "zh": "合并，再合并",
+    "en": "Merge, and Merge Again"
+   },
+   "why": {
+    "zh": "五个朋友分两辆车：每次把最投机的两组合并；一个把 10 排在 2 前面的文件夹，讲清原网页的比较器错误；酒店只有双人房，讲清为什么不能硬凑。",
+    "en": "Five friends split into two cars by merging the best-matched groups; a folder that sorts 10 before 2 explains the original page's comparator bug; twin rooms at the hotel show why you never force a merge."
+   },
+   "music": {
+    "zh": "《We Never (Remix)（若如初见）》Hi Noise / 秋成（第三方录音，不在本课程许可范围内）",
+    "en": "“We Never (Remix)” by Hi Noise / 秋成 (third-party recording, not covered by this course's licences)"
+   },
+   "scenes": [
+    {
+     "sceneId": "p-open",
+     "start": 0.0,
+     "end": 10.75
+    },
+    {
+     "sceneId": "p-bonds",
+     "start": 10.75,
+     "end": 17.41
+    },
+    {
+     "sceneId": "p-rule",
+     "start": 17.41,
+     "end": 32.03
+    },
+    {
+     "sceneId": "p-title",
+     "start": 32.03,
+     "end": 37.0
+    },
+    {
+     "sceneId": "p-step1",
+     "start": 37.0,
+     "end": 51.18
+    },
+    {
+     "sceneId": "p-step2",
+     "start": 51.18,
+     "end": 66.08
+    },
+    {
+     "sceneId": "p-step3",
+     "start": 66.08,
+     "end": 73.0
+    },
+    {
+     "sceneId": "p-files",
+     "start": 73.0,
+     "end": 80.16
+    },
+    {
+     "sceneId": "p-flip",
+     "start": 80.16,
+     "end": 89.0
+    },
+    {
+     "sceneId": "p-bug",
+     "start": 89.0,
+     "end": 104.0
+    },
+    {
+     "sceneId": "p-fix",
+     "start": 104.0,
+     "end": 117.14
+    },
+    {
+     "sceneId": "p-rooms",
+     "start": 117.14,
+     "end": 127.6
+    },
+    {
+     "sceneId": "p-stop",
+     "start": 127.6,
+     "end": 134.16
+    },
+    {
+     "sceneId": "p-chip",
+     "start": 134.16,
+     "end": 141.5
+    },
+    {
+     "sceneId": "p-outro",
+     "start": 141.5,
+     "end": 170.6
+    },
+    {
+     "sceneId": "p-end",
+     "start": 170.6,
+     "end": 189.82
+    }
+   ],
+   "fps": 30,
+   "size": [
+    1920,
+    1080
+   ],
+   "versions": {
+    "zh": {
+     "src": "story.zh.mp4",
+     "vtt": "story.zh.vtt",
+     "poster": "story.zh.jpg",
+     "duration": 189.83,
+     "captions": "zh+en",
+     "chapters": [
+      {
+       "t": 0.0,
+       "title": "序 · 分车",
+       "sceneId": "p-open"
+      },
+      {
+       "t": 37.0,
+       "title": "一 · 平票",
+       "sceneId": "p-step1"
+      },
+      {
+       "t": 51.18,
+       "title": "二 · 两根线算一根",
+       "sceneId": "p-step2"
+      },
+      {
+       "t": 73.0,
+       "title": "三 · 排序的陷阱",
+       "sceneId": "p-files"
+      },
+      {
+       "t": 117.14,
+       "title": "四 · 双人房",
+       "sceneId": "p-rooms"
+      },
+      {
+       "t": 141.5,
+       "title": "尾声",
+       "sceneId": "p-outro"
+      }
+     ],
+     "transcript": [
+      {
+       "start": 0.0,
+       "end": 5.0,
+       "text": "五个朋友去毕业旅行，要分进两辆车。",
+       "sceneId": "p-open"
+      },
+      {
+       "start": 5.0,
+       "end": 9.4,
+       "text": "怎么分，才能让合得来的人坐一起？",
+       "sceneId": "p-open"
+      },
+      {
+       "start": 11.75,
+       "end": 16.35,
+       "text": "线越粗，两个人越聊得来。",
+       "sceneId": "p-bonds"
+      },
+      {
+       "start": 17.41,
+       "end": 24.01,
+       "text": "一开始每人自成一组：所有交情都被拆散，一共 18。",
+       "sceneId": "p-rule"
+      },
+      {
+       "start": 24.01,
+       "end": 30.61,
+       "text": "规则只有一句：每次把最投机的两组合并，直到只剩两组。",
+       "sceneId": "p-rule"
+      },
+      {
+       "start": 37.0,
+       "end": 44.022,
+       "text": "最投机的有两对：Ada–Ben 和 Dev–Eva，都是 5。",
+       "sceneId": "p-step1"
+      },
+      {
+       "start": 44.022,
+       "end": 50.022,
+       "text": "平票就按名字：A 在 D 前，Ada 和 Ben 先上车。",
+       "sceneId": "p-step1"
+      },
+      {
+       "start": 51.18,
+       "end": 58.424,
+       "text": "Ada 和 Ben 成了一组。Cai 的两根线合起来：1 + 4 = 5。",
+       "sceneId": "p-step2"
+      },
+      {
+       "start": 58.424,
+       "end": 64.113,
+       "text": "又和 Dev–Eva 平票；按名字，Cai 加入。",
+       "sceneId": "p-step2"
+      },
+      {
+       "start": 66.08,
+       "end": 71.102,
+       "text": "最后 Dev 和 Eva 一车。只剩两组，停。",
+       "sceneId": "p-step3"
+      },
+      {
+       "start": 73.0,
+       "end": 76.244,
+       "text": "你见过这样的文件夹吗？",
+       "sceneId": "p-files"
+      },
+      {
+       "start": 76.244,
+       "end": 78.822,
+       "text": "10 排在 2 前面。",
+       "sceneId": "p-files"
+      },
+      {
+       "start": 80.16,
+       "end": 84.738,
+       "text": "按数值，2 在前；按文字，10 在前。",
+       "sceneId": "p-flip"
+      },
+      {
+       "start": 84.738,
+       "end": 88.649,
+       "text": "文字是一个字符一个字符地比。",
+       "sceneId": "p-flip"
+      },
+      {
+       "start": 89.0,
+       "end": 94.067,
+       "text": "原网页比较候选，也是当成文字来比。",
+       "sceneId": "p-bug"
+      },
+      {
+       "start": 94.067,
+       "end": 100.2,
+       "text": "“-1” 排在 “-5” 前：亲和度 1 成了最好的一对。",
+       "sceneId": "p-bug"
+      },
+      {
+       "start": 100.2,
+       "end": 103.889,
+       "text": "被切断的交情从 3 变成了 9。",
+       "sceneId": "p-bug"
+      },
+      {
+       "start": 104.0,
+       "end": 108.4,
+       "text": "修正：逐个字段比，数字按数值比。",
+       "sceneId": "p-fix"
+      },
+      {
+       "start": 108.4,
+       "end": 114.978,
+       "text": "本课程还专门测了 10 对 2、2.5 对 2，防止碰巧正确。",
+       "sceneId": "p-fix"
+      },
+      {
+       "start": 117.14,
+       "end": 121.14,
+       "text": "到了酒店，每间房只有两张床。",
+       "sceneId": "p-rooms"
+      },
+      {
+       "start": 121.14,
+       "end": 125.496,
+       "text": "Cai 想加入哪一间，都是三个人。",
+       "sceneId": "p-rooms"
+      },
+      {
+       "start": 127.6,
+       "end": 133.0,
+       "text": "所以停在三间：不硬塞，也不谎称凑够了。",
+       "sceneId": "p-stop"
+      },
+      {
+       "start": 134.16,
+       "end": 140.76,
+       "text": "芯片设计里，同样的合并把成千上万个单元先粗化成几簇。",
+       "sceneId": "p-chip"
+      },
+      {
+       "start": 141.5,
+       "end": 147.5,
+       "text": "这一路，每一步都只看眼前。",
+       "sceneId": "p-outro"
+      },
+      {
+       "start": 147.5,
+       "end": 154.5,
+       "text": "选最好的一对，合并，不再回头。",
+       "sceneId": "p-outro"
+      },
+      {
+       "start": 154.5,
+       "end": 160.5,
+       "text": "这一次，结果恰好最好。",
+       "sceneId": "p-outro"
+      },
+      {
+       "start": 160.5,
+       "end": 168.5,
+       "text": "如果早早选错一步呢？下一章见。",
+       "sceneId": "p-outro"
+      },
+      {
+       "start": 170.6,
+       "end": 176.6,
+       "text": "下面的实验里，改 K、改容量，看轨迹怎么变。",
+       "sceneId": "p-end"
+      }
+     ],
+     "readingViolations": 0,
+     "bytes": 9092640
+    },
+    "en": {
+     "src": "story.en.mp4",
+     "vtt": "story.en.vtt",
+     "poster": "story.en.jpg",
+     "duration": 189.83,
+     "captions": "en",
+     "chapters": [
+      {
+       "t": 0.0,
+       "title": "PROLOGUE · TWO CARS",
+       "sceneId": "p-open"
+      },
+      {
+       "t": 37.0,
+       "title": "I · A TIE",
+       "sceneId": "p-step1"
+      },
+      {
+       "t": 51.18,
+       "title": "II · TWO LINES COUNT AS ONE",
+       "sceneId": "p-step2"
+      },
+      {
+       "t": 73.0,
+       "title": "III · A SORTING TRAP",
+       "sceneId": "p-files"
+      },
+      {
+       "t": 117.14,
+       "title": "IV · TWIN ROOMS",
+       "sceneId": "p-rooms"
+      },
+      {
+       "t": 141.5,
+       "title": "CODA",
+       "sceneId": "p-outro"
+      }
+     ],
+     "transcript": [
+      {
+       "start": 0.0,
+       "end": 5.0,
+       "text": "Five friends on a graduation trip, splitting into two cars.",
+       "sceneId": "p-open"
+      },
+      {
+       "start": 5.0,
+       "end": 9.4,
+       "text": "How do you split them so friends ride together?",
+       "sceneId": "p-open"
+      },
+      {
+       "start": 11.75,
+       "end": 16.35,
+       "text": "The thicker the line, the better two people get along.",
+       "sceneId": "p-bonds"
+      },
+      {
+       "start": 17.41,
+       "end": 24.01,
+       "text": "At first everyone is a group of one: every friendship is split, 18 in all.",
+       "sceneId": "p-rule"
+      },
+      {
+       "start": 24.01,
+       "end": 30.61,
+       "text": "The rule is one line: merge the two groups that get along best, until two remain.",
+       "sceneId": "p-rule"
+      },
+      {
+       "start": 37.0,
+       "end": 44.022,
+       "text": "Two pairs get along best: Ada–Ben and Dev–Eva, both 5.",
+       "sceneId": "p-step1"
+      },
+      {
+       "start": 44.022,
+       "end": 50.022,
+       "text": "A tie goes by name: A comes before D, so Ada and Ben go first.",
+       "sceneId": "p-step1"
+      },
+      {
+       "start": 51.18,
+       "end": 58.424,
+       "text": "Ada and Ben are one group now. Cai's two lines add up: 1 + 4 = 5.",
+       "sceneId": "p-step2"
+      },
+      {
+       "start": 58.424,
+       "end": 64.113,
+       "text": "Another tie with Dev–Eva; by name, Cai joins them.",
+       "sceneId": "p-step2"
+      },
+      {
+       "start": 66.08,
+       "end": 71.102,
+       "text": "Last, Dev and Eva share a car. Two groups left: stop.",
+       "sceneId": "p-step3"
+      },
+      {
+       "start": 73.0,
+       "end": 76.244,
+       "text": "Ever seen a folder like this?",
+       "sceneId": "p-files"
+      },
+      {
+       "start": 76.244,
+       "end": 78.822,
+       "text": "10 sorts before 2.",
+       "sceneId": "p-files"
+      },
+      {
+       "start": 80.16,
+       "end": 84.738,
+       "text": "As numbers, 2 comes first; as text, 10 does.",
+       "sceneId": "p-flip"
+      },
+      {
+       "start": 84.738,
+       "end": 88.649,
+       "text": "Text compares one character at a time.",
+       "sceneId": "p-flip"
+      },
+      {
+       "start": 89.0,
+       "end": 94.067,
+       "text": "The original page compared its candidates the same way: as text.",
+       "sceneId": "p-bug"
+      },
+      {
+       "start": 94.067,
+       "end": 100.2,
+       "text": "“-1” sorts before “-5”: affinity 1 looked like the best pair.",
+       "sceneId": "p-bug"
+      },
+      {
+       "start": 100.2,
+       "end": 103.889,
+       "text": "The split friendship went from 3 to 9.",
+       "sceneId": "p-bug"
+      },
+      {
+       "start": 104.0,
+       "end": 108.4,
+       "text": "The fix: compare field by field, numbers as numbers.",
+       "sceneId": "p-fix"
+      },
+      {
+       "start": 108.4,
+       "end": 114.978,
+       "text": "This course also tests 10 against 2 and 2.5 against 2, so it is not right by luck.",
+       "sceneId": "p-fix"
+      },
+      {
+       "start": 117.14,
+       "end": 121.14,
+       "text": "At the hotel, every room has two beds.",
+       "sceneId": "p-rooms"
+      },
+      {
+       "start": 121.14,
+       "end": 125.496,
+       "text": "Whichever room Cai joins, it holds three.",
+       "sceneId": "p-rooms"
+      },
+      {
+       "start": 127.6,
+       "end": 133.0,
+       "text": "So it stops at three: no squeezing, no pretending it made two.",
+       "sceneId": "p-stop"
+      },
+      {
+       "start": 134.16,
+       "end": 140.76,
+       "text": "In chip design, the same merging first coarsens thousands of cells into a few clusters.",
+       "sceneId": "p-chip"
+      },
+      {
+       "start": 141.5,
+       "end": 147.5,
+       "text": "All the way, each step only looked at what was in front of it.",
+       "sceneId": "p-outro"
+      },
+      {
+       "start": 147.5,
+       "end": 154.5,
+       "text": "Pick the best pair, merge, never look back.",
+       "sceneId": "p-outro"
+      },
+      {
+       "start": 154.5,
+       "end": 160.5,
+       "text": "This time, the result happened to be the best.",
+       "sceneId": "p-outro"
+      },
+      {
+       "start": 160.5,
+       "end": 168.5,
+       "text": "What if an early step is wrong? See the next module.",
+       "sceneId": "p-outro"
+      },
+      {
+       "start": 170.6,
+       "end": 176.6,
+       "text": "In the lab below, change K or the capacity and watch the path change.",
+       "sceneId": "p-end"
+      }
+     ],
+     "readingViolations": 0,
+     "bytes": 9004764
+    }
+   }
   },
   {
-   "t": 19.8,
-   "title": "二 · 单点簇、K 与亲和度",
-   "sceneId": "s02-setup"
+   "id": "concise",
+   "kind": "concise",
+   "status": "ready",
+   "title": {
+    "zh": "精讲：合并的规则",
+    "en": "The essentials"
+   },
+   "why": {
+    "zh": "只讲必须掌握的：规则与停止条件、平票、收缩时平行边相加、完整轨迹、比较器错误和容量。",
+    "en": "Only what you must know: the rule and when to stop, ties, adding parallel wires on contraction, the full path, the comparator bug and capacity."
+   },
+   "music": {
+    "zh": "本课程原创程序合成配乐（NumPy），CC BY 4.0",
+    "en": "Original score synthesised for this course (NumPy), CC BY 4.0"
+   },
+   "scenes": [
+    {
+     "sceneId": "k00-title",
+     "start": 0.0,
+     "end": 3.4
+    },
+    {
+     "sceneId": "k01-problem",
+     "start": 3.4,
+     "end": 24.24
+    },
+    {
+     "sceneId": "k02-step1",
+     "start": 24.24,
+     "end": 36.38
+    },
+    {
+     "sceneId": "k03-step2",
+     "start": 36.38,
+     "end": 53.44
+    },
+    {
+     "sceneId": "k04-step3",
+     "start": 53.44,
+     "end": 68.16
+    },
+    {
+     "sceneId": "k05-bug",
+     "start": 68.16,
+     "end": 88.33
+    },
+    {
+     "sceneId": "k06-capacity",
+     "start": 88.33,
+     "end": 104.11
+    },
+    {
+     "sceneId": "k07-take",
+     "start": 104.11,
+     "end": 123.71
+    }
+   ],
+   "fps": 30,
+   "size": [
+    1920,
+    1080
+   ],
+   "versions": {
+    "zh": {
+     "src": "concise.zh.mp4",
+     "vtt": "concise.zh.vtt",
+     "poster": "concise.zh.jpg",
+     "duration": 123.7,
+     "captions": "zh+en",
+     "chapters": [
+      {
+       "t": 3.4,
+       "title": "问题",
+       "sceneId": "k01-problem"
+      },
+      {
+       "t": 24.24,
+       "title": "平票",
+       "sceneId": "k02-step1"
+      },
+      {
+       "t": 36.38,
+       "title": "收缩",
+       "sceneId": "k03-step2"
+      },
+      {
+       "t": 53.44,
+       "title": "轨迹",
+       "sceneId": "k04-step3"
+      },
+      {
+       "t": 68.16,
+       "title": "比较器错误",
+       "sceneId": "k05-bug"
+      },
+      {
+       "t": 88.33,
+       "title": "容量",
+       "sceneId": "k06-capacity"
+      },
+      {
+       "t": 104.11,
+       "title": "小结",
+       "sceneId": "k07-take"
+      }
+     ],
+     "transcript": [
+      {
+       "start": 3.4,
+       "end": 10.2,
+       "text": "从单点出发：每个节点自成一簇，cut 等于全部边权 18。",
+       "sceneId": "k01-problem"
+      },
+      {
+       "start": 10.2,
+       "end": 14.867,
+       "text": "每一步，合并亲和度最大的合法一对。",
+       "sceneId": "k01-problem"
+      },
+      {
+       "start": 14.867,
+       "end": 19.267,
+       "text": "亲和度是两簇之间所有边权之和。",
+       "sceneId": "k01-problem"
+      },
+      {
+       "start": 19.267,
+       "end": 23.844,
+       "text": "达到 K，或者没有合法的一对，就停。",
+       "sceneId": "k01-problem"
+      },
+      {
+       "start": 24.244,
+       "end": 28.378,
+       "text": "第一步：A–B 和 D–E 都是 5。",
+       "sceneId": "k02-step1"
+      },
+      {
+       "start": 28.378,
+       "end": 32.733,
+       "text": "平票按名字：A 在 D 前，选 A–B。",
+       "sceneId": "k02-step1"
+      },
+      {
+       "start": 32.733,
+       "end": 35.978,
+       "text": "cut 从 18 降到 13。",
+       "sceneId": "k02-step1"
+      },
+      {
+       "start": 36.378,
+       "end": 39.444,
+       "text": "A、B 收缩成一簇。",
+       "sceneId": "k03-step2"
+      },
+      {
+       "start": 39.444,
+       "end": 50.022,
+       "text": "AB 和 C 之间有两根线：1 + 4 = 5，又和 D–E 平票；按成员 [A, B] < [D]，选 AB–C。",
+       "sceneId": "k03-step2"
+      },
+      {
+       "start": 50.022,
+       "end": 53.044,
+       "text": "cut 从 13 降到 8。",
+       "sceneId": "k03-step2"
+      },
+      {
+       "start": 53.444,
+       "end": 56.022,
+       "text": "第三步：D–E。",
+       "sceneId": "k04-step3"
+      },
+      {
+       "start": 56.022,
+       "end": 57.933,
+       "text": "合并它们。",
+       "sceneId": "k04-step3"
+      },
+      {
+       "start": 57.933,
+       "end": 62.733,
+       "text": "剩两簇，停：ABC | DE，cut 3。",
+       "sceneId": "k04-step3"
+      },
+      {
+       "start": 62.733,
+       "end": 67.756,
+       "text": "每次合并，cut 恰好下降这次的亲和度。",
+       "sceneId": "k04-step3"
+      },
+      {
+       "start": 68.156,
+       "end": 72.756,
+       "text": "原网页用小于号直接比较数组。",
+       "sceneId": "k05-bug"
+      },
+      {
+       "start": 72.756,
+       "end": 80.667,
+       "text": "JavaScript 先把数组转成字符串：“-1” 排在 “-5” 前。",
+       "sceneId": "k05-bug"
+      },
+      {
+       "start": 80.667,
+       "end": 83.667,
+       "text": "四个配置全部算错。",
+       "sceneId": "k05-bug"
+      },
+      {
+       "start": 83.667,
+       "end": 87.933,
+       "text": "修正：逐字段比较，数字按数值。",
+       "sceneId": "k05-bug"
+      },
+      {
+       "start": 88.333,
+       "end": 94.467,
+       "text": "容量 2：AB 加 C 是 3 个，被阻止，转而合并 D–E。",
+       "sceneId": "k06-capacity"
+      },
+      {
+       "start": 94.467,
+       "end": 98.467,
+       "text": "之后两个候选都超容量。",
+       "sceneId": "k06-capacity"
+      },
+      {
+       "start": 98.467,
+       "end": 103.711,
+       "text": "停在 3 簇，cut 8：合法，但没有达到 K。",
+       "sceneId": "k06-capacity"
+      },
+      {
+       "start": 104.111,
+       "end": 106.244,
+       "text": "记住四点。",
+       "sceneId": "k07-take"
+      },
+      {
+       "start": 106.244,
+       "end": 110.711,
+       "text": "簇间边权和最大的合法一对先合并；",
+       "sceneId": "k07-take"
+      },
+      {
+       "start": 110.711,
+       "end": 114.178,
+       "text": "平票看名字，逐字段比较；",
+       "sceneId": "k07-take"
+      },
+      {
+       "start": 114.178,
+       "end": 122.311,
+       "text": "cut 每步下降该次亲和度；没有合法的一对就停。下面的实验里试一试。",
+       "sceneId": "k07-take"
+      }
+     ],
+     "readingViolations": 0,
+     "bytes": 5865727
+    },
+    "en": {
+     "src": "concise.en.mp4",
+     "vtt": "concise.en.vtt",
+     "poster": "concise.en.jpg",
+     "duration": 123.7,
+     "captions": "en",
+     "chapters": [
+      {
+       "t": 3.4,
+       "title": "THE PROBLEM",
+       "sceneId": "k01-problem"
+      },
+      {
+       "t": 24.24,
+       "title": "TIES",
+       "sceneId": "k02-step1"
+      },
+      {
+       "t": 36.38,
+       "title": "CONTRACTION",
+       "sceneId": "k03-step2"
+      },
+      {
+       "t": 53.44,
+       "title": "THE PATH",
+       "sceneId": "k04-step3"
+      },
+      {
+       "t": 68.16,
+       "title": "THE COMPARATOR BUG",
+       "sceneId": "k05-bug"
+      },
+      {
+       "t": 88.33,
+       "title": "CAPACITY",
+       "sceneId": "k06-capacity"
+      },
+      {
+       "t": 104.11,
+       "title": "SUMMARY",
+       "sceneId": "k07-take"
+      }
+     ],
+     "transcript": [
+      {
+       "start": 3.4,
+       "end": 10.2,
+       "text": "Start from single nodes: each is its own cluster, and the cut is all 18 of the weight.",
+       "sceneId": "k01-problem"
+      },
+      {
+       "start": 10.2,
+       "end": 14.867,
+       "text": "Each step merges the legal pair with the highest affinity.",
+       "sceneId": "k01-problem"
+      },
+      {
+       "start": 14.867,
+       "end": 19.267,
+       "text": "Affinity is the total weight between the two clusters.",
+       "sceneId": "k01-problem"
+      },
+      {
+       "start": 19.267,
+       "end": 23.844,
+       "text": "Stop when K is reached, or no legal pair remains.",
+       "sceneId": "k01-problem"
+      },
+      {
+       "start": 24.244,
+       "end": 28.378,
+       "text": "Step one: A–B and D–E both score 5.",
+       "sceneId": "k02-step1"
+      },
+      {
+       "start": 28.378,
+       "end": 32.733,
+       "text": "A tie goes by name: A before D, so A–B.",
+       "sceneId": "k02-step1"
+      },
+      {
+       "start": 32.733,
+       "end": 35.978,
+       "text": "The cut drops from 18 to 13.",
+       "sceneId": "k02-step1"
+      },
+      {
+       "start": 36.378,
+       "end": 39.444,
+       "text": "A and B contract into one cluster.",
+       "sceneId": "k03-step2"
+      },
+      {
+       "start": 39.444,
+       "end": 50.022,
+       "text": "AB and C share two wires, 1 + 4 = 5, tying D–E again; by members [A, B] < [D], so AB–C.",
+       "sceneId": "k03-step2"
+      },
+      {
+       "start": 50.022,
+       "end": 53.044,
+       "text": "The cut drops from 13 to 8.",
+       "sceneId": "k03-step2"
+      },
+      {
+       "start": 53.444,
+       "end": 56.022,
+       "text": "Step three: D–E.",
+       "sceneId": "k04-step3"
+      },
+      {
+       "start": 56.022,
+       "end": 57.933,
+       "text": "Merge them.",
+       "sceneId": "k04-step3"
+      },
+      {
+       "start": 57.933,
+       "end": 62.733,
+       "text": "Two clusters left, stop: ABC | DE, cut 3.",
+       "sceneId": "k04-step3"
+      },
+      {
+       "start": 62.733,
+       "end": 67.756,
+       "text": "Every merge lowers the cut by exactly its affinity.",
+       "sceneId": "k04-step3"
+      },
+      {
+       "start": 68.156,
+       "end": 72.756,
+       "text": "The original page compared arrays with a plain less-than.",
+       "sceneId": "k05-bug"
+      },
+      {
+       "start": 72.756,
+       "end": 80.667,
+       "text": "JavaScript turns the arrays into strings first: “-1” sorts before “-5”.",
+       "sceneId": "k05-bug"
+      },
+      {
+       "start": 80.667,
+       "end": 83.667,
+       "text": "All four settings came out wrong.",
+       "sceneId": "k05-bug"
+      },
+      {
+       "start": 83.667,
+       "end": 87.933,
+       "text": "The fix: compare field by field, numbers as numbers.",
+       "sceneId": "k05-bug"
+      },
+      {
+       "start": 88.333,
+       "end": 94.467,
+       "text": "Capacity 2: AB plus C is 3, blocked, so D–E merges instead.",
+       "sceneId": "k06-capacity"
+      },
+      {
+       "start": 94.467,
+       "end": 98.467,
+       "text": "After that, both candidates exceed the capacity.",
+       "sceneId": "k06-capacity"
+      },
+      {
+       "start": 98.467,
+       "end": 103.711,
+       "text": "It stops at 3 clusters, cut 8: legal, but K is not reached.",
+       "sceneId": "k06-capacity"
+      },
+      {
+       "start": 104.111,
+       "end": 106.244,
+       "text": "Four things to keep.",
+       "sceneId": "k07-take"
+      },
+      {
+       "start": 106.244,
+       "end": 110.711,
+       "text": "Merge the legal pair with the most weight between them;",
+       "sceneId": "k07-take"
+      },
+      {
+       "start": 110.711,
+       "end": 114.178,
+       "text": "ties by name, field by field;",
+       "sceneId": "k07-take"
+      },
+      {
+       "start": 114.178,
+       "end": 122.311,
+       "text": "the cut drops by each affinity; with no legal pair, stop. Try it in the lab below.",
+       "sceneId": "k07-take"
+      }
+     ],
+     "readingViolations": 0,
+     "bytes": 5755682
+    }
+   }
   },
   {
-   "t": 42.96,
-   "title": "三 · 逐步推演",
-   "sceneId": "s03-step1"
+   "id": "advanced",
+   "kind": "advanced",
+   "status": "ready",
+   "title": {
+    "zh": "进阶：贪心的性质与代价",
+    "en": "In depth: what greedy guarantees"
+   },
+   "why": {
+    "zh": "为什么 cut 恰好下降亲和度、“和”亲和度的滚雪球效应、元组与字符串比较、三个停止状态、不回撤的代价，以及局部更新省下多少计算。",
+    "en": "Why the cut drops by exactly the affinity, how a sum affinity snowballs, tuples versus strings, the three stop states, the price of never backtracking, and how much local updates save."
+   },
+   "music": {
+    "zh": "本课程原创程序合成配乐（NumPy），CC BY 4.0",
+    "en": "Original score synthesised for this course (NumPy), CC BY 4.0"
+   },
+   "scenes": [
+    {
+     "sceneId": "a00-title",
+     "start": 0.0,
+     "end": 3.4
+    },
+    {
+     "sceneId": "a01-drop",
+     "start": 3.4,
+     "end": 28.67
+    },
+    {
+     "sceneId": "a02-snow",
+     "start": 28.67,
+     "end": 49.84
+    },
+    {
+     "sceneId": "a03-compare",
+     "start": 49.84,
+     "end": 74.87
+    },
+    {
+     "sceneId": "a04-states",
+     "start": 74.87,
+     "end": 96.22
+    },
+    {
+     "sceneId": "a05-noback",
+     "start": 96.22,
+     "end": 121.82
+    },
+    {
+     "sceneId": "a06-cost",
+     "start": 121.82,
+     "end": 142.09
+    },
+    {
+     "sceneId": "a07-summary",
+     "start": 142.09,
+     "end": 161.8
+    }
+   ],
+   "fps": 30,
+   "size": [
+    1920,
+    1080
+   ],
+   "versions": {
+    "zh": {
+     "src": "advanced.zh.mp4",
+     "vtt": "advanced.zh.vtt",
+     "poster": "advanced.zh.jpg",
+     "duration": 161.8,
+     "captions": "zh+en",
+     "chapters": [
+      {
+       "t": 3.4,
+       "title": "一 · cut 为什么这样降",
+       "sceneId": "a01-drop"
+      },
+      {
+       "t": 28.67,
+       "title": "二 · 滚雪球",
+       "sceneId": "a02-snow"
+      },
+      {
+       "t": 49.84,
+       "title": "三 · 比较键",
+       "sceneId": "a03-compare"
+      },
+      {
+       "t": 74.87,
+       "title": "四 · 三种停止",
+       "sceneId": "a04-states"
+      },
+      {
+       "t": 96.22,
+       "title": "五 · 不回撤",
+       "sceneId": "a05-noback"
+      },
+      {
+       "t": 121.82,
+       "title": "六 · 代价",
+       "sceneId": "a06-cost"
+      },
+      {
+       "t": 142.09,
+       "title": "小结",
+       "sceneId": "a07-summary"
+      }
+     ],
+     "transcript": [
+      {
+       "start": 3.4,
+       "end": 8.067,
+       "text": "cut 是所有跨簇边的权重之和。",
+       "sceneId": "a01-drop"
+      },
+      {
+       "start": 8.067,
+       "end": 13.333,
+       "text": "合并 P 和 Q，只有它们之间的边变成簇内边。",
+       "sceneId": "a01-drop"
+      },
+      {
+       "start": 13.333,
+       "end": 19.244,
+       "text": "其他边不变：所以 cut 恰好下降 P、Q 的亲和度。",
+       "sceneId": "a01-drop"
+      },
+      {
+       "start": 19.244,
+       "end": 28.267,
+       "text": "选亲和度最大的一对，就是每一步让 cut 下降最多：最陡下降，不保证全局最优。",
+       "sceneId": "a01-drop"
+      },
+      {
+       "start": 28.667,
+       "end": 32.8,
+       "text": "亲和度用“和”，有一个副作用。",
+       "sceneId": "a02-snow"
+      },
+      {
+       "start": 32.8,
+       "end": 40.933,
+       "text": "ABC 和 D 有三根细线，加起来 3，胜过 E–F 的 2；按平均算，只有 1。",
+       "sceneId": "a02-snow"
+      },
+      {
+       "start": 40.933,
+       "end": 44.178,
+       "text": "在 24 个单元的电路上：",
+       "sceneId": "a02-snow"
+      },
+      {
+       "start": 44.178,
+       "end": 49.444,
+       "text": "前 7 步都在喂同一个簇，大簇越滚越大。",
+       "sceneId": "a02-snow"
+      },
+      {
+       "start": 49.844,
+       "end": 56.644,
+       "text": "比较选择键：元组逐字段比，第一字段就定了胜负。",
+       "sceneId": "a03-compare"
+      },
+      {
+       "start": 56.644,
+       "end": 65.0,
+       "text": "字符串只比字符：第二个字符“1”就决定了结果，10 和 9 谁大根本没比。",
+       "sceneId": "a03-compare"
+      },
+      {
+       "start": 65.0,
+       "end": 74.467,
+       "text": "JavaScript 默认的 sort() 也是这样：10、9、2 排成 10、2、9。",
+       "sceneId": "a03-compare"
+      },
+      {
+       "start": 74.867,
+       "end": 79.667,
+       "text": "不限容量，K = 2：合法，也达到了 K。",
+       "sceneId": "a04-states"
+      },
+      {
+       "start": 79.667,
+       "end": 85.356,
+       "text": "容量 2：合法，但还有正亲和度对，全都超容量。",
+       "sceneId": "a04-states"
+      },
+      {
+       "start": 85.356,
+       "end": 90.689,
+       "text": "图不连通：剩下的簇之间根本没有边。",
+       "sceneId": "a04-states"
+      },
+      {
+       "start": 90.689,
+       "end": 95.822,
+       "text": "三件事要分开报告，没有合法的一对就停。",
+       "sceneId": "a04-states"
+      },
+      {
+       "start": 96.222,
+       "end": 103.244,
+       "text": "贪心不回头。Module 04 有一个例子：容量 2，K = 2。",
+       "sceneId": "a05-noback"
+      },
+      {
+       "start": 103.244,
+       "end": 110.933,
+       "text": "先合 A–B，权重 10 最大；剩下的 C–D 只能凑一起，cut 18。",
+       "sceneId": "a05-noback"
+      },
+      {
+       "start": 110.933,
+       "end": 115.067,
+       "text": "而 AC | BD 的 cut 只有 11。",
+       "sceneId": "a05-noback"
+      },
+      {
+       "start": 115.067,
+       "end": 121.422,
+       "text": "第一步最好，后面只剩差的选择。下一章专门讲这件事。",
+       "sceneId": "a05-noback"
+      },
+      {
+       "start": 121.822,
+       "end": 126.622,
+       "text": "代价：把 12×12 的网格合并到 2 簇。",
+       "sceneId": "a06-cost"
+      },
+      {
+       "start": 126.622,
+       "end": 134.889,
+       "text": "每步重算所有簇对，比只更新与新簇相邻的那几对，多了约 7 倍。",
+       "sceneId": "a06-cost"
+      },
+      {
+       "start": 134.889,
+       "end": 141.689,
+       "text": "因为别的簇对亲和度没变：用优先队列，只改受影响的几项。",
+       "sceneId": "a06-cost"
+      },
+      {
+       "start": 142.089,
+       "end": 144.156,
+       "text": "六点小结。",
+       "sceneId": "a07-summary"
+      },
+      {
+       "start": 157.156,
+       "end": 160.4,
+       "text": "下一章：容量成为主角。",
+       "sceneId": "a07-summary"
+      }
+     ],
+     "readingViolations": 0,
+     "bytes": 7714103
+    },
+    "en": {
+     "src": "advanced.en.mp4",
+     "vtt": "advanced.en.vtt",
+     "poster": "advanced.en.jpg",
+     "duration": 161.8,
+     "captions": "en",
+     "chapters": [
+      {
+       "t": 3.4,
+       "title": "I · WHY THE CUT FALLS LIKE THAT",
+       "sceneId": "a01-drop"
+      },
+      {
+       "t": 28.67,
+       "title": "II · SNOWBALLING",
+       "sceneId": "a02-snow"
+      },
+      {
+       "t": 49.84,
+       "title": "III · COMPARING KEYS",
+       "sceneId": "a03-compare"
+      },
+      {
+       "t": 74.87,
+       "title": "IV · THREE WAYS TO STOP",
+       "sceneId": "a04-states"
+      },
+      {
+       "t": 96.22,
+       "title": "V · NO BACKTRACKING",
+       "sceneId": "a05-noback"
+      },
+      {
+       "t": 121.82,
+       "title": "VI · COST",
+       "sceneId": "a06-cost"
+      },
+      {
+       "t": 142.09,
+       "title": "SUMMARY",
+       "sceneId": "a07-summary"
+      }
+     ],
+     "transcript": [
+      {
+       "start": 3.4,
+       "end": 8.067,
+       "text": "The cut is the total weight of the wires between clusters.",
+       "sceneId": "a01-drop"
+      },
+      {
+       "start": 8.067,
+       "end": 13.333,
+       "text": "Merge P and Q, and only the wires between them become inside wires.",
+       "sceneId": "a01-drop"
+      },
+      {
+       "start": 13.333,
+       "end": 19.244,
+       "text": "Nothing else changes, so the cut drops by exactly the affinity of P and Q.",
+       "sceneId": "a01-drop"
+      },
+      {
+       "start": 19.244,
+       "end": 28.267,
+       "text": "Taking the highest affinity makes the cut fall the most at each step: steepest descent, with no global guarantee.",
+       "sceneId": "a01-drop"
+      },
+      {
+       "start": 28.667,
+       "end": 32.8,
+       "text": "Using a sum as the affinity has a side effect.",
+       "sceneId": "a02-snow"
+      },
+      {
+       "start": 32.8,
+       "end": 40.933,
+       "text": "ABC and D share three thin wires, 3 in all, beating E–F's 2; as an average it is only 1.",
+       "sceneId": "a02-snow"
+      },
+      {
+       "start": 40.933,
+       "end": 44.178,
+       "text": "On the 24-cell circuit:",
+       "sceneId": "a02-snow"
+      },
+      {
+       "start": 44.178,
+       "end": 49.444,
+       "text": "the first 7 steps all feed the same cluster. Big clusters snowball.",
+       "sceneId": "a02-snow"
+      },
+      {
+       "start": 49.844,
+       "end": 56.644,
+       "text": "Comparing selection keys: a tuple compares field by field, and the first field settles it.",
+       "sceneId": "a03-compare"
+      },
+      {
+       "start": 56.644,
+       "end": 65.0,
+       "text": "A string only sees characters: the second character “1” decides, and 10 versus 9 is never asked.",
+       "sceneId": "a03-compare"
+      },
+      {
+       "start": 65.0,
+       "end": 74.467,
+       "text": "JavaScript's default sort() does the same: 10, 9, 2 becomes 10, 2, 9.",
+       "sceneId": "a03-compare"
+      },
+      {
+       "start": 74.867,
+       "end": 79.667,
+       "text": "No capacity, K = 2: legal, and K is reached.",
+       "sceneId": "a04-states"
+      },
+      {
+       "start": 79.667,
+       "end": 85.356,
+       "text": "Capacity 2: legal, but the positive pairs left are all over capacity.",
+       "sceneId": "a04-states"
+      },
+      {
+       "start": 85.356,
+       "end": 90.689,
+       "text": "A disconnected graph: no wire at all between the remaining clusters.",
+       "sceneId": "a04-states"
+      },
+      {
+       "start": 90.689,
+       "end": 95.822,
+       "text": "Report all three separately, and stop when no legal pair remains.",
+       "sceneId": "a04-states"
+      },
+      {
+       "start": 96.222,
+       "end": 103.244,
+       "text": "Greedy never backtracks. Module 04 has an example: capacity 2, K = 2.",
+       "sceneId": "a05-noback"
+      },
+      {
+       "start": 103.244,
+       "end": 110.933,
+       "text": "A–B goes first, the largest at 10; C and D are left together, cut 18.",
+       "sceneId": "a05-noback"
+      },
+      {
+       "start": 110.933,
+       "end": 115.067,
+       "text": "Yet AC | BD has a cut of only 11.",
+       "sceneId": "a05-noback"
+      },
+      {
+       "start": 115.067,
+       "end": 121.422,
+       "text": "The best first step left only bad choices. The next module is about exactly this.",
+       "sceneId": "a05-noback"
+      },
+      {
+       "start": 121.822,
+       "end": 126.622,
+       "text": "Cost: merge a 12×12 grid down to 2 clusters.",
+       "sceneId": "a06-cost"
+      },
+      {
+       "start": 126.622,
+       "end": 134.889,
+       "text": "Recomputing every pair each step costs about 7 times as much as updating only the pairs next to the new cluster.",
+       "sceneId": "a06-cost"
+      },
+      {
+       "start": 134.889,
+       "end": 141.689,
+       "text": "Because no other pair's affinity changed: use a priority queue and update only those few.",
+       "sceneId": "a06-cost"
+      },
+      {
+       "start": 142.089,
+       "end": 144.156,
+       "text": "Six things to keep.",
+       "sceneId": "a07-summary"
+      },
+      {
+       "start": 157.156,
+       "end": 160.4,
+       "text": "Next: capacity takes centre stage.",
+       "sceneId": "a07-summary"
+      }
+     ],
+     "readingViolations": 0,
+     "bytes": 7616063
+    }
+   }
   },
   {
-   "t": 96.51,
-   "title": "四 · 平票规则与比较器错误",
-   "sceneId": "s06-bug"
-  },
-  {
-   "t": 126.33,
-   "title": "五 · 容量预览与停止",
-   "sceneId": "s07-capacity"
-  },
-  {
-   "t": 155.62,
-   "title": "六 · 伪代码与局限",
-   "sceneId": "s08-code"
+   "id": "lab",
+   "kind": "lab",
+   "status": "ready",
+   "title": {
+    "zh": "实验演示",
+    "en": "Lab Walkthrough"
+   },
+   "why": {
+    "zh": "从真实页面录下的操作演示：逐步看候选表、平行边相加、容量 2 时如何停下、原网页比较器的对照，再在浏览器里写完选择键和主循环并通过全部检查。",
+    "en": "Recorded from the real page: stepping through the candidate table, parallel wires adding up, how capacity 2 stops, the original comparator for comparison, then writing the selection key and main loop in the browser and passing every check."
+   },
+   "music": {
+    "zh": "本课程原创程序合成配乐（NumPy），CC BY 4.0",
+    "en": "Original score synthesised for this course (NumPy), CC BY 4.0"
+   },
+   "recorded": "scripts/film/recorder.mjs + video/m03-greedy-pair-merge/walkthrough.mjs",
+   "fps": 30,
+   "size": [
+    1920,
+    1080
+   ],
+   "versions": {
+    "zh": {
+     "src": "lab.zh.mp4",
+     "vtt": "lab.zh.vtt",
+     "poster": "lab.zh.jpg",
+     "duration": 168.47,
+     "captions": "zh+en",
+     "chapters": [
+      {
+       "t": 0.0,
+       "title": "开始",
+       "sceneId": "title"
+      },
+      {
+       "t": 3.2,
+       "title": "实验台",
+       "sceneId": "shot-00"
+      },
+      {
+       "t": 62.27,
+       "title": "在线编程",
+       "sceneId": "shot-07"
+      },
+      {
+       "t": 139.9,
+       "title": "用你的代码跑",
+       "sceneId": "shot-12"
+      },
+      {
+       "t": 158.22,
+       "title": "挑战",
+       "sceneId": "shot-14"
+      }
+     ],
+     "transcript": [
+      {
+       "start": 3.2,
+       "end": 11.067,
+       "text": "这是本章的实验台：选目标簇数 K 和容量，图和候选表会重新计算。",
+       "sceneId": "shot-00"
+      },
+      {
+       "start": 11.067,
+       "end": 21.822,
+       "text": "按“下一步”：A–B 和 D–E 都是 5，平票按名字，金色的 A–B 被选中。cut 18 → 13。",
+       "sceneId": "shot-01"
+      },
+      {
+       "start": 21.822,
+       "end": 32.133,
+       "text": "第二步：AB–C 显示为 5（1+4），两根平行边相加；又平票，[A, B] 在 [D] 前。",
+       "sceneId": "shot-02"
+      },
+      {
+       "start": 32.133,
+       "end": 38.667,
+       "text": "第三步合并 D–E：剩两簇 ABC | DE，cut 3。",
+       "sceneId": "shot-03"
+      },
+      {
+       "start": 38.667,
+       "end": 48.311,
+       "text": "容量改成 2，跳到结束：AB+C 超容量被阻止，停在 3 簇，cut 8，没有达到 K。",
+       "sceneId": "shot-04"
+      },
+      {
+       "start": 48.311,
+       "end": 56.622,
+       "text": "下方是原网页字符串比较的对照：同一组参数，它第一步错选了 A–C。",
+       "sceneId": "shot-05"
+      },
+      {
+       "start": 56.622,
+       "end": 62.267,
+       "text": "记录表列出每一步；点任一行就回到那一步。",
+       "sceneId": "shot-06"
+      },
+      {
+       "start": 62.267,
+       "end": 69.244,
+       "text": "在线编程：代码在浏览器里运行，不用安装 Python。",
+       "sceneId": "shot-07"
+      },
+      {
+       "start": 69.244,
+       "end": 76.889,
+       "text": "先运行检查：两个任务都还没写，结果是 INCOMPLETE。",
+       "sceneId": "shot-08"
+      },
+      {
+       "start": 76.889,
+       "end": 84.089,
+       "text": "任务一：选择键是一个元组，数字按数值比，平票再比成员。",
+       "sceneId": "shot-09"
+      },
+      {
+       "start": 84.089,
+       "end": 131.81,
+       "text": "任务二：主循环。达到 K 就停；没有合法候选就停，并分清两种原因；否则合并最好的一对。",
+       "sceneId": "shot-10"
+      },
+      {
+       "start": 131.81,
+       "end": 139.899,
+       "text": "运行检查：全部通过，包括 10 > 9 > 2 的多位数权重和不连通的图。",
+       "sceneId": "shot-11"
+      },
+      {
+       "start": 139.899,
+       "end": 150.21,
+       "text": "下面用你自己的 greedy_pair_merge() 跑一张新图，逐步对照课程引擎。",
+       "sceneId": "shot-12"
+      },
+      {
+       "start": 150.21,
+       "end": 158.218,
+       "text": "每一步的簇和 cut 都和引擎一致。",
+       "sceneId": "shot-13"
+      },
+      {
+       "start": 158.218,
+       "end": 165.862,
+       "text": "最后做挑战题，确认自己真的懂了。结果只保存在你的浏览器里。",
+       "sceneId": "shot-14"
+      }
+     ],
+     "readingViolations": 0,
+     "bytes": 11414188
+    },
+    "en": {
+     "src": "lab.en.mp4",
+     "vtt": "lab.en.vtt",
+     "poster": "lab.en.jpg",
+     "duration": 156.83,
+     "captions": "en",
+     "chapters": [
+      {
+       "t": 0.0,
+       "title": "START",
+       "sceneId": "title"
+      },
+      {
+       "t": 3.2,
+       "title": "THE LAB",
+       "sceneId": "shot-00"
+      },
+      {
+       "t": 55.73,
+       "title": "CODE LAB",
+       "sceneId": "shot-07"
+      },
+      {
+       "t": 131.16,
+       "title": "YOUR CODE, VISUALISED",
+       "sceneId": "shot-12"
+      },
+      {
+       "t": 147.11,
+       "title": "CHALLENGES",
+       "sceneId": "shot-14"
+      }
+     ],
+     "transcript": [
+      {
+       "start": 3.2,
+       "end": 11.533,
+       "text": "This is the chapter's lab: choose the target K and a capacity, and the graph and candidate table recompute.",
+       "sceneId": "shot-00"
+      },
+      {
+       "start": 11.533,
+       "end": 19.133,
+       "text": "Press Step: A–B and D–E are both 5, the tie goes by name, and A–B (gold) is chosen. cut 18 → 13.",
+       "sceneId": "shot-01"
+      },
+      {
+       "start": 19.133,
+       "end": 27.0,
+       "text": "Step two: AB–C shows 5 (1+4), two parallel wires added up; another tie, and [A, B] comes before [D].",
+       "sceneId": "shot-02"
+      },
+      {
+       "start": 27.0,
+       "end": 31.733,
+       "text": "Step three merges D–E: two clusters, ABC | DE, cut 3.",
+       "sceneId": "shot-03"
+      },
+      {
+       "start": 31.733,
+       "end": 41.667,
+       "text": "Set the capacity to 2 and jump to the end: AB+C is blocked as over capacity, and it stops at 3 clusters, cut 8, without reaching K.",
+       "sceneId": "shot-04"
+      },
+      {
+       "start": 41.667,
+       "end": 50.6,
+       "text": "Below, the original page's string comparison for contrast: with the same settings, its first step wrongly picks A–C.",
+       "sceneId": "shot-05"
+      },
+      {
+       "start": 50.6,
+       "end": 55.733,
+       "text": "The log lists every step; click any row to jump back to it.",
+       "sceneId": "shot-06"
+      },
+      {
+       "start": 55.733,
+       "end": 61.667,
+       "text": "The code lab: your code runs in the browser, with no Python to install.",
+       "sceneId": "shot-07"
+      },
+      {
+       "start": 61.667,
+       "end": 68.133,
+       "text": "Run the checks first: neither task is written yet, so the result is INCOMPLETE.",
+       "sceneId": "shot-08"
+      },
+      {
+       "start": 68.133,
+       "end": 75.267,
+       "text": "Task 1: the selection key is a tuple: numbers compare as numbers, and members break ties.",
+       "sceneId": "shot-09"
+      },
+      {
+       "start": 75.267,
+       "end": 123.23,
+       "text": "Task 2: the main loop. Stop at K; stop when no candidate is legal, telling the two reasons apart; otherwise merge the best pair.",
+       "sceneId": "shot-10"
+      },
+      {
+       "start": 123.23,
+       "end": 131.163,
+       "text": "Run the checks: everything passes, including multi-digit weights 10 > 9 > 2 and a disconnected graph.",
+       "sceneId": "shot-11"
+      },
+      {
+       "start": 131.163,
+       "end": 139.163,
+       "text": "Below, your own greedy_pair_merge() runs on a new graph, compared step by step with the course engine.",
+       "sceneId": "shot-12"
+      },
+      {
+       "start": 139.163,
+       "end": 147.112,
+       "text": "Every step's clusters and cut match the engine.",
+       "sceneId": "shot-13"
+      },
+      {
+       "start": 147.112,
+       "end": 154.245,
+       "text": "Finally, try the challenges to check you really understand. Results stay in your browser.",
+       "sceneId": "shot-14"
+      }
+     ],
+     "readingViolations": 0,
+     "bytes": 10648586
+    }
+   }
   }
- ],
- "scenes": [
-  {
-   "sceneId": "s00-title",
-   "start": 0.0,
-   "end": 3.0
-  },
-  {
-   "sceneId": "s01-hook",
-   "start": 3.0,
-   "end": 19.8
-  },
-  {
-   "sceneId": "s02-setup",
-   "start": 19.8,
-   "end": 42.96
-  },
-  {
-   "sceneId": "s03-step1",
-   "start": 42.96,
-   "end": 58.2
-  },
-  {
-   "sceneId": "s04-step2",
-   "start": 58.2,
-   "end": 78.69
-  },
-  {
-   "sceneId": "s05-step3",
-   "start": 78.69,
-   "end": 96.51
-  },
-  {
-   "sceneId": "s06-bug",
-   "start": 96.51,
-   "end": 126.33
-  },
-  {
-   "sceneId": "s07-capacity",
-   "start": 126.33,
-   "end": 155.62
-  },
-  {
-   "sceneId": "s08-code",
-   "start": 155.62,
-   "end": 179.58
-  },
-  {
-   "sceneId": "s09-limits",
-   "start": 179.58,
-   "end": 194.87
-  }
- ],
- "transcript": [
-  {
-   "start": 3.0,
-   "end": 6.689,
-   "text": "五个单元，六条带权的连线。",
-   "sceneId": "s01-hook"
-  },
-  {
-   "start": 6.689,
-   "end": 13.267,
-   "text": "每个单元先自己成一组：所有连线都跨组，cut = 18。",
-   "sceneId": "s01-hook"
-  },
-  {
-   "start": 13.267,
-   "end": 19.4,
-   "text": "连接最紧的先合并——这样一定能分出最好的结果吗？",
-   "sceneId": "s01-hook"
-  },
-  {
-   "start": 19.8,
-   "end": 25.933,
-   "text": "先说三个词。单点簇：开始时每个节点自己是一个簇。",
-   "sceneId": "s02-setup"
-  },
-  {
-   "start": 25.933,
-   "end": 31.178,
-   "text": "目标簇数 K：簇数降到 K 就停。这里 K = 2。",
-   "sceneId": "s02-setup"
-  },
-  {
-   "start": 31.178,
-   "end": 35.978,
-   "text": "簇间亲和度：两个簇之间所有边权之和。",
-   "sceneId": "s02-setup"
-  },
-  {
-   "start": 35.978,
-   "end": 42.556,
-   "text": "合并以后，这些边变成内部边——cut 恰好减少这么多。",
-   "sceneId": "s02-setup"
-  },
-  {
-   "start": 42.956,
-   "end": 48.644,
-   "text": "第一步：列出所有候选。A–B 和 D–E 都是 5。",
-   "sceneId": "s03-step1"
-  },
-  {
-   "start": 48.644,
-   "end": 53.889,
-   "text": "并列时比较成员名字：A 在 D 前，选 A–B。",
-   "sceneId": "s03-step1"
-  },
-  {
-   "start": 53.889,
-   "end": 57.8,
-   "text": "合并：cut 从 18 降到 13。",
-   "sceneId": "s03-step1"
-  },
-  {
-   "start": 58.2,
-   "end": 62.111,
-   "text": "A、B 收缩成一个超节点 AB。",
-   "sceneId": "s04-step2"
-  },
-  {
-   "start": 62.111,
-   "end": 67.578,
-   "text": "AB 到 C 有两条平行边：1 和 4，加起来是 5。",
-   "sceneId": "s04-step2"
-  },
-  {
-   "start": 67.578,
-   "end": 75.267,
-   "text": "AB–C 和 D–E 又并列 5：比较 [A, B] 与 [D]，选 AB–C。",
-   "sceneId": "s04-step2"
-  },
-  {
-   "start": 75.267,
-   "end": 78.289,
-   "text": "cut 从 13 降到 8。",
-   "sceneId": "s04-step2"
-  },
-  {
-   "start": 78.689,
-   "end": 83.267,
-   "text": "第三步只剩一个大候选：D–E = 5。",
-   "sceneId": "s05-step3"
-  },
-  {
-   "start": 83.267,
-   "end": 88.511,
-   "text": "合并：cut 从 8 降到 3，簇数到 2，停止。",
-   "sceneId": "s05-step3"
-  },
-  {
-   "start": 88.511,
-   "end": 92.644,
-   "text": "剩下被切断的是 C–D 和 C–E。",
-   "sceneId": "s05-step3"
-  },
-  {
-   "start": 92.644,
-   "end": 96.111,
-   "text": "轨迹 18 → 13 → 8 → 3。",
-   "sceneId": "s05-step3"
-  },
-  {
-   "start": 96.511,
-   "end": 104.2,
-   "text": "原网页的 JavaScript 用 cand < best 比较这些数组。",
-   "sceneId": "s06-bug"
-  },
-  {
-   "start": 104.2,
-   "end": 112.333,
-   "text": "JavaScript 先把数组变成字符串，再一个字符一个字符地比较。",
-   "sceneId": "s06-bug"
-  },
-  {
-   "start": 112.333,
-   "end": 118.911,
-   "text": "字符 1 排在 5 前面：亲和度 1 的 A–C 被当成了“更好”。",
-   "sceneId": "s06-bug"
-  },
-  {
-   "start": 118.911,
-   "end": 125.933,
-   "text": "四个配置全受影响。本课程改为逐字段比较，并加了回归测试。",
-   "sceneId": "s06-bug"
-  },
-  {
-   "start": 126.333,
-   "end": 131.133,
-   "text": "再加一条规则：每个簇最多放 2 个单元。",
-   "sceneId": "s07-capacity"
-  },
-  {
-   "start": 131.133,
-   "end": 138.156,
-   "text": "第一步照旧合并 A–B。第二步想加入 C：大小 3，超过容量。",
-   "sceneId": "s07-capacity"
-  },
-  {
-   "start": 138.156,
-   "end": 144.067,
-   "text": "被阻止，就转选 D–E。之后再也没有合法的合并。",
-   "sceneId": "s07-capacity"
-  },
-  {
-   "start": 144.067,
-   "end": 149.756,
-   "text": "结果：3 个簇，cut 8。合法，但没有达到 K。",
-   "sceneId": "s07-capacity"
-  },
-  {
-   "start": 149.756,
-   "end": 155.222,
-   "text": "没有合法的合并就停下，如实报告——不硬塞。",
-   "sceneId": "s07-capacity"
-  },
-  {
-   "start": 155.622,
-   "end": 158.422,
-   "text": "把规则写成伪代码。",
-   "sceneId": "s08-code"
-  },
-  {
-   "start": 158.422,
-   "end": 163.0,
-   "text": "每一步：先列出全部正亲和度的簇对。",
-   "sceneId": "s08-code"
-  },
-  {
-   "start": 163.0,
-   "end": 167.8,
-   "text": "有容量就先过滤；没有合法候选就停止。",
-   "sceneId": "s08-code"
-  },
-  {
-   "start": 167.8,
-   "end": 173.044,
-   "text": "选择键逐字段比较：数值优先，平票看名字。",
-   "sceneId": "s08-code"
-  },
-  {
-   "start": 173.044,
-   "end": 179.178,
-   "text": "最后分开报告：簇、cut、是否达到 K、停止原因。",
-   "sceneId": "s08-code"
-  },
-  {
-   "start": 179.578,
-   "end": 181.711,
-   "text": "贪心的边界：",
-   "sceneId": "s09-limits"
-  },
-  {
-   "start": 181.711,
-   "end": 185.844,
-   "text": "一次 cut 3，不等于总是最优。",
-   "sceneId": "s09-limits"
-  },
-  {
-   "start": 185.844,
-   "end": 189.311,
-   "text": "换评分，合并顺序就会变。",
-   "sceneId": "s09-limits"
-  },
-  {
-   "start": 189.311,
-   "end": 193.667,
-   "text": "下一模块：装不下，还是走错了路？",
-   "sceneId": "s09-limits"
-  }
- ],
- "music": "本课程原创程序合成配乐（NumPy），CC BY 4.0",
- "why": "约 3 分半：三步合并各留出比较候选的时间；比较器错误单独一段，说明机制而不只给结论。",
- "readingViolations": 0,
- "fps": 30,
- "size": [
-  1920,
-  1080
  ]
 }

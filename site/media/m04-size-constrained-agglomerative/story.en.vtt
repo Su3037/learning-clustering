@@ -1,0 +1,133 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:04.800
+The same five friends, the same rule.
+
+2
+00:00:04.800 --> 00:00:09.400
+This time, every car has only two seats.
+
+3
+00:00:10.750 --> 00:00:13.550
+Friends ride together —
+
+4
+00:00:13.550 --> 00:00:16.550
+but does it fit?
+
+5
+00:00:17.410 --> 00:00:22.610
+The rule gains one line: before merging, check that it fits.
+
+6
+00:00:22.610 --> 00:00:27.410
+A candidate that does not fit is crossed out, however close.
+
+7
+00:00:27.410 --> 00:00:31.321
+Among the rest, take the closest pair.
+
+8
+00:00:37.000 --> 00:00:41.356
+Ada and Ben take the first two-seater.
+
+9
+00:00:41.356 --> 00:00:47.933
+Three with Cai won't fit; Dev and Eva take the second.
+
+10
+00:00:47.933 --> 00:00:50.956
+Cai has to ride alone.
+
+11
+00:00:51.180 --> 00:00:54.869
+Is the rule too dumb? Count the seats.
+
+12
+00:00:54.869 --> 00:00:58.469
+Five people, two seats a car.
+
+13
+00:00:58.469 --> 00:01:05.869
+Five divided by two, rounded up: at least three. Two cars is impossible for anyone.
+
+14
+00:01:08.200 --> 00:01:13.000
+Three-seat taxis: Ada and Ben carry cellos, two seats each.
+
+15
+00:01:13.000 --> 00:01:15.933
+The two best friends ride first.
+
+16
+00:01:15.933 --> 00:01:19.178
+Anyone more overflows: three taxis.
+
+17
+00:01:20.160 --> 00:01:25.404
+But Ada with Cai, Ben with Dev —
+
+18
+00:01:25.404 --> 00:01:28.404
+two taxis, exactly full.
+
+19
+00:01:29.000 --> 00:01:32.600
+Stopping does not mean there is no answer.
+
+20
+00:01:32.600 --> 00:01:36.867
+Greedy grabbed the biggest bond and never went back.
+
+21
+00:01:42.500 --> 00:01:47.522
+Day two, tandem bikes: Ada and Ben share one.
+
+22
+00:01:47.522 --> 00:01:52.767
+Cai and Dev take the other: two 9s split, 18 in all.
+
+23
+00:01:52.767 --> 00:01:56.767
+Swap partners: only 11 is split.
+
+24
+00:01:59.270 --> 00:02:02.292
+Three stories, three endings.
+
+25
+00:02:02.292 --> 00:02:05.892
+Impossible: no one can do it.
+
+26
+00:02:05.892 --> 00:02:10.026
+Stuck: an answer exists, and greedy missed it.
+
+27
+00:02:10.026 --> 00:02:13.937
+Not the best: legal, but it could be better.
+
+28
+00:02:14.160 --> 00:02:20.560
+On a chip, each region holds only so much area; clusters must fit too.
+
+29
+00:02:21.500 --> 00:02:27.500
+Legal is not the same as done.
+
+30
+00:02:27.500 --> 00:02:33.500
+Done is not the same as best.
+
+31
+00:02:33.500 --> 00:02:40.500
+When it stops, say which one it is.
+
+32
+00:02:40.500 --> 00:02:48.500
+What if nodes don't merge, only change labels? See the next module.
+
+33
+00:02:50.600 --> 00:02:56.600
+In the lab below, change the capacity or a size and read the diagnosis.

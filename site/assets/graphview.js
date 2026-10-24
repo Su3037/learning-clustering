@@ -3,7 +3,7 @@
  * group tags under nodes, dashed red cut edges, dashed outlines for locked nodes, a gold ring
  * for the node in focus, and a red ring for blocked candidates.
  */
-import { h } from './core.js';
+import { h, L } from './core.js';
 
 export const PALETTE = ['#77cdbb', '#8fb1e6', '#d8bb78', '#c2a6e6', '#e39fb8', '#9fd27f', '#e8a06a', '#7fd0e0'];
 const NS = 'http://www.w3.org/2000/svg';
@@ -19,7 +19,7 @@ function hull(points) {
 }
 
 export class GraphView {
-  constructor(container, { graph, positions, width = 760, height = 500, directed = false, light = false, radius = 24, title = '图', onNodeClick = null, margin = 40 } = {}) {
+  constructor(container, { graph, positions, width = 760, height = 500, directed = false, light = false, radius = 24, title = L('图', 'Graph'), onNodeClick = null, margin = 40 } = {}) {
     this.container = container; this.directed = directed; this.r = radius; this.onNodeClick = onNodeClick; this.title = title;
     this.setGraph(graph, positions, width, height, margin);
     this.svg = h('svg', { viewBox: `0 0 ${this.W} ${this.H}`, class: 'gv' + (light ? ' gv-light' : ''), role: 'img', 'aria-label': title });
@@ -91,7 +91,7 @@ export class GraphView {
       const tag = state.tags?.[id];
       if (tag) g.append(h('text', { class: 'tag-text', 'text-anchor': 'middle', y: this.r + 18 }, tag));
       if (this.onNodeClick) {
-        g.setAttribute('tabindex', '0'); g.setAttribute('role', 'button'); g.setAttribute('aria-label', `节点 ${id}${tag ? '，' + tag : ''}`);
+        g.setAttribute('tabindex', '0'); g.setAttribute('role', 'button'); g.setAttribute('aria-label', L(`节点 ${id}${tag ? '，' + tag : ''}`, `Node ${id}${tag ? ', ' + tag : ''}`));
         g.style.cursor = 'pointer';
         g.addEventListener('click', () => this.onNodeClick(id));
         g.addEventListener('keydown', ev => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); this.onNodeClick(id); } });

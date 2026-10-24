@@ -1,0 +1,172 @@
+{
+ "status": "ready",
+ "moduleId": "m06-spectral-bisection",
+ "slides": [
+  {
+   "slideId": "m06-title",
+   "pageNumber": 1,
+   "pageCount": 11,
+   "title": "A number for every point",
+   "image": "p01.jpg",
+   "thumb": "t01.jpg",
+   "alt": "A number for every point: ",
+   "transcript": "This module bisects a graph using information from the whole graph: build the Laplacian, take the second eigenvector to give each node a number, sort, and try every cut position inside a balance window.",
+   "videoAnchor": null,
+   "sceneId": "k00-title",
+   "objectiveIds": []
+  },
+  {
+   "slideId": "m06-problem",
+   "pageNumber": 2,
+   "pageCount": 11,
+   "title": "The problem",
+   "image": "p02.jpg",
+   "thumb": "t02.jpg",
+   "alt": "The problem: Both groups non-empty; left and right not distinguished; 5 nodes: (2⁵ − 2) ÷ 2 = 15 splits (not 16); Balance window: 40%–60% per group (here 2–3 a side); Output: the split, cut, Fiedler order, sweep table, numerical diagnostics; The spectral method gives a good candidate, not a guaranteed optimum",
+   "transcript": "A bisection must state its conventions first: both groups non-empty, left and right not distinguished, plus a balance window. Five nodes have 15 non-empty, unlabelled splits; the original quiz’s 16 also counts the empty-group one.",
+   "videoAnchor": null,
+   "sceneId": "k01-problem",
+   "objectiveIds": [
+    "o1"
+   ]
+  },
+  {
+   "slideId": "m06-laplacian",
+   "pageNumber": 3,
+   "pageCount": 11,
+   "title": "The Laplacian L = D − A",
+   "image": "p03.jpg",
+   "thumb": "t03.jpg",
+   "alt": "The Laplacian L = D − A: Diagonal: the degree (sum of incident edge weights); Off the diagonal: minus the edge weight; 0 where there is no edge; Each edge contributes to four entries: ±w; Self-check: L symmetric, every row sums to 0; Note: this D is the degree matrix, not the inter-cluster delay of Module 09",
+   "transcript": "The Laplacian has each node’s degree on the diagonal and negative edge weights off it. Every edge contributes to four entries. Two self-checks: the matrix is symmetric, and every row sums to zero. This D is the degree matrix, not the inter-cluster delay D of Module 09.",
+   "videoAnchor": null,
+   "sceneId": "k02-laplacian",
+   "objectiveIds": [
+    "o2"
+   ]
+  },
+  {
+   "slideId": "m06-quadratic",
+   "pageNumber": 4,
+   "pageCount": 11,
+   "title": "The quadratic form: why tightly linked points get close numbers",
+   "image": "p04.jpg",
+   "thumb": "t04.jpg",
+   "alt": "The quadratic form: why tightly linked points get close numbers: xᵀLx = Σ w(u,v)·(x_u − x_v)²; With x = ±1: a cut edge contributes 4w → xᵀLx = 4 × cut; Relax: x any real vector, orthogonal to all-ones; The relaxed optimum: the eigenvector of the second-smallest eigenvalue; Springs are only an analogy; this page runs no physical simulation",
+   "transcript": "L has one key property: x transpose L x equals the sum, over the edges, of the weight times the squared difference of the two ends. If x is only plus or minus one, each cut edge contributes 4w, so it equals four times the cut. Relax x to any real vector, and the optimum is the eigenvector of the second-smallest eigenvalue. You can picture the edges as springs, but that is only an analogy.",
+   "videoAnchor": null,
+   "sceneId": "k03-quad",
+   "objectiveIds": [
+    "o3"
+   ]
+  },
+  {
+   "slideId": "m06-fiedler",
+   "pageNumber": 5,
+   "pageCount": 11,
+   "title": "The Fiedler vector and its conditions",
+   "image": "p05.jpg",
+   "thumb": "t05.jpg",
+   "alt": "The Fiedler vector and its conditions: λ1 = 0 (the all-ones vector); λ2 ≈ 1.7733; Fiedler vector: A 0.519, B 0.418, C 0.106, D −0.489, E −0.553; Conditions: the graph is connected; λ2 is not degenerate; Sign flip: −x is an eigenvector too, and only swaps sides",
+   "transcript": "G01’s smallest eigenvalue is zero, and the second smallest is about 1.7733. Its eigenvector is the Fiedler vector. Two conditions: the graph must be connected, and λ2 must not be degenerate. Flipping the whole vector only swaps left and right.",
+   "videoAnchor": null,
+   "sceneId": "k04-fiedler",
+   "objectiveIds": [
+    "o4"
+   ]
+  },
+  {
+   "slideId": "m06-sweep",
+   "pageNumber": 6,
+   "pageCount": 11,
+   "title": "The sweep",
+   "image": "p06.jpg",
+   "thumb": "t06.jpg",
+   "alt": "The sweep: Order: E, D, C, B, A; Cuts for k = 1…4: 6, 3, 5, 6; The 40/60 window allows only k = 2, 3; Take k = 2: DE | ABC, cut 3; Cutting “right in the middle”, k = 3, gives 5",
+   "transcript": "Sorted by Fiedler value the order is E, D, C, B, A. Trying the four positions along the line gives cuts 6, 3, 5 and 6. The window allows only k equal to 2 and 3; take k equal to 2, with the smaller cut, giving DE versus ABC. Cutting right in the middle is worse.",
+   "videoAnchor": null,
+   "sceneId": "k05-sweep",
+   "objectiveIds": [
+    "o5"
+   ]
+  },
+  {
+   "slideId": "m06-fix",
+   "pageNumber": 7,
+   "pageCount": 11,
+   "title": "Two misunderstandings, corrected",
+   "image": "p07.jpg",
+   "thumb": "t07.jpg",
+   "alt": "Two misunderstandings, corrected: “With no constraint the optimum isolates one node”: wrong; the least single-node cut is 6, ABC | DE is only 3; Say instead: with no constraint a group can come out too small; “The stored vector is a solver”: wrong; its residual 0.0044 is rounding; The stored values are not recomputed when the graph ",
+   "transcript": "Two corrections. First, with no balance constraint the optimum does not always isolate one node: here isolating a node cuts at least 6, while ABC versus DE cuts only 3. Second, the original page stores a three-decimal eigenvector; its residual of 0.0044 is rounding, but it is not recomputed when the graph changes. This course solves it live in the browser.",
+   "videoAnchor": null,
+   "sceneId": "a04-window",
+   "objectiveIds": [
+    "o6"
+   ]
+  },
+  {
+   "slideId": "m06-disconnected",
+   "pageNumber": 8,
+   "pageCount": 11,
+   "title": "A disconnected graph",
+   "image": "p08.jpg",
+   "thumb": "t08.jpg",
+   "alt": "A disconnected graph: Two components → λ1 = λ2 = 0; The Fiedler vector only shows who shares a component; Check connectivity and degeneracy before using it; The lab’s diagnostics panel gives a warning",
+   "transcript": "When the graph is disconnected, each component contributes its own zero eigenvalue, so λ2 is zero too. Then the Fiedler vector only tells you who is in the same component. Check connectivity before using it.",
+   "videoAnchor": null,
+   "sceneId": "k06-warn",
+   "objectiveIds": [
+    "o4"
+   ]
+  },
+  {
+   "slideId": "m06-pseudo",
+   "pageNumber": 9,
+   "pageCount": 11,
+   "title": "Pseudocode and numerical self-checks",
+   "image": "p09.jpg",
+   "thumb": "t09.jpg",
+   "alt": "Pseudocode and numerical self-checks: Line 1: build L, check symmetry and row sums; Lines 2–3: eigendecomposition; check connectivity, degeneracy, residual; Lines 4–5: fix the sign, then sort; Lines 6–7: sweep n − 1 positions, take the least cut inside the window",
+   "transcript": "The pseudocode builds L and checks it, then does the eigendecomposition and checks connectivity, degeneracy and the residual, fixes the sign and sorts, and finally sweeps every position and takes the least cut inside the window.",
+   "videoAnchor": null,
+   "sceneId": "a03-round",
+   "objectiveIds": [
+    "o6"
+   ]
+  },
+  {
+   "slideId": "m06-limits",
+   "pageNumber": 10,
+   "pageCount": 11,
+   "title": "Limits and uses",
+   "image": "p10.jpg",
+   "thumb": "t10.jpg",
+   "alt": "Limits and uses: Gives a good initial bisection, often handed to KL/FM to improve; Unnormalised L; normalised variants give different orders; At scale, use sparse iterative solvers (such as Lanczos); Springs are only an analogy",
+   "transcript": "Spectral bisection is often used to give a good initial bisection, which KL or FM then improves. This chapter uses the unnormalised L. Large problems need sparse iterative solvers. Springs are only an analogy to aid understanding.",
+   "videoAnchor": null,
+   "sceneId": "a06-numerics",
+   "objectiveIds": [
+    "o6"
+   ]
+  },
+  {
+   "slideId": "m06-summary",
+   "pageNumber": 11,
+   "pageCount": 11,
+   "title": "Summary",
+   "image": "p11.jpg",
+   "thumb": "t11.jpg",
+   "alt": "Summary: ",
+   "transcript": "In summary: build the Laplacian, and let the Fiedler vector give every point a number; sort, sweep every cut point, and take the least cut inside the balance window. A sign flip only swaps sides. The next module starts from this bisection and improves it with pairwise swaps.",
+   "videoAnchor": null,
+   "sceneId": null,
+   "objectiveIds": []
+  }
+ ],
+ "pdf": "m06-spectral-bisection-en.pdf",
+ "pptx": "m06-spectral-bisection-en.pptx",
+ "contentVersion": "2026.10.23-1",
+ "lang": "en",
+ "aspectNote": "16:9 is this course's choice (it matches the films and suits projection), not a ratio the teacher set. PDF page numbers match the web p/total exactly; in the PPTX the text, shapes and tables are editable and the notes hold the script."
+}

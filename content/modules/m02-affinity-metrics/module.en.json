@@ -1,0 +1,52 @@
+{
+  "title": "Affinity Metrics",
+  "hook": "Look at the same circuit cells by direct wires, then by shared neighbours. Why do the two disagree about which pair is closest?",
+  "cardText": "Score every pair of cells: direct edge weight, shared neighbours, and pin-count on multi-pin nets. A score ranks pairs; it does not group them.",
+  "description": "Why direct wires and shared neighbours name different “closest pairs” among the same circuit cells: edge weight, shared neighbours and pin-count.",
+  "prerequisitesText": "[Foundations](../../foundations/index.html): graphs, edge weights, nets, clusters.",
+  "nextText": "Module 03 uses this module’s “summed weight between clusters” to merge.",
+  "review": "The layer below: a graph’s nodes are cells, and the heavier an edge, the more we want its two ends together; one net can connect three or more cells. [Foundations](../../foundations/index.html)",
+  "objectives": [
+    { "id": "o1", "text": "Explain the difference between scoring (ranking) and grouping (a partition), and why affinity is neither a distance nor a probability." },
+    { "id": "o2", "text": "Compute the direct-weight score by hand and give a stable ranking by (score descending, u, v) that does not depend on input order." },
+    { "id": "o3", "text": "Break a shared-neighbour score into “direct wire + the weaker wire through each shared neighbour”, including pairs with no direct wire." },
+    { "id": "o4", "text": "Explain why a different score changes the first pair to merge (the priority graph: X–Y@5 versus P–Q@8)." },
+    { "id": "o5", "text": "Handle wide nets with the clique model’s pin-count: each pair gets w/(|e|−1), so a private two-pin net beats two wide five-pin nets." },
+    { "id": "o6", "text": "Read the pseudocode line by line and implement the three scores in Python." }
+  ],
+  "problem": {
+    "input": "A weighted undirected graph (nodes, edge weights), or a multi-pin netlist (each net is a set of pins with a weight).",
+    "output": "Every pair with a positive score, as (u, v, score) with u < v, sorted by score descending, then by u and v.",
+    "objective": "Quantify “how much this pair belongs together” under one **stated** model.",
+    "constraints": "No self-loops or duplicate edges; a pin repeated inside one net counts once; nets with fewer than two distinct pins are ignored.",
+    "assumptions": "Edge weights are non-negative and mean connection strength; a shared neighbour x contributes min(w(u,x), w(v,x)); the clique model shares a net out over |e|−1.",
+    "stop": "Done once every unordered pair has been checked. This module **outputs no groups**; grouping starts in Module 03."
+  },
+  "filmTitle": "Four films",
+  "filmNote": "The popular-science film starts with group chats, where counting shared chats makes the boss your closest person, then moves to a chip and the three scores. The concise film covers what you must know in about two minutes; the advanced film covers why min, the hub problem, enumeration cost, what pin-count preserves, and the tie rule; the walkthrough, recorded from the real page, takes you through the lab and the code lab. Every score comes from the same engine as this page.",
+  "labTitle": "Three scores, one graph",
+  "labNote": "Switch the score or change one edge’s weight, and the engine recomputes the ranking at once. Stepping through reveals where each pair’s score comes from, in ranking order.",
+  "challengeTip": "This module’s [Implement] challenge asks you to sort by hand: use the ↑ ↓ on each row to reorder.",
+  "mistakes": [
+    { "title": "Giving shared-neighbour scores only to pairs that share a wire", "wrong": "The five-node graph lists only 6 pairs, and B–D is missing.", "why": "The shared-neighbour score must check **every** unordered pair; a pair without a direct wire can still have shared neighbours.", "counter": "B–D has no direct wire, but its shared neighbour C gives it min(4, 2) = 2; the full list has 10 pairs.", "fix": "Loop over every u < v, then look up the shared neighbours." },
+    { "title": "Thinking every clustering algorithm “merges the top pair first”", "wrong": "Treating this module’s ranking as the common first step of every later module.", "why": "A score is the output of one model. Label propagation changes labels by neighbour votes, spectral bisection sorts by an eigenvector, KL/FM swap or move nodes: none of them merges the top pair.", "counter": "In Module 05’s first round, A takes B’s label; nothing “merges a pair”.", "fix": "Say “greedy merging (Module 03) uses the pair with the highest affinity”, rather than generalising to every algorithm." },
+    { "title": "Counting wide nets by occurrences instead of sharing them out", "wrong": "Two five-pin nets (enable, reset) give A–B 2 points, beating E–F on its private net (1 point).", "why": "One five-pin net connects 10 pairs of cells at once, so it says far less about any one pair than a net that connects only E and F.", "counter": "pin-count: A–B = 1/4 + 1/4 = 0.5, E–F = 1/(2−1) = 1, so E–F comes first.", "fix": "State that you use the clique model and divide the weight by |e|−1; do not present it as the only correct model." },
+    { "title": "Letting the input decide the order of ties", "wrong": "Feed the edges in reverse and A–B and D–E swap places.", "why": "If you sort by score alone, tied items keep whatever order they had before sorting.", "counter": "A–B and D–E are both 5 (direct weight) or 6 (shared neighbours).", "fix": "Sort by (−score, u, v), and write every pair as u < v." },
+    { "title": "Treating affinity as a distance or a probability", "wrong": "Saying “A–B at 6 is three times as close as B–D at 2”, or “A–B are in the same group with 60% probability”.", "why": "Affinity is a ranking score under one model: change the model and the numbers change. It does not satisfy the triangle inequality of a distance, and it is not a probability.", "counter": "The same pair A–B scores 5 by direct weight, 6 by shared neighbours, and something else again on a pin-count netlist.", "fix": "Compare only the order of scores under one model, and say which score you used." }
+  ],
+  "limits": "- The choice of score changes the result of the merging that follows. The three scores here are simple models common in teaching, not the one “best” affinity; real tools may also weigh timing, area or physical distance.\n- The shared-neighbour score checks every pair: done naively, n nodes give about n(n−1)/2 pairs. Large netlists need to enumerate along adjacency instead.\n- The clique model approximates a multi-pin net: it draws the net as pairwise “illustrative contributions”, and none of those wires exists physically.\n- This module outputs no groups; turning a ranking into clusters needs Module 03’s merging rule.",
+  "pythonPackage": {
+    "title": "Implement the three scores",
+    "md": "**Task** (three `TODO`s in `starter.py`):\n\n1. `affinity_edge_weight(edges)`: direct weight.\n2. `affinity_shared_neighbors(nodes, edges)`: check every unordered pair and list only positive scores.\n3. `affinity_pin_count(nodes, nets)`: the clique model; a repeated pin counts once.\n\nAll three return `[(u, v, score), ...]` with u < v, sorted by (score descending, u, v).\n\n**Hint 1**: write the double loop over “every unordered pair” first, then decide what each pair adds.\n\n**Hint 2**: a shared neighbour is an x that appears in both u’s and v’s adjacency; it contributes `min(w(u,x), w(v,x))`. The checker also tries a new graph, so memorising the five-node answers will not pass."
+  },
+  "credits": {
+    "kept": [
+      "Comparing the edge, shared-neighbour and pin-count scores side by side on the same graph.",
+      "priority_graph: the first pair to merge changes from X–Y@5 to P–Q@8 (the core example of this module’s challenges and films).",
+      "tiny_netlist: two wide five-pin nets and one private net, showing how wide nets dilute.",
+      "The exercise ideas of sorting by hand, editing edge weights and “judging only after seeing the breakdown”; the original’s English/French resources remain on the original site as a reference."
+    ],
+    "licenseNote": "The original repository declares no overall licence. This module’s text, engine, films and slides are rewritten; the values of the two small examples, priority_graph and tiny_netlist, come from the original and are credited here. The popular-science film uses third-party music chosen by the author, “We Never (Remix)” by Hi Noise / 秋成; it is not covered by this course’s licences, this course grants no rights to it, and no separate audio track is offered. The scores of the other three films are original to this course.",
+    "references": ["The teacher’s original course: [module materials](https://github.com/yongfu-li/eda-learning/blob/003bcd49e3794e6cfd2680181cdbd347d673ad07/courses/learn_clustering/module01-01-affinity-metrics/README.md)", "Clique and other multi-pin net approximations are covered in the “net models” section of common VLSI physical-design textbooks; this module does not present it as the only model."]
+  }
+}

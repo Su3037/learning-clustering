@@ -1,0 +1,97 @@
+WEBVTT
+
+1
+00:00:03.400 --> 00:00:07.533
+Spectral bisection splits a graph into two groups.
+
+2
+00:00:07.533 --> 00:00:09.800
+Both groups non-empty.
+
+3
+00:00:09.800 --> 00:00:17.267
+And a declared balance window, here 2 to 3 a side; inside it, make the cut small.
+
+4
+00:00:17.267 --> 00:00:21.400
+Five nodes have 15 non-empty bipartitions.
+
+5
+00:00:21.800 --> 00:00:26.600
+Step one: build the Laplacian L = D − A.
+
+6
+00:00:26.600 --> 00:00:32.289
+Row A: degree 5 + 1 = 6, −5 to B, −1 to C.
+
+7
+00:00:32.289 --> 00:00:34.689
+Every row sums to 0.
+
+8
+00:00:35.089 --> 00:00:42.089
+Why L? Look at the quadratic form: each edge adds w times the squared difference of its ends.
+
+9
+00:00:42.089 --> 00:00:46.689
+The heavier the edge, the closer its two numbers must be.
+
+10
+00:00:46.689 --> 00:00:52.600
+Among unit vectors orthogonal to all-ones, the minimum is λ₂.
+
+11
+00:00:52.600 --> 00:00:57.178
+The vector that attains it is the Fiedler vector.
+
+12
+00:00:57.578 --> 00:01:03.267
+G01's Fiedler vector gives each node a number.
+
+13
+00:01:03.267 --> 00:01:06.956
+The order: E, D, C, B, A.
+
+14
+00:01:06.956 --> 00:01:12.644
+Tightly linked nodes sit together; C, linked to both sides, sits between.
+
+15
+00:01:13.044 --> 00:01:17.778
+Along the order, try a cut between each pair of neighbours.
+
+16
+00:01:17.778 --> 00:01:21.689
+The cuts are 6, 3, 5, 6.
+
+17
+00:01:21.689 --> 00:01:28.489
+Only k = 2 and 3 are in the window: choose k = 2 with cut 3, not the middle.
+
+18
+00:01:28.889 --> 00:01:34.133
+Two warnings. First, the sign: −x is an eigenvector too.
+
+19
+00:01:34.133 --> 00:01:38.267
+The order reverses; the same cut just swaps sides.
+
+20
+00:01:38.267 --> 00:01:44.800
+Second, when the graph is disconnected λ₂ = 0, and the order only reflects components.
+
+21
+00:01:45.200 --> 00:01:47.333
+Four things to keep.
+
+22
+00:01:47.333 --> 00:01:50.600
+Declare non-empty sides and a window;
+
+23
+00:01:50.600 --> 00:01:55.178
+build L, sort by Fiedler, sweep;
+
+24
+00:01:55.178 --> 00:02:00.711
+Sign flips change nothing; check connectivity. Try it in the lab below.

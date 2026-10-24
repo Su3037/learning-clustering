@@ -3,10 +3,10 @@
  * Every check calls the module's real engine or an explicit rule; finishing a video or reaching
  * a page never counts as completion. Viewing the answer is recorded separately and never penalised.
  */
-import { h, $, recordChallenge, challengeState, resetChallenge, chime, toast } from './core.js';
+import { h, $, recordChallenge, challengeState, resetChallenge, chime, toast, L } from './core.js';
 import { GraphView } from './graphview.js';
 
-const DIFF = { Intro: '入门', Practice: '练习', Stretch: '挑战' };
+const DIFF = { Intro: L('入门', 'Intro'), Practice: L('练习', 'Practice'), Stretch: L('挑战', 'Stretch') };
 
 export function mountChallenges(root, moduleId, list) {
   root.replaceChildren(...list.map(c => card(moduleId, c)));
@@ -24,18 +24,18 @@ function card(moduleId, c) {
     h('header', {},
       h('span.cat', `[${c.type}]`), h('h3', c.title),
       h('span.tag', DIFF[c.difficulty] || c.difficulty), stateTag),
-    h('p.why', {}, h('b', '这题检查什么：'), c.why),
+    h('p.why', {}, h('b', L('这题检查什么：', 'What this checks: ')), c.why),
     h('p.task', c.task),
     h('div.controls', {}, ui.element),
     h('div.btn-row', {},
-      h('button.btn.primary', { type: 'button', onclick: submit }, '提交'),
-      h('button.btn', { type: 'button', onclick: hint }, '提示'),
-      h('button.btn.quiet', { type: 'button', onclick: showAnswer }, '查看答案与解析'),
-      h('button.btn.quiet', { type: 'button', onclick: retry }, '重置重试')),
+      h('button.btn.primary', { type: 'button', onclick: submit }, L('提交', 'Submit')),
+      h('button.btn', { type: 'button', onclick: hint }, L('提示', 'Hint')),
+      h('button.btn.quiet', { type: 'button', onclick: showAnswer }, L('查看答案与解析', 'Show answer and explanation')),
+      h('button.btn.quiet', { type: 'button', onclick: retry }, L('重置重试', 'Reset and retry'))),
     fb, hints, answerBox);
   function paint() {
     const s = challengeState(moduleId, c.id);
-    const text = !s ? '未开始' : s.status === 'solved' ? '独立完成' : s.status === 'solved-after-answer' ? '看过答案后完成' : `尝试中 · ${s.attempts} 次`;
+    const text = !s ? L('未开始', 'Not started') : s.status === 'solved' ? L('独立完成', 'Solved on your own') : s.status === 'solved-after-answer' ? L('看过答案后完成', 'Solved after seeing the answer') : L(`尝试中 · ${s.attempts} 次`, `In progress · ${s.attempts} ${s.attempts === 1 ? 'try' : 'tries'}`);
     stateTag.textContent = text;
     stateTag.className = 'state tag' + (s?.status === 'solved' ? ' ok' : s?.status === 'solved-after-answer' ? ' warn' : '');
     el.classList.toggle('solved', !!s && s.status !== 'attempted');
@@ -51,16 +51,16 @@ function card(moduleId, c) {
     if (r.ok) {
       const viewed = !!prev.answerViewed;
       recordChallenge(moduleId, c.id, { status: viewed ? 'solved-after-answer' : 'solved', attempts: (prev.attempts || 0) + 1 });
-      answerBox.replaceChildren(h('div.answer', {}, h('b', '为什么：'), ' ', c.explanation));
-      if (!viewed && allSolved(moduleId)) toast('本模块挑战全部独立完成。');
+      answerBox.replaceChildren(h('div.answer', {}, h('b', L('为什么：', 'Why: ')), ' ', c.explanation));
+      if (!viewed && allSolved(moduleId)) toast(L('本模块挑战全部独立完成。', 'You solved every challenge in this module on your own.'));
     } else {
       recordChallenge(moduleId, c.id, { status: prev.status && prev.status !== 'attempted' ? prev.status : 'attempted', attempts: (prev.attempts || 0) + 1 });
     }
     paint();
   }
   function hint() {
-    if (hintShown >= c.hints.length) { toast('两级提示都已显示；仍卡住时可以查看答案，记录会如实标注。'); return; }
-    hints.append(h('div.hint', {}, h('b', `提示 ${hintShown + 1}/${c.hints.length}：`), ' ', c.hints[hintShown]));
+    if (hintShown >= c.hints.length) { toast(L('两级提示都已显示；仍卡住时可以查看答案，记录会如实标注。', 'Both hints are showing. If you are still stuck, look at the answer; your record will say so honestly.')); return; }
+    hints.append(h('div.hint', {}, h('b', L(`提示 ${hintShown + 1}/${c.hints.length}：`, `Hint ${hintShown + 1}/${c.hints.length}: `)), ' ', c.hints[hintShown]));
     hintShown++;
     const prev = challengeState(moduleId, c.id);
     recordChallenge(moduleId, c.id, { status: prev?.status || 'attempted', attempts: prev?.attempts || 0, hintsUsed: hintShown });
@@ -69,8 +69,8 @@ function card(moduleId, c) {
   function showAnswer() {
     const prev = challengeState(moduleId, c.id);
     recordChallenge(moduleId, c.id, { status: prev?.status || 'attempted', attempts: prev?.attempts || 0, answerViewed: true });
-    answerBox.replaceChildren(h('div.answer', {}, h('b', '答案：'), ' ', c.answer, h('br'), h('b', '解析：'), ' ', c.explanation,
-      h('br'), h('span.small.muted', '已记录为“看过答案”。之后自己再提交一次正确答案，会标为“看过答案后完成”，不扣分。')));
+    answerBox.replaceChildren(h('div.answer', {}, h('b', L('答案：', 'Answer: ')), ' ', c.answer, h('br'), h('b', L('解析：', 'Explanation: ')), ' ', c.explanation,
+      h('br'), h('span.small.muted', L('已记录为“看过答案”。之后自己再提交一次正确答案，会标为“看过答案后完成”，不扣分。', 'Recorded as “answer seen”. Submit a correct answer yourself later and it will show as “solved after seeing the answer”; nothing is deducted.'))));
     paint();
   }
   function retry() {
@@ -97,7 +97,7 @@ export function choice(options, { multi = false } = {}) {
   } }, label));
   return {
     element: h('div.choice-row', { role: multi ? 'group' : 'radiogroup' }, buttons),
-    getAnswer() { if (!picked.size) throw new Error('先选择一项再提交。'); return multi ? [...picked] : [...picked][0]; },
+    getAnswer() { if (!picked.size) throw new Error(L('先选择一项再提交。', 'Pick an option before submitting.')); return multi ? [...picked] : [...picked][0]; },
     reset() { picked = new Set(); buttons.forEach(b => b.setAttribute('aria-pressed', 'false')); }
   };
 }
@@ -108,8 +108,8 @@ export function fields(specs) {
     getAnswer() {
       return Object.fromEntries(specs.map((s, i) => {
         const v = inputs[i].value.trim();
-        if (v === '') throw new Error(`请填写“${s.label}”。`);
-        if ((s.type || 'number') === 'number') { const n = Number(v); if (!Number.isFinite(n)) throw new Error(`“${s.label}”须为数字。`); return [s.key, n]; }
+        if (v === '') throw new Error(L(`请填写“${s.label}”。`, `Please fill in “${s.label}”.`));
+        if ((s.type || 'number') === 'number') { const n = Number(v); if (!Number.isFinite(n)) throw new Error(L(`“${s.label}”须为数字。`, `“${s.label}” must be a number.`)); return [s.key, n]; }
         return [s.key, v];
       }));
     },
@@ -117,21 +117,21 @@ export function fields(specs) {
   };
 }
 /** Click nodes (or edges) on a small graph to build a set. */
-export function graphPick({ graph, positions, mode = 'nodes', state = () => ({}), width = 560, height = 360, label = '点击选择' }) {
+export function graphPick({ graph, positions, mode = 'nodes', state = () => ({}), width = 560, height = 360, label = L('点击选择', 'Click to select') }) {
   const box = h('div.ch-graph');
   const picked = new Set();
   let gv;
   const draw = () => {
     const st = state();
-    if (mode === 'nodes') gv.render({ ...st, focus: [...picked], summary: `已选 ${[...picked].join('、') || '无'}` });
+    if (mode === 'nodes') gv.render({ ...st, focus: [...picked], summary: L(`已选 ${[...picked].join('、') || '无'}`, `Selected: ${[...picked].join(', ') || 'none'}`) });
     else {
       const edgeStyle = {};
-      gv.render({ ...st, highlight: [...picked].map(k => k.split('|')), summary: `已选边 ${[...picked].map(k => k.replace('|', '–')).join('、') || '无'}`, edgeStyle });
+      gv.render({ ...st, highlight: [...picked].map(k => k.split('|')), summary: L(`已选边 ${[...picked].map(k => k.replace('|', '–')).join('、') || '无'}`, `Selected edges: ${[...picked].map(k => k.replace('|', '–')).join(', ') || 'none'}`), edgeStyle });
     }
   };
-  const toggle = k => { picked.has(k) ? picked.delete(k) : picked.add(k); draw(); list.textContent = '已选：' + ([...picked].map(x => x.replace('|', '–')).join('、') || '无'); };
+  const toggle = k => { picked.has(k) ? picked.delete(k) : picked.add(k); draw(); list.textContent = L('已选：', 'Selected: ') + ([...picked].map(x => x.replace('|', '–')).join(L('、', ', ')) || L('无', 'none')); };
   gv = new GraphView(box, { graph, positions, width, height, radius: 22, onNodeClick: mode === 'nodes' ? toggle : null, title: label });
-  const list = h('p.small', '已选：无');
+  const list = h('p.small', L('已选：无', 'Selected: none'));
   let edgeButtons = null;
   if (mode === 'edges') {
     const edges = gv.edges.map(e => [e.u, e.v].sort().join('|'));
@@ -144,7 +144,7 @@ export function graphPick({ graph, positions, mode = 'nodes', state = () => ({})
   return {
     element: h('div', {}, box, edgeButtons, list),
     getAnswer() { return [...picked]; },
-    reset() { picked.clear(); draw(); list.textContent = '已选：无'; edgeButtons?.querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', 'false')); },
+    reset() { picked.clear(); draw(); list.textContent = L('已选：无', 'Selected: none'); edgeButtons?.querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', 'false')); },
     redraw: draw
   };
 }
@@ -153,8 +153,8 @@ export function orderList(items) {
   let order = [...items];
   const ol = h('ol.small', { style: 'padding-left:22px;margin:0' });
   const paint = () => ol.replaceChildren(...order.map((it, i) => h('li', { style: 'margin:4px 0' }, h('span', { style: 'display:inline-block;min-width:90px;font-family:var(--mono)' }, it),
-    h('button.btn.small', { type: 'button', 'aria-label': `${it} 上移`, disabled: i === 0, onclick: () => { [order[i - 1], order[i]] = [order[i], order[i - 1]]; paint(); ol.children[i - 1]?.querySelector('button')?.focus(); } }, '↑'), ' ',
-    h('button.btn.small', { type: 'button', 'aria-label': `${it} 下移`, disabled: i === order.length - 1, onclick: () => { [order[i + 1], order[i]] = [order[i], order[i + 1]]; paint(); ol.children[i + 1]?.querySelectorAll('button')[1]?.focus(); } }, '↓'))));
+    h('button.btn.small', { type: 'button', 'aria-label': L(`${it} 上移`, `Move ${it} up`), disabled: i === 0, onclick: () => { [order[i - 1], order[i]] = [order[i], order[i - 1]]; paint(); ol.children[i - 1]?.querySelector('button')?.focus(); } }, '↑'), ' ',
+    h('button.btn.small', { type: 'button', 'aria-label': L(`${it} 下移`, `Move ${it} down`), disabled: i === order.length - 1, onclick: () => { [order[i + 1], order[i]] = [order[i], order[i + 1]]; paint(); ol.children[i + 1]?.querySelectorAll('button')[1]?.focus(); } }, '↓'))));
   paint();
   return { element: ol, getAnswer: () => [...order], reset() { order = [...items]; paint(); } };
 }

@@ -24,7 +24,8 @@
         "c5",
         "c6",
         "c7"
-      ]
+      ],
+      "titleEn": "Affinity Metrics"
     },
     {
       "moduleId": "m03-greedy-pair-merge",
@@ -46,7 +47,8 @@
         "c4",
         "c5",
         "c6"
-      ]
+      ],
+      "titleEn": "Greedy Pair Merge"
     },
     {
       "moduleId": "m04-size-constrained-agglomerative",
@@ -68,7 +70,8 @@
         "c4",
         "c5",
         "c6"
-      ]
+      ],
+      "titleEn": "Size-Constrained Agglomerative Clustering"
     },
     {
       "moduleId": "m05-label-propagation",
@@ -90,7 +93,8 @@
         "c4",
         "c5",
         "c6"
-      ]
+      ],
+      "titleEn": "Label Propagation"
     },
     {
       "moduleId": "m06-spectral-bisection",
@@ -112,7 +116,8 @@
         "c4",
         "c5",
         "c6"
-      ]
+      ],
+      "titleEn": "Spectral Bisection"
     },
     {
       "moduleId": "m07-kernighan-lin",
@@ -134,7 +139,8 @@
         "c4",
         "c5",
         "c6"
-      ]
+      ],
+      "titleEn": "Kernighan–Lin Refinement"
     },
     {
       "moduleId": "m08-fiduccia-mattheyses",
@@ -156,7 +162,8 @@
         "c4",
         "c5",
         "c6"
-      ]
+      ],
+      "titleEn": "Fiduccia–Mattheyses Refinement"
     },
     {
       "moduleId": "m09-rajaraman-wong",
@@ -178,7 +185,8 @@
         "c4",
         "c5",
         "c6"
-      ]
+      ],
+      "titleEn": "Rajaraman–Wong Delay-Oriented Clustering"
     }
   ]
 }

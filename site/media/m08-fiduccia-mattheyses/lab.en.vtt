@@ -1,0 +1,61 @@
+WEBVTT
+
+1
+00:00:03.200 --> 00:00:10.133
+This is the chapter's white-box lab: pick an example, then the balance window maxDiff.
+
+2
+00:00:10.133 --> 00:00:18.733
+Pass 1 starts: seed AE | BCD, cut 12. In the table A and E have the largest gain, +6, yet are marked not legal.
+
+3
+00:00:18.733 --> 00:00:27.133
+Step 1: A and E are blocked by the balance (red rings); D, legal with +3, is largest, and the cut becomes 9.
+
+4
+00:00:27.133 --> 00:00:32.267
+Step 2: the left now has 3 nodes, so A is legal: +6, cut 3.
+
+5
+00:00:32.267 --> 00:00:40.933
+Jump to the end: C, E, B all lose; the best prefix k* = 2 is kept, cut 3; pass 2's prefix is empty, so it stops.
+
+6
+00:00:40.933 --> 00:00:52.038
+Switch to the replacement example: at first every legal move loses; after A −1 and B −1, E gains +4, and the cut is 4.
+
+7
+00:00:52.038 --> 00:01:00.838
+Extension: bus is a 4-pin net (dashed violet). Gains count its pins on each side; the net is not split into edges.
+
+8
+00:01:00.838 --> 00:01:10.505
+The code lab: your code runs in the browser, with no Python to install. The pass driver and the outer loop are already written.
+
+9
+00:01:10.505 --> 00:01:16.972
+Run the checks first: neither task is written yet, so the result is INCOMPLETE.
+
+10
+00:01:16.972 --> 00:01:34.283
+Task 1: the gain. For each net that contains v, count its pins per side: only v on F gives +w, none on T gives −w.
+
+11
+00:01:34.283 --> 00:01:41.949
+Task 2: the legal candidates. The unlocked nodes that stay balanced after moving, sorted by name.
+
+12
+00:01:41.949 --> 00:01:50.816
+Run the checks: everything passes, including the audit of the hillclimb data, multi-pin nets and 150 random graphs.
+
+13
+00:01:50.816 --> 00:02:00.749
+Below, your functions run on seven cases, compared pass by pass with the course engine: which node, what gain, how many steps kept.
+
+14
+00:02:00.749 --> 00:02:07.283
+Click the ring of six: three passes; pass 2 takes −2 before +4, ending at cut 2.
+
+15
+00:02:07.283 --> 00:02:14.416
+Finally, try the challenges to check you really understand. Results stay in your browser.

@@ -5,16 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>基础速查 · Learning Clustering</title>
 <meta name="description" content="整合 8 份已关闭的 Clustering 课程提交（Module 02–09）：中文讲解、二维科普影片、带页码课件、浏览器内实验、分组挑战与 Python 练习。">
-<link rel="icon" href="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%2032%2032%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Ccircle%20cx%3D%229%22%20cy%3D%2211%22%20r%3D%225%22%20fill%3D%22%230f6b5c%22%2F%3E%3Ccircle%20cx%3D%2223%22%20cy%3D%229%22%20r%3D%224%22%20fill%3D%22%232f5e9e%22%2F%3E%3Ccircle%20cx%3D%2220%22%20cy%3D%2223%22%20r%3D%225%22%20fill%3D%22%238a6114%22%2F%3E%3Cpath%20d%3D%22M9%2011%2023%209M9%2011%2020%2023%22%20stroke%3D%22%2356625b%22%20stroke-width%3D%221.6%22%2F%3E%3Cpath%20d%3D%22M23%209%2020%2023%22%20stroke%3D%22%23a33b3b%22%20stroke-width%3D%221.6%22%20stroke-dasharray%3D%222.5%202%22%2F%3E%3C%2Fsvg%3E">
+<link rel="alternate" hreflang="zh-CN" href="../foundations/index.html">
+<link rel="alternate" hreflang="en" href="../en/foundations/index.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%2032%2032%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M9%2011%2023%209M9%2011%2020%2023%22%20stroke%3D%22%238b958e%22%20stroke-width%3D%221.3%22%2F%3E%3Cpath%20d%3D%22M23%209%2020%2023%22%20stroke%3D%22%23a33b3b%22%20stroke-width%3D%221.3%22%20stroke-dasharray%3D%222.2%202%22%2F%3E%3Ccircle%20cx%3D%229%22%20cy%3D%2211%22%20r%3D%224.6%22%20fill%3D%22%230f6b5c%22%2F%3E%3Ccircle%20cx%3D%2223%22%20cy%3D%229%22%20r%3D%223.6%22%20fill%3D%22%232f5e9e%22%2F%3E%3Ccircle%20cx%3D%2220%22%20cy%3D%2223%22%20r%3D%224.6%22%20fill%3D%22%23946a17%22%2F%3E%3C%2Fsvg%3E">
+<link rel="preload" href="../assets/fonts/noto-serif-sc-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../assets/course.css">
 </head>
 <body>
 <a class="skip" href="#main">跳到正文</a>
 <header class="topbar"><div class="wrap">
-<a class="brand" href="../index.html"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="9" cy="11" r="5" fill="#0f6b5c"/><circle cx="23" cy="9" r="4" fill="#2f5e9e"/><circle cx="20" cy="23" r="5" fill="#8a6114"/><path d="M9 11 23 9M9 11 20 23" stroke="#56625b" stroke-width="1.6"/><path d="M23 9 20 23" stroke="#a33b3b" stroke-width="1.6" stroke-dasharray="2.5 2"/></svg><span>Learning Clustering<br><small>连接与分组 · Clustering for EDA</small></span></a>
+<a class="brand" href="../index.html"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M9 11 23 9M9 11 20 23" stroke="#8b958e" stroke-width="1.3"/><path d="M23 9 20 23" stroke="#a33b3b" stroke-width="1.3" stroke-dasharray="2.2 2"/><circle cx="9" cy="11" r="4.6" fill="#0f6b5c"/><circle cx="23" cy="9" r="3.6" fill="#2f5e9e"/><circle cx="20" cy="23" r="4.6" fill="#946a17"/></svg><span class="brand-name">Learning Clustering</span><span class="brand-sub">连接与分组</span></a>
 <nav class="topnav" aria-label="课程"><a href="../index.html">首页</a><a href="../foundations/index.html" aria-current="page">基础速查</a><a href="../glossary/index.html">术语表</a><a href="../guide/index.html">如何挑战</a><a href="../credits/index.html">资源与贡献</a><a href="../progress/index.html">学习记录</a></nav>
+<div class="lang-switch" role="group" aria-label="语言"><span aria-current="true">中文</span><a href="../en/foundations/index.html" hreflang="en" lang="en" data-lang-link="en">EN</a></div>
 </div></header>
-<main id="main"><section class="section"><div class="wrap"><div class="prose"><p>&lt;p class=&quot;eyebrow&quot;&gt;基础速查&lt;/p&gt;</p>
+<main id="main"><section class="section page"><div class="wrap"><div class="prose"><p>&lt;p class=&quot;eyebrow&quot;&gt;基础速查&lt;/p&gt;</p>
 <h2>基础速查：图、边权、net、cut、簇</h2>
 <p>这页是八个模块共用的最少前置知识。每个模块第一次用到某个概念时还会再展开一次；这里给统一的定义，让各章不必重复同一段开场。</p>
 <h3>为什么芯片设计要“分组”</h3>
@@ -32,8 +36,8 @@
 python3 check.py reference.py # 参考实现应全部 PASS</code></pre>
 <p>未完成的函数报 <strong>INCOMPLETE</strong>，不会算作通过；缺少可选依赖的检查报 <strong>SKIP</strong>，同样不算通过。网页上的实验和挑战都不需要安装 Python。</p></div></div></section></main>
 <footer class="footer"><div class="wrap">
-<span>Learning Clustering · 整合已关闭 Clustering 提交 Module 02–09。原作者署名见<a href="../credits/index.html">资源与贡献</a>。</span>
-<span><button class="btn quiet small" type="button" data-pref="reduceMotion">减少动态</button> <button class="btn quiet small" type="button" data-pref="sound">声音</button> · 内容版本 2026.10.23-1</span>
+<p>Learning Clustering · 整合已关闭 Clustering 提交 Module 02–09。原作者署名见<a href="../credits/index.html">资源与贡献</a>。</p>
+<p><button class="btn quiet small" type="button" data-pref="reduceMotion">减少动态</button> <button class="btn quiet small" type="button" data-pref="sound">声音</button> · 内容版本 2026.10.23-1</p>
 </div></footer>
 <script type="module">import { initShell } from '../assets/core.js'; initShell();</script>
 

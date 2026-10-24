@@ -31,8 +31,8 @@
     "assumptions": "收益可为负；在合法候选中取最大收益，平票按节点名；最佳前缀并列取较短者，允许空前缀。",
     "stop": "某一轮的最佳前缀为空，或达到轮数上限。"
   },
-  "filmTitle": "合法的那一步",
-  "filmNote": "影片重点是“最大”只在合法候选中比较，以及回退。原附件的 hillclimb 说明已被证伪，影片只把它作为“如何审查一个反例”的材料，教学用的是新的、经穷举核验的反例。",
+  "filmTitle": "四部影片",
+  "filmNote": "科普片让五个朋友住进两间三张床的屋子，一次只搬一个人，两屋人数最多差 1：Ada、Eva 能省最多却不许动，Dev 可以，然后 Ada 才可以；亏的也试，回退到最佳前缀；另外六个人身上，两步小亏换来 +4；最后空前缀让一切停下。精讲片讲 FM 与 KL 的差别和平衡窗口、先筛合法再选最大、FS/TE 分解、一轮试探移动、最佳前缀与停止；进阶片讲一个经穷举核验的负收益反例、对原附件 hillclimb 说明的审查（它只作为“如何审查反例”的材料）、按引脚计数的多引脚 net、桶与“线性时间”到底指什么，以及人数平衡与面积平衡；实验演示从真实页面录下，带你做一遍实验和在线编程。所有数值都来自本页同一个引擎。",
   "labTitle": "白盒 FM 工坊",
   "labNote": "每一步列出所有节点的收益、是否合法、FS/TE 分解和按收益分组的“桶”。桶由每步扫描生成——这是教学实现，不是论文的线性时间桶结构。",
   "challengeTip": "第 3 题里“保留 0 步”也是合法答案；第 6 题是多引脚 net 的拓展。",
@@ -56,7 +56,8 @@
       "10 项任务与 5 题自测中“对照 KL 与 FM”的思路，提炼为主动挑战。",
       "hillclimb 案例的数据被保留为回归测试，用来演示如何审查一个反例。"
     ],
-    "licenseNote": "有效成果是 Issue #7 的 HTML 附件；Issue 中先贴的 TCLhw 仓库是 Tcl 作业，不是 FM 成果，不作为本模块来源。附件未声明许可，本模块未复制其代码；附件依赖外部 Tailwind CDN 与 Google Fonts，本课程不依赖任何外部 CDN。附件中未发现视频或课件，本模块的影片与课件为新制作。",
+    "licenseNote": "有效成果是 Issue #7 的 HTML 附件；Issue 中先贴的 TCLhw 仓库是 Tcl 作业，不是 FM 成果，不作为本模块来源。附件未声明许可，本模块未复制其代码；附件依赖外部 Tailwind CDN 与 Google Fonts，本课程不依赖任何外部 CDN。附件中未发现视频或课件，本模块的影片与课件为新制作。科普片使用作者指定的第三方音乐《We Never (Remix)（若如初见）》（Hi Noise / 秋成），它不在本课程许可范围内，本课程不授予其任何使用权，也不提供单独的音轨；其余三部影片的配乐为本课程原创合成。",
     "references": ["Fiduccia, C. M., & Mattheyses, R. M. (1982). A linear-time heuristic for improving network partitions. *Proc. 19th Design Automation Conference*, 175–181.", "教师原课程 [Module 材料](https://github.com/yongfu-li/eda-learning/tree/003bcd49e3794e6cfd2680181cdbd347d673ad07/courses/learn_clustering/module02-07-fiduccia-mattheyses)"]
-  }
+  },
+  "codelab": true
 }

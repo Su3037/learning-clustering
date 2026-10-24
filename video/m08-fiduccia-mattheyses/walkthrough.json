@@ -1,0 +1,10 @@
+{
+ "title": {"zh": "实验演示", "en": "Lab Walkthrough"},
+ "subtitle": {"zh": "实验台 · 在线编程 · 挑战", "en": "THE LAB  ·  THE CODE LAB  ·  CHALLENGES"},
+ "kicker": {"zh": "MODULE 08 · FIDUCCIA–MATTHEYSES 改进", "en": "MODULE 08 · FIDUCCIA–MATTHEYSES REFINEMENT"},
+ "brand": {"zh": "Learning Clustering · Module 08 · Fiduccia–Mattheyses 改进", "en": "Learning Clustering · Module 08 · Fiduccia–Mattheyses refinement"},
+ "why": {"zh": "从真实页面录下的操作演示：单步看 A、E 被平衡挡住、D 先走、A 随后合法，跳到结束看最佳前缀与停止；切到替换反例看先 −1、−1 再 +4，切到 4 引脚 net 看按引脚计数；再在浏览器里写完 gain() 和 legal_moves() 并通过全部检查。",
+         "en": "Recorded from the real page: stepping through A and E blocked by the balance, D moving first and A becoming legal, then jumping to the best prefix and the stop; switching to the replacement example for −1, −1, then +4, and to the 4-pin net for counting pins; then writing gain() and legal_moves() in the browser and passing every check."},
+ "posterShot": 2,
+ "order": ["story", "concise", "advanced", "lab"]
+}

@@ -5,131 +5,135 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Module 03 贪心成对合并 · Learning Clustering</title>
 <meta name="description" content="从单点簇开始，每次合并亲和度最大的合法簇对，直到达到 K 或没有合法的正亲和度对；含已修复的比较器错误与回归。">
-<link rel="icon" href="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%2032%2032%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Ccircle%20cx%3D%229%22%20cy%3D%2211%22%20r%3D%225%22%20fill%3D%22%230f6b5c%22%2F%3E%3Ccircle%20cx%3D%2223%22%20cy%3D%229%22%20r%3D%224%22%20fill%3D%22%232f5e9e%22%2F%3E%3Ccircle%20cx%3D%2220%22%20cy%3D%2223%22%20r%3D%225%22%20fill%3D%22%238a6114%22%2F%3E%3Cpath%20d%3D%22M9%2011%2023%209M9%2011%2020%2023%22%20stroke%3D%22%2356625b%22%20stroke-width%3D%221.6%22%2F%3E%3Cpath%20d%3D%22M23%209%2020%2023%22%20stroke%3D%22%23a33b3b%22%20stroke-width%3D%221.6%22%20stroke-dasharray%3D%222.5%202%22%2F%3E%3C%2Fsvg%3E">
+<link rel="alternate" hreflang="zh-CN" href="../../modules/m03-greedy-pair-merge/index.html">
+<link rel="alternate" hreflang="en" href="../../en/modules/m03-greedy-pair-merge/index.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%2032%2032%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M9%2011%2023%209M9%2011%2020%2023%22%20stroke%3D%22%238b958e%22%20stroke-width%3D%221.3%22%2F%3E%3Cpath%20d%3D%22M23%209%2020%2023%22%20stroke%3D%22%23a33b3b%22%20stroke-width%3D%221.3%22%20stroke-dasharray%3D%222.2%202%22%2F%3E%3Ccircle%20cx%3D%229%22%20cy%3D%2211%22%20r%3D%224.6%22%20fill%3D%22%230f6b5c%22%2F%3E%3Ccircle%20cx%3D%2223%22%20cy%3D%229%22%20r%3D%223.6%22%20fill%3D%22%232f5e9e%22%2F%3E%3Ccircle%20cx%3D%2220%22%20cy%3D%2223%22%20r%3D%224.6%22%20fill%3D%22%23946a17%22%2F%3E%3C%2Fsvg%3E">
+<link rel="preload" href="../../assets/fonts/noto-serif-sc-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../../assets/course.css">
 </head>
 <body>
 <a class="skip" href="#main">跳到正文</a>
 <header class="topbar"><div class="wrap">
-<a class="brand" href="../../index.html"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="9" cy="11" r="5" fill="#0f6b5c"/><circle cx="23" cy="9" r="4" fill="#2f5e9e"/><circle cx="20" cy="23" r="5" fill="#8a6114"/><path d="M9 11 23 9M9 11 20 23" stroke="#56625b" stroke-width="1.6"/><path d="M23 9 20 23" stroke="#a33b3b" stroke-width="1.6" stroke-dasharray="2.5 2"/></svg><span>Learning Clustering<br><small>连接与分组 · Clustering for EDA</small></span></a>
+<a class="brand" href="../../index.html"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M9 11 23 9M9 11 20 23" stroke="#8b958e" stroke-width="1.3"/><path d="M23 9 20 23" stroke="#a33b3b" stroke-width="1.3" stroke-dasharray="2.2 2"/><circle cx="9" cy="11" r="4.6" fill="#0f6b5c"/><circle cx="23" cy="9" r="3.6" fill="#2f5e9e"/><circle cx="20" cy="23" r="4.6" fill="#946a17"/></svg><span class="brand-name">Learning Clustering</span><span class="brand-sub">连接与分组</span></a>
 <nav class="topnav" aria-label="课程"><a href="../../index.html">首页</a><a href="../../foundations/index.html">基础速查</a><a href="../../glossary/index.html">术语表</a><a href="../../guide/index.html">如何挑战</a><a href="../../credits/index.html">资源与贡献</a><a href="../../progress/index.html">学习记录</a></nav>
+<div class="lang-switch" role="group" aria-label="语言"><span aria-current="true">中文</span><a href="../../en/modules/m03-greedy-pair-merge/index.html" hreflang="en" lang="en" data-lang-link="en">EN</a></div>
 </div></header>
 
-<nav class="module-nav" aria-label="本模块"><div class="wrap"><a href="#goals">目标与问题</a><a href="#film">影片</a><a href="#lesson">讲解</a><a href="#slides">课件</a><a href="#lab">实验</a><a href="#challenges">挑战</a><a href="#python">Python</a><a href="#mistakes">易错与局限</a><a href="#sources">来源</a></div></nav>
+<nav class="module-nav" aria-label="本模块"><div class="wrap"><a href="#goals"><span>01</span>目标与问题</a><a href="#film"><span>02</span>影片</a><a href="#lesson"><span>03</span>讲解</a><a href="#slides"><span>04</span>课件</a><a href="#lab"><span>05</span>实验</a><a href="#challenges"><span>06</span>挑战</a><a href="#python"><span>07</span>Python</a><a href="#mistakes"><span>08</span>易错与局限</a><a href="#sources"><span>09</span>来源</a></div></nav>
 <main id="main">
+
 <section class="mod-hero"><div class="wrap">
-<div>
-<p class="eyebrow">Module 03 · Greedy pair merge</p>
+<div class="mod-hero-text">
+<p class="eyebrow">Module 03 / Greedy pair merge</p>
 <h1>贪心成对合并</h1>
 <p class="sub">连接最紧的两个模块先合并，就一定能分出最好的结果吗？</p>
-<div class="btn-row"><span class="tag">原作者 thy031</span><span class="tag">来源 Issue #2</span><span class="tag ok">来源映射已核对</span></div>
+<p class="byline">原作者 thy031 · 来源 Issue #2 · 来源映射已核对</p>
 
 <nav class="pager" aria-label="上一模块与下一模块"><a href="../m02-affinity-metrics/index.html">← Module 02 亲和度指标</a><a href="../m04-size-constrained-agglomerative/index.html">Module 04 容量约束凝聚聚类 →</a></nav>
 </div>
 <aside class="factbox" aria-label="本模块概况"><dl>
 <dt>前置</dt><dd><a href="../m02-affinity-metrics/index.html">Module 02</a>：评分与稳定排名；<a href="../../foundations/index.html">基础速查</a>：cut。</dd>
 <dt>接下来</dt><dd>Module 04 把容量从“预览”变成核心问题。</dd>
-<dt>影片</dt><dd>3:15</dd>
+<dt>影片</dt><dd>3:10 + 2:04 + 2:42 + 2:48</dd>
 <dt>课件</dt><dd>12 页，16:9，含页码</dd>
-<dt>挑战</dt><dd>6 题（[推演][探索][约束][纠错][实现]）</dd>
-<dt>Python</dt><dd>下载练习包，本地运行（网页不运行 Python）</dd>
+<dt>挑战</dt><dd>6 题 · [推演] [探索] [约束] [纠错] [实现]</dd>
+<dt>Python</dt><dd>在浏览器里直接写、直接运行</dd>
 </dl></aside>
 </div></section>
 
 <section class="section" id="goals"><div class="wrap">
-<div class="section-head"><div><p class="eyebrow">目标与问题</p><h2>这一模块要解决什么</h2></div><p>先看问题和成功标准，再看算法。每个目标后面的链接指向讲它的地方。</p></div>
-<p class="review"><b>复习卡</b> · 上一模块的要点：评分只排名，并且要固定平票规则。本模块选定一种评分——<strong>簇与簇之间的边权和</strong>——并用它反复合并。</p>
-<div class="grid-2"><div><h3 style="margin-top:0">学习目标</h3><ol class="objectives"><li id="obj-o1">说出贪心合并的输入（图、K、可选容量）、输出（簇、cut、是否达到 K、停止原因）和两条停止条件。<span class="links"><a href="#m03-local">连接与局部选择</a> · <a href="#m03-setup">单点簇、目标簇数 K 与簇间亲和度</a></span></li><li id="obj-o2">计算两个簇之间的亲和度（跨簇边权之和），包括收缩后平行边的相加。<span class="links"><a href="#m03-setup">单点簇、目标簇数 K 与簇间亲和度</a> · <a href="#challenge-c2">[推演] 选出下一对</a></span></li><li id="obj-o3">按 (−亲和度, 成员, 成员) 逐字段比较选择下一对，解释为什么不能把数组当字符串比较。<span class="links"><a href="#m03-tie">数值优先与平票规则</a> · <a href="#challenge-c1">[推演] 第一步合并哪一对</a> · <a href="#challenge-c5">[纠错] 字符串比较选错了谁</a></span></li><li id="obj-o4">手算 G01 在 K=2 时的完整轨迹 AB → ABC → DE，cut 18 → 13 → 8 → 3，并在结果上画出剩余的 cut。<span class="links"><a href="#m03-walk">逐步推演：AB → ABC → DE</a> · <a href="#challenge-c3">[探索] 画出剩余的 cut</a></span></li><li id="obj-o5">解释容量为 2 时为何停在 3 簇（AB+C 大小 3 &gt; 2），并区分“合法”与“达到 K”。<span class="links"><a href="#m03-capacity">容量预览与停止状态</a> · <a href="#challenge-c4">[约束] 不能强行凑 K</a></span></li><li id="obj-o6">说出贪心合并的局限（不回撤、依赖评分），并在 Python 中实现带正确比较器的合并。<span class="links"><a href="#m03-limits">贪心的局限与工程含义</a> · <a href="#m03-pseudocode">逐行读懂伪代码</a> · <a href="#challenge-c6">[实现] 多位数与小数</a> · <a href="#python">Python</a></span></li></ol></div>
-<div><h3 style="margin-top:0">问题定义</h3><div class="problem" style="grid-template-columns:1fr 1fr"><div><b>输入</b><p>带权无向图（节点大小默认 1）、目标簇数 K、可选容量 C。</p></div><div><b>输出</b><p>实际得到的簇、cut、簇数、是否达到 K、停止原因，以及每一步的合并记录。</p></div><div><b>目标</b><p>通过反复合并“最亲近”的一对簇，让跨簇连线（cut）尽量小。</p></div><div><b>约束</b><p>只合并亲和度 &gt; 0 的簇对；若给了容量，合并后大小不得超过 C；不撤销已做的合并。</p></div><div><b>假设</b><p>亲和度 = 两簇之间所有边权之和；选择键 (−亲和度, 簇 A 成员, 簇 B 成员) 逐字段比较。</p></div><div><b>停止 / 完成</b><p>簇数达到 K；或者没有合法的正亲和度簇对（此时如实报告未达到 K，绝不强行合并）。</p></div></div></div></div>
+<div class="section-head"><div><p class="eyebrow"><span class="eyebrow-no">01</span> / 目标与问题</p><h2>这一模块要解决什么</h2></div><p>先看问题和成功标准，再看算法。每个目标后面的链接指向讲它的地方。</p></div>
+<p class="review"><b>复习</b>上一模块的要点：评分只排名，并且要固定平票规则。本模块选定一种评分——<strong>簇与簇之间的边权和</strong>——并用它反复合并。</p>
+<div class="grid-2 goals"><div><h3>学习目标</h3><ol class="objectives"><li id="obj-o1">说出贪心合并的输入（图、K、可选容量）、输出（簇、cut、是否达到 K、停止原因）和两条停止条件。<span class="links"><a href="#m03-local">连接与局部选择</a> · <a href="#m03-setup">单点簇、目标簇数 K 与簇间亲和度</a></span></li><li id="obj-o2">计算两个簇之间的亲和度（跨簇边权之和），包括收缩后平行边的相加。<span class="links"><a href="#m03-setup">单点簇、目标簇数 K 与簇间亲和度</a> · <a href="#challenge-c2">[推演] 选出下一对</a></span></li><li id="obj-o3">按 (−亲和度, 成员, 成员) 逐字段比较选择下一对，解释为什么不能把数组当字符串比较。<span class="links"><a href="#m03-tie">数值优先与平票规则</a> · <a href="#challenge-c1">[推演] 第一步合并哪一对</a> · <a href="#challenge-c5">[纠错] 字符串比较选错了谁</a></span></li><li id="obj-o4">手算 G01 在 K=2 时的完整轨迹 AB → ABC → DE，cut 18 → 13 → 8 → 3，并在结果上画出剩余的 cut。<span class="links"><a href="#m03-walk">逐步推演：AB → ABC → DE</a> · <a href="#challenge-c3">[探索] 画出剩余的 cut</a></span></li><li id="obj-o5">解释容量为 2 时为何停在 3 簇（AB+C 大小 3 &gt; 2），并区分“合法”与“达到 K”。<span class="links"><a href="#m03-capacity">容量预览与停止状态</a> · <a href="#challenge-c4">[约束] 不能强行凑 K</a></span></li><li id="obj-o6">说出贪心合并的局限（不回撤、依赖评分），并在 Python 中实现带正确比较器的合并。<span class="links"><a href="#m03-limits">贪心的局限与工程含义</a> · <a href="#m03-pseudocode">逐行读懂伪代码</a> · <a href="#challenge-c6">[实现] 多位数与小数</a> · <a href="#python">Python</a></span></li></ol></div>
+<div><h3>问题定义</h3><div class="problem"><div><b>输入</b><p>带权无向图（节点大小默认 1）、目标簇数 K、可选容量 C。</p></div><div><b>输出</b><p>实际得到的簇、cut、簇数、是否达到 K、停止原因，以及每一步的合并记录。</p></div><div><b>目标</b><p>通过反复合并“最亲近”的一对簇，让跨簇连线（cut）尽量小。</p></div><div><b>约束</b><p>只合并亲和度 &gt; 0 的簇对；若给了容量，合并后大小不得超过 C；不撤销已做的合并。</p></div><div><b>假设</b><p>亲和度 = 两簇之间所有边权之和；选择键 (−亲和度, 簇 A 成员, 簇 B 成员) 逐字段比较。</p></div><div><b>停止 / 完成</b><p>簇数达到 K；或者没有合法的正亲和度簇对（此时如实报告未达到 K，绝不强行合并）。</p></div></div></div></div>
 </div></section>
 
 <section class="section dark" id="film"><div class="wrap">
-<div class="section-head"><div><p class="eyebrow">影片 · 二维科普短片</p><h2>合并，再合并</h2></div><p>影片逐步展示每一次收缩：平行边相加、并列时按成员名字决定、cut 条下降多少。</p></div>
+<div class="section-head"><div><p class="eyebrow"><span class="eyebrow-no">02</span> / 影片</p><h2>四部影片</h2></div><p>科普片从毕业旅行讲起：五个朋友分两辆车，每次把最投机的两组合并；一个把 10 排在 2 前面的文件夹讲清原网页的比较器错误；酒店的双人房讲清为什么不能硬凑 K。精讲片讲清规则、平票、收缩和完整轨迹；进阶片讲 cut 为什么恰好下降亲和度、“和”亲和度的滚雪球效应、三种停止状态、不回撤的代价和局部更新；实验演示从真实页面录下，带你做一遍实验和在线编程。所有轨迹都来自本页同一个引擎。</p></div>
 <div id="film-root"><p class="muted">正在载入影片…</p></div>
 </div></section>
 
 <section class="section" id="lesson"><div class="wrap">
-<div class="section-head"><div><p class="eyebrow">讲解 · 由浅入深</p><h2>从例子到伪代码</h2></div><p>章节编号与影片章节、课件页对应；完整对应表见本页末尾的 crosswalk。</p></div>
-<nav class="btn-row" aria-label="讲解小节" style="margin-bottom:24px"><a class="btn small" href="#m03-local">1. 连接与局部选择</a> <a class="btn small" href="#m03-setup">2. 单点簇、目标簇数 K 与簇间亲和度</a> <a class="btn small" href="#m03-tie">3. 数值优先与平票规则</a> <a class="btn small" href="#m03-walk">4. 逐步推演：AB → ABC → DE</a> <a class="btn small" href="#m03-capacity">5. 容量预览与停止状态</a> <a class="btn small" href="#m03-pseudocode">6. 逐行读懂伪代码</a> <a class="btn small" href="#m03-limits">7. 贪心的局限与工程含义</a></nav>
-<div class="prose"><section class="lesson-part" aria-labelledby="m03-local"><h3 id="m03-local"><span class="eyebrow" style="display:block;margin:0">第 1 节</span>连接与局部选择</h3><p>Module 02 回答了“谁和谁最亲近”。最自然的下一步是：<strong>先把最亲近的两个合在一起，再看下一对</strong>。这种“每一步只做眼前最好的选择”的方法叫<strong>贪心（greedy）</strong>，从单点开始一路合并的聚类叫<strong>凝聚式聚类（agglomerative clustering）</strong>。</p>
+<div class="section-head"><div><p class="eyebrow"><span class="eyebrow-no">03</span> / 讲解 · 由浅入深</p><h2>从例子到伪代码</h2></div><p>章节编号与影片章节、课件页对应；完整对应表见本页末尾的 crosswalk。</p></div>
+<div class="lesson-layout"><nav class="lesson-toc" aria-label="讲解小节"><a href="#m03-local"><span>01</span>连接与局部选择</a><a href="#m03-setup"><span>02</span>单点簇、目标簇数 K 与簇间亲和度</a><a href="#m03-tie"><span>03</span>数值优先与平票规则</a><a href="#m03-walk"><span>04</span>逐步推演：AB → ABC → DE</a><a href="#m03-capacity"><span>05</span>容量预览与停止状态</a><a href="#m03-pseudocode"><span>06</span>逐行读懂伪代码</a><a href="#m03-limits"><span>07</span>贪心的局限与工程含义</a></nav>
+<div class="prose"><section class="lesson-part" aria-labelledby="m03-local"><h3 id="m03-local"><span class="part-no">§ 1</span>连接与局部选择</h3><p>Module 02 回答了“谁和谁最亲近”。最自然的下一步是：<strong>先把最亲近的两个合在一起，再看下一对</strong>。这种“每一步只做眼前最好的选择”的方法叫<strong>贪心（greedy）</strong>，从单点开始一路合并的聚类叫<strong>凝聚式聚类（agglomerative clustering）</strong>。</p>
 <p>它的优点是规则简单、每一步都能手算；它的问题也很明确：合并以后不再拆开，早期的选择会影响后面所有的选择。这一章先把规则讲清楚，下一章（Module 04）再专门讨论它会在哪里出错。</p></section>
-<section class="lesson-part" aria-labelledby="m03-setup"><h3 id="m03-setup"><span class="eyebrow" style="display:block;margin:0">第 2 节</span>单点簇、目标簇数 K 与簇间亲和度</h3><div class="terms"><div class="term" id="term-cluster"><h4>簇</h4><span class="en">cluster</span><p>一组被放在一起的节点。开始时每个节点自己是一个“单点簇”。</p></div><div class="term" id="term-contraction"><h4>收缩</h4><span class="en">contraction</span><p>把两个簇合并成一个“超节点”：它们之间的边变成内部边，和外部的平行边权重相加。</p></div><div class="term" id="term-target-k"><h4>目标簇数</h4><span class="en">target K</span><p>希望得到的簇数；簇数降到 K 就停。</p></div><div class="term" id="term-inter-cluster-affinity"><h4>簇间亲和度</h4><span class="en">inter-cluster affinity</span><p>两个簇之间所有边权的和。本模块只用这一种亲和度。</p></div></div>
+<section class="lesson-part" aria-labelledby="m03-setup"><h3 id="m03-setup"><span class="part-no">§ 2</span>单点簇、目标簇数 K 与簇间亲和度</h3><div class="terms"><div class="term" id="term-cluster"><h4>簇</h4><span class="en" lang="en">cluster</span><p>一组被放在一起的节点。开始时每个节点自己是一个“单点簇”。</p></div><div class="term" id="term-contraction"><h4>收缩</h4><span class="en" lang="en">contraction</span><p>把两个簇合并成一个“超节点”：它们之间的边变成内部边，和外部的平行边权重相加。</p></div><div class="term" id="term-target-k"><h4>目标簇数</h4><span class="en" lang="en">target K</span><p>希望得到的簇数；簇数降到 K 就停。</p></div><div class="term" id="term-inter-cluster-affinity"><h4>簇间亲和度</h4><span class="en" lang="en">inter-cluster affinity</span><p>两个簇之间所有边权的和。本模块只用这一种亲和度。</p></div></div>
 <p><strong>簇间亲和度为什么是“边权和”？</strong> 因为把两个簇合并，它们之间所有的边都变成内部边，不再计入 cut。所以：</p>
 <blockquote class="callout"><p>每次合并，cut 恰好下降这一次的亲和度。</p></blockquote>
 <p>这条性质让每一步的效果都可以直接读出来，也是本课程测试检查的性质之一（200 个随机图上每一步都成立）。</p></section>
-<section class="lesson-part" aria-labelledby="m03-tie"><h3 id="m03-tie"><span class="eyebrow" style="display:block;margin:0">第 3 节</span>数值优先与平票规则</h3><p>每一步要从所有候选里选出“最该合并”的一对。本课程固定选择键：</p>
+<section class="lesson-part" aria-labelledby="m03-tie"><h3 id="m03-tie"><span class="part-no">§ 3</span>数值优先与平票规则</h3><p>每一步要从所有候选里选出“最该合并”的一对。本课程固定选择键：</p>
 <blockquote class="callout"><p><strong>(−亲和度, 簇 A 的成员, 簇 B 的成员)</strong>，逐字段比较，取最小。</p></blockquote>
 <p>第一字段取负号，是为了让亲和度大的排在前面；后两个字段在平票时按成员名字的字典序决定。比如 AB–C 和 D–E 都是 5，比较成员列表 [A, B] 和 [D]：A &lt; D，所以先合并 AB–C。</p>
 <div class="callout mistake"><strong>原网页里的比较器错误（已在本课程修正）</strong><p>原作网页的 JavaScript 写成了 <code>if (!best || cand &lt; best)</code>，其中 <code>cand</code> 是数组。JavaScript 比较两个数组时会先把它们<strong>转成字符串</strong>：<code>[-1, &quot;A&quot;, &quot;C&quot;]</code> 变成 <code>&quot;-1,A,C&quot;</code>，<code>[-5, &quot;A&quot;, &quot;B&quot;]</code> 变成 <code>&quot;-5,A,B&quot;</code>。字符 <code>1</code> 小于 <code>5</code>，于是亲和度 1 的 A–C 被当成“更好”的一对。</p>
 <p>结果是：同一张图，原网页第一步合并 A–C，最终 ACDE | B，cut 9；正确结果是 ABC | DE，cut 3。四个配置（K=2、K=3、容量 2、容量 3）原网页为 9/16/12/16，正确值为 3/8/8/3。原作的 Python 参考实现是正确的——问题只在网页 JS。</p>
 <p>本课程引擎用逐字段比较的 <code>compareKeys()</code>，并专门加了 10 与 2、2.5 与 2 的回归测试，防止只对这张五节点图“碰巧正确”。</p></div></section>
-<section class="lesson-part" aria-labelledby="m03-walk"><h3 id="m03-walk"><span class="eyebrow" style="display:block;margin:0">第 4 节</span>逐步推演：AB → ABC → DE</h3><p>在 G01 上取 K = 2、不限容量。开始时 5 个单点簇，cut = 全部边权 = 18。</p>
+<section class="lesson-part" aria-labelledby="m03-walk"><h3 id="m03-walk"><span class="part-no">§ 4</span>逐步推演：AB → ABC → DE</h3><p>在 G01 上取 K = 2、不限容量。开始时 5 个单点簇，cut = 全部边权 = 18。</p>
 <table><thead><tr><th>步骤</th><th>当前的簇</th><th>候选（亲和度）</th><th>选中</th><th>cut</th></tr></thead><tbody><tr><td>0</td><td>A, B, C, D, E</td><td>—</td><td>—</td><td>18</td></tr><tr><td>1</td><td>A, B, C, D, E</td><td>A–B 5，D–E 5，B–C 4，C–D 2，A–C 1，C–E 1</td><td><strong>A–B</strong>（平票 A &lt; D）</td><td>18 − 5 = 13</td></tr><tr><td>2</td><td>AB, C, D, E</td><td><strong>AB–C 1+4=5</strong>，D–E 5，C–D 2，C–E 1</td><td><strong>AB–C</strong>（平票 [A,B] &lt; [D]）</td><td>13 − 5 = 8</td></tr><tr><td>3</td><td>ABC, D, E</td><td>D–E 5，ABC–D 2，ABC–E 1</td><td><strong>D–E</strong></td><td>8 − 5 = 3</td></tr></tbody></table>
 <p>第 2 步是关键：A 和 B 收缩成一个超节点后，A–C（1）和 B–C（4）是两条连到 C 的平行边，合起来 AB–C = 5。原作者特别画出了这一步，本课程的影片和实验都保留了它。</p>
 <p>簇数降到 2，停止。结果 <strong>ABC | DE</strong>，剩下的 cut 是 C–D（2）和 C–E（1），共 3。</p></section>
-<section class="lesson-part" aria-labelledby="m03-capacity"><h3 id="m03-capacity"><span class="eyebrow" style="display:block;margin:0">第 5 节</span>容量预览与停止状态</h3><p>如果每个簇最多只能放 C 个单位大小（这里每个节点大小 1）：</p>
+<section class="lesson-part" aria-labelledby="m03-capacity"><h3 id="m03-capacity"><span class="part-no">§ 5</span>容量预览与停止状态</h3><p>如果每个簇最多只能放 C 个单位大小（这里每个节点大小 1）：</p>
 <ul><li><strong>容量 3</strong>：AB+C 的大小 3 ≤ 3，合法，轨迹与上面相同，得 ABC | DE。</li><li><strong>容量 2</strong>：第 2 步的 AB+C 大小 3 &gt; 2，<strong>被阻止</strong>；下一个合法候选是 D–E，合并。此时剩下 AB、C、DE：AB+C 是 3、C+DE 也是 3，都超容量，没有合法的正亲和度对——停止。</li></ul>
 <p>容量 2 的结果是 <strong>AB | C | DE，3 簇，cut 8，没有达到 K = 2</strong>。这不是程序出错，而是规则要求：没有合法合并就停下，并如实报告。这件事在 Module 04 会成为主角：区分“根本不可能”和“贪心走进了死胡同”。</p>
 <div class="callout note"><strong>三个状态要分开报告</strong><p><strong>合法（capacity compliant）</strong>：每个簇都没超容量——容量 2 的结果是合法的。<strong>达到目标（target reached）</strong>：簇数 ≤ K——容量 2 的结果没有达到。<strong>停止原因（stop reason）</strong>：<code>target-reached</code>、<code>capacity-blocked</code>（有正亲和度对但都超容量）或 <code>no-positive-affinity</code>（图不连通，剩下的簇之间没有边）。</p></div></section>
-<section class="lesson-part" aria-labelledby="m03-pseudocode"><h3 id="m03-pseudocode"><span class="eyebrow" style="display:block;margin:0">第 6 节</span>逐行读懂伪代码</h3><div class="pseudo" data-pseudo="merge"><ol aria-label="伪代码"><li data-line="1" data-note="开始时 cut 等于全部边权之和（G01 是 18）。">clusters ← 每个节点一个单点簇</li><li data-line="2" data-note="第一条停止条件：簇数达到 K。">while |clusters| &gt; K:</li><li data-line="3" data-note="亲和度 = P 与 Q 之间所有边权之和；收缩后的平行边在这里相加。">    cands ← 所有亲和度 &gt; 0 的簇对 (P, Q)</li><li data-line="4" data-note="有容量时先过滤；被过滤掉的候选在实验里显示为“被阻止”。">    legal ← cands 中 size(P) + size(Q) ≤ C 的</li><li data-line="5" data-note="第二条停止条件：不为凑 K 强行合并。">    if legal 为空: stop（如实报告未达到 K）</li><li data-line="6" data-note="逐字段比较：数值优先，平票看成员名字。不要转成字符串比较。">    (P, Q) ← legal 中选择键 (−亲和度, P, Q) 最小的</li><li data-line="7" data-note="收缩：内部边不再计入 cut，cut 恰好下降这一次的亲和度。">    用 P ∪ Q 替换 P 和 Q</li><li data-line="8" data-note="四项分开报告。">return clusters, cut, 是否达到 K, 停止原因</li></ol><div class="explain"><p class="muted">点击任一行看解释；在实验中单步时，当前执行的行会自动高亮。</p></div></div>
+<section class="lesson-part" aria-labelledby="m03-pseudocode"><h3 id="m03-pseudocode"><span class="part-no">§ 6</span>逐行读懂伪代码</h3><div class="pseudo" data-pseudo="merge"><ol aria-label="伪代码"><li data-line="1" data-note="开始时 cut 等于全部边权之和（G01 是 18）。">clusters ← 每个节点一个单点簇</li><li data-line="2" data-note="第一条停止条件：簇数达到 K。">while |clusters| &gt; K:</li><li data-line="3" data-note="亲和度 = P 与 Q 之间所有边权之和；收缩后的平行边在这里相加。">    cands ← 所有亲和度 &gt; 0 的簇对 (P, Q)</li><li data-line="4" data-note="有容量时先过滤；被过滤掉的候选在实验里显示为“被阻止”。">    legal ← cands 中 size(P) + size(Q) ≤ C 的</li><li data-line="5" data-note="第二条停止条件：不为凑 K 强行合并。">    if legal 为空: stop（如实报告未达到 K）</li><li data-line="6" data-note="逐字段比较：数值优先，平票看成员名字。不要转成字符串比较。">    (P, Q) ← legal 中选择键 (−亲和度, P, Q) 最小的</li><li data-line="7" data-note="收缩：内部边不再计入 cut，cut 恰好下降这一次的亲和度。">    用 P ∪ Q 替换 P 和 Q</li><li data-line="8" data-note="四项分开报告。">return clusters, cut, 是否达到 K, 停止原因</li></ol><div class="explain"><p class="muted">点击任一行看解释；在实验中单步时，当前执行的行会自动高亮。</p></div></div>
 <p><strong>和 Python 的对应</strong>：第 6 行的选择键 → <code>selection_key(c)</code>；第 2–8 行 → <code>greedy_pair_merge(...)</code> 的主循环。</p></section>
-<section class="lesson-part" aria-labelledby="m03-limits"><h3 id="m03-limits"><span class="eyebrow" style="display:block;margin:0">第 7 节</span>贪心的局限与工程含义</h3><ul><li><strong>不回撤</strong>：一旦合并就不再拆开。G01 上贪心恰好得到最小 cut 3，但这只是这张图的性质。Module 04 有一个反例：贪心得到 cut 18，而合法的最优分组只有 11。</li><li><strong>依赖评分</strong>：本模块用“簇间边权和”。换成 Module 02 的共同邻居等评分，合并顺序和结果都可能改变。</li><li><strong>复杂度</strong>：朴素实现每一步都要检查所有簇对。真实工具通常用优先队列，并只更新受合并影响的那几对。</li><li><strong>工程含义</strong>：在芯片设计中，这类自底向上的合并常用来把大量单元先粗化成较少的簇，再交给划分或布局工具；合并时通常还要限制簇的面积——这就是下一模块的容量约束。</li></ul></section></div>
+<section class="lesson-part" aria-labelledby="m03-limits"><h3 id="m03-limits"><span class="part-no">§ 7</span>贪心的局限与工程含义</h3><ul><li><strong>不回撤</strong>：一旦合并就不再拆开。G01 上贪心恰好得到最小 cut 3，但这只是这张图的性质。Module 04 有一个反例：贪心得到 cut 18，而合法的最优分组只有 11。</li><li><strong>依赖评分</strong>：本模块用“簇间边权和”。换成 Module 02 的共同邻居等评分，合并顺序和结果都可能改变。</li><li><strong>复杂度</strong>：朴素实现每一步都要检查所有簇对。真实工具通常用优先队列，并只更新受合并影响的那几对。</li><li><strong>工程含义</strong>：在芯片设计中，这类自底向上的合并常用来把大量单元先粗化成较少的簇，再交给划分或布局工具；合并时通常还要限制簇的面积——这就是下一模块的容量约束。</li></ul></section></div></div>
 </div></section>
 
 <section class="section" id="slides"><div class="wrap">
-<div class="section-head"><div><p class="eyebrow">课件 · 带页码与讲稿</p><h2>课堂课件</h2></div><p>页码与 PDF 完全一致；当前页的讲稿在幻灯片下方，不遮挡图。</p></div>
+<div class="section-head"><div><p class="eyebrow"><span class="eyebrow-no">04</span> / 课件 · 带页码与讲稿</p><h2>课堂课件</h2></div><p>页码与 PDF 完全一致；当前页的讲稿在幻灯片下方，不遮挡图。</p></div>
 <div id="slides-root"><p class="muted">正在载入课件…</p></div>
 </div></section>
 
 <section class="section dark" id="lab"><div class="wrap">
-<div class="section-head"><div><p class="eyebrow">实验 · 浏览器内实时计算</p><h2>贪心合并实验台</h2></div><p>改 K、改容量、改边权，引擎重新计算整条轨迹。表格列出每一步的全部候选：金色是被选中的，红色是超容量被阻止的。</p></div>
+<div class="section-head"><div><p class="eyebrow"><span class="eyebrow-no">05</span> / 实验 · 浏览器内实时计算</p><h2>贪心合并实验台</h2></div><p>改 K、改容量、改边权，引擎重新计算整条轨迹。表格列出每一步的全部候选：金色是被选中的，红色是超容量被阻止的。</p></div>
 <div id="lab-root" tabindex="-1"><p class="muted">正在载入实验…（需要通过 HTTP 打开页面；直接双击 HTML 时浏览器会阻止模块脚本。）</p></div>
 </div></section>
 
 <section class="section" id="challenges"><div class="wrap">
-<div class="section-head"><div><p class="eyebrow">挑战 · 由易到难</p><h2>分组挑战</h2></div><p>类别写在方括号里，难度单独标注。答案由引擎或明确规则判定；看答案不扣分，记录会如实区分。</p></div>
-<p class="ch-guide">第一次用？先读<a href="../../guide/index.html">如何挑战</a>：读任务 → 预测 → 操作 → 提交 → 看解释 → 再试。第 3 题需要在图上点选边：点击下方的边按钮即可选中或取消。</p>
+<div class="section-head"><div><p class="eyebrow"><span class="eyebrow-no">06</span> / 挑战 · 由易到难</p><h2>分组挑战</h2></div><p>类别写在方括号里，难度单独标注。答案由引擎或明确规则判定；看答案不扣分，记录会如实区分。</p></div>
+<p class="ch-guide">第一次用？先读<a href="../../guide/index.html">如何挑战</a>：读任务 → 预测 → 操作 → 提交 → 看解释 → 再试。 第 3 题需要在图上点选边：点击下方的边按钮即可选中或取消。</p>
 <div class="ch-list" id="challenge-root"><p class="muted">正在载入挑战…</p></div>
 </div></section>
 
 <section class="section" id="python"><div class="wrap">
-<div class="section-head"><div><p class="eyebrow">Python 实现轨道 · 可选</p><h2>修好比较器，再写主循环</h2></div><p>网页基础轨道不需要 Python。下载后在任意空目录运行；只用标准库。</p></div>
-<div class="grid-2"><div class="prose"><p><strong>任务</strong>（<code>starter.py</code>）：</p>
+<div class="section-head"><div><p class="eyebrow"><span class="eyebrow-no">07</span> / 在线编程 · 在浏览器里运行 Python</p><h2>修好比较器，再写主循环</h2></div><p>不用安装任何东西：Python 在你的浏览器里运行（Pyodide），代码只保存在本机。检查器与下载包里的 check.py 完全相同。</p></div>
+<div class="grid-2 cl-intro"><div class="prose"><p><strong>任务</strong>（<code>starter.py</code>）：</p>
 <ol><li><code>selection_key(c)</code>：返回候选的选择键，使 <code>min(...)</code> 选出应合并的一对。</li><li><code>greedy_pair_merge(nodes, edges, k, capacity)</code>：完成主循环与停止原因。</li></ol>
 <p><strong>提示一</strong>：Python 的元组逐字段比较，数字按数值比——这正是原网页 JS 缺少的。</p>
 <p><strong>提示二</strong>：每一步先列出全部正亲和度候选，再过滤掉超容量的；没有合法候选时停止，并区分 <code>capacity-blocked</code> 与 <code>no-positive-affinity</code>。检查器还会测 10 &gt; 9 &gt; 2 的多位数权重。</p></div>
-<div><div class="py-files"><div><code>starter.py</code><br>起始代码：留有 TODO</div><div><code>check.py</code><br>检查器：未完成报 INCOMPLETE，不算 PASS</div><div><code>reference.py</code><br>参考实现：卡住时再看</div><div><code>fixtures/</code><br>本章例子的 JSON</div><div><code>README.md</code><br>任务、两级提示与样例</div></div>
-<p><a class="btn primary" href="../../downloads/m03-greedy-pair-merge-python.zip" download>下载练习包（.zip）</a></p>
-<pre><code>python3 check.py              # 检查你的 starter.py
-python3 check.py reference.py # 看参考实现全部通过</code></pre></div></div>
+<div class="cl-howto"><h3>怎么用</h3><ol><li>在编辑器里补全标着 TODO 的函数。</li><li>按 <b>运行检查</b>（Ctrl/⌘ + Enter）：每一项给出 PASS、FAIL 或 INCOMPLETE。</li><li>全部通过后，在下方用<b>你自己的</b>函数跑一遍例子，逐步对照课程引擎。</li></ol>
+<p class="small muted">第一次运行会下载约 12 MB 的 Python 运行环境，之后由浏览器缓存。想离线做？ <a href="../../downloads/m03-greedy-pair-merge-python.zip" download>下载练习包（.zip）</a></p></div></div>
+<div id="codelab-root" class="cl-root"><p class="muted">正在载入在线编程…</p></div>
 </div></section>
 
 <section class="section" id="mistakes"><div class="wrap">
-<div class="section-head"><div><p class="eyebrow">常见错误与局限</p><h2>容易错在哪里</h2></div><p>每条都给错误结果、错因、反例和修正；反例的数值都由测试复算。</p></div>
+<div class="section-head"><div><p class="eyebrow"><span class="eyebrow-no">08</span> / 常见错误与局限</p><h2>容易错在哪里</h2></div><p>每条都给错误结果、错因、反例和修正；反例的数值都由测试复算。</p></div>
 <div class="mistakes"><article class="mistake"><h4>把候选数组当字符串比较</h4><dl><dt>错误结果</dt><dd>原网页第一步合并了 A–C（亲和度 1），最终 ACDE | B，cut 9。</dd><dt>错因</dt><dd>JavaScript 的 <code>cand &lt; best</code> 会把数组转成字符串再比较：&quot;-1,A,C&quot; 排在 &quot;-5,A,B&quot; 前面，因为字符 1 小于 5。数值优先的规则被字符顺序取代。</dd><dt>反例 / 证据</dt><dd>同一张图、同一规则，正确比较得 ABC | DE，cut 3；四个配置原网页为 9/16/12/16，正确值为 3/8/8/3（本课程测试复现了两者）。</dd><dt>修正</dt><dd>逐字段比较：数字按数值，名字按字典序。本课程引擎用 <code>compareKeys()</code>，并对 10 与 2、2.5 与 2 做回归测试。</dd></dl></article><article class="mistake"><h4>为了凑够 K 强行合并</h4><dl><dt>错误结果</dt><dd>容量 2 时把 C 硬塞进 AB 或 DE，报告“得到 2 簇”。</dd><dt>错因</dt><dd>停止条件是“达到 K 或没有合法的正亲和度对”。没有合法对时就停，如实报告。</dd><dt>反例 / 证据</dt><dd>容量 2 时 AB+C 的大小是 3 &gt; 2，C+DE 同样超容量；正确结果是 AB | C | DE，3 簇，cut 8，targetReached = false。</dd><dt>修正</dt><dd>结果里分开报告：实际簇数、是否满足容量、是否达到 K、停止原因。</dd></dl></article><article class="mistake"><h4>忘记收缩后平行边相加</h4><dl><dt>错误结果</dt><dd>合并 A、B 之后认为 AB–C 的亲和度只有 4（只看 B–C）。</dd><dt>错因</dt><dd>簇间亲和度是两簇之间<strong>所有</strong>边权之和：A–C 和 B–C 都连到 C。</dd><dt>反例 / 证据</dt><dd>AB–C = 1 + 4 = 5，和 D–E 并列；如果算成 4，第二步就会先合并 D–E。</dd><dt>修正</dt><dd>每一步按“簇对”重新累加跨簇边。</dd></dl></article><article class="mistake"><h4>以为贪心总能找到最好的分组</h4><dl><dt>错误结果</dt><dd>看到 G01 得到 cut 3，就认为贪心合并一般是最优的。</dd><dt>错因</dt><dd>贪心每一步只看当前最大的一对，合并后不能撤回；早期的选择会限制后面的可能。</dd><dt>反例 / 证据</dt><dd>Module 04 的 suboptimal 图：贪心得 cut 18，合法的最优分组 cut 11。</dd><dt>修正</dt><dd>把“这个例子得到 3”和“算法总是最优”分开说；需要保证时用穷举或其他方法对照。</dd></dl></article></div>
-<div class="prose" style="margin-top:26px"><h3>适用范围与局限</h3><ul><li>贪心不回撤：早期合并错了，后面无法纠正（Module 04 给出反例）。</li><li>结果依赖评分与平票规则；换评分（Module 02）结果可能完全不同。</li><li>朴素实现每步检查所有簇对；大规模电路通常配合优先队列与局部更新。</li><li>容量在本模块只作预览，按节点大小之和计算；面积不同的单元要在 Module 04 里认真对待。</li><li>本课程小图是教学用虚构数值。</li></ul></div>
+<div class="prose limits"><h3>适用范围与局限</h3><ul><li>贪心不回撤：早期合并错了，后面无法纠正（Module 04 给出反例）。</li><li>结果依赖评分与平票规则；换评分（Module 02）结果可能完全不同。</li><li>朴素实现每步检查所有簇对；大规模电路通常配合优先队列与局部更新。</li><li>容量在本模块只作预览，按节点大小之和计算；面积不同的单元要在 Module 04 里认真对待。</li><li>本课程小图是教学用虚构数值。</li></ul></div>
 </div></section>
 
 <section class="section" id="sources"><div class="wrap">
-<div class="section-head"><div><p class="eyebrow">资料与原作者</p><h2>来源</h2></div><p>本模块在统一课程中重写了讲解、引擎与媒体；原作的贡献在此署名，未复制无许可的源代码或音轨。</p></div>
+<div class="section-head"><div><p class="eyebrow"><span class="eyebrow-no">09</span> / 资料与原作者</p><h2>来源</h2></div><p>本模块在统一课程中重写了讲解、引擎与媒体；原作的贡献在此署名。第三方音乐只在作者指定的影片里使用，并单独注明不在本课程许可范围内。</p></div>
 <div class="grid-2"><div class="prose">
-<h3 style="margin-top:0">原作者与保留的贡献</h3>
+<h3>原作者与保留的贡献</h3>
 <p><strong>thy031</strong> · <a href="https://thy031.github.io/lab-03/#lab">原网站</a> · <a href="https://github.com/thy031/lab-03">原仓库</a>（固定 <code>491283a</code>）</p>
 <ul><li>Lab、Game、Course notes 的分工：本模块保留“实验台 + 挑战 + 讲义”的结构。</li><li>合并示意：AB–C 的权重是 1 + 4 = 5，与 D–E 平票时按成员名排序（本模块影片与讲解的核心画面）。</li><li>在真实结果上画出剩余 cut 的任务（挑战第 3 题）。</li><li>Python 参考 <code>common/solvers.py</code> 的逐次 cut 日志与四个配置：本课程独立重写并与之对齐（3/8/8/3）。</li></ul>
-<p class="small muted">原仓库未声明统一许可，本模块未复制其代码或视频；补交网址已在 Issue #2 评论中出现，属于同一份作品。原网页 JS 比较器的问题在本课程中复现并修正，这是对原作的改进说明，不是批评作者。</p>
+<p class="small muted">原仓库未声明统一许可，本模块未复制其代码或视频；补交网址已在 Issue #2 评论中出现，属于同一份作品。原网页 JS 比较器的问题在本课程中复现并修正，这是对原作的改进说明，不是批评作者。科普片使用作者指定的第三方音乐《We Never (Remix)（若如初见）》（Hi Noise / 秋成），它不在本课程许可范围内，本课程不授予其任何使用权，也不提供单独的音轨；其余三部影片的配乐为本课程原创合成。</p>
 </div><div class="prose">
-<h3 style="margin-top:0">来源映射</h3>
-<table><tbody><tr><th>本课程</th><td>Module 03 · <code>m03-greedy-pair-merge</code></td></tr><tr><th>提交</th><td><a href="https://github.com/yongfu-li/eda-learning/issues/2">Issue #2</a>（Clustering Module - Lesson 3）</td></tr><tr><th>教师目录</th><td>module01-03-greedy-pair-merge（Lab 03）</td></tr><tr><th>状态</th><td>已核对</td></tr></tbody></table>
+<h3>来源映射</h3>
+<table><tbody><tr><th>本课程</th><td>Module 03 · <code>m03-greedy-pair-merge</code></td></tr><tr><th>提交</th><td><a href="https://github.com/yongfu-li/eda-learning/issues/2">Issue #2</a> (Clustering Module - Lesson 3)</td></tr><tr><th>教师目录</th><td>module01-03-greedy-pair-merge（Lab 03）</td></tr><tr><th>状态</th><td>已核对</td></tr></tbody></table>
 <h3>参考文献</h3><ul><li>教师原课程 <a href="https://github.com/yongfu-li/eda-learning/blob/003bcd49e3794e6cfd2680181cdbd347d673ad07/courses/learn_clustering/module01-03-greedy-pair-merge/README.md" rel="noopener">Module 材料</a></li><li>凝聚式（agglomerative）聚类的一般概念见常见数据挖掘与 VLSI 物理设计教材；本模块只使用“簇间边权和”这一种亲和度。</li></ul>
 <p><a href="../../data/m03-greedy-pair-merge/crosswalk.json">本模块 crosswalk（目标 → 讲解 → 影片 → 课件 → 实验 → 挑战 → Python）</a> · <a href="../../downloads/m03-greedy-pair-merge-outline.md">Markdown 大纲</a></p>
 </div></div>
 </div></section>
 </main>
 <footer class="footer"><div class="wrap">
-<span>Learning Clustering · 整合已关闭 Clustering 提交 Module 02–09。原作者署名见<a href="../../credits/index.html">资源与贡献</a>。</span>
-<span><button class="btn quiet small" type="button" data-pref="reduceMotion">减少动态</button> <button class="btn quiet small" type="button" data-pref="sound">声音</button> · 内容版本 2026.10.23-1</span>
+<p>Learning Clustering · 整合已关闭 Clustering 提交 Module 02–09。原作者署名见<a href="../../credits/index.html">资源与贡献</a>。</p>
+<p><button class="btn quiet small" type="button" data-pref="reduceMotion">减少动态</button> <button class="btn quiet small" type="button" data-pref="sound">声音</button> · 内容版本 2026.10.23-1</p>
 </div></footer>
 <script type="module">import { initShell } from '../../assets/core.js'; initShell();</script>
-<script type="module" src="./lab.js"></script>
+<script type="module" src="../../modules/m03-greedy-pair-merge/lab.js"></script>
 </body>
 </html>

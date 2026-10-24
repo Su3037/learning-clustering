@@ -1,0 +1,85 @@
+WEBVTT
+
+1
+00:00:03.400 --> 00:00:08.200
+KL swaps pairs; FM moves one node at a time.
+
+2
+00:00:08.200 --> 00:00:13.000
+So the side sizes change, and a balance window limits them.
+
+3
+00:00:13.000 --> 00:00:19.356
+Here maxDiff = 1: five nodes split 2 : 3 or 3 : 2.
+
+4
+00:00:19.756 --> 00:00:25.444
+On seed AE | BCD, A and E have the largest gain: +6.
+
+5
+00:00:25.444 --> 00:00:30.022
+But moving either one leaves 1 : 4: not legal.
+
+6
+00:00:30.022 --> 00:00:33.933
+Among the legal candidates, D is largest: +3.
+
+7
+00:00:34.333 --> 00:00:37.356
+A gain splits into two parts.
+
+8
+00:00:37.356 --> 00:00:44.378
+FS: D is D–E's only end on its side; after the move it is no longer cut, +5.
+
+9
+00:00:44.378 --> 00:00:50.733
+TE: C–D has no end on the left; after the move it becomes cut, −2.
+
+10
+00:00:50.733 --> 00:00:55.333
+Gain 3; for plain edges, that is external minus internal.
+
+11
+00:00:55.733 --> 00:01:01.644
+Step 1 moves D, cut 9; the left has 3, and A becomes legal.
+
+12
+00:01:01.644 --> 00:01:05.778
+Step 2 moves A, +6, cut 3.
+
+13
+00:01:05.778 --> 00:01:10.578
+Then C, E, B all lose, and are tried anyway.
+
+14
+00:01:10.578 --> 00:01:13.600
+The trials end at cut 12.
+
+15
+00:01:14.000 --> 00:01:18.133
+Cumulative gains: 3, 9, 7, 1, 0.
+
+16
+00:01:18.133 --> 00:01:23.822
+The best prefix is k = 2: from the start do only D and A, cut 3.
+
+17
+00:01:23.822 --> 00:01:28.289
+Pass 2 has no positive prefix, and the algorithm stops.
+
+18
+00:01:28.689 --> 00:01:30.822
+Four things to keep.
+
+19
+00:01:30.822 --> 00:01:36.067
+Single moves inside the window; legal first, then largest;
+
+20
+00:01:36.067 --> 00:01:41.978
+gain = FS − TE; try losses too, accept only the best prefix.
+
+21
+00:01:41.978 --> 00:01:46.778
+In the lab below, see which moves the balance blocks.

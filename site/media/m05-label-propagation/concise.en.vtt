@@ -1,0 +1,137 @@
+WEBVTT
+
+1
+00:00:03.400 --> 00:00:08.267
+A weighted graph: the thicker the wire, the stronger the tie.
+
+2
+00:00:08.267 --> 00:00:14.622
+Goal: put tightly linked nodes in one group, without saying how many groups.
+
+3
+00:00:15.022 --> 00:00:19.556
+The whole rule: look at your neighbours' current labels,
+
+4
+00:00:19.556 --> 00:00:23.622
+and join the label with the largest total weight.
+
+5
+00:00:23.622 --> 00:00:27.889
+Each step looks at one node and its neighbours only.
+
+6
+00:00:28.289 --> 00:00:33.089
+Two words first: a name is identity and never changes;
+
+7
+00:00:33.089 --> 00:00:36.756
+a label is membership and can be rewritten.
+
+8
+00:00:36.756 --> 00:00:41.556
+At the start, each node's label is its own name.
+
+9
+00:00:41.956 --> 00:00:45.689
+C's turn. A has already switched to label B.
+
+10
+00:00:45.689 --> 00:00:48.933
+Add up the weights per label.
+
+11
+00:00:48.933 --> 00:00:54.178
+B = 5, D = 2, E = 1: C takes label B.
+
+12
+00:00:54.178 --> 00:00:59.044
+It is total weight that counts, not the number of neighbours.
+
+13
+00:00:59.444 --> 00:01:04.844
+Asynchronous: visit A to E in turn; each change takes effect at once.
+
+14
+00:01:04.844 --> 00:01:06.978
+A: switches to B.
+
+15
+00:01:06.978 --> 00:01:09.111
+B: keeps B.
+
+16
+00:01:09.111 --> 00:01:11.244
+C: switches to B.
+
+17
+00:01:11.244 --> 00:01:13.378
+D: switches to E.
+
+18
+00:01:13.378 --> 00:01:15.511
+E: keeps E.
+
+19
+00:01:15.511 --> 00:01:18.311
+Round 1 changed three nodes.
+
+20
+00:01:18.711 --> 00:01:22.178
+Round 2: every node votes again.
+
+21
+00:01:25.778 --> 00:01:31.467
+Nothing changed, and only now is it stable: 2 rounds, cut 3.
+
+22
+00:01:31.867 --> 00:01:37.333
+There are three ways to stop: stable, a full round with no change;
+
+23
+00:01:37.333 --> 00:01:41.022
+cycle, a state that repeats;
+
+24
+00:01:41.022 --> 00:01:47.600
+limit, the round cap. Only stable counts as converged.
+
+25
+00:01:48.000 --> 00:01:53.333
+Switch to synchronous updates: everyone reads the same old snapshot.
+
+26
+00:01:53.333 --> 00:01:58.578
+A sees B, B sees A: they swap, then swap back.
+
+27
+00:01:58.578 --> 00:02:03.378
+The state repeats: that is a cycle, not convergence.
+
+28
+00:02:03.778 --> 00:02:06.800
+Three knobs change the outcome.
+
+29
+00:02:06.800 --> 00:02:12.044
+Reverse the order: 3 rounds, other label names, the same groups.
+
+30
+00:02:12.044 --> 00:02:18.400
+Raise C–D to 10: the groups become AB | CDE, cut 5.
+
+31
+00:02:18.800 --> 00:02:20.933
+Four things to keep.
+
+32
+00:02:20.933 --> 00:02:23.956
+Fast, local, no K;
+
+33
+00:02:23.956 --> 00:02:27.156
+but the result depends on the rules,
+
+34
+00:02:27.156 --> 00:02:32.356
+and nothing balances the groups. Try it yourself in the lab below.

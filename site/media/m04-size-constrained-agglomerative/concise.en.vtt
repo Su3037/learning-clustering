@@ -1,0 +1,105 @@
+WEBVTT
+
+1
+00:00:03.400 --> 00:00:11.978
+The rule is Module 03's, plus one line: a cluster's total size may not exceed the capacity C.
+
+2
+00:00:11.978 --> 00:00:16.556
+At capacity 2 and K = 2, G01 stops at 3 clusters.
+
+3
+00:00:16.556 --> 00:00:25.133
+The report: legal, but K is not reached; the stop reason is capacity-blocked.
+
+4
+00:00:25.133 --> 00:00:29.200
+The four are independent; report them separately.
+
+5
+00:00:29.600 --> 00:00:36.844
+One graph: at capacity 3, AB plus C is 3, legal, giving ABC | DE.
+
+6
+00:00:36.844 --> 00:00:43.200
+At capacity 2, the highest-affinity AB–C is blocked, so D–E instead.
+
+7
+00:00:43.200 --> 00:00:49.556
+After that both candidates are 3: it stops at AB | C | DE, cut 8.
+
+8
+00:00:49.956 --> 00:00:53.889
+Is that greedy's fault? First, the lower bound.
+
+9
+00:00:53.889 --> 00:00:58.489
+Total size 5, at most 2 per cluster: at least 3 clusters.
+
+10
+00:00:58.489 --> 00:01:03.289
+K = 2 is impossible; no algorithm can do it.
+
+11
+00:01:03.289 --> 00:01:08.089
+But a bound only proves impossible, never possible.
+
+12
+00:01:08.489 --> 00:01:16.844
+The original author's greedy_trap: A and B have size 2, capacity 3, and the bound allows two clusters.
+
+13
+00:01:16.844 --> 00:01:20.311
+Greedy merges the biggest, C–D, first.
+
+14
+00:01:20.311 --> 00:01:24.444
+Then neither A nor B fits: it stops at 3 clusters.
+
+15
+00:01:24.444 --> 00:01:30.133
+Yet exhaustive search finds AC | BD: feasible, but greedy is stuck.
+
+16
+00:01:30.533 --> 00:01:37.111
+The suboptimal graph: greedy merges A–B first, the largest at 10.
+
+17
+00:01:37.111 --> 00:01:41.022
+Both 9s stay in the cut: 18.
+
+18
+00:01:41.022 --> 00:01:46.044
+The legal AC | BD cuts only 10 and 1: 11.
+
+19
+00:01:46.044 --> 00:01:50.844
+Both legal, both reach K; greedy just isn't optimal.
+
+20
+00:01:51.244 --> 00:01:56.489
+Node sizes change the ending too: set A's size to 2.
+
+21
+00:01:56.489 --> 00:02:00.178
+After A–B it is full, and C does not fit.
+
+22
+00:02:00.178 --> 00:02:06.089
+The result becomes AB | CDE, cut 5. Capacity counts area.
+
+23
+00:02:06.489 --> 00:02:08.622
+Four things to keep.
+
+24
+00:02:08.622 --> 00:02:13.089
+Filter first, then take the largest; report four items;
+
+25
+00:02:13.089 --> 00:02:16.333
+a bound above K means impossible;
+
+26
+00:02:16.333 --> 00:02:22.467
+stuck and not optimal need a comparison with search. Try it in the lab below.

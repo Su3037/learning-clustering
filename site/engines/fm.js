@@ -11,6 +11,7 @@
  * Balance (base track): both sides nonempty and |n0 − n1| ≤ maxDiff, counting nodes, not area.
  */
 import { compareKeys, ENGINE_VERSION } from './graph.js';
+import { L } from '../assets/i18n.js';
 
 const NAME = /^[A-Za-z][A-Za-z0-9_]{0,15}$/;
 
@@ -18,21 +19,21 @@ const NAME = /^[A-Za-z][A-Za-z0-9_]{0,15}$/;
 export function toNets(input) {
   const errors = [];
   const ids = (input?.nodes || []).map(n => typeof n === 'string' ? n : n.id);
-  if (!ids.length) errors.push('需要 nodes');
-  if (new Set(ids).size !== ids.length) errors.push('节点名重复');
-  ids.forEach(id => { if (!NAME.test(id)) errors.push(`节点名 ${id} 不合法`); });
+  if (!ids.length) errors.push(L('需要 nodes', 'nodes is required'));
+  if (new Set(ids).size !== ids.length) errors.push(L('节点名重复', 'duplicate node names'));
+  ids.forEach(id => { if (!NAME.test(id)) errors.push(L(`节点名 ${id} 不合法`, `node name ${id} is not valid`)); });
   const nets = [];
   for (const [i, e] of (input?.edges || []).entries()) {
     const [u, v, w] = Array.isArray(e) ? e : [e.u, e.v, e.w];
-    if (!ids.includes(u) || !ids.includes(v) || u === v) { errors.push(`边 ${u}–${v} 不合法`); continue; }
-    if (!(w > 0)) { errors.push(`边 ${u}–${v} 权重须为正`); continue; }
+    if (!ids.includes(u) || !ids.includes(v) || u === v) { errors.push(L(`边 ${u}–${v} 不合法`, `edge ${u}–${v} is not valid`)); continue; }
+    if (!(w > 0)) { errors.push(L(`边 ${u}–${v} 权重须为正`, `edge ${u}–${v} needs a positive weight`)); continue; }
     nets.push({ id: `${u < v ? u + v : v + u}`, pins: [u, v].sort(), w, kind: 'edge' });
   }
   for (const [i, n] of (input?.nets || []).entries()) {
     const pins = [...new Set(n.pins || [])].sort();
-    if (pins.some(p => !ids.includes(p))) { errors.push(`net ${n.id ?? i} 引用了不存在的节点`); continue; }
+    if (pins.some(p => !ids.includes(p))) { errors.push(L(`net ${n.id ?? i} 引用了不存在的节点`, `net ${n.id ?? i} refers to a node that does not exist`)); continue; }
     if (pins.length < 2) continue;
-    if (!((n.w ?? 1) > 0)) { errors.push(`net ${n.id ?? i} 权重须为正`); continue; }
+    if (!((n.w ?? 1) > 0)) { errors.push(L(`net ${n.id ?? i} 权重须为正`, `net ${n.id ?? i} needs a positive weight`)); continue; }
     nets.push({ id: n.id ?? `n${i}`, pins, w: n.w ?? 1, kind: pins.length > 2 ? 'multi-pin' : 'edge' });
   }
   return { ok: errors.length === 0, errors, ids: [...ids].sort(), nets };
@@ -65,12 +66,12 @@ export function gainsFromScratch(nets, side, ids) {
 export function validate(input, { initial, maxDiff = 1 } = {}) {
   const r = toNets(input), errors = [...r.errors];
   if (r.ok) {
-    if (!initial) errors.push('需要初始二分 initial');
+    if (!initial) errors.push(L('需要初始二分 initial', 'an initial bisection is required'));
     else {
-      for (const v of r.ids) if (initial[v] !== 0 && initial[v] !== 1) errors.push(`节点 ${v} 的初始侧须为 0 或 1`);
-      if (!errors.length && !balanceOk(initial, r.ids, maxDiff)) errors.push(`初始二分不满足平衡：|n0−n1| ≤ ${maxDiff} 且两侧非空`);
+      for (const v of r.ids) if (initial[v] !== 0 && initial[v] !== 1) errors.push(L(`节点 ${v} 的初始侧须为 0 或 1`, `node ${v} must start on side 0 or 1`));
+      if (!errors.length && !balanceOk(initial, r.ids, maxDiff)) errors.push(L(`初始二分不满足平衡：|n0−n1| ≤ ${maxDiff} 且两侧非空`, `the initial bisection is not balanced: |n0−n1| ≤ ${maxDiff} with both sides nonempty`));
     }
-    if (!Number.isInteger(maxDiff) || maxDiff < 0) errors.push('maxDiff 须为非负整数');
+    if (!Number.isInteger(maxDiff) || maxDiff < 0) errors.push(L('maxDiff 须为非负整数', 'maxDiff must be a nonnegative integer'));
   }
   return { ok: errors.length === 0, errors };
 }

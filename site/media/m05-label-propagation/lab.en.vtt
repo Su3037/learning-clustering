@@ -1,0 +1,69 @@
+WEBVTT
+
+1
+00:00:03.200 --> 00:00:11.000
+This is the chapter's lab: choose an example, the update mode, the tie rule and the visiting order.
+
+2
+00:00:11.000 --> 00:00:17.533
+Press Step to update one node. The panel on the right shows that vote in detail.
+
+3
+00:00:17.533 --> 00:00:24.200
+Two more steps and it is C's turn: B = 1 + 4 = 5, D = 2, E = 1. The gold row wins.
+
+4
+00:00:24.200 --> 00:00:28.267
+To the end: 2 rounds, status stable, cut 3.
+
+5
+00:00:28.267 --> 00:00:34.052
+The log below lists every step; click any row to jump back to it.
+
+6
+00:00:34.052 --> 00:00:42.052
+Switch to synchronous updates and jump to the end: the same graph oscillates, and the status is cycle.
+
+7
+00:00:42.052 --> 00:00:49.052
+Back to asynchronous, then Reverse order: 3 rounds, other label names, the same groups.
+
+8
+00:00:49.052 --> 00:00:55.348
+Raise the C–D bridge to 10: the groups become AB | CDE, cut 5.
+
+9
+00:00:55.348 --> 00:01:01.281
+The code lab: your code runs in the browser, with no Python to install.
+
+10
+00:01:01.281 --> 00:01:07.748
+Run the checks first: neither task is written yet, so the result is INCOMPLETE.
+
+11
+00:01:07.748 --> 00:01:18.814
+Task 1, count_votes: add up the neighbours' edge weights per label.
+
+12
+00:01:18.814 --> 00:01:25.547
+Run the checks again: the vote counting passes; the stopping test is still missing.
+
+13
+00:01:25.547 --> 00:01:38.814
+Task 2: a round with no change is stable; a state seen before is a cycle.
+
+14
+00:01:38.814 --> 00:01:46.747
+Run the checks: everything passes, including the original 24-cell circuit and 28-person contact list.
+
+15
+00:01:46.747 --> 00:01:55.281
+Below, your own solve() runs and is compared with the course engine step by step. Pick two nodes, synchronous.
+
+16
+00:01:55.281 --> 00:02:02.072
+Your code reports a cycle too, and agrees with the course engine at every step.
+
+17
+00:02:02.072 --> 00:02:09.205
+Finally, try the challenges to check you really understand. Results stay in your browser.

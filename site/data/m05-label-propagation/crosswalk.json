@@ -8,8 +8,8 @@
         "m05-label"
       ],
       "sceneIds": [
-        "s01-contacts",
-        "s05-labels"
+        "names",
+        "k03-labels"
       ],
       "slideIds": [
         "m05-contacts",
@@ -22,14 +22,14 @@
       "python": [],
       "video": [
         {
-          "sceneId": "s01-contacts",
-          "film": "circles",
-          "start": 3
+          "sceneId": "names",
+          "film": "story",
+          "start": 189.82
         },
         {
-          "sceneId": "s05-labels",
-          "film": "circles",
-          "start": 62.56
+          "sceneId": "k03-labels",
+          "film": "concise",
+          "start": 28.29
         }
       ],
       "slides": [
@@ -49,8 +49,8 @@
         "m05-vote"
       ],
       "sceneIds": [
-        "s06-vote",
-        "t03-C1"
+        "weights",
+        "k04-vote"
       ],
       "slideIds": [
         "m05-vote"
@@ -64,12 +64,14 @@
       ],
       "video": [
         {
-          "sceneId": "s06-vote",
-          "status": "scene-not-a-chapter"
+          "sceneId": "weights",
+          "film": "story",
+          "start": 207.23
         },
         {
-          "sceneId": "t03-C1",
-          "status": "scene-not-a-chapter"
+          "sceneId": "k04-vote",
+          "film": "concise",
+          "start": 41.96
         }
       ],
       "slides": [
@@ -85,8 +87,8 @@
         "m05-round"
       ],
       "sceneIds": [
-        "s07-round",
-        "t99-end"
+        "round2",
+        "k06-round2"
       ],
       "slideIds": [
         "m05-round"
@@ -100,13 +102,14 @@
       ],
       "video": [
         {
-          "sceneId": "s07-round",
-          "status": "scene-not-a-chapter"
+          "sceneId": "round2",
+          "film": "story",
+          "start": 258.02
         },
         {
-          "sceneId": "t99-end",
-          "film": "slow",
-          "start": 81.2
+          "sceneId": "k06-round2",
+          "film": "concise",
+          "start": 78.71
         }
       ],
       "slides": [
@@ -122,7 +125,9 @@
         "m05-sync"
       ],
       "sceneIds": [
-        "s08-sync"
+        "sync",
+        "k08-sync",
+        "a04-star"
       ],
       "slideIds": [
         "m05-sync"
@@ -136,9 +141,19 @@
       ],
       "video": [
         {
-          "sceneId": "s08-sync",
-          "film": "circles",
-          "start": 112.42
+          "sceneId": "sync",
+          "film": "story",
+          "start": 275.04
+        },
+        {
+          "sceneId": "k08-sync",
+          "film": "concise",
+          "start": 108
+        },
+        {
+          "sceneId": "a04-star",
+          "film": "advanced",
+          "start": 90.27
         }
       ],
       "slides": [
@@ -155,7 +170,8 @@
         "m05-round"
       ],
       "sceneIds": [
-        "s09-bridge"
+        "k09-knobs",
+        "a07-orders"
       ],
       "slideIds": [
         "m05-bridge"
@@ -170,8 +186,14 @@
       ],
       "video": [
         {
-          "sceneId": "s09-bridge",
-          "status": "scene-not-a-chapter"
+          "sceneId": "k09-knobs",
+          "film": "concise",
+          "start": 123.78
+        },
+        {
+          "sceneId": "a07-orders",
+          "film": "advanced",
+          "start": 148.38
         }
       ],
       "slides": [
@@ -188,8 +210,8 @@
         "m05-pseudocode"
       ],
       "sceneIds": [
-        "s10-circuit",
-        "s11-limits"
+        "payoff",
+        "a12-coarsen"
       ],
       "slideIds": [
         "m05-chip",
@@ -206,13 +228,14 @@
       ],
       "video": [
         {
-          "sceneId": "s10-circuit",
-          "film": "circles",
-          "start": 143.8
+          "sceneId": "payoff",
+          "film": "story",
+          "start": 309.09
         },
         {
-          "sceneId": "s11-limits",
-          "status": "scene-not-a-chapter"
+          "sceneId": "a12-coarsen",
+          "film": "advanced",
+          "start": 252.69
         }
       ],
       "slides": [

@@ -1,0 +1,174 @@
+{
+ "status": "ready",
+ "moduleId": "m04-size-constrained-agglomerative",
+ "slides": [
+  {
+   "slideId": "m04-title",
+   "pageNumber": 1,
+   "pageCount": 11,
+   "title": "Does it fit?",
+   "image": "p01.jpg",
+   "thumb": "t01.jpg",
+   "alt": "Does it fit?: ",
+   "transcript": "This module adds one hard constraint to greedy merging: a cluster’s total size may not exceed the capacity. We tell apart three endings: impossible in principle, feasible but greedy is stuck, and legal but not optimal.",
+   "videoAnchor": null,
+   "sceneId": "k00-title",
+   "objectiveIds": []
+  },
+  {
+   "slideId": "m04-problem",
+   "pageNumber": 2,
+   "pageCount": 11,
+   "title": "The problem",
+   "image": "p02.jpg",
+   "thumb": "t02.jpg",
+   "alt": "The problem: Input: a graph, node sizes s(v), a capacity C, a target K; Rule: filter for legality (merged size ≤ C), then take the highest affinity; K never overrides the capacity: no over-capacity merges; A single node over capacity: the input is invalid; Output four separate items: count, legal, K reached, sto",
+   "transcript": "Besides the graph and K, the input has a size for each node and a capacity C. The rule filters out over-capacity candidates first, then takes the highest affinity among the legal ones. The target K never overrides the capacity. The result’s four report items are written separately.",
+   "videoAnchor": null,
+   "sceneId": "k01-problem",
+   "objectiveIds": [
+    "o1"
+   ]
+  },
+  {
+   "slideId": "m04-fork",
+   "pageNumber": 3,
+   "pageCount": 11,
+   "title": "One graph, two capacities",
+   "image": "p03.jpg",
+   "thumb": "t03.jpg",
+   "alt": "One graph, two capacities: Capacity 3: AB+C has size 3, legal, giving ABC | DE, cut 3; Capacity 2: AB+C is blocked, so D–E instead; After that AB+C and C+DE are both 3: all blocked; Capacity 2 result: AB | C | DE, cut 8, K not reached",
+   "transcript": "On the same graph, at capacity 3 step two’s AB plus C is legal, ending with ABC against DE. At capacity 2 that step is blocked, D–E merges instead, and after that no legal merge remains: it stops at three clusters, cut 8, without reaching K.",
+   "videoAnchor": null,
+   "sceneId": "k02-fork",
+   "objectiveIds": [
+    "o2"
+   ]
+  },
+  {
+   "slideId": "m04-bound",
+   "pageNumber": 4,
+   "pageCount": 11,
+   "title": "Impossible: a lower-bound proof",
+   "image": "p04.jpg",
+   "thumb": "t04.jpg",
+   "alt": "Impossible: a lower-bound proof: Lower bound: at least “total size ÷ C, rounded up” clusters; G01: 5 ÷ 2 rounded up = 3 > K = 2; No algorithm can do it: greedy made no mistake by stopping; A bound can only prove “impossible”, never “possible”",
+   "transcript": "First compute the lower bound: the total size divided by the capacity, rounded up. G01’s 5 units at capacity 2 need at least 3 clusters, so K equal to 2 was never possible. But a bound can only prove impossibility, not possibility.",
+   "videoAnchor": null,
+   "sceneId": "k03-bound",
+   "objectiveIds": [
+    "o3"
+   ]
+  },
+  {
+   "slideId": "m04-trap",
+   "pageNumber": 5,
+   "pageCount": 11,
+   "title": "Feasible, but greedy is stuck",
+   "image": "p05.jpg",
+   "thumb": "t05.jpg",
+   "alt": "Feasible, but greedy is stuck: greedy_trap (original author): A and B size 2; C and D size 1; capacity 3; Bound 6 ÷ 3 = 2 does not rule out 2 clusters; Greedy merges C–D (10) first; CD+A and CD+B are both 4 > 3; Stops at 3 clusters, yet exhaustive search finds AC | BD (3, 3), cut 10; Stopped ≠ no solution",
+   "transcript": "In the original author’s greedy_trap graph, the bound allows two clusters. Greedy’s first step takes the biggest, C–D, after which neither A nor B fits, and it stops at three clusters. Yet exhaustive search finds AC against BD, two clusters of size 3, legal. That is feasible, but greedy is stuck.",
+   "videoAnchor": null,
+   "sceneId": "k04-trap",
+   "objectiveIds": [
+    "o4"
+   ]
+  },
+  {
+   "slideId": "m04-sub",
+   "pageNumber": 6,
+   "pageCount": 11,
+   "title": "Legal, but not optimal",
+   "image": "p06.jpg",
+   "thumb": "t06.jpg",
+   "alt": "Legal, but not optimal: suboptimal (original author): A–B 10, A–C 9, B–D 9, C–D 1; Greedy: AB | CD, both 9s cut, cut 18; Exhaustive: AC | BD, cuts 10 and 1, cut 11; Both are legal and both reach K; only the quality differs",
+   "transcript": "In the original author’s suboptimal graph, greedy merges A–B first, then C–D, cutting both 9s: cut 18. The best legal grouping is AC against BD, cutting only 10 and 1: cut 11. Both are legal, and both reach K.",
+   "videoAnchor": null,
+   "sceneId": "k05-sub",
+   "objectiveIds": [
+    "o5"
+   ]
+  },
+  {
+   "slideId": "m04-uneven",
+   "pageNumber": 7,
+   "pageCount": 11,
+   "title": "Different sizes, different endings",
+   "image": "p07.jpg",
+   "thumb": "t07.jpg",
+   "alt": "Different sizes, different endings: Set A’s size in G01 to 2, capacity 3, K = 2; After A–B the size is 3, full; AB+C is blocked; D–E instead, then C goes into DE; Result AB | CDE, cut 5 (was ABC | DE, cut 3)",
+   "transcript": "Node sizes also change the ending. Set A’s size to 2: after A–B merges it is already full and C does not fit, so D–E merges first, then C joins it, giving AB against CDE, cut 5.",
+   "videoAnchor": null,
+   "sceneId": "k06-uneven",
+   "objectiveIds": [
+    "o5"
+   ]
+  },
+  {
+   "slideId": "m04-pseudo",
+   "pageNumber": 8,
+   "pageCount": 11,
+   "title": "The pseudocode: merge, report, diagnose",
+   "image": "p08.jpg",
+   "thumb": "t08.jpg",
+   "alt": "The pseudocode: merge, report, diagnose: Line 1: a single node over capacity means invalid input; Line 4: filter for legality before comparing; Line 5: tell capacity-blocked from no-positive-affinity; Line 7: report four items separately; Line 8: diagnose with the lower bound plus small-graph search",
+   "transcript": "Line one of the pseudocode checks whether a single node exceeds the capacity. Line four filters out over-capacity candidates before comparing. Line five stops when no legal candidate remains and tells the two reasons apart. Line seven reports the four items separately, and line eight uses the bound and exhaustive search to diagnose which ending it is.",
+   "videoAnchor": null,
+   "sceneId": "a01-filter",
+   "objectiveIds": [
+    "o6"
+   ]
+  },
+  {
+   "slideId": "m04-mistakes",
+   "pageNumber": 9,
+   "pageCount": 11,
+   "title": "Common mistakes",
+   "image": "p09.jpg",
+   "thumb": "t09.jpg",
+   "alt": "Common mistakes: Calling “legal” “done”; Breaking the capacity to reach K; Taking “greedy is stuck” for “impossible”; Assuming a legal result is optimal; Treating node count as area",
+   "transcript": "Common mistakes: taking legal as done; breaking the capacity to make K; mistaking greedy being stuck for the problem having no solution; assuming legal means optimal; and ignoring differences in cell area.",
+   "videoAnchor": null,
+   "sceneId": null,
+   "objectiveIds": [
+    "o1",
+    "o4",
+    "o5"
+   ]
+  },
+  {
+   "slideId": "m04-limits",
+   "pageNumber": 10,
+   "pageCount": 11,
+   "title": "Practice and limits",
+   "image": "p10.jpg",
+   "thumb": "t10.jpg",
+   "alt": "Practice and limits: Capacity is the area one region of the chip can hold; A bound only proves impossible; possible needs a solution (as hard as bin packing); Exhaustive search only suits teaching graphs of ≤ 10 nodes; Greedy never backtracks: improving needs methods that swap or move back (Modules 07, 08)",
+   "transcript": "In chip design, the capacity is the area one region can hold. A bound only proves impossibility. Exhaustive search only suits very small teaching graphs. Greedy never backtracks; improving on it needs methods that allow swaps or moving back, the subject of Modules 07 and 08.",
+   "videoAnchor": null,
+   "sceneId": "a03-bell",
+   "objectiveIds": [
+    "o3"
+   ]
+  },
+  {
+   "slideId": "m04-summary",
+   "pageNumber": 11,
+   "pageCount": 11,
+   "title": "Summary",
+   "image": "p11.jpg",
+   "thumb": "t11.jpg",
+   "alt": "Summary: ",
+   "transcript": "In summary: filter for legality, then take the largest, and report the four results separately. Impossible in principle, feasible but greedy stuck, and legal but not optimal are three different endings, each told apart by different evidence. The next module switches mechanism: nodes don’t merge, they change labels.",
+   "videoAnchor": null,
+   "sceneId": null,
+   "objectiveIds": []
+  }
+ ],
+ "pdf": "m04-size-constrained-agglomerative-en.pdf",
+ "pptx": "m04-size-constrained-agglomerative-en.pptx",
+ "contentVersion": "2026.10.23-1",
+ "lang": "en",
+ "aspectNote": "16:9 is this course's choice (it matches the films and suits projection), not a ratio the teacher set. PDF page numbers match the web p/total exactly; in the PPTX the text, shapes and tables are editable and the notes hold the script."
+}

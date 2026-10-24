@@ -1,388 +1,1714 @@
 {
- "id": "fm",
- "title": "合法的那一步",
+ "schema": 2,
  "status": "ready",
- "src": "fm.mp4",
- "vtt": "fm.zh.vtt",
- "poster": "fm-poster.jpg",
- "duration": 225.3,
- "chapters": [
+ "films": [
   {
-   "t": 3.0,
-   "title": "一 · 与 KL 的差别",
-   "sceneId": "s01-diff"
+   "id": "story",
+   "kind": "popular",
+   "status": "ready",
+   "title": {
+    "zh": "合法的那一步",
+    "en": "The Legal Move"
+   },
+   "why": {
+    "zh": "五个朋友住进两间三张床的屋子，一次只搬一个人，两屋人数最多差 1。Ada、Eva 能省最多却不许动；Dev 可以，然后 Ada 才可以；亏的也试，回退到最佳前缀；另外六个人身上，两步小亏换来 +4；最后空前缀让一切停下。",
+    "en": "Five friends in two rooms of three beds, moving one at a time, the rooms differing by one at most. Ada and Eva would save the most but may not move; Dev may, and then Ada can; the losses are tried too, and it rolls back to the best prefix; with six other people, two small losses buy a gain of 4; and the empty prefix ends it."
+   },
+   "music": {
+    "zh": "《We Never (Remix)（若如初见）》Hi Noise / 秋成（第三方录音，不在本课程许可范围内）",
+    "en": "“We Never (Remix)” by Hi Noise / 秋成 (third-party recording, not covered by this course's licences)"
+   },
+   "scenes": [
+    {
+     "sceneId": "p-open",
+     "start": 0.0,
+     "end": 10.75
+    },
+    {
+     "sceneId": "p-ask",
+     "start": 10.75,
+     "end": 17.41
+    },
+    {
+     "sceneId": "p-rule",
+     "start": 17.41,
+     "end": 32.03
+    },
+    {
+     "sceneId": "p-title",
+     "start": 32.03,
+     "end": 37.0
+    },
+    {
+     "sceneId": "p-blocked",
+     "start": 37.0,
+     "end": 51.18
+    },
+    {
+     "sceneId": "p-dev",
+     "start": 51.18,
+     "end": 63.15
+    },
+    {
+     "sceneId": "p-ada",
+     "start": 63.15,
+     "end": 74.0
+    },
+    {
+     "sceneId": "p-rest",
+     "start": 74.0,
+     "end": 89.0
+    },
+    {
+     "sceneId": "p-keep",
+     "start": 89.0,
+     "end": 97.19
+    },
+    {
+     "sceneId": "p-breath",
+     "start": 97.19,
+     "end": 102.5
+    },
+    {
+     "sceneId": "p-escape",
+     "start": 102.5,
+     "end": 119.27
+    },
+    {
+     "sceneId": "p-round2",
+     "start": 119.27,
+     "end": 134.16
+    },
+    {
+     "sceneId": "p-chip",
+     "start": 134.16,
+     "end": 141.5
+    },
+    {
+     "sceneId": "p-outro",
+     "start": 141.5,
+     "end": 170.6
+    },
+    {
+     "sceneId": "p-end",
+     "start": 170.6,
+     "end": 189.82
+    }
+   ],
+   "fps": 30,
+   "size": [
+    1920,
+    1080
+   ],
+   "versions": {
+    "zh": {
+     "src": "story.zh.mp4",
+     "vtt": "story.zh.vtt",
+     "poster": "story.zh.jpg",
+     "duration": 189.83,
+     "captions": "zh+en",
+     "chapters": [
+      {
+       "t": 0.0,
+       "title": "序 · 两间屋",
+       "sceneId": "p-open"
+      },
+      {
+       "t": 37.0,
+       "title": "一 · 不许动",
+       "sceneId": "p-blocked"
+      },
+      {
+       "t": 63.15,
+       "title": "二 · 一个接一个",
+       "sceneId": "p-ada"
+      },
+      {
+       "t": 102.5,
+       "title": "三 · 先亏后赚",
+       "sceneId": "p-escape"
+      },
+      {
+       "t": 119.27,
+       "title": "四 · 第二轮",
+       "sceneId": "p-round2"
+      },
+      {
+       "t": 141.5,
+       "title": "尾声",
+       "sceneId": "p-outro"
+      }
+     ],
+     "transcript": [
+      {
+       "start": 0.0,
+       "end": 4.6,
+       "text": "还是那五个朋友，分住两间屋。",
+       "sceneId": "p-open"
+      },
+      {
+       "start": 4.6,
+       "end": 9.0,
+       "text": "这次每间屋都有三张床。",
+       "sceneId": "p-open"
+      },
+      {
+       "start": 10.75,
+       "end": 13.772,
+       "text": "被拆散的交情：12。",
+       "sceneId": "p-ask"
+      },
+      {
+       "start": 13.772,
+       "end": 17.239,
+       "text": "新规矩：一次只搬一个人。",
+       "sceneId": "p-ask"
+      },
+      {
+       "start": 17.41,
+       "end": 21.81,
+       "text": "但两屋人数最多差 1。",
+       "sceneId": "p-rule"
+      },
+      {
+       "start": 21.81,
+       "end": 26.61,
+       "text": "每人的收益：屋外朋友减屋里朋友。",
+       "sceneId": "p-rule"
+      },
+      {
+       "start": 26.61,
+       "end": 30.61,
+       "text": "Ada 和 Eva 各是 6，最大。",
+       "sceneId": "p-rule"
+      },
+      {
+       "start": 37.0,
+       "end": 41.2,
+       "text": "让 Ada 搬？左屋就只剩一个人。",
+       "sceneId": "p-blocked"
+      },
+      {
+       "start": 41.2,
+       "end": 45.2,
+       "text": "1 比 4，差得太多：不许。",
+       "sceneId": "p-blocked"
+      },
+      {
+       "start": 45.2,
+       "end": 47.8,
+       "text": "Eva 也一样。",
+       "sceneId": "p-blocked"
+      },
+      {
+       "start": 51.18,
+       "end": 55.313,
+       "text": "合法的人里，Dev 最好：+3。",
+       "sceneId": "p-dev"
+      },
+      {
+       "start": 55.313,
+       "end": 58.78,
+       "text": "Dev 搬过去：12 → 9。",
+       "sceneId": "p-dev"
+      },
+      {
+       "start": 58.78,
+       "end": 61.78,
+       "text": "现在左屋有三个人。",
+       "sceneId": "p-dev"
+      },
+      {
+       "start": 63.15,
+       "end": 66.839,
+       "text": "这下 Ada 可以走了：+6。",
+       "sceneId": "p-ada"
+      },
+      {
+       "start": 66.839,
+       "end": 69.239,
+       "text": "9 → 3。",
+       "sceneId": "p-ada"
+      },
+      {
+       "start": 69.239,
+       "end": 72.928,
+       "text": "两人都锁定，这一轮不再动。",
+       "sceneId": "p-ada"
+      },
+      {
+       "start": 74.0,
+       "end": 77.0,
+       "text": "接着走，亏也走：",
+       "sceneId": "p-rest"
+      },
+      {
+       "start": 77.0,
+       "end": 81.8,
+       "text": "Cai −2，Eva −6，Ben −1。",
+       "sceneId": "p-rest"
+      },
+      {
+       "start": 81.8,
+       "end": 85.4,
+       "text": "又回到 12：都只是试探。",
+       "sceneId": "p-rest"
+      },
+      {
+       "start": 89.0,
+       "end": 92.4,
+       "text": "最好的前缀：前两步。",
+       "sceneId": "p-keep"
+      },
+      {
+       "start": 92.4,
+       "end": 95.0,
+       "text": "回退到 3。",
+       "sceneId": "p-keep"
+      },
+      {
+       "start": 102.5,
+       "end": 107.522,
+       "text": "换六个人：一开始，每个合法的移动都亏。",
+       "sceneId": "p-escape"
+      },
+      {
+       "start": 107.522,
+       "end": 111.522,
+       "text": "先吃两个小亏：6 → 7 → 8。",
+       "sceneId": "p-escape"
+      },
+      {
+       "start": 111.522,
+       "end": 116.122,
+       "text": "E 一下赚 4：降到 4，最好的分法。",
+       "sceneId": "p-escape"
+      },
+      {
+       "start": 119.27,
+       "end": 123.181,
+       "text": "回到五个人，第二轮从 3 出发。",
+       "sceneId": "p-round2"
+      },
+      {
+       "start": 123.181,
+       "end": 126.781,
+       "text": "每一段前缀都不如不动。",
+       "sceneId": "p-round2"
+      },
+      {
+       "start": 126.781,
+       "end": 129.781,
+       "text": "空前缀胜出：停。",
+       "sceneId": "p-round2"
+      },
+      {
+       "start": 134.16,
+       "end": 139.627,
+       "text": "芯片上：两半可以差一点，单元一个一个地搬。",
+       "sceneId": "p-chip"
+      },
+      {
+       "start": 141.5,
+       "end": 147.5,
+       "text": "一次一个人，人数留在窗口里。",
+       "sceneId": "p-outro"
+      },
+      {
+       "start": 147.5,
+       "end": 153.5,
+       "text": "最大的收益，也得先合法。",
+       "sceneId": "p-outro"
+      },
+      {
+       "start": 153.5,
+       "end": 160.5,
+       "text": "亏的也试，最后只留最好的前缀。",
+       "sceneId": "p-outro"
+      },
+      {
+       "start": 160.5,
+       "end": 168.5,
+       "text": "要是在乎的是路程而不是交情呢？下一章见。",
+       "sceneId": "p-outro"
+      },
+      {
+       "start": 170.6,
+       "end": 176.6,
+       "text": "下面的实验里，看哪些移动被平衡挡住。",
+       "sceneId": "p-end"
+      }
+     ],
+     "readingViolations": 0,
+     "bytes": 8939822
+    },
+    "en": {
+     "src": "story.en.mp4",
+     "vtt": "story.en.vtt",
+     "poster": "story.en.jpg",
+     "duration": 189.83,
+     "captions": "en",
+     "chapters": [
+      {
+       "t": 0.0,
+       "title": "PROLOGUE · TWO ROOMS",
+       "sceneId": "p-open"
+      },
+      {
+       "t": 37.0,
+       "title": "I · NOT ALLOWED",
+       "sceneId": "p-blocked"
+      },
+      {
+       "t": 63.15,
+       "title": "II · ONE AFTER ANOTHER",
+       "sceneId": "p-ada"
+      },
+      {
+       "t": 102.5,
+       "title": "III · LOSE, THEN GAIN",
+       "sceneId": "p-escape"
+      },
+      {
+       "t": 119.27,
+       "title": "IV · ROUND TWO",
+       "sceneId": "p-round2"
+      },
+      {
+       "t": 141.5,
+       "title": "CODA",
+       "sceneId": "p-outro"
+      }
+     ],
+     "transcript": [
+      {
+       "start": 0.0,
+       "end": 4.6,
+       "text": "The same five friends, in two rooms.",
+       "sceneId": "p-open"
+      },
+      {
+       "start": 4.6,
+       "end": 9.0,
+       "text": "This time each room has three beds.",
+       "sceneId": "p-open"
+      },
+      {
+       "start": 10.75,
+       "end": 13.772,
+       "text": "Friendships split: 12.",
+       "sceneId": "p-ask"
+      },
+      {
+       "start": 13.772,
+       "end": 17.239,
+       "text": "New rule: one person moves at a time.",
+       "sceneId": "p-ask"
+      },
+      {
+       "start": 17.41,
+       "end": 21.81,
+       "text": "But the rooms may differ by one at most.",
+       "sceneId": "p-rule"
+      },
+      {
+       "start": 21.81,
+       "end": 26.61,
+       "text": "Each person's gain: friends outside minus inside.",
+       "sceneId": "p-rule"
+      },
+      {
+       "start": 26.61,
+       "end": 30.61,
+       "text": "Ada and Eva: 6 each, the biggest.",
+       "sceneId": "p-rule"
+      },
+      {
+       "start": 37.0,
+       "end": 41.2,
+       "text": "Move Ada? The left room would keep just one.",
+       "sceneId": "p-blocked"
+      },
+      {
+       "start": 41.2,
+       "end": 45.2,
+       "text": "One to four is too lopsided: not allowed.",
+       "sceneId": "p-blocked"
+      },
+      {
+       "start": 45.2,
+       "end": 47.8,
+       "text": "The same for Eva.",
+       "sceneId": "p-blocked"
+      },
+      {
+       "start": 51.18,
+       "end": 55.313,
+       "text": "Among the legal ones, Dev is best: +3.",
+       "sceneId": "p-dev"
+      },
+      {
+       "start": 55.313,
+       "end": 58.78,
+       "text": "Dev moves across: 12 → 9.",
+       "sceneId": "p-dev"
+      },
+      {
+       "start": 58.78,
+       "end": 61.78,
+       "text": "Now the left room has three.",
+       "sceneId": "p-dev"
+      },
+      {
+       "start": 63.15,
+       "end": 66.839,
+       "text": "Now Ada may go: +6.",
+       "sceneId": "p-ada"
+      },
+      {
+       "start": 66.839,
+       "end": 69.239,
+       "text": "9 → 3.",
+       "sceneId": "p-ada"
+      },
+      {
+       "start": 69.239,
+       "end": 72.928,
+       "text": "Both lock for the rest of the round.",
+       "sceneId": "p-ada"
+      },
+      {
+       "start": 74.0,
+       "end": 77.0,
+       "text": "Keep going, even at a loss:",
+       "sceneId": "p-rest"
+      },
+      {
+       "start": 77.0,
+       "end": 81.8,
+       "text": "Cai −2, Eva −6, Ben −1.",
+       "sceneId": "p-rest"
+      },
+      {
+       "start": 81.8,
+       "end": 85.4,
+       "text": "Back to 12: all of it trials.",
+       "sceneId": "p-rest"
+      },
+      {
+       "start": 89.0,
+       "end": 92.4,
+       "text": "The best prefix: the first two steps.",
+       "sceneId": "p-keep"
+      },
+      {
+       "start": 92.4,
+       "end": 95.0,
+       "text": "Roll back to 3.",
+       "sceneId": "p-keep"
+      },
+      {
+       "start": 102.5,
+       "end": 107.522,
+       "text": "Six others: at first every legal move loses.",
+       "sceneId": "p-escape"
+      },
+      {
+       "start": 107.522,
+       "end": 111.522,
+       "text": "Take two small losses: 6 → 7 → 8.",
+       "sceneId": "p-escape"
+      },
+      {
+       "start": 111.522,
+       "end": 116.122,
+       "text": "Then E gains 4: down to 4, the best split.",
+       "sceneId": "p-escape"
+      },
+      {
+       "start": 119.27,
+       "end": 123.181,
+       "text": "Back to the five: round two starts from 3.",
+       "sceneId": "p-round2"
+      },
+      {
+       "start": 123.181,
+       "end": 126.781,
+       "text": "Every prefix is worse than staying put.",
+       "sceneId": "p-round2"
+      },
+      {
+       "start": 126.781,
+       "end": 129.781,
+       "text": "The empty prefix wins: stop.",
+       "sceneId": "p-round2"
+      },
+      {
+       "start": 134.16,
+       "end": 139.627,
+       "text": "On a chip: the halves may differ a little; cells move one by one.",
+       "sceneId": "p-chip"
+      },
+      {
+       "start": 141.5,
+       "end": 147.5,
+       "text": "One at a time, the head count inside the window.",
+       "sceneId": "p-outro"
+      },
+      {
+       "start": 147.5,
+       "end": 153.5,
+       "text": "The biggest gain must be legal first.",
+       "sceneId": "p-outro"
+      },
+      {
+       "start": 153.5,
+       "end": 160.5,
+       "text": "Try the losses; keep only the best prefix.",
+       "sceneId": "p-outro"
+      },
+      {
+       "start": 160.5,
+       "end": 168.5,
+       "text": "What if distance matters, not ties? Next module.",
+       "sceneId": "p-outro"
+      },
+      {
+       "start": 170.6,
+       "end": 176.6,
+       "text": "In the lab below, see which moves the balance blocks.",
+       "sceneId": "p-end"
+      }
+     ],
+     "readingViolations": 0,
+     "bytes": 8964031
+    }
+   }
   },
   {
-   "t": 20.02,
-   "title": "二 · 合法性与收益",
-   "sceneId": "s02-gains"
+   "id": "concise",
+   "kind": "concise",
+   "status": "ready",
+   "title": {
+    "zh": "精讲：合法、收益、回退",
+    "en": "The essentials"
+   },
+   "why": {
+    "zh": "只讲必须掌握的：FM 与 KL 的差别和平衡窗口、先筛合法再选最大、收益的 FS/TE 分解、一轮试探移动、最佳前缀与停止。",
+    "en": "Only what you must know: FM versus KL and the balance window, legality before the largest gain, the FS/TE split of a gain, one pass of trial moves, the best prefix and the stop."
+   },
+   "music": {
+    "zh": "本课程原创程序合成配乐（NumPy），CC BY 4.0",
+    "en": "Original score synthesised for this course (NumPy), CC BY 4.0"
+   },
+   "scenes": [
+    {
+     "sceneId": "k00-title",
+     "start": 0.0,
+     "end": 3.4
+    },
+    {
+     "sceneId": "k01-problem",
+     "start": 3.4,
+     "end": 19.76
+    },
+    {
+     "sceneId": "k02-legal",
+     "start": 19.76,
+     "end": 34.33
+    },
+    {
+     "sceneId": "k03-fste",
+     "start": 34.33,
+     "end": 55.73
+    },
+    {
+     "sceneId": "k04-pass",
+     "start": 55.73,
+     "end": 74.0
+    },
+    {
+     "sceneId": "k05-prefix",
+     "start": 74.0,
+     "end": 88.69
+    },
+    {
+     "sceneId": "k06-take",
+     "start": 88.69,
+     "end": 108.18
+    }
+   ],
+   "fps": 30,
+   "size": [
+    1920,
+    1080
+   ],
+   "versions": {
+    "zh": {
+     "src": "concise.zh.mp4",
+     "vtt": "concise.zh.vtt",
+     "poster": "concise.zh.jpg",
+     "duration": 108.17,
+     "captions": "zh+en",
+     "chapters": [
+      {
+       "t": 3.4,
+       "title": "问题",
+       "sceneId": "k01-problem"
+      },
+      {
+       "t": 19.76,
+       "title": "合法性",
+       "sceneId": "k02-legal"
+      },
+      {
+       "t": 34.33,
+       "title": "FS 与 TE",
+       "sceneId": "k03-fste"
+      },
+      {
+       "t": 55.73,
+       "title": "一轮试探",
+       "sceneId": "k04-pass"
+      },
+      {
+       "t": 74.0,
+       "title": "最佳前缀",
+       "sceneId": "k05-prefix"
+      },
+      {
+       "t": 88.69,
+       "title": "小结",
+       "sceneId": "k06-take"
+      }
+     ],
+     "transcript": [
+      {
+       "start": 3.4,
+       "end": 8.2,
+       "text": "KL 一换一；FM 一次只移动一个节点。",
+       "sceneId": "k01-problem"
+      },
+      {
+       "start": 8.2,
+       "end": 13.0,
+       "text": "于是两侧人数会变，要用平衡窗口限制。",
+       "sceneId": "k01-problem"
+      },
+      {
+       "start": 13.0,
+       "end": 19.356,
+       "text": "这里 maxDiff = 1：五个点只能 2 : 3 或 3 : 2。",
+       "sceneId": "k01-problem"
+      },
+      {
+       "start": 19.756,
+       "end": 25.444,
+       "text": "种子 AE | BCD 上，A、E 的收益最大：+6。",
+       "sceneId": "k02-legal"
+      },
+      {
+       "start": 25.444,
+       "end": 30.022,
+       "text": "但移走任何一个都是 1 : 4，不合法。",
+       "sceneId": "k02-legal"
+      },
+      {
+       "start": 30.022,
+       "end": 33.933,
+       "text": "合法候选里最大的是 D：+3。",
+       "sceneId": "k02-legal"
+      },
+      {
+       "start": 34.333,
+       "end": 37.356,
+       "text": "收益可以拆成两部分。",
+       "sceneId": "k03-fste"
+      },
+      {
+       "start": 37.356,
+       "end": 44.378,
+       "text": "FS：D 是 D–E 在本侧唯一的端点，移走后不再被切，+5。",
+       "sceneId": "k03-fste"
+      },
+      {
+       "start": 44.378,
+       "end": 50.733,
+       "text": "TE：C–D 在左侧没有端点，移走后开始被切，−2。",
+       "sceneId": "k03-fste"
+      },
+      {
+       "start": 50.733,
+       "end": 55.333,
+       "text": "收益 3；对普通边，就是外部减内部。",
+       "sceneId": "k03-fste"
+      },
+      {
+       "start": 55.733,
+       "end": 61.644,
+       "text": "第 1 步移动 D，cut 9；左侧有 3 人，A 变合法。",
+       "sceneId": "k04-pass"
+      },
+      {
+       "start": 61.644,
+       "end": 65.778,
+       "text": "第 2 步移动 A，+6，cut 3。",
+       "sceneId": "k04-pass"
+      },
+      {
+       "start": 65.778,
+       "end": 70.578,
+       "text": "之后 C、E、B 全是负收益，照样试探。",
+       "sceneId": "k04-pass"
+      },
+      {
+       "start": 70.578,
+       "end": 73.6,
+       "text": "试探停在 cut 12。",
+       "sceneId": "k04-pass"
+      },
+      {
+       "start": 74.0,
+       "end": 78.133,
+       "text": "累计收益：3、9、7、1、0。",
+       "sceneId": "k05-prefix"
+      },
+      {
+       "start": 78.133,
+       "end": 83.822,
+       "text": "最佳前缀 k = 2：从起点只做 D、A，cut 3。",
+       "sceneId": "k05-prefix"
+      },
+      {
+       "start": 83.822,
+       "end": 88.289,
+       "text": "第二轮没有正的前缀，算法停止。",
+       "sceneId": "k05-prefix"
+      },
+      {
+       "start": 88.689,
+       "end": 90.822,
+       "text": "记住四点。",
+       "sceneId": "k06-take"
+      },
+      {
+       "start": 90.822,
+       "end": 96.067,
+       "text": "单点移动，守住平衡窗口；先合法，再最大；",
+       "sceneId": "k06-take"
+      },
+      {
+       "start": 96.067,
+       "end": 101.978,
+       "text": "收益 = FS − TE；负收益也试，只接受最佳前缀。",
+       "sceneId": "k06-take"
+      },
+      {
+       "start": 101.978,
+       "end": 106.778,
+       "text": "下面的实验里，看哪些移动被平衡挡住。",
+       "sceneId": "k06-take"
+      }
+     ],
+     "readingViolations": 0,
+     "bytes": 4970535
+    },
+    "en": {
+     "src": "concise.en.mp4",
+     "vtt": "concise.en.vtt",
+     "poster": "concise.en.jpg",
+     "duration": 108.17,
+     "captions": "en",
+     "chapters": [
+      {
+       "t": 3.4,
+       "title": "THE PROBLEM",
+       "sceneId": "k01-problem"
+      },
+      {
+       "t": 19.76,
+       "title": "LEGALITY",
+       "sceneId": "k02-legal"
+      },
+      {
+       "t": 34.33,
+       "title": "FS AND TE",
+       "sceneId": "k03-fste"
+      },
+      {
+       "t": 55.73,
+       "title": "ONE PASS",
+       "sceneId": "k04-pass"
+      },
+      {
+       "t": 74.0,
+       "title": "THE BEST PREFIX",
+       "sceneId": "k05-prefix"
+      },
+      {
+       "t": 88.69,
+       "title": "SUMMARY",
+       "sceneId": "k06-take"
+      }
+     ],
+     "transcript": [
+      {
+       "start": 3.4,
+       "end": 8.2,
+       "text": "KL swaps pairs; FM moves one node at a time.",
+       "sceneId": "k01-problem"
+      },
+      {
+       "start": 8.2,
+       "end": 13.0,
+       "text": "So the side sizes change, and a balance window limits them.",
+       "sceneId": "k01-problem"
+      },
+      {
+       "start": 13.0,
+       "end": 19.356,
+       "text": "Here maxDiff = 1: five nodes split 2 : 3 or 3 : 2.",
+       "sceneId": "k01-problem"
+      },
+      {
+       "start": 19.756,
+       "end": 25.444,
+       "text": "On seed AE | BCD, A and E have the largest gain: +6.",
+       "sceneId": "k02-legal"
+      },
+      {
+       "start": 25.444,
+       "end": 30.022,
+       "text": "But moving either one leaves 1 : 4: not legal.",
+       "sceneId": "k02-legal"
+      },
+      {
+       "start": 30.022,
+       "end": 33.933,
+       "text": "Among the legal candidates, D is largest: +3.",
+       "sceneId": "k02-legal"
+      },
+      {
+       "start": 34.333,
+       "end": 37.356,
+       "text": "A gain splits into two parts.",
+       "sceneId": "k03-fste"
+      },
+      {
+       "start": 37.356,
+       "end": 44.378,
+       "text": "FS: D is D–E's only end on its side; after the move it is no longer cut, +5.",
+       "sceneId": "k03-fste"
+      },
+      {
+       "start": 44.378,
+       "end": 50.733,
+       "text": "TE: C–D has no end on the left; after the move it becomes cut, −2.",
+       "sceneId": "k03-fste"
+      },
+      {
+       "start": 50.733,
+       "end": 55.333,
+       "text": "Gain 3; for plain edges, that is external minus internal.",
+       "sceneId": "k03-fste"
+      },
+      {
+       "start": 55.733,
+       "end": 61.644,
+       "text": "Step 1 moves D, cut 9; the left has 3, and A becomes legal.",
+       "sceneId": "k04-pass"
+      },
+      {
+       "start": 61.644,
+       "end": 65.778,
+       "text": "Step 2 moves A, +6, cut 3.",
+       "sceneId": "k04-pass"
+      },
+      {
+       "start": 65.778,
+       "end": 70.578,
+       "text": "Then C, E, B all lose, and are tried anyway.",
+       "sceneId": "k04-pass"
+      },
+      {
+       "start": 70.578,
+       "end": 73.6,
+       "text": "The trials end at cut 12.",
+       "sceneId": "k04-pass"
+      },
+      {
+       "start": 74.0,
+       "end": 78.133,
+       "text": "Cumulative gains: 3, 9, 7, 1, 0.",
+       "sceneId": "k05-prefix"
+      },
+      {
+       "start": 78.133,
+       "end": 83.822,
+       "text": "The best prefix is k = 2: from the start do only D and A, cut 3.",
+       "sceneId": "k05-prefix"
+      },
+      {
+       "start": 83.822,
+       "end": 88.289,
+       "text": "Pass 2 has no positive prefix, and the algorithm stops.",
+       "sceneId": "k05-prefix"
+      },
+      {
+       "start": 88.689,
+       "end": 90.822,
+       "text": "Four things to keep.",
+       "sceneId": "k06-take"
+      },
+      {
+       "start": 90.822,
+       "end": 96.067,
+       "text": "Single moves inside the window; legal first, then largest;",
+       "sceneId": "k06-take"
+      },
+      {
+       "start": 96.067,
+       "end": 101.978,
+       "text": "gain = FS − TE; try losses too, accept only the best prefix.",
+       "sceneId": "k06-take"
+      },
+      {
+       "start": 101.978,
+       "end": 106.778,
+       "text": "In the lab below, see which moves the balance blocks.",
+       "sceneId": "k06-take"
+      }
+     ],
+     "readingViolations": 0,
+     "bytes": 4887979
+    }
+   }
   },
   {
-   "t": 56.87,
-   "title": "三 · 走完一轮",
-   "sceneId": "s04-walk"
+   "id": "advanced",
+   "kind": "advanced",
+   "status": "ready",
+   "title": {
+    "zh": "进阶：反例、多引脚与复杂度",
+    "en": "In depth: examples, multi-pin nets, cost"
+   },
+   "why": {
+    "zh": "一个经穷举核验的负收益反例、对原附件说明的审查、按引脚计数的多引脚 net、桶与“线性时间”到底指什么，以及人数平衡与面积平衡。",
+    "en": "A negative-gain example verified exhaustively, an audit of the attachment's claim, multi-pin nets counted by pins, buckets and what “linear time” does and does not mean here, and count versus area balance."
+   },
+   "music": {
+    "zh": "本课程原创程序合成配乐（NumPy），CC BY 4.0",
+    "en": "Original score synthesised for this course (NumPy), CC BY 4.0"
+   },
+   "scenes": [
+    {
+     "sceneId": "a00-title",
+     "start": 0.0,
+     "end": 3.4
+    },
+    {
+     "sceneId": "a01-escape",
+     "start": 3.4,
+     "end": 32.44
+    },
+    {
+     "sceneId": "a02-legacy",
+     "start": 32.44,
+     "end": 55.96
+    },
+    {
+     "sceneId": "a03-multipin",
+     "start": 55.96,
+     "end": 77.89
+    },
+    {
+     "sceneId": "a04-bucket",
+     "start": 77.89,
+     "end": 102.58
+    },
+    {
+     "sceneId": "a05-area",
+     "start": 102.58,
+     "end": 119.98
+    },
+    {
+     "sceneId": "a06-summary",
+     "start": 119.98,
+     "end": 140.58
+    }
+   ],
+   "fps": 30,
+   "size": [
+    1920,
+    1080
+   ],
+   "versions": {
+    "zh": {
+     "src": "advanced.zh.mp4",
+     "vtt": "advanced.zh.vtt",
+     "poster": "advanced.zh.jpg",
+     "duration": 140.57,
+     "captions": "zh+en",
+     "chapters": [
+      {
+       "t": 3.4,
+       "title": "一 · 负收益的用处",
+       "sceneId": "a01-escape"
+      },
+      {
+       "t": 32.44,
+       "title": "二 · 审查一个反例",
+       "sceneId": "a02-legacy"
+      },
+      {
+       "t": 55.96,
+       "title": "三 · 多引脚 net",
+       "sceneId": "a03-multipin"
+      },
+      {
+       "t": 77.89,
+       "title": "四 · 桶与复杂度",
+       "sceneId": "a04-bucket"
+      },
+      {
+       "t": 102.58,
+       "title": "五 · 人数与面积",
+       "sceneId": "a05-area"
+      },
+      {
+       "t": 119.98,
+       "title": "小结",
+       "sceneId": "a06-summary"
+      }
+     ],
+     "transcript": [
+      {
+       "start": 3.4,
+       "end": 8.422,
+       "text": "为什么要试负收益？看一个核验过的例子。",
+       "sceneId": "a01-escape"
+      },
+      {
+       "start": 8.422,
+       "end": 16.111,
+       "text": "六个点，maxDiff 2，cut 6：每个合法移动的收益都 ≤ 0。",
+       "sceneId": "a01-escape"
+      },
+      {
+       "start": 16.111,
+       "end": 22.244,
+       "text": "爬山法停在 6；FM 先走 A −1、B −1，cut 8。",
+       "sceneId": "a01-escape"
+      },
+      {
+       "start": 22.244,
+       "end": 27.711,
+       "text": "这时 E 最强的连接已在对面：+4，cut 4。",
+       "sceneId": "a01-escape"
+      },
+      {
+       "start": 27.711,
+       "end": 32.044,
+       "text": "穷举确认：4 就是平衡最优。",
+       "sceneId": "a01-escape"
+      },
+      {
+       "start": 32.444,
+       "end": 37.022,
+       "text": "原附件也有一个例子，配了一段说明。",
+       "sceneId": "a02-legacy"
+      },
+      {
+       "start": 37.022,
+       "end": 42.711,
+       "text": "用它自己的数据算：初始 cut 是 18，不是 9。",
+       "sceneId": "a02-legacy"
+      },
+      {
+       "start": 42.711,
+       "end": 46.4,
+       "text": "E 的移动合法，收益 +10。",
+       "sceneId": "a02-legacy"
+      },
+      {
+       "start": 46.4,
+       "end": 51.2,
+       "text": "首轮最佳和真正的最优都是 8，不是 4。",
+       "sceneId": "a02-legacy"
+      },
+      {
+       "start": 51.2,
+       "end": 55.556,
+       "text": "所以它只留作回归测试，不当教材。",
+       "sceneId": "a02-legacy"
+      },
+      {
+       "start": 55.956,
+       "end": 61.422,
+       "text": "真实网表里，一个 net 常连三个以上的单元。",
+       "sceneId": "a03-multipin"
+      },
+      {
+       "start": 61.422,
+       "end": 67.333,
+       "text": "net {A,B,C,D}，权 3，只有 D 在右边。",
+       "sceneId": "a03-multipin"
+      },
+      {
+       "start": 67.333,
+       "end": 72.356,
+       "text": "按引脚计数：移 D 收益 +3，移 A 收益 0。",
+       "sceneId": "a03-multipin"
+      },
+      {
+       "start": 72.356,
+       "end": 77.489,
+       "text": "拆成团再按边算，A 会错得到 −1。",
+       "sceneId": "a03-multipin"
+      },
+      {
+       "start": 77.889,
+       "end": 81.8,
+       "text": "1982 年论文的快，来自桶。",
+       "sceneId": "a04-bucket"
+      },
+      {
+       "start": 81.8,
+       "end": 88.156,
+       "text": "每个收益一个链表，再加一个指向最大合法收益的指针。",
+       "sceneId": "a04-bucket"
+      },
+      {
+       "start": 88.156,
+       "end": 94.489,
+       "text": "每次移动只更新邻居：一轮的代价与引脚总数成正比。",
+       "sceneId": "a04-bucket"
+      },
+      {
+       "start": 94.489,
+       "end": 102.178,
+       "text": "本课程的收益是增量更新的，但选择时仍在扫描：不能称为 O(P)。",
+       "sceneId": "a04-bucket"
+      },
+      {
+       "start": 102.578,
+       "end": 106.711,
+       "text": "平衡窗口数的是人数，不是面积。",
+       "sceneId": "a05-area"
+      },
+      {
+       "start": 106.711,
+       "end": 112.4,
+       "text": "给 A 面积 3：接受的 ABC | DE 人数是 3 : 2。",
+       "sceneId": "a05-area"
+      },
+      {
+       "start": 112.4,
+       "end": 115.0,
+       "text": "面积却是 5 : 2。",
+       "sceneId": "a05-area"
+      },
+      {
+       "start": 115.0,
+       "end": 119.578,
+       "text": "面积平衡需要自己的窗口：标为拓展。",
+       "sceneId": "a05-area"
+      },
+      {
+       "start": 119.978,
+       "end": 122.044,
+       "text": "六点小结。",
+       "sceneId": "a06-summary"
+      },
+      {
+       "start": 135.044,
+       "end": 139.178,
+       "text": "下一章：目标从 cut 换成延迟。",
+       "sceneId": "a06-summary"
+      }
+     ],
+     "readingViolations": 0,
+     "bytes": 6029254
+    },
+    "en": {
+     "src": "advanced.en.mp4",
+     "vtt": "advanced.en.vtt",
+     "poster": "advanced.en.jpg",
+     "duration": 140.57,
+     "captions": "en",
+     "chapters": [
+      {
+       "t": 3.4,
+       "title": "I · WHAT LOSSES ARE FOR",
+       "sceneId": "a01-escape"
+      },
+      {
+       "t": 32.44,
+       "title": "II · AUDITING AN EXAMPLE",
+       "sceneId": "a02-legacy"
+      },
+      {
+       "t": 55.96,
+       "title": "III · MULTI-PIN NETS",
+       "sceneId": "a03-multipin"
+      },
+      {
+       "t": 77.89,
+       "title": "IV · BUCKETS AND COST",
+       "sceneId": "a04-bucket"
+      },
+      {
+       "t": 102.58,
+       "title": "V · COUNT AND AREA",
+       "sceneId": "a05-area"
+      },
+      {
+       "t": 119.98,
+       "title": "SUMMARY",
+       "sceneId": "a06-summary"
+      }
+     ],
+     "transcript": [
+      {
+       "start": 3.4,
+       "end": 8.422,
+       "text": "Why try negative gains? A verified example.",
+       "sceneId": "a01-escape"
+      },
+      {
+       "start": 8.422,
+       "end": 16.111,
+       "text": "Six nodes, maxDiff 2, cut 6: every legal move has gain ≤ 0.",
+       "sceneId": "a01-escape"
+      },
+      {
+       "start": 16.111,
+       "end": 22.244,
+       "text": "Hill climbing stops at 6; FM takes A −1, B −1: cut 8.",
+       "sceneId": "a01-escape"
+      },
+      {
+       "start": 22.244,
+       "end": 27.711,
+       "text": "Now E's strongest tie is across: +4, cut 4.",
+       "sceneId": "a01-escape"
+      },
+      {
+       "start": 27.711,
+       "end": 32.044,
+       "text": "Exhaustive search confirms 4 is the balanced optimum.",
+       "sceneId": "a01-escape"
+      },
+      {
+       "start": 32.444,
+       "end": 37.022,
+       "text": "The attachment had its own example, with a claim.",
+       "sceneId": "a02-legacy"
+      },
+      {
+       "start": 37.022,
+       "end": 42.711,
+       "text": "Computed from its own data: the initial cut is 18, not 9.",
+       "sceneId": "a02-legacy"
+      },
+      {
+       "start": 42.711,
+       "end": 46.4,
+       "text": "E's move is legal, with gain +10.",
+       "sceneId": "a02-legacy"
+      },
+      {
+       "start": 46.4,
+       "end": 51.2,
+       "text": "Pass 1's best and the true optimum are both 8, not 4.",
+       "sceneId": "a02-legacy"
+      },
+      {
+       "start": 51.2,
+       "end": 55.556,
+       "text": "So it stays a regression test, not a lesson.",
+       "sceneId": "a02-legacy"
+      },
+      {
+       "start": 55.956,
+       "end": 61.422,
+       "text": "In real netlists a net often joins three or more cells.",
+       "sceneId": "a03-multipin"
+      },
+      {
+       "start": 61.422,
+       "end": 67.333,
+       "text": "A net {A, B, C, D}, weight 3, with only D on the right.",
+       "sceneId": "a03-multipin"
+      },
+      {
+       "start": 67.333,
+       "end": 72.356,
+       "text": "Counting pins: moving D gains +3, moving A gains 0.",
+       "sceneId": "a03-multipin"
+      },
+      {
+       "start": 72.356,
+       "end": 77.489,
+       "text": "Split into a clique and counted by edges, A would wrongly get −1.",
+       "sceneId": "a03-multipin"
+      },
+      {
+       "start": 77.889,
+       "end": 81.8,
+       "text": "The 1982 paper's speed comes from buckets.",
+       "sceneId": "a04-bucket"
+      },
+      {
+       "start": 81.8,
+       "end": 88.156,
+       "text": "One list per gain, plus a pointer to the largest legal gain.",
+       "sceneId": "a04-bucket"
+      },
+      {
+       "start": 88.156,
+       "end": 94.489,
+       "text": "Each move updates only its neighbours: a pass costs time in proportion to the pins.",
+       "sceneId": "a04-bucket"
+      },
+      {
+       "start": 94.489,
+       "end": 102.178,
+       "text": "This course updates gains incrementally, but still scans to choose: not O(P).",
+       "sceneId": "a04-bucket"
+      },
+      {
+       "start": 102.578,
+       "end": 106.711,
+       "text": "The window counts nodes, not area.",
+       "sceneId": "a05-area"
+      },
+      {
+       "start": 106.711,
+       "end": 112.4,
+       "text": "Give A area 3: the accepted ABC | DE is 3 : 2 by count.",
+       "sceneId": "a05-area"
+      },
+      {
+       "start": 112.4,
+       "end": 115.0,
+       "text": "By area it is 5 : 2.",
+       "sceneId": "a05-area"
+      },
+      {
+       "start": 115.0,
+       "end": 119.578,
+       "text": "Area balance needs its own window: an extension.",
+       "sceneId": "a05-area"
+      },
+      {
+       "start": 119.978,
+       "end": 122.044,
+       "text": "Six things to keep.",
+       "sceneId": "a06-summary"
+      },
+      {
+       "start": 135.044,
+       "end": 139.178,
+       "text": "Next: the goal changes from cut to delay.",
+       "sceneId": "a06-summary"
+      }
+     ],
+     "readingViolations": 0,
+     "bytes": 5880263
+    }
+   }
   },
   {
-   "t": 84.73,
-   "title": "四 · 最佳前缀",
-   "sceneId": "s05-prefix"
-  },
-  {
-   "t": 102.11,
-   "title": "五 · 审查一个反例",
-   "sceneId": "s06-legacy"
-  },
-  {
-   "t": 157.58,
-   "title": "六 · 桶与多引脚 net",
-   "sceneId": "s08-bucket"
-  },
-  {
-   "t": 192.96,
-   "title": "七 · 伪代码与局限",
-   "sceneId": "s10-code"
+   "id": "lab",
+   "kind": "lab",
+   "status": "ready",
+   "title": {
+    "zh": "实验演示",
+    "en": "Lab Walkthrough"
+   },
+   "why": {
+    "zh": "从真实页面录下的操作演示：单步看 A、E 被平衡挡住、D 先走、A 随后合法，跳到结束看最佳前缀与停止；切到替换反例看先 −1、−1 再 +4，切到 4 引脚 net 看按引脚计数；再在浏览器里写完 gain() 和 legal_moves() 并通过全部检查。",
+    "en": "Recorded from the real page: stepping through A and E blocked by the balance, D moving first and A becoming legal, then jumping to the best prefix and the stop; switching to the replacement example for −1, −1, then +4, and to the 4-pin net for counting pins; then writing gain() and legal_moves() in the browser and passing every check."
+   },
+   "music": {
+    "zh": "本课程原创程序合成配乐（NumPy），CC BY 4.0",
+    "en": "Original score synthesised for this course (NumPy), CC BY 4.0"
+   },
+   "recorded": "scripts/film/recorder.mjs + video/m08-fiduccia-mattheyses/walkthrough.mjs",
+   "fps": 30,
+   "size": [
+    1920,
+    1080
+   ],
+   "versions": {
+    "zh": {
+     "src": "lab.zh.mp4",
+     "vtt": "lab.zh.vtt",
+     "poster": "lab.zh.jpg",
+     "duration": 155.23,
+     "captions": "zh+en",
+     "chapters": [
+      {
+       "t": 0.0,
+       "title": "开始",
+       "sceneId": "title"
+      },
+      {
+       "t": 3.2,
+       "title": "实验台",
+       "sceneId": "shot-00"
+      },
+      {
+       "t": 47.87,
+       "title": "换个例子",
+       "sceneId": "shot-05"
+      },
+      {
+       "t": 69.32,
+       "title": "在线编程",
+       "sceneId": "shot-07"
+      },
+      {
+       "t": 128.13,
+       "title": "用你的代码跑",
+       "sceneId": "shot-12"
+      },
+      {
+       "t": 144.98,
+       "title": "挑战",
+       "sceneId": "shot-14"
+      }
+     ],
+     "transcript": [
+      {
+       "start": 3.2,
+       "end": 10.844,
+       "text": "这是本章的白盒实验台：选例子，再选平衡窗口 maxDiff。",
+       "sceneId": "shot-00"
+      },
+      {
+       "start": 10.844,
+       "end": 21.378,
+       "text": "第 1 轮开始：种子 AE | BCD，cut 12。表里 A、E 收益 +6 最大，却标着“不合法”。",
+       "sceneId": "shot-01"
+      },
+      {
+       "start": 21.378,
+       "end": 30.578,
+       "text": "第 1 步：A、E 被平衡挡住（红圈），合法的 D 收益 +3 最大，移动后 cut 9。",
+       "sceneId": "shot-02"
+      },
+      {
+       "start": 30.578,
+       "end": 37.333,
+       "text": "第 2 步：左侧有 3 人了，A 变得合法：+6，cut 3。",
+       "sceneId": "shot-03"
+      },
+      {
+       "start": 37.333,
+       "end": 47.867,
+       "text": "跳到结束：C、E、B 都是负收益；保留最佳前缀 k* = 2，cut 3；第二轮空前缀，停止。",
+       "sceneId": "shot-04"
+      },
+      {
+       "start": 47.867,
+       "end": 59.009,
+       "text": "换成替换反例：一开始每个合法移动都亏；A −1、B −1 之后，E 收益 +4，cut 4。",
+       "sceneId": "shot-05"
+      },
+      {
+       "start": 59.009,
+       "end": 69.32,
+       "text": "拓展：bus 是一个 4 引脚 net（紫色虚线）。收益按两侧引脚计数，不把 net 拆成边。",
+       "sceneId": "shot-06"
+      },
+      {
+       "start": 69.32,
+       "end": 79.631,
+       "text": "在线编程：代码在浏览器里运行，不用安装 Python。一轮的框架和外层循环已经写好。",
+       "sceneId": "shot-07"
+      },
+      {
+       "start": 79.631,
+       "end": 87.275,
+       "text": "先运行检查：两个任务都还没写，结果是 INCOMPLETE。",
+       "sceneId": "shot-08"
+      },
+      {
+       "start": 87.275,
+       "end": 108.485,
+       "text": "任务一：收益。对 v 所在的每个 net 数两侧引脚：F 侧只有 v 就 +w，T 侧没有引脚就 −w。",
+       "sceneId": "shot-09"
+      },
+      {
+       "start": 108.485,
+       "end": 117.601,
+       "text": "任务二：合法候选。未锁定、且移动后仍满足平衡的节点，按名字排序。",
+       "sceneId": "shot-10"
+      },
+      {
+       "start": 117.601,
+       "end": 128.135,
+       "text": "运行检查：全部通过，包括审查原 hillclimb 数据、多引脚 net 和 150 个随机图。",
+       "sceneId": "shot-11"
+      },
+      {
+       "start": 128.135,
+       "end": 137.557,
+       "text": "下面用你写的函数跑 7 个情形，逐轮对照课程引擎：移动哪个点、收益、保留几步。",
+       "sceneId": "shot-12"
+      },
+      {
+       "start": 137.557,
+       "end": 144.979,
+       "text": "点六点环那一行：三轮，第二轮先 −2 再 +4，最后 cut 2。",
+       "sceneId": "shot-13"
+      },
+      {
+       "start": 144.979,
+       "end": 152.624,
+       "text": "最后做挑战题，确认自己真的懂了。结果只保存在你的浏览器里。",
+       "sceneId": "shot-14"
+      }
+     ],
+     "readingViolations": 0,
+     "bytes": 10692968
+    },
+    "en": {
+     "src": "lab.en.mp4",
+     "vtt": "lab.en.vtt",
+     "poster": "lab.en.jpg",
+     "duration": 137.0,
+     "captions": "en",
+     "chapters": [
+      {
+       "t": 0.0,
+       "title": "START",
+       "sceneId": "title"
+      },
+      {
+       "t": 3.2,
+       "title": "THE LAB",
+       "sceneId": "shot-00"
+      },
+      {
+       "t": 40.93,
+       "title": "OTHER EXAMPLES",
+       "sceneId": "shot-05"
+      },
+      {
+       "t": 60.84,
+       "title": "CODE LAB",
+       "sceneId": "shot-07"
+      },
+      {
+       "t": 110.82,
+       "title": "YOUR CODE, VISUALISED",
+       "sceneId": "shot-12"
+      },
+      {
+       "t": 127.28,
+       "title": "CHALLENGES",
+       "sceneId": "shot-14"
+      }
+     ],
+     "transcript": [
+      {
+       "start": 3.2,
+       "end": 10.133,
+       "text": "This is the chapter's white-box lab: pick an example, then the balance window maxDiff.",
+       "sceneId": "shot-00"
+      },
+      {
+       "start": 10.133,
+       "end": 18.733,
+       "text": "Pass 1 starts: seed AE | BCD, cut 12. In the table A and E have the largest gain, +6, yet are marked not legal.",
+       "sceneId": "shot-01"
+      },
+      {
+       "start": 18.733,
+       "end": 27.133,
+       "text": "Step 1: A and E are blocked by the balance (red rings); D, legal with +3, is largest, and the cut becomes 9.",
+       "sceneId": "shot-02"
+      },
+      {
+       "start": 27.133,
+       "end": 32.267,
+       "text": "Step 2: the left now has 3 nodes, so A is legal: +6, cut 3.",
+       "sceneId": "shot-03"
+      },
+      {
+       "start": 32.267,
+       "end": 40.933,
+       "text": "Jump to the end: C, E, B all lose; the best prefix k* = 2 is kept, cut 3; pass 2's prefix is empty, so it stops.",
+       "sceneId": "shot-04"
+      },
+      {
+       "start": 40.933,
+       "end": 52.038,
+       "text": "Switch to the replacement example: at first every legal move loses; after A −1 and B −1, E gains +4, and the cut is 4.",
+       "sceneId": "shot-05"
+      },
+      {
+       "start": 52.038,
+       "end": 60.838,
+       "text": "Extension: bus is a 4-pin net (dashed violet). Gains count its pins on each side; the net is not split into edges.",
+       "sceneId": "shot-06"
+      },
+      {
+       "start": 60.838,
+       "end": 70.505,
+       "text": "The code lab: your code runs in the browser, with no Python to install. The pass driver and the outer loop are already written.",
+       "sceneId": "shot-07"
+      },
+      {
+       "start": 70.505,
+       "end": 76.972,
+       "text": "Run the checks first: neither task is written yet, so the result is INCOMPLETE.",
+       "sceneId": "shot-08"
+      },
+      {
+       "start": 76.972,
+       "end": 94.283,
+       "text": "Task 1: the gain. For each net that contains v, count its pins per side: only v on F gives +w, none on T gives −w.",
+       "sceneId": "shot-09"
+      },
+      {
+       "start": 94.283,
+       "end": 101.949,
+       "text": "Task 2: the legal candidates. The unlocked nodes that stay balanced after moving, sorted by name.",
+       "sceneId": "shot-10"
+      },
+      {
+       "start": 101.949,
+       "end": 110.816,
+       "text": "Run the checks: everything passes, including the audit of the hillclimb data, multi-pin nets and 150 random graphs.",
+       "sceneId": "shot-11"
+      },
+      {
+       "start": 110.816,
+       "end": 120.749,
+       "text": "Below, your functions run on seven cases, compared pass by pass with the course engine: which node, what gain, how many steps kept.",
+       "sceneId": "shot-12"
+      },
+      {
+       "start": 120.749,
+       "end": 127.283,
+       "text": "Click the ring of six: three passes; pass 2 takes −2 before +4, ending at cut 2.",
+       "sceneId": "shot-13"
+      },
+      {
+       "start": 127.283,
+       "end": 134.416,
+       "text": "Finally, try the challenges to check you really understand. Results stay in your browser.",
+       "sceneId": "shot-14"
+      }
+     ],
+     "readingViolations": 0,
+     "bytes": 9888457
+    }
+   }
   }
- ],
- "scenes": [
-  {
-   "sceneId": "s00-title",
-   "start": 0.0,
-   "end": 3.0
-  },
-  {
-   "sceneId": "s01-diff",
-   "start": 3.0,
-   "end": 20.02
-  },
-  {
-   "sceneId": "s02-gains",
-   "start": 20.02,
-   "end": 38.38
-  },
-  {
-   "sceneId": "s03-fste",
-   "start": 38.38,
-   "end": 56.87
-  },
-  {
-   "sceneId": "s04-walk",
-   "start": 56.87,
-   "end": 84.73
-  },
-  {
-   "sceneId": "s05-prefix",
-   "start": 84.73,
-   "end": 102.11
-  },
-  {
-   "sceneId": "s06-legacy",
-   "start": 102.11,
-   "end": 127.71
-  },
-  {
-   "sceneId": "s07-escape",
-   "start": 127.71,
-   "end": 157.58
-  },
-  {
-   "sceneId": "s08-bucket",
-   "start": 157.58,
-   "end": 176.16
-  },
-  {
-   "sceneId": "s09-multipin",
-   "start": 176.16,
-   "end": 192.96
-  },
-  {
-   "sceneId": "s10-code",
-   "start": 192.96,
-   "end": 211.36
-  },
-  {
-   "sceneId": "s11-limits",
-   "start": 211.36,
-   "end": 225.31
-  }
- ],
- "transcript": [
-  {
-   "start": 3.0,
-   "end": 7.133,
-   "text": "KL 一换一：两侧人数永远不变。",
-   "sceneId": "s01-diff"
-  },
-  {
-   "start": 7.133,
-   "end": 12.6,
-   "text": "FM 一次只移动一个点：更灵活，但人数会变。",
-   "sceneId": "s01-diff"
-  },
-  {
-   "start": 12.6,
-   "end": 19.622,
-   "text": "所以要加一个平衡窗口：两侧人数之差不超过 maxDiff。",
-   "sceneId": "s01-diff"
-  },
-  {
-   "start": 20.022,
-   "end": 25.711,
-   "text": "同一个种子 AE | BCD，maxDiff = 1。",
-   "sceneId": "s02-gains"
-  },
-  {
-   "start": 25.711,
-   "end": 32.289,
-   "text": "A、E 的收益是 +6，最大——可它们在只有 2 人的左侧。",
-   "sceneId": "s02-gains"
-  },
-  {
-   "start": 32.289,
-   "end": 37.978,
-   "text": "移走就违反平衡。合法候选里最大的是 D：+3。",
-   "sceneId": "s02-gains"
-  },
-  {
-   "start": 38.378,
-   "end": 41.178,
-   "text": "把 D 的收益拆开看。",
-   "sceneId": "s03-fste"
-  },
-  {
-   "start": 41.178,
-   "end": 47.978,
-   "text": "D–E：D 是它在右侧唯一的端点，移走后不再被切，+5。",
-   "sceneId": "s03-fste"
-  },
-  {
-   "start": 47.978,
-   "end": 53.667,
-   "text": "C–D：左侧没有端点，移走后开始被切，−2。",
-   "sceneId": "s03-fste"
-  },
-  {
-   "start": 53.667,
-   "end": 56.467,
-   "text": "收益 = 5 − 2 = 3。",
-   "sceneId": "s03-fste"
-  },
-  {
-   "start": 56.867,
-   "end": 62.556,
-   "text": "一轮：每次在合法的未锁定节点里选收益最大的。",
-   "sceneId": "s04-walk"
-  },
-  {
-   "start": 62.556,
-   "end": 65.578,
-   "text": "D：+3，cut 9。",
-   "sceneId": "s04-walk"
-  },
-  {
-   "start": 65.578,
-   "end": 70.822,
-   "text": "左侧变成 3 人，A 合法了：+6，cut 3。",
-   "sceneId": "s04-walk"
-  },
-  {
-   "start": 70.822,
-   "end": 75.4,
-   "text": "之后全是负收益：C −2，cut 5。",
-   "sceneId": "s04-walk"
-  },
-  {
-   "start": 75.4,
-   "end": 78.422,
-   "text": "E −6，cut 11。",
-   "sceneId": "s04-walk"
-  },
-  {
-   "start": 78.422,
-   "end": 84.333,
-   "text": "B −1，cut 12。没有合法节点了，本轮结束。",
-   "sceneId": "s04-walk"
-  },
-  {
-   "start": 84.733,
-   "end": 88.867,
-   "text": "累计收益：3、9、7、1、0。",
-   "sceneId": "s05-prefix"
-  },
-  {
-   "start": 88.867,
-   "end": 91.444,
-   "text": "最大的是前 2 步。",
-   "sceneId": "s05-prefix"
-  },
-  {
-   "start": 91.444,
-   "end": 97.356,
-   "text": "回到起点，只做 D 和 A：ABC | DE，cut 3。",
-   "sceneId": "s05-prefix"
-  },
-  {
-   "start": 97.356,
-   "end": 101.711,
-   "text": "最后的 cut 12 只是试探的终点。",
-   "sceneId": "s05-prefix"
-  },
-  {
-   "start": 102.111,
-   "end": 109.578,
-   "text": "原附件里有一个“负收益爬坡”的案例。我们用它自己的数据核验。",
-   "sceneId": "s06-legacy"
-  },
-  {
-   "start": 109.578,
-   "end": 114.378,
-   "text": "原文说初始 cut 9；按数据算是 18。",
-   "sceneId": "s06-legacy"
-  },
-  {
-   "start": 114.378,
-   "end": 120.511,
-   "text": "原文说所有合法收益都 ≤ 0；可 E 合法，收益 +10。",
-   "sceneId": "s06-legacy"
-  },
-  {
-   "start": 120.511,
-   "end": 127.311,
-   "text": "原文说降到 4；首轮最佳和穷举最优都是 8。它不能当反例。",
-   "sceneId": "s06-legacy"
-  },
-  {
-   "start": 127.711,
-   "end": 133.4,
-   "text": "这是本课程用固定种子搜索、再穷举核验的反例。",
-   "sceneId": "s07-escape"
-  },
-  {
-   "start": 133.4,
-   "end": 140.644,
-   "text": "初始时所有合法移动的收益都 ≤ 0：只走正收益就停在 cut 6。",
-   "sceneId": "s07-escape"
-  },
-  {
-   "start": 140.644,
-   "end": 144.111,
-   "text": "FM 先把 A 移过去：−1。",
-   "sceneId": "s07-escape"
-  },
-  {
-   "start": 144.111,
-   "end": 148.022,
-   "text": "再移 B：−1，cut 升到 8。",
-   "sceneId": "s07-escape"
-  },
-  {
-   "start": 148.022,
-   "end": 152.378,
-   "text": "这时 E 的收益变成 +4：cut 4。",
-   "sceneId": "s07-escape"
-  },
-  {
-   "start": 152.378,
-   "end": 157.178,
-   "text": "保留前 3 步：cut 4，正是平衡最优。",
-   "sceneId": "s07-escape"
-  },
-  {
-   "start": 157.578,
-   "end": 161.933,
-   "text": "FM 论文把节点按收益放进“桶”。",
-   "sceneId": "s08-bucket"
-  },
-  {
-   "start": 161.933,
-   "end": 168.289,
-   "text": "桶链表加最大指针，让每一轮的代价与引脚总数成正比。",
-   "sceneId": "s08-bucket"
-  },
-  {
-   "start": 168.289,
-   "end": 175.756,
-   "text": "本课程的实验显示了桶，但选择时仍在扫描——不能说成线性时间。",
-   "sceneId": "s08-bucket"
-  },
-  {
-   "start": 176.156,
-   "end": 182.067,
-   "text": "真正的多引脚 net：一根线连着 A、B、C、D。",
-   "sceneId": "s09-multipin"
-  },
-  {
-   "start": 182.067,
-   "end": 186.867,
-   "text": "A 移走后，两侧仍各有引脚——收益 0。",
-   "sceneId": "s09-multipin"
-  },
-  {
-   "start": 186.867,
-   "end": 192.556,
-   "text": "拆成团再按边算，会得到 −1。两种模型不等价。",
-   "sceneId": "s09-multipin"
-  },
-  {
-   "start": 192.956,
-   "end": 196.867,
-   "text": "写成伪代码：外层与 KL 相同。",
-   "sceneId": "s10-code"
-  },
-  {
-   "start": 196.867,
-   "end": 201.222,
-   "text": "内层：只在合法候选里选最大收益。",
-   "sceneId": "s10-code"
-  },
-  {
-   "start": 201.222,
-   "end": 204.911,
-   "text": "移动、锁定、增量更新收益。",
-   "sceneId": "s10-code"
-  },
-  {
-   "start": 204.911,
-   "end": 208.6,
-   "text": "一轮结束，回退到最佳前缀。",
-   "sceneId": "s10-code"
-  },
-  {
-   "start": 208.6,
-   "end": 210.956,
-   "text": "空前缀即停止。",
-   "sceneId": "s10-code"
-  },
-  {
-   "start": 211.356,
-   "end": 213.489,
-   "text": "FM 的边界：",
-   "sceneId": "s11-limits"
-  },
-  {
-   "start": 213.489,
-   "end": 216.511,
-   "text": "多引脚 net 是拓展。",
-   "sceneId": "s11-limits"
-  },
-  {
-   "start": 216.511,
-   "end": 219.756,
-   "text": "这份实现不是线性时间。",
-   "sceneId": "s11-limits"
-  },
-  {
-   "start": 219.756,
-   "end": 224.111,
-   "text": "下一模块：目标从 cut 换成延迟。",
-   "sceneId": "s11-limits"
-  }
- ],
- "music": "本课程原创程序合成配乐（NumPy），CC BY 4.0",
- "why": "约 4 分钟：合法性与回退为主；单独一段审查原附件反例，再用经穷举核验的反例说明负收益。",
- "readingViolations": 0,
- "fps": 30,
- "size": [
-  1920,
-  1080
  ]
 }

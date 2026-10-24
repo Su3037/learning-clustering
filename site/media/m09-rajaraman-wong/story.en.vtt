@@ -1,0 +1,133 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:04.600
+A dish passes through four cooks, a minute each.
+
+2
+00:00:04.600 --> 00:00:08.600
+A kitchen fits only two cooks.
+
+3
+00:00:10.750 --> 00:00:15.083
+Across the yard to the other kitchen: 3 more minutes.
+
+4
+00:00:15.083 --> 00:00:17.217
+This split: 7.
+
+5
+00:00:17.410 --> 00:00:20.810
+Another split, and everyone still fits.
+
+6
+00:00:20.810 --> 00:00:24.721
+But it crosses the yard twice: 10 minutes.
+
+7
+00:00:24.721 --> 00:00:29.721
+Speed depends on how often the longest route crosses the yard.
+
+8
+00:00:37.000 --> 00:00:42.467
+A banquet: twelve steps, three starts, two finished dishes.
+
+9
+00:00:42.467 --> 00:00:47.489
+Each kitchen holds four; crossing the yard is still 3 minutes.
+
+10
+00:00:47.489 --> 00:00:50.511
+The longest route: five steps.
+
+11
+00:00:51.180 --> 00:00:55.536
+Each step gets a number: its earliest minute.
+
+12
+00:00:55.536 --> 00:00:58.602
+The starts are 1; then it adds up.
+
+13
+00:00:58.602 --> 00:01:02.136
+g shares a kitchen with all before it: 3.
+
+14
+00:01:03.150 --> 00:01:07.283
+Seven steps before i, room for three.
+
+15
+00:01:07.283 --> 00:01:10.750
+b is across the yard: 4 + 3 = 7.
+
+16
+00:01:10.750 --> 00:01:13.350
+i's earliest: minute 7.
+
+17
+00:01:14.000 --> 00:01:16.600
+j is 7 too.
+
+18
+00:01:16.600 --> 00:01:20.000
+Both finished dishes: 8.
+
+19
+00:01:20.000 --> 00:01:23.689
+These are only times; no kitchens yet.
+
+20
+00:01:29.000 --> 00:01:33.356
+k's kitchen needs g and j; so does l's.
+
+21
+00:01:33.356 --> 00:01:35.956
+So each makes its own.
+
+22
+00:01:42.500 --> 00:01:47.833
+Work back from the dishes: whatever is missing gets its own kitchen.
+
+23
+00:01:47.833 --> 00:01:52.411
+Eight kitchens, twenty cooks, twelve steps.
+
+24
+00:01:52.411 --> 00:01:56.100
+Both dishes come out at minute 8.
+
+25
+00:01:59.270 --> 00:02:04.737
+No copies? Try every split: the best is 10.
+
+26
+00:02:04.737 --> 00:02:08.203
+Eight more hands, two minutes faster.
+
+27
+00:02:08.203 --> 00:02:11.226
+The speed is paid for in space.
+
+28
+00:02:14.160 --> 00:02:19.560
+On a chip: a signal that leaves its region waits longer.
+
+29
+00:02:21.500 --> 00:02:27.500
+Speed is set by the longest route.
+
+30
+00:02:27.500 --> 00:02:33.500
+Each boundary crossed adds D.
+
+31
+00:02:33.500 --> 00:02:40.500
+Copies buy speed, and cost area.
+
+32
+00:02:40.500 --> 00:02:48.500
+The last module: compare all eight on the home page.
+
+33
+00:02:50.600 --> 00:02:56.600
+In the lab below, step through the labels and the recovered instances.

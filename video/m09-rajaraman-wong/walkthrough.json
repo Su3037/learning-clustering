@@ -1,0 +1,10 @@
+{
+ "title": {"zh": "实验演示", "en": "Lab Walkthrough"},
+ "subtitle": {"zh": "实验台 · 在线编程 · 挑战", "en": "THE LAB  ·  THE CODE LAB  ·  CHALLENGES"},
+ "kicker": {"zh": "MODULE 09 · RAJARAMAN–WONG 延迟导向聚类", "en": "MODULE 09 · RAJARAMAN–WONG DELAY-ORIENTED CLUSTERING"},
+ "brand": {"zh": "Learning Clustering · Module 09 · Rajaraman–Wong 延迟导向聚类", "en": "Learning Clustering · Module 09 · Rajaraman–Wong delay-oriented clustering"},
+ "why": {"zh": "从真实页面录下的操作演示：在链上切换跨簇的位置看延迟从 7 变成 10；在候选 DAG 上单步到 i 看 l1、l2，跳到结束看 8 簇、20 实例、输出 8，再把容量改成 3 看输出变成 11；然后在浏览器里写 evaluate_instance_delay()，快进其余四个函数，通过全部检查，并用自己的代码跑 6 个情形。",
+         "en": "Recorded from the real page: moving the crossings on the chain to see the delay go from 7 to 10; stepping to i on the candidate DAG for l1 and l2, jumping to the end for 8 clusters, 20 instances and output 8, then setting the capacity to 3 to see the output become 11; then writing evaluate_instance_delay() in the browser, fast-forwarding the other four functions, passing every check and running six cases with your own code."},
+ "posterShot": 3,
+ "order": ["story", "concise", "advanced", "lab"]
+}

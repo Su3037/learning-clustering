@@ -1,0 +1,129 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:04.600
+The same five friends, in two rooms.
+
+2
+00:00:04.600 --> 00:00:09.000
+Two beds on the left, three on the right.
+
+3
+00:00:10.750 --> 00:00:13.772
+Friendships split: 12.
+
+4
+00:00:13.772 --> 00:00:16.372
+Can it be less?
+
+5
+00:00:17.410 --> 00:00:21.810
+Swap one for one: the beds stay put.
+
+6
+00:00:21.810 --> 00:00:26.610
+Each: friends outside minus inside: D.
+
+7
+00:00:26.610 --> 00:00:30.810
+D is what moving alone would save.
+
+8
+00:00:37.000 --> 00:00:40.600
+Swap a pair: add the two D values —
+
+9
+00:00:40.600 --> 00:00:44.800
+if they're friends, take off twice that.
+
+10
+00:00:44.800 --> 00:00:50.267
+Ada↔Dev: 9. Eva↔Dev: −1.
+
+11
+00:00:51.180 --> 00:00:55.313
+Ada and Dev swap: 12 → 3.
+
+12
+00:00:55.313 --> 00:00:58.913
+Both lock for the rest of the round.
+
+13
+00:00:58.913 --> 00:01:02.824
+Still free: Eva, Ben, Cai.
+
+14
+00:01:03.150 --> 00:01:06.550
+Every swap left is a loss.
+
+15
+00:01:06.550 --> 00:01:11.128
+Swap anyway: Eva↔Cai, 3 → 11.
+
+16
+00:01:11.128 --> 00:01:14.128
+This is only a trial.
+
+17
+00:01:20.160 --> 00:01:22.960
+Look back over the round —
+
+18
+00:01:22.960 --> 00:01:26.160
++9 in all, then +1.
+
+19
+00:01:29.000 --> 00:01:32.600
+Keep the best prefix: step one.
+
+20
+00:01:32.600 --> 00:01:35.200
+Roll back to 3.
+
+21
+00:01:42.500 --> 00:01:46.700
+With more people, one loss can open a door:
+
+22
+00:01:46.700 --> 00:01:49.700
+−1 first, then +7.
+
+23
+00:01:49.700 --> 00:01:54.900
+Refusing losses stops at 7; KL gets to 1.
+
+24
+00:01:59.270 --> 00:02:02.270
+Round two: all unlocked.
+
+25
+00:02:02.270 --> 00:02:06.470
+−8, then −6: staying put wins.
+
+26
+00:02:06.470 --> 00:02:09.870
+The empty prefix wins: stop.
+
+27
+00:02:14.160 --> 00:02:19.560
+On a chip: halves of fixed size, cells swapped in pairs.
+
+28
+00:02:21.500 --> 00:02:27.500
+Swap in pairs; the rooms keep their size.
+
+29
+00:02:27.500 --> 00:02:33.500
+Try every step, even the losses.
+
+30
+00:02:33.500 --> 00:02:40.500
+Then keep only the best prefix.
+
+31
+00:02:40.500 --> 00:02:48.500
+What if one person moves at a time? Next module.
+
+32
+00:02:50.600 --> 00:02:56.600
+In the lab below, step through every trial.

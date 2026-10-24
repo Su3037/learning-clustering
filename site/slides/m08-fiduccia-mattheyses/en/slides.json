@@ -1,0 +1,189 @@
+{
+ "status": "ready",
+ "moduleId": "m08-fiduccia-mattheyses",
+ "slides": [
+  {
+   "slideId": "m08-title",
+   "pageNumber": 1,
+   "pageCount": 12,
+   "title": "The legal move",
+   "image": "p01.jpg",
+   "thumb": "t01.jpg",
+   "alt": "The legal move: ",
+   "transcript": "This module covers FM refinement: move one node at a time, with a balance window limiting the side sizes. Gains, locks, trials and the best prefix are the same as in KL; the key difference is that the largest gain is compared only among legal candidates.",
+   "videoAnchor": null,
+   "sceneId": "k00-title",
+   "objectiveIds": []
+  },
+  {
+   "slideId": "m08-problem",
+   "pageNumber": 2,
+   "pageCount": 12,
+   "title": "The problem, and how it differs from KL",
+   "image": "p02.jpg",
+   "thumb": "t02.jpg",
+   "alt": "The problem, and how it differs from KL: Input: a graph (or a multi-pin netlist), an initial bisection, maxDiff; Move: one node at a time; Legal: after the move both sides are nonempty and |n₀ − n₁| ≤ maxDiff; Output: the trial moves, cumulative gains, the best prefix, the accepted bisection; Review: gain, lock, trial and best prefix are a",
+   "transcript": "FM’s input is a graph, an initial bisection and a balance parameter. Each step moves one node; after the move both sides must be nonempty and the size difference at most maxDiff. Gains, locks, trials and the best prefix mean the same as in the last module.",
+   "videoAnchor": null,
+   "sceneId": "k01-problem",
+   "objectiveIds": [
+    "o1"
+   ]
+  },
+  {
+   "slideId": "m08-legal",
+   "pageNumber": 3,
+   "pageCount": 12,
+   "title": "The largest may not be allowed to move",
+   "image": "p03.jpg",
+   "thumb": "t03.jpg",
+   "alt": "The largest may not be allowed to move: Seed AE | BCD, maxDiff = 1: only 2:3 or 3:2; A and E gain +6, but sit on the left, which has 2 nodes; Moving either leaves 1 : 4: not legal; Legal candidates B +1, C −4, D +3 → choose D",
+   "transcript": "On the seed, A and E both gain 6, but they are on the left, which has only two nodes; moving either makes it 1 to 4, which breaks the balance. The largest gain among the legal candidates is D’s, plus 3.",
+   "videoAnchor": null,
+   "sceneId": "k02-legal",
+   "objectiveIds": [
+    "o2"
+   ]
+  },
+  {
+   "slideId": "m08-fste",
+   "pageNumber": 4,
+   "pageCount": 12,
+   "title": "Splitting a gain: FS and TE",
+   "image": "p04.jpg",
+   "thumb": "t04.jpg",
+   "alt": "Splitting a gain: FS and TE: FS: v is a net’s only pin on its side → +w; TE: a net has no pin on the target side → −w; D: FS = D–E (5), TE = C–D (2), gain 3; On 2-pin edges: FS − TE = external − internal",
+   "transcript": "A gain splits into two parts. FS: the node is a net’s only pin on its side, so after the move the net is no longer cut, plus w. TE: a net has no pin on the target side, so after the move it becomes cut, minus w. D’s gain is 5 minus 2, which is 3.",
+   "videoAnchor": null,
+   "sceneId": "k03-fste",
+   "objectiveIds": [
+    "o3"
+   ]
+  },
+  {
+   "slideId": "m08-walk",
+   "pageNumber": 5,
+   "pageCount": 12,
+   "title": "One full pass",
+   "image": "p05.jpg",
+   "thumb": "t05.jpg",
+   "alt": "One full pass: D +3 (cut 9) → the left has 3 nodes, and A becomes legal; A +6 (cut 3); Then C −2, E −6, B −1: tried anyway; The cut runs 12, 9, 3, 5, 11, 12",
+   "transcript": "Pass 1: D, plus 3, cut 9; now the left has three nodes, A becomes legal, plus 6, cut 3. Every gain after that is negative; C, E and B are tried in turn, and the cut ends back at 12.",
+   "videoAnchor": null,
+   "sceneId": "k04-pass",
+   "objectiveIds": [
+    "o4"
+   ]
+  },
+  {
+   "slideId": "m08-prefix",
+   "pageNumber": 6,
+   "pageCount": 12,
+   "title": "The best prefix and roll-back",
+   "image": "p06.jpg",
+   "thumb": "t06.jpg",
+   "alt": "The best prefix and roll-back: Cumulative gains 3, 9, 7, 1, 0; k* = 2: apply only D and A; Accept ABC | DE, cut 3; The trials’ end at cut 12 is discarded; pass 2’s prefix is empty, so stop",
+   "transcript": "The cumulative gains are 3, 9, 7, 1 and 0; the largest is the first two steps. Back at the start, do only D and A, and accept ABC versus DE, cut 3. Pass 2’s best prefix is empty, and the algorithm stops.",
+   "videoAnchor": null,
+   "sceneId": "k05-prefix",
+   "objectiveIds": [
+    "o4"
+   ]
+  },
+  {
+   "slideId": "m08-legacy",
+   "pageNumber": 7,
+   "pageCount": 12,
+   "title": "Auditing the attachment’s hillclimb claim",
+   "image": "p07.jpg",
+   "thumb": "t07.jpg",
+   "alt": "Auditing the attachment’s hillclimb claim: The text: initial cut 9, legal gains all ≤ 0, final 4; From the attachment’s data: initial cut 18; E is legal, with gain +10; Pass 1’s best 8 = the exhaustive balanced optimum 8; Text and data disagree: a regression test only, not teaching material",
+   "transcript": "The original attachment has a case about climbing out with negative gains; we check it with its own data. The initial cut is 18, not 9; E’s move is legal, with gain plus 10; pass 1’s best and the exhaustive optimum are both 8, not 4. So it cannot serve as the example, and this course keeps it only as a regression test.",
+   "videoAnchor": null,
+   "sceneId": "a02-legacy",
+   "objectiveIds": [
+    "o5"
+   ]
+  },
+  {
+   "slideId": "m08-escape",
+   "pageNumber": 8,
+   "pageCount": 12,
+   "title": "The replacement: negative first, then positive",
+   "image": "p08.jpg",
+   "thumb": "t08.jpg",
+   "alt": "The replacement: negative first, then positive: 6 nodes, seed ADE | BCF, maxDiff = 2, cut 6; At the start every legal gain ≤ 0: hill climbing stops at 6; FM: A −1, B −1 (cut 8), then E +4 (cut 4); Keep 3 steps: cut 4 = the exhaustive balanced optimum; Found by a seeded search, verified exhaustively in the tests",
+   "transcript": "This course’s replacement example: at the start every legal move has gain at most 0, so moving only on positive gains stops at cut 6. FM moves A and B one step each, the cut rises to 8, and then E’s gain becomes plus 4, cut 4 after the move. Keeping the first three steps gives exactly the balanced optimum found by exhaustive search.",
+   "videoAnchor": null,
+   "sceneId": "a01-escape",
+   "objectiveIds": [
+    "o5"
+   ]
+  },
+  {
+   "slideId": "m08-bucket",
+   "pageNumber": 9,
+   "pageCount": 12,
+   "title": "Buckets, complexity and multi-pin nets",
+   "image": "p09.jpg",
+   "thumb": "t09.jpg",
+   "alt": "Buckets, complexity and multi-pin nets: The paper: bucket lists + a max-gain pointer → O(P) per pass; This course: gains update incrementally, but selection still scans: not O(P); Multi-pin nets: decide FS/TE by counting pins per side; net{A,B,C,D}, D on the right: A gains 0, D +3; a clique would give −1; The attachment’s “hypergraph” cas",
+   "transcript": "The paper reaches linear time with bucket lists and a max-gain pointer. This course updates gains incrementally, but still scans to choose, so it cannot be called linear time. A real multi-pin net is decided by counting pins: in the example A’s gain is 0, while splitting it into a clique and counting edges gives minus 1.",
+   "videoAnchor": null,
+   "sceneId": "a03-multipin",
+   "objectiveIds": [
+    "o6"
+   ]
+  },
+  {
+   "slideId": "m08-pseudo",
+   "pageNumber": 10,
+   "pageCount": 12,
+   "title": "The pseudocode, line by line",
+   "image": "p10.jpg",
+   "thumb": "t10.jpg",
+   "alt": "The pseudocode, line by line: Line 2: compute gains by counting per net (gain); Lines 3–4: take the largest among legal candidates only (legal_moves); Lines 5–6: trial, lock, incremental update; Lines 7–8: best prefix and roll-back; line 9: stop on the empty prefix",
+   "transcript": "Line 2 of the pseudocode computes gains by counting per net; lines 3 and 4 take the largest among legal candidates only; lines 5 and 6 make the trial, lock and update incrementally; lines 7 and 8 roll back to the best prefix; on the empty prefix it stops.",
+   "videoAnchor": null,
+   "sceneId": "k04-pass",
+   "objectiveIds": [
+    "o6"
+   ]
+  },
+  {
+   "slideId": "m08-mistakes",
+   "pageNumber": 11,
+   "pageCount": 12,
+   "title": "Common mistakes",
+   "image": "p11.jpg",
+   "thumb": "t11.jpg",
+   "alt": "Common mistakes: Picking the largest gain outright (ignoring balance); Copying the attachment’s hillclimb claim; Taking “buckets drawn” for “linear time implemented”; Calling a 2-pin example a hypergraph; Thinking count balance is area balance",
+   "transcript": "Common mistakes: picking the largest gain without looking at the balance; copying an unverified example; taking a bucket display for a linear-time implementation; calling a 2-pin example a hypergraph; and taking count balance for area balance.",
+   "videoAnchor": null,
+   "sceneId": null,
+   "objectiveIds": [
+    "o2",
+    "o5",
+    "o6"
+   ]
+  },
+  {
+   "slideId": "m08-summary",
+   "pageNumber": 12,
+   "pageCount": 12,
+   "title": "Summary",
+   "image": "p12.jpg",
+   "thumb": "t12.jpg",
+   "alt": "Summary: ",
+   "transcript": "In summary: filter for legality first, then take the largest; try negative gains too, and accept only the best prefix. Examples must be verified by independent computation, and buckets on screen are not a linear-time implementation. The next module changes the goal from the cut to delay, and allows nodes to be copied.",
+   "videoAnchor": null,
+   "sceneId": null,
+   "objectiveIds": []
+  }
+ ],
+ "pdf": "m08-fiduccia-mattheyses-en.pdf",
+ "pptx": "m08-fiduccia-mattheyses-en.pptx",
+ "contentVersion": "2026.10.23-1",
+ "lang": "en",
+ "aspectNote": "16:9 is this course's choice (it matches the films and suits projection), not a ratio the teacher set. PDF page numbers match the web p/total exactly; in the PPTX the text, shapes and tables are editable and the notes hold the script."
+}

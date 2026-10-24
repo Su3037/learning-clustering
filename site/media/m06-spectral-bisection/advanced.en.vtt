@@ -1,0 +1,89 @@
+WEBVTT
+
+1
+00:00:03.400 --> 00:00:08.422
+Mark each node +1 or −1 for its side.
+
+2
+00:00:08.422 --> 00:00:14.156
+A same-side edge contributes 0; a crossing edge's squared difference is 4.
+
+3
+00:00:14.156 --> 00:00:20.733
+So xᵀLx is exactly 4 times the cut: 12 for DE | ABC.
+
+4
+00:00:21.133 --> 00:00:29.000
+Allow only ±1 and you must try every split. Loosen to real numbers, and it becomes an eigenvector problem.
+
+5
+00:00:29.000 --> 00:00:37.133
+At the same unit length: the split vector gives 2.50, the Fiedler vector only 1.77.
+
+6
+00:00:37.133 --> 00:00:44.000
+λ₂ is the relaxed minimum; the price is an answer that is no longer ±1 and must be rounded.
+
+7
+00:00:44.400 --> 00:00:49.467
+The simplest rounding: cut by sign, trying only the threshold 0.
+
+8
+00:00:49.467 --> 00:00:56.044
+It ignores balance: on a star with a heavy leaf, one side can hold a single node.
+
+9
+00:00:56.044 --> 00:01:01.978
+This course tries all n − 1 thresholds and takes the least inside the window.
+
+10
+00:01:02.378 --> 00:01:06.733
+Why a balance window? Compare three constraints.
+
+11
+00:01:06.733 --> 00:01:12.200
+Isolating one node cuts at least 6; with no limit, the least is 3.
+
+12
+00:01:12.200 --> 00:01:15.667
+Inside the 40/60 window it is also 3.
+
+13
+00:01:15.667 --> 00:01:22.244
+“No constraint always cuts off one node” is wrong; a group can come out too small.
+
+14
+00:01:22.644 --> 00:01:27.222
+The four-node ring's eigenvalues: 0, 2, 2, 4.
+
+15
+00:01:27.222 --> 00:01:33.356
+λ₂ = λ₃: the second eigenvector is not unique; any direction is valid.
+
+16
+00:01:33.356 --> 00:01:40.378
+G01's gap is 6.68, a stable order; the smaller the gap, the more fragile.
+
+17
+00:01:40.778 --> 00:01:44.311
+Is the vector genuine? Read the residual.
+
+18
+00:01:44.311 --> 00:01:51.333
+The original's three stored decimals give 0.0044; the live solve gives 10⁻¹⁵.
+
+19
+00:01:51.333 --> 00:01:57.600
+0.0044 is rounding: fine for display, but never recomputed when the graph changes.
+
+20
+00:01:57.600 --> 00:02:05.067
+Large circuits use sparse iterative methods like Lanczos, for only the smallest eigenpairs.
+
+21
+00:02:05.467 --> 00:02:07.533
+Six things to keep.
+
+22
+00:02:20.533 --> 00:02:25.333
+Next: improve the cut by swapping nodes across it.

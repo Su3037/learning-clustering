@@ -1,6 +1,10 @@
 // Minimal, dependency-free Markdown → HTML for course-authored content (trusted input).
 // Supports: ## {#id} headings, paragraphs, - / 1. lists, > blockquotes, pipe tables, ``` code,
 // **bold**, *em*, `code`, [links](url), and course fences: pseudo, terms, callout, problem, html.
+// The page language decides how wrapped lines join (Chinese: no space; English: a space) and the pseudocode labels.
+let LANG = 'zh';
+export function setLang(l) { LANG = l; }
+const joinLines = parts => parts.reduce((a, b) => (!a ? b : /[\u2e80-\uffff]$/.test(a) || /^[\u2e80-\uffff]/.test(b) ? a + b : a + ' ' + b), '');
 export const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
 export function inline(s) {
@@ -22,11 +26,12 @@ function table(lines) {
 const fences = {
   pseudo(body, arg) {
     const rows = body.split('\n').filter(l => l.trim() !== '').map(l => { const [code, note = ''] = l.split('||'); return { code: code.replace(/\s+$/, ''), note: note.trim().replace(/\*\*/g, '') }; });
-    return `<div class="pseudo" data-pseudo="${esc(arg || 'main')}"><ol aria-label="伪代码">${rows.map((r, i) => `<li data-line="${i + 1}" data-note="${esc(r.note)}">${esc(r.code)}</li>`).join('')}</ol><div class="explain"><p class="muted">点击任一行看解释；在实验中单步时，当前执行的行会自动高亮。</p></div></div>`;
+    return `<div class="pseudo" data-pseudo="${esc(arg || 'main')}"><ol aria-label="${LANG === 'en' ? 'Pseudocode' : '伪代码'}">${rows.map((r, i) => `<li data-line="${i + 1}" data-note="${esc(r.note)}">${esc(r.code)}</li>`).join('')}</ol><div class="explain"><p class="muted">${LANG === 'en' ? 'Click any line for its explanation. When you step through the lab, the line being executed lights up.' : '点击任一行看解释；在实验中单步时，当前执行的行会自动高亮。'}</p></div></div>`;
   },
   terms(body) {
     const items = body.split('\n').filter(l => l.trim()).map(l => l.split('|').map(s => s.trim()));
-    return `<div class="terms">${items.map(([zh, en, def]) => `<div class="term" id="term-${esc(en.toLowerCase().replace(/[^a-z0-9]+/g, '-'))}"><h4>${inline(zh)}</h4><span class="en">${esc(en)}</span><p>${inline(def)}</p></div>`).join('')}</div>`;
+    // Columns: term | the term in the other language | definition. Ids always come from the English term.
+    return `<div class="terms">${items.map(([term, other, def]) => { const en = LANG === 'en' ? term : other; return `<div class="term" id="term-${esc(en.toLowerCase().replace(/[^a-z0-9]+/g, '-'))}"><h4>${inline(term)}</h4><span class="en" lang="${LANG === 'en' ? 'zh-CN' : 'en'}">${esc(other)}</span><p>${inline(def)}</p></div>`; }).join('')}</div>`;
   },
   callout(body, arg) {
     const [kind = 'note', ...t] = (arg || 'note').split(' ');
@@ -41,7 +46,7 @@ export function render(src) {
   const out = [];
   let i = 0;
   const para = [];
-  const flush = () => { if (para.length) { out.push(`<p>${inline(para.join(''))}</p>`); para.length = 0; } };
+  const flush = () => { if (para.length) { out.push(`<p>${inline(joinLines(para))}</p>`); para.length = 0; } };
   while (i < lines.length) {
     const l = lines[i];
     const fence = l.match(/^```(\w+)?\s*(.*)$/);
@@ -66,7 +71,7 @@ export function render(src) {
       const ordered = /^\s*\d+\./.test(l), items = [];
       while (i < lines.length && /^\s*([-*]|\d+\.)\s+/.test(lines[i])) {
         let item = lines[i].replace(/^\s*([-*]|\d+\.)\s+/, ''); i++;
-        while (i < lines.length && /^\s{2,}\S/.test(lines[i]) && !/^\s*([-*]|\d+\.)\s+/.test(lines[i])) item += lines[i++].trim();
+        while (i < lines.length && /^\s{2,}\S/.test(lines[i]) && !/^\s*([-*]|\d+\.)\s+/.test(lines[i])) item = joinLines([item, lines[i++].trim()]);
         items.push(`<li>${inline(item)}</li>`);
       }
       out.push(ordered ? `<ol>${items.join('')}</ol>` : `<ul>${items.join('')}</ul>`); continue;

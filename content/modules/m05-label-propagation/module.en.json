@@ -1,0 +1,97 @@
+{
+  "title": "Label Propagation",
+  "description": "Nodes never merge; they only change labels, by a weighted vote of their neighbours’ labels. Asynchronous versus synchronous updates, visiting order, ties, confirming stability, and cycles.",
+  "hook": "Nobody draws the circles. So where do they come from?",
+  "cardText": "Each node looks at its neighbours’ current labels and joins the group it is most strongly connected to. Names stay, labels change; it may settle, or it may swing back and forth.",
+  "prerequisitesText": "[Foundations](../../foundations/index.html): graphs, edge weights, cut. The “merge” of Module 04 is replaced here by “relabel”.",
+  "nextText": "Module 06 moves from local votes to spectral information about the whole graph.",
+  "review": "The first three modules really put members together by merging. This module **merges no nodes at all**: each node only updates the label it carries, and a group is “the nodes with the same label”.",
+  "objectives": [
+    {
+      "text": "Tell a node’s name (identity, fixed) from its label (membership, changing), and explain why the algorithm needs no K."
+    },
+    {
+      "text": "Count weighted votes by label: C’s votes are B = 1 + 4 = 5, D = 2, E = 1. Weight is compared, not the number of neighbours."
+    },
+    {
+      "text": "Work through a full asynchronous round by hand, and explain why stability needs a round with zero changes (G01: 2 rounds)."
+    },
+    {
+      "text": "Tell apart the three stopping states stable, cycle and limit; find a cycle under synchronous updates."
+    },
+    {
+      "text": "Explain how visiting order, tie rule and edge weights change the result and the round count (reverse order: 3 rounds; C–D = 10: cut 5)."
+    },
+    {
+      "text": "Judge a result by its cut and name the limits (no K, no balance guarantee, depends on the rules); implement vote counting and the stopping test in Python."
+    }
+  ],
+  "problem": {
+    "input": "A weighted undirected graph, a visiting order, an update mode (async / sync), a tie rule (min / max / keep), and a maximum number of rounds.",
+    "output": "Each node’s final label, the groups by label, the votes at every step, the cut, the number of rounds and the stopping state.",
+    "objective": "Let tightly connected nodes gather under one label “by themselves”, without fixing the number of clusters in advance.",
+    "constraints": "Each update reads only that node’s neighbours; node names never change; the tie rule must be deterministic.",
+    "assumptions": "Edge weights are positive and mean connection strength; each node starts with its own name as its label; an isolated node keeps its label.",
+    "stop": "stable: a full round with zero changes; cycle: a label state repeats; limit: the maximum number of rounds is reached. Only stable may be called “converged”."
+  },
+  "filmTitle": "Four films",
+  "filmNote": "The popular-science film is the author’s original “Where Do Clusters Come From?”, included as made. The concise film covers what you must know in two and a half minutes; the advanced film explains why it stops, why it can oscillate, what it costs and how it is varied; the walkthrough, recorded from the real page, takes you through the lab and the code lab.",
+  "labTitle": "The Label Relay Lab",
+  "labNote": "Update one node at a time or play whole rounds; switch async/sync, the tie rule and the visiting order, and change the weight of C–D. The panel on the right itemises the current vote; the log below records every step.",
+  "challengeTip": "Challenge 4 asks you to find a setting that cycles on your own: try it in the lab first.",
+  "mistakes": [
+    {
+      "title": "Treating the label as the name",
+      "wrong": "Saying “C became B”.",
+      "why": "A node’s name is its identity and never changes; what changes is the label C carries.",
+      "counter": "After round 1, C carries label B, but it is still node C, with the same edges and weights.",
+      "fix": "Say “C’s label becomes B”, and read groups as “nodes with the same label”."
+    },
+    {
+      "title": "Counting neighbours instead of weight",
+      "wrong": "A has two neighbours with B and one with D, so B wins.",
+      "why": "A label’s votes are the sum of edge weights of the neighbours carrying it, not their number.",
+      "counter": "The tie graph from the original Lab05 repository: B and C carry B (1 each), D carries D (4). Weighted, B = 2 and D = 4, so A picks D.",
+      "fix": "Add up edge weights per label."
+    },
+    {
+      "title": "Calling it converged because some nodes did not change",
+      "wrong": "B and E did not change in round 1, so they are stable.",
+      "why": "Once a later node changes, earlier nodes see different neighbour labels next time.",
+      "counter": "Three nodes change in round 1 on G01; only a full round 2 with zero changes confirms stable, for 2 rounds in total.",
+      "fix": "Use “a full round with zero changes” as the test for stable, and count that confirmation round."
+    },
+    {
+      "title": "Calling a cycle “unfinished” or “converged”",
+      "wrong": "Synchronous updates still change at the round limit, so report stable or raise the limit.",
+      "why": "Synchronous updates read one old snapshot, so two nodes that support each other swap labels at the same time and keep returning to the same state.",
+      "counter": "Two nodes, synchronous: A↔B swap back and forth; G01 under synchronous updates also returns to round 1’s state in round 3 (period 2).",
+      "fix": "Detect repeated states and report cycle; compare against asynchronous updates or another tie rule."
+    },
+    {
+      "title": "Comparing results by label names",
+      "wrong": "Forward order gives B/B/B/E/E and reverse order gives A/A/A/D/D, so the results differ.",
+      "why": "Label names are only markers; a grouping is about who is together.",
+      "counter": "Both are ABC | DE.",
+      "fix": "Compare normalised groupings, not label strings."
+    }
+  ],
+  "limits": "- No K is given and group sizes are not balanced: one large group may swallow almost every node.\n- The result depends on visiting order, update mode and tie rule; on the same graph, a different rule can change the number of rounds and even whether it stops.\n- Synchronous updates can cycle; asynchronous updates stop on these examples, but the course does not claim they stop on every graph.\n- The original paper (Raghavan, Albert, Kumara, 2007) stresses near-linear time: each round reads every edge a constant number of times. This course’s implementation follows that idea, scanning each node’s neighbours in turn.\n- The 24-cell circuit and the contact graph are fictional teaching graphs; their numbers describe only those graphs.",
+  "pythonPackage": {
+    "title": "Implement vote counting and the stopping test",
+    "md": "**Task** (`starter.py`):\n\n1. `count_votes(adj, labels, vertex)`: add up neighbour edge weights by label.\n2. The stopping test in the main loop: stable / cycle (limit is handled by the loop bound).\n\n**Hint 1**: for neighbours with the same label, add their edge weights; C’s votes should be B = 5, D = 2, E = 1.\n\n**Hint 2**: a full round with zero changes → stable; if the complete label state at the end of the round has appeared before → cycle. The checker also runs the author’s original 24-cell circuit and 28-person contact graph."
+  },
+  "credits": {
+    "kept": [
+      "The narrative “address book → chip → one local rule → taken apart layer by layer”, and the phrasing “a name is identity, a label is membership”.",
+      "Real node-by-node voting, async/sync, three tie rules, visiting order, editing the bridge weight, and the cycle counterexample; this module’s engine is adapted directly from the author’s `site/algorithm.js` (MIT).",
+      "The data of the 24-cell fictional circuit (geometric cut 88, LP cut 2) and the 28-person contact graph (3 rounds, cut 4).",
+      "The author’s original popular-science film (version 4, 6:20) is included as made as this module’s popular-science film; its story is also the backbone of the concise film and the slides."
+    ],
+    "licenseNote": "Original code MIT, original content CC BY 4.0. The popular-science film uses third-party music chosen by the author, “We Never (Remix)” by Hi Noise / 秋成; it is not covered by these licences, this course grants no rights to it, and no separate audio track is offered. The scores of the other three films are original to this course. The original README’s statement that the repository is private is out of date (it is now public).",
+    "references": [
+      "Raghavan, U. N., Albert, R., & Kumara, S. (2007). Near linear time algorithm to detect community structures in large-scale networks. *Physical Review E*, 76, 036106.",
+      "The teacher’s original course: [module materials](https://github.com/yongfu-li/eda-learning/tree/003bcd49e3794e6cfd2680181cdbd347d673ad07/courses/learn_clustering/module02-01-label-propagation)"
+    ]
+  }
+}

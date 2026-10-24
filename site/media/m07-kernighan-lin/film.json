@@ -1,353 +1,1744 @@
 {
- "id": "kl",
- "title": "先试探，再回退",
+ "schema": 2,
  "status": "ready",
- "src": "kl.mp4",
- "vtt": "kl.zh.vtt",
- "poster": "kl-poster.jpg",
- "duration": 198.2,
- "chapters": [
+ "films": [
   {
-   "t": 3.0,
-   "title": "一 · 固定人数的改进",
-   "sceneId": "s01-hook"
+   "id": "story",
+   "kind": "popular",
+   "status": "ready",
+   "title": {
+    "zh": "先试探，再回退",
+    "en": "Try, Then Roll Back"
+   },
+   "why": {
+    "zh": "五个朋友分住两间屋，两张床和三张床，只许一换一。每个人的 D 值、一对的收益、省下 9 的交换、亏 8 的试探、回退到最佳前缀；人更多时亏一步可能打开一扇门；最后空前缀让一切停下。",
+    "en": "Five friends in two rooms, two beds and three, allowed only one-for-one swaps. Each person's D value, a pair's gain, a swap that saves 9, a trial that loses 8, the roll-back to the best prefix; with more people one loss can open a door; and the empty prefix that ends it."
+   },
+   "music": {
+    "zh": "《We Never (Remix)（若如初见）》Hi Noise / 秋成（第三方录音，不在本课程许可范围内）",
+    "en": "“We Never (Remix)” by Hi Noise / 秋成 (third-party recording, not covered by this course's licences)"
+   },
+   "scenes": [
+    {
+     "sceneId": "p-open",
+     "start": 0.0,
+     "end": 10.75
+    },
+    {
+     "sceneId": "p-ask",
+     "start": 10.75,
+     "end": 17.41
+    },
+    {
+     "sceneId": "p-rule",
+     "start": 17.41,
+     "end": 32.03
+    },
+    {
+     "sceneId": "p-title",
+     "start": 32.03,
+     "end": 37.0
+    },
+    {
+     "sceneId": "p-gain",
+     "start": 37.0,
+     "end": 51.18
+    },
+    {
+     "sceneId": "p-swap",
+     "start": 51.18,
+     "end": 63.15
+    },
+    {
+     "sceneId": "p-worse",
+     "start": 63.15,
+     "end": 80.16
+    },
+    {
+     "sceneId": "p-back",
+     "start": 80.16,
+     "end": 89.0
+    },
+    {
+     "sceneId": "p-keep",
+     "start": 89.0,
+     "end": 97.19
+    },
+    {
+     "sceneId": "p-breath",
+     "start": 97.19,
+     "end": 102.5
+    },
+    {
+     "sceneId": "p-why",
+     "start": 102.5,
+     "end": 119.27
+    },
+    {
+     "sceneId": "p-round2",
+     "start": 119.27,
+     "end": 134.16
+    },
+    {
+     "sceneId": "p-chip",
+     "start": 134.16,
+     "end": 141.5
+    },
+    {
+     "sceneId": "p-outro",
+     "start": 141.5,
+     "end": 170.6
+    },
+    {
+     "sceneId": "p-end",
+     "start": 170.6,
+     "end": 189.82
+    }
+   ],
+   "fps": 30,
+   "size": [
+    1920,
+    1080
+   ],
+   "versions": {
+    "zh": {
+     "src": "story.zh.mp4",
+     "vtt": "story.zh.vtt",
+     "poster": "story.zh.jpg",
+     "duration": 189.83,
+     "captions": "zh+en",
+     "chapters": [
+      {
+       "t": 0.0,
+       "title": "序 · 两间屋",
+       "sceneId": "p-open"
+      },
+      {
+       "t": 37.0,
+       "title": "一 · 一对",
+       "sceneId": "p-gain"
+      },
+      {
+       "t": 63.15,
+       "title": "二 · 试探",
+       "sceneId": "p-worse"
+      },
+      {
+       "t": 102.5,
+       "title": "三 · 一扇门",
+       "sceneId": "p-why"
+      },
+      {
+       "t": 119.27,
+       "title": "四 · 第二轮",
+       "sceneId": "p-round2"
+      },
+      {
+       "t": 141.5,
+       "title": "尾声",
+       "sceneId": "p-outro"
+      }
+     ],
+     "transcript": [
+      {
+       "start": 0.0,
+       "end": 4.6,
+       "text": "还是那五个朋友，分住两间屋。",
+       "sceneId": "p-open"
+      },
+      {
+       "start": 4.6,
+       "end": 9.0,
+       "text": "左屋两张床，右屋三张。",
+       "sceneId": "p-open"
+      },
+      {
+       "start": 10.75,
+       "end": 13.772,
+       "text": "被拆散的交情：12。",
+       "sceneId": "p-ask"
+      },
+      {
+       "start": 13.772,
+       "end": 16.372,
+       "text": "能少一点吗？",
+       "sceneId": "p-ask"
+      },
+      {
+       "start": 17.41,
+       "end": 21.81,
+       "text": "只能一换一：床位数不变。",
+       "sceneId": "p-rule"
+      },
+      {
+       "start": 21.81,
+       "end": 26.61,
+       "text": "每人：屋外朋友减屋里朋友，叫 D。",
+       "sceneId": "p-rule"
+      },
+      {
+       "start": 26.61,
+       "end": 30.81,
+       "text": "D 就是他一个人搬走能省多少。",
+       "sceneId": "p-rule"
+      },
+      {
+       "start": 37.0,
+       "end": 40.6,
+       "text": "换一对：两人的 D 相加——",
+       "sceneId": "p-gain"
+      },
+      {
+       "start": 40.6,
+       "end": 44.8,
+       "text": "两人若是朋友，再减两倍交情。",
+       "sceneId": "p-gain"
+      },
+      {
+       "start": 44.8,
+       "end": 50.267,
+       "text": "Ada↔Dev：9；Eva↔Dev：−1。",
+       "sceneId": "p-gain"
+      },
+      {
+       "start": 51.18,
+       "end": 55.313,
+       "text": "Ada 和 Dev 换屋：12 → 3。",
+       "sceneId": "p-swap"
+      },
+      {
+       "start": 55.313,
+       "end": 58.913,
+       "text": "两人锁定，这一轮不再动。",
+       "sceneId": "p-swap"
+      },
+      {
+       "start": 58.913,
+       "end": 62.824,
+       "text": "剩下 Eva、Ben、Cai。",
+       "sceneId": "p-swap"
+      },
+      {
+       "start": 63.15,
+       "end": 66.55,
+       "text": "剩下的交换，全是亏的。",
+       "sceneId": "p-worse"
+      },
+      {
+       "start": 66.55,
+       "end": 71.128,
+       "text": "照样换：Eva↔Cai，3 → 11。",
+       "sceneId": "p-worse"
+      },
+      {
+       "start": 71.128,
+       "end": 74.128,
+       "text": "这只是试探。",
+       "sceneId": "p-worse"
+      },
+      {
+       "start": 80.16,
+       "end": 82.96,
+       "text": "回头看这一轮——",
+       "sceneId": "p-back"
+      },
+      {
+       "start": 82.96,
+       "end": 86.16,
+       "text": "累计 +9，然后 +1。",
+       "sceneId": "p-back"
+      },
+      {
+       "start": 89.0,
+       "end": 92.6,
+       "text": "只留最好的前缀：第一步。",
+       "sceneId": "p-keep"
+      },
+      {
+       "start": 92.6,
+       "end": 95.2,
+       "text": "回退到 3。",
+       "sceneId": "p-keep"
+      },
+      {
+       "start": 102.5,
+       "end": 106.7,
+       "text": "人多时，亏一步可能打开一扇门：",
+       "sceneId": "p-why"
+      },
+      {
+       "start": 106.7,
+       "end": 109.7,
+       "text": "先 −1，接着 +7。",
+       "sceneId": "p-why"
+      },
+      {
+       "start": 109.7,
+       "end": 114.9,
+       "text": "只肯赚的会停在 7；KL 走到 1。",
+       "sceneId": "p-why"
+      },
+      {
+       "start": 119.27,
+       "end": 122.27,
+       "text": "第二轮，全部解锁。",
+       "sceneId": "p-round2"
+      },
+      {
+       "start": 122.27,
+       "end": 126.47,
+       "text": "−8，再 −6：都不如不动。",
+       "sceneId": "p-round2"
+      },
+      {
+       "start": 126.47,
+       "end": 129.87,
+       "text": "空前缀胜出：停。",
+       "sceneId": "p-round2"
+      },
+      {
+       "start": 134.16,
+       "end": 139.56,
+       "text": "芯片上：两半个数固定，成对交换单元。",
+       "sceneId": "p-chip"
+      },
+      {
+       "start": 141.5,
+       "end": 147.5,
+       "text": "成对交换，屋子大小不变。",
+       "sceneId": "p-outro"
+      },
+      {
+       "start": 147.5,
+       "end": 153.5,
+       "text": "每一步都试，亏的也试。",
+       "sceneId": "p-outro"
+      },
+      {
+       "start": 153.5,
+       "end": 160.5,
+       "text": "最后只留最好的那段前缀。",
+       "sceneId": "p-outro"
+      },
+      {
+       "start": 160.5,
+       "end": 168.5,
+       "text": "一次只搬一个人呢？下一章见。",
+       "sceneId": "p-outro"
+      },
+      {
+       "start": 170.6,
+       "end": 176.6,
+       "text": "下面的实验里，单步看每一次试探。",
+       "sceneId": "p-end"
+      }
+     ],
+     "readingViolations": 0,
+     "bytes": 8358390
+    },
+    "en": {
+     "src": "story.en.mp4",
+     "vtt": "story.en.vtt",
+     "poster": "story.en.jpg",
+     "duration": 189.83,
+     "captions": "en",
+     "chapters": [
+      {
+       "t": 0.0,
+       "title": "PROLOGUE · TWO ROOMS",
+       "sceneId": "p-open"
+      },
+      {
+       "t": 37.0,
+       "title": "I · A PAIR",
+       "sceneId": "p-gain"
+      },
+      {
+       "t": 63.15,
+       "title": "II · A TRIAL",
+       "sceneId": "p-worse"
+      },
+      {
+       "t": 102.5,
+       "title": "III · A DOOR",
+       "sceneId": "p-why"
+      },
+      {
+       "t": 119.27,
+       "title": "IV · ROUND TWO",
+       "sceneId": "p-round2"
+      },
+      {
+       "t": 141.5,
+       "title": "CODA",
+       "sceneId": "p-outro"
+      }
+     ],
+     "transcript": [
+      {
+       "start": 0.0,
+       "end": 4.6,
+       "text": "The same five friends, in two rooms.",
+       "sceneId": "p-open"
+      },
+      {
+       "start": 4.6,
+       "end": 9.0,
+       "text": "Two beds on the left, three on the right.",
+       "sceneId": "p-open"
+      },
+      {
+       "start": 10.75,
+       "end": 13.772,
+       "text": "Friendships split: 12.",
+       "sceneId": "p-ask"
+      },
+      {
+       "start": 13.772,
+       "end": 16.372,
+       "text": "Can it be less?",
+       "sceneId": "p-ask"
+      },
+      {
+       "start": 17.41,
+       "end": 21.81,
+       "text": "Swap one for one: the beds stay put.",
+       "sceneId": "p-rule"
+      },
+      {
+       "start": 21.81,
+       "end": 26.61,
+       "text": "Each: friends outside minus inside: D.",
+       "sceneId": "p-rule"
+      },
+      {
+       "start": 26.61,
+       "end": 30.81,
+       "text": "D is what moving alone would save.",
+       "sceneId": "p-rule"
+      },
+      {
+       "start": 37.0,
+       "end": 40.6,
+       "text": "Swap a pair: add the two D values —",
+       "sceneId": "p-gain"
+      },
+      {
+       "start": 40.6,
+       "end": 44.8,
+       "text": "if they're friends, take off twice that.",
+       "sceneId": "p-gain"
+      },
+      {
+       "start": 44.8,
+       "end": 50.267,
+       "text": "Ada↔Dev: 9. Eva↔Dev: −1.",
+       "sceneId": "p-gain"
+      },
+      {
+       "start": 51.18,
+       "end": 55.313,
+       "text": "Ada and Dev swap: 12 → 3.",
+       "sceneId": "p-swap"
+      },
+      {
+       "start": 55.313,
+       "end": 58.913,
+       "text": "Both lock for the rest of the round.",
+       "sceneId": "p-swap"
+      },
+      {
+       "start": 58.913,
+       "end": 62.824,
+       "text": "Still free: Eva, Ben, Cai.",
+       "sceneId": "p-swap"
+      },
+      {
+       "start": 63.15,
+       "end": 66.55,
+       "text": "Every swap left is a loss.",
+       "sceneId": "p-worse"
+      },
+      {
+       "start": 66.55,
+       "end": 71.128,
+       "text": "Swap anyway: Eva↔Cai, 3 → 11.",
+       "sceneId": "p-worse"
+      },
+      {
+       "start": 71.128,
+       "end": 74.128,
+       "text": "This is only a trial.",
+       "sceneId": "p-worse"
+      },
+      {
+       "start": 80.16,
+       "end": 82.96,
+       "text": "Look back over the round —",
+       "sceneId": "p-back"
+      },
+      {
+       "start": 82.96,
+       "end": 86.16,
+       "text": "+9 in all, then +1.",
+       "sceneId": "p-back"
+      },
+      {
+       "start": 89.0,
+       "end": 92.6,
+       "text": "Keep the best prefix: step one.",
+       "sceneId": "p-keep"
+      },
+      {
+       "start": 92.6,
+       "end": 95.2,
+       "text": "Roll back to 3.",
+       "sceneId": "p-keep"
+      },
+      {
+       "start": 102.5,
+       "end": 106.7,
+       "text": "With more people, one loss can open a door:",
+       "sceneId": "p-why"
+      },
+      {
+       "start": 106.7,
+       "end": 109.7,
+       "text": "−1 first, then +7.",
+       "sceneId": "p-why"
+      },
+      {
+       "start": 109.7,
+       "end": 114.9,
+       "text": "Refusing losses stops at 7; KL gets to 1.",
+       "sceneId": "p-why"
+      },
+      {
+       "start": 119.27,
+       "end": 122.27,
+       "text": "Round two: all unlocked.",
+       "sceneId": "p-round2"
+      },
+      {
+       "start": 122.27,
+       "end": 126.47,
+       "text": "−8, then −6: staying put wins.",
+       "sceneId": "p-round2"
+      },
+      {
+       "start": 126.47,
+       "end": 129.87,
+       "text": "The empty prefix wins: stop.",
+       "sceneId": "p-round2"
+      },
+      {
+       "start": 134.16,
+       "end": 139.56,
+       "text": "On a chip: halves of fixed size, cells swapped in pairs.",
+       "sceneId": "p-chip"
+      },
+      {
+       "start": 141.5,
+       "end": 147.5,
+       "text": "Swap in pairs; the rooms keep their size.",
+       "sceneId": "p-outro"
+      },
+      {
+       "start": 147.5,
+       "end": 153.5,
+       "text": "Try every step, even the losses.",
+       "sceneId": "p-outro"
+      },
+      {
+       "start": 153.5,
+       "end": 160.5,
+       "text": "Then keep only the best prefix.",
+       "sceneId": "p-outro"
+      },
+      {
+       "start": 160.5,
+       "end": 168.5,
+       "text": "What if one person moves at a time? Next module.",
+       "sceneId": "p-outro"
+      },
+      {
+       "start": 170.6,
+       "end": 176.6,
+       "text": "In the lab below, step through every trial.",
+       "sceneId": "p-end"
+      }
+     ],
+     "readingViolations": 0,
+     "bytes": 8350997
+    }
+   }
   },
   {
-   "t": 20.47,
-   "title": "二 · cut 与 D 值",
-   "sceneId": "s02-dvalue"
+   "id": "concise",
+   "kind": "concise",
+   "status": "ready",
+   "title": {
+    "zh": "精讲：交换、试探、回退",
+    "en": "The essentials"
+   },
+   "why": {
+    "zh": "只讲必须掌握的：问题与种子 AE | BCD、D 值、成对收益与 −2w、一轮试探交换、最佳前缀与回退、停止条件。",
+    "en": "Only what you must know: the problem and the seed AE | BCD, D values, the pair gain and its −2w, one pass of trial swaps, the best prefix and roll-back, and when it stops."
+   },
+   "music": {
+    "zh": "本课程原创程序合成配乐（NumPy），CC BY 4.0",
+    "en": "Original score synthesised for this course (NumPy), CC BY 4.0"
+   },
+   "scenes": [
+    {
+     "sceneId": "k00-title",
+     "start": 0.0,
+     "end": 3.4
+    },
+    {
+     "sceneId": "k01-problem",
+     "start": 3.4,
+     "end": 19.53
+    },
+    {
+     "sceneId": "k02-dvalues",
+     "start": 19.53,
+     "end": 33.76
+    },
+    {
+     "sceneId": "k03-gain",
+     "start": 33.76,
+     "end": 51.89
+    },
+    {
+     "sceneId": "k04-pass",
+     "start": 51.89,
+     "end": 72.6
+    },
+    {
+     "sceneId": "k05-prefix",
+     "start": 72.6,
+     "end": 86.73
+    },
+    {
+     "sceneId": "k06-stop",
+     "start": 86.73,
+     "end": 100.0
+    },
+    {
+     "sceneId": "k07-take",
+     "start": 100.0,
+     "end": 116.29
+    }
+   ],
+   "fps": 30,
+   "size": [
+    1920,
+    1080
+   ],
+   "versions": {
+    "zh": {
+     "src": "concise.zh.mp4",
+     "vtt": "concise.zh.vtt",
+     "poster": "concise.zh.jpg",
+     "duration": 116.3,
+     "captions": "zh+en",
+     "chapters": [
+      {
+       "t": 3.4,
+       "title": "问题",
+       "sceneId": "k01-problem"
+      },
+      {
+       "t": 19.53,
+       "title": "D 值",
+       "sceneId": "k02-dvalues"
+      },
+      {
+       "t": 33.76,
+       "title": "成对收益",
+       "sceneId": "k03-gain"
+      },
+      {
+       "t": 51.89,
+       "title": "一轮试探",
+       "sceneId": "k04-pass"
+      },
+      {
+       "t": 72.6,
+       "title": "最佳前缀",
+       "sceneId": "k05-prefix"
+      },
+      {
+       "t": 86.73,
+       "title": "停止",
+       "sceneId": "k06-stop"
+      },
+      {
+       "t": 100.0,
+       "title": "小结",
+       "sceneId": "k07-take"
+      }
+     ],
+     "transcript": [
+      {
+       "start": 3.4,
+       "end": 8.644,
+       "text": "KL 不从零分组，而是改进一个已有的二分。",
+       "sceneId": "k01-problem"
+      },
+      {
+       "start": 8.644,
+       "end": 13.667,
+       "text": "本章的种子是 AE | BCD，cut 12。",
+       "sceneId": "k01-problem"
+      },
+      {
+       "start": 13.667,
+       "end": 19.133,
+       "text": "唯一的操作：左右各一个互换，两侧人数不变。",
+       "sceneId": "k01-problem"
+      },
+      {
+       "start": 19.533,
+       "end": 23.533,
+       "text": "每个节点先算外部与内部边权。",
+       "sceneId": "k02-dvalues"
+      },
+      {
+       "start": 23.533,
+       "end": 28.333,
+       "text": "D = 外部 − 内部：A 是 +6，C 是 −4。",
+       "sceneId": "k02-dvalues"
+      },
+      {
+       "start": 28.333,
+       "end": 33.356,
+       "text": "D 是只把这个点换过去时 cut 的下降量。",
+       "sceneId": "k02-dvalues"
+      },
+      {
+       "start": 33.756,
+       "end": 38.778,
+       "text": "一对交换的收益：两个 D 相加，再减 2w。",
+       "sceneId": "k03-gain"
+      },
+      {
+       "start": 38.778,
+       "end": 45.8,
+       "text": "E–D 被两个 D 都算成外部边，交换后它仍被切，所以减两次。",
+       "sceneId": "k03-gain"
+      },
+      {
+       "start": 45.8,
+       "end": 51.489,
+       "text": "六个候选里，A↔D 最大：+9；E↔D 是 −1。",
+       "sceneId": "k03-gain"
+      },
+      {
+       "start": 51.889,
+       "end": 57.133,
+       "text": "一轮：选最大收益对，交换，锁定，重算 D。",
+       "sceneId": "k04-pass"
+      },
+      {
+       "start": 57.133,
+       "end": 61.267,
+       "text": "第 1 步 A↔D，cut 12 → 3。",
+       "sceneId": "k04-pass"
+      },
+      {
+       "start": 61.267,
+       "end": 67.844,
+       "text": "第 2 步剩下的全是负数，照样走 E↔C：cut 升到 11。",
+       "sceneId": "k04-pass"
+      },
+      {
+       "start": 67.844,
+       "end": 72.2,
+       "text": "左侧没有可动的点，本轮试探结束。",
+       "sceneId": "k04-pass"
+      },
+      {
+       "start": 72.6,
+       "end": 76.289,
+       "text": "累计收益：0、+9、+1。",
+       "sceneId": "k05-prefix"
+      },
+      {
+       "start": 76.289,
+       "end": 82.2,
+       "text": "最大的是 k = 1：从起点只应用 A↔D，cut 3。",
+       "sceneId": "k05-prefix"
+      },
+      {
+       "start": 82.2,
+       "end": 86.333,
+       "text": "第 2 步被撤回：试探不等于接受。",
+       "sceneId": "k05-prefix"
+      },
+      {
+       "start": 86.733,
+       "end": 91.089,
+       "text": "第二轮从 cut 3 出发，全部解锁。",
+       "sceneId": "k06-stop"
+      },
+      {
+       "start": 91.089,
+       "end": 95.667,
+       "text": "累计 −8、−6，都不如什么都不做。",
+       "sceneId": "k06-stop"
+      },
+      {
+       "start": 95.667,
+       "end": 99.6,
+       "text": "空前缀胜出，算法停止。",
+       "sceneId": "k06-stop"
+      },
+      {
+       "start": 100.0,
+       "end": 102.133,
+       "text": "记住四点。",
+       "sceneId": "k07-take"
+      },
+      {
+       "start": 102.133,
+       "end": 106.267,
+       "text": "一换一，人数不变；收益减 2w；",
+       "sceneId": "k07-take"
+      },
+      {
+       "start": 106.267,
+       "end": 110.533,
+       "text": "负收益也试探，只接受最佳前缀。",
+       "sceneId": "k07-take"
+      },
+      {
+       "start": 110.533,
+       "end": 114.889,
+       "text": "下面的实验里，单步看每一次试探。",
+       "sceneId": "k07-take"
+      }
+     ],
+     "readingViolations": 0,
+     "bytes": 5244783
+    },
+    "en": {
+     "src": "concise.en.mp4",
+     "vtt": "concise.en.vtt",
+     "poster": "concise.en.jpg",
+     "duration": 116.3,
+     "captions": "en",
+     "chapters": [
+      {
+       "t": 3.4,
+       "title": "THE PROBLEM",
+       "sceneId": "k01-problem"
+      },
+      {
+       "t": 19.53,
+       "title": "D VALUES",
+       "sceneId": "k02-dvalues"
+      },
+      {
+       "t": 33.76,
+       "title": "THE PAIR GAIN",
+       "sceneId": "k03-gain"
+      },
+      {
+       "t": 51.89,
+       "title": "ONE PASS",
+       "sceneId": "k04-pass"
+      },
+      {
+       "t": 72.6,
+       "title": "THE BEST PREFIX",
+       "sceneId": "k05-prefix"
+      },
+      {
+       "t": 86.73,
+       "title": "THE STOP",
+       "sceneId": "k06-stop"
+      },
+      {
+       "t": 100.0,
+       "title": "SUMMARY",
+       "sceneId": "k07-take"
+      }
+     ],
+     "transcript": [
+      {
+       "start": 3.4,
+       "end": 8.644,
+       "text": "KL doesn't group from scratch; it improves an existing bisection.",
+       "sceneId": "k01-problem"
+      },
+      {
+       "start": 8.644,
+       "end": 13.667,
+       "text": "This chapter's seed is AE | BCD, cut 12.",
+       "sceneId": "k01-problem"
+      },
+      {
+       "start": 13.667,
+       "end": 19.133,
+       "text": "The only move: swap one from each side; the side sizes stay.",
+       "sceneId": "k01-problem"
+      },
+      {
+       "start": 19.533,
+       "end": 23.533,
+       "text": "First, each node's external and internal weight.",
+       "sceneId": "k02-dvalues"
+      },
+      {
+       "start": 23.533,
+       "end": 28.333,
+       "text": "D = external − internal: A is +6, C is −4.",
+       "sceneId": "k02-dvalues"
+      },
+      {
+       "start": 28.333,
+       "end": 33.356,
+       "text": "D is how much the cut drops if that node alone moves.",
+       "sceneId": "k02-dvalues"
+      },
+      {
+       "start": 33.756,
+       "end": 38.778,
+       "text": "A pair swap's gain: the two D values added, minus 2w.",
+       "sceneId": "k03-gain"
+      },
+      {
+       "start": 38.778,
+       "end": 45.8,
+       "text": "Both D values count E–D as external, and it stays cut after the swap, so it comes off twice.",
+       "sceneId": "k03-gain"
+      },
+      {
+       "start": 45.8,
+       "end": 51.489,
+       "text": "Of the six candidates A↔D is largest, +9; E↔D is −1.",
+       "sceneId": "k03-gain"
+      },
+      {
+       "start": 51.889,
+       "end": 57.133,
+       "text": "One pass: pick the largest-gain pair, swap, lock, recompute D.",
+       "sceneId": "k04-pass"
+      },
+      {
+       "start": 57.133,
+       "end": 61.267,
+       "text": "Step 1, A↔D: cut 12 → 3.",
+       "sceneId": "k04-pass"
+      },
+      {
+       "start": 61.267,
+       "end": 67.844,
+       "text": "At step 2 every gain is negative; take E↔C anyway: the cut rises to 11.",
+       "sceneId": "k04-pass"
+      },
+      {
+       "start": 67.844,
+       "end": 72.2,
+       "text": "No movable node is left on the left; the trials end.",
+       "sceneId": "k04-pass"
+      },
+      {
+       "start": 72.6,
+       "end": 76.289,
+       "text": "Cumulative gains: 0, +9, +1.",
+       "sceneId": "k05-prefix"
+      },
+      {
+       "start": 76.289,
+       "end": 82.2,
+       "text": "The largest is k = 1: from the start, apply only A↔D, cut 3.",
+       "sceneId": "k05-prefix"
+      },
+      {
+       "start": 82.2,
+       "end": 86.333,
+       "text": "Step 2 is undone: a trial is not an acceptance.",
+       "sceneId": "k05-prefix"
+      },
+      {
+       "start": 86.733,
+       "end": 91.089,
+       "text": "Pass 2 starts from cut 3, everything unlocked.",
+       "sceneId": "k06-stop"
+      },
+      {
+       "start": 91.089,
+       "end": 95.667,
+       "text": "Cumulative −8, −6: neither beats doing nothing.",
+       "sceneId": "k06-stop"
+      },
+      {
+       "start": 95.667,
+       "end": 99.6,
+       "text": "The empty prefix wins, and the algorithm stops.",
+       "sceneId": "k06-stop"
+      },
+      {
+       "start": 100.0,
+       "end": 102.133,
+       "text": "Four things to keep.",
+       "sceneId": "k07-take"
+      },
+      {
+       "start": 102.133,
+       "end": 106.267,
+       "text": "One for one, sizes fixed; the gain loses 2w;",
+       "sceneId": "k07-take"
+      },
+      {
+       "start": 106.267,
+       "end": 110.533,
+       "text": "try negative gains too, accept only the best prefix.",
+       "sceneId": "k07-take"
+      },
+      {
+       "start": 110.533,
+       "end": 114.889,
+       "text": "Step through every trial in the lab below.",
+       "sceneId": "k07-take"
+      }
+     ],
+     "readingViolations": 0,
+     "bytes": 5111248
+    }
+   }
   },
   {
-   "t": 40.07,
-   "title": "三 · 成对收益与 −2w",
-   "sceneId": "s03-pairs"
+   "id": "advanced",
+   "kind": "advanced",
+   "status": "ready",
+   "title": {
+    "zh": "进阶：收益、前缀与局部最优",
+    "en": "In depth: gains, prefixes, local optima"
+   },
+   "why": {
+    "zh": "为什么减 2w、为什么负收益也要试探（一张八节点图：先 −1 再 +7）、为什么前缀必须连续、结果怎样依赖种子（AB | CDE 停在 5）、人数与面积，以及一轮的代价。",
+    "en": "Why −2w, why negative gains are tried (an eight-node graph: −1 then +7), why a prefix must be consecutive, how the result depends on the seed (AB | CDE stops at 5), counts versus areas, and the cost of a pass."
+   },
+   "music": {
+    "zh": "本课程原创程序合成配乐（NumPy），CC BY 4.0",
+    "en": "Original score synthesised for this course (NumPy), CC BY 4.0"
+   },
+   "scenes": [
+    {
+     "sceneId": "a00-title",
+     "start": 0.0,
+     "end": 3.4
+    },
+    {
+     "sceneId": "a01-why2w",
+     "start": 3.4,
+     "end": 24.87
+    },
+    {
+     "sceneId": "a02-negative",
+     "start": 24.87,
+     "end": 44.02
+    },
+    {
+     "sceneId": "a03-prefix",
+     "start": 44.02,
+     "end": 61.56
+    },
+    {
+     "sceneId": "a04-seed",
+     "start": 61.56,
+     "end": 77.02
+    },
+    {
+     "sceneId": "a05-area",
+     "start": 77.02,
+     "end": 91.6
+    },
+    {
+     "sceneId": "a06-cost",
+     "start": 91.6,
+     "end": 109.2
+    },
+    {
+     "sceneId": "a07-summary",
+     "start": 109.2,
+     "end": 129.58
+    }
+   ],
+   "fps": 30,
+   "size": [
+    1920,
+    1080
+   ],
+   "versions": {
+    "zh": {
+     "src": "advanced.zh.mp4",
+     "vtt": "advanced.zh.vtt",
+     "poster": "advanced.zh.jpg",
+     "duration": 129.57,
+     "captions": "zh+en",
+     "chapters": [
+      {
+       "t": 3.4,
+       "title": "一 · 为什么减 2w",
+       "sceneId": "a01-why2w"
+      },
+      {
+       "t": 24.87,
+       "title": "二 · 负收益",
+       "sceneId": "a02-negative"
+      },
+      {
+       "t": 44.02,
+       "title": "三 · 连续前缀",
+       "sceneId": "a03-prefix"
+      },
+      {
+       "t": 61.56,
+       "title": "四 · 种子",
+       "sceneId": "a04-seed"
+      },
+      {
+       "t": 77.02,
+       "title": "五 · 人数与面积",
+       "sceneId": "a05-area"
+      },
+      {
+       "t": 91.6,
+       "title": "六 · 代价",
+       "sceneId": "a06-cost"
+      },
+      {
+       "t": 109.2,
+       "title": "小结",
+       "sceneId": "a07-summary"
+      }
+     ],
+     "transcript": [
+      {
+       "start": 3.4,
+       "end": 9.533,
+       "text": "交换 a、b：a 过去降 D(a)，b 过来降 D(b)。",
+       "sceneId": "a01-why2w"
+      },
+      {
+       "start": 9.533,
+       "end": 17.444,
+       "text": "可 a–b 这条边两边都算了“会被修好”，交换后它还跨着：多算 2w。",
+       "sceneId": "a01-why2w"
+      },
+      {
+       "start": 17.444,
+       "end": 24.467,
+       "text": "E↔D：9 − 10 = −1；直接数 cut，12 → 13，一致。",
+       "sceneId": "a01-why2w"
+      },
+      {
+       "start": 24.867,
+       "end": 30.333,
+       "text": "一张八节点图，从交错的种子出发，cut 7。",
+       "sceneId": "a02-negative"
+      },
+      {
+       "start": 30.333,
+       "end": 33.578,
+       "text": "第一步最好也只有 −1。",
+       "sceneId": "a02-negative"
+      },
+      {
+       "start": 33.578,
+       "end": 38.378,
+       "text": "但第二步 +7：保留前两步，cut 1。",
+       "sceneId": "a02-negative"
+      },
+      {
+       "start": 38.378,
+       "end": 43.622,
+       "text": "只肯接受正收益的贪心，一开始就会停在 7。",
+       "sceneId": "a02-negative"
+      },
+      {
+       "start": 44.022,
+       "end": 50.156,
+       "text": "为什么前缀必须连续？每一步的收益都依赖前面的步。",
+       "sceneId": "a03-prefix"
+      },
+      {
+       "start": 50.156,
+       "end": 56.956,
+       "text": "第二轮的 D↔B 在序列里是 +2，从起点单独做却是 −12。",
+       "sceneId": "a03-prefix"
+      },
+      {
+       "start": 56.956,
+       "end": 61.156,
+       "text": "所以只取前 k 步；k = 0 也合法。",
+       "sceneId": "a03-prefix"
+      },
+      {
+       "start": 61.556,
+       "end": 65.689,
+       "text": "换种子：三个种子都到 cut 3。",
+       "sceneId": "a04-seed"
+      },
+      {
+       "start": 65.689,
+       "end": 70.933,
+       "text": "AB | CDE 却停在 5：两次试探都是亏的。",
+       "sceneId": "a04-seed"
+      },
+      {
+       "start": 70.933,
+       "end": 76.622,
+       "text": "要到 DE | ABC 得同时换两对：这是局部最优。",
+       "sceneId": "a04-seed"
+      },
+      {
+       "start": 77.022,
+       "end": 80.489,
+       "text": "给 A 面积 3，其他都是 1。",
+       "sceneId": "a05-area"
+      },
+      {
+       "start": 80.489,
+       "end": 86.844,
+       "text": "A↔D 之后人数还是 2 比 3，面积从 4 比 3 变成 2 比 5。",
+       "sceneId": "a05-area"
+      },
+      {
+       "start": 86.844,
+       "end": 91.2,
+       "text": "KL 只保持个数；面积要另外检查。",
+       "sceneId": "a05-area"
+      },
+      {
+       "start": 91.6,
+       "end": 94.178,
+       "text": "一轮有 n/2 步。",
+       "sceneId": "a06-cost"
+      },
+      {
+       "start": 94.178,
+       "end": 97.867,
+       "text": "每步最多看 (n/2)² 对。",
+       "sceneId": "a06-cost"
+      },
+      {
+       "start": 97.867,
+       "end": 103.333,
+       "text": "朴素实现一轮约 n³；按 D 排序可以剪掉很多。",
+       "sceneId": "a06-cost"
+      },
+      {
+       "start": 103.333,
+       "end": 108.8,
+       "text": "下一章的 FM 一次只动一个点，一轮接近线性。",
+       "sceneId": "a06-cost"
+      },
+      {
+       "start": 109.2,
+       "end": 111.267,
+       "text": "六点小结。",
+       "sceneId": "a07-summary"
+      },
+      {
+       "start": 124.267,
+       "end": 128.178,
+       "text": "下一章：一次只移动一个节点。",
+       "sceneId": "a07-summary"
+      }
+     ],
+     "readingViolations": 0,
+     "bytes": 6050445
+    },
+    "en": {
+     "src": "advanced.en.mp4",
+     "vtt": "advanced.en.vtt",
+     "poster": "advanced.en.jpg",
+     "duration": 129.57,
+     "captions": "en",
+     "chapters": [
+      {
+       "t": 3.4,
+       "title": "I · WHY −2w",
+       "sceneId": "a01-why2w"
+      },
+      {
+       "t": 24.87,
+       "title": "II · NEGATIVE GAINS",
+       "sceneId": "a02-negative"
+      },
+      {
+       "t": 44.02,
+       "title": "III · CONSECUTIVE PREFIXES",
+       "sceneId": "a03-prefix"
+      },
+      {
+       "t": 61.56,
+       "title": "IV · THE SEED",
+       "sceneId": "a04-seed"
+      },
+      {
+       "t": 77.02,
+       "title": "V · COUNT AND AREA",
+       "sceneId": "a05-area"
+      },
+      {
+       "t": 91.6,
+       "title": "VI · COST",
+       "sceneId": "a06-cost"
+      },
+      {
+       "t": 109.2,
+       "title": "SUMMARY",
+       "sceneId": "a07-summary"
+      }
+     ],
+     "transcript": [
+      {
+       "start": 3.4,
+       "end": 9.533,
+       "text": "Swap a and b: a moving drops D(a), b moving drops D(b).",
+       "sceneId": "a01-why2w"
+      },
+      {
+       "start": 9.533,
+       "end": 17.444,
+       "text": "But both count the a–b edge as “fixed”, and it still crosses after the swap: 2w too many.",
+       "sceneId": "a01-why2w"
+      },
+      {
+       "start": 17.444,
+       "end": 24.467,
+       "text": "E↔D: 9 − 10 = −1; counting the cut directly, 12 → 13, it agrees.",
+       "sceneId": "a01-why2w"
+      },
+      {
+       "start": 24.867,
+       "end": 30.333,
+       "text": "An eight-node graph from an alternating seed: cut 7.",
+       "sceneId": "a02-negative"
+      },
+      {
+       "start": 30.333,
+       "end": 33.578,
+       "text": "The best first step is only −1.",
+       "sceneId": "a02-negative"
+      },
+      {
+       "start": 33.578,
+       "end": 38.378,
+       "text": "But step two is +7: keep two steps, cut 1.",
+       "sceneId": "a02-negative"
+      },
+      {
+       "start": 38.378,
+       "end": 43.622,
+       "text": "A greedy that accepts only gains would stop at 7 right away.",
+       "sceneId": "a02-negative"
+      },
+      {
+       "start": 44.022,
+       "end": 50.156,
+       "text": "Why must a prefix be consecutive? Each gain depends on the steps before it.",
+       "sceneId": "a03-prefix"
+      },
+      {
+       "start": 50.156,
+       "end": 56.956,
+       "text": "Pass 2's D↔B is +2 in sequence, but −12 alone from the start.",
+       "sceneId": "a03-prefix"
+      },
+      {
+       "start": 56.956,
+       "end": 61.156,
+       "text": "So take only the first k steps; k = 0 is valid too.",
+       "sceneId": "a03-prefix"
+      },
+      {
+       "start": 61.556,
+       "end": 65.689,
+       "text": "Change the seed: three seeds reach cut 3.",
+       "sceneId": "a04-seed"
+      },
+      {
+       "start": 65.689,
+       "end": 70.933,
+       "text": "But AB | CDE stays at 5: both trials lose.",
+       "sceneId": "a04-seed"
+      },
+      {
+       "start": 70.933,
+       "end": 76.622,
+       "text": "Reaching DE | ABC needs two pairs at once: a local optimum.",
+       "sceneId": "a04-seed"
+      },
+      {
+       "start": 77.022,
+       "end": 80.489,
+       "text": "Give A area 3 and the rest 1.",
+       "sceneId": "a05-area"
+      },
+      {
+       "start": 80.489,
+       "end": 86.844,
+       "text": "After A↔D the count is still 2 to 3, but the area goes from 4 : 3 to 2 : 5.",
+       "sceneId": "a05-area"
+      },
+      {
+       "start": 86.844,
+       "end": 91.2,
+       "text": "KL keeps only the count; area needs its own check.",
+       "sceneId": "a05-area"
+      },
+      {
+       "start": 91.6,
+       "end": 94.178,
+       "text": "A pass has n/2 steps.",
+       "sceneId": "a06-cost"
+      },
+      {
+       "start": 94.178,
+       "end": 97.867,
+       "text": "Each step looks at up to (n/2)² pairs.",
+       "sceneId": "a06-cost"
+      },
+      {
+       "start": 97.867,
+       "end": 103.333,
+       "text": "A naive pass is about n³; sorting by D prunes a lot.",
+       "sceneId": "a06-cost"
+      },
+      {
+       "start": 103.333,
+       "end": 108.8,
+       "text": "Next module's FM moves one node at a time, for a near-linear pass.",
+       "sceneId": "a06-cost"
+      },
+      {
+       "start": 109.2,
+       "end": 111.267,
+       "text": "Six things to keep.",
+       "sceneId": "a07-summary"
+      },
+      {
+       "start": 124.267,
+       "end": 128.178,
+       "text": "Next: move one node at a time.",
+       "sceneId": "a07-summary"
+      }
+     ],
+     "readingViolations": 0,
+     "bytes": 6022930
+    }
+   }
   },
   {
-   "t": 84.16,
-   "title": "四 · 试探与锁定",
-   "sceneId": "s05-trial1"
-  },
-  {
-   "t": 112.87,
-   "title": "五 · 最佳前缀与回退",
-   "sceneId": "s07-prefix"
-  },
-  {
-   "t": 149.84,
-   "title": "六 · 伪代码与局限",
-   "sceneId": "s09-code"
+   "id": "lab",
+   "kind": "lab",
+   "status": "ready",
+   "title": {
+    "zh": "实验演示",
+    "en": "Lab Walkthrough"
+   },
+   "why": {
+    "zh": "从真实页面录下的操作演示：单步看两次试探交换、负收益让 cut 暂升到 11、回退到最佳前缀，第二轮空前缀停止；换种子 AB | CDE 停在 5，把 A–B 改成 1 重算收益；再在浏览器里写完 best_swap() 和 best_prefix() 并通过全部检查。",
+    "en": "Recorded from the real page: stepping through two trial swaps, a negative gain lifting the cut to 11, the roll-back to the best prefix and the empty prefix that stops pass 2; seed AB | CDE stuck at 5, and A–B set to 1 to recompute the gains; then writing best_swap() and best_prefix() in the browser and passing every check."
+   },
+   "music": {
+    "zh": "本课程原创程序合成配乐（NumPy），CC BY 4.0",
+    "en": "Original score synthesised for this course (NumPy), CC BY 4.0"
+   },
+   "recorded": "scripts/film/recorder.mjs + video/m07-kernighan-lin/walkthrough.mjs",
+   "fps": 30,
+   "size": [
+    1920,
+    1080
+   ],
+   "versions": {
+    "zh": {
+     "src": "lab.zh.mp4",
+     "vtt": "lab.zh.vtt",
+     "poster": "lab.zh.jpg",
+     "duration": 160.87,
+     "captions": "zh+en",
+     "chapters": [
+      {
+       "t": 0.0,
+       "title": "开始",
+       "sceneId": "title"
+      },
+      {
+       "t": 3.2,
+       "title": "实验台",
+       "sceneId": "shot-00"
+      },
+      {
+       "t": 51.96,
+       "title": "换种子、改边权",
+       "sceneId": "shot-06"
+      },
+      {
+       "t": 70.19,
+       "title": "在线编程",
+       "sceneId": "shot-08"
+      },
+      {
+       "t": 132.45,
+       "title": "用你的代码跑",
+       "sceneId": "shot-13"
+      },
+      {
+       "t": 150.63,
+       "title": "挑战",
+       "sceneId": "shot-15"
+      }
+     ],
+     "transcript": [
+      {
+       "start": 3.2,
+       "end": 10.622,
+       "text": "这是本章的实验台：选初始二分，还可以改任意一条边的权重。",
+       "sceneId": "shot-00"
+      },
+      {
+       "start": 10.622,
+       "end": 17.6,
+       "text": "第 1 轮开始：种子 AE | BCD，cut 12，全部解锁。",
+       "sceneId": "shot-01"
+      },
+      {
+       "start": 17.6,
+       "end": 26.133,
+       "text": "第一次试探：候选表里 A↔D 收益 +9 最大，cut 12 → 3，两点锁定。",
+       "sceneId": "shot-02"
+      },
+      {
+       "start": 26.133,
+       "end": 35.111,
+       "text": "第二次试探：剩下的全是负数，照样走 E↔C，收益 −8，cut 暂升到 11。",
+       "sceneId": "shot-03"
+      },
+      {
+       "start": 35.111,
+       "end": 43.867,
+       "text": "本轮结束：累计 +9、+1，金框标出最佳前缀 k = 1，图回退到 cut 3。",
+       "sceneId": "shot-04"
+      },
+      {
+       "start": 43.867,
+       "end": 51.956,
+       "text": "跳到结束：第二轮累计 −8、−6，空前缀胜出，算法停在 cut 3。",
+       "sceneId": "shot-05"
+      },
+      {
+       "start": 51.956,
+       "end": 60.711,
+       "text": "换成种子 AB | CDE：两次试探都亏，第一轮就是空前缀，停在 cut 5。",
+       "sceneId": "shot-06"
+      },
+      {
+       "start": 60.711,
+       "end": 70.189,
+       "text": "回到 AE | BCD，把 A–B 改成 1：初始 cut 变成 8，A↔D 的收益变成 5。",
+       "sceneId": "shot-07"
+      },
+      {
+       "start": 70.189,
+       "end": 80.5,
+       "text": "在线编程：代码在浏览器里运行，不用安装 Python。一轮的框架和外层循环已经写好。",
+       "sceneId": "shot-08"
+      },
+      {
+       "start": 80.5,
+       "end": 88.145,
+       "text": "先运行检查：两个任务都还没写，结果是 INCOMPLETE。",
+       "sceneId": "shot-09"
+      },
+      {
+       "start": 88.145,
+       "end": 111.791,
+       "text": "任务一：在未锁定的左右节点之间找收益最大的一对，g = D(a) + D(b) − 2w；负收益也要返回。",
+       "sceneId": "shot-10"
+      },
+      {
+       "start": 111.791,
+       "end": 123.032,
+       "text": "任务二：最佳前缀。累计收益严格变大才更新，k = 0 是合法答案。",
+       "sceneId": "shot-11"
+      },
+      {
+       "start": 123.032,
+       "end": 132.454,
+       "text": "运行检查：全部通过，包括 120 个随机图上的人数、锁定和“收益 = cut 差”。",
+       "sceneId": "shot-12"
+      },
+      {
+       "start": 132.454,
+       "end": 141.876,
+       "text": "下面用你写的函数跑 6 个情形，逐轮对照课程引擎：交换哪一对、收益、保留几步。",
+       "sceneId": "shot-13"
+      },
+      {
+       "start": 141.876,
+       "end": 150.632,
+       "text": "点新图那一行：第一步 −1，第二步 +7，保留前两步，cut 从 7 降到 1。",
+       "sceneId": "shot-14"
+      },
+      {
+       "start": 150.632,
+       "end": 158.276,
+       "text": "最后做挑战题，确认自己真的懂了。结果只保存在你的浏览器里。",
+       "sceneId": "shot-15"
+      }
+     ],
+     "readingViolations": 0,
+     "bytes": 10774447
+    },
+    "en": {
+     "src": "lab.en.mp4",
+     "vtt": "lab.en.vtt",
+     "poster": "lab.en.jpg",
+     "duration": 151.13,
+     "captions": "en",
+     "chapters": [
+      {
+       "t": 0.0,
+       "title": "START",
+       "sceneId": "title"
+      },
+      {
+       "t": 3.2,
+       "title": "THE LAB",
+       "sceneId": "shot-00"
+      },
+      {
+       "t": 47.47,
+       "title": "SEEDS AND WEIGHTS",
+       "sceneId": "shot-06"
+      },
+      {
+       "t": 65.14,
+       "title": "CODE LAB",
+       "sceneId": "shot-08"
+      },
+      {
+       "t": 123.74,
+       "title": "YOUR CODE, VISUALISED",
+       "sceneId": "shot-13"
+      },
+      {
+       "t": 141.4,
+       "title": "CHALLENGES",
+       "sceneId": "shot-15"
+      }
+     ],
+     "transcript": [
+      {
+       "start": 3.2,
+       "end": 10.133,
+       "text": "This is the chapter's lab: choose the initial bisection, and change any edge's weight.",
+       "sceneId": "shot-00"
+      },
+      {
+       "start": 10.133,
+       "end": 15.2,
+       "text": "Pass 1 starts: seed AE | BCD, cut 12, everything unlocked.",
+       "sceneId": "shot-01"
+      },
+      {
+       "start": 15.2,
+       "end": 22.8,
+       "text": "The first trial: in the candidate table A↔D has the largest gain, +9; cut 12 → 3, and both lock.",
+       "sceneId": "shot-02"
+      },
+      {
+       "start": 22.8,
+       "end": 31.0,
+       "text": "The second trial: everything left is negative; E↔C goes anyway, gain −8, and the cut rises to 11 for now.",
+       "sceneId": "shot-03"
+      },
+      {
+       "start": 31.0,
+       "end": 39.6,
+       "text": "The pass ends: cumulative +9, +1; the gold box marks the best prefix, k = 1, and the graph rolls back to cut 3.",
+       "sceneId": "shot-04"
+      },
+      {
+       "start": 39.6,
+       "end": 47.467,
+       "text": "Jump to the end: pass 2's totals are −8, −6; the empty prefix wins and the algorithm stops at cut 3.",
+       "sceneId": "shot-05"
+      },
+      {
+       "start": 47.467,
+       "end": 55.6,
+       "text": "Switch to seed AB | CDE: both trials lose, pass 1 already keeps the empty prefix, and it stops at cut 5.",
+       "sceneId": "shot-06"
+      },
+      {
+       "start": 55.6,
+       "end": 65.135,
+       "text": "Back to AE | BCD with A–B set to 1: the initial cut becomes 8, and A↔D's gain becomes 5.",
+       "sceneId": "shot-07"
+      },
+      {
+       "start": 65.135,
+       "end": 74.802,
+       "text": "The code lab: your code runs in the browser, with no Python to install. The pass driver and the outer loop are already written.",
+       "sceneId": "shot-08"
+      },
+      {
+       "start": 74.802,
+       "end": 81.268,
+       "text": "Run the checks first: neither task is written yet, so the result is INCOMPLETE.",
+       "sceneId": "shot-09"
+      },
+      {
+       "start": 81.268,
+       "end": 104.127,
+       "text": "Task 1: find the unlocked left/right pair with the largest gain, g = D(a) + D(b) − 2w; return it even when negative.",
+       "sceneId": "shot-10"
+      },
+      {
+       "start": 104.127,
+       "end": 114.937,
+       "text": "Task 2: the best prefix. Update only when the running total is strictly larger; k = 0 is a valid answer.",
+       "sceneId": "shot-11"
+      },
+      {
+       "start": 114.937,
+       "end": 123.737,
+       "text": "Run the checks: everything passes, including side sizes, locking and “gain = cut difference” on 120 random graphs.",
+       "sceneId": "shot-12"
+      },
+      {
+       "start": 123.737,
+       "end": 133.537,
+       "text": "Below, your functions run on six cases, compared pass by pass with the course engine: which pair, what gain, how many steps kept.",
+       "sceneId": "shot-13"
+      },
+      {
+       "start": 133.537,
+       "end": 141.404,
+       "text": "Click the new graph's row: step one is −1, step two +7; keeping two steps takes the cut from 7 to 1.",
+       "sceneId": "shot-14"
+      },
+      {
+       "start": 141.404,
+       "end": 148.537,
+       "text": "Finally, try the challenges to check you really understand. Results stay in your browser.",
+       "sceneId": "shot-15"
+      }
+     ],
+     "readingViolations": 0,
+     "bytes": 9990068
+    }
+   }
   }
- ],
- "scenes": [
-  {
-   "sceneId": "s00-title",
-   "start": 0.0,
-   "end": 3.0
-  },
-  {
-   "sceneId": "s01-hook",
-   "start": 3.0,
-   "end": 20.47
-  },
-  {
-   "sceneId": "s02-dvalue",
-   "start": 20.47,
-   "end": 40.07
-  },
-  {
-   "sceneId": "s03-pairs",
-   "start": 40.07,
-   "end": 56.42
-  },
-  {
-   "sceneId": "s04-minus2w",
-   "start": 56.42,
-   "end": 84.16
-  },
-  {
-   "sceneId": "s05-trial1",
-   "start": 84.16,
-   "end": 96.73
-  },
-  {
-   "sceneId": "s06-trial2",
-   "start": 96.73,
-   "end": 112.87
-  },
-  {
-   "sceneId": "s07-prefix",
-   "start": 112.87,
-   "end": 137.04
-  },
-  {
-   "sceneId": "s08-pass2",
-   "start": 137.04,
-   "end": 149.84
-  },
-  {
-   "sceneId": "s09-code",
-   "start": 149.84,
-   "end": 168.78
-  },
-  {
-   "sceneId": "s10-ab1",
-   "start": 168.78,
-   "end": 183.13
-  },
-  {
-   "sceneId": "s11-limits",
-   "start": 183.13,
-   "end": 198.2
-  }
- ],
- "transcript": [
-  {
-   "start": 3.0,
-   "end": 9.356,
-   "text": "两个机房：左边放 2 个单元，右边放 3 个。人数不能变。",
-   "sceneId": "s01-hook"
-  },
-  {
-   "start": 9.356,
-   "end": 15.267,
-   "text": "跨房间的连线越多，代价越大：现在 cut = 12。",
-   "sceneId": "s01-hook"
-  },
-  {
-   "start": 15.267,
-   "end": 20.067,
-   "text": "能不能用一对一交换，把 cut 降下来？",
-   "sceneId": "s01-hook"
-  },
-  {
-   "start": 20.467,
-   "end": 26.156,
-   "text": "先给每个点算一个数：D = 外部边权 − 内部边权。",
-   "sceneId": "s02-dvalue"
-  },
-  {
-   "start": 26.156,
-   "end": 31.4,
-   "text": "A 的连线全在对面：D(A) = 6 − 0 = 6。",
-   "sceneId": "s02-dvalue"
-  },
-  {
-   "start": 31.4,
-   "end": 35.533,
-   "text": "D 大，说明这个点“想去对面”。",
-   "sceneId": "s02-dvalue"
-  },
-  {
-   "start": 35.533,
-   "end": 39.667,
-   "text": "五个点的 D 值都由当前分组算出。",
-   "sceneId": "s02-dvalue"
-  },
-  {
-   "start": 40.067,
-   "end": 47.311,
-   "text": "交换一对 a、b，收益是 D(a) + D(b) − 2w(a,b)。",
-   "sceneId": "s03-pairs"
-  },
-  {
-   "start": 47.311,
-   "end": 51.667,
-   "text": "把左右各一点配成 6 对，逐一计算。",
-   "sceneId": "s03-pairs"
-  },
-  {
-   "start": 51.667,
-   "end": 56.022,
-   "text": "最大的是 A↔D：6 + 3 − 0 = 9。",
-   "sceneId": "s03-pairs"
-  },
-  {
-   "start": 56.422,
-   "end": 60.111,
-   "text": "为什么要减 2w？看 E 与 D。",
-   "sceneId": "s04-minus2w"
-  },
-  {
-   "start": 60.111,
-   "end": 67.578,
-   "text": "D(E) + D(D) = 9，可是两个 D 都把边 DE 算成了“外部”。",
-   "sceneId": "s04-minus2w"
-  },
-  {
-   "start": 67.578,
-   "end": 73.489,
-   "text": "交换以后，E、D 依旧分处两侧——DE 还是被切。",
-   "sceneId": "s04-minus2w"
-  },
-  {
-   "start": 73.489,
-   "end": 78.067,
-   "text": "这条边被多算了两次，要扣回 2 × 5。",
-   "sceneId": "s04-minus2w"
-  },
-  {
-   "start": 78.067,
-   "end": 83.756,
-   "text": "所以 g(E, D) = 9 − 10 = −1，并不划算。",
-   "sceneId": "s04-minus2w"
-  },
-  {
-   "start": 84.156,
-   "end": 88.067,
-   "text": "第一步：选收益最大的 A↔D。",
-   "sceneId": "s05-trial1"
-  },
-  {
-   "start": 88.067,
-   "end": 91.978,
-   "text": "交换——cut 从 12 降到 3。",
-   "sceneId": "s05-trial1"
-  },
-  {
-   "start": 91.978,
-   "end": 96.333,
-   "text": "A、D 锁定。注意：这还只是试探。",
-   "sceneId": "s05-trial1"
-  },
-  {
-   "start": 96.733,
-   "end": 101.756,
-   "text": "重新计算 D。剩下的候选，收益全是负数。",
-   "sceneId": "s06-trial2"
-  },
-  {
-   "start": 101.756,
-   "end": 107.444,
-   "text": "KL 不停下：照样选最大的那个，E↔C，−8。",
-   "sceneId": "s06-trial2"
-  },
-  {
-   "start": 107.444,
-   "end": 112.467,
-   "text": "cut 暂时升到 11。这一步也只是试探。",
-   "sceneId": "s06-trial2"
-  },
-  {
-   "start": 112.867,
-   "end": 118.333,
-   "text": "一轮走完，回头看累计收益：0、+9、+1。",
-   "sceneId": "s07-prefix"
-  },
-  {
-   "start": 118.333,
-   "end": 122.022,
-   "text": "最大的是前 1 步，累计 +9。",
-   "sceneId": "s07-prefix"
-  },
-  {
-   "start": 122.022,
-   "end": 125.711,
-   "text": "所以只保留连续的前 1 步——",
-   "sceneId": "s07-prefix"
-  },
-  {
-   "start": 125.711,
-   "end": 130.956,
-   "text": "从本轮起点重来：只做 A↔D，cut = 3。",
-   "sceneId": "s07-prefix"
-  },
-  {
-   "start": 130.956,
-   "end": 136.644,
-   "text": "这就是回退：试探可以变差，接受只看最佳前缀。",
-   "sceneId": "s07-prefix"
-  },
-  {
-   "start": 137.044,
-   "end": 140.511,
-   "text": "从 ABC | DE 再来一轮。",
-   "sceneId": "s08-pass2"
-  },
-  {
-   "start": 140.511,
-   "end": 144.2,
-   "text": "累计收益：−8，然后 −6。",
-   "sceneId": "s08-pass2"
-  },
-  {
-   "start": 144.2,
-   "end": 149.444,
-   "text": "都不如什么都不做：空前缀胜出，算法停止。",
-   "sceneId": "s08-pass2"
-  },
-  {
-   "start": 149.844,
-   "end": 154.422,
-   "text": "把规则写成伪代码：外层一轮接一轮。",
-   "sceneId": "s09-code"
-  },
-  {
-   "start": 154.422,
-   "end": 160.111,
-   "text": "内层：选最大收益的一对，交换、锁定、更新 D。",
-   "sceneId": "s09-code"
-  },
-  {
-   "start": 160.111,
-   "end": 165.578,
-   "text": "一轮结束：取最佳前缀，从起点只应用这几步。",
-   "sceneId": "s09-code"
-  },
-  {
-   "start": 165.578,
-   "end": 168.378,
-   "text": "直到最佳前缀为空。",
-   "sceneId": "s09-code"
-  },
-  {
-   "start": 168.778,
-   "end": 172.689,
-   "text": "换一张图：把 AB 从 5 改成 1。",
-   "sceneId": "s10-ab1"
-  },
-  {
-   "start": 172.689,
-   "end": 177.711,
-   "text": "初始 cut 变成 8，A↔D 的收益变成 5。",
-   "sceneId": "s10-ab1"
-  },
-  {
-   "start": 177.711,
-   "end": 182.733,
-   "text": "同一个种子，图一变，所有 D 值都要重算。",
-   "sceneId": "s10-ab1"
-  },
-  {
-   "start": 183.133,
-   "end": 185.267,
-   "text": "KL 的边界：",
-   "sceneId": "s11-limits"
-  },
-  {
-   "start": 185.267,
-   "end": 188.733,
-   "text": "人数平衡不等于面积平衡。",
-   "sceneId": "s11-limits"
-  },
-  {
-   "start": 188.733,
-   "end": 192.867,
-   "text": "从不同种子出发，结果可能不同。",
-   "sceneId": "s11-limits"
-  },
-  {
-   "start": 192.867,
-   "end": 197.0,
-   "text": "下一章 FM：一次只移动一个点。",
-   "sceneId": "s11-limits"
-  }
- ],
- "music": "本课程原创程序合成配乐（NumPy），CC BY 4.0",
- "why": "约 5 分钟：负收益试探、−2w 与回退各留出阅读停顿，其余公共定义回链 Module 03 与基础速查。",
- "readingViolations": 0,
- "fps": 30,
- "size": [
-  1920,
-  1080
  ]
 }

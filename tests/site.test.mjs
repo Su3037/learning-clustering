@@ -48,7 +48,7 @@ test('T01: learners see "Module", Lab/Lesson appear only as source mapping', () 
     if (f.includes('/labs/')) continue; // compatibility stubs mention the old path on purpose
     const visible = fs.readFileSync(f, 'utf8').replace(/<script[\s\S]*?<\/script>/g, '').replace(/<[^>]+>/g, ' ');
     const lines = visible.split(/[。\n]/).filter(l => /\bLab ?0\d\b/.test(l));
-    for (const l of lines) assert.ok(/教师|目录|来源|映射|旧|Lesson|原课程|Issue|实现|仓库/.test(l), `“Lab” used as a learning unit in ${path.relative(SITE, f)}: ${l.trim().slice(0, 80)}`);
+    for (const l of lines) assert.ok(/教师|目录|来源|映射|旧|Lesson|原课程|Issue|实现|仓库|teacher|catalogue|source|mapping|original|repository/i.test(l), `“Lab” used as a learning unit in ${path.relative(SITE, f)}: ${l.trim().slice(0, 80)}`);
   }
 });
 
@@ -94,13 +94,19 @@ for (const id of IDS) {
     assert.ok((page.match(/class="mistake"/g) || []).length >= 3, 'common mistakes');                                            // T07
     const film = JSON.parse(read(`media/${id}/film.json`));
     const films = film.films || [film];
+    if (film.schema === 2) assert.deepEqual(films.map(f => f.kind), ['popular', 'concise', 'advanced', 'lab'], 'four films: popular, concise, advanced, walkthrough');
     for (const f of films) {
       assert.equal(f.status, 'ready');
-      assert.ok(exists(`media/${id}/${f.src}`) && exists(`media/${id}/${f.vtt}`) && exists(`media/${id}/${f.poster}`));
-      assert.equal(f.readingViolations, 0, 'every caption stays at least its reading time');                                     // T14
-      assert.ok(f.chapters.length >= 3 && f.chapters.every((c, i) => i === 0 || c.t > f.chapters[i - 1].t));
-      const vtt = read(`media/${id}/${f.vtt}`);
-      assert.ok(vtt.startsWith('WEBVTT') && (vtt.match(/-->/g) || []).length === f.transcript.length);
+      // Schema 2: one version per language (zh and en), each with its own captions, chapters and transcript.
+      const versions = f.versions ? Object.values(f.versions) : [f];
+      if (f.versions) assert.deepEqual(Object.keys(f.versions).sort(), ['en', 'zh'], `${f.id}: zh and en versions`);
+      for (const v of versions) {
+        assert.ok(exists(`media/${id}/${v.src}`) && exists(`media/${id}/${v.vtt}`) && exists(`media/${id}/${v.poster}`));
+        if (!f.external) assert.equal(v.readingViolations, 0, 'every caption stays at least its reading time');                  // T14
+        assert.ok(v.chapters.length >= 3 && v.chapters.every((c, i) => i === 0 || c.t > v.chapters[i - 1].t));
+        const vtt = read(`media/${id}/${v.vtt}`);
+        assert.ok(vtt.startsWith('WEBVTT') && (vtt.match(/-->/g) || []).length === v.transcript.length);
+      }
     }
     const deck = JSON.parse(read(`slides/${id}/slides.json`));
     assert.equal(deck.status, 'ready');
@@ -109,7 +115,7 @@ for (const id of IDS) {
     const cw = JSON.parse(read(`data/${id}/crosswalk.json`));
     const m = JSON.parse(fs.readFileSync(path.join(ROOT, 'content/modules', id, 'module.json'), 'utf8'));
     assert.deepEqual(cw.objectives.map(o => o.id), m.objectives.map(o => o.id), 'crosswalk covers every objective');
-    const sceneIds = new Set(films.flatMap(f => f.scenes.map(s => s.sceneId))), slideIds = new Set(deck.slides.map(s => s.slideId));
+    const sceneIds = new Set(films.flatMap(f => (f.scenes || []).map(s => s.sceneId))), slideIds = new Set(deck.slides.map(s => s.slideId));
     for (const o of cw.objectives) {
       assert.ok(o.sections.length, `${o.id} has a lesson section`);
       for (const s of o.sceneIds) assert.ok(sceneIds.has(s), `${o.id}: scene ${s} exists in the rendered film`);
@@ -145,8 +151,12 @@ test('GitHub Pages: CSS url() targets exist with exact case; bundled font and it
   assert.ok(urls.length >= 2);
   for (const u of urls) assert.ok(existsExact(path.resolve(SITE, 'assets', u)), `css url ${u}`);
   assert.ok(/Noto Sans SC Course/.test(css.match(/--sans:[^;]+/)[0]));
-  const ofl = read('assets/fonts/OFL.txt');
-  assert.ok(ofl.includes('SIL Open Font License') && ofl.includes('Adobe'));
+  assert.ok(/Noto Serif SC Course/.test(css.match(/--display:[^;]+/)[0]));
+  for (const face of ['noto-sans-sc', 'noto-serif-sc', 'newsreader', 'jetbrains-mono']) {
+    const ofl = read(`assets/fonts/OFL-${face}.txt`);
+    assert.ok(ofl.includes('SIL OPEN FONT LICENSE') && /Copyright/.test(ofl), face);
+    assert.ok(!/Reserved Font Name/i.test(ofl.split('---')[0]), `${face}: subsetting is only allowed without a Reserved Font Name`);
+  }
 });
 
 test('font subset covers the Chinese text of every page (the rest falls back to system fonts)', () => {
@@ -162,4 +172,12 @@ test('GitHub Pages: no Jekyll processing, and every module page is reachable fro
   assert.ok(exists('.nojekyll'));
   const home = read('index.html');
   for (const id of IDS) assert.ok(home.includes(`modules/${id}/index.html`) || home.includes(`modules/${id}/`), id);
+});
+
+test('inline module imports use relative or absolute specifiers', () => {
+  for (const f of htmlFiles()) {
+    const html = fs.readFileSync(f, 'utf8');
+    for (const m of html.matchAll(/\bimport\b[^'"]*?from\s*['"]([^'"]+)['"]/g))
+      assert.ok(/^(\.{1,2}\/|\/|https?:)/.test(m[1]), `bare module specifier "${m[1]}" in ${path.relative(SITE, f)}`);
+  }
 });

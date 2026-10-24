@@ -1,575 +1,2854 @@
 {
+ "schema": 2,
  "status": "ready",
  "films": [
   {
-   "id": "circles",
-   "title": "圈子从哪里来",
+   "id": "story",
+   "kind": "popular",
    "status": "ready",
-   "src": "circles.mp4",
-   "vtt": "circles.zh.vtt",
-   "poster": "circles-poster.jpg",
-   "duration": 176.9,
-   "chapters": [
-    {
-     "t": 3.0,
-     "title": "序 · 通讯录",
-     "sceneId": "s01-contacts"
-    },
-    {
-     "t": 14.24,
-     "title": "一 · 一个极简的办法",
-     "sceneId": "s02-gather"
-    },
-    {
-     "t": 29.84,
-     "title": "二 · 芯片里的同一个问题",
-     "sceneId": "s03-chip"
-    },
-    {
-     "t": 47.09,
-     "title": "三 · 一条局部规则",
-     "sceneId": "s04-rule"
-    },
-    {
-     "t": 62.56,
-     "title": "四 · 逐层拆开",
-     "sceneId": "s05-labels"
-    },
-    {
-     "t": 112.42,
-     "title": "五 · 同步、平票与边权",
-     "sceneId": "s08-sync"
-    },
-    {
-     "t": 143.8,
-     "title": "六 · 回到芯片",
-     "sceneId": "s10-circuit"
-    }
-   ],
-   "scenes": [
-    {
-     "sceneId": "s00-title",
-     "start": 0.0,
-     "end": 3.0
-    },
-    {
-     "sceneId": "s01-contacts",
-     "start": 3.0,
-     "end": 14.24
-    },
-    {
-     "sceneId": "s02-gather",
-     "start": 14.24,
-     "end": 29.84
-    },
-    {
-     "sceneId": "s03-chip",
-     "start": 29.84,
-     "end": 47.09
-    },
-    {
-     "sceneId": "s04-rule",
-     "start": 47.09,
-     "end": 62.56
-    },
-    {
-     "sceneId": "s05-labels",
-     "start": 62.56,
-     "end": 78.02
-    },
-    {
-     "sceneId": "s06-vote",
-     "start": 78.02,
-     "end": 96.29
-    },
-    {
-     "sceneId": "s07-round",
-     "start": 96.29,
-     "end": 112.42
-    },
-    {
-     "sceneId": "s08-sync",
-     "start": 112.42,
-     "end": 128.78
-    },
-    {
-     "sceneId": "s09-bridge",
-     "start": 128.78,
-     "end": 143.8
-    },
-    {
-     "sceneId": "s10-circuit",
-     "start": 143.8,
-     "end": 162.51
-    },
-    {
-     "sceneId": "s11-limits",
-     "start": 162.51,
-     "end": 176.91
-    }
-   ],
-   "transcript": [
-    {
-     "start": 3.0,
-     "end": 6.467,
-     "text": "一本通讯录，几十个名字。",
-     "sceneId": "s01-contacts"
-    },
-    {
-     "start": 6.467,
-     "end": 9.711,
-     "text": "只要看：谁和谁常联系。",
-     "sceneId": "s01-contacts"
-    },
-    {
-     "start": 9.711,
-     "end": 13.844,
-     "text": "没有人画圈，圈子能自己浮现吗？",
-     "sceneId": "s01-contacts"
-    },
-    {
-     "start": 14.244,
-     "end": 18.822,
-     "text": "每个人看看朋友们现在属于哪个圈子，",
-     "sceneId": "s02-gather"
-    },
-    {
-     "start": 18.822,
-     "end": 22.511,
-     "text": "然后加入联系最多的那一个。",
-     "sceneId": "s02-gather"
-    },
-    {
-     "start": 22.511,
-     "end": 24.867,
-     "text": "一遍遍重复……",
-     "sceneId": "s02-gather"
-    },
-    {
-     "start": 24.867,
-     "end": 29.444,
-     "text": "圈子自己浮现，切开的联系越来越少。",
-     "sceneId": "s02-gather"
-    },
-    {
-     "start": 29.844,
-     "end": 35.311,
-     "text": "芯片里是同一个问题：单元由导线连成一张网。",
-     "sceneId": "s03-chip"
-    },
-    {
-     "start": 35.311,
-     "end": 40.333,
-     "text": "按位置拿尺子切成三块，会切断很多连线。",
-     "sceneId": "s03-chip"
-    },
-    {
-     "start": 40.333,
-     "end": 46.689,
-     "text": "试遍所有分法？光是 24 个单元平分三组就有十五亿种。",
-     "sceneId": "s03-chip"
-    },
-    {
-     "start": 47.089,
-     "end": 53.667,
-     "text": "把通讯录的规则借过来：看邻居的标签，跟最强的那一组。",
-     "sceneId": "s04-rule"
-    },
-    {
-     "start": 53.667,
-     "end": 57.133,
-     "text": "这一句话，留下六个问题。",
-     "sceneId": "s04-rule"
-    },
-    {
-     "start": 57.133,
-     "end": 62.156,
-     "text": "“最强”怎么算？谁先更新？什么时候停？",
-     "sceneId": "s04-rule"
-    },
-    {
-     "start": 62.556,
-     "end": 67.133,
-     "text": "回到课程的五节点图。先分清两个词。",
-     "sceneId": "s05-labels"
-    },
-    {
-     "start": 67.133,
-     "end": 72.822,
-     "text": "名字是身份，永远不变；标签是归属，可以改写。",
-     "sceneId": "s05-labels"
-    },
-    {
-     "start": 72.822,
-     "end": 77.622,
-     "text": "开始时，每个点的标签就是自己的名字。",
-     "sceneId": "s05-labels"
-    },
-    {
-     "start": 78.022,
-     "end": 82.822,
-     "text": "轮到 C。A 已经改为标签 B，B 仍是 B。",
-     "sceneId": "s06-vote"
-    },
-    {
-     "start": 82.822,
-     "end": 87.844,
-     "text": "同一标签的边权加起来：B = 1 + 4 = 5。",
-     "sceneId": "s06-vote"
-    },
-    {
-     "start": 87.844,
-     "end": 92.2,
-     "text": "D = 2，E = 1。C 的标签改为 B。",
-     "sceneId": "s06-vote"
-    },
-    {
-     "start": 92.2,
-     "end": 95.889,
-     "text": "比的是权重之和，不是人数。",
-     "sceneId": "s06-vote"
-    },
-    {
-     "start": 96.289,
-     "end": 102.644,
-     "text": "一整轮：A、B、C、D、E 依次更新，每次立刻写回。",
-     "sceneId": "s07-round"
-    },
-    {
-     "start": 102.644,
-     "end": 107.222,
-     "text": "第 1 轮结束：B B B E E，改了 3 个。",
-     "sceneId": "s07-round"
-    },
-    {
-     "start": 107.222,
-     "end": 112.022,
-     "text": "第 2 轮全部不变，才确认稳定：共 2 轮。",
-     "sceneId": "s07-round"
-    },
-    {
-     "start": 112.422,
-     "end": 116.556,
-     "text": "换成同步：大家读同一张旧快照。",
-     "sceneId": "s08-sync"
-    },
-    {
-     "start": 116.556,
-     "end": 122.022,
-     "text": "A 读到 B，B 读到 A——同时交换，再换回来。",
-     "sceneId": "s08-sync"
-    },
-    {
-     "start": 122.022,
-     "end": 128.378,
-     "text": "状态重复，永远停不下：这叫 cycle，不能叫收敛。",
-     "sceneId": "s08-sync"
-    },
-    {
-     "start": 128.778,
-     "end": 133.578,
-     "text": "把 C–D 这座桥加粗到 10，重新运行。",
-     "sceneId": "s09-bridge"
-    },
-    {
-     "start": 133.578,
-     "end": 138.822,
-     "text": "D 把 C 拉了过去：AB | CDE，cut 5。",
-     "sceneId": "s09-bridge"
-    },
-    {
-     "start": 138.822,
-     "end": 143.4,
-     "text": "改了参数，要从同一个起点重新比较。",
-     "sceneId": "s09-bridge"
-    },
-    {
-     "start": 143.8,
-     "end": 147.044,
-     "text": "回到 24 个单元的电路。",
-     "sceneId": "s10-circuit"
-    },
-    {
-     "start": 147.044,
-     "end": 150.511,
-     "text": "颜色沿着最强的连线扩散。",
-     "sceneId": "s10-circuit"
-    },
-    {
-     "start": 150.511,
-     "end": 155.089,
-     "text": "几轮之后，各块之间只剩很少的连线。",
-     "sceneId": "s10-circuit"
-    },
-    {
-     "start": 155.089,
-     "end": 162.111,
-     "text": "尺子切 88，标签传播只切 2——这只是这张虚构图上的结果。",
-     "sceneId": "s10-circuit"
-    },
-    {
-     "start": 162.511,
-     "end": 165.089,
-     "text": "标签传播的边界：",
-     "sceneId": "s11-limits"
-    },
-    {
-     "start": 165.089,
-     "end": 169.222,
-     "text": "规则一变，轮数和结果都可能变。",
-     "sceneId": "s11-limits"
-    },
-    {
-     "start": 169.222,
-     "end": 171.578,
-     "text": "同步可能振荡。",
-     "sceneId": "s11-limits"
-    },
-    {
-     "start": 171.578,
-     "end": 175.711,
-     "text": "下一模块：用全图的谱信息来分。",
-     "sceneId": "s11-limits"
-    }
-   ],
-   "music": "本课程原创程序合成配乐（NumPy），CC BY 4.0",
-   "why": "核心片约 3 分半：通讯录→芯片→一条规则→逐层拆开；慢速推演另成一段，一票一票走完 G01。",
-   "readingViolations": 0,
+   "external": true,
+   "title": {
+    "zh": "圈子从哪里来",
+    "en": "Where Do Clusters Come From?"
+   },
+   "why": {
+    "zh": "作者原作的科普片（第四版），原样收录：从通讯录到芯片，再逐层拆开九层规则。",
+    "en": "The author's original popular-science film (version 4), included as made: from a contact list to a chip, then the rule taken apart in nine layers."
+   },
+   "music": {
+    "zh": "《We Never (Remix)（若如初见）》Hi Noise / 秋成（第三方录音，不在本课程许可范围内）",
+    "en": "“We Never (Remix)” by Hi Noise / 秋成 (third-party recording, not covered by this course's licences)"
+   },
+   "source": {
+    "repository": "https://github.com/Su3037/clustering-lab5-label-propagation",
+    "commit": "7b4eca7787d532d30c79659c104798d57f8f3495",
+    "file": "site/media/circles.mp4"
+   },
    "fps": 30,
    "size": [
     1920,
     1080
+   ],
+   "versions": {
+    "zh": {
+     "src": "story.mp4",
+     "vtt": "story.zh.vtt",
+     "poster": "story.jpg",
+     "duration": 379.64,
+     "captions": "zh+en",
+     "chapters": [
+      {
+       "t": 0.0,
+       "title": "序 · 通讯录",
+       "sceneId": "contacts"
+      },
+      {
+       "t": 34.17,
+       "title": "一 · 一个极简的办法",
+       "sceneId": "history"
+      },
+      {
+       "t": 51.18,
+       "title": "二 · 芯片里的同一个问题",
+       "sceneId": "chip"
+      },
+      {
+       "t": 85.22,
+       "title": "三 · 尺子与穷举",
+       "sceneId": "ruler"
+      },
+      {
+       "t": 119.27,
+       "title": "四 · 一条局部规则",
+       "sceneId": "rule"
+      },
+      {
+       "t": 189.82,
+       "title": "第 1 层 · 标签",
+       "sceneId": "names"
+      },
+      {
+       "t": 207.23,
+       "title": "第 2 层 · 怎样算最强",
+       "sceneId": "weights"
+      },
+      {
+       "t": 227.44,
+       "title": "第 3 层 · 一次更新",
+       "sceneId": "update"
+      },
+      {
+       "t": 241.0,
+       "title": "第 4 层 · 一整轮",
+       "sceneId": "round1"
+      },
+      {
+       "t": 258.02,
+       "title": "第 5 层 · 何时停止",
+       "sceneId": "round2"
+      },
+      {
+       "t": 275.04,
+       "title": "第 6 层 · 同时还是轮流",
+       "sceneId": "sync"
+      },
+      {
+       "t": 292.32,
+       "title": "第 7 层 · 分得好不好",
+       "sceneId": "cut"
+      },
+      {
+       "t": 309.09,
+       "title": "第 8 层 · 回到芯片",
+       "sceneId": "payoff"
+      },
+      {
+       "t": 325.98,
+       "title": "第 9 层 · 它做不到的事",
+       "sceneId": "limits"
+      },
+      {
+       "t": 343.02,
+       "title": "现实中的用法",
+       "sceneId": "eda"
+      }
+     ],
+     "transcript": [
+      {
+       "start": 0.6,
+       "end": 4.6,
+       "text": "打开通讯录，几百个名字。"
+      },
+      {
+       "start": 4.8,
+       "end": 10.5,
+       "text": "要把他们分成几个圈子，你会怎么分？"
+      },
+      {
+       "start": 11.0,
+       "end": 14.2,
+       "text": "你不需要知道每个人是谁，"
+      },
+      {
+       "start": 14.4,
+       "end": 17.2,
+       "text": "只要看：谁和谁常联系。"
+      },
+      {
+       "start": 25.0,
+       "end": 29.0,
+       "text": "好的分组：圈内联系紧，圈与圈之间联系少。"
+      },
+      {
+       "start": 29.2,
+       "end": 34.0,
+       "text": "网络科学把这件事叫作“社群发现”。"
+      },
+      {
+       "start": 34.4,
+       "end": 38.4,
+       "text": "2007 年，三位研究者提出一个极简的办法。"
+      },
+      {
+       "start": 38.6,
+       "end": 42.6,
+       "text": "每个人看看朋友们现在属于哪个圈子，"
+      },
+      {
+       "start": 42.8,
+       "end": 46.8,
+       "text": "然后加入联系最多的那一个。"
+      },
+      {
+       "start": 47.0,
+       "end": 51.0,
+       "text": "一遍遍重复，圈子自己浮现。"
+      },
+      {
+       "start": 51.4,
+       "end": 55.4,
+       "text": "同样的问题，藏在每一块芯片里。"
+      },
+      {
+       "start": 55.6,
+       "end": 59.6,
+       "text": "几百万个单元，由导线连成一张网。"
+      },
+      {
+       "start": 59.8,
+       "end": 63.8,
+       "text": "设计时，EDA 软件要先把它们分成几块。"
+      },
+      {
+       "start": 64.0,
+       "end": 68.0,
+       "text": "为什么要在乎怎么分？"
+      },
+      {
+       "start": 68.4,
+       "end": 72.4,
+       "text": "同一块里的单元，用短导线相连。"
+      },
+      {
+       "start": 72.6,
+       "end": 76.6,
+       "text": "分在两块的单元，只能靠长导线。"
+      },
+      {
+       "start": 76.8,
+       "end": 80.8,
+       "text": "导线越长，信号越慢，也越耗电。"
+      },
+      {
+       "start": 81.0,
+       "end": 85.0,
+       "text": "所以目标和通讯录一样：块内紧，块间少。"
+      },
+      {
+       "start": 85.4,
+       "end": 89.4,
+       "text": "看一个 24 个单元的小例子。"
+      },
+      {
+       "start": 89.6,
+       "end": 93.6,
+       "text": "最直接的办法：拿尺子，按位置切成三块。"
+      },
+      {
+       "start": 93.8,
+       "end": 97.6,
+       "text": "很整齐。可它切断了多少连线？"
+      },
+      {
+       "start": 97.8,
+       "end": 102.3,
+       "text": "切断的权重是 88，全部 202：将近一半。"
+      },
+      {
+       "start": 102.7,
+       "end": 106.7,
+       "text": "那就试遍所有分法，挑最好的？"
+      },
+      {
+       "start": 106.9,
+       "end": 110.9,
+       "text": "24 个单元平分三组，约 15.8 亿种分法。"
+      },
+      {
+       "start": 111.1,
+       "end": 115.1,
+       "text": "上百万个单元呢？分法的数字有 47 万位。"
+      },
+      {
+       "start": 115.3,
+       "end": 119.1,
+       "text": "一个个试，永远试不完。"
+      },
+      {
+       "start": 119.5,
+       "end": 123.5,
+       "text": "那就借用通讯录里的那条规则："
+      },
+      {
+       "start": 123.7,
+       "end": 127.7,
+       "text": "每个单元看看邻居们现在的标签，"
+      },
+      {
+       "start": 127.9,
+       "end": 131.9,
+       "text": "加入连接最强的那一组。"
+      },
+      {
+       "start": 132.1,
+       "end": 136.0,
+       "text": "这就是标签传播。"
+      },
+      {
+       "start": 136.6,
+       "end": 141.0,
+       "text": "规则只有一句话，细节却很要紧："
+      },
+      {
+       "start": 141.4,
+       "end": 146.0,
+       "text": "“最强”怎么算？谁先更新？"
+      },
+      {
+       "start": 146.4,
+       "end": 151.0,
+       "text": "什么时候停？它一定会停吗？"
+      },
+      {
+       "start": 153.6,
+       "end": 158.4,
+       "text": "下半部分，用老师给的五节点图，一层层拆开。"
+      },
+      {
+       "start": 159.0,
+       "end": 166.0,
+       "text": "停在这里想一想：如果是你，会怎么回答？"
+      },
+      {
+       "start": 177.0,
+       "end": 185.0,
+       "text": "九层，从浅到深。"
+      },
+      {
+       "start": 190.4,
+       "end": 194.4,
+       "text": "第一层：标签。"
+      },
+      {
+       "start": 194.6,
+       "end": 200.4,
+       "text": "开始时，每个点的标签就是自己的名字。"
+      },
+      {
+       "start": 200.8,
+       "end": 204.0,
+       "text": "名字是身份，永远不变；"
+      },
+      {
+       "start": 204.2,
+       "end": 207.1,
+       "text": "标签是归属，会被改写。"
+      },
+      {
+       "start": 207.4,
+       "end": 211.4,
+       "text": "第二层：“最强”怎么算？"
+      },
+      {
+       "start": 211.6,
+       "end": 215.8,
+       "text": "A 的三个邻居里，B 和 C 带着标签 B，D 带着 D。"
+      },
+      {
+       "start": 216.0,
+       "end": 221.6,
+       "text": "数人头，B 两票；加权重，B 只有 2，D 有 4。"
+      },
+      {
+       "start": 222.1,
+       "end": 227.3,
+       "text": "所以规则是：把同标签邻居的边权加起来，取最大。"
+      },
+      {
+       "start": 227.6,
+       "end": 232.0,
+       "text": "第三层：一次更新。看 C。"
+      },
+      {
+       "start": 232.2,
+       "end": 236.4,
+       "text": "邻居 A、B 已经是 B；D 是 D，E 是 E。"
+      },
+      {
+       "start": 236.6,
+       "end": 240.8,
+       "text": "同标签先相加：B 是 1 + 4 = 5，D 是 2，E 是 1。"
+      },
+      {
+       "start": 241.2,
+       "end": 245.4,
+       "text": "第四层：一整轮，按 A 到 E 依次更新。"
+      },
+      {
+       "start": 245.6,
+       "end": 249.6,
+       "text": "B 立刻读到 A 的新标签：这叫异步更新。"
+      },
+      {
+       "start": 249.8,
+       "end": 253.6,
+       "text": "C 改为 B，就是刚才那一步。"
+      },
+      {
+       "start": 253.8,
+       "end": 257.9,
+       "text": "D 改为 E，E 保持。第一轮结束。"
+      },
+      {
+       "start": 258.2,
+       "end": 262.2,
+       "text": "第五层：什么时候停？再问一遍每个点。"
+      },
+      {
+       "start": 262.4,
+       "end": 266.4,
+       "text": "整整一轮，没有一个点改变。"
+      },
+      {
+       "start": 266.6,
+       "end": 270.6,
+       "text": "只有整轮零变化，才能确认稳定。"
+      },
+      {
+       "start": 270.8,
+       "end": 274.9,
+       "text": "否则后面的点一改，前面的点可能又要改。"
+      },
+      {
+       "start": 275.4,
+       "end": 279.4,
+       "text": "第六层：如果所有点同时更新呢？"
+      },
+      {
+       "start": 279.6,
+       "end": 283.6,
+       "text": "两个点，各自读对方的旧标签——"
+      },
+      {
+       "start": 283.8,
+       "end": 287.8,
+       "text": "A 变成 B，B 变成 A，再换回来：永远停不下来。"
+      },
+      {
+       "start": 288.0,
+       "end": 292.2,
+       "text": "轮流更新时，B 读到 A 的新标签，两者一致。"
+      },
+      {
+       "start": 292.6,
+       "end": 296.6,
+       "text": "第七层：分得好不好？看被切开的边。"
+      },
+      {
+       "start": 296.8,
+       "end": 300.8,
+       "text": "C–D 权重 2，C–E 权重 1。"
+      },
+      {
+       "start": 301.0,
+       "end": 305.0,
+       "text": "cutsize 是被切开的权重之和：2 + 1 = 3。"
+      },
+      {
+       "start": 305.2,
+       "end": 309.0,
+       "text": "把 C–D 加强到 10，边界立刻移动。"
+      },
+      {
+       "start": 309.4,
+       "end": 313.4,
+       "text": "第八层：回到 24 个单元，每个从自己的标签出发。"
+      },
+      {
+       "start": 313.6,
+       "end": 317.6,
+       "text": "颜色沿着最强的连线扩散。"
+      },
+      {
+       "start": 317.8,
+       "end": 321.8,
+       "text": "每一轮只读每条连线两次：工作量和连线数成正比。"
+      },
+      {
+       "start": 322.0,
+       "end": 325.9,
+       "text": "第 5 轮零变化。只切开 2，尺子切开 88。"
+      },
+      {
+       "start": 326.2,
+       "end": 330.2,
+       "text": "第九层：它做不到的事。"
+      },
+      {
+       "start": 330.4,
+       "end": 334.4,
+       "text": "它不保证分成几组，也不保证每组一样大。"
+      },
+      {
+       "start": 334.6,
+       "end": 338.6,
+       "text": "换个访问顺序，标签名和轮数都可能变。"
+      },
+      {
+       "start": 338.8,
+       "end": 342.9,
+       "text": "它给出的是线索，不是最终答案。"
+      },
+      {
+       "start": 343.2,
+       "end": 347.2,
+       "text": "在芯片设计中，聚类常用来先把紧密的单元收成团，"
+      },
+      {
+       "start": 347.4,
+       "end": 351.3,
+       "text": "让电路图变小，再交给更精细的划分与布局。"
+      },
+      {
+       "start": 351.6,
+       "end": 356.0,
+       "text": "通讯录里的圈子，芯片里的分块，是同一个问题。"
+      },
+      {
+       "start": 356.2,
+       "end": 360.3,
+       "text": "没有人画圈。圈子，从连接里长出来。"
+      },
+      {
+       "start": 361.0,
+       "end": 366.0,
+       "text": "去实验室改一条边的权重，看看边界会怎么走。"
+      }
+     ],
+     "bytes": 44347523
+    },
+    "en": {
+     "src": "story.mp4",
+     "vtt": "story.en.vtt",
+     "poster": "story.jpg",
+     "duration": 379.64,
+     "captions": "zh+en",
+     "chapters": [
+      {
+       "t": 0.0,
+       "title": "PROLOGUE · CONTACTS",
+       "sceneId": "contacts"
+      },
+      {
+       "t": 34.17,
+       "title": "I · A VERY SIMPLE IDEA",
+       "sceneId": "history"
+      },
+      {
+       "t": 51.18,
+       "title": "II · THE SAME PROBLEM IN A CHIP",
+       "sceneId": "chip"
+      },
+      {
+       "t": 85.22,
+       "title": "III · THE RULER AND BRUTE FORCE",
+       "sceneId": "ruler"
+      },
+      {
+       "t": 119.27,
+       "title": "IV · ONE LOCAL RULE",
+       "sceneId": "rule"
+      },
+      {
+       "t": 189.82,
+       "title": "LAYER 1 · LABELS",
+       "sceneId": "names"
+      },
+      {
+       "t": 207.23,
+       "title": "LAYER 2 · WHAT \"STRONGEST\" MEANS",
+       "sceneId": "weights"
+      },
+      {
+       "t": 227.44,
+       "title": "LAYER 3 · ONE UPDATE",
+       "sceneId": "update"
+      },
+      {
+       "t": 241.0,
+       "title": "LAYER 4 · A WHOLE ROUND",
+       "sceneId": "round1"
+      },
+      {
+       "t": 258.02,
+       "title": "LAYER 5 · WHEN TO STOP",
+       "sceneId": "round2"
+      },
+      {
+       "t": 275.04,
+       "title": "LAYER 6 · ALL AT ONCE, OR IN TURN",
+       "sceneId": "sync"
+      },
+      {
+       "t": 292.32,
+       "title": "LAYER 7 · IS THE SPLIT GOOD?",
+       "sceneId": "cut"
+      },
+      {
+       "t": 309.09,
+       "title": "LAYER 8 · BACK TO THE CHIP",
+       "sceneId": "payoff"
+      },
+      {
+       "t": 325.98,
+       "title": "LAYER 9 · WHAT IT CANNOT DO",
+       "sceneId": "limits"
+      },
+      {
+       "t": 343.02,
+       "title": "IN PRACTICE",
+       "sceneId": "eda"
+      }
+     ],
+     "transcript": [
+      {
+       "start": 0.6,
+       "end": 4.6,
+       "text": "Open your contacts: hundreds of names."
+      },
+      {
+       "start": 4.8,
+       "end": 10.5,
+       "text": "How would you sort them into circles?"
+      },
+      {
+       "start": 11.0,
+       "end": 14.2,
+       "text": "You don't need to know who anyone is."
+      },
+      {
+       "start": 14.4,
+       "end": 17.2,
+       "text": "Just look at who keeps in touch with whom."
+      },
+      {
+       "start": 25.0,
+       "end": 29.0,
+       "text": "A good grouping: tight inside, few links between."
+      },
+      {
+       "start": 29.2,
+       "end": 34.0,
+       "text": "Network science calls this community detection."
+      },
+      {
+       "start": 34.4,
+       "end": 38.4,
+       "text": "In 2007, three researchers proposed a strikingly simple method."
+      },
+      {
+       "start": 38.6,
+       "end": 42.6,
+       "text": "Each person checks which circle their friends are in now,"
+      },
+      {
+       "start": 42.8,
+       "end": 46.8,
+       "text": "and joins the one they are most connected to."
+      },
+      {
+       "start": 47.0,
+       "end": 51.0,
+       "text": "Repeat, and the circles appear on their own."
+      },
+      {
+       "start": 51.4,
+       "end": 55.4,
+       "text": "The same problem hides inside every chip."
+      },
+      {
+       "start": 55.6,
+       "end": 59.6,
+       "text": "Millions of cells, wired into one network."
+      },
+      {
+       "start": 59.8,
+       "end": 63.8,
+       "text": "To design it, EDA software first splits them into blocks."
+      },
+      {
+       "start": 64.0,
+       "end": 68.0,
+       "text": "Why does the split matter?"
+      },
+      {
+       "start": 68.4,
+       "end": 72.4,
+       "text": "Cells in the same block connect with short wires."
+      },
+      {
+       "start": 72.6,
+       "end": 76.6,
+       "text": "Cells in different blocks need long wires."
+      },
+      {
+       "start": 76.8,
+       "end": 80.8,
+       "text": "Longer wires mean slower signals and more power."
+      },
+      {
+       "start": 81.0,
+       "end": 85.0,
+       "text": "So the goal matches your contacts: tight inside, few between."
+      },
+      {
+       "start": 85.4,
+       "end": 89.4,
+       "text": "Take a small example: 24 cells."
+      },
+      {
+       "start": 89.6,
+       "end": 93.6,
+       "text": "The obvious approach: a ruler, three blocks by position."
+      },
+      {
+       "start": 93.8,
+       "end": 97.6,
+       "text": "Neat. But how much wiring does it cut?"
+      },
+      {
+       "start": 97.8,
+       "end": 102.3,
+       "text": "It cuts weight 88 out of 202: almost half."
+      },
+      {
+       "start": 102.7,
+       "end": 106.7,
+       "text": "Then why not try every split and keep the best?"
+      },
+      {
+       "start": 106.9,
+       "end": 110.9,
+       "text": "24 cells into three equal groups: about 1.58 billion ways."
+      },
+      {
+       "start": 111.1,
+       "end": 115.1,
+       "text": "A million cells? The count itself has 477,121 digits."
+      },
+      {
+       "start": 115.3,
+       "end": 119.1,
+       "text": "Trying them one by one would never finish."
+      },
+      {
+       "start": 119.5,
+       "end": 123.5,
+       "text": "So borrow the rule from your contacts:"
+      },
+      {
+       "start": 123.7,
+       "end": 127.7,
+       "text": "each cell looks at its neighbours' current labels,"
+      },
+      {
+       "start": 127.9,
+       "end": 131.9,
+       "text": "and joins the group it is most strongly wired to."
+      },
+      {
+       "start": 132.1,
+       "end": 136.0,
+       "text": "This is label propagation."
+      },
+      {
+       "start": 136.6,
+       "end": 141.0,
+       "text": "One sentence of rule, but the details matter:"
+      },
+      {
+       "start": 141.4,
+       "end": 146.0,
+       "text": "What counts as strongest? Who updates first?"
+      },
+      {
+       "start": 146.4,
+       "end": 151.0,
+       "text": "When does it stop? Does it always stop?"
+      },
+      {
+       "start": 153.6,
+       "end": 158.4,
+       "text": "In part two, we take it apart layer by layer on the teacher's five-node graph."
+      },
+      {
+       "start": 159.0,
+       "end": 166.0,
+       "text": "Pause here: how would you answer them?"
+      },
+      {
+       "start": 177.0,
+       "end": 185.0,
+       "text": "Nine layers, from shallow to deep."
+      },
+      {
+       "start": 190.4,
+       "end": 194.4,
+       "text": "Layer one: labels."
+      },
+      {
+       "start": 194.6,
+       "end": 200.4,
+       "text": "At the start, every node's label is its own name."
+      },
+      {
+       "start": 200.8,
+       "end": 204.0,
+       "text": "The name is its identity and never changes;"
+      },
+      {
+       "start": 204.2,
+       "end": 207.1,
+       "text": "the label is where it belongs, and it can be rewritten."
+      },
+      {
+       "start": 207.4,
+       "end": 211.4,
+       "text": "Layer two: what counts as strongest?"
+      },
+      {
+       "start": 211.6,
+       "end": 215.8,
+       "text": "Of A's three neighbours, B and C carry label B, D carries D."
+      },
+      {
+       "start": 216.0,
+       "end": 221.6,
+       "text": "By headcount B has two votes; by weight B has 2 and D has 4."
+      },
+      {
+       "start": 222.1,
+       "end": 227.3,
+       "text": "So the rule: add up edge weights per label, take the largest."
+      },
+      {
+       "start": 227.6,
+       "end": 232.0,
+       "text": "Layer three: one update. Watch C."
+      },
+      {
+       "start": 232.2,
+       "end": 236.4,
+       "text": "Neighbours A and B already carry B; D carries D, E carries E."
+      },
+      {
+       "start": 236.6,
+       "end": 240.8,
+       "text": "Same labels add up first: B is 1 + 4 = 5, D is 2, E is 1."
+      },
+      {
+       "start": 241.2,
+       "end": 245.4,
+       "text": "Layer four: a full round, A to E in order."
+      },
+      {
+       "start": 245.6,
+       "end": 249.6,
+       "text": "B already sees A's new label: this is asynchronous updating."
+      },
+      {
+       "start": 249.8,
+       "end": 253.6,
+       "text": "C becomes B, the step we just saw."
+      },
+      {
+       "start": 253.8,
+       "end": 257.9,
+       "text": "D becomes E, E stays. Round one ends."
+      },
+      {
+       "start": 258.2,
+       "end": 262.2,
+       "text": "Layer five: when to stop? Ask every node again."
+      },
+      {
+       "start": 262.4,
+       "end": 266.4,
+       "text": "A whole round, and no node changes."
+      },
+      {
+       "start": 266.6,
+       "end": 270.6,
+       "text": "Only a full round with zero changes confirms it is stable."
+      },
+      {
+       "start": 270.8,
+       "end": 274.9,
+       "text": "Otherwise a later change could force an earlier node to change again."
+      },
+      {
+       "start": 275.4,
+       "end": 279.4,
+       "text": "Layer six: what if every node updates at once?"
+      },
+      {
+       "start": 279.6,
+       "end": 283.6,
+       "text": "Two nodes, each reading the other's old label..."
+      },
+      {
+       "start": 283.8,
+       "end": 287.8,
+       "text": "A becomes B, B becomes A, and back again: it never stops."
+      },
+      {
+       "start": 288.0,
+       "end": 292.2,
+       "text": "Taking turns, B reads A's new label and they agree."
+      },
+      {
+       "start": 292.6,
+       "end": 296.6,
+       "text": "Layer seven: is the split good? Look at the cut edges."
+      },
+      {
+       "start": 296.8,
+       "end": 300.8,
+       "text": "C–D has weight 2, C–E has weight 1."
+      },
+      {
+       "start": 301.0,
+       "end": 305.0,
+       "text": "Cutsize is the sum of cut weights: 2 + 1 = 3."
+      },
+      {
+       "start": 305.2,
+       "end": 309.0,
+       "text": "Strengthen C–D to 10 and the boundary moves."
+      },
+      {
+       "start": 309.4,
+       "end": 313.4,
+       "text": "Layer eight: back to the 24 cells, each starting with its own label."
+      },
+      {
+       "start": 313.6,
+       "end": 317.6,
+       "text": "Colour spreads along the strongest wires."
+      },
+      {
+       "start": 317.8,
+       "end": 321.8,
+       "text": "Each round reads every wire twice: the work grows with the number of wires."
+      },
+      {
+       "start": 322.0,
+       "end": 325.9,
+       "text": "Round 5: no changes. It cuts 2; the ruler cut 88."
+      },
+      {
+       "start": 326.2,
+       "end": 330.2,
+       "text": "Layer nine: what it cannot do."
+      },
+      {
+       "start": 330.4,
+       "end": 334.4,
+       "text": "It promises neither the number of groups nor equal sizes."
+      },
+      {
+       "start": 334.6,
+       "end": 338.6,
+       "text": "Change the visiting order and label names and round counts can change."
+      },
+      {
+       "start": 338.8,
+       "end": 342.9,
+       "text": "It gives a clue, not a final answer."
+      },
+      {
+       "start": 343.2,
+       "end": 347.2,
+       "text": "In chip design, clustering often first gathers tightly wired cells,"
+      },
+      {
+       "start": 347.4,
+       "end": 351.3,
+       "text": "shrinking the netlist before finer partitioning and placement."
+      },
+      {
+       "start": 351.6,
+       "end": 356.0,
+       "text": "Circles in your contacts and blocks in a chip are the same problem."
+      },
+      {
+       "start": 356.2,
+       "end": 360.3,
+       "text": "No one draws the circles. They grow out of the connections."
+      },
+      {
+       "start": 361.0,
+       "end": 366.0,
+       "text": "Open the lab, change one edge weight, and watch the boundary move."
+      }
+     ],
+     "bytes": 44347523
+    }
+   },
+   "scenes": [
+    {
+     "sceneId": "contacts",
+     "start": 0.0,
+     "end": 17.41
+    },
+    {
+     "sceneId": "title",
+     "start": 17.41,
+     "end": 24.85
+    },
+    {
+     "sceneId": "community",
+     "start": 24.85,
+     "end": 34.17
+    },
+    {
+     "sceneId": "history",
+     "start": 34.17,
+     "end": 51.18
+    },
+    {
+     "sceneId": "chip",
+     "start": 51.18,
+     "end": 68.2
+    },
+    {
+     "sceneId": "wires",
+     "start": 68.2,
+     "end": 85.22
+    },
+    {
+     "sceneId": "ruler",
+     "start": 85.22,
+     "end": 102.5
+    },
+    {
+     "sceneId": "count",
+     "start": 102.5,
+     "end": 119.27
+    },
+    {
+     "sceneId": "rule",
+     "start": 119.27,
+     "end": 136.16
+    },
+    {
+     "sceneId": "questions",
+     "start": 136.16,
+     "end": 170.6
+    },
+    {
+     "sceneId": "interlude",
+     "start": 170.6,
+     "end": 189.82
+    },
+    {
+     "sceneId": "names",
+     "start": 189.82,
+     "end": 207.23
+    },
+    {
+     "sceneId": "weights",
+     "start": 207.23,
+     "end": 221.85
+    },
+    {
+     "sceneId": "formula",
+     "start": 221.85,
+     "end": 227.44
+    },
+    {
+     "sceneId": "update",
+     "start": 227.44,
+     "end": 241.0
+    },
+    {
+     "sceneId": "round1",
+     "start": 241.0,
+     "end": 258.02
+    },
+    {
+     "sceneId": "round2",
+     "start": 258.02,
+     "end": 275.04
+    },
+    {
+     "sceneId": "sync",
+     "start": 275.04,
+     "end": 292.32
+    },
+    {
+     "sceneId": "cut",
+     "start": 292.32,
+     "end": 309.09
+    },
+    {
+     "sceneId": "payoff",
+     "start": 309.09,
+     "end": 325.98
+    },
+    {
+     "sceneId": "limits",
+     "start": 325.98,
+     "end": 343.02
+    },
+    {
+     "sceneId": "eda",
+     "start": 343.02,
+     "end": 351.4
+    },
+    {
+     "sceneId": "return",
+     "start": 351.4,
+     "end": 360.42
+    },
+    {
+     "sceneId": "credits",
+     "start": 360.42,
+     "end": 379.64
+    }
    ]
   },
   {
-   "id": "slow",
-   "title": "一票一票（慢速推演）",
+   "id": "concise",
+   "kind": "concise",
    "status": "ready",
-   "src": "slow.mp4",
-   "vtt": "slow.zh.vtt",
-   "poster": "slow-poster.jpg",
-   "duration": 88.33,
-   "chapters": [
-    {
-     "t": 0.0,
-     "title": "慢速推演 · 第 1 轮",
-     "sceneId": "t00-intro"
-    },
-    {
-     "t": 44.09,
-     "title": "第 2 轮 · 确认零变化",
-     "sceneId": "t06-A2"
-    },
-    {
-     "t": 81.2,
-     "title": "结果 · 稳定",
-     "sceneId": "t99-end"
-    }
-   ],
+   "title": {
+    "zh": "精讲：规则与停止",
+    "en": "The essentials"
+   },
+   "why": {
+    "zh": "只讲必须掌握的：规则、计票、一轮异步、三种停止、同步振荡和三个旋钮。",
+    "en": "Only what you must know: the rule, the vote, one asynchronous round, the three ways to stop, the synchronous cycle and three knobs."
+   },
+   "music": {
+    "zh": "本课程原创程序合成配乐（NumPy），CC BY 4.0",
+    "en": "Original score synthesised for this course (NumPy), CC BY 4.0"
+   },
    "scenes": [
     {
-     "sceneId": "t00-intro",
+     "sceneId": "k00-title",
      "start": 0.0,
-     "end": 5.64
+     "end": 3.4
     },
     {
-     "sceneId": "t01-A1",
-     "start": 5.64,
-     "end": 12.98
+     "sceneId": "k01-problem",
+     "start": 3.4,
+     "end": 15.02
     },
     {
-     "sceneId": "t02-B1",
-     "start": 12.98,
-     "end": 20.76
+     "sceneId": "k02-rule",
+     "start": 15.02,
+     "end": 28.29
     },
     {
-     "sceneId": "t03-C1",
-     "start": 20.76,
-     "end": 28.98
+     "sceneId": "k03-labels",
+     "start": 28.29,
+     "end": 41.96
     },
     {
-     "sceneId": "t04-D1",
-     "start": 28.98,
-     "end": 36.31
+     "sceneId": "k04-vote",
+     "start": 41.96,
+     "end": 59.44
     },
     {
-     "sceneId": "t05-E1",
-     "start": 36.31,
-     "end": 44.09
+     "sceneId": "k05-round1",
+     "start": 59.44,
+     "end": 78.71
     },
     {
-     "sceneId": "t06-A2",
-     "start": 44.09,
-     "end": 50.98
+     "sceneId": "k06-round2",
+     "start": 78.71,
+     "end": 91.87
     },
     {
-     "sceneId": "t07-B2",
-     "start": 50.98,
-     "end": 57.87
+     "sceneId": "k07-stops",
+     "start": 91.87,
+     "end": 108.0
     },
     {
-     "sceneId": "t08-C2",
-     "start": 57.87,
-     "end": 65.64
+     "sceneId": "k08-sync",
+     "start": 108.0,
+     "end": 123.78
     },
     {
-     "sceneId": "t09-D2",
-     "start": 65.64,
-     "end": 73.42
+     "sceneId": "k09-knobs",
+     "start": 123.78,
+     "end": 138.8
     },
     {
-     "sceneId": "t10-E2",
-     "start": 73.42,
-     "end": 81.2
-    },
-    {
-     "sceneId": "t99-end",
-     "start": 81.2,
-     "end": 88.33
+     "sceneId": "k10-take",
+     "start": 138.8,
+     "end": 153.76
     }
    ],
-   "transcript": [
-    {
-     "start": 0.0,
-     "end": 5.244,
-     "text": "慢速推演：按 A→E 异步更新，平票取最小。",
-     "sceneId": "t00-intro"
-    },
-    {
-     "start": 5.644,
-     "end": 10.0,
-     "text": "第 1 轮，轮到 A：B = 5，C = 1。",
-     "sceneId": "t01-A1"
-    },
-    {
-     "start": 10.0,
-     "end": 12.578,
-     "text": "A 的标签改为 B。",
-     "sceneId": "t01-A1"
-    },
-    {
-     "start": 12.978,
-     "end": 17.333,
-     "text": "第 1 轮，轮到 B：B = 5，C = 4。",
-     "sceneId": "t02-B1"
-    },
-    {
-     "start": 17.333,
-     "end": 20.356,
-     "text": "B 最大，B 保持不变。",
-     "sceneId": "t02-B1"
-    },
-    {
-     "start": 20.756,
-     "end": 26.0,
-     "text": "第 1 轮，轮到 C：B = 5，D = 2，E = 1。",
-     "sceneId": "t03-C1"
-    },
-    {
-     "start": 26.0,
-     "end": 28.578,
-     "text": "C 的标签改为 B。",
-     "sceneId": "t03-C1"
-    },
-    {
-     "start": 28.978,
-     "end": 33.333,
-     "text": "第 1 轮，轮到 D：E = 5，B = 2。",
-     "sceneId": "t04-D1"
-    },
-    {
-     "start": 33.333,
-     "end": 35.911,
-     "text": "D 的标签改为 E。",
-     "sceneId": "t04-D1"
-    },
-    {
-     "start": 36.311,
-     "end": 40.667,
-     "text": "第 1 轮，轮到 E：E = 5，B = 1。",
-     "sceneId": "t05-E1"
-    },
-    {
-     "start": 40.667,
-     "end": 43.689,
-     "text": "E 最大，E 保持不变。",
-     "sceneId": "t05-E1"
-    },
-    {
-     "start": 44.089,
-     "end": 47.556,
-     "text": "第 2 轮，轮到 A：B = 6。",
-     "sceneId": "t06-A2"
-    },
-    {
-     "start": 47.556,
-     "end": 50.578,
-     "text": "B 最大，A 保持不变。",
-     "sceneId": "t06-A2"
-    },
-    {
-     "start": 50.978,
-     "end": 54.444,
-     "text": "第 2 轮，轮到 B：B = 9。",
-     "sceneId": "t07-B2"
-    },
-    {
-     "start": 54.444,
-     "end": 57.467,
-     "text": "B 最大，B 保持不变。",
-     "sceneId": "t07-B2"
-    },
-    {
-     "start": 57.867,
-     "end": 62.222,
-     "text": "第 2 轮，轮到 C：B = 5，E = 3。",
-     "sceneId": "t08-C2"
-    },
-    {
-     "start": 62.222,
-     "end": 65.244,
-     "text": "B 最大，C 保持不变。",
-     "sceneId": "t08-C2"
-    },
-    {
-     "start": 65.644,
-     "end": 70.0,
-     "text": "第 2 轮，轮到 D：E = 5，B = 2。",
-     "sceneId": "t09-D2"
-    },
-    {
-     "start": 70.0,
-     "end": 73.022,
-     "text": "E 最大，D 保持不变。",
-     "sceneId": "t09-D2"
-    },
-    {
-     "start": 73.422,
-     "end": 77.778,
-     "text": "第 2 轮，轮到 E：E = 5，B = 1。",
-     "sceneId": "t10-E2"
-    },
-    {
-     "start": 77.778,
-     "end": 80.8,
-     "text": "E 最大，E 保持不变。",
-     "sceneId": "t10-E2"
-    },
-    {
-     "start": 81.2,
-     "end": 87.333,
-     "text": "第 2 轮没有任何改变：确认稳定，共 2 轮，cut 3。",
-     "sceneId": "t99-end"
-    }
-   ],
-   "music": "本课程原创程序合成配乐（NumPy），CC BY 4.0",
-   "why": "慢速推演：两轮共 10 次更新，每次停留到票数读完。",
-   "readingViolations": 0,
    "fps": 30,
    "size": [
     1920,
     1080
-   ]
+   ],
+   "versions": {
+    "zh": {
+     "src": "concise.zh.mp4",
+     "vtt": "concise.zh.vtt",
+     "poster": "concise.zh.jpg",
+     "duration": 153.77,
+     "captions": "zh+en",
+     "chapters": [
+      {
+       "t": 3.4,
+       "title": "问题",
+       "sceneId": "k01-problem"
+      },
+      {
+       "t": 15.02,
+       "title": "规则",
+       "sceneId": "k02-rule"
+      },
+      {
+       "t": 41.96,
+       "title": "计票",
+       "sceneId": "k04-vote"
+      },
+      {
+       "t": 59.44,
+       "title": "一轮",
+       "sceneId": "k05-round1"
+      },
+      {
+       "t": 91.87,
+       "title": "停止",
+       "sceneId": "k07-stops"
+      },
+      {
+       "t": 123.78,
+       "title": "三个旋钮",
+       "sceneId": "k09-knobs"
+      },
+      {
+       "t": 138.8,
+       "title": "小结",
+       "sceneId": "k10-take"
+      }
+     ],
+     "transcript": [
+      {
+       "start": 3.4,
+       "end": 8.267,
+       "text": "一张带权图：线越粗，连接越强。",
+       "sceneId": "k01-problem"
+      },
+      {
+       "start": 8.267,
+       "end": 14.622,
+       "text": "目标：把连接紧密的点分到一组，而且不事先说分几组。",
+       "sceneId": "k01-problem"
+      },
+      {
+       "start": 15.022,
+       "end": 19.556,
+       "text": "规则只有一句：看邻居现在的标签，",
+       "sceneId": "k02-rule"
+      },
+      {
+       "start": 19.556,
+       "end": 23.622,
+       "text": "加入边权之和最大的那一组。",
+       "sceneId": "k02-rule"
+      },
+      {
+       "start": 23.622,
+       "end": 27.889,
+       "text": "每次只看一个点和它的邻居。",
+       "sceneId": "k02-rule"
+      },
+      {
+       "start": 28.289,
+       "end": 33.089,
+       "text": "先分清两个词：名字是身份，永远不变；",
+       "sceneId": "k03-labels"
+      },
+      {
+       "start": 33.089,
+       "end": 36.756,
+       "text": "标签是归属，可以改写。",
+       "sceneId": "k03-labels"
+      },
+      {
+       "start": 36.756,
+       "end": 41.556,
+       "text": "开始时，每个点的标签就是自己的名字。",
+       "sceneId": "k03-labels"
+      },
+      {
+       "start": 41.956,
+       "end": 45.689,
+       "text": "轮到 C。A 已经改为标签 B。",
+       "sceneId": "k04-vote"
+      },
+      {
+       "start": 45.689,
+       "end": 48.933,
+       "text": "同一标签的边权加起来。",
+       "sceneId": "k04-vote"
+      },
+      {
+       "start": 48.933,
+       "end": 54.178,
+       "text": "B = 5，D = 2，E = 1：C 的标签改为 B。",
+       "sceneId": "k04-vote"
+      },
+      {
+       "start": 54.178,
+       "end": 59.044,
+       "text": "比的是权重之和，不是邻居个数。",
+       "sceneId": "k04-vote"
+      },
+      {
+       "start": 59.444,
+       "end": 64.844,
+       "text": "异步更新：按 A→E 依次来，改完立刻生效。",
+       "sceneId": "k05-round1"
+      },
+      {
+       "start": 64.844,
+       "end": 66.978,
+       "text": "A：改为 B。",
+       "sceneId": "k05-round1"
+      },
+      {
+       "start": 66.978,
+       "end": 69.111,
+       "text": "B：保持 B。",
+       "sceneId": "k05-round1"
+      },
+      {
+       "start": 69.111,
+       "end": 71.244,
+       "text": "C：改为 B。",
+       "sceneId": "k05-round1"
+      },
+      {
+       "start": 71.244,
+       "end": 73.378,
+       "text": "D：改为 E。",
+       "sceneId": "k05-round1"
+      },
+      {
+       "start": 73.378,
+       "end": 75.511,
+       "text": "E：保持 E。",
+       "sceneId": "k05-round1"
+      },
+      {
+       "start": 75.511,
+       "end": 78.311,
+       "text": "第 1 轮改了 3 个点。",
+       "sceneId": "k05-round1"
+      },
+      {
+       "start": 78.711,
+       "end": 82.178,
+       "text": "第 2 轮：每个点再投一次。",
+       "sceneId": "k06-round2"
+      },
+      {
+       "start": 85.778,
+       "end": 91.467,
+       "text": "一个都没变，这才确认稳定：共 2 轮，cut 3。",
+       "sceneId": "k06-round2"
+      },
+      {
+       "start": 91.867,
+       "end": 97.333,
+       "text": "停止有三种：stable，完整一轮零变化；",
+       "sceneId": "k07-stops"
+      },
+      {
+       "start": 97.333,
+       "end": 101.022,
+       "text": "cycle，状态重复出现；",
+       "sceneId": "k07-stops"
+      },
+      {
+       "start": 101.022,
+       "end": 107.6,
+       "text": "limit，到了轮数上限。只有 stable 才叫收敛。",
+       "sceneId": "k07-stops"
+      },
+      {
+       "start": 108.0,
+       "end": 113.333,
+       "text": "换成同步更新：大家读同一张旧快照。",
+       "sceneId": "k08-sync"
+      },
+      {
+       "start": 113.333,
+       "end": 118.578,
+       "text": "A 读到 B，B 读到 A，同时交换，再换回来。",
+       "sceneId": "k08-sync"
+      },
+      {
+       "start": 118.578,
+       "end": 123.378,
+       "text": "状态重复：这是 cycle，不是收敛。",
+       "sceneId": "k08-sync"
+      },
+      {
+       "start": 123.778,
+       "end": 126.8,
+       "text": "三个旋钮会改变结果。",
+       "sceneId": "k09-knobs"
+      },
+      {
+       "start": 126.8,
+       "end": 132.044,
+       "text": "反过来访问：3 轮，标签名变了，分组不变。",
+       "sceneId": "k09-knobs"
+      },
+      {
+       "start": 132.044,
+       "end": 138.4,
+       "text": "把 C–D 加到 10：分组变成 AB | CDE，cut 5。",
+       "sceneId": "k09-knobs"
+      },
+      {
+       "start": 138.8,
+       "end": 140.933,
+       "text": "记住四点。",
+       "sceneId": "k10-take"
+      },
+      {
+       "start": 140.933,
+       "end": 143.956,
+       "text": "快、局部、不需要 K；",
+       "sceneId": "k10-take"
+      },
+      {
+       "start": 143.956,
+       "end": 147.156,
+       "text": "但结果依赖规则，",
+       "sceneId": "k10-take"
+      },
+      {
+       "start": 147.156,
+       "end": 152.356,
+       "text": "也不保证均衡。下面的实验里亲手试一遍。",
+       "sceneId": "k10-take"
+      }
+     ],
+     "readingViolations": 0,
+     "bytes": 6713989
+    },
+    "en": {
+     "src": "concise.en.mp4",
+     "vtt": "concise.en.vtt",
+     "poster": "concise.en.jpg",
+     "duration": 153.77,
+     "captions": "en",
+     "chapters": [
+      {
+       "t": 3.4,
+       "title": "THE PROBLEM",
+       "sceneId": "k01-problem"
+      },
+      {
+       "t": 15.02,
+       "title": "THE RULE",
+       "sceneId": "k02-rule"
+      },
+      {
+       "t": 41.96,
+       "title": "THE VOTE",
+       "sceneId": "k04-vote"
+      },
+      {
+       "t": 59.44,
+       "title": "ONE ROUND",
+       "sceneId": "k05-round1"
+      },
+      {
+       "t": 91.87,
+       "title": "STOPPING",
+       "sceneId": "k07-stops"
+      },
+      {
+       "t": 123.78,
+       "title": "THREE KNOBS",
+       "sceneId": "k09-knobs"
+      },
+      {
+       "t": 138.8,
+       "title": "SUMMARY",
+       "sceneId": "k10-take"
+      }
+     ],
+     "transcript": [
+      {
+       "start": 3.4,
+       "end": 8.267,
+       "text": "A weighted graph: the thicker the wire, the stronger the tie.",
+       "sceneId": "k01-problem"
+      },
+      {
+       "start": 8.267,
+       "end": 14.622,
+       "text": "Goal: put tightly linked nodes in one group, without saying how many groups.",
+       "sceneId": "k01-problem"
+      },
+      {
+       "start": 15.022,
+       "end": 19.556,
+       "text": "The whole rule: look at your neighbours' current labels,",
+       "sceneId": "k02-rule"
+      },
+      {
+       "start": 19.556,
+       "end": 23.622,
+       "text": "and join the label with the largest total weight.",
+       "sceneId": "k02-rule"
+      },
+      {
+       "start": 23.622,
+       "end": 27.889,
+       "text": "Each step looks at one node and its neighbours only.",
+       "sceneId": "k02-rule"
+      },
+      {
+       "start": 28.289,
+       "end": 33.089,
+       "text": "Two words first: a name is identity and never changes;",
+       "sceneId": "k03-labels"
+      },
+      {
+       "start": 33.089,
+       "end": 36.756,
+       "text": "a label is membership and can be rewritten.",
+       "sceneId": "k03-labels"
+      },
+      {
+       "start": 36.756,
+       "end": 41.556,
+       "text": "At the start, each node's label is its own name.",
+       "sceneId": "k03-labels"
+      },
+      {
+       "start": 41.956,
+       "end": 45.689,
+       "text": "C's turn. A has already switched to label B.",
+       "sceneId": "k04-vote"
+      },
+      {
+       "start": 45.689,
+       "end": 48.933,
+       "text": "Add up the weights per label.",
+       "sceneId": "k04-vote"
+      },
+      {
+       "start": 48.933,
+       "end": 54.178,
+       "text": "B = 5, D = 2, E = 1: C takes label B.",
+       "sceneId": "k04-vote"
+      },
+      {
+       "start": 54.178,
+       "end": 59.044,
+       "text": "It is total weight that counts, not the number of neighbours.",
+       "sceneId": "k04-vote"
+      },
+      {
+       "start": 59.444,
+       "end": 64.844,
+       "text": "Asynchronous: visit A to E in turn; each change takes effect at once.",
+       "sceneId": "k05-round1"
+      },
+      {
+       "start": 64.844,
+       "end": 66.978,
+       "text": "A: switches to B.",
+       "sceneId": "k05-round1"
+      },
+      {
+       "start": 66.978,
+       "end": 69.111,
+       "text": "B: keeps B.",
+       "sceneId": "k05-round1"
+      },
+      {
+       "start": 69.111,
+       "end": 71.244,
+       "text": "C: switches to B.",
+       "sceneId": "k05-round1"
+      },
+      {
+       "start": 71.244,
+       "end": 73.378,
+       "text": "D: switches to E.",
+       "sceneId": "k05-round1"
+      },
+      {
+       "start": 73.378,
+       "end": 75.511,
+       "text": "E: keeps E.",
+       "sceneId": "k05-round1"
+      },
+      {
+       "start": 75.511,
+       "end": 78.311,
+       "text": "Round 1 changed three nodes.",
+       "sceneId": "k05-round1"
+      },
+      {
+       "start": 78.711,
+       "end": 82.178,
+       "text": "Round 2: every node votes again.",
+       "sceneId": "k06-round2"
+      },
+      {
+       "start": 85.778,
+       "end": 91.467,
+       "text": "Nothing changed, and only now is it stable: 2 rounds, cut 3.",
+       "sceneId": "k06-round2"
+      },
+      {
+       "start": 91.867,
+       "end": 97.333,
+       "text": "There are three ways to stop: stable, a full round with no change;",
+       "sceneId": "k07-stops"
+      },
+      {
+       "start": 97.333,
+       "end": 101.022,
+       "text": "cycle, a state that repeats;",
+       "sceneId": "k07-stops"
+      },
+      {
+       "start": 101.022,
+       "end": 107.6,
+       "text": "limit, the round cap. Only stable counts as converged.",
+       "sceneId": "k07-stops"
+      },
+      {
+       "start": 108.0,
+       "end": 113.333,
+       "text": "Switch to synchronous updates: everyone reads the same old snapshot.",
+       "sceneId": "k08-sync"
+      },
+      {
+       "start": 113.333,
+       "end": 118.578,
+       "text": "A sees B, B sees A: they swap, then swap back.",
+       "sceneId": "k08-sync"
+      },
+      {
+       "start": 118.578,
+       "end": 123.378,
+       "text": "The state repeats: that is a cycle, not convergence.",
+       "sceneId": "k08-sync"
+      },
+      {
+       "start": 123.778,
+       "end": 126.8,
+       "text": "Three knobs change the outcome.",
+       "sceneId": "k09-knobs"
+      },
+      {
+       "start": 126.8,
+       "end": 132.044,
+       "text": "Reverse the order: 3 rounds, other label names, the same groups.",
+       "sceneId": "k09-knobs"
+      },
+      {
+       "start": 132.044,
+       "end": 138.4,
+       "text": "Raise C–D to 10: the groups become AB | CDE, cut 5.",
+       "sceneId": "k09-knobs"
+      },
+      {
+       "start": 138.8,
+       "end": 140.933,
+       "text": "Four things to keep.",
+       "sceneId": "k10-take"
+      },
+      {
+       "start": 140.933,
+       "end": 143.956,
+       "text": "Fast, local, no K;",
+       "sceneId": "k10-take"
+      },
+      {
+       "start": 143.956,
+       "end": 147.156,
+       "text": "but the result depends on the rules,",
+       "sceneId": "k10-take"
+      },
+      {
+       "start": 147.156,
+       "end": 152.356,
+       "text": "and nothing balances the groups. Try it yourself in the lab below.",
+       "sceneId": "k10-take"
+      }
+     ],
+     "readingViolations": 0,
+     "bytes": 6649440
+    }
+   }
+  },
+  {
+   "id": "advanced",
+   "kind": "advanced",
+   "status": "ready",
+   "title": {
+    "zh": "进阶：为什么停，为什么不停",
+    "en": "In depth: why it stops, and why it may not"
+   },
+   "why": {
+    "zh": "给想深入的人：异步停机的论证、同步振荡、两种停止判定、访问顺序、复杂度、平凡解，以及限制组大小的变体如何用于电路粗化。",
+    "en": "For those who want more: why asynchronous updates stop, synchronous oscillation, two stopping tests, order dependence, cost, the trivial fixed point, and how a size-constrained variant coarsens circuits."
+   },
+   "music": {
+    "zh": "本课程原创程序合成配乐（NumPy），CC BY 4.0",
+    "en": "Original score synthesised for this course (NumPy), CC BY 4.0"
+   },
+   "scenes": [
+    {
+     "sceneId": "a00-title",
+     "start": 0.0,
+     "end": 3.6
+    },
+    {
+     "sceneId": "a01-recap",
+     "start": 3.6,
+     "end": 13.69
+    },
+    {
+     "sceneId": "a02-potential",
+     "start": 13.69,
+     "end": 67.91
+    },
+    {
+     "sceneId": "a03-proof",
+     "start": 67.91,
+     "end": 90.27
+    },
+    {
+     "sceneId": "a04-star",
+     "start": 90.27,
+     "end": 111.49
+    },
+    {
+     "sceneId": "a05-sync5",
+     "start": 111.49,
+     "end": 123.49
+    },
+    {
+     "sceneId": "a06-stoptests",
+     "start": 123.49,
+     "end": 148.38
+    },
+    {
+     "sceneId": "a07-orders",
+     "start": 148.38,
+     "end": 171.98
+    },
+    {
+     "sceneId": "a08-orders-circ",
+     "start": 171.98,
+     "end": 182.69
+    },
+    {
+     "sceneId": "a09-cost",
+     "start": 182.69,
+     "end": 206.27
+    },
+    {
+     "sceneId": "a10-monster",
+     "start": 206.27,
+     "end": 237.09
+    },
+    {
+     "sceneId": "a11-variants",
+     "start": 237.09,
+     "end": 252.69
+    },
+    {
+     "sceneId": "a12-coarsen",
+     "start": 252.69,
+     "end": 277.93
+    },
+    {
+     "sceneId": "a13-summary",
+     "start": 277.93,
+     "end": 294.4
+    }
+   ],
+   "fps": 30,
+   "size": [
+    1920,
+    1080
+   ],
+   "versions": {
+    "zh": {
+     "src": "advanced.zh.mp4",
+     "vtt": "advanced.zh.vtt",
+     "poster": "advanced.zh.jpg",
+     "duration": 294.4,
+     "captions": "zh+en",
+     "chapters": [
+      {
+       "t": 3.6,
+       "title": "回顾",
+       "sceneId": "a01-recap"
+      },
+      {
+       "t": 13.69,
+       "title": "一 · 异步为什么会停",
+       "sceneId": "a02-potential"
+      },
+      {
+       "t": 90.27,
+       "title": "二 · 同步为什么振荡",
+       "sceneId": "a04-star"
+      },
+      {
+       "t": 123.49,
+       "title": "三 · 两种停止判定",
+       "sceneId": "a06-stoptests"
+      },
+      {
+       "t": 148.38,
+       "title": "四 · 访问顺序",
+       "sceneId": "a07-orders"
+      },
+      {
+       "t": 182.69,
+       "title": "五 · 代价",
+       "sceneId": "a09-cost"
+      },
+      {
+       "t": 206.27,
+       "title": "六 · 一组吞掉一切",
+       "sceneId": "a10-monster"
+      },
+      {
+       "t": 237.09,
+       "title": "七 · 变体与芯片",
+       "sceneId": "a11-variants"
+      },
+      {
+       "t": 277.93,
+       "title": "小结",
+       "sceneId": "a13-summary"
+      }
+     ],
+     "transcript": [
+      {
+       "start": 3.6,
+       "end": 9.289,
+       "text": "规则还是那一句：跟着邻居里权重最大的标签走。",
+       "sceneId": "a01-recap"
+      },
+      {
+       "start": 9.289,
+       "end": 13.289,
+       "text": "这一部回答四个问题。",
+       "sceneId": "a01-recap"
+      },
+      {
+       "start": 13.689,
+       "end": 21.156,
+       "text": "把 cut 当成一个计数器。开始时每条边都被切开：cut = 18。",
+       "sceneId": "a02-potential"
+      },
+      {
+       "start": 21.156,
+       "end": 26.844,
+       "text": "A 改为 B：这 5 的权重不再被切开，cut 减 5。",
+       "sceneId": "a02-potential"
+      },
+      {
+       "start": 26.844,
+       "end": 30.089,
+       "text": "B 不变，cut 也不变。",
+       "sceneId": "a02-potential"
+      },
+      {
+       "start": 30.089,
+       "end": 35.778,
+       "text": "C 改为 B：这 5 的权重不再被切开，cut 减 5。",
+       "sceneId": "a02-potential"
+      },
+      {
+       "start": 35.778,
+       "end": 41.467,
+       "text": "D 改为 E：这 5 的权重不再被切开，cut 减 5。",
+       "sceneId": "a02-potential"
+      },
+      {
+       "start": 41.467,
+       "end": 44.711,
+       "text": "E 不变，cut 也不变。",
+       "sceneId": "a02-potential"
+      },
+      {
+       "start": 44.711,
+       "end": 47.956,
+       "text": "A 不变，cut 也不变。",
+       "sceneId": "a02-potential"
+      },
+      {
+       "start": 47.956,
+       "end": 51.2,
+       "text": "B 不变，cut 也不变。",
+       "sceneId": "a02-potential"
+      },
+      {
+       "start": 51.2,
+       "end": 54.444,
+       "text": "C 不变，cut 也不变。",
+       "sceneId": "a02-potential"
+      },
+      {
+       "start": 54.444,
+       "end": 57.689,
+       "text": "D 不变，cut 也不变。",
+       "sceneId": "a02-potential"
+      },
+      {
+       "start": 57.689,
+       "end": 60.933,
+       "text": "E 不变，cut 也不变。",
+       "sceneId": "a02-potential"
+      },
+      {
+       "start": 60.933,
+       "end": 67.511,
+       "text": "规律：异步改一次标签，cut 正好减少“新票 − 旧票”。",
+       "sceneId": "a02-potential"
+      },
+      {
+       "start": 67.911,
+       "end": 73.111,
+       "text": "如果只在新标签的票严格更多时才改，",
+       "sceneId": "a03-proof"
+      },
+      {
+       "start": 73.111,
+       "end": 76.644,
+       "text": "每次改动 cut 至少降 1，",
+       "sceneId": "a03-proof"
+      },
+      {
+       "start": 76.644,
+       "end": 79.667,
+       "text": "而 cut 不能低于 0，",
+       "sceneId": "a03-proof"
+      },
+      {
+       "start": 79.667,
+       "end": 85.133,
+       "text": "所以改动只能有限次：异步更新一定停下。",
+       "sceneId": "a03-proof"
+      },
+      {
+       "start": 85.133,
+       "end": 89.867,
+       "text": "平票也改的规则不在这个论证之内。",
+       "sceneId": "a03-proof"
+      },
+      {
+       "start": 90.267,
+       "end": 96.667,
+       "text": "同步就不同了：所有点同时根据旧快照改。",
+       "sceneId": "a04-star"
+      },
+      {
+       "start": 96.667,
+       "end": 101.933,
+       "text": "星形图：中心随叶子改，叶子随中心改。",
+       "sceneId": "a04-star"
+      },
+      {
+       "start": 101.933,
+       "end": 106.511,
+       "text": "于是两边互换标签，cut 一直是 4。",
+       "sceneId": "a04-star"
+      },
+      {
+       "start": 106.511,
+       "end": 111.089,
+       "text": "第 3 轮回到第 1 轮：周期为 2 的循环。",
+       "sceneId": "a04-star"
+      },
+      {
+       "start": 111.489,
+       "end": 117.622,
+       "text": "课程的 G01 同步也一样：cut 停在 17，周期 2。",
+       "sceneId": "a05-sync5"
+      },
+      {
+       "start": 117.622,
+       "end": 123.089,
+       "text": "二分或接近二分的结构，最容易这样来回交换。",
+       "sceneId": "a05-sync5"
+      },
+      {
+       "start": 123.489,
+       "end": 129.4,
+       "text": "本课程的判定：完整一轮零变化才算 stable。",
+       "sceneId": "a06-stoptests"
+      },
+      {
+       "start": 129.4,
+       "end": 135.756,
+       "text": "每轮结束记下整张标签表，重复出现就报告 cycle。",
+       "sceneId": "a06-stoptests"
+      },
+      {
+       "start": 135.756,
+       "end": 140.956,
+       "text": "原论文每轮随机打乱顺序，平票也随机。",
+       "sceneId": "a06-stoptests"
+      },
+      {
+       "start": 140.956,
+       "end": 147.978,
+       "text": "所以它换了判据：每个点的标签都是邻居中最多的之一，就停。",
+       "sceneId": "a06-stoptests"
+      },
+      {
+       "start": 148.378,
+       "end": 154.289,
+       "text": "访问顺序会改变什么？G01 的全部 120 种顺序：",
+       "sceneId": "a07-orders"
+      },
+      {
+       "start": 154.289,
+       "end": 159.311,
+       "text": "分组都一样，只有轮数在 2 和 3 之间变化。",
+       "sceneId": "a07-orders"
+      },
+      {
+       "start": 159.311,
+       "end": 163.667,
+       "text": "24 单元电路试 300 个随机顺序：",
+       "sceneId": "a07-orders"
+      },
+      {
+       "start": 163.667,
+       "end": 171.578,
+       "text": "287 次分成 8+8+8、cut 2；13 次多切开一组，cut 21。",
+       "sceneId": "a07-orders"
+      },
+      {
+       "start": 171.978,
+       "end": 175.044,
+       "text": "多数顺序找到三块；",
+       "sceneId": "a08-orders-circ"
+      },
+      {
+       "start": 175.044,
+       "end": 182.289,
+       "text": "少数顺序让中间一块被两个标签瓜分，停在一个更差的稳定状态。",
+       "sceneId": "a08-orders-circ"
+      },
+      {
+       "start": 182.689,
+       "end": 189.156,
+       "text": "代价：一轮里每个点读一遍邻居，每条边被读两次。",
+       "sceneId": "a09-cost"
+      },
+      {
+       "start": 189.156,
+       "end": 195.067,
+       "text": "通讯录 61 条联系：每轮 122 次读取，3 轮就停。",
+       "sceneId": "a09-cost"
+      },
+      {
+       "start": 195.067,
+       "end": 200.067,
+       "text": "相比之下，穷举分法根本数不完。",
+       "sceneId": "a09-cost"
+      },
+      {
+       "start": 200.067,
+       "end": 205.867,
+       "text": "只要轮数少，总工作量就和边数成正比。",
+       "sceneId": "a09-cost"
+      },
+      {
+       "start": 206.267,
+       "end": 211.289,
+       "text": "再看一个陷阱：两个三角形，中间一座桥。",
+       "sceneId": "a10-monster"
+      },
+      {
+       "start": 211.289,
+       "end": 217.867,
+       "text": "平票取最小：所有点最后都成了同一个标签，cut = 0。",
+       "sceneId": "a10-monster"
+      },
+      {
+       "start": 217.867,
+       "end": 225.778,
+       "text": "cut 最小的分法就是“全部一组”。这个规则没有任何力量阻止合并。",
+       "sceneId": "a10-monster"
+      },
+      {
+       "start": 225.778,
+       "end": 230.778,
+       "text": "换成平票取最大，恰好分开两个三角形。",
+       "sceneId": "a10-monster"
+      },
+      {
+       "start": 230.778,
+       "end": 236.689,
+       "text": "给组大小设上限 U = 3，结果不再依赖平票的运气。",
+       "sceneId": "a10-monster"
+      },
+      {
+       "start": 237.089,
+       "end": 239.889,
+       "text": "常见的改法有两类。",
+       "sceneId": "a11-variants"
+      },
+      {
+       "start": 239.889,
+       "end": 246.289,
+       "text": "限制组大小的版本，正是多层划分器里常用的粗化手段。",
+       "sceneId": "a11-variants"
+      },
+      {
+       "start": 246.289,
+       "end": 252.289,
+       "text": "此外，随机顺序多跑几次，比较结果的波动。",
+       "sceneId": "a11-variants"
+      },
+      {
+       "start": 252.689,
+       "end": 257.711,
+       "text": "回到 24 单元电路，给每组设上限 U = 4。",
+       "sceneId": "a12-coarsen"
+      },
+      {
+       "start": 257.711,
+       "end": 263.178,
+       "text": "标签传播分出 7 个小组，每组不超过 4 个单元。",
+       "sceneId": "a12-coarsen"
+      },
+      {
+       "start": 263.178,
+       "end": 269.533,
+       "text": "每组收缩成一个点：24 个单元的图变成 7 个点的小图。",
+       "sceneId": "a12-coarsen"
+      },
+      {
+       "start": 269.533,
+       "end": 277.533,
+       "text": "在小图上划分，再逐层展开、细化。这就是多层划分的第一步。",
+       "sceneId": "a12-coarsen"
+      },
+      {
+       "start": 277.933,
+       "end": 280.4,
+       "text": "四句话带走：",
+       "sceneId": "a13-summary"
+      },
+      {
+       "start": 280.4,
+       "end": 284.067,
+       "text": "异步加严格改进，一定停；",
+       "sceneId": "a13-summary"
+      },
+      {
+       "start": 284.067,
+       "end": 286.867,
+       "text": "同步可能永远交换；",
+       "sceneId": "a13-summary"
+      },
+      {
+       "start": 286.867,
+       "end": 293.0,
+       "text": "规则要写清楚；它快，但需要约束才能用来划分芯片。",
+       "sceneId": "a13-summary"
+      }
+     ],
+     "bytes": 14086663,
+     "readingViolations": 0
+    },
+    "en": {
+     "src": "advanced.en.mp4",
+     "vtt": "advanced.en.vtt",
+     "poster": "advanced.en.jpg",
+     "duration": 294.4,
+     "captions": "en",
+     "chapters": [
+      {
+       "t": 3.6,
+       "title": "RECAP",
+       "sceneId": "a01-recap"
+      },
+      {
+       "t": 13.69,
+       "title": "I · WHY ASYNC STOPS",
+       "sceneId": "a02-potential"
+      },
+      {
+       "t": 90.27,
+       "title": "II · WHY SYNC OSCILLATES",
+       "sceneId": "a04-star"
+      },
+      {
+       "t": 123.49,
+       "title": "III · TWO STOPPING TESTS",
+       "sceneId": "a06-stoptests"
+      },
+      {
+       "t": 148.38,
+       "title": "IV · VISIT ORDER",
+       "sceneId": "a07-orders"
+      },
+      {
+       "t": 182.69,
+       "title": "V · COST",
+       "sceneId": "a09-cost"
+      },
+      {
+       "t": 206.27,
+       "title": "VI · ONE GROUP TAKES ALL",
+       "sceneId": "a10-monster"
+      },
+      {
+       "t": 237.09,
+       "title": "VII · VARIANTS AND CHIPS",
+       "sceneId": "a11-variants"
+      },
+      {
+       "t": 277.93,
+       "title": "SUMMARY",
+       "sceneId": "a13-summary"
+      }
+     ],
+     "transcript": [
+      {
+       "start": 3.6,
+       "end": 9.289,
+       "text": "The rule is unchanged: follow the label with the most neighbour weight.",
+       "sceneId": "a01-recap"
+      },
+      {
+       "start": 9.289,
+       "end": 13.289,
+       "text": "This film answers four questions.",
+       "sceneId": "a01-recap"
+      },
+      {
+       "start": 13.689,
+       "end": 21.156,
+       "text": "Treat the cut as a counter. At the start every edge is cut: cut = 18.",
+       "sceneId": "a02-potential"
+      },
+      {
+       "start": 21.156,
+       "end": 26.844,
+       "text": "A switches to B: 5 of weight is no longer cut, so the cut drops by 5.",
+       "sceneId": "a02-potential"
+      },
+      {
+       "start": 26.844,
+       "end": 30.089,
+       "text": "B stays, and so does the cut.",
+       "sceneId": "a02-potential"
+      },
+      {
+       "start": 30.089,
+       "end": 35.778,
+       "text": "C switches to B: 5 of weight is no longer cut, so the cut drops by 5.",
+       "sceneId": "a02-potential"
+      },
+      {
+       "start": 35.778,
+       "end": 41.467,
+       "text": "D switches to E: 5 of weight is no longer cut, so the cut drops by 5.",
+       "sceneId": "a02-potential"
+      },
+      {
+       "start": 41.467,
+       "end": 44.711,
+       "text": "E stays, and so does the cut.",
+       "sceneId": "a02-potential"
+      },
+      {
+       "start": 44.711,
+       "end": 47.956,
+       "text": "A stays, and so does the cut.",
+       "sceneId": "a02-potential"
+      },
+      {
+       "start": 47.956,
+       "end": 51.2,
+       "text": "B stays, and so does the cut.",
+       "sceneId": "a02-potential"
+      },
+      {
+       "start": 51.2,
+       "end": 54.444,
+       "text": "C stays, and so does the cut.",
+       "sceneId": "a02-potential"
+      },
+      {
+       "start": 54.444,
+       "end": 57.689,
+       "text": "D stays, and so does the cut.",
+       "sceneId": "a02-potential"
+      },
+      {
+       "start": 57.689,
+       "end": 60.933,
+       "text": "E stays, and so does the cut.",
+       "sceneId": "a02-potential"
+      },
+      {
+       "start": 60.933,
+       "end": 67.511,
+       "text": "The law: one asynchronous change lowers the cut by exactly new votes − old votes.",
+       "sceneId": "a02-potential"
+      },
+      {
+       "start": 67.911,
+       "end": 73.111,
+       "text": "If a node changes only when the new label has strictly more votes,",
+       "sceneId": "a03-proof"
+      },
+      {
+       "start": 73.111,
+       "end": 76.644,
+       "text": "each change lowers the cut by at least 1,",
+       "sceneId": "a03-proof"
+      },
+      {
+       "start": 76.644,
+       "end": 79.667,
+       "text": "and the cut cannot go below 0,",
+       "sceneId": "a03-proof"
+      },
+      {
+       "start": 79.667,
+       "end": 85.133,
+       "text": "so there can only be finitely many changes: asynchronous updates stop.",
+       "sceneId": "a03-proof"
+      },
+      {
+       "start": 85.133,
+       "end": 89.867,
+       "text": "Rules that also change on a tie fall outside this argument.",
+       "sceneId": "a03-proof"
+      },
+      {
+       "start": 90.267,
+       "end": 96.667,
+       "text": "Synchronous updates are different: every node changes at once, from an old snapshot.",
+       "sceneId": "a04-star"
+      },
+      {
+       "start": 96.667,
+       "end": 101.933,
+       "text": "A star: the hub follows the leaves while the leaves follow the hub.",
+       "sceneId": "a04-star"
+      },
+      {
+       "start": 101.933,
+       "end": 106.511,
+       "text": "So the two sides trade labels and the cut stays at 4.",
+       "sceneId": "a04-star"
+      },
+      {
+       "start": 106.511,
+       "end": 111.089,
+       "text": "Round 3 repeats round 1: a cycle of period 2.",
+       "sceneId": "a04-star"
+      },
+      {
+       "start": 111.489,
+       "end": 117.622,
+       "text": "G01 under synchronous updates does the same: the cut sits at 17, period 2.",
+       "sceneId": "a05-sync5"
+      },
+      {
+       "start": 117.622,
+       "end": 123.089,
+       "text": "Bipartite and near-bipartite structures swap like this most easily.",
+       "sceneId": "a05-sync5"
+      },
+      {
+       "start": 123.489,
+       "end": 129.4,
+       "text": "This course's test: stable means a full round with no change.",
+       "sceneId": "a06-stoptests"
+      },
+      {
+       "start": 129.4,
+       "end": 135.756,
+       "text": "Store the labelling at each round end; a repeat is reported as a cycle.",
+       "sceneId": "a06-stoptests"
+      },
+      {
+       "start": 135.756,
+       "end": 140.956,
+       "text": "The paper shuffles the order each round and breaks ties at random.",
+       "sceneId": "a06-stoptests"
+      },
+      {
+       "start": 140.956,
+       "end": 147.978,
+       "text": "So it uses another test: stop when each node holds one of its neighbours' most common labels.",
+       "sceneId": "a06-stoptests"
+      },
+      {
+       "start": 148.378,
+       "end": 154.289,
+       "text": "What does the visit order change? All 120 orders on G01:",
+       "sceneId": "a07-orders"
+      },
+      {
+       "start": 154.289,
+       "end": 159.311,
+       "text": "the groups never change; only the rounds vary between 2 and 3.",
+       "sceneId": "a07-orders"
+      },
+      {
+       "start": 159.311,
+       "end": 163.667,
+       "text": "On the 24-cell circuit, 300 random orders:",
+       "sceneId": "a07-orders"
+      },
+      {
+       "start": 163.667,
+       "end": 171.578,
+       "text": "287 give 8+8+8 with cut 2; 13 split a group in two, cut 21.",
+       "sceneId": "a07-orders"
+      },
+      {
+       "start": 171.978,
+       "end": 175.044,
+       "text": "Most orders find the three blocks;",
+       "sceneId": "a08-orders-circ"
+      },
+      {
+       "start": 175.044,
+       "end": 182.289,
+       "text": "a few let two labels share the middle block, and it stops in a worse stable state.",
+       "sceneId": "a08-orders-circ"
+      },
+      {
+       "start": 182.689,
+       "end": 189.156,
+       "text": "Cost: in one round every node reads its neighbours once, so every edge is read twice.",
+       "sceneId": "a09-cost"
+      },
+      {
+       "start": 189.156,
+       "end": 195.067,
+       "text": "The 61 contact ties: 122 reads per round, stable after 3 rounds.",
+       "sceneId": "a09-cost"
+      },
+      {
+       "start": 195.067,
+       "end": 200.067,
+       "text": "Exhaustive search, by contrast, cannot even be counted through.",
+       "sceneId": "a09-cost"
+      },
+      {
+       "start": 200.067,
+       "end": 205.867,
+       "text": "With few rounds, the total work grows in proportion to the number of edges.",
+       "sceneId": "a09-cost"
+      },
+      {
+       "start": 206.267,
+       "end": 211.289,
+       "text": "One more trap: two triangles joined by a bridge.",
+       "sceneId": "a10-monster"
+      },
+      {
+       "start": 211.289,
+       "end": 217.867,
+       "text": "Ties to the smallest: every node ends up with one label, cut = 0.",
+       "sceneId": "a10-monster"
+      },
+      {
+       "start": 217.867,
+       "end": 225.778,
+       "text": "The lowest cut of all is “everything in one group”. Nothing in the rule resists merging.",
+       "sceneId": "a10-monster"
+      },
+      {
+       "start": 225.778,
+       "end": 230.778,
+       "text": "With ties to the largest it happens to split the two triangles.",
+       "sceneId": "a10-monster"
+      },
+      {
+       "start": 230.778,
+       "end": 236.689,
+       "text": "Cap each group at U = 3, and the result no longer rests on luck with ties.",
+       "sceneId": "a10-monster"
+      },
+      {
+       "start": 237.089,
+       "end": 239.889,
+       "text": "Two common fixes.",
+       "sceneId": "a11-variants"
+      },
+      {
+       "start": 239.889,
+       "end": 246.289,
+       "text": "The size-constrained version is a common coarsening step in multilevel partitioners.",
+       "sceneId": "a11-variants"
+      },
+      {
+       "start": 246.289,
+       "end": 252.289,
+       "text": "Besides that: run several random orders and compare how much the results move.",
+       "sceneId": "a11-variants"
+      },
+      {
+       "start": 252.689,
+       "end": 257.711,
+       "text": "Back to the 24-cell circuit, with a cap of U = 4 per group.",
+       "sceneId": "a12-coarsen"
+      },
+      {
+       "start": 257.711,
+       "end": 263.178,
+       "text": "Label propagation forms 7 small groups, none over 4 cells.",
+       "sceneId": "a12-coarsen"
+      },
+      {
+       "start": 263.178,
+       "end": 269.533,
+       "text": "Each group contracts to one node: the 24-cell graph becomes a 7-node graph.",
+       "sceneId": "a12-coarsen"
+      },
+      {
+       "start": 269.533,
+       "end": 277.533,
+       "text": "Partition the small graph, then expand and refine level by level: the first step of multilevel partitioning.",
+       "sceneId": "a12-coarsen"
+      },
+      {
+       "start": 277.933,
+       "end": 280.4,
+       "text": "Four things to take away:",
+       "sceneId": "a13-summary"
+      },
+      {
+       "start": 280.4,
+       "end": 284.067,
+       "text": "async with strict improvement always stops;",
+       "sceneId": "a13-summary"
+      },
+      {
+       "start": 284.067,
+       "end": 286.867,
+       "text": "sync can trade labels forever;",
+       "sceneId": "a13-summary"
+      },
+      {
+       "start": 286.867,
+       "end": 293.0,
+       "text": "state your rules; it is fast, but partitioning a chip needs constraints.",
+       "sceneId": "a13-summary"
+      }
+     ],
+     "readingViolations": 0,
+     "bytes": 13965758
+    }
+   }
+  },
+  {
+   "id": "lab",
+   "kind": "lab",
+   "status": "ready",
+   "title": {
+    "zh": "实验演示",
+    "en": "Lab Walkthrough"
+   },
+   "why": {
+    "zh": "从真实页面录下的操作演示：怎样单步看票、切换规则、改桥边权，再在浏览器里写完两个函数并通过全部检查。",
+    "en": "Recorded from the real page: stepping through votes, switching rules, changing the bridge weight, then writing the two functions in the browser and passing every check."
+   },
+   "music": {
+    "zh": "本课程原创程序合成配乐（NumPy），CC BY 4.0",
+    "en": "Original score synthesised for this course (NumPy), CC BY 4.0"
+   },
+   "recorded": "scripts/film/recorder.mjs + video/m05-label-propagation/walkthrough.mjs",
+   "fps": 30,
+   "size": [
+    1920,
+    1080
+   ],
+   "versions": {
+    "zh": {
+     "src": "lab.zh.mp4",
+     "vtt": "lab.zh.vtt",
+     "poster": "lab.zh.jpg",
+     "duration": 138.83,
+     "captions": "zh+en",
+     "chapters": [
+      {
+       "t": 0.0,
+       "title": "开始",
+       "sceneId": "title"
+      },
+      {
+       "t": 3.2,
+       "title": "实验台",
+       "sceneId": "shot-00"
+      },
+      {
+       "t": 61.47,
+       "title": "在线编程",
+       "sceneId": "shot-08"
+      },
+      {
+       "t": 111.96,
+       "title": "用你的代码跑",
+       "sceneId": "shot-14"
+      },
+      {
+       "t": 128.58,
+       "title": "挑战",
+       "sceneId": "shot-16"
+      }
+     ],
+     "transcript": [
+      {
+       "start": 3.2,
+       "end": 10.844,
+       "text": "这是本章的实验台：先选例子、更新方式、平票规则和访问顺序。",
+       "sceneId": "shot-00"
+      },
+      {
+       "start": 10.844,
+       "end": 17.378,
+       "text": "按“下一步”，更新一个节点。右边是这一票的明细。",
+       "sceneId": "shot-01"
+      },
+      {
+       "start": 17.378,
+       "end": 25.911,
+       "text": "再按两次轮到 C：B = 1 + 4 = 5，D = 2，E = 1。金色那一行是赢家。",
+       "sceneId": "shot-02"
+      },
+      {
+       "start": 25.911,
+       "end": 32.444,
+       "text": "“跳到结束”：2 轮，状态 stable，cut 3。",
+       "sceneId": "shot-03"
+      },
+      {
+       "start": 32.444,
+       "end": 38.756,
+       "text": "下面的记录表列出每一步；点任一行就回到那一步。",
+       "sceneId": "shot-04"
+      },
+      {
+       "start": 38.756,
+       "end": 46.844,
+       "text": "换成同步更新，再跳到结束：同一张图开始振荡，状态是 cycle。",
+       "sceneId": "shot-05"
+      },
+      {
+       "start": 46.844,
+       "end": 54.044,
+       "text": "换回异步，按“反向顺序”：3 轮，标签名不同，分组不变。",
+       "sceneId": "shot-06"
+      },
+      {
+       "start": 54.044,
+       "end": 61.467,
+       "text": "把 C–D 这座桥调到 10：分组变成 AB | CDE，cut 5。",
+       "sceneId": "shot-07"
+      },
+      {
+       "start": 61.467,
+       "end": 68.444,
+       "text": "在线编程：代码在浏览器里运行，不用安装 Python。",
+       "sceneId": "shot-08"
+      },
+      {
+       "start": 68.444,
+       "end": 76.089,
+       "text": "先运行检查：两个任务都还没写，结果是 INCOMPLETE。",
+       "sceneId": "shot-09"
+      },
+      {
+       "start": 76.089,
+       "end": 86.157,
+       "text": "任务一 count_votes：按标签把邻居的边权加起来。",
+       "sceneId": "shot-10"
+      },
+      {
+       "start": 86.157,
+       "end": 91.801,
+       "text": "再运行检查：计票通过了，停止判定还没写。",
+       "sceneId": "shot-11"
+      },
+      {
+       "start": 91.801,
+       "end": 103.868,
+       "text": "任务二：整轮零变化就是 stable；状态以前出现过就是 cycle。",
+       "sceneId": "shot-12"
+      },
+      {
+       "start": 103.868,
+       "end": 111.957,
+       "text": "运行检查：全部通过，包括作者原作的 24 单元电路和 28 人通讯录。",
+       "sceneId": "shot-13"
+      },
+      {
+       "start": 111.957,
+       "end": 121.157,
+       "text": "下面用你自己的 solve() 运行，并和课程引擎逐步对照。选两节点、同步。",
+       "sceneId": "shot-14"
+      },
+      {
+       "start": 121.157,
+       "end": 128.579,
+       "text": "你的代码也报告了 cycle，而且每一步都和课程引擎一致。",
+       "sceneId": "shot-15"
+      },
+      {
+       "start": 128.579,
+       "end": 136.224,
+       "text": "最后做挑战题，确认自己真的懂了。结果只保存在你的浏览器里。",
+       "sceneId": "shot-16"
+      }
+     ],
+     "readingViolations": 0,
+     "bytes": 10096640
+    },
+    "en": {
+     "src": "lab.en.mp4",
+     "vtt": "lab.en.vtt",
+     "poster": "lab.en.jpg",
+     "duration": 131.8,
+     "captions": "en",
+     "chapters": [
+      {
+       "t": 0.0,
+       "title": "START",
+       "sceneId": "title"
+      },
+      {
+       "t": 3.2,
+       "title": "THE LAB",
+       "sceneId": "shot-00"
+      },
+      {
+       "t": 55.35,
+       "title": "CODE LAB",
+       "sceneId": "shot-08"
+      },
+      {
+       "t": 106.75,
+       "title": "YOUR CODE, VISUALISED",
+       "sceneId": "shot-14"
+      },
+      {
+       "t": 122.07,
+       "title": "CHALLENGES",
+       "sceneId": "shot-16"
+      }
+     ],
+     "transcript": [
+      {
+       "start": 3.2,
+       "end": 11.0,
+       "text": "This is the chapter's lab: choose an example, the update mode, the tie rule and the visiting order.",
+       "sceneId": "shot-00"
+      },
+      {
+       "start": 11.0,
+       "end": 17.533,
+       "text": "Press Step to update one node. The panel on the right shows that vote in detail.",
+       "sceneId": "shot-01"
+      },
+      {
+       "start": 17.533,
+       "end": 24.2,
+       "text": "Two more steps and it is C's turn: B = 1 + 4 = 5, D = 2, E = 1. The gold row wins.",
+       "sceneId": "shot-02"
+      },
+      {
+       "start": 24.2,
+       "end": 28.267,
+       "text": "To the end: 2 rounds, status stable, cut 3.",
+       "sceneId": "shot-03"
+      },
+      {
+       "start": 28.267,
+       "end": 34.052,
+       "text": "The log below lists every step; click any row to jump back to it.",
+       "sceneId": "shot-04"
+      },
+      {
+       "start": 34.052,
+       "end": 42.052,
+       "text": "Switch to synchronous updates and jump to the end: the same graph oscillates, and the status is cycle.",
+       "sceneId": "shot-05"
+      },
+      {
+       "start": 42.052,
+       "end": 49.052,
+       "text": "Back to asynchronous, then Reverse order: 3 rounds, other label names, the same groups.",
+       "sceneId": "shot-06"
+      },
+      {
+       "start": 49.052,
+       "end": 55.348,
+       "text": "Raise the C–D bridge to 10: the groups become AB | CDE, cut 5.",
+       "sceneId": "shot-07"
+      },
+      {
+       "start": 55.348,
+       "end": 61.281,
+       "text": "The code lab: your code runs in the browser, with no Python to install.",
+       "sceneId": "shot-08"
+      },
+      {
+       "start": 61.281,
+       "end": 67.748,
+       "text": "Run the checks first: neither task is written yet, so the result is INCOMPLETE.",
+       "sceneId": "shot-09"
+      },
+      {
+       "start": 67.748,
+       "end": 78.814,
+       "text": "Task 1, count_votes: add up the neighbours' edge weights per label.",
+       "sceneId": "shot-10"
+      },
+      {
+       "start": 78.814,
+       "end": 85.547,
+       "text": "Run the checks again: the vote counting passes; the stopping test is still missing.",
+       "sceneId": "shot-11"
+      },
+      {
+       "start": 85.547,
+       "end": 98.814,
+       "text": "Task 2: a round with no change is stable; a state seen before is a cycle.",
+       "sceneId": "shot-12"
+      },
+      {
+       "start": 98.814,
+       "end": 106.747,
+       "text": "Run the checks: everything passes, including the original 24-cell circuit and 28-person contact list.",
+       "sceneId": "shot-13"
+      },
+      {
+       "start": 106.747,
+       "end": 115.281,
+       "text": "Below, your own solve() runs and is compared with the course engine step by step. Pick two nodes, synchronous.",
+       "sceneId": "shot-14"
+      },
+      {
+       "start": 115.281,
+       "end": 122.072,
+       "text": "Your code reports a cycle too, and agrees with the course engine at every step.",
+       "sceneId": "shot-15"
+      },
+      {
+       "start": 122.072,
+       "end": 129.205,
+       "text": "Finally, try the challenges to check you really understand. Results stay in your browser.",
+       "sceneId": "shot-16"
+      }
+     ],
+     "readingViolations": 0,
+     "bytes": 10090250
+    }
+   }
   }
  ]
 }

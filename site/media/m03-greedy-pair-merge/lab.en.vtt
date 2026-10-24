@@ -1,0 +1,61 @@
+WEBVTT
+
+1
+00:00:03.200 --> 00:00:11.533
+This is the chapter's lab: choose the target K and a capacity, and the graph and candidate table recompute.
+
+2
+00:00:11.533 --> 00:00:19.133
+Press Step: A–B and D–E are both 5, the tie goes by name, and A–B (gold) is chosen. cut 18 → 13.
+
+3
+00:00:19.133 --> 00:00:27.000
+Step two: AB–C shows 5 (1+4), two parallel wires added up; another tie, and [A, B] comes before [D].
+
+4
+00:00:27.000 --> 00:00:31.733
+Step three merges D–E: two clusters, ABC | DE, cut 3.
+
+5
+00:00:31.733 --> 00:00:41.667
+Set the capacity to 2 and jump to the end: AB+C is blocked as over capacity, and it stops at 3 clusters, cut 8, without reaching K.
+
+6
+00:00:41.667 --> 00:00:50.600
+Below, the original page's string comparison for contrast: with the same settings, its first step wrongly picks A–C.
+
+7
+00:00:50.600 --> 00:00:55.733
+The log lists every step; click any row to jump back to it.
+
+8
+00:00:55.733 --> 00:01:01.667
+The code lab: your code runs in the browser, with no Python to install.
+
+9
+00:01:01.667 --> 00:01:08.133
+Run the checks first: neither task is written yet, so the result is INCOMPLETE.
+
+10
+00:01:08.133 --> 00:01:15.267
+Task 1: the selection key is a tuple: numbers compare as numbers, and members break ties.
+
+11
+00:01:15.267 --> 00:02:03.230
+Task 2: the main loop. Stop at K; stop when no candidate is legal, telling the two reasons apart; otherwise merge the best pair.
+
+12
+00:02:03.230 --> 00:02:11.163
+Run the checks: everything passes, including multi-digit weights 10 > 9 > 2 and a disconnected graph.
+
+13
+00:02:11.163 --> 00:02:19.163
+Below, your own greedy_pair_merge() runs on a new graph, compared step by step with the course engine.
+
+14
+00:02:19.163 --> 00:02:27.112
+Every step's clusters and cut match the engine.
+
+15
+00:02:27.112 --> 00:02:34.245
+Finally, try the challenges to check you really understand. Results stay in your browser.

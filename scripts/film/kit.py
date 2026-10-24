@@ -16,6 +16,12 @@ TEAL, GOLD, RED, BLUE, PURPLE, PINK, GREEN = "#77cdbb", "#d8bb78", "#db7b72", "#
 GROUP = [TEAL, BLUE, GOLD, PURPLE, PINK, GREEN, "#e8a06a", "#7fd0e0"]
 CAPTION_TOP = H - 170          # diagrams stay above this line
 STAGE = (90, 130, W - 90, CAPTION_TOP - 24)
+LANG = "zh"  # slides are built once per language (scripts/slides/build_slides.py --lang)
+
+
+def X(zh, en):
+    """Pick the string for the language being built."""
+    return en if LANG == "en" else zh
 
 
 def clamp(x, a=0.0, b=1.0):
@@ -225,7 +231,7 @@ def score_box(cv, x, y, w, items, total=None, alpha=1.0, title=None, size=34):
         yy += 64
     if total is not None:
         cv.line(x + 24, yy - 30, x + w - 24, yy - 30, "#3b5a5e", 2, alpha)
-        cv.text(x + 30, yy + 14, "合计", size - 2, GOLD, "bold", alpha=alpha)
+        cv.text(x + 30, yy + 14, X("合计", "Total"), size - 2, GOLD, "bold", alpha=alpha)
         cv.text(x + w - 30, yy + 14, f"{total:g}", size + 10, GOLD, "bold", "right", alpha=alpha)
 
 

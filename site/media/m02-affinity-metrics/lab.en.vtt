@@ -1,0 +1,73 @@
+WEBVTT
+
+1
+00:00:03.200 --> 00:00:10.600
+This is the chapter's lab: choose an example, here the course graph G01, then a way to score.
+
+2
+00:00:10.600 --> 00:00:17.533
+Direct weight: G01 has only 6 pairs. A–B and D–E are both 5; by name, A–B comes first.
+
+3
+00:00:17.533 --> 00:00:22.933
+Switch to shared neighbours: all 10 pairs score. A–B becomes 6.
+
+4
+00:00:22.933 --> 00:00:30.021
+Click B–D in the log: no direct edge, and through C it gets min(4, 2) = 2.
+
+5
+00:00:30.021 --> 00:00:35.888
+Switch to the priority graph: by direct weight, the first pair is X–Y.
+
+6
+00:00:35.888 --> 00:00:42.888
+By shared neighbours, the three triangle pairs score 8, and the first pair becomes P–Q.
+
+7
+00:00:42.888 --> 00:00:47.626
+Change X–Y to 9: it just takes first place again.
+
+8
+00:00:47.626 --> 00:00:55.493
+Switch to the tiny netlist with pin-count: the private E–F gets 1 and comes first; A–B has only 0.5.
+
+9
+00:00:55.493 --> 00:01:01.493
+Compare with net count: without sharing out, A–B scores 2 and beats E–F.
+
+10
+00:01:01.493 --> 00:01:07.426
+The code lab: your code runs in the browser, with no Python to install.
+
+11
+00:01:07.426 --> 00:01:14.626
+Run the checks first: none of the three functions is written, so the result is INCOMPLETE.
+
+12
+00:01:14.626 --> 00:01:20.759
+Task 1: direct weight just ranks the normalised edges. One line is enough.
+
+13
+00:01:20.759 --> 00:01:37.789
+Task 2: build the adjacency first, then check every unordered pair, including pairs with no direct edge.
+
+14
+00:01:37.789 --> 00:01:52.624
+Task 3: drop repeated pins in each net, and add w/(|e|−1) to every pair in it.
+
+15
+00:01:52.624 --> 00:02:00.424
+Run the checks: everything passes, including the original author's priority graph and tiny netlist.
+
+16
+00:02:00.424 --> 00:02:09.158
+Below, your own function runs on a new graph the exercise never used, compared row by row with the course engine.
+
+17
+00:02:09.158 --> 00:02:15.977
+Every row matches the engine.
+
+18
+00:02:15.977 --> 00:02:23.110
+Finally, try the challenges to check you really understand. Results stay in your browser.

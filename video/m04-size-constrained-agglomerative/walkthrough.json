@@ -1,0 +1,10 @@
+{
+ "title": {"zh": "实验演示", "en": "Lab Walkthrough"},
+ "subtitle": {"zh": "实验台 · 在线编程 · 挑战", "en": "THE LAB  ·  THE CODE LAB  ·  CHALLENGES"},
+ "kicker": {"zh": "MODULE 04 · 容量约束凝聚聚类", "en": "MODULE 04 · SIZE-CONSTRAINED AGGLOMERATIVE"},
+ "brand": {"zh": "Learning Clustering · Module 04 · 容量约束凝聚聚类", "en": "Learning Clustering · Module 04 · Size-constrained agglomerative"},
+ "why": {"zh": "从真实页面录下的操作演示：容量 2 时 AB–C 怎样被挡住、诊断栏怎样区分不可能 / 卡住 / 非最优、改节点大小的效果，再在浏览器里写完 report() 和 classify() 并通过全部检查。",
+         "en": "Recorded from the real page: how AB–C is blocked at capacity 2, how the diagnosis tells impossible, stuck and not optimal apart, what changing a node's size does, then writing report() and classify() in the browser and passing every check."},
+ "posterShot": 2,
+ "order": ["story", "concise", "advanced", "lab"]
+}

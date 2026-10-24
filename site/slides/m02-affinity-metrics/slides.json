@@ -11,8 +11,8 @@
    "thumb": "t01.jpg",
    "alt": "谁和谁最亲近：",
    "transcript": "这一模块只回答一个问题：一对电路单元有多该放在一起？我们比较三种评分：直接边权、共同邻居和多引脚 net 的 pin-count。评分只给出排名，不决定分组；分组从下一模块开始。",
-   "videoAnchor": "00:00",
-   "sceneId": "s00-title",
+   "videoAnchor": null,
+   "sceneId": "k00-title",
    "objectiveIds": []
   },
   {
@@ -24,8 +24,8 @@
    "thumb": "t02.jpg",
    "alt": "问题定义：输入：带权无向图，或多引脚网表；输出：所有正分节点对 (u, v, score)，u < v；排序：分数降序，再按 u、v 字典序；约定：无自环与重复边；net 内重复引脚只算一次；零分对不列出；评分是排名，不是分组，也不是距离或概率",
    "transcript": "输入可以是一张带权无向图，也可以是网表。输出是所有正分节点对的列表，每一对写成 u 小于 v，按分数从高到低排，平票按名字。本模块不输出分组；亲和度也不是距离或概率。",
-   "videoAnchor": "00:03",
-   "sceneId": "s01-hook",
+   "videoAnchor": null,
+   "sceneId": "k01-question",
    "objectiveIds": [
     "o1"
    ]
@@ -39,8 +39,8 @@
    "thumb": "t03.jpg",
    "alt": "图与 net：普通的边只连两个单元；一个 net 可以连 3、5 乃至上千个单元的引脚；给其中“一对”打分，需要先选一个模型；clique 模型：把 net 展开成两两之间的示意贡献",
    "transcript": "普通的边只连两个单元，而一个 net 可以连很多个。要给 net 里的一对单元打分，就得先选模型。常用的 clique 模型把 net 展开成两两之间的示意贡献，但这些连线并不真的存在。",
-   "videoAnchor": "00:14",
-   "sceneId": "s02-model",
+   "videoAnchor": null,
+   "sceneId": "p-dilute",
    "objectiveIds": [
     "o5"
    ]
@@ -54,8 +54,8 @@
    "thumb": "t04.jpg",
    "alt": "直接边权与稳定排名：edge(u, v) = w(u, v)：只有直接相连的对才有分；G01 有 6 条边，所以有 6 对；A–B 与 D–E 同为 5：按名字 A < D；固定平票规则后，排名与输入顺序无关",
    "transcript": "最直接的评分就是边权。G01 有六条边，所以有六对。A–B 和 D–E 都是 5，按名字 A 排在 D 前面。规定了平票规则，不管边按什么顺序输入，排名都一样。",
-   "videoAnchor": "00:29",
-   "sceneId": "s03-edge",
+   "videoAnchor": null,
+   "sceneId": "k02-edge",
    "objectiveIds": [
     "o2"
    ]
@@ -69,8 +69,8 @@
    "thumb": "t05.jpg",
    "alt": "共同邻居评分：shared(u, v) = w(u, v) + Σ_x min(w(u, x), w(v, x))；x 是同时与 u、v 相连的共同邻居；经 x 的联系只和较弱的那条边一样强：取 min；要检查所有无序节点对：G01 共 10 对，都有正分",
    "transcript": "共同邻居评分等于直接边权，再加上每个共同邻居的贡献，贡献取两条边中较小的那条。一定要检查所有无序节点对，G01 一共十对，全部是正分。",
-   "videoAnchor": "00:48",
-   "sceneId": "s04-ac",
+   "videoAnchor": null,
+   "sceneId": "k03-shared",
    "objectiveIds": [
     "o3"
    ]
@@ -84,8 +84,8 @@
    "thumb": "t06.jpg",
    "alt": "手算：A–C 与 B–D：A–C：直接 1，经 B 的 min(5, 4) = 4，合计 5；B–D：没有直接边，直接部分为 0；B–D：经 C 的 min(4, 2) = 2，合计 2；只在已有的边上打分，就会漏掉 B–D",
    "transcript": "手算两对。A–C 的直接边是 1，经过 B 的贡献是 min(5, 4) 等于 4，合计 5。B–D 之间没有边，直接部分是 0；经过 C 的贡献是 min(4, 2) 等于 2。如果只在已有的边上计算，就会漏掉 B–D。",
-   "videoAnchor": "01:09",
-   "sceneId": "s05-bd",
+   "videoAnchor": null,
+   "sceneId": "k04-bd",
    "objectiveIds": [
     "o3"
    ]
@@ -99,8 +99,8 @@
    "thumb": "t07.jpg",
    "alt": "换一种评分，第一对就变了：priority 图（原作者 Capeur）：PQR 三角形每边 4，X–Y 为 5；直接边权：第一对 X–Y @ 5；共同邻居：P–Q = 4 + min(4, 4) = 8；P–Q、P–R、Q–R 并列 8，按名字取 P–Q；X–Y 要到 9 才能重新排第一（等于 8 时平票输给 P–Q）",
    "transcript": "原作者设计的 priority 图很能说明问题：按直接边权，第一对是 X–Y；按共同邻居，三角形里每一对都是 4 加 4 等于 8，第一对变成 P–Q。两种评分回答的是不同的问题。",
-   "videoAnchor": "01:34",
-   "sceneId": "s06-priority",
+   "videoAnchor": null,
+   "sceneId": "k05-priority",
    "objectiveIds": [
     "o4"
    ]
@@ -114,8 +114,8 @@
    "thumb": "t08.jpg",
    "alt": "宽 net 的稀释：pin-count：tiny netlist：两条 5 引脚 net 连着 A–E，私有 net n1 只连 E、F；按 net 计数：A–B = 2，E–F = 1；pin-count = Σ w(e) / (|e| − 1)；A–B = 1/4 + 1/4 = 0.5；E–F = 1/(2 − 1) = 1；摊薄之后，私有连接 E–F 排第一",
    "transcript": "原作者的 tiny netlist 有两条五引脚的宽 net 和一条私有 net。只数出现次数，A–B 得 2 分。pin-count 把每条 net 摊成 |e| 减 1 份，A–B 只得 0.5，而 E–F 得 1，排名第一。",
-   "videoAnchor": "02:01",
-   "sceneId": "s07-pin",
+   "videoAnchor": null,
+   "sceneId": "k06-pin",
    "objectiveIds": [
     "o5"
    ]
@@ -129,8 +129,8 @@
    "thumb": "t09.jpg",
    "alt": "伪代码逐行：第 1 行：遍历所有无序节点对，包括无直接边的对；第 2 行：没有边就从 0 开始；第 3–4 行：每个共同邻居加上较弱的那条边；第 5 行：只记录正分（声明过的策略）；第 6–7 行：稳定排序；输出排名",
    "transcript": "伪代码第一行遍历所有无序节点对；第二行放入直接边权，没有边就是 0；第三、四行对每个共同邻居加上较弱的那条边；第五行只记录正分；最后稳定排序，输出排名。",
-   "videoAnchor": "02:38",
-   "sceneId": "s08-code",
+   "videoAnchor": null,
+   "sceneId": "p-list",
    "objectiveIds": [
     "o6"
    ]
@@ -161,8 +161,8 @@
    "thumb": "t11.jpg",
    "alt": "回到芯片：工程含义与局限：评分决定“先把谁粘在一起”，影响后续合并与跨区长线；边权来源要写明：连线数量、信号重要性或由 net 转换而来；本课程小图都是教学用虚构数值，不是芯片实测；共同邻居要检查约 n(n−1)/2 对；大网表需沿邻接关系枚举；clique 模型只是多引脚 net 的一种近似",
    "transcript": "在芯片设计里，评分决定先把哪些单元放在一起。要写明边权从哪里来。本课程的小图是教学用的虚构数值。共同邻居评分要检查大量节点对，大规模网表需要只沿邻接关系枚举。clique 模型也只是一种近似。",
-   "videoAnchor": "03:02",
-   "sceneId": "s09-eda",
+   "videoAnchor": null,
+   "sceneId": "p-netlist",
    "objectiveIds": [
     "o1"
    ]
@@ -184,5 +184,6 @@
  "pdf": "m02-affinity-metrics.pdf",
  "pptx": "m02-affinity-metrics.pptx",
  "contentVersion": "2026.10.23-1",
+ "lang": "zh",
  "aspectNote": "16:9 是本课程的设计选择（与影片一致、适合投影），不是教师指定的比例。PDF 页码与网页 p/total 完全一致；PPTX 中文字、形状与表格均可编辑，讲稿在备注里。"
 }

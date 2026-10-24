@@ -1,6 +1,6 @@
 # Module 08 Fiduccia–Mattheyses 改进 · Python 练习包
 
-实现 gain 与合法候选。来自 Learning Clustering 统一课程（Module 08）。网页上的实验与挑战不需要 Python；这个包是可选的实现轨道。
+实现 gain 与合法候选。来自 Learning Clustering 统一课程（Module 08）。这个练习也可以直接在模块页面的在线编程里完成，无需安装；这个包用于离线练习。
 
 ## 环境
 

@@ -1,0 +1,8 @@
+[
+  { "type": "Legality", "title": "Why not A" },
+  { "type": "Trace", "title": "Split D’s gain" },
+  { "type": "Roll back", "title": "Choose k*" },
+  { "type": "Debug", "title": "Audit the attachment’s example" },
+  { "type": "Explore", "title": "Negative first, then positive" },
+  { "type": "Extension", "title": "The gain on a multi-pin net" }
+]

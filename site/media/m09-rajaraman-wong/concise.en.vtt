@@ -1,0 +1,97 @@
+WEBVTT
+
+1
+00:00:03.400 --> 00:00:11.533
+A chain, each node delay 1, crossing clusters adds D = 3. Two clusters: one crossing, delay 7.
+
+2
+00:00:11.533 --> 00:00:15.889
+Another split crosses twice: delay 10.
+
+3
+00:00:15.889 --> 00:00:21.133
+The goal has changed: the longest path's delay, not the cut.
+
+4
+00:00:21.533 --> 00:00:26.733
+The RW model: a combinational circuit is a directed acyclic graph.
+
+5
+00:00:26.733 --> 00:00:29.533
+Each node has a delay δ.
+
+6
+00:00:29.533 --> 00:00:35.200
+Wires inside a cluster add nothing; wires between clusters add a fixed D.
+
+7
+00:00:35.200 --> 00:00:38.000
+Each cluster has a capacity M.
+
+8
+00:00:38.000 --> 00:00:43.200
+And nodes may be replicated: the premise of the optimality result.
+
+9
+00:00:43.600 --> 00:00:51.733
+The candidate DAG, reconstructed from the original film: 12 nodes, PIs a, b, c, POs k, l.
+
+10
+00:00:51.733 --> 00:00:58.756
+Δ(b, k) = 4: along b, e, g, i, k, counting the end, not the start.
+
+11
+00:00:58.756 --> 00:01:02.889
+A PI's label is its own delay: 1.
+
+12
+00:01:03.289 --> 00:01:06.978
+Label in topological order. Take node i.
+
+13
+00:01:06.978 --> 00:01:12.222
+Each ancestor's score: l(x) + Δ(x, i).
+
+14
+00:01:12.222 --> 00:01:20.356
+Capacity 4: take the top scores g, e, c; ties go to the later node in topological order, an assumption.
+
+15
+00:01:20.356 --> 00:01:27.156
+PI c inside gives l1 = 4; b, the largest outside, gives l2 = 4 + 3 = 7.
+
+16
+00:01:27.156 --> 00:01:30.844
+l(i) = 7. The label is a time.
+
+17
+00:01:31.244 --> 00:01:36.444
+Recover from the outputs: first the candidate clusters of k and l.
+
+18
+00:01:36.444 --> 00:01:41.467
+The outside inputs d, e, f, h become new roots.
+
+19
+00:01:41.467 --> 00:01:46.489
+b and c form their own: 8 clusters, 20 instances.
+
+20
+00:01:46.489 --> 00:01:51.067
+Both outputs arrive at 8, exactly the labels.
+
+21
+00:01:51.467 --> 00:01:53.600
+Four things to keep.
+
+22
+00:01:53.600 --> 00:01:57.667
+Delay follows the longest path; labels are times;
+
+23
+00:01:57.667 --> 00:02:04.000
+recover from the outputs, instances apart from logic nodes; replication costs area.
+
+24
+00:02:04.000 --> 00:02:08.400
+In the lab below, step through labelling and recovery.

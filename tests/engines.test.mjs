@@ -97,6 +97,24 @@ test('M04: greedy never violates capacity and never beats the exhaustive optimum
   }
 });
 
+test('M05 label propagation: async cut drop, size cap, trivial fixed point, synchronous star', () => {
+  // Each asynchronous change lowers the cut by exactly (votes for the new label − votes for the old one).
+  const run = LP.run(G01);
+  let prev = G01.edges.reduce((s, e) => s + e.w, 0);
+  for (const e of run.events) { assert.equal(prev - e.metrics.cut, e.changed ? e.votes[e.label] - (e.votes[e.old] || 0) : 0); prev = e.metrics.cut; }
+  const tri = { nodes: ['A', 'B', 'C', 'D', 'E', 'F'], edges: [['A', 'B', 1], ['A', 'C', 1], ['B', 'C', 1], ['C', 'D', 1], ['D', 'E', 1], ['D', 'F', 1], ['E', 'F', 1]] };
+  assert.equal(LP.run(tri).result.grouping, 'A,B,C,D,E,F');
+  assert.equal(LP.run(tri, { tie: 'max' }).result.cut, 1);
+  const cap = LP.run(tri, { maxSize: 3 }).result;
+  assert.equal(cap.grouping, 'A,B,C | D,E,F');
+  const sizes = Object.values(cap.labels).reduce((m, l) => ((m[l] = (m[l] || 0) + 1), m), {});
+  assert.ok(Object.values(sizes).every(n => n <= 3));
+  assert.equal(LP.validate(tri, { mode: 'sync', maxSize: 3 }).ok, false);
+  const star = { nodes: ['H', 'a', 'b', 'c', 'd'], edges: [['H', 'a', 1], ['H', 'b', 1], ['H', 'c', 1], ['H', 'd', 1]] };
+  const s = LP.run(star, { mode: 'sync' });
+  assert.equal(s.result.status, 'cycle'); assert.equal(s.events.at(-1).period, 2);
+});
+
 test('M05 label propagation: golden, cycle, bridge, order, film graphs', async () => {
   const r = LP.run(G01).result;
   assert.deepEqual(r.labels, { A: 'B', B: 'B', C: 'B', D: 'E', E: 'E' }); assert.equal(r.rounds, 2); assert.equal(r.status, 'stable'); assert.equal(r.cut, 3);

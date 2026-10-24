@@ -1,0 +1,189 @@
+{
+ "status": "ready",
+ "moduleId": "m02-affinity-metrics",
+ "slides": [
+  {
+   "slideId": "m02-title",
+   "pageNumber": 1,
+   "pageCount": 12,
+   "title": "Who is closest?",
+   "image": "p01.jpg",
+   "thumb": "t01.jpg",
+   "alt": "Who is closest?: ",
+   "transcript": "This module answers one question: how much does a pair of circuit cells belong together? We compare three scores: direct edge weight, shared neighbours, and pin-count on multi-pin nets. A score only gives a ranking; it does not decide a grouping. Grouping starts in the next module.",
+   "videoAnchor": "“The essentials” 00:00",
+   "sceneId": "k00-title",
+   "objectiveIds": []
+  },
+  {
+   "slideId": "m02-problem",
+   "pageNumber": 2,
+   "pageCount": 12,
+   "title": "The problem",
+   "image": "p02.jpg",
+   "thumb": "t02.jpg",
+   "alt": "The problem: Input: a weighted undirected graph, or a multi-pin netlist; Output: every positive pair (u, v, score), with u < v; Order: score descending, then u and v alphabetically; Conventions: no self-loops or duplicate edges; a pin repeated in a net counts once; zero pairs are not listed; A score is a ranking",
+   "transcript": "The input can be a weighted undirected graph or a netlist. The output is the list of every pair with a positive score, each written with u less than v, sorted from the highest score down, with ties by name. This module outputs no groups, and affinity is neither a distance nor a probability.",
+   "videoAnchor": "“The essentials” 00:03",
+   "sceneId": "k01-question",
+   "objectiveIds": [
+    "o1"
+   ]
+  },
+  {
+   "slideId": "m02-model",
+   "pageNumber": 3,
+   "pageCount": 12,
+   "title": "Graphs and nets",
+   "image": "p03.jpg",
+   "thumb": "t03.jpg",
+   "alt": "Graphs and nets: An ordinary edge connects only two cells; A net can connect the pins of 3, 5 or thousands of cells; Scoring one pair inside a net needs a model first; The clique model: draw the net as pairwise illustrative contributions",
+   "transcript": "An ordinary edge connects only two cells, but a net can connect many. To score one pair inside a net you first have to choose a model. The common clique model draws the net as pairwise illustrative contributions, but those wires do not really exist.",
+   "videoAnchor": null,
+   "sceneId": "p-dilute",
+   "objectiveIds": [
+    "o5"
+   ]
+  },
+  {
+   "slideId": "m02-edge",
+   "pageNumber": 4,
+   "pageCount": 12,
+   "title": "Direct weight and the stable ranking",
+   "image": "p04.jpg",
+   "thumb": "t04.jpg",
+   "alt": "Direct weight and the stable ranking: edge(u, v) = w(u, v): only directly wired pairs score; G01 has 6 edges, so 6 pairs; A–B and D–E are both 5: by name, A < D; With the tie rule fixed, the ranking does not depend on input order",
+   "transcript": "The most direct score is the edge weight. G01 has six edges, so six pairs. A–B and D–E are both 5, and by name A comes before D. With a fixed tie rule, the ranking is the same whatever order the edges arrive in.",
+   "videoAnchor": "“The essentials” 00:16",
+   "sceneId": "k02-edge",
+   "objectiveIds": [
+    "o2"
+   ]
+  },
+  {
+   "slideId": "m02-shared-formula",
+   "pageNumber": 5,
+   "pageCount": 12,
+   "title": "The shared-neighbour score",
+   "image": "p05.jpg",
+   "thumb": "t05.jpg",
+   "alt": "The shared-neighbour score: shared(u, v) = w(u, v) + Σ_x min(w(u, x), w(v, x)); x is a shared neighbour, connected to both u and v; A link through x is only as strong as its weaker edge: take min; Check every unordered pair: G01 has 10, all positive",
+   "transcript": "The shared-neighbour score is the direct weight plus the contribution of each shared neighbour, and that contribution takes the smaller of the two edges. Be sure to check every unordered pair: G01 has ten, and all of them score above zero.",
+   "videoAnchor": "“The essentials” 00:33",
+   "sceneId": "k03-shared",
+   "objectiveIds": [
+    "o3"
+   ]
+  },
+  {
+   "slideId": "m02-shared-hand",
+   "pageNumber": 6,
+   "pageCount": 12,
+   "title": "By hand: A–C and B–D",
+   "image": "p06.jpg",
+   "thumb": "t06.jpg",
+   "alt": "By hand: A–C and B–D: A–C: direct 1, via B min(5, 4) = 4, total 5; B–D: no direct edge, so the direct part is 0; B–D: via C min(4, 2) = 2, total 2; Score only the existing edges and you miss B–D",
+   "transcript": "Two pairs by hand. A–C has a direct edge of 1, and the contribution through B is min(5, 4), which is 4, for a total of 5. B and D share no edge, so the direct part is 0; through C they get min(4, 2), which is 2. Compute only on existing edges and you miss B–D.",
+   "videoAnchor": "“The essentials” 00:48",
+   "sceneId": "k04-bd",
+   "objectiveIds": [
+    "o3"
+   ]
+  },
+  {
+   "slideId": "m02-priority",
+   "pageNumber": 7,
+   "pageCount": 12,
+   "title": "Change the score and the first pair changes",
+   "image": "p07.jpg",
+   "thumb": "t07.jpg",
+   "alt": "Change the score and the first pair changes: The priority graph (original author Capeur): triangle PQR with every edge 4, X–Y at 5; Direct weight: first pair X–Y @ 5; Shared neighbours: P–Q = 4 + min(4, 4) = 8; P–Q, P–R and Q–R tie at 8; by name, P–Q; X–Y needs 9 to be first again (at 8 it loses the tie to P–Q)",
+   "transcript": "The original author’s priority graph makes the point well: by direct weight the first pair is X–Y; by shared neighbours, every pair in the triangle gets 4 plus 4, which is 8, and the first pair becomes P–Q. The two scores answer different questions.",
+   "videoAnchor": "“The essentials” 01:01",
+   "sceneId": "k05-priority",
+   "objectiveIds": [
+    "o4"
+   ]
+  },
+  {
+   "slideId": "m02-pincount",
+   "pageNumber": 8,
+   "pageCount": 12,
+   "title": "How wide nets dilute: pin-count",
+   "image": "p08.jpg",
+   "thumb": "t08.jpg",
+   "alt": "How wide nets dilute: pin-count: Tiny netlist: two five-pin nets connect A–E; the private net n1 connects only E and F; By net count: A–B = 2, E–F = 1; pin-count = Σ w(e) / (|e| − 1); A–B = 1/4 + 1/4 = 0.5; E–F = 1/(2 − 1) = 1; Shared out, the private link E–F comes first",
+   "transcript": "The original author’s tiny netlist has two wide five-pin nets and one private net. Counting occurrences gives A–B 2 points. pin-count shares each net out over |e| minus 1, so A–B gets only 0.5 while E–F gets 1 and comes first.",
+   "videoAnchor": "“The essentials” 01:18",
+   "sceneId": "k06-pin",
+   "objectiveIds": [
+    "o5"
+   ]
+  },
+  {
+   "slideId": "m02-pseudo",
+   "pageNumber": 9,
+   "pageCount": 12,
+   "title": "The pseudocode, line by line",
+   "image": "p09.jpg",
+   "thumb": "t09.jpg",
+   "alt": "The pseudocode, line by line: Line 1: visit every unordered pair, including pairs with no direct edge; Line 2: with no edge, start from 0; Lines 3–4: add the weaker edge for each shared neighbour; Line 5: record positive scores only (a stated policy); Lines 6–7: stable sort; output the ranking",
+   "transcript": "Line one visits every unordered pair; line two puts in the direct weight, or 0 with no edge; lines three and four add the weaker edge for each shared neighbour; line five records only positive scores; finally a stable sort, and the ranking is the output.",
+   "videoAnchor": null,
+   "sceneId": "p-list",
+   "objectiveIds": [
+    "o6"
+   ]
+  },
+  {
+   "slideId": "m02-mistakes",
+   "pageNumber": 10,
+   "pageCount": 12,
+   "title": "Common mistakes",
+   "image": "p10.jpg",
+   "thumb": "t10.jpg",
+   "alt": "Common mistakes: Shared neighbours on existing edges only: missing B–D and 3 other pairs; Thinking every clustering algorithm merges the top pair first: LP, spectral and KL/FM do not; Not sharing wide nets out: A–B at 2 beats the private E–F; Ties that depend on input order: A–B and D–E swap places; Treating affinit",
+   "transcript": "Common mistakes: computing shared neighbours on existing edges only; thinking every clustering algorithm merges the top pair first; not sharing wide nets out; letting the input decide the order of ties; and treating affinity as a distance or a probability.",
+   "videoAnchor": null,
+   "sceneId": null,
+   "objectiveIds": [
+    "o1",
+    "o3",
+    "o5"
+   ]
+  },
+  {
+   "slideId": "m02-eda",
+   "pageNumber": 11,
+   "pageCount": 12,
+   "title": "Back to the chip: meaning and limits",
+   "image": "p11.jpg",
+   "thumb": "t11.jpg",
+   "alt": "Back to the chip: meaning and limits: The score decides what gets glued first, which shapes later merging and long cross-region wires; Say where edge weights come from: wire counts, signal importance, or a conversion from nets; The small graphs in this course are invented teaching values, not chip measurements; Shared neighbours check a",
+   "transcript": "In chip design, the score decides which cells are put together first. Say where edge weights come from. The small graphs in this course are invented teaching values. The shared-neighbour score checks a great many pairs, so large netlists enumerate along adjacency only. And the clique model is only one approximation.",
+   "videoAnchor": null,
+   "sceneId": "p-netlist",
+   "objectiveIds": [
+    "o1"
+   ]
+  },
+  {
+   "slideId": "m02-summary",
+   "pageNumber": 12,
+   "pageCount": 12,
+   "title": "Summary",
+   "image": "p12.jpg",
+   "thumb": "t12.jpg",
+   "alt": "Summary: ",
+   "transcript": "In summary: a score gives a ranking and does not decide a grouping, and you should say which model you use. Direct weight looks at how thick one wire is, shared neighbours at whether a pair belongs to a tight little group, and pin-count dilutes wide nets. The next module starts merging for real with the summed weight between clusters.",
+   "videoAnchor": null,
+   "sceneId": null,
+   "objectiveIds": []
+  }
+ ],
+ "pdf": "m02-affinity-metrics-en.pdf",
+ "pptx": "m02-affinity-metrics-en.pptx",
+ "contentVersion": "2026.10.23-1",
+ "lang": "en",
+ "aspectNote": "16:9 is this course's choice (it matches the films and suits projection), not a ratio the teacher set. PDF page numbers match the web p/total exactly; in the PPTX the text, shapes and tables are editable and the notes hold the script."
+}

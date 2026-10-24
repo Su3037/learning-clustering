@@ -7,7 +7,8 @@
         "m04-size"
       ],
       "sceneIds": [
-        "s02-terms"
+        "p-cars",
+        "k01-problem"
       ],
       "slideIds": [
         "m04-problem"
@@ -21,9 +22,14 @@
       ],
       "video": [
         {
-          "sceneId": "s02-terms",
-          "film": "capacity",
-          "start": 17.8
+          "sceneId": "p-cars",
+          "film": "story",
+          "start": 37
+        },
+        {
+          "sceneId": "k01-problem",
+          "film": "concise",
+          "start": 3.4
         }
       ],
       "slides": [
@@ -39,7 +45,9 @@
         "m04-fork"
       ],
       "sceneIds": [
-        "s03-fork"
+        "p-rule",
+        "k02-fork",
+        "a01-filter"
       ],
       "slideIds": [
         "m04-fork"
@@ -53,9 +61,19 @@
       ],
       "video": [
         {
-          "sceneId": "s03-fork",
-          "film": "capacity",
-          "start": 35.31
+          "sceneId": "p-rule",
+          "film": "story",
+          "start": 17.41
+        },
+        {
+          "sceneId": "k02-fork",
+          "film": "concise",
+          "start": 29.6
+        },
+        {
+          "sceneId": "a01-filter",
+          "film": "advanced",
+          "start": 3.4
         }
       ],
       "slides": [
@@ -71,7 +89,9 @@
         "m04-infeasible"
       ],
       "sceneIds": [
-        "s04-bound"
+        "p-bound",
+        "k03-bound",
+        "a02-bound"
       ],
       "slideIds": [
         "m04-bound"
@@ -85,9 +105,19 @@
       ],
       "video": [
         {
-          "sceneId": "s04-bound",
-          "film": "capacity",
-          "start": 56.91
+          "sceneId": "p-bound",
+          "film": "story",
+          "start": 51.18
+        },
+        {
+          "sceneId": "k03-bound",
+          "film": "concise",
+          "start": 49.96
+        },
+        {
+          "sceneId": "a02-bound",
+          "film": "advanced",
+          "start": 30.11
         }
       ],
       "slides": [
@@ -103,8 +133,10 @@
         "m04-infeasible"
       ],
       "sceneIds": [
-        "s05-trap",
-        "s06-trap2"
+        "p-cello",
+        "p-flip",
+        "k04-trap",
+        "a04-samek"
       ],
       "slideIds": [
         "m04-trap"
@@ -118,12 +150,24 @@
       ],
       "video": [
         {
-          "sceneId": "s05-trap",
-          "status": "scene-not-a-chapter"
+          "sceneId": "p-cello",
+          "film": "story",
+          "start": 68.2
         },
         {
-          "sceneId": "s06-trap2",
-          "status": "scene-not-a-chapter"
+          "sceneId": "p-flip",
+          "film": "story",
+          "start": 80.16
+        },
+        {
+          "sceneId": "k04-trap",
+          "film": "concise",
+          "start": 68.49
+        },
+        {
+          "sceneId": "a04-samek",
+          "film": "advanced",
+          "start": 71.84
         }
       ],
       "slides": [
@@ -139,8 +183,11 @@
         "m04-suboptimal"
       ],
       "sceneIds": [
-        "s07-sub",
-        "s08-uneven"
+        "p-bikes",
+        "k05-sub",
+        "k06-uneven",
+        "a05-gap",
+        "a06-area"
       ],
       "slideIds": [
         "m04-sub",
@@ -156,13 +203,29 @@
       ],
       "video": [
         {
-          "sceneId": "s07-sub",
-          "film": "capacity",
-          "start": 111.93
+          "sceneId": "p-bikes",
+          "film": "story",
+          "start": 102.5
         },
         {
-          "sceneId": "s08-uneven",
-          "status": "scene-not-a-chapter"
+          "sceneId": "k05-sub",
+          "film": "concise",
+          "start": 90.53
+        },
+        {
+          "sceneId": "k06-uneven",
+          "film": "concise",
+          "start": 111.24
+        },
+        {
+          "sceneId": "a05-gap",
+          "film": "advanced",
+          "start": 93
+        },
+        {
+          "sceneId": "a06-area",
+          "film": "advanced",
+          "start": 118.07
         }
       ],
       "slides": [
@@ -182,7 +245,8 @@
         "m04-pseudocode"
       ],
       "sceneIds": [
-        "s09-code"
+        "a01-filter",
+        "a03-bell"
       ],
       "slideIds": [
         "m04-pseudo"
@@ -196,9 +260,14 @@
       ],
       "video": [
         {
-          "sceneId": "s09-code",
-          "film": "capacity",
-          "start": 156.02
+          "sceneId": "a01-filter",
+          "film": "advanced",
+          "start": 3.4
+        },
+        {
+          "sceneId": "a03-bell",
+          "film": "advanced",
+          "start": 50.91
         }
       ],
       "slides": [

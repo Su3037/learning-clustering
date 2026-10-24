@@ -1,0 +1,113 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:06.000
+Before you seat people or split them into teams, there is a smaller question:
+
+2
+00:00:06.000 --> 00:00:08.400
+who is closest to whom?
+
+3
+00:00:11.950 --> 00:00:16.972
+Count shared group chats, and your closest person is… the boss.
+
+4
+00:00:17.410 --> 00:00:24.210
+A chip has the same problem: thousands of cells. Which two belong side by side?
+
+5
+00:00:24.210 --> 00:00:30.110
+So first, give every pair a score: the higher it is, the closer they belong.
+
+6
+00:00:37.000 --> 00:00:43.400
+The first way: a pair's score is the weight of the wire between them.
+
+7
+00:00:43.400 --> 00:00:50.000
+A–B and D–E both score 5: ties go by name, whatever the input order.
+
+8
+00:00:51.180 --> 00:00:56.647
+B and D share no wire: by the first rule, nothing in common.
+
+9
+00:00:56.647 --> 00:01:02.713
+Both are wired to C, and a link through C is only as strong as its weaker wire:
+
+10
+00:01:02.713 --> 00:01:05.958
+min(4, 2) = 2.
+
+11
+00:01:06.080 --> 00:01:11.102
+Check every pair: all 10 score, B–D included.
+
+12
+00:01:11.300 --> 00:01:14.500
+Take a guess: which pair is closest?
+
+13
+00:01:14.500 --> 00:01:19.744
+X–Y has the thickest wire, 5; each triangle edge is only 4.
+
+14
+00:01:20.160 --> 00:01:24.071
+By direct wires, the first pair is X–Y;
+
+15
+00:01:24.071 --> 00:01:28.871
+by shared neighbours, P–Q = 4 + 4 = 8 moves ahead.
+
+16
+00:01:29.000 --> 00:01:35.578
+Both answers are right: one asks how thick a wire is, the other how tight a group is.
+
+17
+00:01:37.190 --> 00:01:40.190
+Remember the boss?
+
+18
+00:01:42.500 --> 00:01:49.744
+One five-person chat ties ten pairs at once, so it says little about any one of them.
+
+19
+00:01:49.744 --> 00:01:57.011
+So share each chat out: in a five-person chat each pair gets 1/4; a private chat gives a whole 1.
+
+20
+00:01:57.140 --> 00:02:00.607
+Counted this way, your closest is Lin.
+
+21
+00:02:00.800 --> 00:02:08.267
+Clock and reset nets reach thousands of cells: unshared, every pair looks equally close.
+
+22
+00:02:08.267 --> 00:02:13.956
+In the original tiny netlist: A–B gets 0.5, E–F gets 1.
+
+23
+00:02:14.160 --> 00:02:20.560
+A score only decides who merges first; the merging itself starts in the next module.
+
+24
+00:02:21.500 --> 00:02:27.500
+The same pair of cells gets a different score under a different rule.
+
+25
+00:02:27.500 --> 00:02:35.500
+Affinity is not a distance and not a probability: it is a ranking under one model.
+
+26
+00:02:35.500 --> 00:02:42.500
+Next time someone says “we are the closest”, you can ask:
+
+27
+00:02:42.500 --> 00:02:48.500
+by which score?
+
+28
+00:02:50.600 --> 00:02:56.600
+In the lab below, change one wire's weight and watch the ranking move.

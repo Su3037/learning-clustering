@@ -1,354 +1,1828 @@
 {
- "id": "capacity",
- "title": "装得下吗",
+ "schema": 2,
  "status": "ready",
- "src": "capacity.mp4",
- "vtt": "capacity.zh.vtt",
- "poster": "capacity-poster.jpg",
- "duration": 190.17,
- "chapters": [
+ "films": [
   {
-   "t": 3.0,
-   "title": "一 · 装得下吗",
-   "sceneId": "s01-hook"
+   "id": "story",
+   "kind": "popular",
+   "status": "ready",
+   "title": {
+    "zh": "装得下吗",
+    "en": "Does It Fit?"
+   },
+   "why": {
+    "zh": "同样的五个朋友、同样的合并规则，只是座位有限：双座车装不下五个人（不可能），两把大提琴让出租车走进死胡同（卡住），双人自行车上最要好的一对反而拆散最多（不是最好）。",
+    "en": "The same five friends and the same merge rule, but seats are limited: two-seaters cannot take five in two cars (impossible), two cellos lead the taxis into a dead end (stuck), and on tandem bikes the closest pair splits the most (not the best)."
+   },
+   "music": {
+    "zh": "《We Never (Remix)（若如初见）》Hi Noise / 秋成（第三方录音，不在本课程许可范围内）",
+    "en": "“We Never (Remix)” by Hi Noise / 秋成 (third-party recording, not covered by this course's licences)"
+   },
+   "scenes": [
+    {
+     "sceneId": "p-open",
+     "start": 0.0,
+     "end": 10.75
+    },
+    {
+     "sceneId": "p-ask",
+     "start": 10.75,
+     "end": 17.41
+    },
+    {
+     "sceneId": "p-rule",
+     "start": 17.41,
+     "end": 32.03
+    },
+    {
+     "sceneId": "p-title",
+     "start": 32.03,
+     "end": 37.0
+    },
+    {
+     "sceneId": "p-cars",
+     "start": 37.0,
+     "end": 51.18
+    },
+    {
+     "sceneId": "p-bound",
+     "start": 51.18,
+     "end": 68.2
+    },
+    {
+     "sceneId": "p-cello",
+     "start": 68.2,
+     "end": 80.16
+    },
+    {
+     "sceneId": "p-flip",
+     "start": 80.16,
+     "end": 89.0
+    },
+    {
+     "sceneId": "p-stuck",
+     "start": 89.0,
+     "end": 97.19
+    },
+    {
+     "sceneId": "p-breath",
+     "start": 97.19,
+     "end": 102.5
+    },
+    {
+     "sceneId": "p-bikes",
+     "start": 102.5,
+     "end": 119.27
+    },
+    {
+     "sceneId": "p-three",
+     "start": 119.27,
+     "end": 134.16
+    },
+    {
+     "sceneId": "p-chip",
+     "start": 134.16,
+     "end": 141.5
+    },
+    {
+     "sceneId": "p-outro",
+     "start": 141.5,
+     "end": 170.6
+    },
+    {
+     "sceneId": "p-end",
+     "start": 170.6,
+     "end": 189.82
+    }
+   ],
+   "fps": 30,
+   "size": [
+    1920,
+    1080
+   ],
+   "versions": {
+    "zh": {
+     "src": "story.zh.mp4",
+     "vtt": "story.zh.vtt",
+     "poster": "story.zh.jpg",
+     "duration": 189.83,
+     "captions": "zh+en",
+     "chapters": [
+      {
+       "t": 0.0,
+       "title": "序 · 座位",
+       "sceneId": "p-open"
+      },
+      {
+       "t": 37.0,
+       "title": "一 · 装不下",
+       "sceneId": "p-cars"
+      },
+      {
+       "t": 68.2,
+       "title": "二 · 走错了路",
+       "sceneId": "p-cello"
+      },
+      {
+       "t": 102.5,
+       "title": "三 · 不是最好",
+       "sceneId": "p-bikes"
+      },
+      {
+       "t": 141.5,
+       "title": "尾声",
+       "sceneId": "p-outro"
+      }
+     ],
+     "transcript": [
+      {
+       "start": 0.0,
+       "end": 4.8,
+       "text": "还是那五个朋友，还是那条规则。",
+       "sceneId": "p-open"
+      },
+      {
+       "start": 4.8,
+       "end": 9.4,
+       "text": "这一次，每辆车只有两个座位。",
+       "sceneId": "p-open"
+      },
+      {
+       "start": 10.75,
+       "end": 13.55,
+       "text": "合得来的坐一起——",
+       "sceneId": "p-ask"
+      },
+      {
+       "start": 13.55,
+       "end": 16.55,
+       "text": "可是，装得下吗？",
+       "sceneId": "p-ask"
+      },
+      {
+       "start": 17.41,
+       "end": 22.61,
+       "text": "规则多了一句：合并前，先看装不装得下。",
+       "sceneId": "p-rule"
+      },
+      {
+       "start": 22.61,
+       "end": 27.41,
+       "text": "装不下的候选，再合得来也划掉。",
+       "sceneId": "p-rule"
+      },
+      {
+       "start": 27.41,
+       "end": 31.321,
+       "text": "在剩下的里面，选最合得来的。",
+       "sceneId": "p-rule"
+      },
+      {
+       "start": 37.0,
+       "end": 41.356,
+       "text": "Ada 和 Ben 先上了一辆双座车。",
+       "sceneId": "p-cars"
+      },
+      {
+       "start": 41.356,
+       "end": 47.933,
+       "text": "加上 Cai 就是三人，装不下；Dev、Eva 上第二辆。",
+       "sceneId": "p-cars"
+      },
+      {
+       "start": 47.933,
+       "end": 50.956,
+       "text": "Cai 只能单独一辆。",
+       "sceneId": "p-cars"
+      },
+      {
+       "start": 51.18,
+       "end": 54.869,
+       "text": "是规则太笨吗？数一数座位。",
+       "sceneId": "p-bound"
+      },
+      {
+       "start": 54.869,
+       "end": 58.469,
+       "text": "五个人，每辆两个座位。",
+       "sceneId": "p-bound"
+      },
+      {
+       "start": 58.469,
+       "end": 65.869,
+       "text": "五除以二，向上取整：至少三辆。两辆，谁来都做不到。",
+       "sceneId": "p-bound"
+      },
+      {
+       "start": 68.2,
+       "end": 73.0,
+       "text": "三座出租车：两人各带大提琴，占两座。",
+       "sceneId": "p-cello"
+      },
+      {
+       "start": 73.0,
+       "end": 75.933,
+       "text": "两个好朋友先同车。",
+       "sceneId": "p-cello"
+      },
+      {
+       "start": 75.933,
+       "end": 79.178,
+       "text": "再加谁都超座：三辆车。",
+       "sceneId": "p-cello"
+      },
+      {
+       "start": 80.16,
+       "end": 85.404,
+       "text": "可是，Ada 配 Cai，Ben 配 Dev——",
+       "sceneId": "p-flip"
+      },
+      {
+       "start": 85.404,
+       "end": 88.404,
+       "text": "两辆车，刚好坐满。",
+       "sceneId": "p-flip"
+      },
+      {
+       "start": 89.0,
+       "end": 92.6,
+       "text": "停下了，不等于没有答案。",
+       "sceneId": "p-stuck"
+      },
+      {
+       "start": 92.6,
+       "end": 96.867,
+       "text": "贪心拿走最大的交情，从不回头。",
+       "sceneId": "p-stuck"
+      },
+      {
+       "start": 102.5,
+       "end": 107.522,
+       "text": "第二天骑双人车，Ada、Ben 先一辆。",
+       "sceneId": "p-bikes"
+      },
+      {
+       "start": 107.522,
+       "end": 112.767,
+       "text": "Cai、Dev 一辆：拆散两份 9，共 18。",
+       "sceneId": "p-bikes"
+      },
+      {
+       "start": 112.767,
+       "end": 116.767,
+       "text": "交换搭档：只拆散 11。",
+       "sceneId": "p-bikes"
+      },
+      {
+       "start": 119.27,
+       "end": 122.292,
+       "text": "三个故事，三种结局。",
+       "sceneId": "p-three"
+      },
+      {
+       "start": 122.292,
+       "end": 125.892,
+       "text": "装不下：谁来都做不到。",
+       "sceneId": "p-three"
+      },
+      {
+       "start": 125.892,
+       "end": 130.026,
+       "text": "走错了路：有答案，贪心没找到。",
+       "sceneId": "p-three"
+      },
+      {
+       "start": 130.026,
+       "end": 133.937,
+       "text": "不是最好：合法，但还能更好。",
+       "sceneId": "p-three"
+      },
+      {
+       "start": 134.16,
+       "end": 140.56,
+       "text": "芯片上，每块区域能放的面积有限，聚类也要装得下。",
+       "sceneId": "p-chip"
+      },
+      {
+       "start": 141.5,
+       "end": 147.5,
+       "text": "合法，不等于完成。",
+       "sceneId": "p-outro"
+      },
+      {
+       "start": 147.5,
+       "end": 153.5,
+       "text": "完成，不等于最好。",
+       "sceneId": "p-outro"
+      },
+      {
+       "start": 153.5,
+       "end": 160.5,
+       "text": "停下的时候，说清楚是哪一种。",
+       "sceneId": "p-outro"
+      },
+      {
+       "start": 160.5,
+       "end": 168.5,
+       "text": "如果节点不合并，只是改“标签”呢？下一章见。",
+       "sceneId": "p-outro"
+      },
+      {
+       "start": 170.6,
+       "end": 176.6,
+       "text": "下面的实验里，改容量、改大小，看诊断怎么说。",
+       "sceneId": "p-end"
+      }
+     ],
+     "readingViolations": 0,
+     "bytes": 8370032
+    },
+    "en": {
+     "src": "story.en.mp4",
+     "vtt": "story.en.vtt",
+     "poster": "story.en.jpg",
+     "duration": 189.83,
+     "captions": "en",
+     "chapters": [
+      {
+       "t": 0.0,
+       "title": "PROLOGUE · SEATS",
+       "sceneId": "p-open"
+      },
+      {
+       "t": 37.0,
+       "title": "I · IT DOES NOT FIT",
+       "sceneId": "p-cars"
+      },
+      {
+       "t": 68.2,
+       "title": "II · THE WRONG PATH",
+       "sceneId": "p-cello"
+      },
+      {
+       "t": 102.5,
+       "title": "III · NOT THE BEST",
+       "sceneId": "p-bikes"
+      },
+      {
+       "t": 141.5,
+       "title": "CODA",
+       "sceneId": "p-outro"
+      }
+     ],
+     "transcript": [
+      {
+       "start": 0.0,
+       "end": 4.8,
+       "text": "The same five friends, the same rule.",
+       "sceneId": "p-open"
+      },
+      {
+       "start": 4.8,
+       "end": 9.4,
+       "text": "This time, every car has only two seats.",
+       "sceneId": "p-open"
+      },
+      {
+       "start": 10.75,
+       "end": 13.55,
+       "text": "Friends ride together —",
+       "sceneId": "p-ask"
+      },
+      {
+       "start": 13.55,
+       "end": 16.55,
+       "text": "but does it fit?",
+       "sceneId": "p-ask"
+      },
+      {
+       "start": 17.41,
+       "end": 22.61,
+       "text": "The rule gains one line: before merging, check that it fits.",
+       "sceneId": "p-rule"
+      },
+      {
+       "start": 22.61,
+       "end": 27.41,
+       "text": "A candidate that does not fit is crossed out, however close.",
+       "sceneId": "p-rule"
+      },
+      {
+       "start": 27.41,
+       "end": 31.321,
+       "text": "Among the rest, take the closest pair.",
+       "sceneId": "p-rule"
+      },
+      {
+       "start": 37.0,
+       "end": 41.356,
+       "text": "Ada and Ben take the first two-seater.",
+       "sceneId": "p-cars"
+      },
+      {
+       "start": 41.356,
+       "end": 47.933,
+       "text": "Three with Cai won't fit; Dev and Eva take the second.",
+       "sceneId": "p-cars"
+      },
+      {
+       "start": 47.933,
+       "end": 50.956,
+       "text": "Cai has to ride alone.",
+       "sceneId": "p-cars"
+      },
+      {
+       "start": 51.18,
+       "end": 54.869,
+       "text": "Is the rule too dumb? Count the seats.",
+       "sceneId": "p-bound"
+      },
+      {
+       "start": 54.869,
+       "end": 58.469,
+       "text": "Five people, two seats a car.",
+       "sceneId": "p-bound"
+      },
+      {
+       "start": 58.469,
+       "end": 65.869,
+       "text": "Five divided by two, rounded up: at least three. Two cars is impossible for anyone.",
+       "sceneId": "p-bound"
+      },
+      {
+       "start": 68.2,
+       "end": 73.0,
+       "text": "Three-seat taxis: Ada and Ben carry cellos, two seats each.",
+       "sceneId": "p-cello"
+      },
+      {
+       "start": 73.0,
+       "end": 75.933,
+       "text": "The two best friends ride first.",
+       "sceneId": "p-cello"
+      },
+      {
+       "start": 75.933,
+       "end": 79.178,
+       "text": "Anyone more overflows: three taxis.",
+       "sceneId": "p-cello"
+      },
+      {
+       "start": 80.16,
+       "end": 85.404,
+       "text": "But Ada with Cai, Ben with Dev —",
+       "sceneId": "p-flip"
+      },
+      {
+       "start": 85.404,
+       "end": 88.404,
+       "text": "two taxis, exactly full.",
+       "sceneId": "p-flip"
+      },
+      {
+       "start": 89.0,
+       "end": 92.6,
+       "text": "Stopping does not mean there is no answer.",
+       "sceneId": "p-stuck"
+      },
+      {
+       "start": 92.6,
+       "end": 96.867,
+       "text": "Greedy grabbed the biggest bond and never went back.",
+       "sceneId": "p-stuck"
+      },
+      {
+       "start": 102.5,
+       "end": 107.522,
+       "text": "Day two, tandem bikes: Ada and Ben share one.",
+       "sceneId": "p-bikes"
+      },
+      {
+       "start": 107.522,
+       "end": 112.767,
+       "text": "Cai and Dev take the other: two 9s split, 18 in all.",
+       "sceneId": "p-bikes"
+      },
+      {
+       "start": 112.767,
+       "end": 116.767,
+       "text": "Swap partners: only 11 is split.",
+       "sceneId": "p-bikes"
+      },
+      {
+       "start": 119.27,
+       "end": 122.292,
+       "text": "Three stories, three endings.",
+       "sceneId": "p-three"
+      },
+      {
+       "start": 122.292,
+       "end": 125.892,
+       "text": "Impossible: no one can do it.",
+       "sceneId": "p-three"
+      },
+      {
+       "start": 125.892,
+       "end": 130.026,
+       "text": "Stuck: an answer exists, and greedy missed it.",
+       "sceneId": "p-three"
+      },
+      {
+       "start": 130.026,
+       "end": 133.937,
+       "text": "Not the best: legal, but it could be better.",
+       "sceneId": "p-three"
+      },
+      {
+       "start": 134.16,
+       "end": 140.56,
+       "text": "On a chip, each region holds only so much area; clusters must fit too.",
+       "sceneId": "p-chip"
+      },
+      {
+       "start": 141.5,
+       "end": 147.5,
+       "text": "Legal is not the same as done.",
+       "sceneId": "p-outro"
+      },
+      {
+       "start": 147.5,
+       "end": 153.5,
+       "text": "Done is not the same as best.",
+       "sceneId": "p-outro"
+      },
+      {
+       "start": 153.5,
+       "end": 160.5,
+       "text": "When it stops, say which one it is.",
+       "sceneId": "p-outro"
+      },
+      {
+       "start": 160.5,
+       "end": 168.5,
+       "text": "What if nodes don't merge, only change labels? See the next module.",
+       "sceneId": "p-outro"
+      },
+      {
+       "start": 170.6,
+       "end": 176.6,
+       "text": "In the lab below, change the capacity or a size and read the diagnosis.",
+       "sceneId": "p-end"
+      }
+     ],
+     "readingViolations": 0,
+     "bytes": 8244904
+    }
+   }
   },
   {
-   "t": 17.8,
-   "title": "二 · 四个报告项",
-   "sceneId": "s02-terms"
+   "id": "concise",
+   "kind": "concise",
+   "status": "ready",
+   "title": {
+    "zh": "精讲：先筛合法，再选最大",
+    "en": "The essentials"
+   },
+   "why": {
+    "zh": "只讲必须掌握的：四个报告项、先筛合法再选最大、下界、greedy_trap 的卡住、suboptimal 的非最优，以及节点大小。",
+    "en": "Only what you must know: the four report items, filtering before choosing, the lower bound, getting stuck in greedy_trap, the suboptimal result, and node sizes."
+   },
+   "music": {
+    "zh": "本课程原创程序合成配乐（NumPy），CC BY 4.0",
+    "en": "Original score synthesised for this course (NumPy), CC BY 4.0"
+   },
+   "scenes": [
+    {
+     "sceneId": "k00-title",
+     "start": 0.0,
+     "end": 3.4
+    },
+    {
+     "sceneId": "k01-problem",
+     "start": 3.4,
+     "end": 29.6
+    },
+    {
+     "sceneId": "k02-fork",
+     "start": 29.6,
+     "end": 49.96
+    },
+    {
+     "sceneId": "k03-bound",
+     "start": 49.96,
+     "end": 68.49
+    },
+    {
+     "sceneId": "k04-trap",
+     "start": 68.49,
+     "end": 90.53
+    },
+    {
+     "sceneId": "k05-sub",
+     "start": 90.53,
+     "end": 111.24
+    },
+    {
+     "sceneId": "k06-uneven",
+     "start": 111.24,
+     "end": 126.49
+    },
+    {
+     "sceneId": "k07-take",
+     "start": 126.49,
+     "end": 143.87
+    }
+   ],
+   "fps": 30,
+   "size": [
+    1920,
+    1080
+   ],
+   "versions": {
+    "zh": {
+     "src": "concise.zh.mp4",
+     "vtt": "concise.zh.vtt",
+     "poster": "concise.zh.jpg",
+     "duration": 143.87,
+     "captions": "zh+en",
+     "chapters": [
+      {
+       "t": 3.4,
+       "title": "问题",
+       "sceneId": "k01-problem"
+      },
+      {
+       "t": 29.6,
+       "title": "先筛合法",
+       "sceneId": "k02-fork"
+      },
+      {
+       "t": 49.96,
+       "title": "不可能",
+       "sceneId": "k03-bound"
+      },
+      {
+       "t": 68.49,
+       "title": "卡住",
+       "sceneId": "k04-trap"
+      },
+      {
+       "t": 90.53,
+       "title": "非最优",
+       "sceneId": "k05-sub"
+      },
+      {
+       "t": 111.24,
+       "title": "面积",
+       "sceneId": "k06-uneven"
+      },
+      {
+       "t": 126.49,
+       "title": "小结",
+       "sceneId": "k07-take"
+      }
+     ],
+     "transcript": [
+      {
+       "start": 3.4,
+       "end": 11.978,
+       "text": "规则和 Module 03 一样，只多一条：每个簇的大小之和不能超过容量 C。",
+       "sceneId": "k01-problem"
+      },
+      {
+       "start": 11.978,
+       "end": 16.556,
+       "text": "G01 在容量 2、K = 2 时停在 3 簇。",
+       "sceneId": "k01-problem"
+      },
+      {
+       "start": 16.556,
+       "end": 25.133,
+       "text": "报告：合法，但没有达到 K，停止原因是 capacity-blocked。",
+       "sceneId": "k01-problem"
+      },
+      {
+       "start": 25.133,
+       "end": 29.2,
+       "text": "这四项互相独立，要分开写。",
+       "sceneId": "k01-problem"
+      },
+      {
+       "start": 29.6,
+       "end": 36.844,
+       "text": "同一张图：容量 3 时，AB 加 C 是 3，合法，得到 ABC | DE。",
+       "sceneId": "k02-fork"
+      },
+      {
+       "start": 36.844,
+       "end": 43.2,
+       "text": "容量 2 时，亲和度最大的 AB–C 被阻止，改选 D–E。",
+       "sceneId": "k02-fork"
+      },
+      {
+       "start": 43.2,
+       "end": 49.556,
+       "text": "之后两个候选都是 3：停在 AB | C | DE，cut 8。",
+       "sceneId": "k02-fork"
+      },
+      {
+       "start": 49.956,
+       "end": 53.889,
+       "text": "这是贪心的错吗？先算下界。",
+       "sceneId": "k03-bound"
+      },
+      {
+       "start": 53.889,
+       "end": 58.489,
+       "text": "总大小 5，每簇最多 2：至少 3 簇。",
+       "sceneId": "k03-bound"
+      },
+      {
+       "start": 58.489,
+       "end": 63.289,
+       "text": "K = 2 根本不可能，任何算法都做不到。",
+       "sceneId": "k03-bound"
+      },
+      {
+       "start": 63.289,
+       "end": 68.089,
+       "text": "但下界只能证明不可能，不能证明可能。",
+       "sceneId": "k03-bound"
+      },
+      {
+       "start": 68.489,
+       "end": 76.844,
+       "text": "原作者的 greedy_trap：A、B 大小 2，容量 3，下界允许两簇。",
+       "sceneId": "k04-trap"
+      },
+      {
+       "start": 76.844,
+       "end": 80.311,
+       "text": "贪心先合并最大的 C–D。",
+       "sceneId": "k04-trap"
+      },
+      {
+       "start": 80.311,
+       "end": 84.444,
+       "text": "之后 A、B 都放不进：停在 3 簇。",
+       "sceneId": "k04-trap"
+      },
+      {
+       "start": 84.444,
+       "end": 90.133,
+       "text": "穷举却找到 AC | BD：总体可行，但贪心卡住。",
+       "sceneId": "k04-trap"
+      },
+      {
+       "start": 90.533,
+       "end": 97.111,
+       "text": "suboptimal 图：贪心先合并 A–B，10 最大。",
+       "sceneId": "k05-sub"
+      },
+      {
+       "start": 97.111,
+       "end": 101.022,
+       "text": "两条 9 都留在 cut 里：18。",
+       "sceneId": "k05-sub"
+      },
+      {
+       "start": 101.022,
+       "end": 106.044,
+       "text": "合法的 AC | BD 只切断 10 和 1：11。",
+       "sceneId": "k05-sub"
+      },
+      {
+       "start": 106.044,
+       "end": 110.844,
+       "text": "都合法、都达到 K，只是贪心不是最优。",
+       "sceneId": "k05-sub"
+      },
+      {
+       "start": 111.244,
+       "end": 116.489,
+       "text": "节点大小也会改变结局：把 A 的大小改成 2。",
+       "sceneId": "k06-uneven"
+      },
+      {
+       "start": 116.489,
+       "end": 120.178,
+       "text": "A–B 之后已满，C 放不进。",
+       "sceneId": "k06-uneven"
+      },
+      {
+       "start": 120.178,
+       "end": 126.089,
+       "text": "结果变成 AB | CDE，cut 5。容量按面积算。",
+       "sceneId": "k06-uneven"
+      },
+      {
+       "start": 126.489,
+       "end": 128.622,
+       "text": "记住四点。",
+       "sceneId": "k07-take"
+      },
+      {
+       "start": 128.622,
+       "end": 133.089,
+       "text": "先筛合法再选最大；四项分开报告；",
+       "sceneId": "k07-take"
+      },
+      {
+       "start": 133.089,
+       "end": 136.333,
+       "text": "下界大于 K 就是不可能；",
+       "sceneId": "k07-take"
+      },
+      {
+       "start": 136.333,
+       "end": 142.467,
+       "text": "卡住和非最优，要用穷举对照。下面的实验里试一试。",
+       "sceneId": "k07-take"
+      }
+     ],
+     "readingViolations": 0,
+     "bytes": 7003480
+    },
+    "en": {
+     "src": "concise.en.mp4",
+     "vtt": "concise.en.vtt",
+     "poster": "concise.en.jpg",
+     "duration": 143.87,
+     "captions": "en",
+     "chapters": [
+      {
+       "t": 3.4,
+       "title": "THE PROBLEM",
+       "sceneId": "k01-problem"
+      },
+      {
+       "t": 29.6,
+       "title": "FILTER FIRST",
+       "sceneId": "k02-fork"
+      },
+      {
+       "t": 49.96,
+       "title": "IMPOSSIBLE",
+       "sceneId": "k03-bound"
+      },
+      {
+       "t": 68.49,
+       "title": "STUCK",
+       "sceneId": "k04-trap"
+      },
+      {
+       "t": 90.53,
+       "title": "NOT OPTIMAL",
+       "sceneId": "k05-sub"
+      },
+      {
+       "t": 111.24,
+       "title": "AREA",
+       "sceneId": "k06-uneven"
+      },
+      {
+       "t": 126.49,
+       "title": "SUMMARY",
+       "sceneId": "k07-take"
+      }
+     ],
+     "transcript": [
+      {
+       "start": 3.4,
+       "end": 11.978,
+       "text": "The rule is Module 03's, plus one line: a cluster's total size may not exceed the capacity C.",
+       "sceneId": "k01-problem"
+      },
+      {
+       "start": 11.978,
+       "end": 16.556,
+       "text": "At capacity 2 and K = 2, G01 stops at 3 clusters.",
+       "sceneId": "k01-problem"
+      },
+      {
+       "start": 16.556,
+       "end": 25.133,
+       "text": "The report: legal, but K is not reached; the stop reason is capacity-blocked.",
+       "sceneId": "k01-problem"
+      },
+      {
+       "start": 25.133,
+       "end": 29.2,
+       "text": "The four are independent; report them separately.",
+       "sceneId": "k01-problem"
+      },
+      {
+       "start": 29.6,
+       "end": 36.844,
+       "text": "One graph: at capacity 3, AB plus C is 3, legal, giving ABC | DE.",
+       "sceneId": "k02-fork"
+      },
+      {
+       "start": 36.844,
+       "end": 43.2,
+       "text": "At capacity 2, the highest-affinity AB–C is blocked, so D–E instead.",
+       "sceneId": "k02-fork"
+      },
+      {
+       "start": 43.2,
+       "end": 49.556,
+       "text": "After that both candidates are 3: it stops at AB | C | DE, cut 8.",
+       "sceneId": "k02-fork"
+      },
+      {
+       "start": 49.956,
+       "end": 53.889,
+       "text": "Is that greedy's fault? First, the lower bound.",
+       "sceneId": "k03-bound"
+      },
+      {
+       "start": 53.889,
+       "end": 58.489,
+       "text": "Total size 5, at most 2 per cluster: at least 3 clusters.",
+       "sceneId": "k03-bound"
+      },
+      {
+       "start": 58.489,
+       "end": 63.289,
+       "text": "K = 2 is impossible; no algorithm can do it.",
+       "sceneId": "k03-bound"
+      },
+      {
+       "start": 63.289,
+       "end": 68.089,
+       "text": "But a bound only proves impossible, never possible.",
+       "sceneId": "k03-bound"
+      },
+      {
+       "start": 68.489,
+       "end": 76.844,
+       "text": "The original author's greedy_trap: A and B have size 2, capacity 3, and the bound allows two clusters.",
+       "sceneId": "k04-trap"
+      },
+      {
+       "start": 76.844,
+       "end": 80.311,
+       "text": "Greedy merges the biggest, C–D, first.",
+       "sceneId": "k04-trap"
+      },
+      {
+       "start": 80.311,
+       "end": 84.444,
+       "text": "Then neither A nor B fits: it stops at 3 clusters.",
+       "sceneId": "k04-trap"
+      },
+      {
+       "start": 84.444,
+       "end": 90.133,
+       "text": "Yet exhaustive search finds AC | BD: feasible, but greedy is stuck.",
+       "sceneId": "k04-trap"
+      },
+      {
+       "start": 90.533,
+       "end": 97.111,
+       "text": "The suboptimal graph: greedy merges A–B first, the largest at 10.",
+       "sceneId": "k05-sub"
+      },
+      {
+       "start": 97.111,
+       "end": 101.022,
+       "text": "Both 9s stay in the cut: 18.",
+       "sceneId": "k05-sub"
+      },
+      {
+       "start": 101.022,
+       "end": 106.044,
+       "text": "The legal AC | BD cuts only 10 and 1: 11.",
+       "sceneId": "k05-sub"
+      },
+      {
+       "start": 106.044,
+       "end": 110.844,
+       "text": "Both legal, both reach K; greedy just isn't optimal.",
+       "sceneId": "k05-sub"
+      },
+      {
+       "start": 111.244,
+       "end": 116.489,
+       "text": "Node sizes change the ending too: set A's size to 2.",
+       "sceneId": "k06-uneven"
+      },
+      {
+       "start": 116.489,
+       "end": 120.178,
+       "text": "After A–B it is full, and C does not fit.",
+       "sceneId": "k06-uneven"
+      },
+      {
+       "start": 120.178,
+       "end": 126.089,
+       "text": "The result becomes AB | CDE, cut 5. Capacity counts area.",
+       "sceneId": "k06-uneven"
+      },
+      {
+       "start": 126.489,
+       "end": 128.622,
+       "text": "Four things to keep.",
+       "sceneId": "k07-take"
+      },
+      {
+       "start": 128.622,
+       "end": 133.089,
+       "text": "Filter first, then take the largest; report four items;",
+       "sceneId": "k07-take"
+      },
+      {
+       "start": 133.089,
+       "end": 136.333,
+       "text": "a bound above K means impossible;",
+       "sceneId": "k07-take"
+      },
+      {
+       "start": 136.333,
+       "end": 142.467,
+       "text": "stuck and not optimal need a comparison with search. Try it in the lab below.",
+       "sceneId": "k07-take"
+      }
+     ],
+     "readingViolations": 0,
+     "bytes": 6886445
+    }
+   }
   },
   {
-   "t": 35.31,
-   "title": "三 · 同图两容量",
-   "sceneId": "s03-fork"
+   "id": "advanced",
+   "kind": "advanced",
+   "status": "ready",
+   "title": {
+    "zh": "进阶：可行性、最优性与代价",
+    "en": "In depth: feasibility and optimality"
+   },
+   "why": {
+    "zh": "为什么必须先筛合法、下界能证明什么不能证明什么、穷举随规模爆炸、cut 只能在相同簇数下比较、合法的贪心结果离最优能有多远，以及面积不同时的容量。",
+    "en": "Why the filter must come first, what a bound can and cannot prove, how exhaustive search explodes, comparing cuts only at the same K, how far a legal greedy result can be from optimal, and capacity with unequal areas."
+   },
+   "music": {
+    "zh": "本课程原创程序合成配乐（NumPy），CC BY 4.0",
+    "en": "Original score synthesised for this course (NumPy), CC BY 4.0"
+   },
+   "scenes": [
+    {
+     "sceneId": "a00-title",
+     "start": 0.0,
+     "end": 3.4
+    },
+    {
+     "sceneId": "a01-filter",
+     "start": 3.4,
+     "end": 30.11
+    },
+    {
+     "sceneId": "a02-bound",
+     "start": 30.11,
+     "end": 50.91
+    },
+    {
+     "sceneId": "a03-bell",
+     "start": 50.91,
+     "end": 71.84
+    },
+    {
+     "sceneId": "a04-samek",
+     "start": 71.84,
+     "end": 93.0
+    },
+    {
+     "sceneId": "a05-gap",
+     "start": 93.0,
+     "end": 118.07
+    },
+    {
+     "sceneId": "a06-area",
+     "start": 118.07,
+     "end": 136.42
+    },
+    {
+     "sceneId": "a07-summary",
+     "start": 136.42,
+     "end": 157.24
+    }
+   ],
+   "fps": 30,
+   "size": [
+    1920,
+    1080
+   ],
+   "versions": {
+    "zh": {
+     "src": "advanced.zh.mp4",
+     "vtt": "advanced.zh.vtt",
+     "poster": "advanced.zh.jpg",
+     "duration": 157.23,
+     "captions": "zh+en",
+     "chapters": [
+      {
+       "t": 3.4,
+       "title": "一 · 先筛后选",
+       "sceneId": "a01-filter"
+      },
+      {
+       "t": 30.11,
+       "title": "二 · 下界的边界",
+       "sceneId": "a02-bound"
+      },
+      {
+       "t": 50.91,
+       "title": "三 · 穷举的代价",
+       "sceneId": "a03-bell"
+      },
+      {
+       "t": 71.84,
+       "title": "四 · 同一个 K",
+       "sceneId": "a04-samek"
+      },
+      {
+       "t": 93.0,
+       "title": "五 · 离最优多远",
+       "sceneId": "a05-gap"
+      },
+      {
+       "t": 118.07,
+       "title": "六 · 面积",
+       "sceneId": "a06-area"
+      },
+      {
+       "t": 136.42,
+       "title": "小结",
+       "sceneId": "a07-summary"
+      }
+     ],
+     "transcript": [
+      {
+       "start": 3.4,
+       "end": 10.644,
+       "text": "顺序很重要。错误的写法：先选亲和度最大的一对，再检查容量。",
+       "sceneId": "a01-filter"
+      },
+      {
+       "start": 10.644,
+       "end": 19.222,
+       "text": "G01 容量 2 的第二步，最大的 AB–C 超容量，于是停在 4 簇，cut 13。",
+       "sceneId": "a01-filter"
+      },
+      {
+       "start": 19.222,
+       "end": 26.244,
+       "text": "正确的写法先筛合法：D–E 仍可合并，停在 3 簇，cut 8。",
+       "sceneId": "a01-filter"
+      },
+      {
+       "start": 26.244,
+       "end": 29.711,
+       "text": "同一张图，只因顺序不同。",
+       "sceneId": "a01-filter"
+      },
+      {
+       "start": 30.111,
+       "end": 38.022,
+       "text": "三间双人房：每个节点大小 2，容量 3，K = 2。下界是 2，没有排除。",
+       "sceneId": "a02-bound"
+      },
+      {
+       "start": 38.022,
+       "end": 43.711,
+       "text": "可是任意两个放一起都是 4，超过 3：至少 3 簇。",
+       "sceneId": "a02-bound"
+      },
+      {
+       "start": 43.711,
+       "end": 50.511,
+       "text": "满足下界不等于可行。判断能不能装下，本身就是装箱问题。",
+       "sceneId": "a02-bound"
+      },
+      {
+       "start": 50.911,
+       "end": 55.378,
+       "text": "穷举有多贵？n 个节点的分组方式：",
+       "sceneId": "a03-bell"
+      },
+      {
+       "start": 55.378,
+       "end": 60.844,
+       "text": "5 个节点 52 种，10 个节点已经十一万多种。",
+       "sceneId": "a03-bell"
+      },
+      {
+       "start": 60.844,
+       "end": 65.644,
+       "text": "15 个、20 个节点，很快到几十万亿。",
+       "sceneId": "a03-bell"
+      },
+      {
+       "start": 65.644,
+       "end": 71.444,
+       "text": "所以本课程只在 10 个节点以内用穷举做对照。",
+       "sceneId": "a03-bell"
+      },
+      {
+       "start": 71.844,
+       "end": 78.2,
+       "text": "greedy_trap 上，贪心停在 3 簇，cut 8。",
+       "sceneId": "a04-samek"
+      },
+      {
+       "start": 78.2,
+       "end": 83.222,
+       "text": "可行的两簇方案 AC | BD，cut 10。",
+       "sceneId": "a04-samek"
+      },
+      {
+       "start": 83.222,
+       "end": 88.467,
+       "text": "贪心的 cut 反而更小，因为它多了一个簇。",
+       "sceneId": "a04-samek"
+      },
+      {
+       "start": 88.467,
+       "end": 92.6,
+       "text": "cut 只能在相同的簇数下比较。",
+       "sceneId": "a04-samek"
+      },
+      {
+       "start": 93.0,
+       "end": 99.8,
+       "text": "合法的贪心结果能差多远？把 suboptimal 图放大。",
+       "sceneId": "a05-gap"
+      },
+      {
+       "start": 99.8,
+       "end": 103.044,
+       "text": "M = 10：18 对 11。",
+       "sceneId": "a05-gap"
+      },
+      {
+       "start": 103.044,
+       "end": 106.956,
+       "text": "M = 100：198 对 101。",
+       "sceneId": "a05-gap"
+      },
+      {
+       "start": 106.956,
+       "end": 111.533,
+       "text": "M = 1000：1998 对 1001。",
+       "sceneId": "a05-gap"
+      },
+      {
+       "start": 111.533,
+       "end": 117.667,
+       "text": "贪心是 2(M − 1)，最优是 M + 1：差距逼近两倍。",
+       "sceneId": "a05-gap"
+      },
+      {
+       "start": 118.067,
+       "end": 124.422,
+       "text": "全部大小为 1 时，容量 3 得到 ABC | DE，cut 3。",
+       "sceneId": "a06-area"
+      },
+      {
+       "start": 124.422,
+       "end": 130.333,
+       "text": "只把 A 改成 2，结果变成 AB | CDE，cut 5。",
+       "sceneId": "a06-area"
+      },
+      {
+       "start": 130.333,
+       "end": 136.022,
+       "text": "真实单元面积各不相同，容量必须按面积之和算。",
+       "sceneId": "a06-area"
+      },
+      {
+       "start": 136.422,
+       "end": 138.489,
+       "text": "六点小结。",
+       "sceneId": "a07-summary"
+      },
+      {
+       "start": 151.489,
+       "end": 155.844,
+       "text": "下一章：节点不合并，而是改标签。",
+       "sceneId": "a07-summary"
+      }
+     ],
+     "readingViolations": 0,
+     "bytes": 7015104
+    },
+    "en": {
+     "src": "advanced.en.mp4",
+     "vtt": "advanced.en.vtt",
+     "poster": "advanced.en.jpg",
+     "duration": 157.23,
+     "captions": "en",
+     "chapters": [
+      {
+       "t": 3.4,
+       "title": "I · FILTER, THEN CHOOSE",
+       "sceneId": "a01-filter"
+      },
+      {
+       "t": 30.11,
+       "title": "II · WHAT A BOUND CAN'T SAY",
+       "sceneId": "a02-bound"
+      },
+      {
+       "t": 50.91,
+       "title": "III · THE COST OF SEARCH",
+       "sceneId": "a03-bell"
+      },
+      {
+       "t": 71.84,
+       "title": "IV · THE SAME K",
+       "sceneId": "a04-samek"
+      },
+      {
+       "t": 93.0,
+       "title": "V · HOW FAR FROM OPTIMAL",
+       "sceneId": "a05-gap"
+      },
+      {
+       "t": 118.07,
+       "title": "VI · AREA",
+       "sceneId": "a06-area"
+      },
+      {
+       "t": 136.42,
+       "title": "SUMMARY",
+       "sceneId": "a07-summary"
+      }
+     ],
+     "transcript": [
+      {
+       "start": 3.4,
+       "end": 10.644,
+       "text": "Order matters. The wrong way: pick the highest-affinity pair, then check the capacity.",
+       "sceneId": "a01-filter"
+      },
+      {
+       "start": 10.644,
+       "end": 19.222,
+       "text": "At step two of G01 at capacity 2, the largest, AB–C, is over capacity, so it stops at 4 clusters, cut 13.",
+       "sceneId": "a01-filter"
+      },
+      {
+       "start": 19.222,
+       "end": 26.244,
+       "text": "The right way filters first: D–E can still merge, and it stops at 3 clusters, cut 8.",
+       "sceneId": "a01-filter"
+      },
+      {
+       "start": 26.244,
+       "end": 29.711,
+       "text": "Same graph; only the order differs.",
+       "sceneId": "a01-filter"
+      },
+      {
+       "start": 30.111,
+       "end": 38.022,
+       "text": "Three twin rooms: every node has size 2, capacity 3, K = 2. The bound is 2; nothing is ruled out.",
+       "sceneId": "a02-bound"
+      },
+      {
+       "start": 38.022,
+       "end": 43.711,
+       "text": "Yet any two together make 4, over 3: at least 3 clusters.",
+       "sceneId": "a02-bound"
+      },
+      {
+       "start": 43.711,
+       "end": 50.511,
+       "text": "Meeting the bound is not feasibility. Deciding whether it fits is bin packing itself.",
+       "sceneId": "a02-bound"
+      },
+      {
+       "start": 50.911,
+       "end": 55.378,
+       "text": "How costly is exhaustive search? Ways to group n nodes:",
+       "sceneId": "a03-bell"
+      },
+      {
+       "start": 55.378,
+       "end": 60.844,
+       "text": "5 nodes, 52; 10 nodes, already over a hundred thousand.",
+       "sceneId": "a03-bell"
+      },
+      {
+       "start": 60.844,
+       "end": 65.644,
+       "text": "15 and 20 nodes quickly reach tens of trillions.",
+       "sceneId": "a03-bell"
+      },
+      {
+       "start": 65.644,
+       "end": 71.444,
+       "text": "So this course uses exhaustive search only as a check at 10 nodes or fewer.",
+       "sceneId": "a03-bell"
+      },
+      {
+       "start": 71.844,
+       "end": 78.2,
+       "text": "On greedy_trap, greedy stops at 3 clusters, cut 8.",
+       "sceneId": "a04-samek"
+      },
+      {
+       "start": 78.2,
+       "end": 83.222,
+       "text": "The feasible two-cluster plan AC | BD has cut 10.",
+       "sceneId": "a04-samek"
+      },
+      {
+       "start": 83.222,
+       "end": 88.467,
+       "text": "Greedy's cut is smaller, because it has one more cluster.",
+       "sceneId": "a04-samek"
+      },
+      {
+       "start": 88.467,
+       "end": 92.6,
+       "text": "Compare cuts only at the same number of clusters.",
+       "sceneId": "a04-samek"
+      },
+      {
+       "start": 93.0,
+       "end": 99.8,
+       "text": "How far off can a legal greedy result be? Scale the suboptimal graph.",
+       "sceneId": "a05-gap"
+      },
+      {
+       "start": 99.8,
+       "end": 103.044,
+       "text": "M = 10: 18 versus 11.",
+       "sceneId": "a05-gap"
+      },
+      {
+       "start": 103.044,
+       "end": 106.956,
+       "text": "M = 100: 198 versus 101.",
+       "sceneId": "a05-gap"
+      },
+      {
+       "start": 106.956,
+       "end": 111.533,
+       "text": "M = 1000: 1998 versus 1001.",
+       "sceneId": "a05-gap"
+      },
+      {
+       "start": 111.533,
+       "end": 117.667,
+       "text": "Greedy is 2(M − 1), optimal M + 1: the gap approaches twice.",
+       "sceneId": "a05-gap"
+      },
+      {
+       "start": 118.067,
+       "end": 124.422,
+       "text": "With every size 1, capacity 3 gives ABC | DE, cut 3.",
+       "sceneId": "a06-area"
+      },
+      {
+       "start": 124.422,
+       "end": 130.333,
+       "text": "Change only A to 2, and the result becomes AB | CDE, cut 5.",
+       "sceneId": "a06-area"
+      },
+      {
+       "start": 130.333,
+       "end": 136.022,
+       "text": "Real cells differ in area; capacity must count the sum of areas.",
+       "sceneId": "a06-area"
+      },
+      {
+       "start": 136.422,
+       "end": 138.489,
+       "text": "Six things to keep.",
+       "sceneId": "a07-summary"
+      },
+      {
+       "start": 151.489,
+       "end": 155.844,
+       "text": "Next: nodes don't merge; they change labels.",
+       "sceneId": "a07-summary"
+      }
+     ],
+     "readingViolations": 0,
+     "bytes": 6916398
+    }
+   }
   },
   {
-   "t": 56.91,
-   "title": "四 · 不可能，还是走错了路",
-   "sceneId": "s04-bound"
-  },
-  {
-   "t": 111.93,
-   "title": "五 · 合法但不是最优",
-   "sceneId": "s07-sub"
-  },
-  {
-   "t": 156.02,
-   "title": "六 · 伪代码与局限",
-   "sceneId": "s09-code"
+   "id": "lab",
+   "kind": "lab",
+   "status": "ready",
+   "title": {
+    "zh": "实验演示",
+    "en": "Lab Walkthrough"
+   },
+   "why": {
+    "zh": "从真实页面录下的操作演示：容量 2 时 AB–C 怎样被挡住、诊断栏怎样区分不可能 / 卡住 / 非最优、改节点大小的效果，再在浏览器里写完 report() 和 classify() 并通过全部检查。",
+    "en": "Recorded from the real page: how AB–C is blocked at capacity 2, how the diagnosis tells impossible, stuck and not optimal apart, what changing a node's size does, then writing report() and classify() in the browser and passing every check."
+   },
+   "music": {
+    "zh": "本课程原创程序合成配乐（NumPy），CC BY 4.0",
+    "en": "Original score synthesised for this course (NumPy), CC BY 4.0"
+   },
+   "recorded": "scripts/film/recorder.mjs + video/m04-size-constrained-agglomerative/walkthrough.mjs",
+   "fps": 30,
+   "size": [
+    1920,
+    1080
+   ],
+   "versions": {
+    "zh": {
+     "src": "lab.zh.mp4",
+     "vtt": "lab.zh.vtt",
+     "poster": "lab.zh.jpg",
+     "duration": 159.03,
+     "captions": "zh+en",
+     "chapters": [
+      {
+       "t": 0.0,
+       "title": "开始",
+       "sceneId": "title"
+      },
+      {
+       "t": 3.2,
+       "title": "实验台",
+       "sceneId": "shot-00"
+      },
+      {
+       "t": 34.89,
+       "title": "诊断",
+       "sceneId": "shot-04"
+      },
+      {
+       "t": 64.93,
+       "title": "实验台",
+       "sceneId": "shot-07"
+      },
+      {
+       "t": 75.47,
+       "title": "在线编程",
+       "sceneId": "shot-08"
+      },
+      {
+       "t": 131.05,
+       "title": "用你的代码跑",
+       "sceneId": "shot-13"
+      },
+      {
+       "t": 148.78,
+       "title": "挑战",
+       "sceneId": "shot-15"
+      }
+     ],
+     "transcript": [
+      {
+       "start": 3.2,
+       "end": 11.733,
+       "text": "这是本章的实验台：选例子、目标 K 和容量 C，还可以改每个节点的大小。",
+       "sceneId": "shot-00"
+      },
+      {
+       "start": 11.733,
+       "end": 18.267,
+       "text": "G01、容量 2：第一步合并 A–B，大小 2，合法。",
+       "sceneId": "shot-01"
+      },
+      {
+       "start": 18.267,
+       "end": 26.8,
+       "text": "第二步：亲和度最大的 AB–C 大小 3，超容量，标红跳过；改选 D–E。",
+       "sceneId": "shot-02"
+      },
+      {
+       "start": 26.8,
+       "end": 34.889,
+       "text": "跳到结束：停在 AB | C | DE。报告分开写：合法，但没有达到 K。",
+       "sceneId": "shot-03"
+      },
+      {
+       "start": 34.889,
+       "end": 43.422,
+       "text": "诊断栏：下界 ⌈5/2⌉ = 3 已经大于 K，目标不可能，贪心停下不是错。",
+       "sceneId": "shot-04"
+      },
+      {
+       "start": 43.422,
+       "end": 55.067,
+       "text": "换成原作者的 greedy_trap：贪心停在 3 簇，可穷举找到合法的 AC | BD。诊断：贪心卡住。",
+       "sceneId": "shot-05"
+      },
+      {
+       "start": 55.067,
+       "end": 64.933,
+       "text": "suboptimal：贪心 cut 18，穷举最优 11。合法、达到 K，但不是最优。",
+       "sceneId": "shot-06"
+      },
+      {
+       "start": 64.933,
+       "end": 75.467,
+       "text": "回到 G01，容量 3，把 A 的大小改成 2：结果从 ABC | DE 变成 AB | CDE，cut 5。",
+       "sceneId": "shot-07"
+      },
+      {
+       "start": 75.467,
+       "end": 86.667,
+       "text": "在线编程：代码在浏览器里运行，不用安装 Python。贪心主循环和穷举 oracle 已经写好。",
+       "sceneId": "shot-08"
+      },
+      {
+       "start": 86.667,
+       "end": 94.311,
+       "text": "先运行检查：两个任务都还没写，结果是 INCOMPLETE。",
+       "sceneId": "shot-09"
+      },
+      {
+       "start": 94.311,
+       "end": 105.53,
+       "text": "任务一：四项分开报告。合法看每簇大小，达到 K 看簇数，停止原因由主循环给出。",
+       "sceneId": "shot-10"
+      },
+      {
+       "start": 105.53,
+       "end": 124.291,
+       "text": "任务二：分类。没达到 K 时，先看下界，再看穷举；达到 K 时，比较 cut。",
+       "sceneId": "shot-11"
+      },
+      {
+       "start": 124.291,
+       "end": 131.047,
+       "text": "运行检查：全部通过，包括超容量的单点和没有边的图。",
+       "sceneId": "shot-12"
+      },
+      {
+       "start": 131.047,
+       "end": 138.913,
+       "text": "下面用你写的函数跑 8 个情形，包括一张新图，逐项对照课程引擎。",
+       "sceneId": "shot-13"
+      },
+      {
+       "start": 138.913,
+       "end": 148.78,
+       "text": "五种诊断都出现了，全部一致。点 greedy_trap 那一行，左边画出你的结果。",
+       "sceneId": "shot-14"
+      },
+      {
+       "start": 148.78,
+       "end": 156.424,
+       "text": "最后做挑战题，确认自己真的懂了。结果只保存在你的浏览器里。",
+       "sceneId": "shot-15"
+      }
+     ],
+     "readingViolations": 0,
+     "bytes": 10936839
+    },
+    "en": {
+     "src": "lab.en.mp4",
+     "vtt": "lab.en.vtt",
+     "poster": "lab.en.jpg",
+     "duration": 148.87,
+     "captions": "en",
+     "chapters": [
+      {
+       "t": 0.0,
+       "title": "START",
+       "sceneId": "title"
+      },
+      {
+       "t": 3.2,
+       "title": "THE LAB",
+       "sceneId": "shot-00"
+      },
+      {
+       "t": 31.53,
+       "title": "DIAGNOSIS",
+       "sceneId": "shot-04"
+      },
+      {
+       "t": 58.2,
+       "title": "THE LAB",
+       "sceneId": "shot-07"
+      },
+      {
+       "t": 68.14,
+       "title": "CODE LAB",
+       "sceneId": "shot-08"
+      },
+      {
+       "t": 122.74,
+       "title": "YOUR CODE, VISUALISED",
+       "sceneId": "shot-13"
+      },
+      {
+       "t": 139.14,
+       "title": "CHALLENGES",
+       "sceneId": "shot-15"
+      }
+     ],
+     "transcript": [
+      {
+       "start": 3.2,
+       "end": 11.467,
+       "text": "This is the chapter's lab: choose an example, the target K and the capacity C, and change any node's size.",
+       "sceneId": "shot-00"
+      },
+      {
+       "start": 11.467,
+       "end": 16.267,
+       "text": "G01 at capacity 2: step one merges A–B, size 2, legal.",
+       "sceneId": "shot-01"
+      },
+      {
+       "start": 16.267,
+       "end": 24.067,
+       "text": "Step two: the highest-affinity AB–C has size 3, over capacity, marked red and skipped; D–E instead.",
+       "sceneId": "shot-02"
+      },
+      {
+       "start": 24.067,
+       "end": 31.533,
+       "text": "Jump to the end: it stops at AB | C | DE. The report is separate: legal, but K is not reached.",
+       "sceneId": "shot-03"
+      },
+      {
+       "start": 31.533,
+       "end": 40.667,
+       "text": "The diagnosis: the bound ⌈5/2⌉ = 3 already exceeds K, so the target is impossible and greedy stopping is not a mistake.",
+       "sceneId": "shot-04"
+      },
+      {
+       "start": 40.667,
+       "end": 50.933,
+       "text": "Switch to the original author's greedy_trap: greedy stops at 3 clusters, yet search finds the legal AC | BD. Diagnosis: greedy is stuck.",
+       "sceneId": "shot-05"
+      },
+      {
+       "start": 50.933,
+       "end": 58.2,
+       "text": "suboptimal: greedy cut 18, the exhaustive optimum 11. Legal and K reached, but not optimal.",
+       "sceneId": "shot-06"
+      },
+      {
+       "start": 58.2,
+       "end": 68.136,
+       "text": "Back to G01 at capacity 3, with A's size set to 2: the result changes from ABC | DE to AB | CDE, cut 5.",
+       "sceneId": "shot-07"
+      },
+      {
+       "start": 68.136,
+       "end": 78.269,
+       "text": "The code lab: your code runs in the browser, with no Python to install. The greedy loop and the exhaustive oracle are already written.",
+       "sceneId": "shot-08"
+      },
+      {
+       "start": 78.269,
+       "end": 84.736,
+       "text": "Run the checks first: neither task is written yet, so the result is INCOMPLETE.",
+       "sceneId": "shot-09"
+      },
+      {
+       "start": 84.736,
+       "end": 96.308,
+       "text": "Task 1: report four separate items. Legal checks every cluster's size, K reached checks the count, and the main loop gives the stop reason.",
+       "sceneId": "shot-10"
+      },
+      {
+       "start": 96.308,
+       "end": 115.342,
+       "text": "Task 2: classify. If K is not reached, check the bound, then the search; if it is, compare the cuts.",
+       "sceneId": "shot-11"
+      },
+      {
+       "start": 115.342,
+       "end": 122.742,
+       "text": "Run the checks: everything passes, including an over-capacity node and a graph with no edges.",
+       "sceneId": "shot-12"
+      },
+      {
+       "start": 122.742,
+       "end": 131.275,
+       "text": "Below, your functions run on eight cases, including a new graph, compared item by item with the course engine.",
+       "sceneId": "shot-13"
+      },
+      {
+       "start": 131.275,
+       "end": 139.142,
+       "text": "All five diagnoses appear, and all agree. Click the greedy_trap row to draw your result on the left.",
+       "sceneId": "shot-14"
+      },
+      {
+       "start": 139.142,
+       "end": 146.275,
+       "text": "Finally, try the challenges to check you really understand. Results stay in your browser.",
+       "sceneId": "shot-15"
+      }
+     ],
+     "readingViolations": 0,
+     "bytes": 10672872
+    }
+   }
   }
- ],
- "scenes": [
-  {
-   "sceneId": "s00-title",
-   "start": 0.0,
-   "end": 3.0
-  },
-  {
-   "sceneId": "s01-hook",
-   "start": 3.0,
-   "end": 17.8
-  },
-  {
-   "sceneId": "s02-terms",
-   "start": 17.8,
-   "end": 35.31
-  },
-  {
-   "sceneId": "s03-fork",
-   "start": 35.31,
-   "end": 56.91
-  },
-  {
-   "sceneId": "s04-bound",
-   "start": 56.91,
-   "end": 75.62
-  },
-  {
-   "sceneId": "s05-trap",
-   "start": 75.62,
-   "end": 95.0
-  },
-  {
-   "sceneId": "s06-trap2",
-   "start": 95.0,
-   "end": 111.93
-  },
-  {
-   "sceneId": "s07-sub",
-   "start": 111.93,
-   "end": 135.31
-  },
-  {
-   "sceneId": "s08-uneven",
-   "start": 135.31,
-   "end": 156.02
-  },
-  {
-   "sceneId": "s09-code",
-   "start": 156.02,
-   "end": 174.87
-  },
-  {
-   "sceneId": "s10-limits",
-   "start": 174.87,
-   "end": 190.16
-  }
- ],
- "transcript": [
-  {
-   "start": 3.0,
-   "end": 8.467,
-   "text": "规则和上一模块一样：每次合并最亲近的一对。",
-   "sceneId": "s01-hook"
-  },
-  {
-   "start": 8.467,
-   "end": 13.933,
-   "text": "可是 AB 已经装了 2 个单元，C 再进来就是 3。",
-   "sceneId": "s01-hook"
-  },
-  {
-   "start": 13.933,
-   "end": 17.4,
-   "text": "容器放不下时，该怎么办？",
-   "sceneId": "s01-hook"
-  },
-  {
-   "start": 17.8,
-   "end": 21.267,
-   "text": "先说清结果里要报告什么。",
-   "sceneId": "s02-terms"
-  },
-  {
-   "start": 21.267,
-   "end": 23.622,
-   "text": "实际有几个簇。",
-   "sceneId": "s02-terms"
-  },
-  {
-   "start": 23.622,
-   "end": 26.867,
-   "text": "每个簇有没有超过容量。",
-   "sceneId": "s02-terms"
-  },
-  {
-   "start": 26.867,
-   "end": 32.333,
-   "text": "有没有达到目标 K——这和“合法”是两回事。",
-   "sceneId": "s02-terms"
-  },
-  {
-   "start": 32.333,
-   "end": 34.911,
-   "text": "以及为什么停下。",
-   "sceneId": "s02-terms"
-  },
-  {
-   "start": 35.311,
-   "end": 39.889,
-   "text": "同一张图，左边容量 3，右边容量 2。",
-   "sceneId": "s03-fork"
-  },
-  {
-   "start": 39.889,
-   "end": 42.911,
-   "text": "第一步相同：A–B。",
-   "sceneId": "s03-fork"
-  },
-  {
-   "start": 42.911,
-   "end": 50.156,
-   "text": "第二步：左边 AB+C 大小 3，合法；右边超容量，改选 D–E。",
-   "sceneId": "s03-fork"
-  },
-  {
-   "start": 50.156,
-   "end": 56.511,
-   "text": "左边再合并 D–E，达到 K；右边再也没有合法的合并。",
-   "sceneId": "s03-fork"
-  },
-  {
-   "start": 56.911,
-   "end": 61.267,
-   "text": "容量 2 时停在 3 簇，是贪心的错吗？",
-   "sceneId": "s04-bound"
-  },
-  {
-   "start": 61.267,
-   "end": 65.4,
-   "text": "把 5 个单位装进最多放 2 个的簇：",
-   "sceneId": "s04-bound"
-  },
-  {
-   "start": 65.4,
-   "end": 69.756,
-   "text": "至少需要 5 ÷ 2 向上取整 = 3 个簇。",
-   "sceneId": "s04-bound"
-  },
-  {
-   "start": 69.756,
-   "end": 75.222,
-   "text": "所以 K = 2 根本不可能。贪心停下，没有犯错。",
-   "sceneId": "s04-bound"
-  },
-  {
-   "start": 75.622,
-   "end": 81.533,
-   "text": "另一张图：A、B 大小 2，C、D 大小 1，容量 3。",
-   "sceneId": "s05-trap"
-  },
-  {
-   "start": 81.533,
-   "end": 86.111,
-   "text": "下界是 6 ÷ 3 = 2，并没有排除 2 簇。",
-   "sceneId": "s05-trap"
-  },
-  {
-   "start": 86.111,
-   "end": 90.022,
-   "text": "贪心先拿最大的 C–D：10。",
-   "sceneId": "s05-trap"
-  },
-  {
-   "start": 90.022,
-   "end": 94.6,
-   "text": "之后 A、B 都放不进 CD，停在 3 簇。",
-   "sceneId": "s05-trap"
-  },
-  {
-   "start": 95.0,
-   "end": 98.689,
-   "text": "可是穷举找到了 AC | BD：",
-   "sceneId": "s06-trap2"
-  },
-  {
-   "start": 98.689,
-   "end": 102.378,
-   "text": "两个簇的大小都是 3，合法。",
-   "sceneId": "s06-trap2"
-  },
-  {
-   "start": 102.378,
-   "end": 105.4,
-   "text": "2 个簇，cut 10。",
-   "sceneId": "s06-trap2"
-  },
-  {
-   "start": 105.4,
-   "end": 111.533,
-   "text": "这是“可行，但贪心卡住”：第一步就走进了死胡同。",
-   "sceneId": "s06-trap2"
-  },
-  {
-   "start": 111.933,
-   "end": 117.178,
-   "text": "第三种结局：合法，也达到 K，但不是最优。",
-   "sceneId": "s07-sub"
-  },
-  {
-   "start": 117.178,
-   "end": 123.756,
-   "text": "贪心先合并 A–B（10），再合并 C–D：cut 18。",
-   "sceneId": "s07-sub"
-  },
-  {
-   "start": 123.756,
-   "end": 129.444,
-   "text": "合法的 AC | BD 只切断 10 和 1：cut 11。",
-   "sceneId": "s07-sub"
-  },
-  {
-   "start": 129.444,
-   "end": 134.911,
-   "text": "眼前最大的一步，把两条 9 都留在了 cut 里。",
-   "sceneId": "s07-sub"
-  },
-  {
-   "start": 135.311,
-   "end": 141.444,
-   "text": "单元大小也会改变结局：把 A 的大小改成 2，容量 3。",
-   "sceneId": "s08-uneven"
-  },
-  {
-   "start": 141.444,
-   "end": 146.467,
-   "text": "A–B 合并后已经满了，AB + C 被阻止。",
-   "sceneId": "s08-uneven"
-  },
-  {
-   "start": 146.467,
-   "end": 150.6,
-   "text": "改为合并 D–E，再把 C 放进去。",
-   "sceneId": "s08-uneven"
-  },
-  {
-   "start": 150.6,
-   "end": 155.622,
-   "text": "结果 AB | CDE，cut 5，而不是 3。",
-   "sceneId": "s08-uneven"
-  },
-  {
-   "start": 156.022,
-   "end": 159.489,
-   "text": "写成伪代码：先检查输入。",
-   "sceneId": "s09-code"
-  },
-  {
-   "start": 159.489,
-   "end": 163.178,
-   "text": "每一步先筛合法，再选最大。",
-   "sceneId": "s09-code"
-  },
-  {
-   "start": 163.178,
-   "end": 166.422,
-   "text": "选择键与上一模块相同。",
-   "sceneId": "s09-code"
-  },
-  {
-   "start": 166.422,
-   "end": 169.889,
-   "text": "停下以后，四项分开报告。",
-   "sceneId": "s09-code"
-  },
-  {
-   "start": 169.889,
-   "end": 174.467,
-   "text": "最后用下界和穷举诊断属于哪种结局。",
-   "sceneId": "s09-code"
-  },
-  {
-   "start": 174.867,
-   "end": 177.444,
-   "text": "容量约束的边界：",
-   "sceneId": "s10-limits"
-  },
-  {
-   "start": 177.444,
-   "end": 180.911,
-   "text": "小图可以穷举，大图不行。",
-   "sceneId": "s10-limits"
-  },
-  {
-   "start": 180.911,
-   "end": 184.6,
-   "text": "贪心不回撤，走不出死胡同。",
-   "sceneId": "s10-limits"
-  },
-  {
-   "start": 184.6,
-   "end": 188.956,
-   "text": "下一模块：节点不合并，只改标签。",
-   "sceneId": "s10-limits"
-  }
- ],
- "music": "本课程原创程序合成配乐（NumPy），CC BY 4.0",
- "why": "约 4 分钟：五节点部分压缩为一段对照，把时间留给“不可能”与“走错路”两个独立反例。",
- "readingViolations": 0,
- "fps": 30,
- "size": [
-  1920,
-  1080
  ]
 }

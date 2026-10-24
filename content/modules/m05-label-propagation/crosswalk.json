@@ -1,11 +1,11 @@
 {
   "moduleId": "m05-label-propagation",
   "objectives": [
-    { "id": "o1", "sections": ["m05-why", "m05-label"], "sceneIds": ["s01-contacts", "s05-labels"], "slideIds": ["m05-contacts", "m05-problem"], "experiment": "节点下方的“标签 X”随更新改变，节点名不变", "challenges": ["c1"], "python": [] },
-    { "id": "o2", "sections": ["m05-vote"], "sceneIds": ["s06-vote", "t03-C1"], "slideIds": ["m05-vote"], "experiment": "G01 第 1 轮第 3 步：右侧票数 B=5、D=2、E=1", "challenges": ["c2"], "python": ["count_votes"] },
-    { "id": "o3", "sections": ["m05-round"], "sceneIds": ["s07-round", "t99-end"], "slideIds": ["m05-round"], "experiment": "G01 逐步播放到第 2 轮结束：状态 stable", "challenges": ["c3"], "python": ["solve"] },
-    { "id": "o4", "sections": ["m05-sync"], "sceneIds": ["s08-sync"], "slideIds": ["m05-sync"], "experiment": "两节点 · 同步：状态 cycle", "challenges": ["c4"], "python": ["solve"] },
-    { "id": "o5", "sections": ["m05-sync", "m05-round"], "sceneIds": ["s09-bridge"], "slideIds": ["m05-bridge"], "experiment": "C–D 滑块改为 10；“反向顺序”按钮", "challenges": ["c5", "c6"], "python": ["solve"] },
-    { "id": "o6", "sections": ["m05-cut", "m05-pseudocode"], "sceneIds": ["s10-circuit", "s11-limits"], "slideIds": ["m05-chip", "m05-circuit", "m05-pseudo"], "experiment": "24 单元虚构电路", "challenges": ["c6"], "python": ["count_votes", "solve"] }
+    { "id": "o1", "sections": ["m05-why", "m05-label"], "sceneIds": ["names", "k03-labels"], "slideIds": ["m05-contacts", "m05-problem"], "experiment": "节点下方的“标签 X”随更新改变，节点名不变", "challenges": ["c1"], "python": [] },
+    { "id": "o2", "sections": ["m05-vote"], "sceneIds": ["weights", "k04-vote"], "slideIds": ["m05-vote"], "experiment": "G01 第 1 轮第 3 步：右侧票数 B=5、D=2、E=1", "challenges": ["c2"], "python": ["count_votes"] },
+    { "id": "o3", "sections": ["m05-round"], "sceneIds": ["round2", "k06-round2"], "slideIds": ["m05-round"], "experiment": "G01 逐步播放到第 2 轮结束：状态 stable", "challenges": ["c3"], "python": ["solve"] },
+    { "id": "o4", "sections": ["m05-sync"], "sceneIds": ["sync", "k08-sync", "a04-star"], "slideIds": ["m05-sync"], "experiment": "两节点 · 同步：状态 cycle", "challenges": ["c4"], "python": ["solve"] },
+    { "id": "o5", "sections": ["m05-sync", "m05-round"], "sceneIds": ["k09-knobs", "a07-orders"], "slideIds": ["m05-bridge"], "experiment": "C–D 滑块改为 10；“反向顺序”按钮", "challenges": ["c5", "c6"], "python": ["solve"] },
+    { "id": "o6", "sections": ["m05-cut", "m05-pseudocode"], "sceneIds": ["payoff", "a12-coarsen"], "slideIds": ["m05-chip", "m05-circuit", "m05-pseudo"], "experiment": "24 单元虚构电路", "challenges": ["c6"], "python": ["count_votes", "solve"] }
   ]
 }

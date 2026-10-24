@@ -2,7 +2,7 @@
 
 ## 资源与贡献
 
-本课程整合 [yongfu-li/eda-learning](https://github.com/yongfu-li/eda-learning/issues?q=is%3Aissue+state%3Aclosed) 中 8 个**已关闭**的 Clustering 提交。讲解、引擎、影片、课件和练习在统一课程中重新编写；每份原作的独有贡献在对应模块的“来源”区署名并说明保留了什么。原作仓库多数没有声明统一许可，因此本课程**没有复制**这些仓库的源代码、视频、音轨或字体，只链接到固定提交。
+本课程整合 [yongfu-li/eda-learning](https://github.com/yongfu-li/eda-learning/issues?q=is%3Aissue+state%3Aclosed) 中 8 个**已关闭**的 Clustering 提交。讲解、引擎、影片、课件和练习在统一课程中重新编写；每份原作的独有贡献在对应模块的“来源”区署名并说明保留了什么。原作仓库多数没有声明统一许可，因此本课程**没有复制**这些仓库的源代码、视频、音轨或字体，只链接到固定提交。唯一的例外是 Module 05：作者本人以 MIT / CC BY 4.0 发布了 Lab05 仓库，本章引擎改写自其代码，科普片就是其原片（配乐另属第三方，见下）。
 
 ### 八份原作
 
@@ -26,7 +26,7 @@ Module 03 的补交网址 `thy031.github.io/lab-03/#lab` 已在 Issue #2 的评�
 ### 本课程新写的部分
 
 - 算法引擎 `site/engines/`、Python 参考与练习、测试：本项目新写。Module 05 引擎改写自 Su3037 本人的 Lab05 实现（MIT）。
-- 影片：Python + libcairo 逐帧绘制的原创二维动画，配乐为程序合成的原创氛围音（NumPy），没有使用 We Never 或任何第三方音乐。
+- 影片：每章四部。精讲、进阶与实验演示是 Python + cairo 逐帧绘制（实验演示由 Playwright 录下真实页面后合成）的原创影片，配乐为程序合成的原创氛围音（NumPy）。科普片按作者指定使用《We Never (Remix)（若如初见）》（Hi Noise / 秋成，第三方录音，不在本课程许可范围内）；Module 05 的科普片就是作者原作《圈子从哪里来》，原样收录。
 - 课件：同一份 JSON 生成 PDF、PNG 预览与可编辑 PPTX。
 - 许可：新写代码 MIT（`LICENSE`）；新写教材、图解、影片、课件、字幕与原创配乐 CC BY 4.0（`LICENSE-CONTENT.md`），署名“Su3037 · Learning Clustering”；不覆盖上表中的原作，它们保留各自作者的权利与许可。
 

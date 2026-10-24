@@ -1,0 +1,10 @@
+{
+ "title": {"zh": "实验演示", "en": "Lab Walkthrough"},
+ "subtitle": {"zh": "实验台 · 在线编程 · 挑战", "en": "THE LAB  ·  THE CODE LAB  ·  CHALLENGES"},
+ "kicker": {"zh": "MODULE 03 · 贪心成对合并", "en": "MODULE 03 · GREEDY PAIR MERGE"},
+ "brand": {"zh": "Learning Clustering · Module 03 · 贪心成对合并", "en": "Learning Clustering · Module 03 · Greedy pair merge"},
+ "why": {"zh": "从真实页面录下的操作演示：逐步看候选表、平行边相加、容量 2 时如何停下、原网页比较器的对照，再在浏览器里写完选择键和主循环并通过全部检查。",
+         "en": "Recorded from the real page: stepping through the candidate table, parallel wires adding up, how capacity 2 stops, the original comparator for comparison, then writing the selection key and main loop in the browser and passing every check."},
+ "posterShot": 2,
+ "order": ["story", "concise", "advanced", "lab"]
+}

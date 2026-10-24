@@ -1,0 +1,93 @@
+WEBVTT
+
+1
+00:00:03.400 --> 00:00:08.644
+KL doesn't group from scratch; it improves an existing bisection.
+
+2
+00:00:08.644 --> 00:00:13.667
+This chapter's seed is AE | BCD, cut 12.
+
+3
+00:00:13.667 --> 00:00:19.133
+The only move: swap one from each side; the side sizes stay.
+
+4
+00:00:19.533 --> 00:00:23.533
+First, each node's external and internal weight.
+
+5
+00:00:23.533 --> 00:00:28.333
+D = external − internal: A is +6, C is −4.
+
+6
+00:00:28.333 --> 00:00:33.356
+D is how much the cut drops if that node alone moves.
+
+7
+00:00:33.756 --> 00:00:38.778
+A pair swap's gain: the two D values added, minus 2w.
+
+8
+00:00:38.778 --> 00:00:45.800
+Both D values count E–D as external, and it stays cut after the swap, so it comes off twice.
+
+9
+00:00:45.800 --> 00:00:51.489
+Of the six candidates A↔D is largest, +9; E↔D is −1.
+
+10
+00:00:51.889 --> 00:00:57.133
+One pass: pick the largest-gain pair, swap, lock, recompute D.
+
+11
+00:00:57.133 --> 00:01:01.267
+Step 1, A↔D: cut 12 → 3.
+
+12
+00:01:01.267 --> 00:01:07.844
+At step 2 every gain is negative; take E↔C anyway: the cut rises to 11.
+
+13
+00:01:07.844 --> 00:01:12.200
+No movable node is left on the left; the trials end.
+
+14
+00:01:12.600 --> 00:01:16.289
+Cumulative gains: 0, +9, +1.
+
+15
+00:01:16.289 --> 00:01:22.200
+The largest is k = 1: from the start, apply only A↔D, cut 3.
+
+16
+00:01:22.200 --> 00:01:26.333
+Step 2 is undone: a trial is not an acceptance.
+
+17
+00:01:26.733 --> 00:01:31.089
+Pass 2 starts from cut 3, everything unlocked.
+
+18
+00:01:31.089 --> 00:01:35.667
+Cumulative −8, −6: neither beats doing nothing.
+
+19
+00:01:35.667 --> 00:01:39.600
+The empty prefix wins, and the algorithm stops.
+
+20
+00:01:40.000 --> 00:01:42.133
+Four things to keep.
+
+21
+00:01:42.133 --> 00:01:46.267
+One for one, sizes fixed; the gain loses 2w;
+
+22
+00:01:46.267 --> 00:01:50.533
+try negative gains too, accept only the best prefix.
+
+23
+00:01:50.533 --> 00:01:54.889
+Step through every trial in the lab below.

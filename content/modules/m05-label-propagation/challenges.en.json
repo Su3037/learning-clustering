@@ -1,0 +1,26 @@
+[
+  {
+    "type": "Concept",
+    "title": "Names and labels"
+  },
+  {
+    "type": "Trace",
+    "title": "C’s votes"
+  },
+  {
+    "type": "Trace",
+    "title": "How many rounds until it stops"
+  },
+  {
+    "type": "Explore",
+    "title": "Find a cycle"
+  },
+  {
+    "type": "Explore",
+    "title": "Strengthen one bridge"
+  },
+  {
+    "type": "Implement",
+    "title": "Run it in another order"
+  }
+]

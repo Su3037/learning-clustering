@@ -1,0 +1,10 @@
+{
+ "title": {"zh": "实验演示", "en": "Lab Walkthrough"},
+ "subtitle": {"zh": "实验台 · 在线编程 · 挑战", "en": "THE LAB  ·  THE CODE LAB  ·  CHALLENGES"},
+ "kicker": {"zh": "MODULE 05 · 标签传播", "en": "MODULE 05 · LABEL PROPAGATION"},
+ "brand": {"zh": "Learning Clustering · Module 05 · 标签传播", "en": "Learning Clustering · Module 05 · Label propagation"},
+ "why": {"zh": "从真实页面录下的操作演示：怎样单步看票、切换规则、改桥边权，再在浏览器里写完两个函数并通过全部检查。",
+         "en": "Recorded from the real page: stepping through votes, switching rules, changing the bridge weight, then writing the two functions in the browser and passing every check."},
+ "posterShot": 2,
+ "order": ["story", "concise", "advanced", "lab"]
+}

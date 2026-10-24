@@ -1,0 +1,97 @@
+WEBVTT
+
+1
+00:00:03.400 --> 00:00:08.422
+Why try negative gains? A verified example.
+
+2
+00:00:08.422 --> 00:00:16.111
+Six nodes, maxDiff 2, cut 6: every legal move has gain ≤ 0.
+
+3
+00:00:16.111 --> 00:00:22.244
+Hill climbing stops at 6; FM takes A −1, B −1: cut 8.
+
+4
+00:00:22.244 --> 00:00:27.711
+Now E's strongest tie is across: +4, cut 4.
+
+5
+00:00:27.711 --> 00:00:32.044
+Exhaustive search confirms 4 is the balanced optimum.
+
+6
+00:00:32.444 --> 00:00:37.022
+The attachment had its own example, with a claim.
+
+7
+00:00:37.022 --> 00:00:42.711
+Computed from its own data: the initial cut is 18, not 9.
+
+8
+00:00:42.711 --> 00:00:46.400
+E's move is legal, with gain +10.
+
+9
+00:00:46.400 --> 00:00:51.200
+Pass 1's best and the true optimum are both 8, not 4.
+
+10
+00:00:51.200 --> 00:00:55.556
+So it stays a regression test, not a lesson.
+
+11
+00:00:55.956 --> 00:01:01.422
+In real netlists a net often joins three or more cells.
+
+12
+00:01:01.422 --> 00:01:07.333
+A net {A, B, C, D}, weight 3, with only D on the right.
+
+13
+00:01:07.333 --> 00:01:12.356
+Counting pins: moving D gains +3, moving A gains 0.
+
+14
+00:01:12.356 --> 00:01:17.489
+Split into a clique and counted by edges, A would wrongly get −1.
+
+15
+00:01:17.889 --> 00:01:21.800
+The 1982 paper's speed comes from buckets.
+
+16
+00:01:21.800 --> 00:01:28.156
+One list per gain, plus a pointer to the largest legal gain.
+
+17
+00:01:28.156 --> 00:01:34.489
+Each move updates only its neighbours: a pass costs time in proportion to the pins.
+
+18
+00:01:34.489 --> 00:01:42.178
+This course updates gains incrementally, but still scans to choose: not O(P).
+
+19
+00:01:42.578 --> 00:01:46.711
+The window counts nodes, not area.
+
+20
+00:01:46.711 --> 00:01:52.400
+Give A area 3: the accepted ABC | DE is 3 : 2 by count.
+
+21
+00:01:52.400 --> 00:01:55.000
+By area it is 5 : 2.
+
+22
+00:01:55.000 --> 00:01:59.578
+Area balance needs its own window: an extension.
+
+23
+00:01:59.978 --> 00:02:02.044
+Six things to keep.
+
+24
+00:02:15.044 --> 00:02:19.178
+Next: the goal changes from cut to delay.

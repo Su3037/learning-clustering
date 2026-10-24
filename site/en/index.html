@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Learning Clustering · Connect &amp; Group</title>
+<meta name="description" content="Eight closed Clustering course submissions (Modules 02–09) rebuilt as one course: lessons, explainer films, numbered slides, in-browser labs, grouping challenges and Python exercises.">
+<link rel="alternate" hreflang="zh-CN" href="../index.html">
+<link rel="alternate" hreflang="en" href="../en/index.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%2032%2032%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M9%2011%2023%209M9%2011%2020%2023%22%20stroke%3D%22%238b958e%22%20stroke-width%3D%221.3%22%2F%3E%3Cpath%20d%3D%22M23%209%2020%2023%22%20stroke%3D%22%23a33b3b%22%20stroke-width%3D%221.3%22%20stroke-dasharray%3D%222.2%202%22%2F%3E%3Ccircle%20cx%3D%229%22%20cy%3D%2211%22%20r%3D%224.6%22%20fill%3D%22%230f6b5c%22%2F%3E%3Ccircle%20cx%3D%2223%22%20cy%3D%229%22%20r%3D%223.6%22%20fill%3D%22%232f5e9e%22%2F%3E%3Ccircle%20cx%3D%2220%22%20cy%3D%2223%22%20r%3D%224.6%22%20fill%3D%22%23946a17%22%2F%3E%3C%2Fsvg%3E">
+<link rel="preload" href="../assets/fonts/newsreader-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../assets/course.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar"><div class="wrap">
+<a class="brand" href="index.html"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M9 11 23 9M9 11 20 23" stroke="#8b958e" stroke-width="1.3"/><path d="M23 9 20 23" stroke="#a33b3b" stroke-width="1.3" stroke-dasharray="2.2 2"/><circle cx="9" cy="11" r="4.6" fill="#0f6b5c"/><circle cx="23" cy="9" r="3.6" fill="#2f5e9e"/><circle cx="20" cy="23" r="4.6" fill="#946a17"/></svg><span class="brand-name">Learning Clustering</span><span class="brand-sub">Connect & group</span></a>
+<nav class="topnav" aria-label="Course"><a href="index.html" aria-current="page">Home</a><a href="foundations/index.html">Foundations</a><a href="glossary/index.html">Glossary</a><a href="guide/index.html">Challenges</a><a href="credits/index.html">Credits</a><a href="progress/index.html">Progress</a></nav>
+<div class="lang-switch" role="group" aria-label="Language"><a href="../index.html" hreflang="zh-CN" lang="zh-CN" data-lang-link="zh">中文</a><span aria-current="true">EN</span></div>
+</div></header>
+<main id="main">
+<section class="wrap hero"><div class="hero-text">
+<p class="eyebrow">Learning Clustering / Eight modules / Clustering for EDA</p>
+<h1>Connect &amp; Group</h1>
+<p class="hero-sub">Blocks on a chip and circles in an address book are the same problem.</p>
+<p class="lead">Thousands of cells on a chip are wired to each other. Put tightly connected cells together and the wires between groups become fewer, shorter and faster. Eight modules lead from “how do we score a pair of cells?” to “how should we group them so the critical path is fastest?”</p>
+<div class="btn-row"><a class="btn primary" href="modules/m02-affinity-metrics/index.html">Start with Module 02 <span aria-hidden="true">→</span></a><a class="btn quiet" href="foundations/index.html">Foundations first</a><a class="btn quiet" href="progress/index.html">My progress</a></div>
+<p class="byline">Open course · computed in your browser · code MIT, content CC BY 4.0</p>
+</div>
+<figure class="hero-art"><svg viewBox="0 0 440 300" role="img" aria-label="Example graph with five nodes A–E; only weight 3 is cut between the groups ABC and DE">
+<path d="M86 88 C 40 160 120 230 190 196 C 250 168 260 60 196 50 C 150 42 110 54 86 88Z" fill="#0f6b5c" fill-opacity=".07" stroke="#0f6b5c" stroke-opacity=".35" stroke-dasharray="4 5"/>
+<path d="M300 180 C 360 168 392 236 352 262 C 310 288 232 284 238 248 C 242 222 262 188 300 180Z" fill="#2f5e9e" fill-opacity=".07" stroke="#2f5e9e" stroke-opacity=".35" stroke-dasharray="4 5"/>
+<g stroke="#9aa59e" stroke-width="1.6"><line x1="96" y1="94" x2="206" y2="74"/><line x1="96" y1="94" x2="164" y2="170"/><line x1="206" y1="74" x2="164" y2="170"/><line x1="324" y1="218" x2="262" y2="252"/></g>
+<g stroke="#a33b3b" stroke-width="1.6" stroke-dasharray="5 4"><line x1="164" y1="170" x2="324" y2="218"/><line x1="164" y1="170" x2="262" y2="252"/></g>
+<g class="art-w" font-size="14" fill="#5b665f"><text x="146" y="76">5</text><text x="116" y="140">1</text><text x="192" y="126">4</text><text x="246" y="186">2</text><text x="200" y="224">1</text><text x="298" y="250">5</text></g>
+<g class="art-n" font-size="16" text-anchor="middle" fill="#fffdf8"><circle cx="96" cy="94" r="17" fill="#0f6b5c"/><text x="96" y="100">A</text><circle cx="206" cy="74" r="17" fill="#0f6b5c"/><text x="206" y="80">B</text><circle cx="164" cy="170" r="17" fill="#0f6b5c"/><text x="164" y="176">C</text><circle cx="324" cy="218" r="17" fill="#2f5e9e"/><text x="324" y="224">D</text><circle cx="262" cy="252" r="17" fill="#2f5e9e"/><text x="262" y="258">E</text></g>
+</svg><figcaption>The course graph G01: split into ABC | DE, only 2 + 1 = 3 is cut.</figcaption></figure>
+</section>
+<section class="section"><div class="wrap">
+<div class="section-head"><div><p class="eyebrow"><span class="eyebrow-no">01</span> / The route</p><h2>Eight modules</h2></div><p>The first three score and merge; label propagation and spectral methods are two ways to produce a first grouping; KL and FM improve a grouping; RW changes the goal to delay. Each module stands on its own.</p></div>
+<div class="route"><a class="mod-card" href="modules/m02-affinity-metrics/index.html" data-module="m02-affinity-metrics">
+<span class="num">Module 02</span><h3>Affinity Metrics</h3><p>Score every pair of cells: direct edge weight, shared neighbours, and pin-count on multi-pin nets. A score ranks pairs; it does not group them.</p>
+<p class="meta">Capeur · film 3:10 + 1:53 + 2:44 + 2:26</p>
+<div class="bar" aria-hidden="true"><i></i></div><span class="small muted progress-text"></span></a><a class="mod-card" href="modules/m03-greedy-pair-merge/index.html" data-module="m03-greedy-pair-merge">
+<span class="num">Module 03</span><h3>Greedy Pair Merge</h3><p>Start from single cells and repeatedly merge the pair with the largest weight between them. Value first, names break ties; stop at K or when nothing can merge.</p>
+<p class="meta">thy031 · film 3:10 + 2:04 + 2:42 + 2:37</p>
+<div class="bar" aria-hidden="true"><i></i></div><span class="small muted progress-text"></span></a><a class="mod-card" href="modules/m04-size-constrained-agglomerative/index.html" data-module="m04-size-constrained-agglomerative">
+<span class="num">Module 04</span><h3>Size-Constrained Agglomerative Clustering</h3><p>No cluster may exceed capacity C. Impossible, stuck on a wrong path, and legal-but-not-optimal are three different endings.</p>
+<p class="meta">GateUltra · film 3:10 + 2:24 + 2:37 + 2:29</p>
+<div class="bar" aria-hidden="true"><i></i></div><span class="small muted progress-text"></span></a><a class="mod-card" href="modules/m05-label-propagation/index.html" data-module="m05-label-propagation">
+<span class="num">Module 05</span><h3>Label Propagation</h3><p>Each node looks at its neighbours’ current labels and joins the group it is most strongly connected to. Names stay, labels change; it may settle, or it may swing back and forth.</p>
+<p class="meta">Su3037 · film 6:20 + 2:34 + 4:54 + 2:12</p>
+<div class="bar" aria-hidden="true"><i></i></div><span class="small muted progress-text"></span></a><a class="mod-card" href="modules/m06-spectral-bisection/index.html" data-module="m06-spectral-bisection">
+<span class="num">Module 06</span><h3>Spectral Bisection</h3><p>Build L = D − A, sort the nodes by the Fiedler vector, and try every cut inside the balance window. Flipping the sign only swaps left and right.</p>
+<p class="meta">xingguangyaoyu · film 3:10 + 2:02 + 2:27 + 2:50</p>
+<div class="bar" aria-hidden="true"><i></i></div><span class="small muted progress-text"></span></a><a class="mod-card" href="modules/m07-kernighan-lin/index.html" data-module="m07-kernighan-lin">
+<span class="num">Module 07</span><h3>Kernighan–Lin Refinement</h3><p>Swap pairs, lock them, keep exploring, then roll back to the best prefix. Trial moves may hurt; only the best stretch is kept.</p>
+<p class="meta">FanqinZeng · film 3:10 + 1:56 + 2:10 + 2:31</p>
+<div class="bar" aria-hidden="true"><i></i></div><span class="small muted progress-text"></span></a><a class="mod-card" href="modules/m08-fiduccia-mattheyses/index.html" data-module="m08-fiduccia-mattheyses">
+<span class="num">Module 08</span><h3>Fiduccia–Mattheyses Refinement</h3><p>Move one node at a time, keeping both sides inside the balance window. Only legal moves count; exploring, locking and the best prefix work as in KL.</p>
+<p class="meta">stephQ-lab · film 3:10 + 1:48 + 2:21 + 2:17</p>
+<div class="bar" aria-hidden="true"><i></i></div><span class="small muted progress-text"></span></a><a class="mod-card" href="modules/m09-rajaraman-wong/index.html" data-module="m09-rajaraman-wong">
+<span class="num">Module 09</span><h3>Rajaraman–Wong Delay-Oriented Clustering</h3><p>The goal becomes the longest path delay. Each crossing between clusters adds D, and one logic node may be copied into several clusters.</p>
+<p class="meta"><span class="warn">mapping pending</span> · muranfei · film 3:10 + 2:10 + 2:19 + 2:29</p>
+<div class="bar" aria-hidden="true"><i></i></div><span class="small muted progress-text"></span></a></div>
+<p class="route-legend">Numbers follow the order of submission (Issues #1–#8 → Modules 02–09). The Module 09 submission is about Rajaraman–Wong; Lab 09 in the teacher’s catalogue is Multilevel. Their correspondence is awaiting the teacher’s confirmation, and the course keeps the two apart.</p>
+</div></section>
+<section class="section" id="synthesis"><div class="wrap">
+<div class="section-head"><div><p class="eyebrow"><span class="eyebrow-no">02</span> / Side by side</p><h2>One five-node graph, seven different operations</h2></div><p>Modules 02–08 all use the course graph G01, but each teaches a different operation; Module 09 switches to a directed delay model and does not use it.</p></div>
+
+<div class="prose wide"><table><thead><tr><th>Module</th><th>What it does on G01</th><th>Result</th><th>What this step shows</th></tr></thead><tbody><tr><td><a href="modules/m02-affinity-metrics/index.html">M02</a></td><td>Scores 10 pairs by shared neighbours</td><td>Highest A–B, D–E = 6; B–D scores 2 with no direct edge</td><td>A score is a ranking, not a grouping</td></tr><tr><td><a href="modules/m03-greedy-pair-merge/index.html">M03</a></td><td>K=2, merging up from single nodes</td><td>ABC | DE, cut 18→13→8→3</td><td>Each merge lowers the cut by exactly that merge’s affinity</td></tr><tr><td><a href="modules/m04-size-constrained-agglomerative/index.html">M04</a></td><td>K=2, capacity 2</td><td>AB | C | DE, cut 8, K not reached</td><td>The lower bound ⌈5/2⌉ = 3 already proves K=2 impossible</td></tr><tr><td><a href="modules/m05-label-propagation/index.html">M05</a></td><td>A→E asynchronous, ties to the smaller label</td><td>B/B/B/E/E, 2 rounds, cut 3</td><td>Change the order or go synchronous, and the rounds and even stopping change</td></tr><tr><td><a href="modules/m06-spectral-bisection/index.html">M06</a></td><td>Fiedler order E,D,C,B,A, then sweep</td><td>k=2: DE | ABC, cut 3</td><td>The middle cut (k=3) is 5</td></tr><tr><td><a href="modules/m07-kernighan-lin/index.html">M07</a></td><td>Pair swaps from AE | BCD</td><td>Trial gains 9, −8; keep 1 step; cut 12→3</td><td>Trials may get worse; acceptance looks at the best prefix</td></tr><tr><td><a href="modules/m08-fiduccia-mattheyses/index.html">M08</a></td><td>Single moves from AE | BCD, side sizes differ by ≤1</td><td>D(+3), A(+6), keep 2 steps, cut 3</td><td>A has the largest gain but is illegal, so D moves first</td></tr><tr><td><a href="modules/m09-rajaraman-wong/index.html">M09</a></td><td>Not G01: a 12-node directed circuit</td><td>8 clusters, 20 instances, longest delay 8</td><td>The goal becomes delay, and replication is allowed</td></tr></tbody></table>
+<p>Several methods reach cut 3 on this small graph; that is a property of this graph only. M07/M08 reaching 3 does not mean they generally find the global optimum, and M09’s “optimal” holds only under the paper’s delay model with replication allowed.</p></div>
+</div></section>
+</main>
+<footer class="footer"><div class="wrap">
+<p>Learning Clustering · Modules 02–09, built from eight closed Clustering submissions. Original authors are credited on the <a href="credits/index.html">Credits</a> page.</p>
+<p><button class="btn quiet small" type="button" data-pref="reduceMotion">Reduce motion</button> <button class="btn quiet small" type="button" data-pref="sound">Sound</button> · Content version 2026.10.23-1</p>
+</div></footer>
+<script type="module">import { initShell } from '../assets/core.js'; initShell();</script>
+<script type="module" src="../assets/home.js"></script>
+</body>
+</html>

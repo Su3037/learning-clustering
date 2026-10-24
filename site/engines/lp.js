@@ -7,6 +7,7 @@
  * hitting the round limit is `limit`. None of these three is called "converged" unless stable.
  */
 import { normalizeGraph, cutsize, groupsKey, ENGINE_VERSION } from './graph.js';
+import { L } from '../assets/i18n.js';
 
 export function votesFor(adj, labels, node) {
   const votes = {}, neighbors = [];
@@ -27,27 +28,32 @@ export function chooseLabel(votes, current, tie = 'min') {
   return { label: tie === 'max' ? tied.at(-1) : tied[0], tied };
 }
 
-export function validate(input, { mode = 'async', tie = 'min', order = null, maxRounds = 50 } = {}) {
+export function validate(input, { mode = 'async', tie = 'min', order = null, maxRounds = 50, maxSize = null } = {}) {
   const r = normalizeGraph(input, { maxNodes: 40, maxEdges: 400 });
   const errors = [...r.errors];
-  if (!['async', 'sync'].includes(mode)) errors.push('更新方式须为 async 或 sync');
-  if (!['min', 'max', 'keep'].includes(tie)) errors.push('平票规则须为 min、max 或 keep');
-  if (!Number.isInteger(maxRounds) || maxRounds < 1 || maxRounds > 200) errors.push('最大轮数为 1–200');
+  if (!['async', 'sync'].includes(mode)) errors.push(L('更新方式须为 async 或 sync', 'the update mode must be async or sync'));
+  if (!['min', 'max', 'keep'].includes(tie)) errors.push(L('平票规则须为 min、max 或 keep', 'the tie rule must be min, max or keep'));
+  if (maxSize != null && (!Number.isInteger(maxSize) || maxSize < 1)) errors.push(L('组大小上限须为正整数', 'the group size limit must be a positive integer'));
+  if (maxSize != null && mode !== 'async') errors.push(L('组大小上限只用于异步更新', 'the group size limit applies to asynchronous updates only'));
+  if (!Number.isInteger(maxRounds) || maxRounds < 1 || maxRounds > 200) errors.push(L('最大轮数为 1–200', 'the maximum number of rounds is 1–200'));
   if (r.ok && order) {
     const ids = r.graph.nodes.map(n => n.id);
-    if (order.length !== ids.length || new Set(order).size !== ids.length || order.some(n => !ids.includes(n))) errors.push('访问顺序须恰好包含每个节点一次');
+    if (order.length !== ids.length || new Set(order).size !== ids.length || order.some(n => !ids.includes(n))) errors.push(L('访问顺序须恰好包含每个节点一次', 'the visiting order must contain every node exactly once'));
   }
   return { ok: errors.length === 0, errors, graph: r.graph };
 }
 
 export function run(input, options = {}) {
-  const { mode = 'async', tie = 'min', maxRounds = 50 } = options;
+  const { mode = 'async', tie = 'min', maxRounds = 50, maxSize = null } = options;
   const v = validate(input, options);
   if (!v.ok) return { events: [], result: null, status: 'invalid', metadata: { errors: v.errors } };
   const g = v.graph, ids = g.nodes.map(n => n.id), order = options.order ?? [...ids].sort();
   const adj = new Map(ids.map(id => [id, new Map()]));
   for (const { u, v: w2, w } of g.edges) { adj.get(u).set(w2, w); adj.get(w2).set(u, w); }
   let labels = Object.fromEntries(ids.map(n => [n, n]));
+  // Size-constrained variant (Meyerhenke, Sanders & Schulz 2014): a node may only join a label whose group
+  // would stay within maxSize nodes. Async only; sizes are updated as labels change.
+  const size = Object.fromEntries(ids.map(n => [n, 1]));
   const signature = l => ids.map(n => l[n]).join('|');
   const seen = new Map([[signature(labels), 0]]);
   const events = [];
@@ -58,8 +64,11 @@ export function run(input, options = {}) {
     for (let index = 0; index < order.length; index++) {
       const node = order[index], before = { ...labels };
       const source = mode === 'sync' ? base : labels;
-      const { votes, neighbors } = votesFor(adj, source, node);
-      const old = source[node], { label, tied } = chooseLabel(votes, old, tie), changed = label !== old;
+      const { votes: allVotes, neighbors } = votesFor(adj, source, node);
+      const old = source[node];
+      const votes = maxSize ? Object.fromEntries(Object.entries(allVotes).filter(([l]) => l === old || size[l] + 1 <= maxSize)) : allVotes;
+      const { label, tied } = chooseLabel(votes, old, tie), changed = label !== old;
+      if (changed && maxSize) { size[old]--; size[label] = (size[label] || 0) + 1; }
       pending[node] = label;
       if (mode === 'async') labels[node] = label;
       if (changed) changes++;
@@ -68,8 +77,8 @@ export function run(input, options = {}) {
       const ev = {
         eventId: `r${round + 1}-${node}`, phase: `round-${round + 1}`, step: step++, kind: roundEnd ? 'update-round-end' : 'update',
         round: round + 1, index, node, old, label, changed, votes, tied, neighbors, before, after: { ...labels },
-        pending: { ...pending }, committed: mode === 'async' || roundEnd, mode, tie,
-        decision: changed ? `${node}: ${old} → ${label}` : `${node} 保持 ${old}`,
+        pending: { ...pending }, committed: mode === 'async' || roundEnd, mode, tie, ...(maxSize ? { allVotes, maxSize } : {}),
+        decision: changed ? `${node}: ${old} → ${label}` : L(`${node} 保持 ${old}`, `${node} keeps ${old}`),
         sourceVersion: ENGINE_VERSION
       };
       if (roundEnd) {
@@ -86,7 +95,7 @@ export function run(input, options = {}) {
       events.push(ev);
     }
   }
-  const result = { mode, tie, order, labels: { ...labels }, rounds: round, status, cut: cutsize(g, labels), grouping: groupsKey(labels) };
+  const result = { mode, tie, ...(maxSize ? { maxSize } : {}), order, labels: { ...labels }, rounds: round, status, cut: cutsize(g, labels), grouping: groupsKey(labels) };
   return { events, result, status, metadata: { engine: 'label-propagation', version: ENGINE_VERSION, adaptedFrom: 'Su3037/clustering-lab5-label-propagation@7b4eca7' } };
 }
 

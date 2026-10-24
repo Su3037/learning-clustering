@@ -1,0 +1,190 @@
+{
+ "status": "ready",
+ "moduleId": "m05-label-propagation",
+ "slides": [
+  {
+   "slideId": "m05-title",
+   "pageNumber": 1,
+   "pageCount": 12,
+   "title": "Where Do Clusters Come From?",
+   "image": "p01.jpg",
+   "thumb": "t01.jpg",
+   "alt": "Where Do Clusters Come From?: ",
+   "transcript": "This module is about label propagation. Each node looks at its neighbours' current labels and joins the most strongly connected group. It merges no nodes and needs no number of clusters; we will see how it stops, and how it can fall into oscillation.",
+   "videoAnchor": "“The essentials” 00:00",
+   "sceneId": "k00-title",
+   "objectiveIds": []
+  },
+  {
+   "slideId": "m05-contacts",
+   "pageNumber": 2,
+   "pageCount": 12,
+   "title": "Circles in a contact list",
+   "image": "p02.jpg",
+   "thumb": "t02.jpg",
+   "alt": "Circles in a contact list: A fictional contact list: 28 people, 61 ties (the original author's data); Rule: see which circle your friends are in now, and join the one you are most connected to; Repeat for a few rounds and the circles appear on their own: 8 + 10 + 10; Raghavan, Albert & Kumara, 2007",
+   "transcript": "Start with a fictional contact list. Each person checks which circle their friends are in right now, then joins the one they are most connected to. Repeat a few rounds and the circles appear by themselves: after three rounds there are three circles, and only ties of weight 4 are cut. The method comes from the 2007 paper by Raghavan, Albert and Kumara.",
+   "videoAnchor": "“Where Do Clusters Come From?” 00:34",
+   "sceneId": "history",
+   "objectiveIds": [
+    "o1"
+   ]
+  },
+  {
+   "slideId": "m05-chip",
+   "pageNumber": 3,
+   "pageCount": 12,
+   "title": "The same problem in a chip",
+   "image": "p03.jpg",
+   "thumb": "t03.jpg",
+   "alt": "The same problem in a chip: 24 cells, 56 wires, total weight 202 (fictional); Cutting it into three blocks by position with a ruler cuts 88; Brute force is hopeless: 1,577,585,295 ways to split into three equal groups; We need a local rule that only looks at neighbours",
+   "transcript": "A chip poses the same problem: short wires inside a block, long wires between blocks. On this fictional circuit, cutting it into three blocks by position cuts 88. Trying every split is impossible too. We need a local rule that only looks at neighbours.",
+   "videoAnchor": "“Where Do Clusters Come From?” 00:51",
+   "sceneId": "chip",
+   "objectiveIds": [
+    "o6"
+   ]
+  },
+  {
+   "slideId": "m05-problem",
+   "pageNumber": 4,
+   "pageCount": 12,
+   "title": "The problem",
+   "image": "p04.jpg",
+   "thumb": "t04.jpg",
+   "alt": "The problem: Input: graph, visiting order, async/sync, tie rule, maximum rounds; Start: every node's label = its own name; Output: labels, groups, per-node votes, cut, rounds, stopping status; No K, no merging, no balance guarantee",
+   "transcript": "The input is a graph and a set of rules: the visiting order, synchronous or asynchronous updates, the tie rule and the maximum number of rounds. At the start every node's label is its own name. The output is the final labels, the groups, every vote in detail, the cut, the number of rounds and the stopping status. It needs no K and merges no nodes.",
+   "videoAnchor": "“The essentials” 00:28",
+   "sceneId": "k03-labels",
+   "objectiveIds": [
+    "o1"
+   ]
+  },
+  {
+   "slideId": "m05-vote",
+   "pageNumber": 5,
+   "pageCount": 12,
+   "title": "One update: a weighted vote",
+   "image": "p05.jpg",
+   "thumb": "t05.jpg",
+   "alt": "One update: a weighted vote: new label(v) = the label with the largest total edge weight among v's neighbours; C (round 1): B = 1 + 4 = 5, D = 2, E = 1; C's label becomes B; its name is still C; Weight counts, not the number of neighbours",
+   "transcript": "One update looks only at that node's neighbours. When it is C's turn, A has already switched to label B and B carries B, so label B gets 1 plus 4, which is 5; D gets 2 and E gets 1. C's label becomes B, but it is still node C. What counts is total weight, not the number of neighbours.",
+   "videoAnchor": "“The essentials” 00:41",
+   "sceneId": "k04-vote",
+   "objectiveIds": [
+    "o2"
+   ]
+  },
+  {
+   "slideId": "m05-round",
+   "pageNumber": 6,
+   "pageCount": 12,
+   "title": "A whole round, and the quiet round",
+   "image": "p06.jpg",
+   "thumb": "t06.jpg",
+   "alt": "A whole round, and the quiet round: Asynchronous: each update is written back at once; Round 1: B B B E E, three changes; Round 2: a full round with no change → stable; 2 rounds in all (including the confirming round), cut 3; Order E→A: same groups, 3 rounds",
+   "transcript": "With asynchronous updates each new label is written back immediately, so later nodes see it at once. Round 1 ends at B B B E E with three changes. Round 2 changes nothing, and only that confirms stability: two rounds in all, cut 3. Visiting from E to A instead gives the same groups but takes three rounds.",
+   "videoAnchor": "“The essentials” 00:59",
+   "sceneId": "k05-round1",
+   "objectiveIds": [
+    "o3"
+   ]
+  },
+  {
+   "slideId": "m05-sync",
+   "pageNumber": 7,
+   "pageCount": 12,
+   "title": "Synchronous updates and oscillation",
+   "image": "p07.jpg",
+   "thumb": "t07.jpg",
+   "alt": "Synchronous updates and oscillation: Synchronous: the whole round reads one old snapshot and commits at the end; Two nodes: A and B swap labels every round; G01 synchronous: round 3 repeats round 1 (period 2); Stopping status: stable / cycle / limit; Only stable may be called converged",
+   "transcript": "With synchronous updates every node reads the same old snapshot and all changes are committed at the end of the round. Two nodes swap labels and then swap back, forever. G01 oscillates with period 2 in synchronous mode too. Keep stable, cycle and limit apart; only stable may be called converged.",
+   "videoAnchor": "“The essentials” 01:48",
+   "sceneId": "k08-sync",
+   "objectiveIds": [
+    "o4"
+   ]
+  },
+  {
+   "slideId": "m05-bridge",
+   "pageNumber": 8,
+   "pageCount": 12,
+   "title": "Ties and edge weights",
+   "image": "p08.jpg",
+   "thumb": "t08.jpg",
+   "alt": "Ties and edge weights: Tie rule: min (default) / max / keep; it must be deterministic; Set C–D to 10 and rerun from the initial labels; D pulls C over: AB | CDE, cut 5; When comparing settings, always restart from the same initial state",
+   "transcript": "Ties need a deterministic rule; this course implements three. Set the weight of C–D to 10 and rerun from the initial labels: D pulls C over, giving AB against CDE, cut 5. When you compare settings, always restart from the same initial state.",
+   "videoAnchor": "“The essentials” 02:03",
+   "sceneId": "k09-knobs",
+   "objectiveIds": [
+    "o5"
+   ]
+  },
+  {
+   "slideId": "m05-circuit",
+   "pageNumber": 9,
+   "pageCount": 12,
+   "title": "Back to the chip",
+   "image": "p09.jpg",
+   "thumb": "t09.jpg",
+   "alt": "Back to the chip: 24-cell circuit: label propagation stops after 5 rounds; It cuts only 2 (the ruler cuts 88); Colour spreads along the strongest wires; A fictional teaching graph: says nothing about optimality in general",
+   "transcript": "Back to the 24-cell circuit. Label propagation stops after five rounds and cuts only 2, while the ruler cuts 88. But this is a fictional teaching graph; it does not show optimality in general.",
+   "videoAnchor": "“Where Do Clusters Come From?” 05:09",
+   "sceneId": "payoff",
+   "objectiveIds": [
+    "o6"
+   ]
+  },
+  {
+   "slideId": "m05-pseudo",
+   "pageNumber": 10,
+   "pageCount": 12,
+   "title": "The pseudocode, line by line",
+   "image": "p10.jpg",
+   "thumb": "t10.jpg",
+   "alt": "The pseudocode, line by line: Line 4: add up edge weights per neighbour label (Python: count_votes); Line 5: the tie rule (choose); Lines 6–7: the only difference between async and sync; Line 8: no change → stable, repeat → cycle",
+   "transcript": "Line 4 of the pseudocode adds up edge weights per neighbour label, which is count_votes in Python; line 5 handles ties; lines 6 and 7 are the only difference between asynchronous and synchronous updates; line 8 decides stable or cycle.",
+   "videoAnchor": "“The essentials” 01:31",
+   "sceneId": "k07-stops",
+   "objectiveIds": [
+    "o6"
+   ]
+  },
+  {
+   "slideId": "m05-mistakes",
+   "pageNumber": 11,
+   "pageCount": 12,
+   "title": "Common mistakes",
+   "image": "p11.jpg",
+   "thumb": "t11.jpg",
+   "alt": "Common mistakes: Treating the label as the name: \"C became B\"; Counting heads: B with two votes need not beat D with weight 4; Calling it converged after one unchanged step: it takes a whole quiet round; Calling an oscillation \"not finished\" or \"converged\"; Comparing results by label names: B/B/B/E/E and A/A/A/D/D a",
+   "transcript": "Common mistakes: treating the label as the name; counting neighbours instead of weight; calling it converged when one node did not change; calling an oscillation unfinished or converged; and comparing two results by their label names.",
+   "videoAnchor": null,
+   "sceneId": null,
+   "objectiveIds": [
+    "o1",
+    "o2",
+    "o3",
+    "o4"
+   ]
+  },
+  {
+   "slideId": "m05-summary",
+   "pageNumber": 12,
+   "pageCount": 12,
+   "title": "Summary",
+   "image": "p12.jpg",
+   "thumb": "t12.jpg",
+   "alt": "Summary: ",
+   "transcript": "Summary: a name is identity and a label is membership; each node looks at its neighbours and follows the strongest. Only a whole round with no change is stable; synchronous updates can oscillate, and that must be reported as a cycle. The next module stops voting locally and instead orders the nodes by the spectrum of the whole graph before making one cut.",
+   "videoAnchor": null,
+   "sceneId": null,
+   "objectiveIds": []
+  }
+ ],
+ "pdf": "m05-label-propagation-en.pdf",
+ "pptx": "m05-label-propagation-en.pptx",
+ "contentVersion": "2026.10.23-1",
+ "lang": "en",
+ "aspectNote": "16:9 is this course's choice (it matches the films and suits projection), not a ratio the teacher set. PDF page numbers match the web p/total exactly; in the PPTX the text, shapes and tables are editable and the notes hold the script."
+}

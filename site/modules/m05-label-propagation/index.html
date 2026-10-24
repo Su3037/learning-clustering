@@ -5,139 +5,143 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Module 05 标签传播 · Learning Clustering</title>
 <meta name="description" content="节点不合并，只改标签：按邻居标签加权投票；异步与同步、访问顺序、平票、稳定确认与振荡。">
-<link rel="icon" href="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%2032%2032%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Ccircle%20cx%3D%229%22%20cy%3D%2211%22%20r%3D%225%22%20fill%3D%22%230f6b5c%22%2F%3E%3Ccircle%20cx%3D%2223%22%20cy%3D%229%22%20r%3D%224%22%20fill%3D%22%232f5e9e%22%2F%3E%3Ccircle%20cx%3D%2220%22%20cy%3D%2223%22%20r%3D%225%22%20fill%3D%22%238a6114%22%2F%3E%3Cpath%20d%3D%22M9%2011%2023%209M9%2011%2020%2023%22%20stroke%3D%22%2356625b%22%20stroke-width%3D%221.6%22%2F%3E%3Cpath%20d%3D%22M23%209%2020%2023%22%20stroke%3D%22%23a33b3b%22%20stroke-width%3D%221.6%22%20stroke-dasharray%3D%222.5%202%22%2F%3E%3C%2Fsvg%3E">
+<link rel="alternate" hreflang="zh-CN" href="../../modules/m05-label-propagation/index.html">
+<link rel="alternate" hreflang="en" href="../../en/modules/m05-label-propagation/index.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%2032%2032%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M9%2011%2023%209M9%2011%2020%2023%22%20stroke%3D%22%238b958e%22%20stroke-width%3D%221.3%22%2F%3E%3Cpath%20d%3D%22M23%209%2020%2023%22%20stroke%3D%22%23a33b3b%22%20stroke-width%3D%221.3%22%20stroke-dasharray%3D%222.2%202%22%2F%3E%3Ccircle%20cx%3D%229%22%20cy%3D%2211%22%20r%3D%224.6%22%20fill%3D%22%230f6b5c%22%2F%3E%3Ccircle%20cx%3D%2223%22%20cy%3D%229%22%20r%3D%223.6%22%20fill%3D%22%232f5e9e%22%2F%3E%3Ccircle%20cx%3D%2220%22%20cy%3D%2223%22%20r%3D%224.6%22%20fill%3D%22%23946a17%22%2F%3E%3C%2Fsvg%3E">
+<link rel="preload" href="../../assets/fonts/noto-serif-sc-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../../assets/course.css">
 </head>
 <body>
 <a class="skip" href="#main">跳到正文</a>
 <header class="topbar"><div class="wrap">
-<a class="brand" href="../../index.html"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="9" cy="11" r="5" fill="#0f6b5c"/><circle cx="23" cy="9" r="4" fill="#2f5e9e"/><circle cx="20" cy="23" r="5" fill="#8a6114"/><path d="M9 11 23 9M9 11 20 23" stroke="#56625b" stroke-width="1.6"/><path d="M23 9 20 23" stroke="#a33b3b" stroke-width="1.6" stroke-dasharray="2.5 2"/></svg><span>Learning Clustering<br><small>连接与分组 · Clustering for EDA</small></span></a>
+<a class="brand" href="../../index.html"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M9 11 23 9M9 11 20 23" stroke="#8b958e" stroke-width="1.3"/><path d="M23 9 20 23" stroke="#a33b3b" stroke-width="1.3" stroke-dasharray="2.2 2"/><circle cx="9" cy="11" r="4.6" fill="#0f6b5c"/><circle cx="23" cy="9" r="3.6" fill="#2f5e9e"/><circle cx="20" cy="23" r="4.6" fill="#946a17"/></svg><span class="brand-name">Learning Clustering</span><span class="brand-sub">连接与分组</span></a>
 <nav class="topnav" aria-label="课程"><a href="../../index.html">首页</a><a href="../../foundations/index.html">基础速查</a><a href="../../glossary/index.html">术语表</a><a href="../../guide/index.html">如何挑战</a><a href="../../credits/index.html">资源与贡献</a><a href="../../progress/index.html">学习记录</a></nav>
+<div class="lang-switch" role="group" aria-label="语言"><span aria-current="true">中文</span><a href="../../en/modules/m05-label-propagation/index.html" hreflang="en" lang="en" data-lang-link="en">EN</a></div>
 </div></header>
 
-<nav class="module-nav" aria-label="本模块"><div class="wrap"><a href="#goals">目标与问题</a><a href="#film">影片</a><a href="#lesson">讲解</a><a href="#slides">课件</a><a href="#lab">实验</a><a href="#challenges">挑战</a><a href="#python">Python</a><a href="#mistakes">易错与局限</a><a href="#sources">来源</a></div></nav>
+<nav class="module-nav" aria-label="本模块"><div class="wrap"><a href="#goals"><span>01</span>目标与问题</a><a href="#film"><span>02</span>影片</a><a href="#lesson"><span>03</span>讲解</a><a href="#slides"><span>04</span>课件</a><a href="#lab"><span>05</span>实验</a><a href="#challenges"><span>06</span>挑战</a><a href="#python"><span>07</span>Python</a><a href="#mistakes"><span>08</span>易错与局限</a><a href="#sources"><span>09</span>来源</a></div></nav>
 <main id="main">
+
 <section class="mod-hero"><div class="wrap">
-<div>
-<p class="eyebrow">Module 05 · Label propagation clustering</p>
+<div class="mod-hero-text">
+<p class="eyebrow">Module 05 / Label propagation clustering</p>
 <h1>标签传播</h1>
 <p class="sub">没有人画圈，圈子从哪里来？</p>
-<div class="btn-row"><span class="tag">原作者 Su3037</span><span class="tag">来源 Issue #4</span><span class="tag ok">来源映射已核对</span></div>
+<p class="byline">原作者 Su3037 · 来源 Issue #4 · 来源映射已核对</p>
 
 <nav class="pager" aria-label="上一模块与下一模块"><a href="../m04-size-constrained-agglomerative/index.html">← Module 04 容量约束凝聚聚类</a><a href="../m06-spectral-bisection/index.html">Module 06 谱二分 →</a></nav>
 </div>
 <aside class="factbox" aria-label="本模块概况"><dl>
 <dt>前置</dt><dd><a href="../../foundations/index.html">基础速查</a>：图、边权、cut。Module 04 的“合并”机制在这里换成了“改标签”。</dd>
 <dt>接下来</dt><dd>Module 06 从局部投票转向全图的谱信息。</dd>
-<dt>影片</dt><dd>2:57 + 1:28</dd>
+<dt>影片</dt><dd>6:20 + 2:34 + 4:54 + 2:19</dd>
 <dt>课件</dt><dd>12 页，16:9，含页码</dd>
-<dt>挑战</dt><dd>6 题（[概念][推演][探索][实现]）</dd>
-<dt>Python</dt><dd>下载练习包，本地运行（网页不运行 Python）</dd>
+<dt>挑战</dt><dd>6 题 · [概念] [推演] [探索] [实现]</dd>
+<dt>Python</dt><dd>在浏览器里直接写、直接运行</dd>
 </dl></aside>
 </div></section>
 
 <section class="section" id="goals"><div class="wrap">
-<div class="section-head"><div><p class="eyebrow">目标与问题</p><h2>这一模块要解决什么</h2></div><p>先看问题和成功标准，再看算法。每个目标后面的链接指向讲它的地方。</p></div>
-<p class="review"><b>复习卡</b> · 前三章的合并会把成员集合真正放在一起；本章<strong>不合并任何节点</strong>，每个节点只更新自己携带的标签。分组是“标签相同的节点”。</p>
-<div class="grid-2"><div><h3 style="margin-top:0">学习目标</h3><ol class="objectives"><li id="obj-o1">区分节点名字（身份，不变）与标签（归属，可变），并说明本算法不需要指定 K。<span class="links"><a href="#m05-why">为什么连接会形成群体</a> · <a href="#m05-label">名字、标签与归属</a> · <a href="#challenge-c1">[概念] 名字与标签</a></span></li><li id="obj-o2">按标签加权计票：C 的票是 B = 1 + 4 = 5、D = 2、E = 1——比的是权重，不是人数。<span class="links"><a href="#m05-vote">一次更新：按标签加权投票</a> · <a href="#challenge-c2">[推演] C 的票数</a></span></li><li id="obj-o3">手算一整轮异步更新，并解释为什么需要一轮“零变化确认”才算 stable（G01：2 轮）。<span class="links"><a href="#m05-round">一整轮、访问顺序与何时停止</a> · <a href="#challenge-c3">[推演] 几轮才算停下</a></span></li><li id="obj-o4">区分 stable、cycle、limit 三种停止状态；在同步更新下找到振荡。<span class="links"><a href="#m05-sync">同步、振荡、平票与边权</a> · <a href="#challenge-c4">[探索] 找到振荡</a></span></li><li id="obj-o5">说明访问顺序、平票规则和边权如何改变结果与轮数（反向顺序 3 轮；C–D = 10 时 cut 5）。<span class="links"><a href="#m05-sync">同步、振荡、平票与边权</a> · <a href="#challenge-c5">[探索] 加粗一条桥</a></span></li><li id="obj-o6">用 cut 评价结果并说出局限（无 K、无均衡保证、依赖规则）；在 Python 中实现计票与停止判定。<span class="links"><a href="#m05-cut">分得好不好：cut 与局限</a> · <a href="#m05-pseudocode">逐行读懂伪代码</a> · <a href="#challenge-c6">[实现] 换个顺序再跑</a> · <a href="#python">Python</a></span></li></ol></div>
-<div><h3 style="margin-top:0">问题定义</h3><div class="problem" style="grid-template-columns:1fr 1fr"><div><b>输入</b><p>带权无向图、访问顺序、更新方式（async / sync）、平票规则（min / max / keep）、最大轮数。</p></div><div><b>输出</b><p>每个节点的最终标签、按标签得到的分组、逐节点票数、cut、轮数和停止状态。</p></div><div><b>目标</b><p>让连接紧密的节点“自己”汇聚到同一个标签，不预先指定簇数。</p></div><div><b>约束</b><p>每次只读这个节点的邻居；节点名字永不改变；平票规则必须确定。</p></div><div><b>假设</b><p>边权为正，表示连接强度；初始每个节点的标签就是它自己的名字；孤立点保留自己的标签。</p></div><div><b>停止 / 完成</b><p>stable：完整一轮零变化；cycle：标签状态重复出现；limit：达到最大轮数。只有 stable 才能叫“收敛”。</p></div></div></div></div>
+<div class="section-head"><div><p class="eyebrow"><span class="eyebrow-no">01</span> / 目标与问题</p><h2>这一模块要解决什么</h2></div><p>先看问题和成功标准，再看算法。每个目标后面的链接指向讲它的地方。</p></div>
+<p class="review"><b>复习</b>前三章的合并会把成员集合真正放在一起；本章<strong>不合并任何节点</strong>，每个节点只更新自己携带的标签。分组是“标签相同的节点”。</p>
+<div class="grid-2 goals"><div><h3>学习目标</h3><ol class="objectives"><li id="obj-o1">区分节点名字（身份，不变）与标签（归属，可变），并说明本算法不需要指定 K。<span class="links"><a href="#m05-why">为什么连接会形成群体</a> · <a href="#m05-label">名字、标签与归属</a> · <a href="#challenge-c1">[概念] 名字与标签</a></span></li><li id="obj-o2">按标签加权计票：C 的票是 B = 1 + 4 = 5、D = 2、E = 1——比的是权重，不是人数。<span class="links"><a href="#m05-vote">一次更新：按标签加权投票</a> · <a href="#challenge-c2">[推演] C 的票数</a></span></li><li id="obj-o3">手算一整轮异步更新，并解释为什么需要一轮“零变化确认”才算 stable（G01：2 轮）。<span class="links"><a href="#m05-round">一整轮、访问顺序与何时停止</a> · <a href="#challenge-c3">[推演] 几轮才算停下</a></span></li><li id="obj-o4">区分 stable、cycle、limit 三种停止状态；在同步更新下找到振荡。<span class="links"><a href="#m05-sync">同步、振荡、平票与边权</a> · <a href="#challenge-c4">[探索] 找到振荡</a></span></li><li id="obj-o5">说明访问顺序、平票规则和边权如何改变结果与轮数（反向顺序 3 轮；C–D = 10 时 cut 5）。<span class="links"><a href="#m05-sync">同步、振荡、平票与边权</a> · <a href="#challenge-c5">[探索] 加粗一条桥</a></span></li><li id="obj-o6">用 cut 评价结果并说出局限（无 K、无均衡保证、依赖规则）；在 Python 中实现计票与停止判定。<span class="links"><a href="#m05-cut">分得好不好：cut 与局限</a> · <a href="#m05-pseudocode">逐行读懂伪代码</a> · <a href="#challenge-c6">[实现] 换个顺序再跑</a> · <a href="#python">Python</a></span></li></ol></div>
+<div><h3>问题定义</h3><div class="problem"><div><b>输入</b><p>带权无向图、访问顺序、更新方式（async / sync）、平票规则（min / max / keep）、最大轮数。</p></div><div><b>输出</b><p>每个节点的最终标签、按标签得到的分组、逐节点票数、cut、轮数和停止状态。</p></div><div><b>目标</b><p>让连接紧密的节点“自己”汇聚到同一个标签，不预先指定簇数。</p></div><div><b>约束</b><p>每次只读这个节点的邻居；节点名字永不改变；平票规则必须确定。</p></div><div><b>假设</b><p>边权为正，表示连接强度；初始每个节点的标签就是它自己的名字；孤立点保留自己的标签。</p></div><div><b>停止 / 完成</b><p>stable：完整一轮零变化；cycle：标签状态重复出现；limit：达到最大轮数。只有 stable 才能叫“收敛”。</p></div></div></div></div>
 </div></section>
 
 <section class="section dark" id="film"><div class="wrap">
-<div class="section-head"><div><p class="eyebrow">影片 · 二维科普短片</p><h2>圈子从哪里来</h2></div><p>延续原作（作者的 Lab05 仓库）影片的叙事：从通讯录到芯片，再逐层拆开规则。另附一段慢速推演，一票一票走完 G01 的两轮。</p></div>
+<div class="section-head"><div><p class="eyebrow"><span class="eyebrow-no">02</span> / 影片</p><h2>四部影片</h2></div><p>科普片是作者原作《圈子从哪里来》，原样收录；精讲片用两分半讲清必须掌握的内容；进阶片讲为什么会停、为什么会振荡、代价与变体；实验演示从真实页面录下，带你做一遍实验和在线编程。</p></div>
 <div id="film-root"><p class="muted">正在载入影片…</p></div>
 </div></section>
 
 <section class="section" id="lesson"><div class="wrap">
-<div class="section-head"><div><p class="eyebrow">讲解 · 由浅入深</p><h2>从例子到伪代码</h2></div><p>章节编号与影片章节、课件页对应；完整对应表见本页末尾的 crosswalk。</p></div>
-<nav class="btn-row" aria-label="讲解小节" style="margin-bottom:24px"><a class="btn small" href="#m05-why">1. 为什么连接会形成群体</a> <a class="btn small" href="#m05-label">2. 名字、标签与归属</a> <a class="btn small" href="#m05-vote">3. 一次更新：按标签加权投票</a> <a class="btn small" href="#m05-round">4. 一整轮、访问顺序与何时停止</a> <a class="btn small" href="#m05-sync">5. 同步、振荡、平票与边权</a> <a class="btn small" href="#m05-pseudocode">6. 逐行读懂伪代码</a> <a class="btn small" href="#m05-cut">7. 分得好不好：cut 与局限</a></nav>
-<div class="prose"><section class="lesson-part" aria-labelledby="m05-why"><h3 id="m05-why"><span class="eyebrow" style="display:block;margin:0">第 1 节</span>为什么连接会形成群体</h3><p>想象一本通讯录：几百个名字，要分成几个圈子。你不必知道每个人是谁，只要看谁和谁常联系——圈内联系紧，圈与圈之间联系少。网络科学把这件事叫<strong>社群发现（community detection）</strong>。</p>
+<div class="section-head"><div><p class="eyebrow"><span class="eyebrow-no">03</span> / 讲解 · 由浅入深</p><h2>从例子到伪代码</h2></div><p>章节编号与影片章节、课件页对应；完整对应表见本页末尾的 crosswalk。</p></div>
+<div class="lesson-layout"><nav class="lesson-toc" aria-label="讲解小节"><a href="#m05-why"><span>01</span>为什么连接会形成群体</a><a href="#m05-label"><span>02</span>名字、标签与归属</a><a href="#m05-vote"><span>03</span>一次更新：按标签加权投票</a><a href="#m05-round"><span>04</span>一整轮、访问顺序与何时停止</a><a href="#m05-sync"><span>05</span>同步、振荡、平票与边权</a><a href="#m05-pseudocode"><span>06</span>逐行读懂伪代码</a><a href="#m05-cut"><span>07</span>分得好不好：cut 与局限</a></nav>
+<div class="prose"><section class="lesson-part" aria-labelledby="m05-why"><h3 id="m05-why"><span class="part-no">§ 1</span>为什么连接会形成群体</h3><p>想象一本通讯录：几百个名字，要分成几个圈子。你不必知道每个人是谁，只要看谁和谁常联系——圈内联系紧，圈与圈之间联系少。网络科学把这件事叫<strong>社群发现（community detection）</strong>。</p>
 <p>2007 年，Raghavan、Albert 和 Kumara 提出了一个极简的办法：<strong>每个人看看朋友们现在属于哪个圈子，然后加入联系最多的那一个；一遍遍重复，圈子自己浮现。</strong> 在作者 Su3037 原片的虚构通讯录（28 人、61 条联系）上，它 3 轮停下，分成 8 + 10 + 10 三个圈子，只切开权重 4。</p>
 <p>芯片里是同一个问题：同一块里用短导线，跨块只能靠长导线。把这条“看邻居、跟最强”的局部规则搬过来，就是<strong>标签传播（label propagation）</strong>。</p>
 <div class="callout analogy"><strong>类比只说明结构</strong><p>通讯录只是帮助建立直觉：节点、边和权重的结构相同。它不说明现实中的人“应该”属于哪个圈子，也不推断任何因果。芯片单元之间的边权在本课程中都是虚构的教学数值。</p></div></section>
-<section class="lesson-part" aria-labelledby="m05-label"><h3 id="m05-label"><span class="eyebrow" style="display:block;margin:0">第 2 节</span>名字、标签与归属</h3><div class="terms"><div class="term" id="term-node-name"><h4>节点名</h4><span class="en">node name</span><p>节点的身份，永远不变。G01 的节点始终是 A、B、C、D、E。</p></div><div class="term" id="term-label"><h4>标签</h4><span class="en">label</span><p>节点当前携带的群体记号，会被更新。开始时每个节点的标签就是自己的名字。</p></div><div class="term" id="term-grouping"><h4>分组</h4><span class="en">grouping</span><p>标签相同的节点构成一组。比较两个结果时看分组，不看标签叫什么。</p></div></div>
+<section class="lesson-part" aria-labelledby="m05-label"><h3 id="m05-label"><span class="part-no">§ 2</span>名字、标签与归属</h3><div class="terms"><div class="term" id="term-node-name"><h4>节点名</h4><span class="en" lang="en">node name</span><p>节点的身份，永远不变。G01 的节点始终是 A、B、C、D、E。</p></div><div class="term" id="term-label"><h4>标签</h4><span class="en" lang="en">label</span><p>节点当前携带的群体记号，会被更新。开始时每个节点的标签就是自己的名字。</p></div><div class="term" id="term-grouping"><h4>分组</h4><span class="en" lang="en">grouping</span><p>标签相同的节点构成一组。比较两个结果时看分组，不看标签叫什么。</p></div></div>
 <blockquote class="callout"><p>名字是身份，标签是归属。“C 的标签变为 B”不等于“C 改名为 B”。</p></blockquote>
 <p>和前三个模块不同，这里<strong>没有任何合并</strong>，也<strong>不指定 K</strong>：最后有几组，由标签自己决定。</p></section>
-<section class="lesson-part" aria-labelledby="m05-vote"><h3 id="m05-vote"><span class="eyebrow" style="display:block;margin:0">第 3 节</span>一次更新：按标签加权投票</h3><p>轮到节点 v 时，把它的邻居按<strong>当前标签</strong>分组，同一标签的边权加起来，取总和最大的标签：</p>
+<section class="lesson-part" aria-labelledby="m05-vote"><h3 id="m05-vote"><span class="part-no">§ 3</span>一次更新：按标签加权投票</h3><p>轮到节点 v 时，把它的邻居按<strong>当前标签</strong>分组，同一标签的边权加起来，取总和最大的标签：</p>
 <blockquote class="callout"><p><strong>新标签(v) = argmax_L Σ w(u, v)</strong>，求和对象是 v 的邻居中标签为 L 的那些 u。</p></blockquote>
 <p><strong>手算 C（第 1 轮）</strong>：按 A→E 的顺序异步更新，轮到 C 时 A 已经改为标签 B，B 仍是 B。C 的邻居与票数：</p>
 <table><thead><tr><th>标签</th><th>来自</th><th>票数</th></tr></thead><tbody><tr><td>B</td><td>A（1）+ B（4）</td><td><strong>5</strong></td></tr><tr><td>D</td><td>D（2）</td><td>2</td></tr><tr><td>E</td><td>E（1）</td><td>1</td></tr></tbody></table>
 <p>C 的新标签是 B——名字仍是 C。注意比的是<strong>权重</strong>：如果 B、C 两个邻居带标签 B、边权各 1，而一个邻居 D 带标签 D、边权 4，那么 B = 2、D = 4，D 赢。人多不一定赢。</p>
 <p>平票时必须有确定的规则。本课程实现三种：<code>min</code> 取字典序最小的候选（默认），<code>max</code> 取最大，<code>keep</code> 如果当前标签在并列者中就保留。没有邻居的孤立点保留自己的标签。</p></section>
-<section class="lesson-part" aria-labelledby="m05-round"><h3 id="m05-round"><span class="eyebrow" style="display:block;margin:0">第 4 节</span>一整轮、访问顺序与何时停止</h3><p><strong>第 1 轮</strong>（异步：每次更新立刻写回，后面的节点马上看到）：</p>
+<section class="lesson-part" aria-labelledby="m05-round"><h3 id="m05-round"><span class="part-no">§ 4</span>一整轮、访问顺序与何时停止</h3><p><strong>第 1 轮</strong>（异步：每次更新立刻写回，后面的节点马上看到）：</p>
 <table><thead><tr><th>访问</th><th>看到的票数</th><th>新标签</th><th>改变</th></tr></thead><tbody><tr><td>A</td><td>B 5，C 1</td><td>B</td><td>是</td></tr><tr><td>B</td><td>B 5，C 4</td><td>B</td><td>否</td></tr><tr><td>C</td><td>B 1+4=5，D 2，E 1</td><td>B</td><td>是</td></tr><tr><td>D</td><td>B 2，E 5</td><td>E</td><td>是</td></tr><tr><td>E</td><td>B 1，E 5</td><td>E</td><td>否</td></tr></tbody></table>
 <p>第 1 轮结束：B B B E E，3 个节点改变。</p>
 <p><strong>第 2 轮</strong>：重新检查 5 个节点，全部不变——这时才确认稳定。所以轮数是 <strong>2</strong>，cut 是 C–D 2 + C–E 1 = <strong>3</strong>。</p>
 <div class="callout warn"><strong>为什么要多走一轮</strong><p>第 1 轮中 B、E 没有改变，但那时后面还有节点在改；只要有节点改变，前面的节点下一次看到的邻居就可能不同。只有一整轮<strong>零变化</strong>，才能确认没有节点还想改。轮数包含这一确认轮。</p></div>
 <p><strong>换一个访问顺序</strong>：按 E→A 更新，最后得到 A/A/A/D/D——标签名不同，分组仍是 ABC | DE，但需要 <strong>3 轮</strong>。访问顺序会影响轮数，在别的图上也可能影响分组。</p></section>
-<section class="lesson-part" aria-labelledby="m05-sync"><h3 id="m05-sync"><span class="eyebrow" style="display:block;margin:0">第 5 节</span>同步、振荡、平票与边权</h3><div class="terms"><div class="term" id="term-asynchronous"><h4>异步更新</h4><span class="en">asynchronous</span><p>每算完一个节点就立刻写回；本课程默认。</p></div><div class="term" id="term-synchronous"><h4>同步更新</h4><span class="en">synchronous</span><p>整轮所有节点都读同一张“旧快照”，轮末一起提交。</p></div><div class="term" id="term-cycle"><h4>振荡</h4><span class="en">cycle</span><p>标签状态回到以前出现过的样子，从此周而复始。</p></div></div>
+<section class="lesson-part" aria-labelledby="m05-sync"><h3 id="m05-sync"><span class="part-no">§ 5</span>同步、振荡、平票与边权</h3><div class="terms"><div class="term" id="term-asynchronous"><h4>异步更新</h4><span class="en" lang="en">asynchronous</span><p>每算完一个节点就立刻写回；本课程默认。</p></div><div class="term" id="term-synchronous"><h4>同步更新</h4><span class="en" lang="en">synchronous</span><p>整轮所有节点都读同一张“旧快照”，轮末一起提交。</p></div><div class="term" id="term-cycle"><h4>振荡</h4><span class="en" lang="en">cycle</span><p>标签状态回到以前出现过的样子，从此周而复始。</p></div></div>
 <p><strong>两节点同步</strong>：A、B 之间一条边。同步时 A 读到 B 的旧标签 B，B 读到 A 的旧标签 A，轮末一起提交——两者交换；下一轮又换回来。状态重复，报告 <strong>cycle</strong>。同一张图异步更新：A 先改为 B，B 读到的已经是 B，一轮就统一。</p>
 <p>G01 也会这样：同步更新时，第 1 轮后是 B/A/B/E/D，第 2 轮回到 A/B/A/D/E……第 3 轮再次出现第 1 轮的状态，周期为 2，cut 停在 17。</p>
 <p>三种停止状态必须分开：</p>
 <table><thead><tr><th>状态</th><th>判据</th><th>能叫“收敛”吗</th></tr></thead><tbody><tr><td>stable</td><td>完整一轮零变化</td><td>能</td></tr><tr><td>cycle</td><td>标签状态重复</td><td>不能</td></tr><tr><td>limit</td><td>达到最大轮数</td><td>不能</td></tr></tbody></table>
 <p><strong>边权的影响</strong>：把 C–D 的权重从 2 改为 10 后重新运行（必须从初始标签重新开始），D 会把 C 拉过去，结果变成 AB | CDE，cut 变为 A–C 1 + B–C 4 = <strong>5</strong>。</p></section>
-<section class="lesson-part" aria-labelledby="m05-pseudocode"><h3 id="m05-pseudocode"><span class="eyebrow" style="display:block;margin:0">第 6 节</span>逐行读懂伪代码</h3><div class="pseudo" data-pseudo="lp"><ol aria-label="伪代码"><li data-line="1" data-note="初始：每个节点的标签就是自己的名字。">labels[v] ← v  对每个节点</li><li data-line="2" data-note="外层：一轮接一轮；上限保证程序一定结束（limit）。">repeat for round = 1, 2, …, maxRounds:</li><li data-line="3" data-note="同步模式整轮读这张旧快照；异步模式直接读最新的 labels。">    snapshot ← labels（仅同步模式使用）</li><li data-line="4" data-note="访问顺序是输入的一部分，会影响结果与轮数。">    for v in order:</li><li data-line="5" data-note="比的是权重之和，不是邻居个数。孤立点没有票，保留原标签。">        votes ← 按邻居标签累加边权</li><li data-line="6" data-note="平票规则必须确定，否则结果不可复现。">        new ← 票数最大的标签（平票按 min/max/keep）</li><li data-line="7" data-note="这一行决定了“后面的节点看到什么”。">        异步：立即写回；同步：先记下</li><li data-line="8" data-note="两节点同步振荡就发生在这里。">    同步：轮末一起提交</li><li data-line="9" data-note="包含这一确认轮。">    if 本轮零变化: stable，停止</li><li data-line="10" data-note="用完整标签状态的“签名”检测重复。">    if 状态出现过: cycle，停止</li></ol><div class="explain"><p class="muted">点击任一行看解释；在实验中单步时，当前执行的行会自动高亮。</p></div></div>
+<section class="lesson-part" aria-labelledby="m05-pseudocode"><h3 id="m05-pseudocode"><span class="part-no">§ 6</span>逐行读懂伪代码</h3><div class="pseudo" data-pseudo="lp"><ol aria-label="伪代码"><li data-line="1" data-note="初始：每个节点的标签就是自己的名字。">labels[v] ← v  对每个节点</li><li data-line="2" data-note="外层：一轮接一轮；上限保证程序一定结束（limit）。">repeat for round = 1, 2, …, maxRounds:</li><li data-line="3" data-note="同步模式整轮读这张旧快照；异步模式直接读最新的 labels。">    snapshot ← labels（仅同步模式使用）</li><li data-line="4" data-note="访问顺序是输入的一部分，会影响结果与轮数。">    for v in order:</li><li data-line="5" data-note="比的是权重之和，不是邻居个数。孤立点没有票，保留原标签。">        votes ← 按邻居标签累加边权</li><li data-line="6" data-note="平票规则必须确定，否则结果不可复现。">        new ← 票数最大的标签（平票按 min/max/keep）</li><li data-line="7" data-note="这一行决定了“后面的节点看到什么”。">        异步：立即写回；同步：先记下</li><li data-line="8" data-note="两节点同步振荡就发生在这里。">    同步：轮末一起提交</li><li data-line="9" data-note="包含这一确认轮。">    if 本轮零变化: stable，停止</li><li data-line="10" data-note="用完整标签状态的“签名”检测重复。">    if 状态出现过: cycle，停止</li></ol><div class="explain"><p class="muted">点击任一行看解释；在实验中单步时，当前执行的行会自动高亮。</p></div></div>
 <p><strong>和 Python 的对应</strong>：第 5 行 → <code>count_votes()</code>；第 6 行 → <code>choose()</code>；第 9–10 行 → 练习中的停止判定。</p></section>
-<section class="lesson-part" aria-labelledby="m05-cut"><h3 id="m05-cut"><span class="eyebrow" style="display:block;margin:0">第 7 节</span>分得好不好：cut 与局限</h3><p>标签传播停下以后，用 cut 评价：G01 的 ABC | DE 只切断 C–D 与 C–E，cut 3。</p>
+<section class="lesson-part" aria-labelledby="m05-cut"><h3 id="m05-cut"><span class="part-no">§ 7</span>分得好不好：cut 与局限</h3><p>标签传播停下以后，用 cut 评价：G01 的 ABC | DE 只切断 C–D 与 C–E，cut 3。</p>
 <p>作者原片的 24 单元虚构电路更直观：总边权 202；按位置用“尺子”切成三列，会切断 <strong>88</strong>；标签传播 5 轮后只切断 <strong>2</strong>。在 24 个单元上试遍所有分法也不现实：平分三组就有 1,577,585,295 种。</p>
 <p>局限也要说清：</p>
-<ul><li>不指定 K，也不保证均衡——它可能把几乎所有节点合成一组。</li><li>结果依赖访问顺序、更新方式和平票规则。</li><li>同步可能振荡；本课程不声称异步在任意图上必然停止。</li><li>在 EDA 中，它适合作为快速的初始分组，交给后续带约束的划分或改进方法（Module 06–08）。</li></ul></section></div>
+<ul><li>不指定 K，也不保证均衡——它可能把几乎所有节点合成一组。</li><li>结果依赖访问顺序、更新方式和平票规则。</li><li>同步可能振荡；本课程不声称异步在任意图上必然停止。</li><li>在 EDA 中，它适合作为快速的初始分组，交给后续带约束的划分或改进方法（Module 06–08）。</li></ul></section></div></div>
 </div></section>
 
 <section class="section" id="slides"><div class="wrap">
-<div class="section-head"><div><p class="eyebrow">课件 · 带页码与讲稿</p><h2>课堂课件</h2></div><p>页码与 PDF 完全一致；当前页的讲稿在幻灯片下方，不遮挡图。</p></div>
+<div class="section-head"><div><p class="eyebrow"><span class="eyebrow-no">04</span> / 课件 · 带页码与讲稿</p><h2>课堂课件</h2></div><p>页码与 PDF 完全一致；当前页的讲稿在幻灯片下方，不遮挡图。</p></div>
 <div id="slides-root"><p class="muted">正在载入课件…</p></div>
 </div></section>
 
 <section class="section dark" id="lab"><div class="wrap">
-<div class="section-head"><div><p class="eyebrow">实验 · 浏览器内实时计算</p><h2>标签接力实验室</h2></div><p>逐个节点更新、整轮播放；切换异步/同步、平票规则、访问顺序，改 C–D 的权重。右侧是这一票的明细，下面是逐节点记录。</p></div>
+<div class="section-head"><div><p class="eyebrow"><span class="eyebrow-no">05</span> / 实验 · 浏览器内实时计算</p><h2>标签接力实验室</h2></div><p>逐个节点更新、整轮播放；切换异步/同步、平票规则、访问顺序，改 C–D 的权重。右侧是这一票的明细，下面是逐节点记录。</p></div>
 <div id="lab-root" tabindex="-1"><p class="muted">正在载入实验…（需要通过 HTTP 打开页面；直接双击 HTML 时浏览器会阻止模块脚本。）</p></div>
 </div></section>
 
 <section class="section" id="challenges"><div class="wrap">
-<div class="section-head"><div><p class="eyebrow">挑战 · 由易到难</p><h2>分组挑战</h2></div><p>类别写在方括号里，难度单独标注。答案由引擎或明确规则判定；看答案不扣分，记录会如实区分。</p></div>
-<p class="ch-guide">第一次用？先读<a href="../../guide/index.html">如何挑战</a>：读任务 → 预测 → 操作 → 提交 → 看解释 → 再试。第 4 题要你自己找出一个会振荡的设置：可以先在实验里试。</p>
+<div class="section-head"><div><p class="eyebrow"><span class="eyebrow-no">06</span> / 挑战 · 由易到难</p><h2>分组挑战</h2></div><p>类别写在方括号里，难度单独标注。答案由引擎或明确规则判定；看答案不扣分，记录会如实区分。</p></div>
+<p class="ch-guide">第一次用？先读<a href="../../guide/index.html">如何挑战</a>：读任务 → 预测 → 操作 → 提交 → 看解释 → 再试。 第 4 题要你自己找出一个会振荡的设置：可以先在实验里试。</p>
 <div class="ch-list" id="challenge-root"><p class="muted">正在载入挑战…</p></div>
 </div></section>
 
 <section class="section" id="python"><div class="wrap">
-<div class="section-head"><div><p class="eyebrow">Python 实现轨道 · 可选</p><h2>实现计票与停止判定</h2></div><p>网页基础轨道不需要 Python。下载后在任意空目录运行；只用标准库。</p></div>
-<div class="grid-2"><div class="prose"><p><strong>任务</strong>（<code>starter.py</code>）：</p>
+<div class="section-head"><div><p class="eyebrow"><span class="eyebrow-no">07</span> / 在线编程 · 在浏览器里运行 Python</p><h2>实现计票与停止判定</h2></div><p>不用安装任何东西：Python 在你的浏览器里运行（Pyodide），代码只保存在本机。检查器与下载包里的 check.py 完全相同。</p></div>
+<div class="grid-2 cl-intro"><div class="prose"><p><strong>任务</strong>（<code>starter.py</code>）：</p>
 <ol><li><code>count_votes(adj, labels, vertex)</code>：按标签累加邻居边权。</li><li>主循环中的停止判定：stable / cycle（limit 由循环上限负责）。</li></ol>
 <p><strong>提示一</strong>：同一标签的邻居，把它们的边权加起来；C 的票应为 B = 5、D = 2、E = 1。</p>
 <p><strong>提示二</strong>：一整轮零变化 → stable；这一轮结束后的完整标签状态以前出现过 → cycle。检查器还会跑作者原作的 24 单元电路图与 28 人联系人图。</p></div>
-<div><div class="py-files"><div><code>starter.py</code><br>起始代码：留有 TODO</div><div><code>check.py</code><br>检查器：未完成报 INCOMPLETE，不算 PASS</div><div><code>reference.py</code><br>参考实现：卡住时再看</div><div><code>fixtures/</code><br>本章例子的 JSON</div><div><code>README.md</code><br>任务、两级提示与样例</div></div>
-<p><a class="btn primary" href="../../downloads/m05-label-propagation-python.zip" download>下载练习包（.zip）</a></p>
-<pre><code>python3 check.py              # 检查你的 starter.py
-python3 check.py reference.py # 看参考实现全部通过</code></pre></div></div>
+<div class="cl-howto"><h3>怎么用</h3><ol><li>在编辑器里补全标着 TODO 的函数。</li><li>按 <b>运行检查</b>（Ctrl/⌘ + Enter）：每一项给出 PASS、FAIL 或 INCOMPLETE。</li><li>全部通过后，在下方用<b>你自己的</b>函数跑一遍例子，逐步对照课程引擎。</li></ol>
+<p class="small muted">第一次运行会下载约 12 MB 的 Python 运行环境，之后由浏览器缓存。想离线做？ <a href="../../downloads/m05-label-propagation-python.zip" download>下载练习包（.zip）</a></p></div></div>
+<div id="codelab-root" class="cl-root"><p class="muted">正在载入在线编程…</p></div>
 </div></section>
 
 <section class="section" id="mistakes"><div class="wrap">
-<div class="section-head"><div><p class="eyebrow">常见错误与局限</p><h2>容易错在哪里</h2></div><p>每条都给错误结果、错因、反例和修正；反例的数值都由测试复算。</p></div>
+<div class="section-head"><div><p class="eyebrow"><span class="eyebrow-no">08</span> / 常见错误与局限</p><h2>容易错在哪里</h2></div><p>每条都给错误结果、错因、反例和修正；反例的数值都由测试复算。</p></div>
 <div class="mistakes"><article class="mistake"><h4>把标签当成名字</h4><dl><dt>错误结果</dt><dd>说“C 变成了 B”。</dd><dt>错因</dt><dd>节点名字是身份，永远不变；变的是 C 携带的标签。</dd><dt>反例 / 证据</dt><dd>第一轮后 C 携带标签 B，但它仍是节点 C，它的边和权重都没有变。</dd><dt>修正</dt><dd>说“C 的标签变为 B”，分组看“标签相同的节点”。</dd></dl></article><article class="mistake"><h4>按人数而不是权重计票</h4><dl><dt>错误结果</dt><dd>A 有两个邻居带 B、一个邻居带 D，就判 B 赢。</dd><dt>错因</dt><dd>票数是同标签邻居的边权之和，不是邻居个数。</dd><dt>反例 / 证据</dt><dd>原作（Lab05 仓库）的 tie 图：B、C 带 B（各 1）、D 带 D（4）——加权后 B = 2、D = 4，A 选 D。</dd><dt>修正</dt><dd>按标签累加边权。</dd></dl></article><article class="mistake"><h4>一轮里有节点没变就说收敛</h4><dl><dt>错误结果</dt><dd>第 1 轮 B、E 没变，就认为它们稳定了。</dd><dt>错因</dt><dd>后面的节点一改，前面的节点下一次看到的邻居标签就不同了。</dd><dt>反例 / 证据</dt><dd>G01 第 1 轮有 3 个节点改变；必须到第 2 轮完整零变化，才确认 stable——共 2 轮。</dd><dt>修正</dt><dd>以“完整一轮零变化”作为 stable 的判据，轮数包含这一确认轮。</dd></dl></article><article class="mistake"><h4>把振荡说成“没算完”或“收敛了”</h4><dl><dt>错误结果</dt><dd>同步更新跑到上限仍在变，报告为 stable 或继续加大轮数上限。</dd><dt>错因</dt><dd>同步读同一张旧快照，两个互相支持的节点会同时交换标签，永远回到同一状态。</dd><dt>反例 / 证据</dt><dd>两节点同步：A↔B 来回交换；G01 同步也在第 3 轮回到第 1 轮的状态（周期 2）。</dd><dt>修正</dt><dd>检测重复状态，报告 cycle；改用异步或改变平票规则再比较。</dd></dl></article><article class="mistake"><h4>按标签名字判断两个结果是否相同</h4><dl><dt>错误结果</dt><dd>正序得到 B/B/B/E/E、反序得到 A/A/A/D/D，就说结果不同。</dd><dt>错因</dt><dd>标签名只是记号；分组看谁和谁在一起。</dd><dt>反例 / 证据</dt><dd>两者都是 ABC | DE。</dd><dt>修正</dt><dd>比较规范化后的分组，不比较标签字符串。</dd></dl></article></div>
-<div class="prose" style="margin-top:26px"><h3>适用范围与局限</h3><ul><li>不指定 K，也不保证各组大小均衡：可能一个大组吞掉几乎所有节点。</li><li>结果依赖访问顺序、更新方式和平票规则；在同一张图上换规则，轮数甚至是否停止都会变。</li><li>同步更新可能振荡；异步在这些例子里停下，但本课程不声称它在任何图上都必然停止。</li><li>原论文（Raghavan、Albert、Kumara，2007）强调近线性时间：每轮每条边只读常数次。本课程的实现按这个思路逐节点扫描邻居。</li><li>24 单元电路与联系人图都是虚构教学图，数字只说明这张图上的结果。</li></ul></div>
+<div class="prose limits"><h3>适用范围与局限</h3><ul><li>不指定 K，也不保证各组大小均衡：可能一个大组吞掉几乎所有节点。</li><li>结果依赖访问顺序、更新方式和平票规则；在同一张图上换规则，轮数甚至是否停止都会变。</li><li>同步更新可能振荡；异步在这些例子里停下，但本课程不声称它在任何图上都必然停止。</li><li>原论文（Raghavan、Albert、Kumara，2007）强调近线性时间：每轮每条边只读常数次。本课程的实现按这个思路逐节点扫描邻居。</li><li>24 单元电路与联系人图都是虚构教学图，数字只说明这张图上的结果。</li></ul></div>
 </div></section>
 
 <section class="section" id="sources"><div class="wrap">
-<div class="section-head"><div><p class="eyebrow">资料与原作者</p><h2>来源</h2></div><p>本模块在统一课程中重写了讲解、引擎与媒体；原作的贡献在此署名，未复制无许可的源代码或音轨。</p></div>
+<div class="section-head"><div><p class="eyebrow"><span class="eyebrow-no">09</span> / 资料与原作者</p><h2>来源</h2></div><p>本模块在统一课程中重写了讲解、引擎与媒体；原作的贡献在此署名。第三方音乐只在作者指定的影片里使用，并单独注明不在本课程许可范围内。</p></div>
 <div class="grid-2"><div class="prose">
-<h3 style="margin-top:0">原作者与保留的贡献</h3>
+<h3>原作者与保留的贡献</h3>
 <p><strong>Su3037</strong> · <a href="https://su3037.github.io/clustering-lab5-label-propagation/">原网站</a> · <a href="https://github.com/Su3037/clustering-lab5-label-propagation">原仓库</a>（固定 <code>7b4eca7</code>）</p>
-<ul><li>“通讯录 → 芯片 → 一条局部规则 → 逐层拆解”的叙事与“名字是身份、标签是归属”的说法。</li><li>真实逐节点投票、异步/同步、三种平票、访问顺序、桥边权修改与振荡反例；本章引擎直接改写自作者的 <code>site/algorithm.js</code>（MIT）。</li><li>24 单元虚构电路（几何切法 cut 88、LP cut 2）与 28 人联系人图（3 轮 cut 4）的数据。</li><li>约 1 分半的慢速推演分工：本章影片附一段慢速逐票推演。</li></ul>
-<p class="small muted">原作代码 MIT、原创内容 CC BY 4.0。原片配乐《We Never (Remix)》是第三方音乐，不在这些许可内，本课程没有使用或提取它；新片配乐为原创合成。原 README 中“仓库私有”的说法已过期（仓库现为公开）。</p>
+<ul><li>“通讯录 → 芯片 → 一条局部规则 → 逐层拆解”的叙事与“名字是身份、标签是归属”的说法。</li><li>真实逐节点投票、异步/同步、三种平票、访问顺序、桥边权修改与振荡反例；本章引擎直接改写自作者的 <code>site/algorithm.js</code>（MIT）。</li><li>24 单元虚构电路（几何切法 cut 88、LP cut 2）与 28 人联系人图（3 轮 cut 4）的数据。</li><li>作者原作科普片（第四版，6:20）原样收录为本章的科普片；它的叙事也是本章精讲片和课件的骨架。</li></ul>
+<p class="small muted">原作代码 MIT、原创内容 CC BY 4.0。科普片使用作者指定的第三方音乐《We Never (Remix)（若如初见）》（Hi Noise / 秋成），它不在这些许可范围内，本课程不授予其任何使用权，也不提供单独的音轨。其余三部影片的配乐为本课程原创合成。原 README 中“仓库私有”的说法已过期（仓库现为公开）。</p>
 </div><div class="prose">
-<h3 style="margin-top:0">来源映射</h3>
-<table><tbody><tr><th>本课程</th><td>Module 05 · <code>m05-label-propagation</code></td></tr><tr><th>提交</th><td><a href="https://github.com/yongfu-li/eda-learning/issues/4">Issue #4</a>（Clustering Module - Lesson 5）</td></tr><tr><th>教师目录</th><td>module02-01-label-propagation（Lab 05）</td></tr><tr><th>状态</th><td>已核对</td></tr></tbody></table>
+<h3>来源映射</h3>
+<table><tbody><tr><th>本课程</th><td>Module 05 · <code>m05-label-propagation</code></td></tr><tr><th>提交</th><td><a href="https://github.com/yongfu-li/eda-learning/issues/4">Issue #4</a> (Clustering Module - Lesson 5)</td></tr><tr><th>教师目录</th><td>module02-01-label-propagation（Lab 05）</td></tr><tr><th>状态</th><td>已核对</td></tr></tbody></table>
 <h3>参考文献</h3><ul><li>Raghavan, U. N., Albert, R., &amp; Kumara, S. (2007). Near linear time algorithm to detect community structures in large-scale networks. <em>Physical Review E</em>, 76, 036106.</li><li>教师原课程 <a href="https://github.com/yongfu-li/eda-learning/tree/003bcd49e3794e6cfd2680181cdbd347d673ad07/courses/learn_clustering/module02-01-label-propagation" rel="noopener">Module 材料</a></li></ul>
 <p><a href="../../data/m05-label-propagation/crosswalk.json">本模块 crosswalk（目标 → 讲解 → 影片 → 课件 → 实验 → 挑战 → Python）</a> · <a href="../../downloads/m05-label-propagation-outline.md">Markdown 大纲</a></p>
 </div></div>
 </div></section>
 </main>
 <footer class="footer"><div class="wrap">
-<span>Learning Clustering · 整合已关闭 Clustering 提交 Module 02–09。原作者署名见<a href="../../credits/index.html">资源与贡献</a>。</span>
-<span><button class="btn quiet small" type="button" data-pref="reduceMotion">减少动态</button> <button class="btn quiet small" type="button" data-pref="sound">声音</button> · 内容版本 2026.10.23-1</span>
+<p>Learning Clustering · 整合已关闭 Clustering 提交 Module 02–09。原作者署名见<a href="../../credits/index.html">资源与贡献</a>。</p>
+<p><button class="btn quiet small" type="button" data-pref="reduceMotion">减少动态</button> <button class="btn quiet small" type="button" data-pref="sound">声音</button> · 内容版本 2026.10.23-1</p>
 </div></footer>
 <script type="module">import { initShell } from '../../assets/core.js'; initShell();</script>
-<script type="module" src="./lab.js"></script>
+<script type="module" src="../../modules/m05-label-propagation/lab.js"></script>
 </body>
 </html>

@@ -32,8 +32,8 @@
     "assumptions": "允许复制逻辑节点（这是最优性结论的前提）；本课程教学例 δ = 1、s = 1；平票：l(x)+Δ(x,v) 相等时拓扑序靠后者优先（候选假设）。",
     "stop": "标记阶段处理完所有非 PI 节点；恢复阶段从 PO 出发，直到所有需要的簇都已生成。输入有环时报错，不做任何近似。"
   },
-  "filmTitle": "关键路径的代价",
-  "filmNote": "分两集：第一集讲模型与标记，第二集讲逆向恢复、复制与完整例子。12 节点候选图由原作影片画面复原，平票规则为假设，画面上始终标注“候选”。",
+  "filmTitle": "四部影片",
+  "filmNote": "科普片用厨房讲延迟：一道菜经过几位厨师，每人一分钟，端去另一间厨房要多走三分钟，快慢只看最长那条路跨了几次院子；十二道工序的大菜逐个得到“最早几分钟”；两间厨房都要 g 和 j，就各做一份；从成品往回推开出八间厨房、二十个人；不许做两份时最快只有 10。精讲片讲目标从 cut 换成延迟、RW 的模型、Δ、节点 i 的标签（l1、l2）与逆向恢复；进阶片讲全部标签与假设的平票规则、逻辑节点与实例、穷举的不复制对照、最优性结论的边界，以及哪些是待确认的候选数据；实验演示从真实页面录制，带你把实验台和在线编程走一遍。12 节点候选图由原作影片画面复原，平票规则为假设，凡出现处都标注“候选”。所有数值来自本页引擎。",
   "labTitle": "链路评估与 RW 标记、恢复",
   "labNote": "上半部分：给四节点链切分，看跨簇次数如何改变延迟。下半部分：在候选 DAG 上单步执行标记与恢复；可以改 D 和容量，引擎会重算。",
   "challengeTip": "第 3 题区分逻辑节点与实例：实例写作“节点@簇根”。",
@@ -52,12 +52,13 @@
   "credits": {
     "student": { "name": "muranfei", "website": "https://muranfei.github.io/rajaraman-wong-algorithm-teaching/", "repository": "https://github.com/muranfei/rajaraman-wong-algorithm-teaching", "commit": "63c23ecd6bc38d3c490eebf5eab2322da5dec063" },
     "kept": [
-      "约 13 分 52 秒的长专题结构：问题 → 延迟模型 → DAG → 初始化 / 标记 / 聚类三阶段；本章按此拆成两集。",
+      "约 13 分 52 秒的长专题结构：问题 → 延迟模型 → DAG → 初始化 / 标记 / 聚类三阶段；本章的精讲与进阶两部影片沿用这一顺序。",
       "讲义中 l1 / l2、节点复制以及面积代价的讲法。",
       "12 节点算例（d = 1、D = 3、容量 4）：本章的候选 DAG 由该影片 405 秒处的图与 438 秒处的 Δ 表复原。",
       "明确列出来源与局限的写法。"
     ],
-    "licenseNote": "原仓库未声明统一许可，本模块未复制其视频、讲义或课件画面；原作讲解基于 EST8717 Lecture 5 课件，该课件未在仓库中分发。原网页没有可执行的 RW 引擎，本课程的引擎、实验、挑战与 Python 练习为新写。",
+    "licenseNote": "原仓库未声明统一许可，本模块未复制其视频、讲义或课件画面；原作讲解基于 EST8717 Lecture 5 课件，该课件未在仓库中分发。原网页没有可执行的 RW 引擎，本课程的引擎、实验、挑战与 Python 练习为新写；本模块的影片与课件为新作。科普片使用作者选定的第三方音乐《We Never (Remix)》（若如初见，Hi Noise / 秋成），不在本课程许可范围内，本课程不授予任何权利，也不单独提供音轨；其余三部影片的配乐为本课程原创。",
     "references": ["Rajaraman, R., & Wong, D. F. (1995). Optimum clustering for delay minimization. *IEEE Transactions on Computer-Aided Design*, 14(12), 1490–1495. [doi:10.1109/43.476579](https://doi.org/10.1109/43.476579)", "会议版本：Rajaraman, R., & Wong, D. F. (1993). Optimal clustering for delay minimization. *Proc. 30th Design Automation Conference*.", "单位延迟模型的早期工作：Lawler, E. L., Levitt, K. N., & Turner, J. (1969). Module clustering to minimize delay in digital networks. *IEEE Transactions on Computers*, C-18(1), 47–57.", "教师原课程目录中的 [Lab 09（Multilevel）](https://github.com/yongfu-li/eda-learning/tree/003bcd49e3794e6cfd2680181cdbd347d673ad07/courses/learn_clustering/module03-01-multilevel-clustering)——与本模块主题不同。"]
-  }
+  },
+  "codelab": true
 }

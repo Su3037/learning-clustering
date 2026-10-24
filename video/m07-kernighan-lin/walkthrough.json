@@ -1,0 +1,10 @@
+{
+ "title": {"zh": "实验演示", "en": "Lab Walkthrough"},
+ "subtitle": {"zh": "实验台 · 在线编程 · 挑战", "en": "THE LAB  ·  THE CODE LAB  ·  CHALLENGES"},
+ "kicker": {"zh": "MODULE 07 · KERNIGHAN–LIN 改进", "en": "MODULE 07 · KERNIGHAN–LIN REFINEMENT"},
+ "brand": {"zh": "Learning Clustering · Module 07 · Kernighan–Lin 改进", "en": "Learning Clustering · Module 07 · Kernighan–Lin refinement"},
+ "why": {"zh": "从真实页面录下的操作演示：单步看两次试探交换、负收益让 cut 暂升到 11、回退到最佳前缀，第二轮空前缀停止；换种子 AB | CDE 停在 5，把 A–B 改成 1 重算收益；再在浏览器里写完 best_swap() 和 best_prefix() 并通过全部检查。",
+         "en": "Recorded from the real page: stepping through two trial swaps, a negative gain lifting the cut to 11, the roll-back to the best prefix and the empty prefix that stops pass 2; seed AB | CDE stuck at 5, and A–B set to 1 to recompute the gains; then writing best_swap() and best_prefix() in the browser and passing every check."},
+ "posterShot": 3,
+ "order": ["story", "concise", "advanced", "lab"]
+}

@@ -5,133 +5,137 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Module 04 容量约束凝聚聚类 · Learning Clustering</title>
 <meta name="description" content="在贪心合并上加硬容量：区分“理论上不可能”“贪心走进死胡同”与“合法但不是最优”，并分开报告合法性与是否达到 K。">
-<link rel="icon" href="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%2032%2032%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Ccircle%20cx%3D%229%22%20cy%3D%2211%22%20r%3D%225%22%20fill%3D%22%230f6b5c%22%2F%3E%3Ccircle%20cx%3D%2223%22%20cy%3D%229%22%20r%3D%224%22%20fill%3D%22%232f5e9e%22%2F%3E%3Ccircle%20cx%3D%2220%22%20cy%3D%2223%22%20r%3D%225%22%20fill%3D%22%238a6114%22%2F%3E%3Cpath%20d%3D%22M9%2011%2023%209M9%2011%2020%2023%22%20stroke%3D%22%2356625b%22%20stroke-width%3D%221.6%22%2F%3E%3Cpath%20d%3D%22M23%209%2020%2023%22%20stroke%3D%22%23a33b3b%22%20stroke-width%3D%221.6%22%20stroke-dasharray%3D%222.5%202%22%2F%3E%3C%2Fsvg%3E">
+<link rel="alternate" hreflang="zh-CN" href="../../modules/m04-size-constrained-agglomerative/index.html">
+<link rel="alternate" hreflang="en" href="../../en/modules/m04-size-constrained-agglomerative/index.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%2032%2032%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M9%2011%2023%209M9%2011%2020%2023%22%20stroke%3D%22%238b958e%22%20stroke-width%3D%221.3%22%2F%3E%3Cpath%20d%3D%22M23%209%2020%2023%22%20stroke%3D%22%23a33b3b%22%20stroke-width%3D%221.3%22%20stroke-dasharray%3D%222.2%202%22%2F%3E%3Ccircle%20cx%3D%229%22%20cy%3D%2211%22%20r%3D%224.6%22%20fill%3D%22%230f6b5c%22%2F%3E%3Ccircle%20cx%3D%2223%22%20cy%3D%229%22%20r%3D%223.6%22%20fill%3D%22%232f5e9e%22%2F%3E%3Ccircle%20cx%3D%2220%22%20cy%3D%2223%22%20r%3D%224.6%22%20fill%3D%22%23946a17%22%2F%3E%3C%2Fsvg%3E">
+<link rel="preload" href="../../assets/fonts/noto-serif-sc-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../../assets/course.css">
 </head>
 <body>
 <a class="skip" href="#main">跳到正文</a>
 <header class="topbar"><div class="wrap">
-<a class="brand" href="../../index.html"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="9" cy="11" r="5" fill="#0f6b5c"/><circle cx="23" cy="9" r="4" fill="#2f5e9e"/><circle cx="20" cy="23" r="5" fill="#8a6114"/><path d="M9 11 23 9M9 11 20 23" stroke="#56625b" stroke-width="1.6"/><path d="M23 9 20 23" stroke="#a33b3b" stroke-width="1.6" stroke-dasharray="2.5 2"/></svg><span>Learning Clustering<br><small>连接与分组 · Clustering for EDA</small></span></a>
+<a class="brand" href="../../index.html"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M9 11 23 9M9 11 20 23" stroke="#8b958e" stroke-width="1.3"/><path d="M23 9 20 23" stroke="#a33b3b" stroke-width="1.3" stroke-dasharray="2.2 2"/><circle cx="9" cy="11" r="4.6" fill="#0f6b5c"/><circle cx="23" cy="9" r="3.6" fill="#2f5e9e"/><circle cx="20" cy="23" r="4.6" fill="#946a17"/></svg><span class="brand-name">Learning Clustering</span><span class="brand-sub">连接与分组</span></a>
 <nav class="topnav" aria-label="课程"><a href="../../index.html">首页</a><a href="../../foundations/index.html">基础速查</a><a href="../../glossary/index.html">术语表</a><a href="../../guide/index.html">如何挑战</a><a href="../../credits/index.html">资源与贡献</a><a href="../../progress/index.html">学习记录</a></nav>
+<div class="lang-switch" role="group" aria-label="语言"><span aria-current="true">中文</span><a href="../../en/modules/m04-size-constrained-agglomerative/index.html" hreflang="en" lang="en" data-lang-link="en">EN</a></div>
 </div></header>
 
-<nav class="module-nav" aria-label="本模块"><div class="wrap"><a href="#goals">目标与问题</a><a href="#film">影片</a><a href="#lesson">讲解</a><a href="#slides">课件</a><a href="#lab">实验</a><a href="#challenges">挑战</a><a href="#python">Python</a><a href="#mistakes">易错与局限</a><a href="#sources">来源</a></div></nav>
+<nav class="module-nav" aria-label="本模块"><div class="wrap"><a href="#goals"><span>01</span>目标与问题</a><a href="#film"><span>02</span>影片</a><a href="#lesson"><span>03</span>讲解</a><a href="#slides"><span>04</span>课件</a><a href="#lab"><span>05</span>实验</a><a href="#challenges"><span>06</span>挑战</a><a href="#python"><span>07</span>Python</a><a href="#mistakes"><span>08</span>易错与局限</a><a href="#sources"><span>09</span>来源</a></div></nav>
 <main id="main">
+
 <section class="mod-hero"><div class="wrap">
-<div>
-<p class="eyebrow">Module 04 · Size-constrained agglomerative clustering</p>
+<div class="mod-hero-text">
+<p class="eyebrow">Module 04 / Size-constrained agglomerative clustering</p>
 <h1>容量约束凝聚聚类</h1>
 <p class="sub">两个相连很紧的电路块想合并，但容器放不下时该怎么办？</p>
-<div class="btn-row"><span class="tag">原作者 GateUltra</span><span class="tag">来源 Issue #3</span><span class="tag ok">来源映射已核对</span></div>
+<p class="byline">原作者 GateUltra · 来源 Issue #3 · 来源映射已核对</p>
 
 <nav class="pager" aria-label="上一模块与下一模块"><a href="../m03-greedy-pair-merge/index.html">← Module 03 贪心成对合并</a><a href="../m05-label-propagation/index.html">Module 05 标签传播 →</a></nav>
 </div>
 <aside class="factbox" aria-label="本模块概况"><dl>
 <dt>前置</dt><dd><a href="../m03-greedy-pair-merge/index.html">Module 03</a>：贪心合并规则与停止条件。</dd>
 <dt>接下来</dt><dd>Module 05 不再合并节点，而是让节点改“标签”。</dd>
-<dt>影片</dt><dd>3:10</dd>
+<dt>影片</dt><dd>3:10 + 2:24 + 2:37 + 2:39</dd>
 <dt>课件</dt><dd>11 页，16:9，含页码</dd>
-<dt>挑战</dt><dd>6 题（[概念][推演][约束][探索][应用]）</dd>
-<dt>Python</dt><dd>下载练习包，本地运行（网页不运行 Python）</dd>
+<dt>挑战</dt><dd>6 题 · [概念] [推演] [约束] [探索] [应用]</dd>
+<dt>Python</dt><dd>在浏览器里直接写、直接运行</dd>
 </dl></aside>
 </div></section>
 
 <section class="section" id="goals"><div class="wrap">
-<div class="section-head"><div><p class="eyebrow">目标与问题</p><h2>这一模块要解决什么</h2></div><p>先看问题和成功标准，再看算法。每个目标后面的链接指向讲它的地方。</p></div>
-<p class="review"><b>复习卡</b> · Module 03 的规则不变：每次合并簇间边权和最大的合法一对，选择键逐字段比较，不回撤。本模块只多问一件事：<strong>合并后装得下吗？</strong></p>
-<div class="grid-2"><div><h3 style="margin-top:0">学习目标</h3><ol class="objectives"><li id="obj-o1">区分四个报告项：实际簇数、是否满足容量、是否达到 K、停止原因。<span class="links"><a href="#m04-size">大小、容量与四个报告项</a> · <a href="#challenge-c1">[概念] 合法与目标是两回事</a></span></li><li id="obj-o2">按“先筛合法、再选最大”的顺序执行带容量的合并，并能指出被阻止的候选。<span class="links"><a href="#m04-fork">同一张图，两种容量</a> · <a href="#challenge-c2">[推演] 被挡住时选谁</a></span></li><li id="obj-o3">用下界 ⌈总大小 / C⌉ 证明某个 K 不可能，并理解满足下界不等于一定可行。<span class="links"><a href="#m04-infeasible">不可能，还是走进了死胡同</a> · <a href="#challenge-c3">[约束] 至少要几个簇</a></span></li><li id="obj-o4">解释“总体可行，但贪心卡住”（greedy_trap）与“理论上不可能”的区别。<span class="links"><a href="#m04-infeasible">不可能，还是走进了死胡同</a> · <a href="#challenge-c4">[探索] 卡住还是不可能</a></span></li><li id="obj-o5">解释“合法但非最优”（suboptimal：贪心 18，最优 11），并说明单元大小不同会改变结果。<span class="links"><a href="#m04-suboptimal">合法，但不是最优</a> · <a href="#challenge-c5">[探索] 合法但差多少</a> · <a href="#challenge-c6">[应用] 面积不同，结局不同</a></span></li><li id="obj-o6">读懂带容量与诊断的伪代码，在 Python 中补全停止报告与分类。<span class="links"><a href="#m04-pseudocode">伪代码：合并、报告、诊断</a> · <a href="#python">Python</a></span></li></ol></div>
-<div><h3 style="margin-top:0">问题定义</h3><div class="problem" style="grid-template-columns:1fr 1fr"><div><b>输入</b><p>带权无向图、每个节点的大小 s(v)（面积或单元数）、容量 C、目标簇数 K。</p></div><div><b>输出</b><p>合法的簇、cut、实际簇数、capacityCompliant、targetReached、停止原因；可选的穷举诊断。</p></div><div><b>目标</b><p>在每簇大小之和 ≤ C 的前提下，用贪心合并减少 cut，并尽量达到 K。</p></div><div><b>约束</b><p>硬容量：任何一次合并后簇大小都不能超过 C；K 不能凌驾于容量之上；单个节点已超过 C 时输入本身不合法。</p></div><div><b>假设</b><p>簇大小 = 成员大小之和；先过滤合法候选，再按 (−亲和度, 成员, 成员) 选择；穷举诊断只用于 ≤ 10 个节点的教学图。</p></div><div><b>停止 / 完成</b><p>达到 K；或没有合法的正亲和度对（capacity-blocked / no-positive-affinity）。之后用下界与穷举判断属于哪种结局。</p></div></div></div></div>
+<div class="section-head"><div><p class="eyebrow"><span class="eyebrow-no">01</span> / 目标与问题</p><h2>这一模块要解决什么</h2></div><p>先看问题和成功标准，再看算法。每个目标后面的链接指向讲它的地方。</p></div>
+<p class="review"><b>复习</b>Module 03 的规则不变：每次合并簇间边权和最大的合法一对，选择键逐字段比较，不回撤。本模块只多问一件事：<strong>合并后装得下吗？</strong></p>
+<div class="grid-2 goals"><div><h3>学习目标</h3><ol class="objectives"><li id="obj-o1">区分四个报告项：实际簇数、是否满足容量、是否达到 K、停止原因。<span class="links"><a href="#m04-size">大小、容量与四个报告项</a> · <a href="#challenge-c1">[概念] 合法与目标是两回事</a></span></li><li id="obj-o2">按“先筛合法、再选最大”的顺序执行带容量的合并，并能指出被阻止的候选。<span class="links"><a href="#m04-fork">同一张图，两种容量</a> · <a href="#challenge-c2">[推演] 被挡住时选谁</a></span></li><li id="obj-o3">用下界 ⌈总大小 / C⌉ 证明某个 K 不可能，并理解满足下界不等于一定可行。<span class="links"><a href="#m04-infeasible">不可能，还是走进了死胡同</a> · <a href="#challenge-c3">[约束] 至少要几个簇</a></span></li><li id="obj-o4">解释“总体可行，但贪心卡住”（greedy_trap）与“理论上不可能”的区别。<span class="links"><a href="#m04-infeasible">不可能，还是走进了死胡同</a> · <a href="#challenge-c4">[探索] 卡住还是不可能</a></span></li><li id="obj-o5">解释“合法但非最优”（suboptimal：贪心 18，最优 11），并说明单元大小不同会改变结果。<span class="links"><a href="#m04-suboptimal">合法，但不是最优</a> · <a href="#challenge-c5">[探索] 合法但差多少</a> · <a href="#challenge-c6">[应用] 面积不同，结局不同</a></span></li><li id="obj-o6">读懂带容量与诊断的伪代码，在 Python 中补全停止报告与分类。<span class="links"><a href="#m04-pseudocode">伪代码：合并、报告、诊断</a> · <a href="#python">Python</a></span></li></ol></div>
+<div><h3>问题定义</h3><div class="problem"><div><b>输入</b><p>带权无向图、每个节点的大小 s(v)（面积或单元数）、容量 C、目标簇数 K。</p></div><div><b>输出</b><p>合法的簇、cut、实际簇数、capacityCompliant、targetReached、停止原因；可选的穷举诊断。</p></div><div><b>目标</b><p>在每簇大小之和 ≤ C 的前提下，用贪心合并减少 cut，并尽量达到 K。</p></div><div><b>约束</b><p>硬容量：任何一次合并后簇大小都不能超过 C；K 不能凌驾于容量之上；单个节点已超过 C 时输入本身不合法。</p></div><div><b>假设</b><p>簇大小 = 成员大小之和；先过滤合法候选，再按 (−亲和度, 成员, 成员) 选择；穷举诊断只用于 ≤ 10 个节点的教学图。</p></div><div><b>停止 / 完成</b><p>达到 K；或没有合法的正亲和度对（capacity-blocked / no-positive-affinity）。之后用下界与穷举判断属于哪种结局。</p></div></div></div></div>
 </div></section>
 
 <section class="section dark" id="film"><div class="wrap">
-<div class="section-head"><div><p class="eyebrow">影片 · 二维科普短片</p><h2>装得下吗</h2></div><p>影片用容量条解释合法性，再用两个独立的反例区分“装不下”和“走错路”。所有数值来自本页引擎与穷举 oracle。</p></div>
+<div class="section-head"><div><p class="eyebrow"><span class="eyebrow-no">02</span> / 影片</p><h2>四部影片</h2></div><p>科普片沿用上一章的五个朋友，只是座位有限：双座车装不下五个人（不可能），两把大提琴让出租车走进死胡同（卡住），双人自行车上最要好的一对反而拆散最多（不是最好）。精讲片讲四个报告项、先筛合法再选最大、下界、greedy_trap 与 suboptimal；进阶片讲为什么必须先筛、下界能证明什么、穷举随规模爆炸、cut 只能在相同簇数下比较、贪心离最优能有多远，以及按面积算容量；实验演示从真实页面录下，带你做一遍实验和在线编程。所有数值都来自本页同一个引擎与穷举 oracle。</p></div>
 <div id="film-root"><p class="muted">正在载入影片…</p></div>
 </div></section>
 
 <section class="section" id="lesson"><div class="wrap">
-<div class="section-head"><div><p class="eyebrow">讲解 · 由浅入深</p><h2>从例子到伪代码</h2></div><p>章节编号与影片章节、课件页对应；完整对应表见本页末尾的 crosswalk。</p></div>
-<nav class="btn-row" aria-label="讲解小节" style="margin-bottom:24px"><a class="btn small" href="#m04-review">1. 规则不变，多问一句：装得下吗</a> <a class="btn small" href="#m04-size">2. 大小、容量与四个报告项</a> <a class="btn small" href="#m04-fork">3. 同一张图，两种容量</a> <a class="btn small" href="#m04-infeasible">4. 不可能，还是走进了死胡同</a> <a class="btn small" href="#m04-suboptimal">5. 合法，但不是最优</a> <a class="btn small" href="#m04-pseudocode">6. 伪代码：合并、报告、诊断</a> <a class="btn small" href="#m04-application">7. 应用与局限</a></nav>
-<div class="prose"><section class="lesson-part" aria-labelledby="m04-review"><h3 id="m04-review"><span class="eyebrow" style="display:block;margin:0">第 1 节</span>规则不变，多问一句：装得下吗</h3><p>合并规则和 Module 03 完全一样：从单点簇开始，每次合并簇间边权和最大的一对，选择键逐字段比较，不回撤。区别只有一条：</p>
+<div class="section-head"><div><p class="eyebrow"><span class="eyebrow-no">03</span> / 讲解 · 由浅入深</p><h2>从例子到伪代码</h2></div><p>章节编号与影片章节、课件页对应；完整对应表见本页末尾的 crosswalk。</p></div>
+<div class="lesson-layout"><nav class="lesson-toc" aria-label="讲解小节"><a href="#m04-review"><span>01</span>规则不变，多问一句：装得下吗</a><a href="#m04-size"><span>02</span>大小、容量与四个报告项</a><a href="#m04-fork"><span>03</span>同一张图，两种容量</a><a href="#m04-infeasible"><span>04</span>不可能，还是走进了死胡同</a><a href="#m04-suboptimal"><span>05</span>合法，但不是最优</a><a href="#m04-pseudocode"><span>06</span>伪代码：合并、报告、诊断</a><a href="#m04-application"><span>07</span>应用与局限</a></nav>
+<div class="prose"><section class="lesson-part" aria-labelledby="m04-review"><h3 id="m04-review"><span class="part-no">§ 1</span>规则不变，多问一句：装得下吗</h3><p>合并规则和 Module 03 完全一样：从单点簇开始，每次合并簇间边权和最大的一对，选择键逐字段比较，不回撤。区别只有一条：</p>
 <blockquote class="callout"><p><strong>先筛合法，再选最大。</strong> 合并后的簇大小超过容量 C 的候选，不论亲和度多大，都不能选。</p></blockquote>
 <p>真实电路里，一个簇往往对应芯片上的一块区域，它能容纳的单元面积有限。这条约束看似简单，却让“贪心合并”出现了三种不同的结局。本章的任务就是把它们分清楚。</p></section>
-<section class="lesson-part" aria-labelledby="m04-size"><h3 id="m04-size"><span class="eyebrow" style="display:block;margin:0">第 2 节</span>大小、容量与四个报告项</h3><div class="terms"><div class="term" id="term-size-s-v-"><h4>单元大小</h4><span class="en">size s(v)</span><p>一个节点占用的面积或资源。本章的 G01 每个节点大小 1，greedy_trap 的 A、B 大小为 2。</p></div><div class="term" id="term-capacity-c"><h4>容量</h4><span class="en">capacity C</span><p>每个簇允许的大小上限：簇内所有节点大小之和 ≤ C。</p></div><div class="term" id="term-capacity-compliant"><h4>合法</h4><span class="en">capacity compliant</span><p>每个簇都满足容量。</p></div><div class="term" id="term-target-reached"><h4>达到目标</h4><span class="en">target reached</span><p>实际簇数 ≤ K。</p></div></div>
+<section class="lesson-part" aria-labelledby="m04-size"><h3 id="m04-size"><span class="part-no">§ 2</span>大小、容量与四个报告项</h3><div class="terms"><div class="term" id="term-size-s-v-"><h4>单元大小</h4><span class="en" lang="en">size s(v)</span><p>一个节点占用的面积或资源。本章的 G01 每个节点大小 1，greedy_trap 的 A、B 大小为 2。</p></div><div class="term" id="term-capacity-c"><h4>容量</h4><span class="en" lang="en">capacity C</span><p>每个簇允许的大小上限：簇内所有节点大小之和 ≤ C。</p></div><div class="term" id="term-capacity-compliant"><h4>合法</h4><span class="en" lang="en">capacity compliant</span><p>每个簇都满足容量。</p></div><div class="term" id="term-target-reached"><h4>达到目标</h4><span class="en" lang="en">target reached</span><p>实际簇数 ≤ K。</p></div></div>
 <p>这四件事互相独立，必须分开报告：</p>
 <table><thead><tr><th>报告项</th><th>含义</th><th>容量 2、K = 2 时</th></tr></thead><tbody><tr><td>count</td><td>实际簇数</td><td>3</td></tr><tr><td>capacityCompliant</td><td>每簇大小 ≤ C</td><td>是</td></tr><tr><td>targetReached</td><td>count ≤ K</td><td>否</td></tr><tr><td>stopReason</td><td>为什么停</td><td>capacity-blocked</td></tr></tbody></table>
 <div class="callout warn"><strong>K 不能凌驾于容量之上</strong><p>如果为了凑够 K 而做一次超容量的合并，结果就不再合法。宁可停在更多的簇上，如实报告。单个节点本身已经超过容量时，输入就不存在任何合法分组，本课程把它报告为输入错误，而不是强行合并。</p></div></section>
-<section class="lesson-part" aria-labelledby="m04-fork"><h3 id="m04-fork"><span class="eyebrow" style="display:block;margin:0">第 3 节</span>同一张图，两种容量</h3><p>在 G01 上取 K = 2，比较容量 3 与容量 2：</p>
+<section class="lesson-part" aria-labelledby="m04-fork"><h3 id="m04-fork"><span class="part-no">§ 3</span>同一张图，两种容量</h3><p>在 G01 上取 K = 2，比较容量 3 与容量 2：</p>
 <table><thead><tr><th>步骤</th><th>容量 3</th><th>容量 2</th></tr></thead><tbody><tr><td>1</td><td>A–B（5），大小 2，合法</td><td>A–B（5），大小 2，合法</td></tr><tr><td>2</td><td>AB–C（1+4=5），大小 3 ≤ 3，合法</td><td>AB–C 大小 3 &gt; 2，<strong>被阻止</strong>；改选 D–E（5）</td></tr><tr><td>3</td><td>D–E（5）</td><td>剩下 AB+C = 3、C+DE = 3，<strong>全部被阻止</strong></td></tr><tr><td>结果</td><td>ABC | DE，cut 3，达到 K</td><td>AB | C | DE，cut 8，未达到 K</td></tr></tbody></table>
 <p>容量 2 时，被阻止的不是“小”候选，而恰恰是亲和度最大的 AB–C。合法性筛选发生在比较亲和度<strong>之前</strong>。</p></section>
-<section class="lesson-part" aria-labelledby="m04-infeasible"><h3 id="m04-infeasible"><span class="eyebrow" style="display:block;margin:0">第 4 节</span>不可能，还是走进了死胡同</h3><p>容量 2 的 G01 停在 3 簇。这是贪心的错吗？先算一个<strong>下界</strong>：</p>
+<section class="lesson-part" aria-labelledby="m04-infeasible"><h3 id="m04-infeasible"><span class="part-no">§ 4</span>不可能，还是走进了死胡同</h3><p>容量 2 的 G01 停在 3 簇。这是贪心的错吗？先算一个<strong>下界</strong>：</p>
 <blockquote class="callout"><p>总大小 = 5，每簇最多 2，所以至少需要 ⌈5 / 2⌉ = <strong>3</strong> 个簇。</p></blockquote>
 <p>任何算法都不可能把 G01 在容量 2 下分成 2 簇。这里贪心没有犯错：<strong>目标本身不可行</strong>。</p>
 <p>下界只能证明“不可能”，不能证明“可能”。原作者 GateUltra 的 <strong>greedy_trap</strong> 图说明了另一种情况：</p>
 <ul><li>节点 A、B 大小 2，C、D 大小 1；边 C–D = 10、A–C = 4、B–D = 4；容量 3，K = 2。</li><li>下界：总大小 6，⌈6/3⌉ = 2 ≤ K——下界<strong>允许</strong> 2 簇。</li><li>贪心：先合并亲和度最大的 C–D（10），得到大小 2 的 CD；接着 CD+A、CD+B 的大小都是 4 &gt; 3，A–B 之间没有边。<strong>停在 3 簇</strong>。</li><li>穷举：<strong>AC | BD</strong> 两簇大小都是 3，合法，cut = C–D = 10。</li></ul>
 <p>所以 greedy_trap 是“<strong>总体可行，但贪心卡住</strong>”：第一步拿走了最大的 10，后面就再也拼不出合法的两簇。贪心不回撤，它没有办法发现这条出路。</p>
 <div class="callout note"><strong>一个反直觉的细节</strong><p>贪心停下时 cut 是 8（A–C 4 + B–D 4），比可行的 2 簇方案（cut 10）还小——因为它多了一个簇。cut 小不代表目标达到了；两件事要分开看。</p></div></section>
-<section class="lesson-part" aria-labelledby="m04-suboptimal"><h3 id="m04-suboptimal"><span class="eyebrow" style="display:block;margin:0">第 5 节</span>合法，但不是最优</h3><p>第三种结局来自原作者的 <strong>suboptimal</strong> 图：边 A–B = 10、A–C = 9、B–D = 9、C–D = 1，每个节点大小 1，容量 2，K = 2。</p>
+<section class="lesson-part" aria-labelledby="m04-suboptimal"><h3 id="m04-suboptimal"><span class="part-no">§ 5</span>合法，但不是最优</h3><p>第三种结局来自原作者的 <strong>suboptimal</strong> 图：边 A–B = 10、A–C = 9、B–D = 9、C–D = 1，每个节点大小 1，容量 2，K = 2。</p>
 <ul><li>贪心：先合并 A–B（10）；之后 AB 已满，只能合并 C–D（1）。结果 AB | CD，<strong>cut = 9 + 9 = 18</strong>。</li><li>穷举：AC | BD 只切断 A–B（10）与 C–D（1），<strong>cut = 11</strong>。</li></ul>
 <p>两个结果都合法、都达到了 K，但贪心比最优差了 7。原因和 greedy_trap 一样：第一步拿走了眼前最大的 10，却把两条 9 都留在了 cut 里。</p>
 <div class="callout analogy"><strong>单元大小也会改变结局</strong><p>把 G01 中 A 的大小改成 2、容量 3、K = 2：A–B 合并后大小已是 3，AB+C 变成 4 被阻止，贪心改为合并 D–E，再把 C 放进 DE。结果 AB | CDE，cut 5，而不是原来的 ABC | DE、cut 3。“按节点个数”和“按面积”得到的答案可能不同。</p></div></section>
-<section class="lesson-part" aria-labelledby="m04-pseudocode"><h3 id="m04-pseudocode"><span class="eyebrow" style="display:block;margin:0">第 6 节</span>伪代码：合并、报告、诊断</h3><div class="pseudo" data-pseudo="capacity"><ol aria-label="伪代码"><li data-line="1" data-note="单点就放不下，任何分组都不合法——不做强制合并。">clusters ← 单点簇；若某个 s(v) &gt; C：报告输入不合法</li><li data-line="2" data-note="目标簇数是“想要”，不是“必须”。">while |clusters| &gt; K:</li><li data-line="3" data-note="与 Module 03 相同：簇间边权和。">    cands ← 亲和度 &gt; 0 的簇对</li><li data-line="4" data-note="先筛合法：这一行发生在比较亲和度之前。">    legal ← {(P, Q) ∈ cands : s(P) + s(Q) ≤ C}</li><li data-line="5" data-note="有正亲和度但全超容量，与图不连通，是两种不同的停止原因。">    if legal 为空: stop ← capacity-blocked 或 no-positive-affinity</li><li data-line="6" data-note="选择键 (−亲和度, P, Q)，逐字段比较。">    合并 legal 中选择键最小的一对</li><li data-line="7" data-note="四项分开，不能用一个代替另一个。">report: count, capacityCompliant, targetReached, stop</li><li data-line="8" data-note="区分：不可能 / 贪心卡住 / 合法但非最优 / 在这张图上最优。">diagnose: 下界 ⌈Σs / C⌉ 与小图穷举</li></ol><div class="explain"><p class="muted">点击任一行看解释；在实验中单步时，当前执行的行会自动高亮。</p></div></div>
+<section class="lesson-part" aria-labelledby="m04-pseudocode"><h3 id="m04-pseudocode"><span class="part-no">§ 6</span>伪代码：合并、报告、诊断</h3><div class="pseudo" data-pseudo="capacity"><ol aria-label="伪代码"><li data-line="1" data-note="单点就放不下，任何分组都不合法——不做强制合并。">clusters ← 单点簇；若某个 s(v) &gt; C：报告输入不合法</li><li data-line="2" data-note="目标簇数是“想要”，不是“必须”。">while |clusters| &gt; K:</li><li data-line="3" data-note="与 Module 03 相同：簇间边权和。">    cands ← 亲和度 &gt; 0 的簇对</li><li data-line="4" data-note="先筛合法：这一行发生在比较亲和度之前。">    legal ← {(P, Q) ∈ cands : s(P) + s(Q) ≤ C}</li><li data-line="5" data-note="有正亲和度但全超容量，与图不连通，是两种不同的停止原因。">    if legal 为空: stop ← capacity-blocked 或 no-positive-affinity</li><li data-line="6" data-note="选择键 (−亲和度, P, Q)，逐字段比较。">    合并 legal 中选择键最小的一对</li><li data-line="7" data-note="四项分开，不能用一个代替另一个。">report: count, capacityCompliant, targetReached, stop</li><li data-line="8" data-note="区分：不可能 / 贪心卡住 / 合法但非最优 / 在这张图上最优。">diagnose: 下界 ⌈Σs / C⌉ 与小图穷举</li></ol><div class="explain"><p class="muted">点击任一行看解释；在实验中单步时，当前执行的行会自动高亮。</p></div></div>
 <p><strong>和 Python 的对应</strong>：第 1–6 行 → <code>solve()</code>；第 7 行 → <code>report()</code>；第 8 行 → <code>oracle()</code> 与 <code>classify()</code>。</p></section>
-<section class="lesson-part" aria-labelledby="m04-application"><h3 id="m04-application"><span class="eyebrow" style="display:block;margin:0">第 7 节</span>应用与局限</h3><p>在芯片设计中，容量约束对应“每块区域能放多少面积”。容量约束的聚类常作为粗化步骤，把大量单元合成大小受控的簇，再交给划分或布局。</p>
-<ul><li>下界只能证明不可能；“可能”需要真正找到一个合法分组——这和装箱问题一样难。</li><li>本章的穷举只适合 10 个节点以内；真实规模要靠启发式或数学规划，并且通常没有最优性保证。</li><li>贪心不回撤。走进死胡同时，它能做的只是如实报告；改进需要允许回退或交换的方法——这正是 Module 07、08 的主题。</li></ul></section></div>
+<section class="lesson-part" aria-labelledby="m04-application"><h3 id="m04-application"><span class="part-no">§ 7</span>应用与局限</h3><p>在芯片设计中，容量约束对应“每块区域能放多少面积”。容量约束的聚类常作为粗化步骤，把大量单元合成大小受控的簇，再交给划分或布局。</p>
+<ul><li>下界只能证明不可能；“可能”需要真正找到一个合法分组——这和装箱问题一样难。</li><li>本章的穷举只适合 10 个节点以内；真实规模要靠启发式或数学规划，并且通常没有最优性保证。</li><li>贪心不回撤。走进死胡同时，它能做的只是如实报告；改进需要允许回退或交换的方法——这正是 Module 07、08 的主题。</li></ul></section></div></div>
 </div></section>
 
 <section class="section" id="slides"><div class="wrap">
-<div class="section-head"><div><p class="eyebrow">课件 · 带页码与讲稿</p><h2>课堂课件</h2></div><p>页码与 PDF 完全一致；当前页的讲稿在幻灯片下方，不遮挡图。</p></div>
+<div class="section-head"><div><p class="eyebrow"><span class="eyebrow-no">04</span> / 课件 · 带页码与讲稿</p><h2>课堂课件</h2></div><p>页码与 PDF 完全一致；当前页的讲稿在幻灯片下方，不遮挡图。</p></div>
 <div id="slides-root"><p class="muted">正在载入课件…</p></div>
 </div></section>
 
 <section class="section dark" id="lab"><div class="wrap">
-<div class="section-head"><div><p class="eyebrow">实验 · 浏览器内实时计算</p><h2>容量实验台与诊断</h2></div><p>改容量、改节点大小，看合并在哪一步被挡住。“诊断”栏用下界和穷举告诉你：是不可能，还是贪心卡住，还是合法但非最优。</p></div>
+<div class="section-head"><div><p class="eyebrow"><span class="eyebrow-no">05</span> / 实验 · 浏览器内实时计算</p><h2>容量实验台与诊断</h2></div><p>改容量、改节点大小，看合并在哪一步被挡住。“诊断”栏用下界和穷举告诉你：是不可能，还是贪心卡住，还是合法但非最优。</p></div>
 <div id="lab-root" tabindex="-1"><p class="muted">正在载入实验…（需要通过 HTTP 打开页面；直接双击 HTML 时浏览器会阻止模块脚本。）</p></div>
 </div></section>
 
 <section class="section" id="challenges"><div class="wrap">
-<div class="section-head"><div><p class="eyebrow">挑战 · 由易到难</p><h2>分组挑战</h2></div><p>类别写在方括号里，难度单独标注。答案由引擎或明确规则判定；看答案不扣分，记录会如实区分。</p></div>
-<p class="ch-guide">第一次用？先读<a href="../../guide/index.html">如何挑战</a>：读任务 → 预测 → 操作 → 提交 → 看解释 → 再试。第 4 题需要写出一个分组，格式如 <code>AC|BD</code>。</p>
+<div class="section-head"><div><p class="eyebrow"><span class="eyebrow-no">06</span> / 挑战 · 由易到难</p><h2>分组挑战</h2></div><p>类别写在方括号里，难度单独标注。答案由引擎或明确规则判定；看答案不扣分，记录会如实区分。</p></div>
+<p class="ch-guide">第一次用？先读<a href="../../guide/index.html">如何挑战</a>：读任务 → 预测 → 操作 → 提交 → 看解释 → 再试。 第 4 题需要写出一个分组，格式如 <code>AC|BD</code>。</p>
 <div class="ch-list" id="challenge-root"><p class="muted">正在载入挑战…</p></div>
 </div></section>
 
 <section class="section" id="python"><div class="wrap">
-<div class="section-head"><div><p class="eyebrow">Python 实现轨道 · 可选</p><h2>补全停止报告与诊断分类</h2></div><p>网页基础轨道不需要 Python。下载后在任意空目录运行；只用标准库。</p></div>
-<div class="grid-2"><div class="prose"><p><strong>任务</strong>（<code>starter.py</code>）：</p>
+<div class="section-head"><div><p class="eyebrow"><span class="eyebrow-no">07</span> / 在线编程 · 在浏览器里运行 Python</p><h2>补全停止报告与诊断分类</h2></div><p>不用安装任何东西：Python 在你的浏览器里运行（Pyodide），代码只保存在本机。检查器与下载包里的 check.py 完全相同。</p></div>
+<div class="grid-2 cl-intro"><div class="prose"><p><strong>任务</strong>（<code>starter.py</code>）：</p>
 <ol><li><code>report(parts, k, capacity, size, stop)</code>：返回 count、capacity_compliant、target_reached、stop_reason 四项。</li><li><code>classify(graph, k, capacity)</code>：结合 <code>solve()</code> 与已提供的 <code>oracle()</code>，返回五种结局之一。</li></ol>
 <p><strong>提示一</strong>：四项是互相独立的；容量 2 的 AB | C | DE 合法但没有达到 K。</p>
 <p><strong>提示二</strong>：先看是否达到 K；没达到时，看下界是否已大于 K，再看穷举是否找到恰好 K 簇的合法划分。检查器还会测超容量单点与无边图。</p></div>
-<div><div class="py-files"><div><code>starter.py</code><br>起始代码：留有 TODO</div><div><code>check.py</code><br>检查器：未完成报 INCOMPLETE，不算 PASS</div><div><code>reference.py</code><br>参考实现：卡住时再看</div><div><code>fixtures/</code><br>本章例子的 JSON</div><div><code>README.md</code><br>任务、两级提示与样例</div></div>
-<p><a class="btn primary" href="../../downloads/m04-size-constrained-agglomerative-python.zip" download>下载练习包（.zip）</a></p>
-<pre><code>python3 check.py              # 检查你的 starter.py
-python3 check.py reference.py # 看参考实现全部通过</code></pre></div></div>
+<div class="cl-howto"><h3>怎么用</h3><ol><li>在编辑器里补全标着 TODO 的函数。</li><li>按 <b>运行检查</b>（Ctrl/⌘ + Enter）：每一项给出 PASS、FAIL 或 INCOMPLETE。</li><li>全部通过后，在下方用<b>你自己的</b>函数跑一遍例子，逐步对照课程引擎。</li></ol>
+<p class="small muted">第一次运行会下载约 12 MB 的 Python 运行环境，之后由浏览器缓存。想离线做？ <a href="../../downloads/m04-size-constrained-agglomerative-python.zip" download>下载练习包（.zip）</a></p></div></div>
+<div id="codelab-root" class="cl-root"><p class="muted">正在载入在线编程…</p></div>
 </div></section>
 
 <section class="section" id="mistakes"><div class="wrap">
-<div class="section-head"><div><p class="eyebrow">常见错误与局限</p><h2>容易错在哪里</h2></div><p>每条都给错误结果、错因、反例和修正；反例的数值都由测试复算。</p></div>
+<div class="section-head"><div><p class="eyebrow"><span class="eyebrow-no">08</span> / 常见错误与局限</p><h2>容易错在哪里</h2></div><p>每条都给错误结果、错因、反例和修正；反例的数值都由测试复算。</p></div>
 <div class="mistakes"><article class="mistake"><h4>把“合法”说成“完成”</h4><dl><dt>错误结果</dt><dd>容量 2 时得到 AB | C | DE，报告“聚类成功”。</dd><dt>错因</dt><dd>合法只说明每簇没超容量；目标是 K = 2，实际是 3 簇。</dd><dt>反例 / 证据</dt><dd>同一分组在 K = 3 时既合法又达到目标，在 K = 2 时合法但未达到目标。</dd><dt>修正</dt><dd>四项分开报告：count、capacityCompliant、targetReached、stopReason。</dd></dl></article><article class="mistake"><h4>为了达到 K 而违反容量</h4><dl><dt>错误结果</dt><dd>把 C 塞进 AB，得到 ABC | DE，大小 3 &gt; 2。</dd><dt>错因</dt><dd>容量是硬约束；K 只是目标，不能凌驾于约束之上。</dd><dt>反例 / 证据</dt><dd>5 个单位大小、容量 2，至少需要 ⌈5/2⌉ = 3 簇——K = 2 根本不存在合法解。</dd><dt>修正</dt><dd>先算下界；下界大于 K 时直接说明不可能。</dd></dl></article><article class="mistake"><h4>把“贪心卡住”当成“不可能”</h4><dl><dt>错误结果</dt><dd>greedy_trap 停在 3 簇，就断言“容量 3 下不可能分成 2 簇”。</dd><dt>错因</dt><dd>停下只说明贪心这条路走不通；可能还有别的合法分组。</dd><dt>反例 / 证据</dt><dd>greedy_trap：贪心先合并 C–D（10），之后 A、B 都放不进；穷举找到 AC | BD（大小 3、3），2 簇、cut 10。</dd><dt>修正</dt><dd>用穷举（小图）或其他方法验证，再下结论。</dd></dl></article><article class="mistake"><h4>以为合法结果就是最优</h4><dl><dt>错误结果</dt><dd>suboptimal 图上贪心得到 AB | CD、cut 18，就当作答案。</dd><dt>错因</dt><dd>贪心先拿了最大的 A–B（10），把两条 9 都留在了 cut 里。</dd><dt>反例 / 证据</dt><dd>合法的 AC | BD 只切断 A–B 10 和 C–D 1，cut 11。</dd><dt>修正</dt><dd>“合法”和“最优”分开说；需要最优时要有对照。</dd></dl></article><article class="mistake"><h4>把节点个数当成面积</h4><dl><dt>错误结果</dt><dd>所有单元大小都按 1 计算，忽略面积差异。</dd><dt>错因</dt><dd>真实单元面积不同；容量按大小之和计算。</dd><dt>反例 / 证据</dt><dd>G01 中把 A 的大小改成 2、容量 3：结果从 ABC | DE（cut 3）变成 AB | CDE（cut 5）。</dd><dt>修正</dt><dd>输入里明确每个节点的大小。</dd></dl></article></div>
-<div class="prose" style="margin-top:26px"><h3>适用范围与局限</h3><ul><li>下界 ⌈总大小/C⌉ 只能证明“不可能”，不能证明“可能”：装箱问题本身就难。</li><li>穷举 oracle 只适合 ≤ 10 个节点的教学图（集合划分数量增长极快）；真实规模需要启发式或数学规划。</li><li>贪心不回撤：一旦走进死胡同，只能报告，不能自己找到出路。</li><li>本模块只有一种约束（容量）；真实设计还有时序、引脚数等约束（Module 09 讨论延迟）。</li></ul></div>
+<div class="prose limits"><h3>适用范围与局限</h3><ul><li>下界 ⌈总大小/C⌉ 只能证明“不可能”，不能证明“可能”：装箱问题本身就难。</li><li>穷举 oracle 只适合 ≤ 10 个节点的教学图（集合划分数量增长极快）；真实规模需要启发式或数学规划。</li><li>贪心不回撤：一旦走进死胡同，只能报告，不能自己找到出路。</li><li>本模块只有一种约束（容量）；真实设计还有时序、引脚数等约束（Module 09 讨论延迟）。</li></ul></div>
 </div></section>
 
 <section class="section" id="sources"><div class="wrap">
-<div class="section-head"><div><p class="eyebrow">资料与原作者</p><h2>来源</h2></div><p>本模块在统一课程中重写了讲解、引擎与媒体；原作的贡献在此署名，未复制无许可的源代码或音轨。</p></div>
+<div class="section-head"><div><p class="eyebrow"><span class="eyebrow-no">09</span> / 资料与原作者</p><h2>来源</h2></div><p>本模块在统一课程中重写了讲解、引擎与媒体；原作的贡献在此署名。第三方音乐只在作者指定的影片里使用，并单独注明不在本课程许可范围内。</p></div>
 <div class="grid-2"><div class="prose">
-<h3 style="margin-top:0">原作者与保留的贡献</h3>
+<h3>原作者与保留的贡献</h3>
 <p><strong>GateUltra</strong> · <a href="https://gateultra.github.io/eda-clustering-lab4/">原网站</a> · <a href="https://github.com/GateUltra/eda-clustering-lab4">原仓库</a>（固定 <code>0b5e84b</code>）</p>
 <ul><li>候选表同时显示亲和度、合并后大小和被阻止原因；把“Target reached: No”单独写出来。</li><li>三个情形分开讲：不可行目标、可行但贪心卡住、合法但非最优（greedy_trap 与 suboptimal 两个图来自原作 <code>source/graphs.json</code>）。</li><li>Python 起始练习、独立参考与穷举 oracle 的结构；原作 47 组 JS/Python 轨迹比较的做法在本课程交叉测试中延续。</li><li>16 页 HTML 课件的页码与下方字幕区，是本课程课件布局的正面参考。</li></ul>
-<p class="small muted">原仓库未声明统一许可，本模块未复制其代码、影片或每页音频；两个反例图的数值在此署名，并由本课程引擎重新计算。原 README“尚未部署”的说法已过期（公开网址可访问）。</p>
+<p class="small muted">原仓库未声明统一许可，本模块未复制其代码、影片或每页音频；两个反例图的数值在此署名，并由本课程引擎重新计算。原 README“尚未部署”的说法已过期（公开网址可访问）。科普片使用作者指定的第三方音乐《We Never (Remix)（若如初见）》（Hi Noise / 秋成），它不在本课程许可范围内，本课程不授予其任何使用权，也不提供单独的音轨；其余三部影片的配乐为本课程原创合成。</p>
 </div><div class="prose">
-<h3 style="margin-top:0">来源映射</h3>
-<table><tbody><tr><th>本课程</th><td>Module 04 · <code>m04-size-constrained-agglomerative</code></td></tr><tr><th>提交</th><td><a href="https://github.com/yongfu-li/eda-learning/issues/3">Issue #3</a>（Clustering Module - Lesson 4）</td></tr><tr><th>教师目录</th><td>module01-05-size-constrained-agglomerative（Lab 04）</td></tr><tr><th>状态</th><td>已核对</td></tr></tbody></table>
+<h3>来源映射</h3>
+<table><tbody><tr><th>本课程</th><td>Module 04 · <code>m04-size-constrained-agglomerative</code></td></tr><tr><th>提交</th><td><a href="https://github.com/yongfu-li/eda-learning/issues/3">Issue #3</a> (Clustering Module - Lesson 4)</td></tr><tr><th>教师目录</th><td>module01-05-size-constrained-agglomerative（Lab 04）</td></tr><tr><th>状态</th><td>已核对</td></tr></tbody></table>
 <h3>参考文献</h3><ul><li>教师原课程 <a href="https://github.com/yongfu-li/eda-learning/blob/003bcd49e3794e6cfd2680181cdbd347d673ad07/courses/learn_clustering/module01-05-size-constrained-agglomerative/README.md" rel="noopener">Module 材料</a></li><li>带容量的划分与装箱（bin packing）问题的难度见常见算法教材；本模块只用下界与小图穷举，不声称一般可解。</li></ul>
 <p><a href="../../data/m04-size-constrained-agglomerative/crosswalk.json">本模块 crosswalk（目标 → 讲解 → 影片 → 课件 → 实验 → 挑战 → Python）</a> · <a href="../../downloads/m04-size-constrained-agglomerative-outline.md">Markdown 大纲</a></p>
 </div></div>
 </div></section>
 </main>
 <footer class="footer"><div class="wrap">
-<span>Learning Clustering · 整合已关闭 Clustering 提交 Module 02–09。原作者署名见<a href="../../credits/index.html">资源与贡献</a>。</span>
-<span><button class="btn quiet small" type="button" data-pref="reduceMotion">减少动态</button> <button class="btn quiet small" type="button" data-pref="sound">声音</button> · 内容版本 2026.10.23-1</span>
+<p>Learning Clustering · 整合已关闭 Clustering 提交 Module 02–09。原作者署名见<a href="../../credits/index.html">资源与贡献</a>。</p>
+<p><button class="btn quiet small" type="button" data-pref="reduceMotion">减少动态</button> <button class="btn quiet small" type="button" data-pref="sound">声音</button> · 内容版本 2026.10.23-1</p>
 </div></footer>
 <script type="module">import { initShell } from '../../assets/core.js'; initShell();</script>
-<script type="module" src="./lab.js"></script>
+<script type="module" src="../../modules/m04-size-constrained-agglomerative/lab.js"></script>
 </body>
 </html>

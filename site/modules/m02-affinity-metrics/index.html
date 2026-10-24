@@ -5,66 +5,71 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Module 02 亲和度指标 · Learning Clustering</title>
 <meta name="description" content="同一组电路单元，直接连线和共同邻居给出的“最亲近的一对”为什么不同：边权、共同邻居与 pin-count 三种评分。">
-<link rel="icon" href="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%2032%2032%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Ccircle%20cx%3D%229%22%20cy%3D%2211%22%20r%3D%225%22%20fill%3D%22%230f6b5c%22%2F%3E%3Ccircle%20cx%3D%2223%22%20cy%3D%229%22%20r%3D%224%22%20fill%3D%22%232f5e9e%22%2F%3E%3Ccircle%20cx%3D%2220%22%20cy%3D%2223%22%20r%3D%225%22%20fill%3D%22%238a6114%22%2F%3E%3Cpath%20d%3D%22M9%2011%2023%209M9%2011%2020%2023%22%20stroke%3D%22%2356625b%22%20stroke-width%3D%221.6%22%2F%3E%3Cpath%20d%3D%22M23%209%2020%2023%22%20stroke%3D%22%23a33b3b%22%20stroke-width%3D%221.6%22%20stroke-dasharray%3D%222.5%202%22%2F%3E%3C%2Fsvg%3E">
+<link rel="alternate" hreflang="zh-CN" href="../../modules/m02-affinity-metrics/index.html">
+<link rel="alternate" hreflang="en" href="../../en/modules/m02-affinity-metrics/index.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20viewBox%3D%220%200%2032%2032%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M9%2011%2023%209M9%2011%2020%2023%22%20stroke%3D%22%238b958e%22%20stroke-width%3D%221.3%22%2F%3E%3Cpath%20d%3D%22M23%209%2020%2023%22%20stroke%3D%22%23a33b3b%22%20stroke-width%3D%221.3%22%20stroke-dasharray%3D%222.2%202%22%2F%3E%3Ccircle%20cx%3D%229%22%20cy%3D%2211%22%20r%3D%224.6%22%20fill%3D%22%230f6b5c%22%2F%3E%3Ccircle%20cx%3D%2223%22%20cy%3D%229%22%20r%3D%223.6%22%20fill%3D%22%232f5e9e%22%2F%3E%3Ccircle%20cx%3D%2220%22%20cy%3D%2223%22%20r%3D%224.6%22%20fill%3D%22%23946a17%22%2F%3E%3C%2Fsvg%3E">
+<link rel="preload" href="../../assets/fonts/noto-serif-sc-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../../assets/course.css">
 </head>
 <body>
 <a class="skip" href="#main">跳到正文</a>
 <header class="topbar"><div class="wrap">
-<a class="brand" href="../../index.html"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="9" cy="11" r="5" fill="#0f6b5c"/><circle cx="23" cy="9" r="4" fill="#2f5e9e"/><circle cx="20" cy="23" r="5" fill="#8a6114"/><path d="M9 11 23 9M9 11 20 23" stroke="#56625b" stroke-width="1.6"/><path d="M23 9 20 23" stroke="#a33b3b" stroke-width="1.6" stroke-dasharray="2.5 2"/></svg><span>Learning Clustering<br><small>连接与分组 · Clustering for EDA</small></span></a>
+<a class="brand" href="../../index.html"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M9 11 23 9M9 11 20 23" stroke="#8b958e" stroke-width="1.3"/><path d="M23 9 20 23" stroke="#a33b3b" stroke-width="1.3" stroke-dasharray="2.2 2"/><circle cx="9" cy="11" r="4.6" fill="#0f6b5c"/><circle cx="23" cy="9" r="3.6" fill="#2f5e9e"/><circle cx="20" cy="23" r="4.6" fill="#946a17"/></svg><span class="brand-name">Learning Clustering</span><span class="brand-sub">连接与分组</span></a>
 <nav class="topnav" aria-label="课程"><a href="../../index.html">首页</a><a href="../../foundations/index.html">基础速查</a><a href="../../glossary/index.html">术语表</a><a href="../../guide/index.html">如何挑战</a><a href="../../credits/index.html">资源与贡献</a><a href="../../progress/index.html">学习记录</a></nav>
+<div class="lang-switch" role="group" aria-label="语言"><span aria-current="true">中文</span><a href="../../en/modules/m02-affinity-metrics/index.html" hreflang="en" lang="en" data-lang-link="en">EN</a></div>
 </div></header>
 
-<nav class="module-nav" aria-label="本模块"><div class="wrap"><a href="#goals">目标与问题</a><a href="#film">影片</a><a href="#lesson">讲解</a><a href="#slides">课件</a><a href="#lab">实验</a><a href="#challenges">挑战</a><a href="#python">Python</a><a href="#mistakes">易错与局限</a><a href="#sources">来源</a></div></nav>
+<nav class="module-nav" aria-label="本模块"><div class="wrap"><a href="#goals"><span>01</span>目标与问题</a><a href="#film"><span>02</span>影片</a><a href="#lesson"><span>03</span>讲解</a><a href="#slides"><span>04</span>课件</a><a href="#lab"><span>05</span>实验</a><a href="#challenges"><span>06</span>挑战</a><a href="#python"><span>07</span>Python</a><a href="#mistakes"><span>08</span>易错与局限</a><a href="#sources"><span>09</span>来源</a></div></nav>
 <main id="main">
+
 <section class="mod-hero"><div class="wrap">
-<div>
-<p class="eyebrow">Module 02 · Affinity metrics</p>
+<div class="mod-hero-text">
+<p class="eyebrow">Module 02 / Affinity metrics</p>
 <h1>亲和度指标</h1>
 <p class="sub">同一组电路单元，按“直接连线”和按“共同邻居”看，谁和谁最亲近的答案为什么不一样？</p>
-<div class="btn-row"><span class="tag">原作者 Capeur</span><span class="tag">来源 Issue #1</span><span class="tag ok">来源映射已核对</span></div>
+<p class="byline">原作者 Capeur · 来源 Issue #1 · 来源映射已核对</p>
 
 <nav class="pager" aria-label="上一模块与下一模块"><a href="../../index.html">← 课程首页</a><a href="../m03-greedy-pair-merge/index.html">Module 03 贪心成对合并 →</a></nav>
 </div>
 <aside class="factbox" aria-label="本模块概况"><dl>
 <dt>前置</dt><dd><a href="../../foundations/index.html">基础速查</a>：图、边权、net、簇。</dd>
 <dt>接下来</dt><dd>Module 03 用本章的“簇间边权和”执行合并。</dd>
-<dt>影片</dt><dd>3:21</dd>
+<dt>影片</dt><dd>3:10 + 1:53 + 2:44 + 2:44</dd>
 <dt>课件</dt><dd>12 页，16:9，含页码</dd>
-<dt>挑战</dt><dd>7 题（[概念][推演][探索][实现][应用]）</dd>
-<dt>Python</dt><dd>下载练习包，本地运行（网页不运行 Python）</dd>
+<dt>挑战</dt><dd>7 题 · [概念] [推演] [探索] [实现] [应用]</dd>
+<dt>Python</dt><dd>在浏览器里直接写、直接运行</dd>
 </dl></aside>
 </div></section>
 
 <section class="section" id="goals"><div class="wrap">
-<div class="section-head"><div><p class="eyebrow">目标与问题</p><h2>这一模块要解决什么</h2></div><p>先看问题和成功标准，再看算法。每个目标后面的链接指向讲它的地方。</p></div>
-<p class="review"><b>复习卡</b> · 上一层基础：图的节点是单元，边权越大越希望放在一起；一个 net 可以连三个以上的单元。<a href="../../foundations/index.html">基础速查</a></p>
-<div class="grid-2"><div><h3 style="margin-top:0">学习目标</h3><ol class="objectives"><li id="obj-o1">说清评分（排名）和分组（partition）的区别，以及亲和度不是距离或概率。<span class="links"><a href="#m02-why">为什么要先给“一对单元”打分</a> · <a href="#challenge-c1">[概念] 评分不是分组</a></span></li><li id="obj-o2">手算直接边权评分，并按 (分数降序, u, v) 给出与输入顺序无关的稳定排名。<span class="links"><a href="#m02-edge">第一种评分：直接边权</a> · <a href="#challenge-c5">[实现] 手工排出稳定排名</a></span></li><li id="obj-o3">把共同邻居评分拆成“直接边 + 每个共同邻居的较弱边”，包括没有直接连线的节点对。<span class="links"><a href="#m02-shared">第二种评分：共同邻居</a> · <a href="#challenge-c2">[推演] 没有直接边也能评分</a> · <a href="#challenge-c3">[推演] 把 A–C 拆开</a></span></li><li id="obj-o4">解释为什么换一种评分，第一对要合并的单元会改变（priority 图 X–Y@5 与 P–Q@8）。<span class="links"><a href="#m02-priority">换一种评分，第一对就变了</a> · <a href="#challenge-c4">[探索] 换一种评分，第一对是谁</a> · <a href="#challenge-c6">[探索] 让 X–Y 重新排第一</a></span></li><li id="obj-o5">用 clique 模型的 pin-count 处理宽 net：每对得到 w/(|e|−1)，私有的两引脚 net 胜过两条 5 引脚宽 net。<span class="links"><a href="#m02-pincount">宽 net 的稀释：pin-count</a> · <a href="#challenge-c7">[应用] 宽 net 的稀释</a></span></li><li id="obj-o6">逐行读懂伪代码，并在 Python 中实现三种评分。<span class="links"><a href="#m02-pseudocode">逐行读懂伪代码</a> · <a href="#python">Python</a></span></li></ol></div>
-<div><h3 style="margin-top:0">问题定义</h3><div class="problem" style="grid-template-columns:1fr 1fr"><div><b>输入</b><p>带权无向图（节点、边权），或多引脚网表（每个 net 是一组引脚和权重）。</p></div><div><b>输出</b><p>所有正分节点对的列表 (u, v, score)，u &lt; v，按分数降序、再按 u、v 字典序排列。</p></div><div><b>目标</b><p>在一个<strong>明确声明</strong>的模型下量化“这一对有多该放在一起”。</p></div><div><b>约束</b><p>不允许自环和重复边；同一 net 内重复的引脚只算一次；少于两个不同引脚的 net 忽略。</p></div><div><b>假设</b><p>边权非负、表示连接强度；共同邻居经过 x 的贡献取 min(w(u,x), w(v,x))；clique 模型把一个 net 摊给 |e|−1 份。</p></div><div><b>停止 / 完成</b><p>每个无序节点对都检查过一次即完成。本模块<strong>不输出分组</strong>；分组从 Module 03 开始。</p></div></div></div></div>
+<div class="section-head"><div><p class="eyebrow"><span class="eyebrow-no">01</span> / 目标与问题</p><h2>这一模块要解决什么</h2></div><p>先看问题和成功标准，再看算法。每个目标后面的链接指向讲它的地方。</p></div>
+<p class="review"><b>复习</b>上一层基础：图的节点是单元，边权越大越希望放在一起；一个 net 可以连三个以上的单元。<a href="../../foundations/index.html">基础速查</a></p>
+<div class="grid-2 goals"><div><h3>学习目标</h3><ol class="objectives"><li id="obj-o1">说清评分（排名）和分组（partition）的区别，以及亲和度不是距离或概率。<span class="links"><a href="#m02-why">为什么要先给“一对单元”打分</a> · <a href="#challenge-c1">[概念] 评分不是分组</a></span></li><li id="obj-o2">手算直接边权评分，并按 (分数降序, u, v) 给出与输入顺序无关的稳定排名。<span class="links"><a href="#m02-edge">第一种评分：直接边权</a> · <a href="#challenge-c5">[实现] 手工排出稳定排名</a></span></li><li id="obj-o3">把共同邻居评分拆成“直接边 + 每个共同邻居的较弱边”，包括没有直接连线的节点对。<span class="links"><a href="#m02-shared">第二种评分：共同邻居</a> · <a href="#challenge-c2">[推演] 没有直接边也能评分</a> · <a href="#challenge-c3">[推演] 把 A–C 拆开</a></span></li><li id="obj-o4">解释为什么换一种评分，第一对要合并的单元会改变（priority 图 X–Y@5 与 P–Q@8）。<span class="links"><a href="#m02-priority">换一种评分，第一对就变了</a> · <a href="#challenge-c4">[探索] 换一种评分，第一对是谁</a> · <a href="#challenge-c6">[探索] 让 X–Y 重新排第一</a></span></li><li id="obj-o5">用 clique 模型的 pin-count 处理宽 net：每对得到 w/(|e|−1)，私有的两引脚 net 胜过两条 5 引脚宽 net。<span class="links"><a href="#m02-pincount">宽 net 的稀释：pin-count</a> · <a href="#challenge-c7">[应用] 宽 net 的稀释</a></span></li><li id="obj-o6">逐行读懂伪代码，并在 Python 中实现三种评分。<span class="links"><a href="#m02-pseudocode">逐行读懂伪代码</a> · <a href="#python">Python</a></span></li></ol></div>
+<div><h3>问题定义</h3><div class="problem"><div><b>输入</b><p>带权无向图（节点、边权），或多引脚网表（每个 net 是一组引脚和权重）。</p></div><div><b>输出</b><p>所有正分节点对的列表 (u, v, score)，u &lt; v，按分数降序、再按 u、v 字典序排列。</p></div><div><b>目标</b><p>在一个<strong>明确声明</strong>的模型下量化“这一对有多该放在一起”。</p></div><div><b>约束</b><p>不允许自环和重复边；同一 net 内重复的引脚只算一次；少于两个不同引脚的 net 忽略。</p></div><div><b>假设</b><p>边权非负、表示连接强度；共同邻居经过 x 的贡献取 min(w(u,x), w(v,x))；clique 模型把一个 net 摊给 |e|−1 份。</p></div><div><b>停止 / 完成</b><p>每个无序节点对都检查过一次即完成。本模块<strong>不输出分组</strong>；分组从 Module 03 开始。</p></div></div></div></div>
 </div></section>
 
 <section class="section dark" id="film"><div class="wrap">
-<div class="section-head"><div><p class="eyebrow">影片 · 二维科普短片</p><h2>谁和谁最亲近</h2></div><p>影片先让你预测 priority 图的第一对，再把共同邻居的贡献一项项叠起来。每个分数都来自本页同一个引擎。</p></div>
+<div class="section-head"><div><p class="eyebrow"><span class="eyebrow-no">02</span> / 影片</p><h2>四部影片</h2></div><p>科普片从群聊讲起：按共同群聊数，你最亲近的人竟是老板；再到芯片，讲清三种评分。精讲片两分钟讲清必须掌握的内容；进阶片讲为什么取 min、枢纽问题、枚举代价、pin-count 守恒什么和平票规则；实验演示从真实页面录下，带你做一遍实验和在线编程。每个分数都来自本页同一个引擎。</p></div>
 <div id="film-root"><p class="muted">正在载入影片…</p></div>
 </div></section>
 
 <section class="section" id="lesson"><div class="wrap">
-<div class="section-head"><div><p class="eyebrow">讲解 · 由浅入深</p><h2>从例子到伪代码</h2></div><p>章节编号与影片章节、课件页对应；完整对应表见本页末尾的 crosswalk。</p></div>
-<nav class="btn-row" aria-label="讲解小节" style="margin-bottom:24px"><a class="btn small" href="#m02-why">1. 为什么要先给“一对单元”打分</a> <a class="btn small" href="#m02-edge">2. 第一种评分：直接边权</a> <a class="btn small" href="#m02-shared">3. 第二种评分：共同邻居</a> <a class="btn small" href="#m02-priority">4. 换一种评分，第一对就变了</a> <a class="btn small" href="#m02-pincount">5. 宽 net 的稀释：pin-count</a> <a class="btn small" href="#m02-pseudocode">6. 逐行读懂伪代码</a> <a class="btn small" href="#m02-application">7. 回到芯片：评分选择的工程含义</a></nav>
-<div class="prose"><section class="lesson-part" aria-labelledby="m02-why"><h3 id="m02-why"><span class="eyebrow" style="display:block;margin:0">第 1 节</span>为什么要先给“一对单元”打分</h3><p>聚类的第一个问题不是“怎么分”，而是“谁和谁更该在一起”。如果能给每一对单元一个分数，后面的合并算法（Module 03）就有了依据：先合并分数最高的那一对。</p>
-<div class="terms"><div class="term" id="term-affinity"><h4>亲和度</h4><span class="en">affinity</span><p>在<strong>一个明确声明的模型</strong>下，衡量一对节点（或一对簇）“应该放在一起”程度的分数。分数越高越该在一起。</p></div><div class="term" id="term-scoring-ranking"><h4>评分与排名</h4><span class="en">scoring / ranking</span><p>本章的输出：所有节点对按分数从高到低排成的列表。它<strong>不是</strong>分组。</p></div><div class="term" id="term-net"><h4>信号网</h4><span class="en">net</span><p>一个信号连接的全部引脚。普通的边只有两端，一个 net 可以有三个、五个甚至更多端点。</p></div></div>
+<div class="section-head"><div><p class="eyebrow"><span class="eyebrow-no">03</span> / 讲解 · 由浅入深</p><h2>从例子到伪代码</h2></div><p>章节编号与影片章节、课件页对应；完整对应表见本页末尾的 crosswalk。</p></div>
+<div class="lesson-layout"><nav class="lesson-toc" aria-label="讲解小节"><a href="#m02-why"><span>01</span>为什么要先给“一对单元”打分</a><a href="#m02-edge"><span>02</span>第一种评分：直接边权</a><a href="#m02-shared"><span>03</span>第二种评分：共同邻居</a><a href="#m02-priority"><span>04</span>换一种评分，第一对就变了</a><a href="#m02-pincount"><span>05</span>宽 net 的稀释：pin-count</a><a href="#m02-pseudocode"><span>06</span>逐行读懂伪代码</a><a href="#m02-application"><span>07</span>回到芯片：评分选择的工程含义</a></nav>
+<div class="prose"><section class="lesson-part" aria-labelledby="m02-why"><h3 id="m02-why"><span class="part-no">§ 1</span>为什么要先给“一对单元”打分</h3><p>聚类的第一个问题不是“怎么分”，而是“谁和谁更该在一起”。如果能给每一对单元一个分数，后面的合并算法（Module 03）就有了依据：先合并分数最高的那一对。</p>
+<div class="terms"><div class="term" id="term-affinity"><h4>亲和度</h4><span class="en" lang="en">affinity</span><p>在<strong>一个明确声明的模型</strong>下，衡量一对节点（或一对簇）“应该放在一起”程度的分数。分数越高越该在一起。</p></div><div class="term" id="term-scoring-ranking"><h4>评分与排名</h4><span class="en" lang="en">scoring / ranking</span><p>本章的输出：所有节点对按分数从高到低排成的列表。它<strong>不是</strong>分组。</p></div><div class="term" id="term-net"><h4>信号网</h4><span class="en" lang="en">net</span><p>一个信号连接的全部引脚。普通的边只有两端，一个 net 可以有三个、五个甚至更多端点。</p></div></div>
 <p>同一组单元可以用不同的模型来描述连接：</p>
 <ul><li><strong>图（graph）</strong>：每条边连接两个单元，边权表示连接强度。本课程的公共图 G01 就是这样。</li><li><strong>网表（netlist）</strong>：每个 net 是一组引脚。时钟、复位这类信号一条 net 可能连上千个单元。</li></ul>
 <div class="callout warn"><strong>评分不是分组</strong><p>排名第一的 A–B 并不意味着 A 和 B “已经在同一个簇里”。本章只回答“如果要合并，先合并谁”。真正的合并、停止条件和簇数，从 Module 03 开始。也不是所有聚类算法都靠“最高分的一对”：标签传播、谱二分、KL/FM 用的是完全不同的机制。</p></div></section>
-<section class="lesson-part" aria-labelledby="m02-edge"><h3 id="m02-edge"><span class="eyebrow" style="display:block;margin:0">第 2 节</span>第一种评分：直接边权</h3><p>最直接的想法：两个单元之间的边权就是它们的分数。</p>
+<section class="lesson-part" aria-labelledby="m02-edge"><h3 id="m02-edge"><span class="part-no">§ 2</span>第一种评分：直接边权</h3><p>最直接的想法：两个单元之间的边权就是它们的分数。</p>
 <blockquote class="callout"><p><strong>edge(u, v) = w(u, v)</strong>；没有直接边的节点对没有分数。</p></blockquote>
 <p>在 G01 上，6 条边就是 6 对：</p>
 <table><thead><tr><th>排名</th><th>节点对</th><th>分数</th></tr></thead><tbody><tr><td>1</td><td>A–B</td><td>5</td></tr><tr><td>2</td><td>D–E</td><td>5</td></tr><tr><td>3</td><td>B–C</td><td>4</td></tr><tr><td>4</td><td>C–D</td><td>2</td></tr><tr><td>5</td><td>A–C</td><td>1</td></tr><tr><td>6</td><td>C–E</td><td>1</td></tr></tbody></table>
 <p>A–B 和 D–E 都是 5，谁排前面？如果只按分数排序，并列项的先后取决于输入顺序——把边倒过来输入，结果就变了。所以本课程固定一条<strong>稳定排名</strong>规则：</p>
 <blockquote class="callout"><p>先按分数降序；分数相同时按 u 的字典序，再按 v 的字典序（每对都写成 u &lt; v）。</p></blockquote>
 <p>于是 A–B 排在 D–E 前面，A–C 排在 C–E 前面，无论边按什么顺序给出。</p></section>
-<section class="lesson-part" aria-labelledby="m02-shared"><h3 id="m02-shared"><span class="eyebrow" style="display:block;margin:0">第 3 节</span>第二种评分：共同邻居</h3><p>直接边权只看“你我之间有没有线”。可是如果 u 和 v 都和同一个单元 x 紧密相连，它们放在一起通常也更好——因为 x 只能在一个组里。</p>
-<div class="terms"><div class="term" id="term-common-neighbour"><h4>共同邻居</h4><span class="en">common neighbour</span><p>同时与 u 和 v 直接相连的节点 x。</p></div></div>
+<section class="lesson-part" aria-labelledby="m02-shared"><h3 id="m02-shared"><span class="part-no">§ 3</span>第二种评分：共同邻居</h3><p>直接边权只看“你我之间有没有线”。可是如果 u 和 v 都和同一个单元 x 紧密相连，它们放在一起通常也更好——因为 x 只能在一个组里。</p>
+<div class="terms"><div class="term" id="term-common-neighbour"><h4>共同邻居</h4><span class="en" lang="en">common neighbour</span><p>同时与 u 和 v 直接相连的节点 x。</p></div></div>
 <blockquote class="callout"><p><strong>shared(u, v) = w(u, v) + Σ₍ₓ₎ min(w(u, x), w(v, x))</strong>，x 取遍 u 和 v 的共同邻居。</p></blockquote>
 <p>为什么取 <strong>min</strong>？经过 x 的“间接联系”只能和两条边中较弱的那条一样强：A 和 C 都连着 B，但 B–C 只有 4，所以经 B 这条路最多贡献 4。</p>
 <p><strong>手算 A–C</strong>：直接边 1；共同邻居只有 B，min(w(A,B), w(C,B)) = min(5, 4) = 4。合计 <strong>5</strong>。</p>
@@ -72,12 +77,12 @@
 <div class="callout mistake"><strong>最常见的遗漏</strong><p>如果只在“已有的边”上计算共同邻居分，就会漏掉 B–D、A–D、A–E、B–E 这些没有直接连线的节点对。共同邻居评分必须检查<strong>所有</strong>无序节点对：G01 有 5×4/2 = 10 对，10 对都有正分。这并不是凭空新增了导线——图上的边没有变，变的只是我们给这一对的分数。</p></div>
 <p>完整排名（共同邻居）：</p>
 <table><thead><tr><th>节点对</th><th>直接</th><th>经共同邻居</th><th>分数</th></tr></thead><tbody><tr><td>A–B</td><td>5</td><td>经 C：min(1, 4) = 1</td><td>6</td></tr><tr><td>D–E</td><td>5</td><td>经 C：min(2, 1) = 1</td><td>6</td></tr><tr><td>A–C</td><td>1</td><td>经 B：min(5, 4) = 4</td><td>5</td></tr><tr><td>B–C</td><td>4</td><td>经 A：min(5, 1) = 1</td><td>5</td></tr><tr><td>C–D</td><td>2</td><td>经 E：min(1, 5) = 1</td><td>3</td></tr><tr><td>C–E</td><td>1</td><td>经 D：min(2, 5) = 2</td><td>3</td></tr><tr><td>B–D</td><td>0</td><td>经 C：min(4, 2) = 2</td><td>2</td></tr><tr><td>A–D</td><td>0</td><td>经 C：min(1, 2) = 1</td><td>1</td></tr><tr><td>A–E</td><td>0</td><td>经 C：min(1, 1) = 1</td><td>1</td></tr><tr><td>B–E</td><td>0</td><td>经 C：min(4, 1) = 1</td><td>1</td></tr></tbody></table></section>
-<section class="lesson-part" aria-labelledby="m02-priority"><h3 id="m02-priority"><span class="eyebrow" style="display:block;margin:0">第 4 节</span>换一种评分，第一对就变了</h3><p>原作者 Capeur 设计了一张很有说服力的小图（priority graph）：一个紧密的三角形 P、Q、R，每条边 4；旁边单独一对 X–Y，边权 5。</p>
+<section class="lesson-part" aria-labelledby="m02-priority"><h3 id="m02-priority"><span class="part-no">§ 4</span>换一种评分，第一对就变了</h3><p>原作者 Capeur 设计了一张很有说服力的小图（priority graph）：一个紧密的三角形 P、Q、R，每条边 4；旁边单独一对 X–Y，边权 5。</p>
 <p><strong>先预测</strong>：如果下一步要合并“最亲近的一对”，你会选哪一对？</p>
 <ul><li>按<strong>直接边权</strong>：X–Y = 5 最大，第一对是 <strong>X–Y@5</strong>。</li><li>按<strong>共同邻居</strong>：P–Q = 4 + min(4, 4)（经 R）= <strong>8</strong>；P–R、Q–R 同样是 8；X–Y 没有共同邻居，仍是 5。三对 8 分并列，按稳定排名取 <strong>P–Q@8</strong>。</li></ul>
 <p>两个模型回答的是不同的问题：直接边权只看这两个单元之间的线；共同邻居还看它们是否属于同一个紧密的“小团体”。三角形的三个单元彼此都连着，把 P、Q 先放在一起，后面再加入 R 很自然；X–Y 虽然单线更粗，却和其余单元毫无关系。</p>
 <div class="callout note"><strong>这是模型选择，不是对错</strong><p>两种结果都是“按各自规则正确计算”的。本章的要求是：<strong>写明用哪种评分</strong>，并能说出换评分后为什么结果变了。不能在同一次运行中途悄悄更换模型。</p></div></section>
-<section class="lesson-part" aria-labelledby="m02-pincount"><h3 id="m02-pincount"><span class="eyebrow" style="display:block;margin:0">第 5 节</span>宽 net 的稀释：pin-count</h3><p>回到网表。原作者的 tiny netlist 有 6 个单元：两条 5 引脚的宽 net（enable、reset）都连着 A–E，另有一条私有的两引脚 net 只连 E、F。</p>
+<section class="lesson-part" aria-labelledby="m02-pincount"><h3 id="m02-pincount"><span class="part-no">§ 5</span>宽 net 的稀释：pin-count</h3><p>回到网表。原作者的 tiny netlist 有 6 个单元：两条 5 引脚的宽 net（enable、reset）都连着 A–E，另有一条私有的两引脚 net 只连 E、F。</p>
 <p>如果只数“有几条 net 同时连着这一对”，A–B 出现在 enable 和 reset 里，得 2 分；E–F 只出现在 n1 里，得 1 分。可是 enable 同时连着 10 对单元，它对“A 和 B 特别该在一起”几乎说明不了什么；而 n1 是 E、F 专属的线。</p>
 <p><strong>clique 模型</strong>把一个有 |e| 个引脚的 net 看作所有两两之间的“示意连接”，并把它的权重摊成 |e| − 1 份：</p>
 <blockquote class="callout"><p><strong>pin-count(u, v) = Σ₍ₑ ∋ u, v₎ w(e) / (|e| − 1)</strong></p></blockquote>
@@ -85,70 +90,69 @@
 <p>于是 E–F 排第一，A–B 退到 0.5。图上为 5 引脚 net 画出的那些两两连线只是<strong>示意贡献</strong>，不是芯片上真的新增了导线。</p>
 <p>两个实现细节要明确写出来（本课程的约定）：</p>
 <ul><li>同一 net 里重复写出的引脚只算一次（<code>pins: [A, A, B]</code> 当作 2 个引脚）。</li><li>少于两个不同引脚的 net 不产生任何节点对，直接忽略。</li></ul></section>
-<section class="lesson-part" aria-labelledby="m02-pseudocode"><h3 id="m02-pseudocode"><span class="eyebrow" style="display:block;margin:0">第 6 节</span>逐行读懂伪代码</h3><p>下面是共同邻居评分的伪代码。点击任一行看解释；在实验里逐步播放时，当前执行到的行会自动高亮。</p>
+<section class="lesson-part" aria-labelledby="m02-pseudocode"><h3 id="m02-pseudocode"><span class="part-no">§ 6</span>逐行读懂伪代码</h3><p>下面是共同邻居评分的伪代码。点击任一行看解释；在实验里逐步播放时，当前执行到的行会自动高亮。</p>
 <div class="pseudo" data-pseudo="shared"><ol aria-label="伪代码"><li data-line="1" data-note="遍历所有无序节点对，包括没有直接连线的对；n 个节点共 n(n−1)/2 对。">for each unordered pair (u, v) with u &lt; v:</li><li data-line="2" data-note="先放入直接边权；没有边就从 0 开始，而不是跳过这一对。">    score ← w(u, v)   (0 if no edge)</li><li data-line="3" data-note="只看共同邻居 x：x 必须同时出现在 u 和 v 的邻接表里。">    for each x adjacent to both u and v:</li><li data-line="4" data-note="经过 x 的间接联系按较弱的那条边计：一条链只和它最弱的一环一样强。">        score ← score + min(w(u, x), w(v, x))</li><li data-line="5" data-note="本课程只列正分对（零分对没有任何联系，这是声明过的策略）。">    if score &gt; 0: append (u, v, score)</li><li data-line="6" data-note="稳定排名：分数降序，平票按名字；与输入顺序无关。">sort list by (−score, u, v)</li><li data-line="7" data-note="输出是排名，不是分组。合并由 Module 03 完成。">return list</li></ol><div class="explain"><p class="muted">点击任一行看解释；在实验中单步时，当前执行的行会自动高亮。</p></div></div>
 <p>直接边权只需第 2 行和第 6 行；pin-count 把第 1–4 行换成“对每个 net，把 w/(|e|−1) 加到它的每一对引脚上”。</p>
 <p><strong>和 Python 函数的对应</strong>：第 1–5 行 → <code>affinity_shared_neighbors(nodes, edges)</code> 的双重循环；第 6 行 → 已提供的 <code>_rank()</code>；pin-count → <code>affinity_pin_count(nodes, nets)</code>。</p></section>
-<section class="lesson-part" aria-labelledby="m02-application"><h3 id="m02-application"><span class="eyebrow" style="display:block;margin:0">第 7 节</span>回到芯片：评分选择的工程含义</h3><p>在 EDA 中，评分决定了“先把谁粘在一起”。连接多的单元先合并，可以减少跨区域的长连线。但评分只是一个模型：</p>
+<section class="lesson-part" aria-labelledby="m02-application"><h3 id="m02-application"><span class="part-no">§ 7</span>回到芯片：评分选择的工程含义</h3><p>在 EDA 中，评分决定了“先把谁粘在一起”。连接多的单元先合并，可以减少跨区域的长连线。但评分只是一个模型：</p>
 <ul><li><strong>边权从哪里来</strong>要说清楚：可以是两单元之间的连线数量、信号的重要性，也可以由多引脚 net 转换而来。本课程的小图都是<strong>教学用的虚构数值</strong>，不是某个真实芯片的测量。</li><li><strong>宽 net 需要稀释</strong>：时钟、复位这类高扇出 net 几乎连着所有单元，如果不摊薄，它们会让所有单元看起来“同样亲近”，掩盖真正的局部结构。</li><li><strong>共同邻居</strong>能发现紧密的小团体，但计算量更大，也可能把只是“共享一个大枢纽”的单元评得过高。</li></ul>
-<p>下一步，Module 03 选定“簇之间的边权和”作为亲和度，开始真正的合并。</p></section></div>
+<p>下一步，Module 03 选定“簇之间的边权和”作为亲和度，开始真正的合并。</p></section></div></div>
 </div></section>
 
 <section class="section" id="slides"><div class="wrap">
-<div class="section-head"><div><p class="eyebrow">课件 · 带页码与讲稿</p><h2>课堂课件</h2></div><p>页码与 PDF 完全一致；当前页的讲稿在幻灯片下方，不遮挡图。</p></div>
+<div class="section-head"><div><p class="eyebrow"><span class="eyebrow-no">04</span> / 课件 · 带页码与讲稿</p><h2>课堂课件</h2></div><p>页码与 PDF 完全一致；当前页的讲稿在幻灯片下方，不遮挡图。</p></div>
 <div id="slides-root"><p class="muted">正在载入课件…</p></div>
 </div></section>
 
 <section class="section dark" id="lab"><div class="wrap">
-<div class="section-head"><div><p class="eyebrow">实验 · 浏览器内实时计算</p><h2>三种评分，同一张图</h2></div><p>切换评分方式、改一条边的权重，排名立即由引擎重算。逐步播放会按排名顺序揭示每一对的分数来源。</p></div>
+<div class="section-head"><div><p class="eyebrow"><span class="eyebrow-no">05</span> / 实验 · 浏览器内实时计算</p><h2>三种评分，同一张图</h2></div><p>切换评分方式、改一条边的权重，排名立即由引擎重算。逐步播放会按排名顺序揭示每一对的分数来源。</p></div>
 <div id="lab-root" tabindex="-1"><p class="muted">正在载入实验…（需要通过 HTTP 打开页面；直接双击 HTML 时浏览器会阻止模块脚本。）</p></div>
 </div></section>
 
 <section class="section" id="challenges"><div class="wrap">
-<div class="section-head"><div><p class="eyebrow">挑战 · 由易到难</p><h2>分组挑战</h2></div><p>类别写在方括号里，难度单独标注。答案由引擎或明确规则判定；看答案不扣分，记录会如实区分。</p></div>
-<p class="ch-guide">第一次用？先读<a href="../../guide/index.html">如何挑战</a>：读任务 → 预测 → 操作 → 提交 → 看解释 → 再试。本章的[实现]题需要手工排序：用每行的 ↑ ↓ 调整顺序。</p>
+<div class="section-head"><div><p class="eyebrow"><span class="eyebrow-no">06</span> / 挑战 · 由易到难</p><h2>分组挑战</h2></div><p>类别写在方括号里，难度单独标注。答案由引擎或明确规则判定；看答案不扣分，记录会如实区分。</p></div>
+<p class="ch-guide">第一次用？先读<a href="../../guide/index.html">如何挑战</a>：读任务 → 预测 → 操作 → 提交 → 看解释 → 再试。 本章的[实现]题需要手工排序：用每行的 ↑ ↓ 调整顺序。</p>
 <div class="ch-list" id="challenge-root"><p class="muted">正在载入挑战…</p></div>
 </div></section>
 
 <section class="section" id="python"><div class="wrap">
-<div class="section-head"><div><p class="eyebrow">Python 实现轨道 · 可选</p><h2>实现三种评分</h2></div><p>网页基础轨道不需要 Python。下载后在任意空目录运行；只用标准库。</p></div>
-<div class="grid-2"><div class="prose"><p><strong>任务</strong>（<code>starter.py</code> 中三个 <code>TODO</code>）：</p>
+<div class="section-head"><div><p class="eyebrow"><span class="eyebrow-no">07</span> / 在线编程 · 在浏览器里运行 Python</p><h2>实现三种评分</h2></div><p>不用安装任何东西：Python 在你的浏览器里运行（Pyodide），代码只保存在本机。检查器与下载包里的 check.py 完全相同。</p></div>
+<div class="grid-2 cl-intro"><div class="prose"><p><strong>任务</strong>（<code>starter.py</code> 中三个 <code>TODO</code>）：</p>
 <ol><li><code>affinity_edge_weight(edges)</code>：直接边权。</li><li><code>affinity_shared_neighbors(nodes, edges)</code>：检查所有无序节点对，只列正分。</li><li><code>affinity_pin_count(nodes, nets)</code>：clique 模型，重复引脚只算一次。</li></ol>
 <p>三个函数都返回 <code>[(u, v, score), ...]</code>，u &lt; v，按 (分数降序, u, v) 排序。</p>
 <p><strong>提示一</strong>：先写出“所有无序节点对”的双重循环，再决定每一对加什么。</p>
 <p><strong>提示二</strong>：共同邻居是同时出现在 u 和 v 邻接表中的 x；它贡献 <code>min(w(u,x), w(v,x))</code>。检查器还会用一张新图测试，不能只记住五节点答案。</p></div>
-<div><div class="py-files"><div><code>starter.py</code><br>起始代码：留有 TODO</div><div><code>check.py</code><br>检查器：未完成报 INCOMPLETE，不算 PASS</div><div><code>reference.py</code><br>参考实现：卡住时再看</div><div><code>fixtures/</code><br>本章例子的 JSON</div><div><code>README.md</code><br>任务、两级提示与样例</div></div>
-<p><a class="btn primary" href="../../downloads/m02-affinity-metrics-python.zip" download>下载练习包（.zip）</a></p>
-<pre><code>python3 check.py              # 检查你的 starter.py
-python3 check.py reference.py # 看参考实现全部通过</code></pre></div></div>
+<div class="cl-howto"><h3>怎么用</h3><ol><li>在编辑器里补全标着 TODO 的函数。</li><li>按 <b>运行检查</b>（Ctrl/⌘ + Enter）：每一项给出 PASS、FAIL 或 INCOMPLETE。</li><li>全部通过后，在下方用<b>你自己的</b>函数跑一遍例子，逐步对照课程引擎。</li></ol>
+<p class="small muted">第一次运行会下载约 12 MB 的 Python 运行环境，之后由浏览器缓存。想离线做？ <a href="../../downloads/m02-affinity-metrics-python.zip" download>下载练习包（.zip）</a></p></div></div>
+<div id="codelab-root" class="cl-root"><p class="muted">正在载入在线编程…</p></div>
 </div></section>
 
 <section class="section" id="mistakes"><div class="wrap">
-<div class="section-head"><div><p class="eyebrow">常见错误与局限</p><h2>容易错在哪里</h2></div><p>每条都给错误结果、错因、反例和修正；反例的数值都由测试复算。</p></div>
+<div class="section-head"><div><p class="eyebrow"><span class="eyebrow-no">08</span> / 常见错误与局限</p><h2>容易错在哪里</h2></div><p>每条都给错误结果、错因、反例和修正；反例的数值都由测试复算。</p></div>
 <div class="mistakes"><article class="mistake"><h4>只给有直接连线的节点对打共同邻居分</h4><dl><dt>错误结果</dt><dd>五节点图只列出 6 对，B–D 不见了。</dd><dt>错因</dt><dd>共同邻居评分要检查<strong>所有</strong>无序节点对；没有直接边的对也可能有共同邻居。</dd><dt>反例 / 证据</dt><dd>B–D 没有直接连线，但共同邻居 C 让它得到 min(4, 2) = 2；完整列表有 10 对。</dd><dt>修正</dt><dd>双重循环遍历所有 u &lt; v，再查共同邻居。</dd></dl></article><article class="mistake"><h4>以为“所有聚类算法都先合并最高分的一对”</h4><dl><dt>错误结果</dt><dd>把本章的排名当成所有后续模块的共同第一步。</dd><dt>错因</dt><dd>评分只是一种模型的输出。标签传播按邻居投票改标签，谱二分用特征向量排序，KL/FM 交换或移动节点——它们都不按“最高分对”合并。</dd><dt>反例 / 证据</dt><dd>Module 05 第一轮里 A 先采用 B 的标签，并没有任何“合并一对”的动作。</dd><dt>修正</dt><dd>说“贪心合并（Module 03）使用最高亲和度的一对”，而不是推广到所有算法。</dd></dl></article><article class="mistake"><h4>宽 net 不摊薄，按出现次数计分</h4><dl><dt>错误结果</dt><dd>两条 5 引脚 net（enable、reset）让 A–B 得 2 分，胜过私有 net 的 E–F（1 分）。</dd><dt>错因</dt><dd>一条 5 引脚 net 同时连着 10 对单元，每一对的“专属程度”远低于一条只连 E、F 的 net。</dd><dt>反例 / 证据</dt><dd>pin-count：A–B = 1/4 + 1/4 = 0.5，E–F = 1/(2−1) = 1，排名第一变成 E–F。</dd><dt>修正</dt><dd>声明使用 clique 模型并把权重除以 |e|−1；不要把它说成唯一正确的模型。</dd></dl></article><article class="mistake"><h4>平票时顺序取决于输入</h4><dl><dt>错误结果</dt><dd>把边倒过来输入，A–B 与 D–E 的先后就变了。</dd><dt>错因</dt><dd>只按分数排序时，并列项的顺序取决于排序前的顺序。</dd><dt>反例 / 证据</dt><dd>A–B 与 D–E 都是 5（直接边权）或 6（共同邻居）。</dd><dt>修正</dt><dd>排序键用 (−score, u, v)，并要求每对写成 u &lt; v。</dd></dl></article><article class="mistake"><h4>把亲和度当成距离或概率</h4><dl><dt>错误结果</dt><dd>说“A–B 的亲和度 6 比 B–D 的 2 近三倍”或“A–B 有 60% 可能在同组”。</dd><dt>错因</dt><dd>亲和度是一个模型给出的排序分数，换模型数值就变；它不满足距离的三角不等式，也不是概率。</dd><dt>反例 / 证据</dt><dd>同一对 A–B，直接边权是 5、共同邻居是 6、在 pin-count 网表里又是另一套数。</dd><dt>修正</dt><dd>只比较同一模型下的大小顺序，并写明用的是哪种评分。</dd></dl></article></div>
-<div class="prose" style="margin-top:26px"><h3>适用范围与局限</h3><ul><li>评分的选择会改变后续合并的结果。本章三种评分都是教学中常用的简单模型，不是唯一或“最好”的通用亲和度；真实工具可能还考虑时序、面积、物理距离。</li><li>共同邻居评分要检查所有节点对，朴素做法对 n 个节点约有 n(n−1)/2 对；大规模网表需要只沿邻接关系枚举。</li><li>clique 模型是对多引脚 net 的近似：它把一个 net 画成两两之间的“示意贡献”，并不存在这些物理导线。</li><li>本章不输出分组；把排名转成簇需要 Module 03 的合并规则。</li></ul></div>
+<div class="prose limits"><h3>适用范围与局限</h3><ul><li>评分的选择会改变后续合并的结果。本章三种评分都是教学中常用的简单模型，不是唯一或“最好”的通用亲和度；真实工具可能还考虑时序、面积、物理距离。</li><li>共同邻居评分要检查所有节点对，朴素做法对 n 个节点约有 n(n−1)/2 对；大规模网表需要只沿邻接关系枚举。</li><li>clique 模型是对多引脚 net 的近似：它把一个 net 画成两两之间的“示意贡献”，并不存在这些物理导线。</li><li>本章不输出分组；把排名转成簇需要 Module 03 的合并规则。</li></ul></div>
 </div></section>
 
 <section class="section" id="sources"><div class="wrap">
-<div class="section-head"><div><p class="eyebrow">资料与原作者</p><h2>来源</h2></div><p>本模块在统一课程中重写了讲解、引擎与媒体；原作的贡献在此署名，未复制无许可的源代码或音轨。</p></div>
+<div class="section-head"><div><p class="eyebrow"><span class="eyebrow-no">09</span> / 资料与原作者</p><h2>来源</h2></div><p>本模块在统一课程中重写了讲解、引擎与媒体；原作的贡献在此署名。第三方音乐只在作者指定的影片里使用，并单独注明不在本课程许可范围内。</p></div>
 <div class="grid-2"><div class="prose">
-<h3 style="margin-top:0">原作者与保留的贡献</h3>
+<h3>原作者与保留的贡献</h3>
 <p><strong>Capeur</strong> · <a href="https://capeur.github.io/eda-clustering-module-lab2/">原网站</a> · <a href="https://github.com/Capeur/eda-clustering-module-lab2">原仓库</a>（固定 <code>49b8725</code>）</p>
 <ul><li>同一张图并排比较 edge、shared-neighbor 与 pin-count 三种评分。</li><li>priority_graph：第一对要合并的单元从 X–Y@5 变成 P–Q@8（本章挑战与影片的核心例子）。</li><li>tiny_netlist：两条 5 引脚宽 net 与一条私有 net，展示宽 net 的稀释。</li><li>手工排序、改边权与“看解析后再判分”的练习思路；原作的英文/法文双语资源作为参考入口保留在原网站。</li></ul>
-<p class="small muted">原仓库未声明统一许可。本模块的讲解、引擎、影片和课件均为重写；priority_graph 与 tiny_netlist 两个小例子的数值来自原作，并在此署名。</p>
+<p class="small muted">原仓库未声明统一许可。本模块的讲解、引擎、影片和课件均为重写；priority_graph 与 tiny_netlist 两个小例子的数值来自原作，并在此署名。科普片使用作者指定的第三方音乐《We Never (Remix)（若如初见）》（Hi Noise / 秋成），它不在本课程许可范围内，本课程不授予其任何使用权，也不提供单独的音轨；其余三部影片的配乐为本课程原创合成。</p>
 </div><div class="prose">
-<h3 style="margin-top:0">来源映射</h3>
-<table><tbody><tr><th>本课程</th><td>Module 02 · <code>m02-affinity-metrics</code></td></tr><tr><th>提交</th><td><a href="https://github.com/yongfu-li/eda-learning/issues/1">Issue #1</a>（Clustering Module - Lesson 2）</td></tr><tr><th>教师目录</th><td>module01-01-affinity-metrics（Lab 02）</td></tr><tr><th>状态</th><td>已核对</td></tr></tbody></table>
+<h3>来源映射</h3>
+<table><tbody><tr><th>本课程</th><td>Module 02 · <code>m02-affinity-metrics</code></td></tr><tr><th>提交</th><td><a href="https://github.com/yongfu-li/eda-learning/issues/1">Issue #1</a> (Clustering Module - Lesson 2)</td></tr><tr><th>教师目录</th><td>module01-01-affinity-metrics（Lab 02）</td></tr><tr><th>状态</th><td>已核对</td></tr></tbody></table>
 <h3>参考文献</h3><ul><li>教师原课程 <a href="https://github.com/yongfu-li/eda-learning/blob/003bcd49e3794e6cfd2680181cdbd347d673ad07/courses/learn_clustering/module01-01-affinity-metrics/README.md" rel="noopener">Module 材料</a></li><li>clique 模型等多引脚 net 近似见常见 VLSI 物理设计教材的“net models”一节；本章不把它说成唯一模型。</li></ul>
 <p><a href="../../data/m02-affinity-metrics/crosswalk.json">本模块 crosswalk（目标 → 讲解 → 影片 → 课件 → 实验 → 挑战 → Python）</a> · <a href="../../downloads/m02-affinity-metrics-outline.md">Markdown 大纲</a></p>
 </div></div>
 </div></section>
 </main>
 <footer class="footer"><div class="wrap">
-<span>Learning Clustering · 整合已关闭 Clustering 提交 Module 02–09。原作者署名见<a href="../../credits/index.html">资源与贡献</a>。</span>
-<span><button class="btn quiet small" type="button" data-pref="reduceMotion">减少动态</button> <button class="btn quiet small" type="button" data-pref="sound">声音</button> · 内容版本 2026.10.23-1</span>
+<p>Learning Clustering · 整合已关闭 Clustering 提交 Module 02–09。原作者署名见<a href="../../credits/index.html">资源与贡献</a>。</p>
+<p><button class="btn quiet small" type="button" data-pref="reduceMotion">减少动态</button> <button class="btn quiet small" type="button" data-pref="sound">声音</button> · 内容版本 2026.10.23-1</p>
 </div></footer>
 <script type="module">import { initShell } from '../../assets/core.js'; initShell();</script>
-<script type="module" src="./lab.js"></script>
+<script type="module" src="../../modules/m02-affinity-metrics/lab.js"></script>
 </body>
 </html>

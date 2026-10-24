@@ -8,8 +8,9 @@
         "m03-setup"
       ],
       "sceneIds": [
-        "s01-hook",
-        "s02-setup"
+        "p-rule",
+        "k01-problem",
+        "a04-states"
       ],
       "slideIds": [
         "m03-problem",
@@ -22,14 +23,19 @@
       ],
       "video": [
         {
-          "sceneId": "s01-hook",
-          "film": "merge",
-          "start": 3
+          "sceneId": "p-rule",
+          "film": "story",
+          "start": 17.41
         },
         {
-          "sceneId": "s02-setup",
-          "film": "merge",
-          "start": 19.8
+          "sceneId": "k01-problem",
+          "film": "concise",
+          "start": 3.4
+        },
+        {
+          "sceneId": "a04-states",
+          "film": "advanced",
+          "start": 74.87
         }
       ],
       "slides": [
@@ -50,7 +56,9 @@
         "m03-walk"
       ],
       "sceneIds": [
-        "s04-step2"
+        "p-step2",
+        "k03-step2",
+        "a01-drop"
       ],
       "slideIds": [
         "m03-step2"
@@ -64,8 +72,19 @@
       ],
       "video": [
         {
-          "sceneId": "s04-step2",
-          "status": "scene-not-a-chapter"
+          "sceneId": "p-step2",
+          "film": "story",
+          "start": 51.18
+        },
+        {
+          "sceneId": "k03-step2",
+          "film": "concise",
+          "start": 36.38
+        },
+        {
+          "sceneId": "a01-drop",
+          "film": "advanced",
+          "start": 3.4
         }
       ],
       "slides": [
@@ -81,8 +100,11 @@
         "m03-tie"
       ],
       "sceneIds": [
-        "s03-step1",
-        "s06-bug"
+        "p-step1",
+        "p-bug",
+        "k02-step1",
+        "k05-bug",
+        "a03-compare"
       ],
       "slideIds": [
         "m03-tie",
@@ -98,14 +120,29 @@
       ],
       "video": [
         {
-          "sceneId": "s03-step1",
-          "film": "merge",
-          "start": 42.96
+          "sceneId": "p-step1",
+          "film": "story",
+          "start": 37
         },
         {
-          "sceneId": "s06-bug",
-          "film": "merge",
-          "start": 96.51
+          "sceneId": "p-bug",
+          "film": "story",
+          "start": 89
+        },
+        {
+          "sceneId": "k02-step1",
+          "film": "concise",
+          "start": 24.24
+        },
+        {
+          "sceneId": "k05-bug",
+          "film": "concise",
+          "start": 68.16
+        },
+        {
+          "sceneId": "a03-compare",
+          "film": "advanced",
+          "start": 49.84
         }
       ],
       "slides": [
@@ -125,9 +162,8 @@
         "m03-walk"
       ],
       "sceneIds": [
-        "s03-step1",
-        "s04-step2",
-        "s05-step3"
+        "p-step3",
+        "k04-step3"
       ],
       "slideIds": [
         "m03-trajectory"
@@ -141,17 +177,14 @@
       ],
       "video": [
         {
-          "sceneId": "s03-step1",
-          "film": "merge",
-          "start": 42.96
+          "sceneId": "p-step3",
+          "film": "story",
+          "start": 66.08
         },
         {
-          "sceneId": "s04-step2",
-          "status": "scene-not-a-chapter"
-        },
-        {
-          "sceneId": "s05-step3",
-          "status": "scene-not-a-chapter"
+          "sceneId": "k04-step3",
+          "film": "concise",
+          "start": 53.44
         }
       ],
       "slides": [
@@ -167,7 +200,9 @@
         "m03-capacity"
       ],
       "sceneIds": [
-        "s07-capacity"
+        "p-rooms",
+        "k06-capacity",
+        "a04-states"
       ],
       "slideIds": [
         "m03-capacity"
@@ -181,9 +216,19 @@
       ],
       "video": [
         {
-          "sceneId": "s07-capacity",
-          "film": "merge",
-          "start": 126.33
+          "sceneId": "p-rooms",
+          "film": "story",
+          "start": 117.14
+        },
+        {
+          "sceneId": "k06-capacity",
+          "film": "concise",
+          "start": 88.33
+        },
+        {
+          "sceneId": "a04-states",
+          "film": "advanced",
+          "start": 74.87
         }
       ],
       "slides": [
@@ -200,8 +245,9 @@
         "m03-limits"
       ],
       "sceneIds": [
-        "s08-code",
-        "s09-limits"
+        "a05-noback",
+        "a06-cost",
+        "a02-snow"
       ],
       "slideIds": [
         "m03-pseudo",
@@ -217,13 +263,19 @@
       ],
       "video": [
         {
-          "sceneId": "s08-code",
-          "film": "merge",
-          "start": 155.62
+          "sceneId": "a05-noback",
+          "film": "advanced",
+          "start": 96.22
         },
         {
-          "sceneId": "s09-limits",
-          "status": "scene-not-a-chapter"
+          "sceneId": "a06-cost",
+          "film": "advanced",
+          "start": 121.82
+        },
+        {
+          "sceneId": "a02-snow",
+          "film": "advanced",
+          "start": 28.67
         }
       ],
       "slides": [

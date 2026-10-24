@@ -1,0 +1,8 @@
+[
+  { "type": "Concept", "title": "Write one row of L" },
+  { "type": "Trace", "title": "Not in the middle" },
+  { "type": "Debug", "title": "How many non-empty bisections" },
+  { "type": "Debug", "title": "Must an unconstrained cut isolate one node?" },
+  { "type": "Explore", "title": "Does a sign flip change the result?" },
+  { "type": "Implement", "title": "A disconnected graph" }
+]

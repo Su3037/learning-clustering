@@ -18,10 +18,18 @@
 - 公开仓库 https://github.com/Su3037/learning-clustering ，网站 https://su3037.github.io/learning-clustering/ 。远程 `main` 来自本地 `publish` 分支（单提交起点）；本地 `main` 保留完整开发历史，不推送。
 - 以后更新：在本地 `main` 提交后，把改动带到 `publish`（如 `git checkout publish && git checkout main -- . && git commit`），再 `git push origin publish:main`；工作流会先测试再部署。公开验证结果见 COMPLETION_REPORT §7。
 
+## 改版进行中（2026-10-23 起，分支 `redesign`）
+
+- 作者要求：版式更雅致（参照原 LP 站）；每章四部影片（科普 / 精讲 / 进阶 / 实验演示）；Python/Tcl 离线练习改为浏览器内在线编程；中英双语可切换。顺序：Module 05 试点 → M02→M09 逐章，每章做完请作者确认。
+- 已完成：新版式、在线编程（Pyodide + CodeMirror）、i18n（英文页在 `site/en/`，来自 `*.en.json` / `*.en.md`）、Module 05 四部影片（中英）、英文课件。
+- 科普片配乐用《We Never (Remix)》（作者指定，第三方录音，不进仓库，见 docs/BUILD.md）。
+- 推送受阻：本会话的 GitHub App 未安装到该仓库；改动以 bundle 保存在 `/mnt/project-files/redesign-v1/`。
+
 ## 如何继续
 
 - 改文本：编辑 `content/`，运行 `./scripts/build.sh`。
-- 改影片：编辑 `video/<id>/film.py`，运行 `python3 scripts/film/render.py <id>`（`--stills` 出静帧，`--sample a b` 出片段）。
+- 四部影片（新）：`video/<id>/films.py` → `scripts/film/cinema.py <id>`；实验演示 `video/<id>/walkthrough.mjs` → `scripts/film/walkthrough.py <id>`（见 docs/BUILD.md）。
+- 旧影片：编辑 `video/<id>/film.py`，运行 `python3 scripts/film/render.py <id>`（`--stills` 出静帧，`--sample a b` 出片段）。
 - 改课件：`~/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3 scripts/slides/build_slides.py <id>`（需要 python-pptx）。
 - 改了内容里的字：`./scripts/build.sh` 会重新裁剪网站字体（需要 fontTools）。
 - 每次改动后：`node --test tests/*.test.mjs`、`python3 tests/crosscheck.py`。
