@@ -288,8 +288,8 @@ blockquote.callout strong{display:inline;margin:0;font-weight:500}
 .lab-side{background:var(--panel);border-left:1px solid var(--c-line);padding:20px 20px;font-size:14px;min-width:0}
 .lab-side h4{color:var(--c-gold);margin:16px 0 6px;font:400 11px var(--mono);letter-spacing:.14em;text-transform:uppercase}
 .lab-toolbar{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;margin-bottom:18px}
-.lab-toolbar label{display:flex;flex-direction:column;gap:6px;font:400 11px var(--mono);letter-spacing:.08em;color:var(--c-muted)}
-.lab-toolbar select,.lab-toolbar input[type=number],.lab-toolbar input[type=text]{background:#0a1d22;color:var(--c-ink);border:1px solid #3b5a5e;border-radius:4px;padding:8px 10px;min-height:40px;min-width:120px;font:400 13px var(--sans);letter-spacing:0}
+.lab-toolbar label{display:flex;flex-direction:column;gap:6px;min-width:0;max-width:100%;font:400 11px var(--mono);letter-spacing:.08em;color:var(--c-muted)}
+.lab-toolbar select,.lab-toolbar input[type=number],.lab-toolbar input[type=text]{background:#0a1d22;color:var(--c-ink);border:1px solid #3b5a5e;border-radius:4px;padding:8px 10px;min-height:40px;min-width:120px;max-width:100%;font:400 13px var(--sans);letter-spacing:0}
 .metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-bottom:12px;padding-bottom:14px;border-bottom:1px solid var(--c-line)}
 .metrics div{background:transparent;padding:0}
 .metrics span{display:block;font:400 10.5px var(--mono);letter-spacing:.08em;color:var(--c-muted)}
@@ -334,6 +334,7 @@ textarea.graph-input{width:100%;min-height:120px;background:#0a1d22;color:var(--
 .gv .node.blocked circle{stroke:var(--c-red);stroke-width:4}
 .gv .hull{fill-opacity:.12;stroke-width:1.4;stroke-dasharray:5 4}
 .gv .side-label{font-size:14px;fill:var(--c-muted)}
+.gv-compact .w{font-size:28px;stroke-width:8px}.gv-compact .node text{font-size:31px}.gv-compact .node .tag-text{font-size:24px}.gv-compact .side-label{font-size:26px}.gv-compact .edge{stroke-width:3}
 .gv-light .edge{stroke:#9aa59e}.gv-light .w{fill:#1b2320;stroke:#fffdf8}.gv-light .node circle{stroke:#fffdf8}
 
 /* ---------- challenges ---------- */
@@ -449,6 +450,16 @@ textarea.graph-input{width:100%;min-height:120px;background:#0a1d22;color:var(--
   .challenge{padding:20px 18px}
   .lang-hint{left:16px;right:16px;bottom:16px}
   h1{letter-spacing:.03em}
+}
+/* touch screens: tap targets of at least 40px for the small controls */
+@media (pointer:coarse){
+  .lang-switch a,.lang-switch span{padding:12px 14px}
+  .btn.small,.footer .btn.small{min-height:40px;padding:8px 12px}
+  .film-meta{align-items:center;gap:6px 18px}
+  .film-meta a{display:inline-flex;align-items:center;min-height:40px;font-size:13px}
+  .lang-hint button{min-width:40px;min-height:40px}
+  .module-nav a,.pager a{display:inline-flex;align-items:center;min-height:40px}
+  .lab input[type=range]{min-height:32px}
 }
 @media print{.topbar,.module-nav,.lab,.player,.btn,.lang-hint{display:none!important}.dark{background:#fff;color:#000}}
 

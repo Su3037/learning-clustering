@@ -48,6 +48,9 @@ export class GraphView {
   render(state = {}) {
     const s = this.svg, groups = state.groups || {}, order = state.groupOrder || [...new Set(this.ids.map(i => groups[i]))].sort();
     s.replaceChildren();
+    // On a phone the 760-wide box shrinks to about 340px: draw nodes and labels larger so they stay legible.
+    const w = this.container.clientWidth || window.innerWidth, k = w < 520 ? 1.7 : 1, r = this.r * k;
+    s.classList.toggle('gv-compact', k > 1);
     s.setAttribute('aria-label', state.summary || this.title);
     if (this.directed) {
       s.append(h('defs', {}, h('marker', { id: 'arrow', viewBox: '0 0 10 10', refX: '9', refY: '5', markerWidth: '7', markerHeight: '7', orient: 'auto-start-reverse' },
@@ -58,11 +61,11 @@ export class GraphView {
       if (!pts.length) continue;
       const hp = hull(pts), color = hl.color || '#77cdbb';
       const d = hp.length === 1 ? `M ${hp[0][0] - 0.1} ${hp[0][1]} L ${hp[0][0] + 0.1} ${hp[0][1]}` : 'M ' + hp.map(p => p.join(' ')).join(' L ') + ' Z';
-      s.append(h('g', { opacity: '.2' }, h('path', { d, fill: color, stroke: color, 'stroke-width': 2 * this.r + 22, 'stroke-linejoin': 'round', 'stroke-linecap': 'round' })));
+      s.append(h('g', { opacity: '.2' }, h('path', { d, fill: color, stroke: color, 'stroke-width': 2 * r + 22, 'stroke-linejoin': 'round', 'stroke-linecap': 'round' })));
       if (hl.label) {
         const top = hp.reduce((a, b) => (b[1] < a[1] ? b : a)), bottom = hp.reduce((a, b) => (b[1] > a[1] ? b : a));
-        const above = top[1] - this.r - 18 > 16;
-        s.append(h('text', { x: above ? top[0] : bottom[0], y: above ? top[1] - this.r - 18 : Math.min(this.H - 6, bottom[1] + this.r + 30), 'text-anchor': 'middle', class: 'side-label', fill: color }, hl.label));
+        const above = top[1] - r - 18 > 16;
+        s.append(h('text', { x: above ? top[0] : bottom[0], y: above ? top[1] - r - 18 : Math.min(this.H - 6, bottom[1] + r + 30), 'text-anchor': 'middle', class: 'side-label', fill: color }, hl.label));
       }
     }
     const hiKey = new Set((state.highlight || []).map(([a, b]) => [a, b].sort().join('|')));
@@ -72,14 +75,14 @@ export class GraphView {
       const isCut = state.cut && groups[e.u] !== undefined && groups[e.u] !== groups[e.v];
       let cls = 'edge' + (isCut ? ' cut' : '') + (hiKey.has(key) ? ' hl' : '') + (inKey.has(key) ? ' inside' : '');
       let ax = x2, ay = y2;
-      if (this.directed) { const dx = x2 - x1, dy = y2 - y1, L = Math.hypot(dx, dy) || 1; ax = x2 - dx / L * (this.r + 4); ay = y2 - dy / L * (this.r + 4); }
+      if (this.directed) { const dx = x2 - x1, dy = y2 - y1, L = Math.hypot(dx, dy) || 1; ax = x2 - dx / L * (r + 4); ay = y2 - dy / L * (r + 4); }
       const line = h('line', { x1, y1, x2: ax, y2: ay, class: cls, 'marker-end': this.directed ? 'url(#arrow)' : null });
       if (state.edgeStyle?.[key]) line.setAttribute('style', state.edgeStyle[key]);
       s.append(line);
       const label = state.edgeLabels?.[key] ?? (e.w !== undefined && !this.directed ? e.w : null);
       if (label !== null && label !== undefined && label !== '') {
         const mx = (x1 + x2) / 2, my = (y1 + y2) / 2, dx = y2 - y1, dy = x1 - x2, L = Math.hypot(dx, dy) || 1;
-        s.append(h('text', { x: mx + dx / L * 13, y: my + dy / L * 13 + 5, 'text-anchor': 'middle', class: 'w' }, String(label)));
+        s.append(h('text', { x: mx + dx / L * 13 * k, y: my + dy / L * 13 * k + 5 * k, 'text-anchor': 'middle', class: 'w' }, String(label)));
       }
     }
     const focus = new Set(state.focus || []), locked = new Set(state.locked || []), blocked = new Set(state.blocked || []);
@@ -87,9 +90,9 @@ export class GraphView {
       const [x, y] = this.pos[id];
       const fill = state.fills?.[id] || (groups[id] !== undefined ? this.colorFor(groups[id], order) : '#a9bdb8');
       const g = h('g', { class: 'node' + (focus.has(id) ? ' focus' : '') + (locked.has(id) ? ' locked' : '') + (blocked.has(id) ? ' blocked' : ''), transform: `translate(${x} ${y})` },
-        h('circle', { r: this.r, fill }), h('text', { 'text-anchor': 'middle', y: 6 }, id));
+        h('circle', { r, fill }), h('text', { 'text-anchor': 'middle', y: 6 * k }, id));
       const tag = state.tags?.[id];
-      if (tag) g.append(h('text', { class: 'tag-text', 'text-anchor': 'middle', y: this.r + 18 }, tag));
+      if (tag) g.append(h('text', { class: 'tag-text', 'text-anchor': 'middle', y: r + 18 * k }, tag));
       if (this.onNodeClick) {
         g.setAttribute('tabindex', '0'); g.setAttribute('role', 'button'); g.setAttribute('aria-label', L(`节点 ${id}${tag ? '，' + tag : ''}`, `Node ${id}${tag ? ', ' + tag : ''}`));
         g.style.cursor = 'pointer';
