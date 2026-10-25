@@ -410,8 +410,8 @@ STORY = Film(
     why=L("从群聊讲起：数共同群聊会得出“老板最亲近”；再到芯片，讲清直接连线、共同邻居和按群大小摊薄三种评分。",
           "It starts with group chats, where counting them says the boss is your closest person, then moves to a chip: direct wires, shared neighbours, and sharing a net out by its size."),
     scenes=[
-        Scene("p-chats", p_chats, [Beat(L("要排座位、分小组，先得回答一个更小的问题：", "Before you seat people or split them into teams, there is a smaller question:"), 6.0),
-                                   Beat(L("谁和谁最亲近？", "who is closest to whom?"), 2.4)],
+        Scene("p-chats", p_chats, [Beat(L("手机可以按共同群聊数，给你的联系人排个序。", "Your phone could rank your contacts by how many group chats you share."), 6.0),
+                                   Beat(L("排第一的，会是谁？", "Who comes out on top?"), 2.4)],
               chapter=L("序 · 群聊", "PROLOGUE · GROUP CHATS"), until=S["intro_end"]),
         Scene("p-count", p_count, [Beat(None, 1.2), Beat(L("按共同群聊数，你最亲近的人……是老板。", "Count shared group chats, and your closest person is… the boss."), 5.0)],
               until=S["groove"]),

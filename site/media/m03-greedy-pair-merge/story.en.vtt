@@ -1,113 +1,117 @@
 WEBVTT
 
 1
-00:00:00.000 --> 00:00:05.000
-Five friends on a graduation trip, splitting into two cars.
+00:00:00.000 --> 00:00:04.600
+Rain on a window.
 
 2
-00:00:05.000 --> 00:00:09.400
-How do you split them so friends ride together?
+00:00:04.600 --> 00:00:09.200
+The two nearest drops fuse first.
 
 3
-00:00:11.750 --> 00:00:16.350
-The thicker the line, the better two people get along.
+00:00:10.750 --> 00:00:16.350
+Then the next nearest pair. Merged, never split again.
 
 4
-00:00:17.410 --> 00:00:24.010
-At first everyone is a group of one: every friendship is split, 18 in all.
+00:00:17.410 --> 00:00:21.810
+Five friends splitting into two cars can do the same.
 
 5
-00:00:24.010 --> 00:00:30.610
-The rule is one line: merge the two groups that get along best, until two remain.
+00:00:21.810 --> 00:00:26.832
+At first everyone is a group of one: 18 in friendships split.
 
 6
+00:00:26.832 --> 00:00:31.632
+Merge the two best-matched groups, until two remain.
+
+7
 00:00:37.000 --> 00:00:44.022
 Two pairs get along best: Ada–Ben and Dev–Eva, both 5.
 
-7
+8
 00:00:44.022 --> 00:00:50.022
 A tie goes by name: A comes before D, so Ada and Ben go first.
 
-8
+9
 00:00:51.180 --> 00:00:58.424
 Ada and Ben are one group now. Cai's two lines add up: 1 + 4 = 5.
 
-9
+10
 00:00:58.424 --> 00:01:04.113
 Another tie with Dev–Eva; by name, Cai joins them.
 
-10
+11
 00:01:06.080 --> 00:01:11.102
 Last, Dev and Eva share a car. Two groups left: stop.
 
-11
+12
 00:01:13.000 --> 00:01:16.244
 Ever seen a folder like this?
 
-12
+13
 00:01:16.244 --> 00:01:18.822
 10 sorts before 2.
 
-13
+14
 00:01:20.160 --> 00:01:24.738
 As numbers, 2 comes first; as text, 10 does.
 
-14
+15
 00:01:24.738 --> 00:01:28.649
 Text compares one character at a time.
 
-15
+16
 00:01:29.000 --> 00:01:34.067
 The original page compared its candidates the same way: as text.
 
-16
+17
 00:01:34.067 --> 00:01:40.200
 “-1” sorts before “-5”: affinity 1 looked like the best pair.
 
-17
+18
 00:01:40.200 --> 00:01:43.889
 The split friendship went from 3 to 9.
 
-18
+19
 00:01:44.000 --> 00:01:48.400
 The fix: compare field by field, numbers as numbers.
 
-19
+20
 00:01:48.400 --> 00:01:54.978
 This course also tests 10 against 2 and 2.5 against 2, so it is not right by luck.
 
-20
+21
 00:01:57.140 --> 00:02:01.140
 At the hotel, every room has two beds.
 
-21
+22
 00:02:01.140 --> 00:02:05.496
 Whichever room Cai joins, it holds three.
 
-22
+23
 00:02:07.600 --> 00:02:13.000
 So it stops at three: no squeezing, no pretending it made two.
 
-23
+24
 00:02:14.160 --> 00:02:20.760
 In chip design, the same merging first coarsens thousands of cells into a few clusters.
 
-24
+25
 00:02:21.500 --> 00:02:27.500
 All the way, each step only looked at what was in front of it.
 
-25
+26
 00:02:27.500 --> 00:02:34.500
 Pick the best pair, merge, never look back.
 
-26
+27
 00:02:34.500 --> 00:02:40.500
 This time, the result happened to be the best.
 
-27
+28
 00:02:40.500 --> 00:02:48.500
 What if an early step is wrong? See the next module.
 
-28
+29
 00:02:50.600 --> 00:02:56.600
 In the lab below, change K or the capacity and watch the path change.

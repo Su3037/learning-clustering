@@ -10,7 +10,9 @@ const KINDS = {
   popular: [L('科普', 'Popular science'), L('从生活里的问题讲起，适合第一次接触', 'Starts from an everyday problem; good for a first look')],
   concise: [L('精讲', 'Concise'), L('只讲必须掌握的内容', 'Only what you must know')],
   advanced: [L('进阶', 'Advanced'), L('为什么成立、什么时候失效、真实用法', 'Why it works, when it fails, how it is used')],
-  lab: [L('实验演示', 'Walkthrough'), L('跟着做一遍实验和在线编程', 'Follow along with the lab and the code lab')]
+  lab: [L('实验演示', 'Walkthrough'), L('跟着做一遍实验和在线编程', 'Follow along with the lab and the code lab')],
+  original: [L('原作', 'Original'), L('原作者的完整科普片，原样收录', "The original author's full film, as made")],
+  intro: [L('导论', 'Introduction'), L('课程的共同背景：什么是聚类，为什么重要', 'The common background: what clustering is and why it matters')]
 };
 
 // Schema 2 (one entry per film, one version per language) → the flat shape renderFilm expects.

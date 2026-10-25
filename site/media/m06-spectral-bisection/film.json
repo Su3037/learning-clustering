@@ -11,8 +11,8 @@
     "en": "A Number for Every Point"
    },
    "why": {
-    "zh": "五个朋友沿一条长凳站开，交情越深的橡皮筋越粗、拉得越紧；他们停下的位置就是 Fiedler 向量，剪刀逐个缝隙试一刀。还有镜像翻号、彼此不认识的两群人，以及 15 而不是 16。",
-    "en": "Five friends spread along a bench, tied by rubber bands that pull harder the closer they are; where they settle is the Fiedler vector, and scissors try every gap. Plus a mirror flip, two groups who never met, and 15, not 16."
+    "zh": "从撒了沙的振动金属板讲起：沙聚成一条线，把板分成两半。再看五个朋友沿一条长凳站开，交情越深的橡皮筋越粗、拉得越紧；他们停下的位置就是 Fiedler 向量，剪刀逐个缝隙试一刀。还有镜像翻号、彼此不认识的两群人，以及 15 而不是 16。",
+    "en": "It opens with sand on a bowed metal plate, gathering on one line that splits it in two. Then five friends spread along a bench, tied by rubber bands that pull harder the closer they are; where they settle is the Fiedler vector, and scissors try every gap. Plus a mirror flip, two groups who never met, and 15, not 16."
    },
    "music": {
     "zh": "《We Never (Remix)（若如初见）》Hi Noise / 秋成（第三方录音，不在本课程许可范围内）",
@@ -20,12 +20,12 @@
    },
    "scenes": [
     {
-     "sceneId": "p-open",
+     "sceneId": "p-plate",
      "start": 0.0,
      "end": 10.75
     },
     {
-     "sceneId": "p-ask",
+     "sceneId": "p-plate2",
      "start": 10.75,
      "end": 17.41
     },
@@ -110,8 +110,13 @@
      "chapters": [
       {
        "t": 0.0,
+       "title": "序 · 沙与琴弓",
+       "sceneId": "p-plate"
+      },
+      {
+       "t": 17.41,
        "title": "序 · 一条线",
-       "sceneId": "p-open"
+       "sceneId": "p-rule"
       },
       {
        "t": 37.0,
@@ -143,42 +148,36 @@
       {
        "start": 0.0,
        "end": 4.6,
-       "text": "还是那五个朋友。",
-       "sceneId": "p-open"
+       "text": "在金属板上撒一层细沙，",
+       "sceneId": "p-plate"
       },
       {
        "start": 4.6,
-       "end": 9.4,
-       "text": "这次，他们要在一条长凳上站成一排。",
-       "sceneId": "p-open"
+       "end": 9.2,
+       "text": "用琴弓拉它的边。",
+       "sceneId": "p-plate"
       },
       {
        "start": 10.75,
-       "end": 13.35,
-       "text": "每人一个位置——",
-       "sceneId": "p-ask"
-      },
-      {
-       "start": 13.35,
        "end": 16.35,
-       "text": "站哪里？",
-       "sceneId": "p-ask"
+       "text": "沙聚成一条线：振动自己把板分成两半。",
+       "sceneId": "p-plate2"
       },
       {
        "start": 17.41,
-       "end": 22.41,
-       "text": "交情越深，橡皮筋越粗，拉得越紧。",
+       "end": 21.766,
+       "text": "长凳上的五个朋友，用橡皮筋连着。",
        "sceneId": "p-rule"
       },
       {
-       "start": 22.41,
-       "end": 27.21,
+       "start": 21.766,
+       "end": 26.566,
        "text": "总拉力：粗细乘以距离的平方，加起来。",
        "sceneId": "p-rule"
       },
       {
-       "start": 27.21,
-       "end": 31.81,
+       "start": 26.566,
+       "end": 31.166,
        "text": "不许挤在一点，散开后让拉力最小。",
        "sceneId": "p-rule"
       },
@@ -334,7 +333,7 @@
       }
      ],
      "readingViolations": 0,
-     "bytes": 7915230
+     "bytes": 9661168
     },
     "en": {
      "src": "story.en.mp4",
@@ -345,8 +344,13 @@
      "chapters": [
       {
        "t": 0.0,
+       "title": "PROLOGUE · SAND AND A BOW",
+       "sceneId": "p-plate"
+      },
+      {
+       "t": 17.41,
        "title": "PROLOGUE · ONE LINE",
-       "sceneId": "p-open"
+       "sceneId": "p-rule"
       },
       {
        "t": 37.0,
@@ -378,42 +382,36 @@
       {
        "start": 0.0,
        "end": 4.6,
-       "text": "The same five friends.",
-       "sceneId": "p-open"
+       "text": "Sprinkle fine sand on a metal plate,",
+       "sceneId": "p-plate"
       },
       {
        "start": 4.6,
-       "end": 9.4,
-       "text": "This time they line up along one bench.",
-       "sceneId": "p-open"
+       "end": 9.2,
+       "text": "and draw a violin bow along its edge.",
+       "sceneId": "p-plate"
       },
       {
        "start": 10.75,
-       "end": 13.35,
-       "text": "Everyone gets a spot —",
-       "sceneId": "p-ask"
-      },
-      {
-       "start": 13.35,
        "end": 16.35,
-       "text": "but where?",
-       "sceneId": "p-ask"
+       "text": "The sand gathers on one line: the vibration splits the plate in two.",
+       "sceneId": "p-plate2"
       },
       {
        "start": 17.41,
-       "end": 22.41,
-       "text": "Closer friends, thicker bands, harder pull.",
+       "end": 21.766,
+       "text": "Five friends on a bench, tied by rubber bands.",
        "sceneId": "p-rule"
       },
       {
-       "start": 22.41,
-       "end": 27.21,
+       "start": 21.766,
+       "end": 26.566,
        "text": "Total pull: thickness times distance squared, added up.",
        "sceneId": "p-rule"
       },
       {
-       "start": 27.21,
-       "end": 31.81,
+       "start": 26.566,
+       "end": 31.166,
        "text": "No huddling on one spot: spread out, with the least pull.",
        "sceneId": "p-rule"
       },
@@ -569,7 +567,7 @@
       }
      ],
      "readingViolations": 0,
-     "bytes": 7862393
+     "bytes": 9641158
     }
    }
   },

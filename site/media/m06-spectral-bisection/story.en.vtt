@@ -2,128 +2,124 @@ WEBVTT
 
 1
 00:00:00.000 --> 00:00:04.600
-The same five friends.
+Sprinkle fine sand on a metal plate,
 
 2
-00:00:04.600 --> 00:00:09.400
-This time they line up along one bench.
+00:00:04.600 --> 00:00:09.200
+and draw a violin bow along its edge.
 
 3
-00:00:10.750 --> 00:00:13.350
-Everyone gets a spot —
+00:00:10.750 --> 00:00:16.350
+The sand gathers on one line: the vibration splits the plate in two.
 
 4
-00:00:13.350 --> 00:00:16.350
-but where?
+00:00:17.410 --> 00:00:21.766
+Five friends on a bench, tied by rubber bands.
 
 5
-00:00:17.410 --> 00:00:22.410
-Closer friends, thicker bands, harder pull.
-
-6
-00:00:22.410 --> 00:00:27.210
+00:00:21.766 --> 00:00:26.566
 Total pull: thickness times distance squared, added up.
 
-7
-00:00:27.210 --> 00:00:31.810
+6
+00:00:26.566 --> 00:00:31.166
 No huddling on one spot: spread out, with the least pull.
 
-8
+7
 00:00:37.000 --> 00:00:41.200
 Let go, and the bands pull everyone into place.
 
-9
+8
 00:00:41.200 --> 00:00:44.400
 Close friends are pulled together.
 
-10
+9
 00:00:44.400 --> 00:00:50.978
 Eva, Dev left; Ben, Ada right; Cai between.
 
-11
+10
 00:00:51.180 --> 00:00:54.180
 Read off each person's position.
 
-12
+11
 00:00:54.180 --> 00:00:58.313
 That list of numbers is the Fiedler vector.
 
-13
+12
 00:00:58.313 --> 00:01:01.713
 Close friends get close numbers.
 
-14
+13
 00:01:03.150 --> 00:01:07.506
 Now try a cut at every gap along the bench.
 
-15
+14
 00:01:07.506 --> 00:01:11.417
 Friendship split: 6, 3, 5, 6.
 
-16
+15
 00:01:11.417 --> 00:01:15.994
 Two or three a side: take 3, not the middle.
 
-17
+16
 00:01:20.160 --> 00:01:23.560
 Multiply every number by minus one —
 
-18
+17
 00:01:23.560 --> 00:01:26.560
 the whole line mirrors over.
 
-19
+18
 00:01:29.000 --> 00:01:33.133
 Still the same cut, with left and right renamed.
 
-20
+19
 00:01:33.133 --> 00:01:36.133
 A sign flip is not a new answer.
 
-21
+20
 00:01:42.500 --> 00:01:46.411
 What if they are two groups who never met?
 
-22
+21
 00:01:46.411 --> 00:01:50.211
 Everyone in a group lands on the same number.
 
-23
+22
 00:01:50.211 --> 00:01:56.211
 Then λ₂ = 0: the numbers only say who connects. Check connectivity first.
 
-24
+23
 00:01:59.270 --> 00:02:02.959
 How many ways to split five people in two?
 
-25
+24
 00:02:02.959 --> 00:02:07.759
 Left or right each: 32, minus all-left and all-right.
 
-26
+25
 00:02:07.759 --> 00:02:12.337
 Swapping sides is the same: 15, not 16.
 
-27
+26
 00:02:14.160 --> 00:02:19.560
 On a chip, this cut is often where partitioning starts.
 
-28
+27
 00:02:21.500 --> 00:02:27.500
 One number each, from the whole graph.
 
-29
+28
 00:02:27.500 --> 00:02:33.500
 Along the line, try every gap.
 
-30
+29
 00:02:33.500 --> 00:02:40.500
 What you get is a good candidate, not a guarantee.
 
-31
+30
 00:02:40.500 --> 00:02:48.500
 After the cut, what about swapping people across? See the next module.
 
-32
+31
 00:02:50.600 --> 00:02:56.600
 In the lab below, change a weight and watch the line move.

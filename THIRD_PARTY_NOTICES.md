@@ -25,7 +25,7 @@
 
 精讲、进阶与实验演示影片的配乐由 `scripts/film/music.py` 程序合成，是本课程的原创作品，按 CC BY 4.0 提供。
 
-**科普影片**按作者的指定使用第三方录音《We Never (Remix)（若如初见）》，Hi Noise / 秋成，来源 https://www.bilibili.com/video/BV134Ho6qENu/ 。Module 05 的科普片就是作者原作《圈子从哪里来》（第四版，来自 Su3037/clustering-lab5-label-propagation），原样收录。这段音乐不属于本课程的 MIT 或 CC BY 4.0 许可，本课程不授予任何转载、改编或其他使用权；仓库与网站都不提供单独的音轨文件，渲染时使用的音频只保存在本地（见 `scripts/film/cinema.py`）。
+**科普影片**按作者的指定使用第三方录音《We Never (Remix)（若如初见）》，Hi Noise / 秋成，来源 https://www.bilibili.com/video/BV134Ho6qENu/ 。Module 05 另原样收录作者原作科普片《圈子从哪里来》（第四版，来自 Su3037/clustering-lab5-label-propagation）。这段音乐不属于本课程的 MIT 或 CC BY 4.0 许可，本课程不授予任何转载、改编或其他使用权；仓库与网站都不提供单独的音轨文件，渲染时使用的音频只保存在本地（见 `scripts/film/cinema.py`）。
 
 ## 算法来源
 

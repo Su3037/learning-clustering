@@ -22,6 +22,7 @@ from pathlib import Path
 from cine import (W, H, L, tr, Film, Scene, Beat, GOLD, TEAL, BLUE, ROSE, AMBER, CORAL, LILAC, SAGE, IVORY, MUTED, FAINT, DIM,
                   PANEL_BG, NODE_BG, clamp, ease, lerp, lerp2, title_card, panel, badge, bar, code_panel, table, graph, fit, pulse,
                   count_hits, substrate)
+from hooks import chladni
 from story import S, TRACK, INTRO_HITS, FILL1, FILL2, PHRASE, FILL3, FILL4, title_assemble, credits, MUSIC_LINE, landed
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -184,28 +185,6 @@ def friends_on_line(fr, k_place, alpha=1.0, cut_k=None, flip=False, bands=True):
     return line_pos
 
 
-def p_open(fr, c):
-    pos = fit(P5RAW, (300, 220, 900, 560))
-    for i, n in enumerate("ABCDE"):
-        a = landed(c.T, INTRO_HITS, i)
-        if a <= 0:
-            continue
-        fr.dot(pos[n], 44, NODE_BG, a)
-        fr.ring(pos[n], 44, NEUTRAL, 2.8, a)
-        fr.text(FR[n], pos[n][0], pos[n][1] + 9, 24, IVORY, a, anchor="c", role="serif")
-    if c.on(1):
-        a = c.p(1)
-        fr.line((300, LINE_Y + 120), (1620, LINE_Y + 120), DIM, 2, a)
-        fr.text(L("一条长凳", "one long bench"), 1620, LINE_Y + 100, 22, MUTED, a, anchor="r")
-
-
-def p_ask(fr, c):
-    friends_on_line(fr, 0.0, 1.0)
-    fr.text(L("每人站在一条线上的某个位置——", "everyone stands somewhere on one line —"), 1380, 380, 30, IVORY, c.p(0), anchor="c", role="serif")
-    if c.on(1):
-        fr.text(L("站哪里？", "but where?"), 1380, 470, 56, GOLD, c.p(1), anchor="c", role="serif", glow=0.3 * c.p(1))
-
-
 def p_rule(fr, c):
     friends_on_line(fr, 0.0, 1.0)
     panel(fr, 1060, 230, 660, 420, c.p(0), L("橡皮筋", "RUBBER BANDS"))
@@ -359,19 +338,18 @@ def p_end(fr, c):
 
 STORY = Film(
     "story", "popular", L("给每个点一个数", "A Number for Every Point"), None, BRAND, poster_at=36.5, music=TRACK, seed=6,
-    why=L("五个朋友沿一条长凳站开，交情越深的橡皮筋越粗、拉得越紧；他们停下的位置就是 Fiedler 向量，剪刀逐个缝隙试一刀。还有镜像翻号、彼此不认识的两群人，以及 15 而不是 16。",
-          "Five friends spread along a bench, tied by rubber bands that pull harder the closer they are; where they settle is the Fiedler vector, and scissors try every gap. Plus a mirror flip, two groups who never met, and 15, not 16."),
+    why=L("从撒了沙的振动金属板讲起：沙聚成一条线，把板分成两半。再看五个朋友沿一条长凳站开，交情越深的橡皮筋越粗、拉得越紧；他们停下的位置就是 Fiedler 向量，剪刀逐个缝隙试一刀。还有镜像翻号、彼此不认识的两群人，以及 15 而不是 16。",
+          "It opens with sand on a bowed metal plate, gathering on one line that splits it in two. Then five friends spread along a bench, tied by rubber bands that pull harder the closer they are; where they settle is the Fiedler vector, and scissors try every gap. Plus a mirror flip, two groups who never met, and 15, not 16."),
     scenes=[
-        Scene("p-open", p_open, [Beat(L("还是那五个朋友。", "The same five friends."), 4.6),
-                                 Beat(L("这次，他们要在一条长凳上站成一排。", "This time they line up along one bench."), 4.8)],
-              chapter=L("序 · 一条线", "PROLOGUE · ONE LINE"), until=S["intro_end"]),
-        Scene("p-ask", p_ask, [Beat(L("每人一个位置——", "Everyone gets a spot —"), 2.6),
-                               Beat(L("站哪里？", "but where?"), 3.0)],
+        Scene("p-plate", chladni, [Beat(L("在金属板上撒一层细沙，", "Sprinkle fine sand on a metal plate,"), 4.6),
+                                   Beat(L("用琴弓拉它的边。", "and draw a violin bow along its edge."), 4.6)],
+              chapter=L("序 · 沙与琴弓", "PROLOGUE · SAND AND A BOW"), until=S["intro_end"]),
+        Scene("p-plate2", chladni, [Beat(L("沙聚成一条线：振动自己把板分成两半。", "The sand gathers on one line: the vibration splits the plate in two."), 5.6)],
               until=S["groove"]),
-        Scene("p-rule", p_rule, [Beat(L("交情越深，橡皮筋越粗，拉得越紧。", "Closer friends, thicker bands, harder pull."), 5.0),
-                                 Beat(L("总拉力：粗细乘以距离的平方，加起来。", "Total pull: thickness times distance squared, added up."), 4.6),
+        Scene("p-rule", p_rule, [Beat(L("长凳上的五个朋友，用橡皮筋连着。", "Five friends on a bench, tied by rubber bands."), 4.2),
+                                 Beat(L("总拉力：粗细乘以距离的平方，加起来。", "Total pull: thickness times distance squared, added up."), 4.4),
                                  Beat(L("不许挤在一点，散开后让拉力最小。", "No huddling on one spot: spread out, with the least pull."), 4.4)],
-              until=S["roll"]),
+              chapter=L("序 · 一条线", "PROLOGUE · ONE LINE"), until=S["roll"]),
         Scene("p-title", p_title, [Beat(None, 4.5)], fade=False, until=37.0),
         Scene("p-settle", p_settle, [Beat(L("放手，让橡皮筋把大家拉到位。", "Let go, and the bands pull everyone into place."), 4.2),
                                      Beat(L("交情深的被拉到一起。", "Close friends are pulled together."), 3.2),

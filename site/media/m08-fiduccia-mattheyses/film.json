@@ -11,8 +11,8 @@
     "en": "The Legal Move"
    },
    "why": {
-    "zh": "五个朋友住进两间三张床的屋子，一次只搬一个人，两屋人数最多差 1。Ada、Eva 能省最多却不许动；Dev 可以，然后 Ada 才可以；亏的也试，回退到最佳前缀；另外六个人身上，两步小亏换来 +4；最后空前缀让一切停下。",
-    "en": "Five friends in two rooms of three beds, moving one at a time, the rooms differing by one at most. Ada and Eva would save the most but may not move; Dev may, and then Ada can; the losses are tried too, and it rolls back to the best prefix; with six other people, two small losses buy a gain of 4; and the empty prefix ends it."
+    "zh": "从两条小船讲起：一次只许一个人跨过去，船上人数不能差太多。再看五个朋友住进两间三张床的屋子，一次只搬一个人，两屋人数最多差 1。Ada、Eva 能省最多却不许动；Dev 可以，然后 Ada 才可以；亏的也试，回退到最佳前缀；另外六个人身上，两步小亏换来 +4；最后空前缀让一切停下。",
+    "en": "It opens with two small boats: one person may step across at a time, and neither may get too crowded. Then five friends in two rooms of three beds, moving one at a time, the rooms differing by one at most. Ada and Eva would save the most but may not move; Dev may, and then Ada can; the losses are tried too, and it rolls back to the best prefix; with six other people, two small losses buy a gain of 4; and the empty prefix ends it."
    },
    "music": {
     "zh": "《We Never (Remix)（若如初见）》Hi Noise / 秋成（第三方录音，不在本课程许可范围内）",
@@ -20,12 +20,12 @@
    },
    "scenes": [
     {
-     "sceneId": "p-open",
+     "sceneId": "p-boats",
      "start": 0.0,
      "end": 10.75
     },
     {
-     "sceneId": "p-ask",
+     "sceneId": "p-boats2",
      "start": 10.75,
      "end": 17.41
     },
@@ -110,8 +110,13 @@
      "chapters": [
       {
        "t": 0.0,
+       "title": "序 · 两条船",
+       "sceneId": "p-boats"
+      },
+      {
+       "t": 17.41,
        "title": "序 · 两间屋",
-       "sceneId": "p-open"
+       "sceneId": "p-rule"
       },
       {
        "t": 37.0,
@@ -142,43 +147,43 @@
      "transcript": [
       {
        "start": 0.0,
-       "end": 4.6,
-       "text": "还是那五个朋友，分住两间屋。",
-       "sceneId": "p-open"
+       "end": 5.4,
+       "text": "两条小船并排，一次只许一个人跨过去，",
+       "sceneId": "p-boats"
       },
       {
-       "start": 4.6,
-       "end": 9.0,
-       "text": "这次每间屋都有三张床。",
-       "sceneId": "p-open"
+       "start": 5.4,
+       "end": 9.8,
+       "text": "两条船的人数，最多差一个。",
+       "sceneId": "p-boats"
       },
       {
        "start": 10.75,
-       "end": 13.772,
-       "text": "被拆散的交情：12。",
-       "sceneId": "p-ask"
+       "end": 14.661,
+       "text": "最想过去的人，偏偏不能先走。",
+       "sceneId": "p-boats2"
       },
       {
-       "start": 13.772,
-       "end": 17.239,
-       "text": "新规矩：一次只搬一个人。",
-       "sceneId": "p-ask"
+       "start": 14.661,
+       "end": 17.261,
+       "text": "先让别人过来。",
+       "sceneId": "p-boats2"
       },
       {
        "start": 17.41,
-       "end": 21.81,
-       "text": "但两屋人数最多差 1。",
+       "end": 21.988,
+       "text": "五个朋友住两间屋，一次只搬一个人。",
        "sceneId": "p-rule"
       },
       {
-       "start": 21.81,
-       "end": 26.61,
-       "text": "每人的收益：屋外朋友减屋里朋友。",
+       "start": 21.988,
+       "end": 27.677,
+       "text": "两屋人数最多差 1。收益：屋外朋友减屋里朋友。",
        "sceneId": "p-rule"
       },
       {
-       "start": 26.61,
-       "end": 30.61,
+       "start": 27.677,
+       "end": 31.677,
        "text": "Ada 和 Eva 各是 6，最大。",
        "sceneId": "p-rule"
       },
@@ -340,7 +345,7 @@
       }
      ],
      "readingViolations": 0,
-     "bytes": 8939822
+     "bytes": 8902118
     },
     "en": {
      "src": "story.en.mp4",
@@ -351,8 +356,13 @@
      "chapters": [
       {
        "t": 0.0,
+       "title": "PROLOGUE · TWO BOATS",
+       "sceneId": "p-boats"
+      },
+      {
+       "t": 17.41,
        "title": "PROLOGUE · TWO ROOMS",
-       "sceneId": "p-open"
+       "sceneId": "p-rule"
       },
       {
        "t": 37.0,
@@ -383,43 +393,43 @@
      "transcript": [
       {
        "start": 0.0,
-       "end": 4.6,
-       "text": "The same five friends, in two rooms.",
-       "sceneId": "p-open"
+       "end": 5.4,
+       "text": "Two small boats side by side; one person may step across at a time,",
+       "sceneId": "p-boats"
       },
       {
-       "start": 4.6,
-       "end": 9.0,
-       "text": "This time each room has three beds.",
-       "sceneId": "p-open"
+       "start": 5.4,
+       "end": 9.8,
+       "text": "and the boats may differ by one person at most.",
+       "sceneId": "p-boats"
       },
       {
        "start": 10.75,
-       "end": 13.772,
-       "text": "Friendships split: 12.",
-       "sceneId": "p-ask"
+       "end": 14.661,
+       "text": "The most eager may not go first.",
+       "sceneId": "p-boats2"
       },
       {
-       "start": 13.772,
-       "end": 17.239,
-       "text": "New rule: one person moves at a time.",
-       "sceneId": "p-ask"
+       "start": 14.661,
+       "end": 17.261,
+       "text": "Someone else crosses first.",
+       "sceneId": "p-boats2"
       },
       {
        "start": 17.41,
-       "end": 21.81,
-       "text": "But the rooms may differ by one at most.",
+       "end": 21.988,
+       "text": "Five friends, two rooms; one person moves at a time.",
        "sceneId": "p-rule"
       },
       {
-       "start": 21.81,
-       "end": 26.61,
-       "text": "Each person's gain: friends outside minus inside.",
+       "start": 21.988,
+       "end": 27.677,
+       "text": "The rooms may differ by one at most. Gain: friends outside minus inside.",
        "sceneId": "p-rule"
       },
       {
-       "start": 26.61,
-       "end": 30.61,
+       "start": 27.677,
+       "end": 31.677,
        "text": "Ada and Eva: 6 each, the biggest.",
        "sceneId": "p-rule"
       },
@@ -581,7 +591,7 @@
       }
      ],
      "readingViolations": 0,
-     "bytes": 8964031
+     "bytes": 8908493
     }
    }
   },

@@ -25,6 +25,12 @@
 - 科普片配乐用《We Never (Remix)》（作者指定，第三方录音，不进仓库，见 docs/BUILD.md）。
 - 推送受阻：本会话的 GitHub App 未安装到该仓库；改动以 bundle 保存在 `/mnt/project-files/redesign-v1/`。
 
+## 2026-10-25 迭代（分支 claude/project-thread-ses2xv）
+
+- 改动前的版本保存在远程分支 `saved/v1-redesign`（= main ba074c6）。
+- 首页综合对比写出方法名；首页新增导论片（`video/home/films.py` → `site/media/home/`）。
+- 各章科普片开场改为本章算法的生活例子（`scripts/film/hooks.py`）；Module 05 新做科普片《跟着邻居走》，作者原作改为“原作”一栏（`original.*`）。
+
 ## 如何继续
 
 - 改文本：编辑 `content/`，运行 `./scripts/build.sh`。

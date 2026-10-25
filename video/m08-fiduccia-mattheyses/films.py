@@ -21,6 +21,7 @@ from pathlib import Path
 from cine import (W, H, L, tr, Film, Scene, Beat, GOLD, TEAL, BLUE, ROSE, AMBER, IVORY, MUTED, FAINT, DIM,
                   PANEL_BG, NODE_BG, clamp, ease, lerp2, title_card, panel, badge, table, graph, fit, pulse,
                   count_hits, substrate)
+from hooks import boats
 from story import S, TRACK, INTRO_HITS, FILL1, FILL2, PHRASE, FILL3, FILL4, title_assemble, credits, MUSIC_LINE, landed
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -212,38 +213,13 @@ def gain_badges(i, legal_only=False):
     return badges, cols
 
 
-def p_open(fr, c):
-    for s, (x, y, w, h) in ROOMS.items():
-        a = landed(c.T, INTRO_HITS, s)
-        fr.rect(x, y, w, h, fill=PANEL_BG, stroke=FAINT, width=1.4, alpha=0.9 * a, r=18)
-        for bx, by in BEDS[s]:
-            fr.rect(bx - 60, by + 44, 120, 14, fill=FAINT, alpha=0.35 * a, r=6)
-    for i, n in enumerate("AEBCD"):
-        a = landed(c.T, INTRO_HITS, 2 + i)
-        if a <= 0:
-            continue
-        p = SEATS[0][n]
-        fr.dot(p, 46, NODE_BG, a)
-        fr.ring(p, 46, TEAL if SEED[n] == 0 else BLUE, 2.8, a)
-        fr.text(FR[n], p[0], p[1] + 8, 22, IVORY, a, anchor="c", role="serif")
-    if c.on(1):
-        a = c.p(1)
-        for s, (x, y, w, h) in ROOMS.items():
-            fr.text(L("左屋 · 三张床", "LEFT ROOM · THREE BEDS") if s == 0 else L("右屋 · 三张床", "RIGHT ROOM · THREE BEDS"), x + 24, y + 38, 18, MUTED, a, spacing=2)
-
-
-def p_ask(fr, c):
-    rooms(fr, SEED, SEATS[0], counter=c.on(0), count_glow=0.3 * c.p(0))
-    if c.on(1):
-        fr.text(L("这次：一次只搬一个人", "this time: one person moves at a time"), W / 2, 820, 34, GOLD, c.p(1), anchor="c", role="serif", glow=0.3 * c.p(1))
-
-
 def p_rule(fr, c):
     b, cols = gain_badges(0)
     rooms(fr, SEED, SEATS[0], badges=b if c.on(1) else None, badge_cols={n: IVORY for n in IDS})
     if c.on(0):
-        fr.text(L("两屋人数最多差 1：2 比 3，或 3 比 2", "the rooms may differ by one at most: 2 to 3, or 3 to 2"), W / 2, 800, 26, IVORY, c.p(0), anchor="c")
+        fr.text(L("一次只搬一个人", "one person moves at a time"), W / 2, 800, 26, IVORY, c.p(0) * (1 - c.p(1)), anchor="c")
     if c.on(1):
+        fr.text(L("两屋人数最多差 1：2 比 3，或 3 比 2", "the rooms may differ by one at most: 2 to 3, or 3 to 2"), W / 2, 800, 26, IVORY, c.p(1), anchor="c")
         fr.text(L("收益 = 屋外朋友 − 屋里朋友", "gain = friends outside − friends inside"), W / 2, 850, 26, GOLD, c.p(1), anchor="c", role="serif")
     if c.on(2):
         a = c.p(2)
@@ -410,19 +386,15 @@ def p_end(fr, c):
 
 STORY = Film(
     "story", "popular", L("合法的那一步", "The Legal Move"), None, BRAND, poster_at=44.0, music=TRACK, seed=8,
-    why=L("五个朋友住进两间三张床的屋子，一次只搬一个人，两屋人数最多差 1。Ada、Eva 能省最多却不许动；Dev 可以，然后 Ada 才可以；亏的也试，回退到最佳前缀；另外六个人身上，两步小亏换来 +4；最后空前缀让一切停下。",
-          "Five friends in two rooms of three beds, moving one at a time, the rooms differing by one at most. Ada and Eva would save the most but may not move; Dev may, and then Ada can; the losses are tried too, and it rolls back to the best prefix; with six other people, two small losses buy a gain of 4; and the empty prefix ends it."),
+    why=L("从两条小船讲起：一次只许一个人跨过去，船上人数不能差太多。再看五个朋友住进两间三张床的屋子，一次只搬一个人，两屋人数最多差 1。Ada、Eva 能省最多却不许动；Dev 可以，然后 Ada 才可以；亏的也试，回退到最佳前缀；另外六个人身上，两步小亏换来 +4；最后空前缀让一切停下。",
+          "It opens with two small boats: one person may step across at a time, and neither may get too crowded. Then five friends in two rooms of three beds, moving one at a time, the rooms differing by one at most. Ada and Eva would save the most but may not move; Dev may, and then Ada can; the losses are tried too, and it rolls back to the best prefix; with six other people, two small losses buy a gain of 4; and the empty prefix ends it."),
     scenes=[
-        Scene("p-open", p_open, [Beat(L("还是那五个朋友，分住两间屋。", "The same five friends, in two rooms."), 4.6),
-                                 Beat(L("这次每间屋都有三张床。", "This time each room has three beds."), 4.4)],
-              chapter=L("序 · 两间屋", "PROLOGUE · TWO ROOMS"), until=S["intro_end"]),
-        Scene("p-ask", p_ask, [Beat(L("被拆散的交情：12。", "Friendships split: 12."), 3.0),
-                               Beat(L("新规矩：一次只搬一个人。", "New rule: one person moves at a time."), 3.2)],
+        Scene("p-boats", boats, [Beat(L("两条小船并排，一次只许一个人跨过去，", "Two small boats side by side; one person may step across at a time,"), 5.4), Beat(L("两条船的人数，最多差一个。", "and the boats may differ by one person at most."), 4.4)],
+              chapter=L("序 · 两条船", "PROLOGUE · TWO BOATS"), until=S["intro_end"]),
+        Scene("p-boats2", boats, [Beat(L("最想过去的人，偏偏不能先走。", "The most eager may not go first."), 3.7), Beat(L("先让别人过来。", "Someone else crosses first."), 2.4)],
               until=S["groove"]),
-        Scene("p-rule", p_rule, [Beat(L("但两屋人数最多差 1。", "But the rooms may differ by one at most."), 4.4),
-                                 Beat(L("每人的收益：屋外朋友减屋里朋友。", "Each person's gain: friends outside minus inside."), 4.8),
-                                 Beat(L("Ada 和 Eva 各是 6，最大。", "Ada and Eva: 6 each, the biggest."), 4.0)],
-              until=S["roll"]),
+        Scene("p-rule", p_rule, [Beat(L("五个朋友住两间屋，一次只搬一个人。", "Five friends, two rooms; one person moves at a time."), 4.4), Beat(L("两屋人数最多差 1。收益：屋外朋友减屋里朋友。", "The rooms may differ by one at most. Gain: friends outside minus inside."), 5.6), Beat(L("Ada 和 Eva 各是 6，最大。", "Ada and Eva: 6 each, the biggest."), 4.0)],
+              chapter=L("序 · 两间屋", "PROLOGUE · TWO ROOMS"), until=S["roll"]),
         Scene("p-title", p_title, [Beat(None, 4.5)], fade=False, until=37.0),
         Scene("p-blocked", p_blocked, [Beat(L("让 Ada 搬？左屋就只剩一个人。", "Move Ada? The left room would keep just one."), 4.2),
                                        Beat(L("1 比 4，差得太多：不许。", "One to four is too lopsided: not allowed."), 4.0),
