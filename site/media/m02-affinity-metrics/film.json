@@ -158,13 +158,13 @@
       {
        "start": 0.0,
        "end": 6.0,
-       "text": "要排座位、分小组，先得回答一个更小的问题：",
+       "text": "手机可以按共同群聊数，给你的联系人排个序。",
        "sceneId": "p-chats"
       },
       {
        "start": 6.0,
-       "end": 8.4,
-       "text": "谁和谁最亲近？",
+       "end": 8.8,
+       "text": "排第一的，会是谁？",
        "sceneId": "p-chats"
       },
       {
@@ -325,7 +325,7 @@
       }
      ],
      "readingViolations": 0,
-     "bytes": 8825321
+     "bytes": 8829655
     },
     "en": {
      "src": "story.en.mp4",
@@ -374,13 +374,13 @@
       {
        "start": 0.0,
        "end": 6.0,
-       "text": "Before you seat people or split them into teams, there is a smaller question:",
+       "text": "Your phone could rank your contacts by how many group chats you share.",
        "sceneId": "p-chats"
       },
       {
        "start": 6.0,
-       "end": 8.4,
-       "text": "who is closest to whom?",
+       "end": 8.8,
+       "text": "Who comes out on top?",
        "sceneId": "p-chats"
       },
       {
@@ -541,7 +541,7 @@
       }
      ],
      "readingViolations": 0,
-     "bytes": 8604089
+     "bytes": 8630658
     }
    }
   },

@@ -11,8 +11,8 @@
     "en": "Does It Fit?"
    },
    "why": {
-    "zh": "同样的五个朋友、同样的合并规则，只是座位有限：双座车装不下五个人（不可能），两把大提琴让出租车走进死胡同（卡住），双人自行车上最要好的一对反而拆散最多（不是最好）。",
-    "en": "The same five friends and the same merge rule, but seats are limited: two-seaters cannot take five in two cars (impossible), two cellos lead the taxis into a dead end (stuck), and on tandem bikes the closest pair splits the most (not the best)."
+    "zh": "从两人座的缆车讲起：再要好，也得装得下。然后是同样的五个朋友、同样的合并规则，只是座位有限：双座车装不下五个人（不可能），两把大提琴让出租车走进死胡同（卡住），双人自行车上最要好的一对反而拆散最多（不是最好）。",
+    "en": "It opens on a two-seat chairlift: however close, it has to fit. Then the same five friends and the same merge rule, but seats are limited: two-seaters cannot take five in two cars (impossible), two cellos lead the taxis into a dead end (stuck), and on tandem bikes the closest pair splits the most (not the best)."
    },
    "music": {
     "zh": "《We Never (Remix)（若如初见）》Hi Noise / 秋成（第三方录音，不在本课程许可范围内）",
@@ -20,12 +20,12 @@
    },
    "scenes": [
     {
-     "sceneId": "p-open",
+     "sceneId": "p-lift",
      "start": 0.0,
      "end": 10.75
     },
     {
-     "sceneId": "p-ask",
+     "sceneId": "p-lift2",
      "start": 10.75,
      "end": 17.41
     },
@@ -110,8 +110,13 @@
      "chapters": [
       {
        "t": 0.0,
-       "title": "序 · 座位",
-       "sceneId": "p-open"
+       "title": "序 · 缆车",
+       "sceneId": "p-lift"
+      },
+      {
+       "t": 17.41,
+       "title": "序 · 双座车",
+       "sceneId": "p-rule"
       },
       {
        "t": 37.0,
@@ -138,42 +143,36 @@
       {
        "start": 0.0,
        "end": 4.8,
-       "text": "还是那五个朋友，还是那条规则。",
-       "sceneId": "p-open"
+       "text": "缆车的每把吊椅，只坐两个人。",
+       "sceneId": "p-lift"
       },
       {
        "start": 4.8,
        "end": 9.4,
-       "text": "这一次，每辆车只有两个座位。",
-       "sceneId": "p-open"
+       "text": "排队的是三个最要好的朋友。",
+       "sceneId": "p-lift"
       },
       {
-       "start": 10.75,
-       "end": 13.55,
-       "text": "合得来的坐一起——",
-       "sceneId": "p-ask"
-      },
-      {
-       "start": 13.55,
-       "end": 16.55,
-       "text": "可是，装得下吗？",
-       "sceneId": "p-ask"
+       "start": 12.35,
+       "end": 16.75,
+       "text": "再要好，也得装得下。",
+       "sceneId": "p-lift2"
       },
       {
        "start": 17.41,
-       "end": 22.61,
-       "text": "规则多了一句：合并前，先看装不装得下。",
+       "end": 22.432,
+       "text": "五个朋友分车，这次每辆车只有两个座位。",
        "sceneId": "p-rule"
       },
       {
-       "start": 22.61,
-       "end": 27.41,
-       "text": "装不下的候选，再合得来也划掉。",
+       "start": 22.432,
+       "end": 27.632,
+       "text": "合并前先看装不装得下：装不下的划掉。",
        "sceneId": "p-rule"
       },
       {
-       "start": 27.41,
-       "end": 31.321,
+       "start": 27.632,
+       "end": 31.543,
        "text": "在剩下的里面，选最合得来的。",
        "sceneId": "p-rule"
       },
@@ -335,7 +334,7 @@
       }
      ],
      "readingViolations": 0,
-     "bytes": 8370032
+     "bytes": 8403305
     },
     "en": {
      "src": "story.en.mp4",
@@ -346,8 +345,13 @@
      "chapters": [
       {
        "t": 0.0,
-       "title": "PROLOGUE · SEATS",
-       "sceneId": "p-open"
+       "title": "PROLOGUE · THE CHAIRLIFT",
+       "sceneId": "p-lift"
+      },
+      {
+       "t": 17.41,
+       "title": "PROLOGUE · TWO-SEATERS",
+       "sceneId": "p-rule"
       },
       {
        "t": 37.0,
@@ -374,42 +378,36 @@
       {
        "start": 0.0,
        "end": 4.8,
-       "text": "The same five friends, the same rule.",
-       "sceneId": "p-open"
+       "text": "Each chair on the lift seats just two.",
+       "sceneId": "p-lift"
       },
       {
        "start": 4.8,
        "end": 9.4,
-       "text": "This time, every car has only two seats.",
-       "sceneId": "p-open"
+       "text": "In the queue: three best friends.",
+       "sceneId": "p-lift"
       },
       {
-       "start": 10.75,
-       "end": 13.55,
-       "text": "Friends ride together —",
-       "sceneId": "p-ask"
-      },
-      {
-       "start": 13.55,
-       "end": 16.55,
-       "text": "but does it fit?",
-       "sceneId": "p-ask"
+       "start": 12.35,
+       "end": 16.75,
+       "text": "However close, it still has to fit.",
+       "sceneId": "p-lift2"
       },
       {
        "start": 17.41,
-       "end": 22.61,
-       "text": "The rule gains one line: before merging, check that it fits.",
+       "end": 22.432,
+       "text": "Five friends again, and every car seats only two.",
        "sceneId": "p-rule"
       },
       {
-       "start": 22.61,
-       "end": 27.41,
-       "text": "A candidate that does not fit is crossed out, however close.",
+       "start": 22.432,
+       "end": 27.632,
+       "text": "Before merging, check it fits: what doesn't is crossed out.",
        "sceneId": "p-rule"
       },
       {
-       "start": 27.41,
-       "end": 31.321,
+       "start": 27.632,
+       "end": 31.543,
        "text": "Among the rest, take the closest pair.",
        "sceneId": "p-rule"
       },
@@ -571,7 +569,7 @@
       }
      ],
      "readingViolations": 0,
-     "bytes": 8244904
+     "bytes": 8261409
     }
    }
   },

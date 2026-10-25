@@ -20,6 +20,7 @@ from pathlib import Path
 from cine import (W, H, L, tr, Film, Scene, Beat, GOLD, TEAL, BLUE, ROSE, AMBER, CORAL, LILAC, SAGE, IVORY, MUTED, FAINT, DIM,
                   PANEL_BG, NODE_BG, clamp, ease, lerp, lerp2, title_card, panel, badge, bar, code_panel, table, graph, math_line,
                   fit, mixc, pulse, count_hits)
+from hooks import droplets
 from story import S, TRACK, INTRO_HITS, ROLL_HITS, FILL1, FILL2, PHRASE, FILL3, FILL4, title_assemble, credits, MUSIC_LINE, landed
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -198,31 +199,13 @@ def contraction(fr, k, alpha, pos, a="A", b="B", c_="C", label_y=-40):
 
 
 # ====================================================================== popular film
-def p_open(fr, c):
-    shown = [landed(c.T, INTRO_HITS, i) for i in range(5)]
-    friends(fr, 1.0, shown=shown)
-    if c.on(1):
-        a = c.p(1)
-        for i in range(2):
-            x = 1180 + i * 300
-            fr.rect(x, 420, 240, 120, fill=PANEL_BG, stroke=FAINT, width=1.2, alpha=0.95 * a, r=28, screen=True)
-            fr.text(tr(L(f"{i + 1} 号车", f"Car {i + 1}")), x + 120, 492, 30, MUTED, a, anchor="c", role="serif")
-            for dx in (50, 190):
-                fr.dot((x + dx, 548), 18, "#16303a", a)
-
-
-def p_bonds(fr, c):
-    friends(fr, 1.0, cut=False, weights=c.on(1))
-    if c.on(1):
-        fr.text(tr(L("数字：一路上聊得有多投机", "numbers: how well they get along")), 1350, 460, 26, GOLD, c.p(1), anchor="c")
-
-
 def p_rule(fr, c):
     friends(fr, 1.0, clusters=STATES[0])
-    cut_meter(fr, 18, alpha=c.p(0), title=L("被拆散的交情", "FRIENDSHIP SPLIT APART"))
     if c.on(1):
+        cut_meter(fr, 18, alpha=c.p(1), title=L("被拆散的交情", "FRIENDSHIP SPLIT APART"))
+    if c.on(2):
         fr.paragraph(L("规则：每次把最投机的两组合并，直到只剩两组。", "The rule: merge the two groups that get along best, until two are left."),
-                     1120, 540, 30, 600, IVORY, c.p(1), role="serif")
+                     1120, 540, 30, 600, IVORY, c.p(2), role="serif")
 
 
 def p_title(fr, c):
@@ -431,17 +414,18 @@ def p_end(fr, c):
 
 STORY = Film(
     "story", "popular", L("合并，再合并", "Merge, and Merge Again"), None, BRAND, poster_at=36.5, music=TRACK, seed=3,
-    why=L("五个朋友分两辆车：每次把最投机的两组合并；一个把 10 排在 2 前面的文件夹，讲清原网页的比较器错误；酒店只有双人房，讲清为什么不能硬凑。",
-          "Five friends split into two cars by merging the best-matched groups; a folder that sorts 10 before 2 explains the original page's comparator bug; twin rooms at the hotel show why you never force a merge."),
+    why=L("从窗上的雨滴讲起：最近的两滴总是先合在一起。再看五个朋友分两辆车：每次把最投机的两组合并；一个把 10 排在 2 前面的文件夹，讲清原网页的比较器错误；酒店只有双人房，讲清为什么不能硬凑。",
+          "It opens with rain on a window, where the nearest two drops always fuse first. Then five friends split into two cars by merging the best-matched groups; a folder that sorts 10 before 2 explains the original page's comparator bug; twin rooms at the hotel show why you never force a merge."),
     scenes=[
-        Scene("p-open", p_open, [Beat(L("五个朋友去毕业旅行，要分进两辆车。", "Five friends on a graduation trip, splitting into two cars."), 5.0),
-                                 Beat(L("怎么分，才能让合得来的人坐一起？", "How do you split them so friends ride together?"), 4.4)],
-              chapter=L("序 · 分车", "PROLOGUE · TWO CARS"), until=S["intro_end"]),
-        Scene("p-bonds", p_bonds, [Beat(None, 1.0), Beat(L("线越粗，两个人越聊得来。", "The thicker the line, the better two people get along."), 4.6)],
+        Scene("p-drops", droplets, [Beat(L("雨落在窗上。", "Rain on a window."), 4.6),
+                                    Beat(L("挨得最近的两滴，先连成一滴。", "The two nearest drops fuse first."), 4.6)],
+              chapter=L("序 · 雨滴", "PROLOGUE · RAINDROPS"), until=S["intro_end"]),
+        Scene("p-drops2", droplets, [Beat(L("然后再找最近的一对。合并，从不拆开。", "Then the next nearest pair. Merged, never split again."), 5.6)],
               until=S["groove"]),
-        Scene("p-rule", p_rule, [Beat(L("一开始每人自成一组：所有交情都被拆散，一共 18。", "At first everyone is a group of one: every friendship is split, 18 in all."), 6.6),
-                                 Beat(L("规则只有一句：每次把最投机的两组合并，直到只剩两组。", "The rule is one line: merge the two groups that get along best, until two remain."), 6.6)],
-              until=S["roll"]),
+        Scene("p-rule", p_rule, [Beat(L("五个朋友分两辆车，也可以这样分。", "Five friends splitting into two cars can do the same."), 4.4),
+                                 Beat(L("一开始每人自成一组：拆散的交情共 18。", "At first everyone is a group of one: 18 in friendships split."), 4.8),
+                                 Beat(L("每次合并最投机的两组，直到只剩两组。", "Merge the two best-matched groups, until two remain."), 4.6)],
+              chapter=L("序 · 分车", "PROLOGUE · TWO CARS"), until=S["roll"]),
         Scene("p-title", p_title, [Beat(None, 4.5)], fade=False, until=37.0),
         Scene("p-step1", p_step1, [Beat(L("最投机的有两对：Ada–Ben 和 Dev–Eva，都是 5。", "Two pairs get along best: Ada–Ben and Dev–Eva, both 5."), 5.6),
                                    Beat(L("平票就按名字：A 在 D 前，Ada 和 Ben 先上车。", "A tie goes by name: A comes before D, so Ada and Ben go first."), 6.0)],

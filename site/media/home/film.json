@@ -1,0 +1,510 @@
+{
+ "schema": 2,
+ "status": "ready",
+ "films": [
+  {
+   "id": "intro",
+   "kind": "intro",
+   "status": "ready",
+   "title": {
+    "zh": "连接与分组",
+    "en": "Connect & Group"
+   },
+   "why": {
+    "zh": "全课程的共同背景：从婚宴排座位讲起，什么是聚类、为什么芯片设计离不开它、为什么不能一个个试，以及这门课的三类方法。",
+    "en": "The background every module shares: from a wedding seating plan to what clustering is, why chip design depends on it, why trying every split is hopeless, and the three families of methods in this course."
+   },
+   "music": {
+    "zh": "《We Never (Remix)（若如初见）》Hi Noise / 秋成（第三方录音，不在本课程许可范围内）",
+    "en": "“We Never (Remix)” by Hi Noise / 秋成 (third-party recording, not covered by this course's licences)"
+   },
+   "scenes": [
+    {
+     "sceneId": "h-seat",
+     "start": 0.0,
+     "end": 10.75
+    },
+    {
+     "sceneId": "h-seat2",
+     "start": 10.75,
+     "end": 17.41
+    },
+    {
+     "sceneId": "h-what",
+     "start": 17.41,
+     "end": 32.03
+    },
+    {
+     "sceneId": "h-title",
+     "start": 32.03,
+     "end": 37.0
+    },
+    {
+     "sceneId": "h-chip",
+     "start": 37.0,
+     "end": 51.18
+    },
+    {
+     "sceneId": "h-friends",
+     "start": 51.18,
+     "end": 63.15
+    },
+    {
+     "sceneId": "h-count",
+     "start": 63.15,
+     "end": 80.16
+    },
+    {
+     "sceneId": "h-algos",
+     "start": 80.16,
+     "end": 97.19
+    },
+    {
+     "sceneId": "h-breath",
+     "start": 97.19,
+     "end": 102.5
+    },
+    {
+     "sceneId": "h-families",
+     "start": 102.5,
+     "end": 119.27
+    },
+    {
+     "sceneId": "h-improve",
+     "start": 119.27,
+     "end": 134.16
+    },
+    {
+     "sceneId": "h-route",
+     "start": 134.16,
+     "end": 141.5
+    },
+    {
+     "sceneId": "h-outro",
+     "start": 141.5,
+     "end": 170.6
+    },
+    {
+     "sceneId": "h-end",
+     "start": 170.6,
+     "end": 189.82
+    }
+   ],
+   "fps": 30,
+   "size": [
+    1920,
+    1080
+   ],
+   "versions": {
+    "zh": {
+     "src": "intro.zh.mp4",
+     "vtt": "intro.zh.vtt",
+     "poster": "intro.zh.jpg",
+     "duration": 189.83,
+     "captions": "zh+en",
+     "chapters": [
+      {
+       "t": 0.0,
+       "title": "序 · 排座位",
+       "sceneId": "h-seat"
+      },
+      {
+       "t": 17.41,
+       "title": "序 · 聚类",
+       "sceneId": "h-what"
+      },
+      {
+       "t": 37.0,
+       "title": "一 · 为什么重要",
+       "sceneId": "h-chip"
+      },
+      {
+       "t": 63.15,
+       "title": "二 · 为什么难",
+       "sceneId": "h-count"
+      },
+      {
+       "t": 80.16,
+       "title": "三 · 算法",
+       "sceneId": "h-algos"
+      },
+      {
+       "t": 102.5,
+       "title": "四 · 三类方法",
+       "sceneId": "h-families"
+      },
+      {
+       "t": 141.5,
+       "title": "尾声",
+       "sceneId": "h-outro"
+      }
+     ],
+     "transcript": [
+      {
+       "start": 0.0,
+       "end": 5.0,
+       "text": "婚礼要排座位：三张桌子，三十位客人。",
+       "sceneId": "h-seat"
+      },
+      {
+       "start": 5.0,
+       "end": 8.6,
+       "text": "谁和谁坐一桌？",
+       "sceneId": "h-seat"
+      },
+      {
+       "start": 10.75,
+       "end": 16.35,
+       "text": "熟人坐一桌，生人分开坐：你已经在做聚类。",
+       "sceneId": "h-seat2"
+      },
+      {
+       "start": 17.41,
+       "end": 24.01,
+       "text": "聚类：把联系紧的放进一组，组和组之间联系少。",
+       "sceneId": "h-what"
+      },
+      {
+       "start": 24.01,
+       "end": 29.41,
+       "text": "不必知道每个人是谁，只看谁和谁有联系。",
+       "sceneId": "h-what"
+      },
+      {
+       "start": 37.0,
+       "end": 42.022,
+       "text": "芯片里，几百万个单元由导线连成一张网。",
+       "sceneId": "h-chip"
+      },
+      {
+       "start": 42.022,
+       "end": 46.689,
+       "text": "同一组的单元放在一起，导线就短；",
+       "sceneId": "h-chip"
+      },
+      {
+       "start": 46.689,
+       "end": 51.089,
+       "text": "跨组的导线又长又慢，还更费电。",
+       "sceneId": "h-chip"
+      },
+      {
+       "start": 51.18,
+       "end": 55.98,
+       "text": "课程里的五个朋友：线越粗，交情越深。",
+       "sceneId": "h-friends"
+      },
+      {
+       "start": 55.98,
+       "end": 60.38,
+       "text": "分成两组，切断的交情就叫 cut。",
+       "sceneId": "h-friends"
+      },
+      {
+       "start": 63.15,
+       "end": 68.839,
+       "text": "ABC | DE 只切断 3；AE | BCD 切断 12。",
+       "sceneId": "h-count"
+      },
+      {
+       "start": 68.839,
+       "end": 74.083,
+       "text": "五个人分两组：15 种分法，可以一个个试。",
+       "sceneId": "h-count"
+      },
+      {
+       "start": 74.083,
+       "end": 78.683,
+       "text": "一百个人呢？分法的个数有 30 位。",
+       "sceneId": "h-count"
+      },
+      {
+       "start": 80.16,
+       "end": 85.16,
+       "text": "一个个试，永远试不完。所以要靠算法。",
+       "sceneId": "h-algos"
+      },
+      {
+       "start": 85.16,
+       "end": 90.16,
+       "text": "这门课的八章，是八种回答。",
+       "sceneId": "h-algos"
+      },
+      {
+       "start": 90.16,
+       "end": 95.16,
+       "text": "它们大致分成几类。",
+       "sceneId": "h-algos"
+      },
+      {
+       "start": 102.5,
+       "end": 110.189,
+       "text": "第一类：给每一对打分，把最亲近的一对对合并（M02–M04）。",
+       "sceneId": "h-families"
+      },
+      {
+       "start": 110.189,
+       "end": 117.878,
+       "text": "第二类：让分组自己长出来，标签传播、谱方法（M05–M06）。",
+       "sceneId": "h-families"
+      },
+      {
+       "start": 119.27,
+       "end": 126.67,
+       "text": "第三类：改进已有分组，成对交换或逐个搬（M07–M08）。",
+       "sceneId": "h-improve"
+      },
+      {
+       "start": 126.67,
+       "end": 133.248,
+       "text": "最后一章把目标换成速度：让最慢的路径最快（M09）。",
+       "sceneId": "h-improve"
+      },
+      {
+       "start": 134.16,
+       "end": 139.56,
+       "text": "八章，同一个问题。",
+       "sceneId": "h-route"
+      },
+      {
+       "start": 141.5,
+       "end": 147.5,
+       "text": "聚类不是一个算法，而是一个问题：",
+       "sceneId": "h-outro"
+      },
+      {
+       "start": 147.5,
+       "end": 154.5,
+       "text": "怎样分组，才让联系留在组内？",
+       "sceneId": "h-outro"
+      },
+      {
+       "start": 154.5,
+       "end": 160.5,
+       "text": "每一章，给出一种回答。",
+       "sceneId": "h-outro"
+      },
+      {
+       "start": 160.5,
+       "end": 167.5,
+       "text": "从给一对单元打分开始。",
+       "sceneId": "h-outro"
+      },
+      {
+       "start": 170.6,
+       "end": 176.6,
+       "text": "从 Module 02 开始。",
+       "sceneId": "h-end"
+      }
+     ],
+     "readingViolations": 0,
+     "bytes": 9840617
+    },
+    "en": {
+     "src": "intro.en.mp4",
+     "vtt": "intro.en.vtt",
+     "poster": "intro.en.jpg",
+     "duration": 189.83,
+     "captions": "en",
+     "chapters": [
+      {
+       "t": 0.0,
+       "title": "PROLOGUE · A SEATING PLAN",
+       "sceneId": "h-seat"
+      },
+      {
+       "t": 17.41,
+       "title": "PROLOGUE · CLUSTERING",
+       "sceneId": "h-what"
+      },
+      {
+       "t": 37.0,
+       "title": "I · WHY IT MATTERS",
+       "sceneId": "h-chip"
+      },
+      {
+       "t": 63.15,
+       "title": "II · WHY IT IS HARD",
+       "sceneId": "h-count"
+      },
+      {
+       "t": 80.16,
+       "title": "III · ALGORITHMS",
+       "sceneId": "h-algos"
+      },
+      {
+       "t": 102.5,
+       "title": "IV · THREE FAMILIES",
+       "sceneId": "h-families"
+      },
+      {
+       "t": 141.5,
+       "title": "CODA",
+       "sceneId": "h-outro"
+      }
+     ],
+     "transcript": [
+      {
+       "start": 0.0,
+       "end": 5.0,
+       "text": "A wedding seating plan: three tables, thirty guests.",
+       "sceneId": "h-seat"
+      },
+      {
+       "start": 5.0,
+       "end": 8.6,
+       "text": "Who sits with whom?",
+       "sceneId": "h-seat"
+      },
+      {
+       "start": 10.75,
+       "end": 16.35,
+       "text": "Friends together, strangers apart: you are already clustering.",
+       "sceneId": "h-seat2"
+      },
+      {
+       "start": 17.41,
+       "end": 24.01,
+       "text": "Clustering: what is tightly linked goes in one group, with few links between groups.",
+       "sceneId": "h-what"
+      },
+      {
+       "start": 24.01,
+       "end": 29.41,
+       "text": "You need not know who anyone is, only who is linked to whom.",
+       "sceneId": "h-what"
+      },
+      {
+       "start": 37.0,
+       "end": 42.022,
+       "text": "On a chip, millions of cells are wired into one network.",
+       "sceneId": "h-chip"
+      },
+      {
+       "start": 42.022,
+       "end": 46.689,
+       "text": "Cells in one group sit together, so their wires are short;",
+       "sceneId": "h-chip"
+      },
+      {
+       "start": 46.689,
+       "end": 51.089,
+       "text": "wires between groups are long, slow and costly.",
+       "sceneId": "h-chip"
+      },
+      {
+       "start": 51.18,
+       "end": 55.98,
+       "text": "The course's five friends: thicker line, closer friends.",
+       "sceneId": "h-friends"
+      },
+      {
+       "start": 55.98,
+       "end": 60.38,
+       "text": "Split them in two; the friendship cut is the cut.",
+       "sceneId": "h-friends"
+      },
+      {
+       "start": 63.15,
+       "end": 68.839,
+       "text": "ABC | DE cuts only 3; AE | BCD cuts 12.",
+       "sceneId": "h-count"
+      },
+      {
+       "start": 68.839,
+       "end": 74.083,
+       "text": "Five people into two groups: 15 ways, easy to try them all.",
+       "sceneId": "h-count"
+      },
+      {
+       "start": 74.083,
+       "end": 78.683,
+       "text": "A hundred people? The count has 30 digits.",
+       "sceneId": "h-count"
+      },
+      {
+       "start": 80.16,
+       "end": 85.16,
+       "text": "Trying them one by one never ends. So we need algorithms.",
+       "sceneId": "h-algos"
+      },
+      {
+       "start": 85.16,
+       "end": 90.16,
+       "text": "This course's eight modules are eight answers.",
+       "sceneId": "h-algos"
+      },
+      {
+       "start": 90.16,
+       "end": 95.16,
+       "text": "They fall into a few families.",
+       "sceneId": "h-algos"
+      },
+      {
+       "start": 102.5,
+       "end": 110.189,
+       "text": "First: score every pair, then merge the closest, pair by pair (M02–M04).",
+       "sceneId": "h-families"
+      },
+      {
+       "start": 110.189,
+       "end": 117.878,
+       "text": "Second: let groups emerge, by label propagation or spectral methods (M05–M06).",
+       "sceneId": "h-families"
+      },
+      {
+       "start": 119.27,
+       "end": 126.67,
+       "text": "Third: improve a grouping by swapping pairs or moving one at a time (M07–M08).",
+       "sceneId": "h-improve"
+      },
+      {
+       "start": 126.67,
+       "end": 133.248,
+       "text": "The last module aims for speed: make the slowest path fast (M09).",
+       "sceneId": "h-improve"
+      },
+      {
+       "start": 134.16,
+       "end": 139.56,
+       "text": "Eight modules, one problem.",
+       "sceneId": "h-route"
+      },
+      {
+       "start": 141.5,
+       "end": 147.5,
+       "text": "Clustering is not one algorithm but one question:",
+       "sceneId": "h-outro"
+      },
+      {
+       "start": 147.5,
+       "end": 154.5,
+       "text": "how do we group things so the links stay inside?",
+       "sceneId": "h-outro"
+      },
+      {
+       "start": 154.5,
+       "end": 160.5,
+       "text": "Each module gives one answer.",
+       "sceneId": "h-outro"
+      },
+      {
+       "start": 160.5,
+       "end": 167.5,
+       "text": "It starts with scoring a pair.",
+       "sceneId": "h-outro"
+      },
+      {
+       "start": 170.6,
+       "end": 176.6,
+       "text": "Start with Module 02.",
+       "sceneId": "h-end"
+      }
+     ],
+     "readingViolations": 0,
+     "bytes": 9724290
+    }
+   }
+  }
+ ]
+}

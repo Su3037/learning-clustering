@@ -281,14 +281,18 @@ python3 check.py reference.py ${T('# 看参考实现全部通过', '# the refere
 <g class="art-n" font-size="16" text-anchor="middle" fill="#fffdf8"><circle cx="96" cy="94" r="17" fill="#0f6b5c"/><text x="96" y="100">A</text><circle cx="206" cy="74" r="17" fill="#0f6b5c"/><text x="206" y="80">B</text><circle cx="164" cy="170" r="17" fill="#0f6b5c"/><text x="164" y="176">C</text><circle cx="324" cy="218" r="17" fill="#2f5e9e"/><text x="324" y="224">D</text><circle cx="262" cy="252" r="17" fill="#2f5e9e"/><text x="262" y="258">E</text></g>
 </svg><figcaption>${T('课程公共图 G01：分成 ABC | DE，只切断 2 + 1 = 3。', 'The course graph G01: split into ABC | DE, only 2 + 1 = 3 is cut.')}</figcaption></figure>
 </section>
+<section class="section dark" id="intro"><div class="wrap">
+<div class="section-head"><div>${eyebrow(1, '导论', 'Introduction')}<h2>${T('什么是聚类', 'What clustering is')}</h2></div><p>${T('八个模块的共同背景：从排座位讲起，什么是聚类、为什么芯片设计离不开它，以及这门课的几类方法。每章的科普片再从各自算法的生活例子讲起。', 'The background all eight modules share: from a seating plan to what clustering is, why chip design depends on it, and the families of methods in this course. Each module’s own popular film then starts from an everyday example of its algorithm.')}</p></div>
+<div id="intro-film-root"><p class="muted">${T('正在载入影片…', 'Loading the film…')}</p></div>
+</div></section>
 <section class="section"><div class="wrap">
-<div class="section-head"><div>${eyebrow(1, '学习路线', 'The route')}<h2>${T('八个模块', 'Eight modules')}</h2></div><p>${T('前三章讲评分与合并，LP 与谱方法给出两种产生初始分组的机制，KL/FM 改进已有分组，RW 把目标换成延迟。每章可以单独打开。', 'The first three score and merge; label propagation and spectral methods are two ways to produce a first grouping; KL and FM improve a grouping; RW changes the goal to delay. Each module stands on its own.')}</p></div>
+<div class="section-head"><div>${eyebrow(2, '学习路线', 'The route')}<h2>${T('八个模块', 'Eight modules')}</h2></div><p>${T('前三章讲评分与合并，LP 与谱方法给出两种产生初始分组的机制，KL/FM 改进已有分组，RW 把目标换成延迟。每章可以单独打开。', 'The first three score and merge; label propagation and spectral methods are two ways to produce a first grouping; KL and FM improve a grouping; RW changes the goal to delay. Each module stands on its own.')}</p></div>
 <div class="route">${cards}</div>
 <p class="route-legend">${T('编号沿用提交顺序（Issue #1–#8 对应 Module 02–09）。Module 09 的提交主题是 Rajaraman–Wong；教师课程目录中的 Lab 09 是 Multilevel，对应关系尚待教师确认，课程不会把两者混为一谈。',
       'Numbers follow the order of submission (Issues #1–#8 → Modules 02–09). The Module 09 submission is about Rajaraman–Wong; Lab 09 in the teacher’s catalogue is Multilevel. Their correspondence is awaiting the teacher’s confirmation, and the course keeps the two apart.')}</p>
 </div></section>
 <section class="section" id="synthesis"><div class="wrap">
-<div class="section-head"><div>${eyebrow(2, '综合对比', 'Side by side')}<h2>${T('同一张五节点图，七种不同的操作', 'One five-node graph, seven different operations')}</h2></div><p>${T('Module 02–08 都用到课程公共图 G01，但每一章学的操作不同；Module 09 换成有向延迟模型，不使用这张图。', 'Modules 02–08 all use the course graph G01, but each teaches a different operation; Module 09 switches to a directed delay model and does not use it.')}</p></div>
+<div class="section-head"><div>${eyebrow(3, '综合对比', 'Side by side')}<h2>${T('同一张五节点图，七种不同的操作', 'One five-node graph, seven different operations')}</h2></div><p>${T('Module 02–08 都用到课程公共图 G01，但每一章学的操作不同；Module 09 换成有向延迟模型，不使用这张图。', 'Modules 02–08 all use the course graph G01, but each teaches a different operation; Module 09 switches to a directed delay model and does not use it.')}</p></div>
 ${synthOk ? '' : untranslated(page, 'This comparison table').replace('<div class="wrap">', '<div>')}
 <div class="prose wide">${render(synth)}</div>
 </div></section>

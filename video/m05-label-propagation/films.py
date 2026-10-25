@@ -1,7 +1,9 @@
 """Module 05 · Label propagation — the four films.
 
-  story     popular science: the author's original film 《圈子从哪里来》 (v4, 6:20, We Never (Remix)),
-            shown as made; its source lives in Su3037/clustering-lab5-label-propagation.
+  story     popular science, cut to "We Never (Remix)": catchphrases spreading along a dorm floor, then the rule on G01:
+            the vote, two rounds to stable, the synchronous swap that never stops, three knobs, 120 orders, the chip.
+  original  the author's original film 《圈子从哪里来》 (v4, 6:20, We Never (Remix)), shown as made; its source lives
+            in Su3037/clustering-lab5-label-propagation (import_story.py).
   concise   the essentials in about two minutes.
   advanced  why asynchronous updates stop, why synchronous ones can cycle, the stopping tests,
             order dependence, cost, the trivial fixed point, and size-constrained variants for coarsening.
@@ -698,6 +700,238 @@ ADVANCED = Film(
               chapter=L("小结", "SUMMARY"), tail=1.4),
     ])
 
-FILMS = [CONCISE, ADVANCED]
-# Order on the page: popular science (imported by import_story.py), concise, advanced, walkthrough (walkthrough.py).
-ORDER = ["story", "concise", "advanced", "lab"]
+# ====================================================================== popular film
+from hooks import dialect  # noqa: E402
+from story import S, TRACK, ROLL_HITS, FILL1, FILL2, PHRASE, FILL3, FILL4, title_assemble, credits, MUSIC_LINE  # noqa: E402
+from cine import pulse, count_hits  # noqa: E402
+
+R1_END = R1[-1]["after"]
+FINAL = GOLDEN["result"]["labels"]
+assert GOLDEN["result"]["rounds"] == 2 and GOLDEN["result"]["cut"] == 3 and GOLDEN["result"]["status"] == "stable"
+assert EV_C["votes"] == {"B": 5, "D": 2, "E": 1} and EV_C["label"] == "B"
+assert sum(1 for e in R1 if e["changed"]) == 3 and not any(e["changed"] for e in R2)
+assert REV["result"]["rounds"] == 3 and REV["result"]["grouping"] == GOLDEN["result"]["grouping"]
+assert HEAVY["result"]["grouping"] == "A,B | C,D,E" and HEAVY["result"]["cut"] == 5
+assert T["pairSync"]["result"]["status"] == "cycle"
+assert ORD["g01"]["orders"] == 120 and ORD["g01"]["rounds"] == {"2": 100, "3": 20} and len(ORD["g01"]["outcomes"]) == 1
+CRUN = T["circuit"]["run"]["result"]
+assert CRUN["cut"] == 2 and len(set(CRUN["labels"].values())) == 3
+
+
+def s_names(fr, c):
+    init = {n: n for n in ALL}
+    if c.on(1):
+        g5(fr, init, 1.0, glow_nodes=ALL if c.on(2) else ())
+    else:
+        graph(fr, P5, E5, {n: "#9fbcbc" for n in ALL}, c.p(0, 1.0))
+    if c.on(1):
+        a = c.p(1)
+        panel(fr, 1110, 300, 640, 300, a, L("规则", "THE RULE"))
+        fr.paragraph(L("看邻居现在的标签；同一标签的边权加起来；加入最大的那个。", "Look at the neighbours' labels now; add up the weights per label; join the largest."),
+                     1140, 400, 28, 580, IVORY, a)
+    if c.on(2):
+        note(fr, L("名字是身份，标签是归属：开始时两者相同", "a name is identity, a label is membership: at the start they match"), c.p(2), GOLD, y=800)
+
+
+def s_title(fr, c):
+    title_assemble(fr, c, L("跟着邻居走", "Follow Your Neighbours"), L("标签传播 · LABEL PROPAGATION", "LABEL PROPAGATION"), "MODULE 05")
+
+
+def s_weights(fr, c):
+    ev = EV_C
+    a_ev = R1[0]
+    if not c.on(1):
+        k = c.p(0, 1.2)
+        labels = dict(a_ev["before"])
+        if k > 0.5:
+            labels["A"] = a_ev["label"]
+        g5(fr, labels, 1.0, active="A")
+        return
+    hl = {"|".join(sorted(("C", nb["node"]))) for nb in ev["neighbors"]}
+    g5(fr, ev["before"], 1.0, active="C", hl_edges=hl)
+    order = sorted(ev["votes"], key=lambda l: (-ev["votes"][l], l))
+    dests = {lab: (1130 + 150 + 20, 240 + 110 + i * 92) for i, lab in enumerate(order)}
+    k = c.span(1, 2)
+    filled = tokens(fr, ev, k, P5, dests) if k < 1 else dict(ev["votes"])
+    shown = {lab: filled.get(lab, 0) for lab in order}
+    won = c.T >= FILL1[0]
+    vote_panel(fr, 1130, 240, shown, 1.0, L("C 的票 · 第 1 轮", "C'S VOTES · ROUND 1"), winner=ev["label"] if won else None,
+               hl=pulse(c.T, FILL1, 0.5) if won else 0, colors=LAB, grow=1.0)
+
+
+def s_round1(fr, c):
+    labels = dict(EV_C["after"])
+    d_ev = next(e for e in R1 if e["node"] == "D")
+    if c.p(0, 1.0) > 0.5:
+        labels["D"] = d_ev["label"]
+    g5(fr, labels if not c.on(1) else R1_END, 1.0, active="D" if not c.on(1) else None, cut=c.on(2))
+    if c.on(1):
+        changed = [e["node"] for e in R1 if e["changed"]]
+        fr.text(L("第 1 轮改了：", "changed in round 1:") , 1200, 380, 28, MUTED, c.p(1))
+        fr.text("  ".join(changed), 1200, 450, 48, GOLD, c.p(1), role="mono")
+    if c.on(2):
+        fr.text(f"cut {cut_value(E5, R1_END):g}", 1200, 560, 44, ROSE, c.p(2), role="mono")
+
+
+def s_round2(fr, c):
+    g5(fr, FINAL, 1.0, cut=c.on(2))
+    n = count_hits(c.T, FILL2)
+    order = [e["node"] for e in R2]
+    for i, node in enumerate(order[:min(n, 5)]):
+        p = P5[node]
+        fr.text("✓", p[0] + 52, p[1] - 30, 30, TEAL, 1.0, glow=0.4 * pulse(c.T, [FILL2[min(i, len(FILL2) - 1)]], 0.4))
+    if c.on(1):
+        badge(fr, 1350, 440, L("一整轮零变化 → stable", "a full round, no change → stable"), TEAL, c.p(1), 24, screen=True)
+    if c.on(2):
+        fr.text(L(f"{GOLDEN['result']['rounds']} 轮 · cut {GOLDEN['result']['cut']}", f"{GOLDEN['result']['rounds']} rounds · cut {GOLDEN['result']['cut']}"),
+                1350, 560, 40, GOLD, c.p(2), anchor="c", role="serif")
+
+
+def _pair(fr, flips, alpha=1.0, cycle=0.0):
+    lab = {"A": "A", "B": "B"} if flips % 2 == 0 else {"A": "B", "B": "A"}
+    pos = {"A": (660, 480), "B": (1260, 480)}
+    graph(fr, pos, [("A", "B", 1)], {n: LAB[lab[n]] for n in "AB"}, alpha, r=56, name_size=48,
+          badges={n: f"{tr(LW)} {lab[n]}" for n in "AB"}, cut={"A|B"})
+    fr.text(L(f"第 {flips} 轮", f"round {flips}"), W / 2, 700, 26, MUTED, alpha, anchor="c", role="mono")
+    if cycle > 0:
+        badge(fr, W / 2, 780, L("状态重复 → cycle", "the state repeats → cycle"), ROSE, cycle, 24, screen=True)
+
+
+def s_sync(fr, c):
+    fr.text(L("同步：大家读同一张旧快照，再一起改", "synchronous: all read the same old snapshot, then all change"), W / 2, 280, 28, GOLD, c.p(0), anchor="c")
+    _pair(fr, count_hits(c.T, PHRASE[:1]) + count_hits(c.T, PHRASE[1::3]) if c.on(1) else 0)
+
+
+def s_sync2(fr, c):
+    base = count_hits(S["phrase_end"] + 1, PHRASE[:1]) + count_hits(S["phrase_end"] + 1, PHRASE[1::3])
+    _pair(fr, base + int(c.t / 1.4), cycle=c.p(1))
+
+
+def s_breath(fr, c):
+    a = c.p(0, 1.4)
+    fr.text(L("顺序，也会改变答案吗？", "Can the order change the answer?"), W / 2, 500, 52, GOLD, a, anchor="c", role="serif", glow=0.25 * a)
+
+
+def s_knobs(fr, c):
+    g = GOLDEN["result"]
+    mini(fr, 180, 300, g["labels"], 1.0, title=L("正序 A→E", "order A→E"),
+         sub=L(f"{g['rounds']} 轮 · ABC | DE · cut {g['cut']}", f"{g['rounds']} rounds · ABC | DE · cut {g['cut']}"))
+    if c.on(0):
+        r = REV["result"]
+        mini(fr, 780, 300, r["labels"], c.p(0, 1.0, 0.4), title=L("反序 E→A", "order E→A"),
+             sub=L(f"{r['rounds']} 轮 · 标签名不同，分组相同", f"{r['rounds']} rounds · other names, same groups"), sub_col=TEAL)
+    if c.on(1):
+        h = HEAVY["result"]
+        heavy_edges = [(u, v, 10 if (u, v) == ("C", "D") else w) for u, v, w in E5]
+        mini(fr, 1380, 300, h["labels"], c.p(1), edges=heavy_edges, title=L("C–D 加到 10", "C–D raised to 10"),
+             sub=L(f"AB | CDE · cut {h['cut']}", f"AB | CDE · cut {h['cut']}"), sub_col=ROSE)
+
+
+def s_orders(fr, c):
+    rounds = ORD["g01"]["rounds"]
+    n2, n3 = rounds["2"], rounds["3"]
+    shown = int(120 * c.span(0, 1)) if c.on(0) else 0
+    if c.on(1):
+        shown = 120
+    for i in range(shown):
+        x, y = 480 + (i % 20) * 48, 300 + (i // 20) * 48
+        col = TEAL if i < n2 else GOLD
+        fr.rect(x, y, 38, 38, fill=col, alpha=0.75, r=4)
+    if c.on(1):
+        a = c.p(1)
+        fr.text(L(f"{n2} 种：2 轮", f"{n2} orders: 2 rounds"), 480, 640, 28, TEAL, a)
+        fr.text(L(f"{n3} 种：3 轮", f"{n3} orders: 3 rounds"), 900, 640, 28, GOLD, a)
+        fr.text(L("全部 120 种 → ABC | DE · cut 3", "all 120 → ABC | DE · cut 3"), W / 2, 740, 34, IVORY, a, anchor="c", role="serif")
+
+
+def s_payoff(fr, c):
+    lit = c.T >= FILL4[0]
+    a = ease((c.T - FILL4[0]) / 1.0) if lit else 0
+    circuit(fr, CRUN["labels"] if lit else None, 1.0, show_names=False)
+    if lit:
+        fr.text(L("3 块 · cut 2", "3 blocks · cut 2"), 1500, 440, 48, GOLD, a, anchor="c", role="serif", glow=0.3 * a)
+        fr.text(L(f"全部连线权重 {sum(w for *_, w in CIRC['edges'])}", f"total wiring weight {sum(w for *_, w in CIRC['edges'])}"), 1500, 500, 24, MUTED, a, anchor="c")
+
+
+def s_outro(fr, c):
+    lines = [(L("一条局部的规则，不用说分几组", "One local rule; no need to say how many groups"), TEAL, 0),
+             (L("圈子自己浮现", "The circles appear on their own"), TEAL, 1),
+             (L("顺序、同步、平票，都会改变它", "Order, update mode and ties all change it"), GOLD, 2)]
+    for s_, col, k in lines:
+        if c.on(k):
+            fr.text(s_, W / 2, 380 + k * 90, 40, col, c.p(k, 1.2) * (1 - 0.6 * c.p(3)), anchor="c", role="serif")
+    if c.on(3):
+        a = c.p(3, 1.4)
+        fr.text(L("下一章：给每个点一个数", "Next: a number for every point"), W / 2, 720, 40, GOLD, a, role="serif", anchor="c", glow=0.3 * a)
+
+
+def s_end(fr, c):
+    if not c.on(1):
+        a = c.p(0, 1.0)
+        g5(fr, FINAL, a, cut=True)
+        fr.text(L("单步看计票 · 换顺序 · 改边权", "step through the votes · change the order · edit a weight"), 1400, 500, 26, GOLD, a, anchor="c")
+    else:
+        credits(fr, c, [(L("跟着邻居走", "Follow Your Neighbours"), GOLD, 44),
+                        (L("Learning Clustering · Module 05 · 标签传播", "Learning Clustering · Module 05 · Label propagation"), IVORY, 24),
+                        (L("原作 Su3037（Issue #4）· “名字是身份、标签是归属”与逐层拆解来自原作；原作科普片《圈子从哪里来》也在本页", "Original work by Su3037 (Issue #4) · “a name is identity, a label is membership” and the layer-by-layer build come from it; the original film is on this page too"), MUTED, 20),
+                        (L("所有数值由本课程引擎 site/engines/lp.js 计算", "Every value is computed by this course's engine, site/engines/lp.js"), MUTED, 20),
+                        (MUSIC_LINE, MUTED, 18)], k=1)
+
+
+STORY = Film(
+    "story", "popular", L("跟着邻居走", "Follow Your Neighbours"), None, BRAND, poster_at=36.5, music=TRACK, seed=5,
+    why=L("从一层楼的口头禅讲起：每人只学身边最多人的说法，几片“方言区”自己长出来。再到 G01：计票、两轮才算稳定、同步时永远换来换去、三个旋钮、120 种顺序，最后是芯片。",
+          "It opens with catchphrases on a dorm floor: everyone picks up what most neighbours say, and dialect zones grow by themselves. Then G01: the vote, two rounds before it is stable, the synchronous swap that never ends, three knobs, 120 orders, and the chip."),
+    scenes=[
+        Scene("p-dialect", dialect, [Beat(L("新生住进同一层楼，各有各的口头禅。", "New students move onto one floor, each with their own catchphrase."), 5.2),
+                                     Beat(L("一个学期以后呢？", "A term later?"), 4.0)],
+              chapter=L("序 · 口头禅", "PROLOGUE · CATCHPHRASES"), until=S["intro_end"]),
+        Scene("p-dialect2", dialect, [Beat(L("每人只学身边最多人的说法：几片“方言区”自己长出来。", "Each picks up what most neighbours say, and dialect zones grow by themselves."), 5.8)],
+              until=S["groove"]),
+        Scene("names", s_names, [Beat(L("这就是标签传播。", "This is label propagation."), 3.0),
+                                 Beat(L("规则只有一句：加入邻居里边权之和最大的那个标签。", "One rule: join the label with the largest total weight among your neighbours."), 5.6),
+                                 Beat(L("开始时，每个点的标签就是自己的名字。", "At the start, each node's label is its own name."), 4.4)],
+              chapter=L("序 · 标签", "PROLOGUE · LABELS"), until=S["roll"]),
+        Scene("p-title", s_title, [Beat(None, 4.5)], fade=False, until=37.0),
+        Scene("weights", s_weights, [Beat(L("第 1 轮，按 A→E 轮流。A 改成了 B。", "Round 1 goes A to E in turn. A switches to B."), 4.0),
+                                     Beat(L("轮到 C：同一标签的边权加起来。", "C's turn: add up the weights per label."), 4.4),
+                                     Beat(L("B = 5，D = 2，E = 1：C 改成 B。", "B = 5, D = 2, E = 1: C takes B."), 4.0)],
+              chapter=L("一 · 计票", "I · THE VOTE"), until=S["fill1_end"]),
+        Scene("round1", s_round1, [Beat(L("D 改成 E；E 保持 E。", "D switches to E; E keeps E."), 3.6),
+                                   Beat(L("第 1 轮结束：改了 3 个点。", "Round 1 ends: three nodes changed."), 3.6),
+                                   Beat(L("ABC | DE 已经成形。", "ABC | DE has already formed."), 3.4)],
+              until=S["accent"]),
+        Scene("round2", s_round2, [Beat(L("第 2 轮：每个点再投一次。", "Round 2: every node votes again."), 3.0),
+                                   Beat(L("一个都没变：这才叫稳定。", "Nothing changed, and only that counts as stable."), 4.4),
+                                   Beat(L("共 2 轮，cut 3。", "Two rounds, cut 3."), 3.0)],
+              chapter=L("二 · 何时停", "II · WHEN TO STOP"), until=S["phrase"]),
+        Scene("sync", s_sync, [Beat(L("如果大家同时改呢？", "What if everyone changes at once?"), 3.0),
+                               Beat(L("A 学 B，B 学 A——", "A copies B, B copies A —"), 3.0)],
+              chapter=L("三 · 一起改", "III · ALL AT ONCE"), until=89.0),
+        Scene("sync2", s_sync2, [Beat(L("换过去，又换回来，永远停不下。", "Swap over, swap back: it never stops."), 3.6),
+                                 Beat(L("这叫 cycle，不是收敛。", "That is a cycle, not convergence."), 3.0)],
+              until=S["breath"]),
+        Scene("p-breath", s_breath, [Beat(None, 4.6)], until=S["reentry"]),
+        Scene("knobs", s_knobs, [Beat(L("反过来访问 E→A：3 轮，标签名变了，分组没变。", "Visit E to A instead: 3 rounds, other label names, the same groups."), 5.6),
+                                 Beat(L("把 C–D 加到 10：分组变成 AB | CDE，cut 5。", "Raise C–D to 10: the groups become AB | CDE, cut 5."), 6.0),
+                                 Beat(L("同一条规则，旋钮一拧，答案就变。", "Same rule; turn a knob, and the answer changes."), 4.0)],
+              chapter=L("四 · 三个旋钮", "IV · THREE KNOBS"), until=S["fill3_end"]),
+        Scene("orders", s_orders, [Beat(L("G01 上试遍 120 种访问顺序：", "On G01, try all 120 visiting orders:"), 3.6),
+                                   Beat(L("分组全是 ABC | DE，只有轮数在变：2 轮或 3 轮。", "The groups are always ABC | DE; only the rounds vary, 2 or 3."), 6.0),
+                                   Beat(L("这张小图很稳；大图就不一定了。", "This small graph is steady; bigger ones may not be."), 4.0)],
+              until=S["fill4"]),
+        Scene("payoff", s_payoff, [Beat(L("24 个单元的电路：同一条规则分出 3 块，cut 2。", "A 24-cell circuit: the same rule finds 3 blocks, cut 2."), 6.2)],
+              chapter=L("五 · 芯片", "V · THE CHIP"), until=141.5),
+        Scene("p-outro", s_outro, [Beat(L("一条局部的规则，不用说分几组，", "One local rule, with no need to say how many groups,"), 6.0),
+                                   Beat(L("圈子自己浮现。", "and the circles appear on their own."), 6.0),
+                                   Beat(L("但顺序、同步方式和平票规则，都会改变它。", "But the order, the update mode and the tie rule all change it."), 7.0),
+                                   Beat(L("下一章：给每个点一个数。", "Next module: a number for every point."), 8.0)],
+              chapter=L("尾声", "CODA"), until=S["quiet"]),
+        Scene("p-end", s_end, [Beat(L("下面的实验里，单步看每一次计票。", "In the lab below, step through every vote."), 6.0),
+                               Beat(None, 10.0)], until=S["end"]),
+    ])
+
+
+FILMS = [STORY, CONCISE, ADVANCED]
+# Order on the page: popular science, concise, advanced, walkthrough (walkthrough.py), then the author's original film (import_story.py).
+ORDER = ["story", "concise", "advanced", "lab", "original"]

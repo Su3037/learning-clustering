@@ -7,7 +7,6 @@
         "m08-diff"
       ],
       "sceneIds": [
-        "p-ask",
         "p-rule",
         "k01-problem"
       ],
@@ -20,11 +19,6 @@
         "balance_ok"
       ],
       "video": [
-        {
-          "sceneId": "p-ask",
-          "film": "story",
-          "start": 10.75
-        },
         {
           "sceneId": "p-rule",
           "film": "story",
@@ -290,5 +284,5 @@
     }
   ],
   "contentVersion": "2026.10.23-1",
-  "generated": "2026-10-23"
+  "generated": "2026-10-25"
 }

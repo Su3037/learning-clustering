@@ -11,8 +11,8 @@
     "en": "Try, Then Roll Back"
    },
    "why": {
-    "zh": "五个朋友分住两间屋，两张床和三张床，只许一换一。每个人的 D 值、一对的收益、省下 9 的交换、亏 8 的试探、回退到最佳前缀；人更多时亏一步可能打开一扇门；最后空前缀让一切停下。",
-    "en": "Five friends in two rooms, two beds and three, allowed only one-for-one swaps. Each person's D value, a pair's gain, a swap that saves 9, a trial that loses 8, the roll-back to the best prefix; with more people one loss can open a door; and the empty prefix that ends it."
+    "zh": "从一步弃子讲起：先亏 3，两步后赚回 9。再看五个朋友分住两间屋，两张床和三张床，只许一换一。每个人的 D 值、一对的收益、省下 9 的交换、亏 8 的试探、回退到最佳前缀；人更多时亏一步可能打开一扇门；最后空前缀让一切停下。",
+    "en": "It opens with a chess sacrifice: lose 3 now, take 9 two moves later. Then five friends in two rooms, two beds and three, allowed only one-for-one swaps. Each person's D value, a pair's gain, a swap that saves 9, a trial that loses 8, the roll-back to the best prefix; with more people one loss can open a door; and the empty prefix that ends it."
    },
    "music": {
     "zh": "《We Never (Remix)（若如初见）》Hi Noise / 秋成（第三方录音，不在本课程许可范围内）",
@@ -20,12 +20,12 @@
    },
    "scenes": [
     {
-     "sceneId": "p-open",
+     "sceneId": "p-chess",
      "start": 0.0,
      "end": 10.75
     },
     {
-     "sceneId": "p-ask",
+     "sceneId": "p-chess2",
      "start": 10.75,
      "end": 17.41
     },
@@ -110,8 +110,13 @@
      "chapters": [
       {
        "t": 0.0,
+       "title": "序 · 弃子",
+       "sceneId": "p-chess"
+      },
+      {
+       "t": 17.41,
        "title": "序 · 两间屋",
-       "sceneId": "p-open"
+       "sceneId": "p-rule"
       },
       {
        "t": 37.0,
@@ -143,42 +148,36 @@
       {
        "start": 0.0,
        "end": 4.6,
-       "text": "还是那五个朋友，分住两间屋。",
-       "sceneId": "p-open"
+       "text": "下棋时，高手有时故意送掉一个子。",
+       "sceneId": "p-chess"
       },
       {
        "start": 4.6,
-       "end": 9.0,
-       "text": "左屋两张床，右屋三张。",
-       "sceneId": "p-open"
+       "end": 9.2,
+       "text": "眼下，亏了 3 分——",
+       "sceneId": "p-chess"
       },
       {
-       "start": 10.75,
-       "end": 13.772,
-       "text": "被拆散的交情：12。",
-       "sceneId": "p-ask"
-      },
-      {
-       "start": 13.772,
-       "end": 16.372,
-       "text": "能少一点吗？",
-       "sceneId": "p-ask"
+       "start": 11.75,
+       "end": 16.55,
+       "text": "路一打开，两步后赢回 9 分。",
+       "sceneId": "p-chess2"
       },
       {
        "start": 17.41,
-       "end": 21.81,
-       "text": "只能一换一：床位数不变。",
+       "end": 21.988,
+       "text": "五个朋友住两间屋：拆散的交情 12。",
        "sceneId": "p-rule"
       },
       {
-       "start": 21.81,
-       "end": 26.61,
-       "text": "每人：屋外朋友减屋里朋友，叫 D。",
+       "start": 21.988,
+       "end": 27.588,
+       "text": "只能一换一。每人的 D：屋外朋友减屋里朋友。",
        "sceneId": "p-rule"
       },
       {
-       "start": 26.61,
-       "end": 30.81,
+       "start": 27.588,
+       "end": 31.788,
        "text": "D 就是他一个人搬走能省多少。",
        "sceneId": "p-rule"
       },
@@ -334,7 +333,7 @@
       }
      ],
      "readingViolations": 0,
-     "bytes": 8358390
+     "bytes": 8313209
     },
     "en": {
      "src": "story.en.mp4",
@@ -345,8 +344,13 @@
      "chapters": [
       {
        "t": 0.0,
+       "title": "PROLOGUE · A SACRIFICE",
+       "sceneId": "p-chess"
+      },
+      {
+       "t": 17.41,
        "title": "PROLOGUE · TWO ROOMS",
-       "sceneId": "p-open"
+       "sceneId": "p-rule"
       },
       {
        "t": 37.0,
@@ -378,42 +382,36 @@
       {
        "start": 0.0,
        "end": 4.6,
-       "text": "The same five friends, in two rooms.",
-       "sceneId": "p-open"
+       "text": "In chess, a strong player sometimes gives a piece away.",
+       "sceneId": "p-chess"
       },
       {
        "start": 4.6,
-       "end": 9.0,
-       "text": "Two beds on the left, three on the right.",
-       "sceneId": "p-open"
+       "end": 9.2,
+       "text": "Three points down, for now —",
+       "sceneId": "p-chess"
       },
       {
-       "start": 10.75,
-       "end": 13.772,
-       "text": "Friendships split: 12.",
-       "sceneId": "p-ask"
-      },
-      {
-       "start": 13.772,
-       "end": 16.372,
-       "text": "Can it be less?",
-       "sceneId": "p-ask"
+       "start": 11.75,
+       "end": 16.55,
+       "text": "the line opens, and two moves later nine come back.",
+       "sceneId": "p-chess2"
       },
       {
        "start": 17.41,
-       "end": 21.81,
-       "text": "Swap one for one: the beds stay put.",
+       "end": 21.988,
+       "text": "Five friends, two rooms: 12 in friendships split.",
        "sceneId": "p-rule"
       },
       {
-       "start": 21.81,
-       "end": 26.61,
-       "text": "Each: friends outside minus inside: D.",
+       "start": 21.988,
+       "end": 27.588,
+       "text": "Swap one for one only. Each person's D: friends outside minus inside.",
        "sceneId": "p-rule"
       },
       {
-       "start": 26.61,
-       "end": 30.81,
+       "start": 27.588,
+       "end": 31.788,
        "text": "D is what moving alone would save.",
        "sceneId": "p-rule"
       },
@@ -569,7 +567,7 @@
       }
      ],
      "readingViolations": 0,
-     "bytes": 8350997
+     "bytes": 8261158
     }
    }
   },

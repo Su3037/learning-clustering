@@ -1,0 +1,105 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:05.000
+A wedding seating plan: three tables, thirty guests.
+
+2
+00:00:05.000 --> 00:00:08.600
+Who sits with whom?
+
+3
+00:00:10.750 --> 00:00:16.350
+Friends together, strangers apart: you are already clustering.
+
+4
+00:00:17.410 --> 00:00:24.010
+Clustering: what is tightly linked goes in one group, with few links between groups.
+
+5
+00:00:24.010 --> 00:00:29.410
+You need not know who anyone is, only who is linked to whom.
+
+6
+00:00:37.000 --> 00:00:42.022
+On a chip, millions of cells are wired into one network.
+
+7
+00:00:42.022 --> 00:00:46.689
+Cells in one group sit together, so their wires are short;
+
+8
+00:00:46.689 --> 00:00:51.089
+wires between groups are long, slow and costly.
+
+9
+00:00:51.180 --> 00:00:55.980
+The course's five friends: thicker line, closer friends.
+
+10
+00:00:55.980 --> 00:01:00.380
+Split them in two; the friendship cut is the cut.
+
+11
+00:01:03.150 --> 00:01:08.839
+ABC | DE cuts only 3; AE | BCD cuts 12.
+
+12
+00:01:08.839 --> 00:01:14.083
+Five people into two groups: 15 ways, easy to try them all.
+
+13
+00:01:14.083 --> 00:01:18.683
+A hundred people? The count has 30 digits.
+
+14
+00:01:20.160 --> 00:01:25.160
+Trying them one by one never ends. So we need algorithms.
+
+15
+00:01:25.160 --> 00:01:30.160
+This course's eight modules are eight answers.
+
+16
+00:01:30.160 --> 00:01:35.160
+They fall into a few families.
+
+17
+00:01:42.500 --> 00:01:50.189
+First: score every pair, then merge the closest, pair by pair (M02–M04).
+
+18
+00:01:50.189 --> 00:01:57.878
+Second: let groups emerge, by label propagation or spectral methods (M05–M06).
+
+19
+00:01:59.270 --> 00:02:06.670
+Third: improve a grouping by swapping pairs or moving one at a time (M07–M08).
+
+20
+00:02:06.670 --> 00:02:13.248
+The last module aims for speed: make the slowest path fast (M09).
+
+21
+00:02:14.160 --> 00:02:19.560
+Eight modules, one problem.
+
+22
+00:02:21.500 --> 00:02:27.500
+Clustering is not one algorithm but one question:
+
+23
+00:02:27.500 --> 00:02:34.500
+how do we group things so the links stay inside?
+
+24
+00:02:34.500 --> 00:02:40.500
+Each module gives one answer.
+
+25
+00:02:40.500 --> 00:02:47.500
+It starts with scoring a pair.
+
+26
+00:02:50.600 --> 00:02:56.600
+Start with Module 02.

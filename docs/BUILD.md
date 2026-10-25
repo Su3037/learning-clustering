@@ -57,9 +57,14 @@ node video/m05-label-propagation/walkthrough.mjs http://127.0.0.1:8800/learning-
 node video/m05-label-propagation/walkthrough.mjs http://127.0.0.1:8800/learning-clustering/ en
 python3 scripts/film/walkthrough.py m05-label-propagation
 
-# Module 05 的科普片是作者原作，按原样导入
+# 首页导论片（全课程的共同背景：什么是聚类）
+python3 scripts/film/cinema.py home                                      # → site/media/home/intro.<lang>.*
+
+# Module 05 另收录作者原作科普片《圈子从哪里来》（影片列表里的“原作”），按原样导入
 python3 video/m05-label-propagation/import_story.py
 ```
+
+科普片开场：每章的科普片从**本章算法自己的**生活例子讲起（雨滴合并、两人座缆车、口头禅传播、沙与琴弓、弃子、两条小船……），见 `scripts/film/hooks.py`；“什么是聚类”只在首页导论片里讲一次。
 
 配乐：精讲、进阶、实验演示用课程原创的 NumPy 合成配乐（`score:<mood>`）。科普片按作者的选择用《We Never (Remix)》（`track:wenever`）；这段录音是第三方作品，**不进仓库**：设置 `LC_MUSIC_WENEVER=/path/to/audio`，或放在 `/mnt/project-files/private-music/wenever.m4a`。
 

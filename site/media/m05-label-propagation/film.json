@@ -6,24 +6,95 @@
    "id": "story",
    "kind": "popular",
    "status": "ready",
-   "external": true,
    "title": {
-    "zh": "圈子从哪里来",
-    "en": "Where Do Clusters Come From?"
+    "zh": "跟着邻居走",
+    "en": "Follow Your Neighbours"
    },
    "why": {
-    "zh": "作者原作的科普片（第四版），原样收录：从通讯录到芯片，再逐层拆开九层规则。",
-    "en": "The author's original popular-science film (version 4), included as made: from a contact list to a chip, then the rule taken apart in nine layers."
+    "zh": "从一层楼的口头禅讲起：每人只学身边最多人的说法，几片“方言区”自己长出来。再到 G01：计票、两轮才算稳定、同步时永远换来换去、三个旋钮、120 种顺序，最后是芯片。",
+    "en": "It opens with catchphrases on a dorm floor: everyone picks up what most neighbours say, and dialect zones grow by themselves. Then G01: the vote, two rounds before it is stable, the synchronous swap that never ends, three knobs, 120 orders, and the chip."
    },
    "music": {
     "zh": "《We Never (Remix)（若如初见）》Hi Noise / 秋成（第三方录音，不在本课程许可范围内）",
     "en": "“We Never (Remix)” by Hi Noise / 秋成 (third-party recording, not covered by this course's licences)"
    },
-   "source": {
-    "repository": "https://github.com/Su3037/clustering-lab5-label-propagation",
-    "commit": "7b4eca7787d532d30c79659c104798d57f8f3495",
-    "file": "site/media/circles.mp4"
-   },
+   "scenes": [
+    {
+     "sceneId": "p-dialect",
+     "start": 0.0,
+     "end": 10.75
+    },
+    {
+     "sceneId": "p-dialect2",
+     "start": 10.75,
+     "end": 17.41
+    },
+    {
+     "sceneId": "names",
+     "start": 17.41,
+     "end": 32.03
+    },
+    {
+     "sceneId": "p-title",
+     "start": 32.03,
+     "end": 37.0
+    },
+    {
+     "sceneId": "weights",
+     "start": 37.0,
+     "end": 51.18
+    },
+    {
+     "sceneId": "round1",
+     "start": 51.18,
+     "end": 63.15
+    },
+    {
+     "sceneId": "round2",
+     "start": 63.15,
+     "end": 80.16
+    },
+    {
+     "sceneId": "sync",
+     "start": 80.16,
+     "end": 89.0
+    },
+    {
+     "sceneId": "sync2",
+     "start": 89.0,
+     "end": 97.19
+    },
+    {
+     "sceneId": "p-breath",
+     "start": 97.19,
+     "end": 102.5
+    },
+    {
+     "sceneId": "knobs",
+     "start": 102.5,
+     "end": 119.27
+    },
+    {
+     "sceneId": "orders",
+     "start": 119.27,
+     "end": 134.16
+    },
+    {
+     "sceneId": "payoff",
+     "start": 134.16,
+     "end": 141.5
+    },
+    {
+     "sceneId": "p-outro",
+     "start": 141.5,
+     "end": 170.6
+    },
+    {
+     "sceneId": "p-end",
+     "start": 170.6,
+     "end": 189.82
+    }
+   ],
    "fps": 30,
    "size": [
     1920,
@@ -31,1062 +102,484 @@
    ],
    "versions": {
     "zh": {
-     "src": "story.mp4",
+     "src": "story.zh.mp4",
      "vtt": "story.zh.vtt",
-     "poster": "story.jpg",
-     "duration": 379.64,
+     "poster": "story.zh.jpg",
+     "duration": 189.83,
      "captions": "zh+en",
      "chapters": [
       {
        "t": 0.0,
-       "title": "序 · 通讯录",
-       "sceneId": "contacts"
+       "title": "序 · 口头禅",
+       "sceneId": "p-dialect"
       },
       {
-       "t": 34.17,
-       "title": "一 · 一个极简的办法",
-       "sceneId": "history"
-      },
-      {
-       "t": 51.18,
-       "title": "二 · 芯片里的同一个问题",
-       "sceneId": "chip"
-      },
-      {
-       "t": 85.22,
-       "title": "三 · 尺子与穷举",
-       "sceneId": "ruler"
-      },
-      {
-       "t": 119.27,
-       "title": "四 · 一条局部规则",
-       "sceneId": "rule"
-      },
-      {
-       "t": 189.82,
-       "title": "第 1 层 · 标签",
+       "t": 17.41,
+       "title": "序 · 标签",
        "sceneId": "names"
       },
       {
-       "t": 207.23,
-       "title": "第 2 层 · 怎样算最强",
+       "t": 37.0,
+       "title": "一 · 计票",
        "sceneId": "weights"
       },
       {
-       "t": 227.44,
-       "title": "第 3 层 · 一次更新",
-       "sceneId": "update"
-      },
-      {
-       "t": 241.0,
-       "title": "第 4 层 · 一整轮",
-       "sceneId": "round1"
-      },
-      {
-       "t": 258.02,
-       "title": "第 5 层 · 何时停止",
+       "t": 63.15,
+       "title": "二 · 何时停",
        "sceneId": "round2"
       },
       {
-       "t": 275.04,
-       "title": "第 6 层 · 同时还是轮流",
+       "t": 80.16,
+       "title": "三 · 一起改",
        "sceneId": "sync"
       },
       {
-       "t": 292.32,
-       "title": "第 7 层 · 分得好不好",
-       "sceneId": "cut"
+       "t": 102.5,
+       "title": "四 · 三个旋钮",
+       "sceneId": "knobs"
       },
       {
-       "t": 309.09,
-       "title": "第 8 层 · 回到芯片",
+       "t": 134.16,
+       "title": "五 · 芯片",
        "sceneId": "payoff"
       },
       {
-       "t": 325.98,
-       "title": "第 9 层 · 它做不到的事",
-       "sceneId": "limits"
-      },
-      {
-       "t": 343.02,
-       "title": "现实中的用法",
-       "sceneId": "eda"
+       "t": 141.5,
+       "title": "尾声",
+       "sceneId": "p-outro"
       }
      ],
      "transcript": [
       {
-       "start": 0.6,
-       "end": 4.6,
-       "text": "打开通讯录，几百个名字。"
+       "start": 0.0,
+       "end": 5.2,
+       "text": "新生住进同一层楼，各有各的口头禅。",
+       "sceneId": "p-dialect"
       },
       {
-       "start": 4.8,
-       "end": 10.5,
-       "text": "要把他们分成几个圈子，你会怎么分？"
+       "start": 5.2,
+       "end": 9.2,
+       "text": "一个学期以后呢？",
+       "sceneId": "p-dialect"
       },
       {
-       "start": 11.0,
-       "end": 14.2,
-       "text": "你不需要知道每个人是谁，"
+       "start": 10.75,
+       "end": 17.328,
+       "text": "每人只学身边最多人的说法：几片“方言区”自己长出来。",
+       "sceneId": "p-dialect2"
       },
       {
-       "start": 14.4,
-       "end": 17.2,
-       "text": "只要看：谁和谁常联系。"
+       "start": 17.41,
+       "end": 20.41,
+       "text": "这就是标签传播。",
+       "sceneId": "names"
       },
       {
-       "start": 25.0,
-       "end": 29.0,
-       "text": "好的分组：圈内联系紧，圈与圈之间联系少。"
+       "start": 20.41,
+       "end": 26.543,
+       "text": "规则只有一句：加入邻居里边权之和最大的那个标签。",
+       "sceneId": "names"
       },
       {
-       "start": 29.2,
-       "end": 34.0,
-       "text": "网络科学把这件事叫作“社群发现”。"
+       "start": 26.543,
+       "end": 31.343,
+       "text": "开始时，每个点的标签就是自己的名字。",
+       "sceneId": "names"
       },
       {
-       "start": 34.4,
-       "end": 38.4,
-       "text": "2007 年，三位研究者提出一个极简的办法。"
+       "start": 37.0,
+       "end": 41.578,
+       "text": "第 1 轮，按 A→E 轮流。A 改成了 B。",
+       "sceneId": "weights"
       },
       {
-       "start": 38.6,
-       "end": 42.6,
-       "text": "每个人看看朋友们现在属于哪个圈子，"
+       "start": 41.578,
+       "end": 45.978,
+       "text": "轮到 C：同一标签的边权加起来。",
+       "sceneId": "weights"
       },
       {
-       "start": 42.8,
-       "end": 46.8,
-       "text": "然后加入联系最多的那一个。"
+       "start": 45.978,
+       "end": 50.556,
+       "text": "B = 5，D = 2，E = 1：C 改成 B。",
+       "sceneId": "weights"
       },
       {
-       "start": 47.0,
-       "end": 51.0,
-       "text": "一遍遍重复，圈子自己浮现。"
+       "start": 51.18,
+       "end": 54.78,
+       "text": "D 改成 E；E 保持 E。",
+       "sceneId": "round1"
       },
       {
-       "start": 51.4,
-       "end": 55.4,
-       "text": "同样的问题，藏在每一块芯片里。"
+       "start": 54.78,
+       "end": 58.38,
+       "text": "第 1 轮结束：改了 3 个点。",
+       "sceneId": "round1"
       },
       {
-       "start": 55.6,
-       "end": 59.6,
-       "text": "几百万个单元，由导线连成一张网。"
+       "start": 58.38,
+       "end": 61.78,
+       "text": "ABC | DE 已经成形。",
+       "sceneId": "round1"
       },
       {
-       "start": 59.8,
-       "end": 63.8,
-       "text": "设计时，EDA 软件要先把它们分成几块。"
+       "start": 63.15,
+       "end": 66.617,
+       "text": "第 2 轮：每个点再投一次。",
+       "sceneId": "round2"
       },
       {
-       "start": 64.0,
-       "end": 68.0,
-       "text": "为什么要在乎怎么分？"
+       "start": 66.617,
+       "end": 71.017,
+       "text": "一个都没变：这才叫稳定。",
+       "sceneId": "round2"
       },
       {
-       "start": 68.4,
-       "end": 72.4,
-       "text": "同一块里的单元，用短导线相连。"
+       "start": 71.017,
+       "end": 74.017,
+       "text": "共 2 轮，cut 3。",
+       "sceneId": "round2"
       },
       {
-       "start": 72.6,
-       "end": 76.6,
-       "text": "分在两块的单元，只能靠长导线。"
+       "start": 80.16,
+       "end": 83.16,
+       "text": "如果大家同时改呢？",
+       "sceneId": "sync"
       },
       {
-       "start": 76.8,
-       "end": 80.8,
-       "text": "导线越长，信号越慢，也越耗电。"
+       "start": 83.16,
+       "end": 86.16,
+       "text": "A 学 B，B 学 A——",
+       "sceneId": "sync"
       },
       {
-       "start": 81.0,
-       "end": 85.0,
-       "text": "所以目标和通讯录一样：块内紧，块间少。"
+       "start": 89.0,
+       "end": 93.133,
+       "text": "换过去，又换回来，永远停不下。",
+       "sceneId": "sync2"
       },
       {
-       "start": 85.4,
-       "end": 89.4,
-       "text": "看一个 24 个单元的小例子。"
+       "start": 93.133,
+       "end": 96.822,
+       "text": "这叫 cycle，不是收敛。",
+       "sceneId": "sync2"
       },
       {
-       "start": 89.6,
-       "end": 93.6,
-       "text": "最直接的办法：拿尺子，按位置切成三块。"
+       "start": 102.5,
+       "end": 108.411,
+       "text": "反过来访问 E→A：3 轮，标签名变了，分组没变。",
+       "sceneId": "knobs"
       },
       {
-       "start": 93.8,
-       "end": 97.6,
-       "text": "很整齐。可它切断了多少连线？"
+       "start": 108.411,
+       "end": 114.767,
+       "text": "把 C–D 加到 10：分组变成 AB | CDE，cut 5。",
+       "sceneId": "knobs"
       },
       {
-       "start": 97.8,
-       "end": 102.3,
-       "text": "切断的权重是 88，全部 202：将近一半。"
+       "start": 114.767,
+       "end": 119.122,
+       "text": "同一条规则，旋钮一拧，答案就变。",
+       "sceneId": "knobs"
       },
       {
-       "start": 102.7,
-       "end": 106.7,
-       "text": "那就试遍所有分法，挑最好的？"
+       "start": 119.27,
+       "end": 123.403,
+       "text": "G01 上试遍 120 种访问顺序：",
+       "sceneId": "orders"
       },
       {
-       "start": 106.9,
-       "end": 110.9,
-       "text": "24 个单元平分三组，约 15.8 亿种分法。"
+       "start": 123.403,
+       "end": 129.537,
+       "text": "分组全是 ABC | DE，只有轮数在变：2 轮或 3 轮。",
+       "sceneId": "orders"
       },
       {
-       "start": 111.1,
-       "end": 115.1,
-       "text": "上百万个单元呢？分法的数字有 47 万位。"
+       "start": 129.537,
+       "end": 133.737,
+       "text": "这张小图很稳；大图就不一定了。",
+       "sceneId": "orders"
       },
       {
-       "start": 115.3,
-       "end": 119.1,
-       "text": "一个个试，永远试不完。"
+       "start": 134.16,
+       "end": 140.36,
+       "text": "24 个单元的电路：同一条规则分出 3 块，cut 2。",
+       "sceneId": "payoff"
       },
       {
-       "start": 119.5,
-       "end": 123.5,
-       "text": "那就借用通讯录里的那条规则："
+       "start": 141.5,
+       "end": 147.5,
+       "text": "一条局部的规则，不用说分几组，",
+       "sceneId": "p-outro"
       },
       {
-       "start": 123.7,
-       "end": 127.7,
-       "text": "每个单元看看邻居们现在的标签，"
+       "start": 147.5,
+       "end": 153.5,
+       "text": "圈子自己浮现。",
+       "sceneId": "p-outro"
       },
       {
-       "start": 127.9,
-       "end": 131.9,
-       "text": "加入连接最强的那一组。"
+       "start": 153.5,
+       "end": 160.5,
+       "text": "但顺序、同步方式和平票规则，都会改变它。",
+       "sceneId": "p-outro"
       },
       {
-       "start": 132.1,
-       "end": 136.0,
-       "text": "这就是标签传播。"
+       "start": 160.5,
+       "end": 168.5,
+       "text": "下一章：给每个点一个数。",
+       "sceneId": "p-outro"
       },
       {
-       "start": 136.6,
-       "end": 141.0,
-       "text": "规则只有一句话，细节却很要紧："
-      },
-      {
-       "start": 141.4,
-       "end": 146.0,
-       "text": "“最强”怎么算？谁先更新？"
-      },
-      {
-       "start": 146.4,
-       "end": 151.0,
-       "text": "什么时候停？它一定会停吗？"
-      },
-      {
-       "start": 153.6,
-       "end": 158.4,
-       "text": "下半部分，用老师给的五节点图，一层层拆开。"
-      },
-      {
-       "start": 159.0,
-       "end": 166.0,
-       "text": "停在这里想一想：如果是你，会怎么回答？"
-      },
-      {
-       "start": 177.0,
-       "end": 185.0,
-       "text": "九层，从浅到深。"
-      },
-      {
-       "start": 190.4,
-       "end": 194.4,
-       "text": "第一层：标签。"
-      },
-      {
-       "start": 194.6,
-       "end": 200.4,
-       "text": "开始时，每个点的标签就是自己的名字。"
-      },
-      {
-       "start": 200.8,
-       "end": 204.0,
-       "text": "名字是身份，永远不变；"
-      },
-      {
-       "start": 204.2,
-       "end": 207.1,
-       "text": "标签是归属，会被改写。"
-      },
-      {
-       "start": 207.4,
-       "end": 211.4,
-       "text": "第二层：“最强”怎么算？"
-      },
-      {
-       "start": 211.6,
-       "end": 215.8,
-       "text": "A 的三个邻居里，B 和 C 带着标签 B，D 带着 D。"
-      },
-      {
-       "start": 216.0,
-       "end": 221.6,
-       "text": "数人头，B 两票；加权重，B 只有 2，D 有 4。"
-      },
-      {
-       "start": 222.1,
-       "end": 227.3,
-       "text": "所以规则是：把同标签邻居的边权加起来，取最大。"
-      },
-      {
-       "start": 227.6,
-       "end": 232.0,
-       "text": "第三层：一次更新。看 C。"
-      },
-      {
-       "start": 232.2,
-       "end": 236.4,
-       "text": "邻居 A、B 已经是 B；D 是 D，E 是 E。"
-      },
-      {
-       "start": 236.6,
-       "end": 240.8,
-       "text": "同标签先相加：B 是 1 + 4 = 5，D 是 2，E 是 1。"
-      },
-      {
-       "start": 241.2,
-       "end": 245.4,
-       "text": "第四层：一整轮，按 A 到 E 依次更新。"
-      },
-      {
-       "start": 245.6,
-       "end": 249.6,
-       "text": "B 立刻读到 A 的新标签：这叫异步更新。"
-      },
-      {
-       "start": 249.8,
-       "end": 253.6,
-       "text": "C 改为 B，就是刚才那一步。"
-      },
-      {
-       "start": 253.8,
-       "end": 257.9,
-       "text": "D 改为 E，E 保持。第一轮结束。"
-      },
-      {
-       "start": 258.2,
-       "end": 262.2,
-       "text": "第五层：什么时候停？再问一遍每个点。"
-      },
-      {
-       "start": 262.4,
-       "end": 266.4,
-       "text": "整整一轮，没有一个点改变。"
-      },
-      {
-       "start": 266.6,
-       "end": 270.6,
-       "text": "只有整轮零变化，才能确认稳定。"
-      },
-      {
-       "start": 270.8,
-       "end": 274.9,
-       "text": "否则后面的点一改，前面的点可能又要改。"
-      },
-      {
-       "start": 275.4,
-       "end": 279.4,
-       "text": "第六层：如果所有点同时更新呢？"
-      },
-      {
-       "start": 279.6,
-       "end": 283.6,
-       "text": "两个点，各自读对方的旧标签——"
-      },
-      {
-       "start": 283.8,
-       "end": 287.8,
-       "text": "A 变成 B，B 变成 A，再换回来：永远停不下来。"
-      },
-      {
-       "start": 288.0,
-       "end": 292.2,
-       "text": "轮流更新时，B 读到 A 的新标签，两者一致。"
-      },
-      {
-       "start": 292.6,
-       "end": 296.6,
-       "text": "第七层：分得好不好？看被切开的边。"
-      },
-      {
-       "start": 296.8,
-       "end": 300.8,
-       "text": "C–D 权重 2，C–E 权重 1。"
-      },
-      {
-       "start": 301.0,
-       "end": 305.0,
-       "text": "cutsize 是被切开的权重之和：2 + 1 = 3。"
-      },
-      {
-       "start": 305.2,
-       "end": 309.0,
-       "text": "把 C–D 加强到 10，边界立刻移动。"
-      },
-      {
-       "start": 309.4,
-       "end": 313.4,
-       "text": "第八层：回到 24 个单元，每个从自己的标签出发。"
-      },
-      {
-       "start": 313.6,
-       "end": 317.6,
-       "text": "颜色沿着最强的连线扩散。"
-      },
-      {
-       "start": 317.8,
-       "end": 321.8,
-       "text": "每一轮只读每条连线两次：工作量和连线数成正比。"
-      },
-      {
-       "start": 322.0,
-       "end": 325.9,
-       "text": "第 5 轮零变化。只切开 2，尺子切开 88。"
-      },
-      {
-       "start": 326.2,
-       "end": 330.2,
-       "text": "第九层：它做不到的事。"
-      },
-      {
-       "start": 330.4,
-       "end": 334.4,
-       "text": "它不保证分成几组，也不保证每组一样大。"
-      },
-      {
-       "start": 334.6,
-       "end": 338.6,
-       "text": "换个访问顺序，标签名和轮数都可能变。"
-      },
-      {
-       "start": 338.8,
-       "end": 342.9,
-       "text": "它给出的是线索，不是最终答案。"
-      },
-      {
-       "start": 343.2,
-       "end": 347.2,
-       "text": "在芯片设计中，聚类常用来先把紧密的单元收成团，"
-      },
-      {
-       "start": 347.4,
-       "end": 351.3,
-       "text": "让电路图变小，再交给更精细的划分与布局。"
-      },
-      {
-       "start": 351.6,
-       "end": 356.0,
-       "text": "通讯录里的圈子，芯片里的分块，是同一个问题。"
-      },
-      {
-       "start": 356.2,
-       "end": 360.3,
-       "text": "没有人画圈。圈子，从连接里长出来。"
-      },
-      {
-       "start": 361.0,
-       "end": 366.0,
-       "text": "去实验室改一条边的权重，看看边界会怎么走。"
+       "start": 170.6,
+       "end": 176.6,
+       "text": "下面的实验里，单步看每一次计票。",
+       "sceneId": "p-end"
       }
      ],
-     "bytes": 44347523
+     "readingViolations": 0,
+     "bytes": 8205099
     },
     "en": {
-     "src": "story.mp4",
+     "src": "story.en.mp4",
      "vtt": "story.en.vtt",
-     "poster": "story.jpg",
-     "duration": 379.64,
-     "captions": "zh+en",
+     "poster": "story.en.jpg",
+     "duration": 189.83,
+     "captions": "en",
      "chapters": [
       {
        "t": 0.0,
-       "title": "PROLOGUE · CONTACTS",
-       "sceneId": "contacts"
+       "title": "PROLOGUE · CATCHPHRASES",
+       "sceneId": "p-dialect"
       },
       {
-       "t": 34.17,
-       "title": "I · A VERY SIMPLE IDEA",
-       "sceneId": "history"
-      },
-      {
-       "t": 51.18,
-       "title": "II · THE SAME PROBLEM IN A CHIP",
-       "sceneId": "chip"
-      },
-      {
-       "t": 85.22,
-       "title": "III · THE RULER AND BRUTE FORCE",
-       "sceneId": "ruler"
-      },
-      {
-       "t": 119.27,
-       "title": "IV · ONE LOCAL RULE",
-       "sceneId": "rule"
-      },
-      {
-       "t": 189.82,
-       "title": "LAYER 1 · LABELS",
+       "t": 17.41,
+       "title": "PROLOGUE · LABELS",
        "sceneId": "names"
       },
       {
-       "t": 207.23,
-       "title": "LAYER 2 · WHAT \"STRONGEST\" MEANS",
+       "t": 37.0,
+       "title": "I · THE VOTE",
        "sceneId": "weights"
       },
       {
-       "t": 227.44,
-       "title": "LAYER 3 · ONE UPDATE",
-       "sceneId": "update"
-      },
-      {
-       "t": 241.0,
-       "title": "LAYER 4 · A WHOLE ROUND",
-       "sceneId": "round1"
-      },
-      {
-       "t": 258.02,
-       "title": "LAYER 5 · WHEN TO STOP",
+       "t": 63.15,
+       "title": "II · WHEN TO STOP",
        "sceneId": "round2"
       },
       {
-       "t": 275.04,
-       "title": "LAYER 6 · ALL AT ONCE, OR IN TURN",
+       "t": 80.16,
+       "title": "III · ALL AT ONCE",
        "sceneId": "sync"
       },
       {
-       "t": 292.32,
-       "title": "LAYER 7 · IS THE SPLIT GOOD?",
-       "sceneId": "cut"
+       "t": 102.5,
+       "title": "IV · THREE KNOBS",
+       "sceneId": "knobs"
       },
       {
-       "t": 309.09,
-       "title": "LAYER 8 · BACK TO THE CHIP",
+       "t": 134.16,
+       "title": "V · THE CHIP",
        "sceneId": "payoff"
       },
       {
-       "t": 325.98,
-       "title": "LAYER 9 · WHAT IT CANNOT DO",
-       "sceneId": "limits"
-      },
-      {
-       "t": 343.02,
-       "title": "IN PRACTICE",
-       "sceneId": "eda"
+       "t": 141.5,
+       "title": "CODA",
+       "sceneId": "p-outro"
       }
      ],
      "transcript": [
       {
-       "start": 0.6,
-       "end": 4.6,
-       "text": "Open your contacts: hundreds of names."
+       "start": 0.0,
+       "end": 5.2,
+       "text": "New students move onto one floor, each with their own catchphrase.",
+       "sceneId": "p-dialect"
       },
       {
-       "start": 4.8,
-       "end": 10.5,
-       "text": "How would you sort them into circles?"
+       "start": 5.2,
+       "end": 9.2,
+       "text": "A term later?",
+       "sceneId": "p-dialect"
       },
       {
-       "start": 11.0,
-       "end": 14.2,
-       "text": "You don't need to know who anyone is."
+       "start": 10.75,
+       "end": 17.328,
+       "text": "Each picks up what most neighbours say, and dialect zones grow by themselves.",
+       "sceneId": "p-dialect2"
       },
       {
-       "start": 14.4,
-       "end": 17.2,
-       "text": "Just look at who keeps in touch with whom."
+       "start": 17.41,
+       "end": 20.41,
+       "text": "This is label propagation.",
+       "sceneId": "names"
       },
       {
-       "start": 25.0,
-       "end": 29.0,
-       "text": "A good grouping: tight inside, few links between."
+       "start": 20.41,
+       "end": 26.543,
+       "text": "One rule: join the label with the largest total weight among your neighbours.",
+       "sceneId": "names"
       },
       {
-       "start": 29.2,
-       "end": 34.0,
-       "text": "Network science calls this community detection."
+       "start": 26.543,
+       "end": 31.343,
+       "text": "At the start, each node's label is its own name.",
+       "sceneId": "names"
       },
       {
-       "start": 34.4,
-       "end": 38.4,
-       "text": "In 2007, three researchers proposed a strikingly simple method."
+       "start": 37.0,
+       "end": 41.578,
+       "text": "Round 1 goes A to E in turn. A switches to B.",
+       "sceneId": "weights"
       },
       {
-       "start": 38.6,
-       "end": 42.6,
-       "text": "Each person checks which circle their friends are in now,"
+       "start": 41.578,
+       "end": 45.978,
+       "text": "C's turn: add up the weights per label.",
+       "sceneId": "weights"
       },
       {
-       "start": 42.8,
-       "end": 46.8,
-       "text": "and joins the one they are most connected to."
+       "start": 45.978,
+       "end": 50.556,
+       "text": "B = 5, D = 2, E = 1: C takes B.",
+       "sceneId": "weights"
       },
       {
-       "start": 47.0,
-       "end": 51.0,
-       "text": "Repeat, and the circles appear on their own."
+       "start": 51.18,
+       "end": 54.78,
+       "text": "D switches to E; E keeps E.",
+       "sceneId": "round1"
       },
       {
-       "start": 51.4,
-       "end": 55.4,
-       "text": "The same problem hides inside every chip."
+       "start": 54.78,
+       "end": 58.38,
+       "text": "Round 1 ends: three nodes changed.",
+       "sceneId": "round1"
       },
       {
-       "start": 55.6,
-       "end": 59.6,
-       "text": "Millions of cells, wired into one network."
+       "start": 58.38,
+       "end": 61.78,
+       "text": "ABC | DE has already formed.",
+       "sceneId": "round1"
       },
       {
-       "start": 59.8,
-       "end": 63.8,
-       "text": "To design it, EDA software first splits them into blocks."
+       "start": 63.15,
+       "end": 66.617,
+       "text": "Round 2: every node votes again.",
+       "sceneId": "round2"
       },
       {
-       "start": 64.0,
-       "end": 68.0,
-       "text": "Why does the split matter?"
+       "start": 66.617,
+       "end": 71.017,
+       "text": "Nothing changed, and only that counts as stable.",
+       "sceneId": "round2"
       },
       {
-       "start": 68.4,
-       "end": 72.4,
-       "text": "Cells in the same block connect with short wires."
+       "start": 71.017,
+       "end": 74.017,
+       "text": "Two rounds, cut 3.",
+       "sceneId": "round2"
       },
       {
-       "start": 72.6,
-       "end": 76.6,
-       "text": "Cells in different blocks need long wires."
+       "start": 80.16,
+       "end": 83.16,
+       "text": "What if everyone changes at once?",
+       "sceneId": "sync"
       },
       {
-       "start": 76.8,
-       "end": 80.8,
-       "text": "Longer wires mean slower signals and more power."
+       "start": 83.16,
+       "end": 86.16,
+       "text": "A copies B, B copies A —",
+       "sceneId": "sync"
       },
       {
-       "start": 81.0,
-       "end": 85.0,
-       "text": "So the goal matches your contacts: tight inside, few between."
+       "start": 89.0,
+       "end": 93.133,
+       "text": "Swap over, swap back: it never stops.",
+       "sceneId": "sync2"
       },
       {
-       "start": 85.4,
-       "end": 89.4,
-       "text": "Take a small example: 24 cells."
+       "start": 93.133,
+       "end": 96.822,
+       "text": "That is a cycle, not convergence.",
+       "sceneId": "sync2"
       },
       {
-       "start": 89.6,
-       "end": 93.6,
-       "text": "The obvious approach: a ruler, three blocks by position."
+       "start": 102.5,
+       "end": 108.411,
+       "text": "Visit E to A instead: 3 rounds, other label names, the same groups.",
+       "sceneId": "knobs"
       },
       {
-       "start": 93.8,
-       "end": 97.6,
-       "text": "Neat. But how much wiring does it cut?"
+       "start": 108.411,
+       "end": 114.767,
+       "text": "Raise C–D to 10: the groups become AB | CDE, cut 5.",
+       "sceneId": "knobs"
       },
       {
-       "start": 97.8,
-       "end": 102.3,
-       "text": "It cuts weight 88 out of 202: almost half."
+       "start": 114.767,
+       "end": 119.122,
+       "text": "Same rule; turn a knob, and the answer changes.",
+       "sceneId": "knobs"
       },
       {
-       "start": 102.7,
-       "end": 106.7,
-       "text": "Then why not try every split and keep the best?"
+       "start": 119.27,
+       "end": 123.403,
+       "text": "On G01, try all 120 visiting orders:",
+       "sceneId": "orders"
       },
       {
-       "start": 106.9,
-       "end": 110.9,
-       "text": "24 cells into three equal groups: about 1.58 billion ways."
+       "start": 123.403,
+       "end": 129.537,
+       "text": "The groups are always ABC | DE; only the rounds vary, 2 or 3.",
+       "sceneId": "orders"
       },
       {
-       "start": 111.1,
-       "end": 115.1,
-       "text": "A million cells? The count itself has 477,121 digits."
+       "start": 129.537,
+       "end": 133.737,
+       "text": "This small graph is steady; bigger ones may not be.",
+       "sceneId": "orders"
       },
       {
-       "start": 115.3,
-       "end": 119.1,
-       "text": "Trying them one by one would never finish."
+       "start": 134.16,
+       "end": 140.36,
+       "text": "A 24-cell circuit: the same rule finds 3 blocks, cut 2.",
+       "sceneId": "payoff"
       },
       {
-       "start": 119.5,
-       "end": 123.5,
-       "text": "So borrow the rule from your contacts:"
+       "start": 141.5,
+       "end": 147.5,
+       "text": "One local rule, with no need to say how many groups,",
+       "sceneId": "p-outro"
       },
       {
-       "start": 123.7,
-       "end": 127.7,
-       "text": "each cell looks at its neighbours' current labels,"
+       "start": 147.5,
+       "end": 153.5,
+       "text": "and the circles appear on their own.",
+       "sceneId": "p-outro"
       },
       {
-       "start": 127.9,
-       "end": 131.9,
-       "text": "and joins the group it is most strongly wired to."
+       "start": 153.5,
+       "end": 160.5,
+       "text": "But the order, the update mode and the tie rule all change it.",
+       "sceneId": "p-outro"
       },
       {
-       "start": 132.1,
-       "end": 136.0,
-       "text": "This is label propagation."
+       "start": 160.5,
+       "end": 168.5,
+       "text": "Next module: a number for every point.",
+       "sceneId": "p-outro"
       },
       {
-       "start": 136.6,
-       "end": 141.0,
-       "text": "One sentence of rule, but the details matter:"
-      },
-      {
-       "start": 141.4,
-       "end": 146.0,
-       "text": "What counts as strongest? Who updates first?"
-      },
-      {
-       "start": 146.4,
-       "end": 151.0,
-       "text": "When does it stop? Does it always stop?"
-      },
-      {
-       "start": 153.6,
-       "end": 158.4,
-       "text": "In part two, we take it apart layer by layer on the teacher's five-node graph."
-      },
-      {
-       "start": 159.0,
-       "end": 166.0,
-       "text": "Pause here: how would you answer them?"
-      },
-      {
-       "start": 177.0,
-       "end": 185.0,
-       "text": "Nine layers, from shallow to deep."
-      },
-      {
-       "start": 190.4,
-       "end": 194.4,
-       "text": "Layer one: labels."
-      },
-      {
-       "start": 194.6,
-       "end": 200.4,
-       "text": "At the start, every node's label is its own name."
-      },
-      {
-       "start": 200.8,
-       "end": 204.0,
-       "text": "The name is its identity and never changes;"
-      },
-      {
-       "start": 204.2,
-       "end": 207.1,
-       "text": "the label is where it belongs, and it can be rewritten."
-      },
-      {
-       "start": 207.4,
-       "end": 211.4,
-       "text": "Layer two: what counts as strongest?"
-      },
-      {
-       "start": 211.6,
-       "end": 215.8,
-       "text": "Of A's three neighbours, B and C carry label B, D carries D."
-      },
-      {
-       "start": 216.0,
-       "end": 221.6,
-       "text": "By headcount B has two votes; by weight B has 2 and D has 4."
-      },
-      {
-       "start": 222.1,
-       "end": 227.3,
-       "text": "So the rule: add up edge weights per label, take the largest."
-      },
-      {
-       "start": 227.6,
-       "end": 232.0,
-       "text": "Layer three: one update. Watch C."
-      },
-      {
-       "start": 232.2,
-       "end": 236.4,
-       "text": "Neighbours A and B already carry B; D carries D, E carries E."
-      },
-      {
-       "start": 236.6,
-       "end": 240.8,
-       "text": "Same labels add up first: B is 1 + 4 = 5, D is 2, E is 1."
-      },
-      {
-       "start": 241.2,
-       "end": 245.4,
-       "text": "Layer four: a full round, A to E in order."
-      },
-      {
-       "start": 245.6,
-       "end": 249.6,
-       "text": "B already sees A's new label: this is asynchronous updating."
-      },
-      {
-       "start": 249.8,
-       "end": 253.6,
-       "text": "C becomes B, the step we just saw."
-      },
-      {
-       "start": 253.8,
-       "end": 257.9,
-       "text": "D becomes E, E stays. Round one ends."
-      },
-      {
-       "start": 258.2,
-       "end": 262.2,
-       "text": "Layer five: when to stop? Ask every node again."
-      },
-      {
-       "start": 262.4,
-       "end": 266.4,
-       "text": "A whole round, and no node changes."
-      },
-      {
-       "start": 266.6,
-       "end": 270.6,
-       "text": "Only a full round with zero changes confirms it is stable."
-      },
-      {
-       "start": 270.8,
-       "end": 274.9,
-       "text": "Otherwise a later change could force an earlier node to change again."
-      },
-      {
-       "start": 275.4,
-       "end": 279.4,
-       "text": "Layer six: what if every node updates at once?"
-      },
-      {
-       "start": 279.6,
-       "end": 283.6,
-       "text": "Two nodes, each reading the other's old label..."
-      },
-      {
-       "start": 283.8,
-       "end": 287.8,
-       "text": "A becomes B, B becomes A, and back again: it never stops."
-      },
-      {
-       "start": 288.0,
-       "end": 292.2,
-       "text": "Taking turns, B reads A's new label and they agree."
-      },
-      {
-       "start": 292.6,
-       "end": 296.6,
-       "text": "Layer seven: is the split good? Look at the cut edges."
-      },
-      {
-       "start": 296.8,
-       "end": 300.8,
-       "text": "C–D has weight 2, C–E has weight 1."
-      },
-      {
-       "start": 301.0,
-       "end": 305.0,
-       "text": "Cutsize is the sum of cut weights: 2 + 1 = 3."
-      },
-      {
-       "start": 305.2,
-       "end": 309.0,
-       "text": "Strengthen C–D to 10 and the boundary moves."
-      },
-      {
-       "start": 309.4,
-       "end": 313.4,
-       "text": "Layer eight: back to the 24 cells, each starting with its own label."
-      },
-      {
-       "start": 313.6,
-       "end": 317.6,
-       "text": "Colour spreads along the strongest wires."
-      },
-      {
-       "start": 317.8,
-       "end": 321.8,
-       "text": "Each round reads every wire twice: the work grows with the number of wires."
-      },
-      {
-       "start": 322.0,
-       "end": 325.9,
-       "text": "Round 5: no changes. It cuts 2; the ruler cut 88."
-      },
-      {
-       "start": 326.2,
-       "end": 330.2,
-       "text": "Layer nine: what it cannot do."
-      },
-      {
-       "start": 330.4,
-       "end": 334.4,
-       "text": "It promises neither the number of groups nor equal sizes."
-      },
-      {
-       "start": 334.6,
-       "end": 338.6,
-       "text": "Change the visiting order and label names and round counts can change."
-      },
-      {
-       "start": 338.8,
-       "end": 342.9,
-       "text": "It gives a clue, not a final answer."
-      },
-      {
-       "start": 343.2,
-       "end": 347.2,
-       "text": "In chip design, clustering often first gathers tightly wired cells,"
-      },
-      {
-       "start": 347.4,
-       "end": 351.3,
-       "text": "shrinking the netlist before finer partitioning and placement."
-      },
-      {
-       "start": 351.6,
-       "end": 356.0,
-       "text": "Circles in your contacts and blocks in a chip are the same problem."
-      },
-      {
-       "start": 356.2,
-       "end": 360.3,
-       "text": "No one draws the circles. They grow out of the connections."
-      },
-      {
-       "start": 361.0,
-       "end": 366.0,
-       "text": "Open the lab, change one edge weight, and watch the boundary move."
+       "start": 170.6,
+       "end": 176.6,
+       "text": "In the lab below, step through every vote.",
+       "sceneId": "p-end"
       }
      ],
-     "bytes": 44347523
+     "readingViolations": 0,
+     "bytes": 8140067
     }
-   },
-   "scenes": [
-    {
-     "sceneId": "contacts",
-     "start": 0.0,
-     "end": 17.41
-    },
-    {
-     "sceneId": "title",
-     "start": 17.41,
-     "end": 24.85
-    },
-    {
-     "sceneId": "community",
-     "start": 24.85,
-     "end": 34.17
-    },
-    {
-     "sceneId": "history",
-     "start": 34.17,
-     "end": 51.18
-    },
-    {
-     "sceneId": "chip",
-     "start": 51.18,
-     "end": 68.2
-    },
-    {
-     "sceneId": "wires",
-     "start": 68.2,
-     "end": 85.22
-    },
-    {
-     "sceneId": "ruler",
-     "start": 85.22,
-     "end": 102.5
-    },
-    {
-     "sceneId": "count",
-     "start": 102.5,
-     "end": 119.27
-    },
-    {
-     "sceneId": "rule",
-     "start": 119.27,
-     "end": 136.16
-    },
-    {
-     "sceneId": "questions",
-     "start": 136.16,
-     "end": 170.6
-    },
-    {
-     "sceneId": "interlude",
-     "start": 170.6,
-     "end": 189.82
-    },
-    {
-     "sceneId": "names",
-     "start": 189.82,
-     "end": 207.23
-    },
-    {
-     "sceneId": "weights",
-     "start": 207.23,
-     "end": 221.85
-    },
-    {
-     "sceneId": "formula",
-     "start": 221.85,
-     "end": 227.44
-    },
-    {
-     "sceneId": "update",
-     "start": 227.44,
-     "end": 241.0
-    },
-    {
-     "sceneId": "round1",
-     "start": 241.0,
-     "end": 258.02
-    },
-    {
-     "sceneId": "round2",
-     "start": 258.02,
-     "end": 275.04
-    },
-    {
-     "sceneId": "sync",
-     "start": 275.04,
-     "end": 292.32
-    },
-    {
-     "sceneId": "cut",
-     "start": 292.32,
-     "end": 309.09
-    },
-    {
-     "sceneId": "payoff",
-     "start": 309.09,
-     "end": 325.98
-    },
-    {
-     "sceneId": "limits",
-     "start": 325.98,
-     "end": 343.02
-    },
-    {
-     "sceneId": "eda",
-     "start": 343.02,
-     "end": 351.4
-    },
-    {
-     "sceneId": "return",
-     "start": 351.4,
-     "end": 360.42
-    },
-    {
-     "sceneId": "credits",
-     "start": 360.42,
-     "end": 379.64
-    }
-   ]
+   }
   },
   {
    "id": "concise",
@@ -2849,6 +2342,1092 @@
      "bytes": 10090250
     }
    }
+  },
+  {
+   "id": "original",
+   "kind": "original",
+   "status": "ready",
+   "external": true,
+   "title": {
+    "zh": "圈子从哪里来",
+    "en": "Where Do Clusters Come From?"
+   },
+   "why": {
+    "zh": "作者原作的科普片（第四版），原样收录：从通讯录到芯片，再逐层拆开九层规则。",
+    "en": "The author's original popular-science film (version 4), included as made: from a contact list to a chip, then the rule taken apart in nine layers."
+   },
+   "music": {
+    "zh": "《We Never (Remix)（若如初见）》Hi Noise / 秋成（第三方录音，不在本课程许可范围内）",
+    "en": "“We Never (Remix)” by Hi Noise / 秋成 (third-party recording, not covered by this course's licences)"
+   },
+   "source": {
+    "repository": "https://github.com/Su3037/clustering-lab5-label-propagation",
+    "commit": "7b4eca7787d532d30c79659c104798d57f8f3495",
+    "file": "site/media/circles.mp4"
+   },
+   "fps": 30,
+   "size": [
+    1920,
+    1080
+   ],
+   "versions": {
+    "zh": {
+     "src": "original.mp4",
+     "vtt": "original.zh.vtt",
+     "poster": "original.jpg",
+     "duration": 379.64,
+     "captions": "zh+en",
+     "chapters": [
+      {
+       "t": 0.0,
+       "title": "序 · 通讯录",
+       "sceneId": "contacts"
+      },
+      {
+       "t": 34.17,
+       "title": "一 · 一个极简的办法",
+       "sceneId": "history"
+      },
+      {
+       "t": 51.18,
+       "title": "二 · 芯片里的同一个问题",
+       "sceneId": "chip"
+      },
+      {
+       "t": 85.22,
+       "title": "三 · 尺子与穷举",
+       "sceneId": "ruler"
+      },
+      {
+       "t": 119.27,
+       "title": "四 · 一条局部规则",
+       "sceneId": "rule"
+      },
+      {
+       "t": 189.82,
+       "title": "第 1 层 · 标签",
+       "sceneId": "names"
+      },
+      {
+       "t": 207.23,
+       "title": "第 2 层 · 怎样算最强",
+       "sceneId": "weights"
+      },
+      {
+       "t": 227.44,
+       "title": "第 3 层 · 一次更新",
+       "sceneId": "update"
+      },
+      {
+       "t": 241.0,
+       "title": "第 4 层 · 一整轮",
+       "sceneId": "round1"
+      },
+      {
+       "t": 258.02,
+       "title": "第 5 层 · 何时停止",
+       "sceneId": "round2"
+      },
+      {
+       "t": 275.04,
+       "title": "第 6 层 · 同时还是轮流",
+       "sceneId": "sync"
+      },
+      {
+       "t": 292.32,
+       "title": "第 7 层 · 分得好不好",
+       "sceneId": "cut"
+      },
+      {
+       "t": 309.09,
+       "title": "第 8 层 · 回到芯片",
+       "sceneId": "payoff"
+      },
+      {
+       "t": 325.98,
+       "title": "第 9 层 · 它做不到的事",
+       "sceneId": "limits"
+      },
+      {
+       "t": 343.02,
+       "title": "现实中的用法",
+       "sceneId": "eda"
+      }
+     ],
+     "transcript": [
+      {
+       "start": 0.6,
+       "end": 4.6,
+       "text": "打开通讯录，几百个名字。"
+      },
+      {
+       "start": 4.8,
+       "end": 10.5,
+       "text": "要把他们分成几个圈子，你会怎么分？"
+      },
+      {
+       "start": 11.0,
+       "end": 14.2,
+       "text": "你不需要知道每个人是谁，"
+      },
+      {
+       "start": 14.4,
+       "end": 17.2,
+       "text": "只要看：谁和谁常联系。"
+      },
+      {
+       "start": 25.0,
+       "end": 29.0,
+       "text": "好的分组：圈内联系紧，圈与圈之间联系少。"
+      },
+      {
+       "start": 29.2,
+       "end": 34.0,
+       "text": "网络科学把这件事叫作“社群发现”。"
+      },
+      {
+       "start": 34.4,
+       "end": 38.4,
+       "text": "2007 年，三位研究者提出一个极简的办法。"
+      },
+      {
+       "start": 38.6,
+       "end": 42.6,
+       "text": "每个人看看朋友们现在属于哪个圈子，"
+      },
+      {
+       "start": 42.8,
+       "end": 46.8,
+       "text": "然后加入联系最多的那一个。"
+      },
+      {
+       "start": 47.0,
+       "end": 51.0,
+       "text": "一遍遍重复，圈子自己浮现。"
+      },
+      {
+       "start": 51.4,
+       "end": 55.4,
+       "text": "同样的问题，藏在每一块芯片里。"
+      },
+      {
+       "start": 55.6,
+       "end": 59.6,
+       "text": "几百万个单元，由导线连成一张网。"
+      },
+      {
+       "start": 59.8,
+       "end": 63.8,
+       "text": "设计时，EDA 软件要先把它们分成几块。"
+      },
+      {
+       "start": 64.0,
+       "end": 68.0,
+       "text": "为什么要在乎怎么分？"
+      },
+      {
+       "start": 68.4,
+       "end": 72.4,
+       "text": "同一块里的单元，用短导线相连。"
+      },
+      {
+       "start": 72.6,
+       "end": 76.6,
+       "text": "分在两块的单元，只能靠长导线。"
+      },
+      {
+       "start": 76.8,
+       "end": 80.8,
+       "text": "导线越长，信号越慢，也越耗电。"
+      },
+      {
+       "start": 81.0,
+       "end": 85.0,
+       "text": "所以目标和通讯录一样：块内紧，块间少。"
+      },
+      {
+       "start": 85.4,
+       "end": 89.4,
+       "text": "看一个 24 个单元的小例子。"
+      },
+      {
+       "start": 89.6,
+       "end": 93.6,
+       "text": "最直接的办法：拿尺子，按位置切成三块。"
+      },
+      {
+       "start": 93.8,
+       "end": 97.6,
+       "text": "很整齐。可它切断了多少连线？"
+      },
+      {
+       "start": 97.8,
+       "end": 102.3,
+       "text": "切断的权重是 88，全部 202：将近一半。"
+      },
+      {
+       "start": 102.7,
+       "end": 106.7,
+       "text": "那就试遍所有分法，挑最好的？"
+      },
+      {
+       "start": 106.9,
+       "end": 110.9,
+       "text": "24 个单元平分三组，约 15.8 亿种分法。"
+      },
+      {
+       "start": 111.1,
+       "end": 115.1,
+       "text": "上百万个单元呢？分法的数字有 47 万位。"
+      },
+      {
+       "start": 115.3,
+       "end": 119.1,
+       "text": "一个个试，永远试不完。"
+      },
+      {
+       "start": 119.5,
+       "end": 123.5,
+       "text": "那就借用通讯录里的那条规则："
+      },
+      {
+       "start": 123.7,
+       "end": 127.7,
+       "text": "每个单元看看邻居们现在的标签，"
+      },
+      {
+       "start": 127.9,
+       "end": 131.9,
+       "text": "加入连接最强的那一组。"
+      },
+      {
+       "start": 132.1,
+       "end": 136.0,
+       "text": "这就是标签传播。"
+      },
+      {
+       "start": 136.6,
+       "end": 141.0,
+       "text": "规则只有一句话，细节却很要紧："
+      },
+      {
+       "start": 141.4,
+       "end": 146.0,
+       "text": "“最强”怎么算？谁先更新？"
+      },
+      {
+       "start": 146.4,
+       "end": 151.0,
+       "text": "什么时候停？它一定会停吗？"
+      },
+      {
+       "start": 153.6,
+       "end": 158.4,
+       "text": "下半部分，用老师给的五节点图，一层层拆开。"
+      },
+      {
+       "start": 159.0,
+       "end": 166.0,
+       "text": "停在这里想一想：如果是你，会怎么回答？"
+      },
+      {
+       "start": 177.0,
+       "end": 185.0,
+       "text": "九层，从浅到深。"
+      },
+      {
+       "start": 190.4,
+       "end": 194.4,
+       "text": "第一层：标签。"
+      },
+      {
+       "start": 194.6,
+       "end": 200.4,
+       "text": "开始时，每个点的标签就是自己的名字。"
+      },
+      {
+       "start": 200.8,
+       "end": 204.0,
+       "text": "名字是身份，永远不变；"
+      },
+      {
+       "start": 204.2,
+       "end": 207.1,
+       "text": "标签是归属，会被改写。"
+      },
+      {
+       "start": 207.4,
+       "end": 211.4,
+       "text": "第二层：“最强”怎么算？"
+      },
+      {
+       "start": 211.6,
+       "end": 215.8,
+       "text": "A 的三个邻居里，B 和 C 带着标签 B，D 带着 D。"
+      },
+      {
+       "start": 216.0,
+       "end": 221.6,
+       "text": "数人头，B 两票；加权重，B 只有 2，D 有 4。"
+      },
+      {
+       "start": 222.1,
+       "end": 227.3,
+       "text": "所以规则是：把同标签邻居的边权加起来，取最大。"
+      },
+      {
+       "start": 227.6,
+       "end": 232.0,
+       "text": "第三层：一次更新。看 C。"
+      },
+      {
+       "start": 232.2,
+       "end": 236.4,
+       "text": "邻居 A、B 已经是 B；D 是 D，E 是 E。"
+      },
+      {
+       "start": 236.6,
+       "end": 240.8,
+       "text": "同标签先相加：B 是 1 + 4 = 5，D 是 2，E 是 1。"
+      },
+      {
+       "start": 241.2,
+       "end": 245.4,
+       "text": "第四层：一整轮，按 A 到 E 依次更新。"
+      },
+      {
+       "start": 245.6,
+       "end": 249.6,
+       "text": "B 立刻读到 A 的新标签：这叫异步更新。"
+      },
+      {
+       "start": 249.8,
+       "end": 253.6,
+       "text": "C 改为 B，就是刚才那一步。"
+      },
+      {
+       "start": 253.8,
+       "end": 257.9,
+       "text": "D 改为 E，E 保持。第一轮结束。"
+      },
+      {
+       "start": 258.2,
+       "end": 262.2,
+       "text": "第五层：什么时候停？再问一遍每个点。"
+      },
+      {
+       "start": 262.4,
+       "end": 266.4,
+       "text": "整整一轮，没有一个点改变。"
+      },
+      {
+       "start": 266.6,
+       "end": 270.6,
+       "text": "只有整轮零变化，才能确认稳定。"
+      },
+      {
+       "start": 270.8,
+       "end": 274.9,
+       "text": "否则后面的点一改，前面的点可能又要改。"
+      },
+      {
+       "start": 275.4,
+       "end": 279.4,
+       "text": "第六层：如果所有点同时更新呢？"
+      },
+      {
+       "start": 279.6,
+       "end": 283.6,
+       "text": "两个点，各自读对方的旧标签——"
+      },
+      {
+       "start": 283.8,
+       "end": 287.8,
+       "text": "A 变成 B，B 变成 A，再换回来：永远停不下来。"
+      },
+      {
+       "start": 288.0,
+       "end": 292.2,
+       "text": "轮流更新时，B 读到 A 的新标签，两者一致。"
+      },
+      {
+       "start": 292.6,
+       "end": 296.6,
+       "text": "第七层：分得好不好？看被切开的边。"
+      },
+      {
+       "start": 296.8,
+       "end": 300.8,
+       "text": "C–D 权重 2，C–E 权重 1。"
+      },
+      {
+       "start": 301.0,
+       "end": 305.0,
+       "text": "cutsize 是被切开的权重之和：2 + 1 = 3。"
+      },
+      {
+       "start": 305.2,
+       "end": 309.0,
+       "text": "把 C–D 加强到 10，边界立刻移动。"
+      },
+      {
+       "start": 309.4,
+       "end": 313.4,
+       "text": "第八层：回到 24 个单元，每个从自己的标签出发。"
+      },
+      {
+       "start": 313.6,
+       "end": 317.6,
+       "text": "颜色沿着最强的连线扩散。"
+      },
+      {
+       "start": 317.8,
+       "end": 321.8,
+       "text": "每一轮只读每条连线两次：工作量和连线数成正比。"
+      },
+      {
+       "start": 322.0,
+       "end": 325.9,
+       "text": "第 5 轮零变化。只切开 2，尺子切开 88。"
+      },
+      {
+       "start": 326.2,
+       "end": 330.2,
+       "text": "第九层：它做不到的事。"
+      },
+      {
+       "start": 330.4,
+       "end": 334.4,
+       "text": "它不保证分成几组，也不保证每组一样大。"
+      },
+      {
+       "start": 334.6,
+       "end": 338.6,
+       "text": "换个访问顺序，标签名和轮数都可能变。"
+      },
+      {
+       "start": 338.8,
+       "end": 342.9,
+       "text": "它给出的是线索，不是最终答案。"
+      },
+      {
+       "start": 343.2,
+       "end": 347.2,
+       "text": "在芯片设计中，聚类常用来先把紧密的单元收成团，"
+      },
+      {
+       "start": 347.4,
+       "end": 351.3,
+       "text": "让电路图变小，再交给更精细的划分与布局。"
+      },
+      {
+       "start": 351.6,
+       "end": 356.0,
+       "text": "通讯录里的圈子，芯片里的分块，是同一个问题。"
+      },
+      {
+       "start": 356.2,
+       "end": 360.3,
+       "text": "没有人画圈。圈子，从连接里长出来。"
+      },
+      {
+       "start": 361.0,
+       "end": 366.0,
+       "text": "去实验室改一条边的权重，看看边界会怎么走。"
+      }
+     ],
+     "bytes": 44347523
+    },
+    "en": {
+     "src": "original.mp4",
+     "vtt": "original.en.vtt",
+     "poster": "original.jpg",
+     "duration": 379.64,
+     "captions": "zh+en",
+     "chapters": [
+      {
+       "t": 0.0,
+       "title": "PROLOGUE · CONTACTS",
+       "sceneId": "contacts"
+      },
+      {
+       "t": 34.17,
+       "title": "I · A VERY SIMPLE IDEA",
+       "sceneId": "history"
+      },
+      {
+       "t": 51.18,
+       "title": "II · THE SAME PROBLEM IN A CHIP",
+       "sceneId": "chip"
+      },
+      {
+       "t": 85.22,
+       "title": "III · THE RULER AND BRUTE FORCE",
+       "sceneId": "ruler"
+      },
+      {
+       "t": 119.27,
+       "title": "IV · ONE LOCAL RULE",
+       "sceneId": "rule"
+      },
+      {
+       "t": 189.82,
+       "title": "LAYER 1 · LABELS",
+       "sceneId": "names"
+      },
+      {
+       "t": 207.23,
+       "title": "LAYER 2 · WHAT \"STRONGEST\" MEANS",
+       "sceneId": "weights"
+      },
+      {
+       "t": 227.44,
+       "title": "LAYER 3 · ONE UPDATE",
+       "sceneId": "update"
+      },
+      {
+       "t": 241.0,
+       "title": "LAYER 4 · A WHOLE ROUND",
+       "sceneId": "round1"
+      },
+      {
+       "t": 258.02,
+       "title": "LAYER 5 · WHEN TO STOP",
+       "sceneId": "round2"
+      },
+      {
+       "t": 275.04,
+       "title": "LAYER 6 · ALL AT ONCE, OR IN TURN",
+       "sceneId": "sync"
+      },
+      {
+       "t": 292.32,
+       "title": "LAYER 7 · IS THE SPLIT GOOD?",
+       "sceneId": "cut"
+      },
+      {
+       "t": 309.09,
+       "title": "LAYER 8 · BACK TO THE CHIP",
+       "sceneId": "payoff"
+      },
+      {
+       "t": 325.98,
+       "title": "LAYER 9 · WHAT IT CANNOT DO",
+       "sceneId": "limits"
+      },
+      {
+       "t": 343.02,
+       "title": "IN PRACTICE",
+       "sceneId": "eda"
+      }
+     ],
+     "transcript": [
+      {
+       "start": 0.6,
+       "end": 4.6,
+       "text": "Open your contacts: hundreds of names."
+      },
+      {
+       "start": 4.8,
+       "end": 10.5,
+       "text": "How would you sort them into circles?"
+      },
+      {
+       "start": 11.0,
+       "end": 14.2,
+       "text": "You don't need to know who anyone is."
+      },
+      {
+       "start": 14.4,
+       "end": 17.2,
+       "text": "Just look at who keeps in touch with whom."
+      },
+      {
+       "start": 25.0,
+       "end": 29.0,
+       "text": "A good grouping: tight inside, few links between."
+      },
+      {
+       "start": 29.2,
+       "end": 34.0,
+       "text": "Network science calls this community detection."
+      },
+      {
+       "start": 34.4,
+       "end": 38.4,
+       "text": "In 2007, three researchers proposed a strikingly simple method."
+      },
+      {
+       "start": 38.6,
+       "end": 42.6,
+       "text": "Each person checks which circle their friends are in now,"
+      },
+      {
+       "start": 42.8,
+       "end": 46.8,
+       "text": "and joins the one they are most connected to."
+      },
+      {
+       "start": 47.0,
+       "end": 51.0,
+       "text": "Repeat, and the circles appear on their own."
+      },
+      {
+       "start": 51.4,
+       "end": 55.4,
+       "text": "The same problem hides inside every chip."
+      },
+      {
+       "start": 55.6,
+       "end": 59.6,
+       "text": "Millions of cells, wired into one network."
+      },
+      {
+       "start": 59.8,
+       "end": 63.8,
+       "text": "To design it, EDA software first splits them into blocks."
+      },
+      {
+       "start": 64.0,
+       "end": 68.0,
+       "text": "Why does the split matter?"
+      },
+      {
+       "start": 68.4,
+       "end": 72.4,
+       "text": "Cells in the same block connect with short wires."
+      },
+      {
+       "start": 72.6,
+       "end": 76.6,
+       "text": "Cells in different blocks need long wires."
+      },
+      {
+       "start": 76.8,
+       "end": 80.8,
+       "text": "Longer wires mean slower signals and more power."
+      },
+      {
+       "start": 81.0,
+       "end": 85.0,
+       "text": "So the goal matches your contacts: tight inside, few between."
+      },
+      {
+       "start": 85.4,
+       "end": 89.4,
+       "text": "Take a small example: 24 cells."
+      },
+      {
+       "start": 89.6,
+       "end": 93.6,
+       "text": "The obvious approach: a ruler, three blocks by position."
+      },
+      {
+       "start": 93.8,
+       "end": 97.6,
+       "text": "Neat. But how much wiring does it cut?"
+      },
+      {
+       "start": 97.8,
+       "end": 102.3,
+       "text": "It cuts weight 88 out of 202: almost half."
+      },
+      {
+       "start": 102.7,
+       "end": 106.7,
+       "text": "Then why not try every split and keep the best?"
+      },
+      {
+       "start": 106.9,
+       "end": 110.9,
+       "text": "24 cells into three equal groups: about 1.58 billion ways."
+      },
+      {
+       "start": 111.1,
+       "end": 115.1,
+       "text": "A million cells? The count itself has 477,121 digits."
+      },
+      {
+       "start": 115.3,
+       "end": 119.1,
+       "text": "Trying them one by one would never finish."
+      },
+      {
+       "start": 119.5,
+       "end": 123.5,
+       "text": "So borrow the rule from your contacts:"
+      },
+      {
+       "start": 123.7,
+       "end": 127.7,
+       "text": "each cell looks at its neighbours' current labels,"
+      },
+      {
+       "start": 127.9,
+       "end": 131.9,
+       "text": "and joins the group it is most strongly wired to."
+      },
+      {
+       "start": 132.1,
+       "end": 136.0,
+       "text": "This is label propagation."
+      },
+      {
+       "start": 136.6,
+       "end": 141.0,
+       "text": "One sentence of rule, but the details matter:"
+      },
+      {
+       "start": 141.4,
+       "end": 146.0,
+       "text": "What counts as strongest? Who updates first?"
+      },
+      {
+       "start": 146.4,
+       "end": 151.0,
+       "text": "When does it stop? Does it always stop?"
+      },
+      {
+       "start": 153.6,
+       "end": 158.4,
+       "text": "In part two, we take it apart layer by layer on the teacher's five-node graph."
+      },
+      {
+       "start": 159.0,
+       "end": 166.0,
+       "text": "Pause here: how would you answer them?"
+      },
+      {
+       "start": 177.0,
+       "end": 185.0,
+       "text": "Nine layers, from shallow to deep."
+      },
+      {
+       "start": 190.4,
+       "end": 194.4,
+       "text": "Layer one: labels."
+      },
+      {
+       "start": 194.6,
+       "end": 200.4,
+       "text": "At the start, every node's label is its own name."
+      },
+      {
+       "start": 200.8,
+       "end": 204.0,
+       "text": "The name is its identity and never changes;"
+      },
+      {
+       "start": 204.2,
+       "end": 207.1,
+       "text": "the label is where it belongs, and it can be rewritten."
+      },
+      {
+       "start": 207.4,
+       "end": 211.4,
+       "text": "Layer two: what counts as strongest?"
+      },
+      {
+       "start": 211.6,
+       "end": 215.8,
+       "text": "Of A's three neighbours, B and C carry label B, D carries D."
+      },
+      {
+       "start": 216.0,
+       "end": 221.6,
+       "text": "By headcount B has two votes; by weight B has 2 and D has 4."
+      },
+      {
+       "start": 222.1,
+       "end": 227.3,
+       "text": "So the rule: add up edge weights per label, take the largest."
+      },
+      {
+       "start": 227.6,
+       "end": 232.0,
+       "text": "Layer three: one update. Watch C."
+      },
+      {
+       "start": 232.2,
+       "end": 236.4,
+       "text": "Neighbours A and B already carry B; D carries D, E carries E."
+      },
+      {
+       "start": 236.6,
+       "end": 240.8,
+       "text": "Same labels add up first: B is 1 + 4 = 5, D is 2, E is 1."
+      },
+      {
+       "start": 241.2,
+       "end": 245.4,
+       "text": "Layer four: a full round, A to E in order."
+      },
+      {
+       "start": 245.6,
+       "end": 249.6,
+       "text": "B already sees A's new label: this is asynchronous updating."
+      },
+      {
+       "start": 249.8,
+       "end": 253.6,
+       "text": "C becomes B, the step we just saw."
+      },
+      {
+       "start": 253.8,
+       "end": 257.9,
+       "text": "D becomes E, E stays. Round one ends."
+      },
+      {
+       "start": 258.2,
+       "end": 262.2,
+       "text": "Layer five: when to stop? Ask every node again."
+      },
+      {
+       "start": 262.4,
+       "end": 266.4,
+       "text": "A whole round, and no node changes."
+      },
+      {
+       "start": 266.6,
+       "end": 270.6,
+       "text": "Only a full round with zero changes confirms it is stable."
+      },
+      {
+       "start": 270.8,
+       "end": 274.9,
+       "text": "Otherwise a later change could force an earlier node to change again."
+      },
+      {
+       "start": 275.4,
+       "end": 279.4,
+       "text": "Layer six: what if every node updates at once?"
+      },
+      {
+       "start": 279.6,
+       "end": 283.6,
+       "text": "Two nodes, each reading the other's old label..."
+      },
+      {
+       "start": 283.8,
+       "end": 287.8,
+       "text": "A becomes B, B becomes A, and back again: it never stops."
+      },
+      {
+       "start": 288.0,
+       "end": 292.2,
+       "text": "Taking turns, B reads A's new label and they agree."
+      },
+      {
+       "start": 292.6,
+       "end": 296.6,
+       "text": "Layer seven: is the split good? Look at the cut edges."
+      },
+      {
+       "start": 296.8,
+       "end": 300.8,
+       "text": "C–D has weight 2, C–E has weight 1."
+      },
+      {
+       "start": 301.0,
+       "end": 305.0,
+       "text": "Cutsize is the sum of cut weights: 2 + 1 = 3."
+      },
+      {
+       "start": 305.2,
+       "end": 309.0,
+       "text": "Strengthen C–D to 10 and the boundary moves."
+      },
+      {
+       "start": 309.4,
+       "end": 313.4,
+       "text": "Layer eight: back to the 24 cells, each starting with its own label."
+      },
+      {
+       "start": 313.6,
+       "end": 317.6,
+       "text": "Colour spreads along the strongest wires."
+      },
+      {
+       "start": 317.8,
+       "end": 321.8,
+       "text": "Each round reads every wire twice: the work grows with the number of wires."
+      },
+      {
+       "start": 322.0,
+       "end": 325.9,
+       "text": "Round 5: no changes. It cuts 2; the ruler cut 88."
+      },
+      {
+       "start": 326.2,
+       "end": 330.2,
+       "text": "Layer nine: what it cannot do."
+      },
+      {
+       "start": 330.4,
+       "end": 334.4,
+       "text": "It promises neither the number of groups nor equal sizes."
+      },
+      {
+       "start": 334.6,
+       "end": 338.6,
+       "text": "Change the visiting order and label names and round counts can change."
+      },
+      {
+       "start": 338.8,
+       "end": 342.9,
+       "text": "It gives a clue, not a final answer."
+      },
+      {
+       "start": 343.2,
+       "end": 347.2,
+       "text": "In chip design, clustering often first gathers tightly wired cells,"
+      },
+      {
+       "start": 347.4,
+       "end": 351.3,
+       "text": "shrinking the netlist before finer partitioning and placement."
+      },
+      {
+       "start": 351.6,
+       "end": 356.0,
+       "text": "Circles in your contacts and blocks in a chip are the same problem."
+      },
+      {
+       "start": 356.2,
+       "end": 360.3,
+       "text": "No one draws the circles. They grow out of the connections."
+      },
+      {
+       "start": 361.0,
+       "end": 366.0,
+       "text": "Open the lab, change one edge weight, and watch the boundary move."
+      }
+     ],
+     "bytes": 44347523
+    }
+   },
+   "scenes": [
+    {
+     "sceneId": "contacts",
+     "start": 0.0,
+     "end": 17.41
+    },
+    {
+     "sceneId": "title",
+     "start": 17.41,
+     "end": 24.85
+    },
+    {
+     "sceneId": "community",
+     "start": 24.85,
+     "end": 34.17
+    },
+    {
+     "sceneId": "history",
+     "start": 34.17,
+     "end": 51.18
+    },
+    {
+     "sceneId": "chip",
+     "start": 51.18,
+     "end": 68.2
+    },
+    {
+     "sceneId": "wires",
+     "start": 68.2,
+     "end": 85.22
+    },
+    {
+     "sceneId": "ruler",
+     "start": 85.22,
+     "end": 102.5
+    },
+    {
+     "sceneId": "count",
+     "start": 102.5,
+     "end": 119.27
+    },
+    {
+     "sceneId": "rule",
+     "start": 119.27,
+     "end": 136.16
+    },
+    {
+     "sceneId": "questions",
+     "start": 136.16,
+     "end": 170.6
+    },
+    {
+     "sceneId": "interlude",
+     "start": 170.6,
+     "end": 189.82
+    },
+    {
+     "sceneId": "names",
+     "start": 189.82,
+     "end": 207.23
+    },
+    {
+     "sceneId": "weights",
+     "start": 207.23,
+     "end": 221.85
+    },
+    {
+     "sceneId": "formula",
+     "start": 221.85,
+     "end": 227.44
+    },
+    {
+     "sceneId": "update",
+     "start": 227.44,
+     "end": 241.0
+    },
+    {
+     "sceneId": "round1",
+     "start": 241.0,
+     "end": 258.02
+    },
+    {
+     "sceneId": "round2",
+     "start": 258.02,
+     "end": 275.04
+    },
+    {
+     "sceneId": "sync",
+     "start": 275.04,
+     "end": 292.32
+    },
+    {
+     "sceneId": "cut",
+     "start": 292.32,
+     "end": 309.09
+    },
+    {
+     "sceneId": "payoff",
+     "start": 309.09,
+     "end": 325.98
+    },
+    {
+     "sceneId": "limits",
+     "start": 325.98,
+     "end": 343.02
+    },
+    {
+     "sceneId": "eda",
+     "start": 343.02,
+     "end": 351.4
+    },
+    {
+     "sceneId": "return",
+     "start": 351.4,
+     "end": 360.42
+    },
+    {
+     "sceneId": "credits",
+     "start": 360.42,
+     "end": 379.64
+    }
+   ]
   }
  ]
 }

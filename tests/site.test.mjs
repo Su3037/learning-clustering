@@ -94,7 +94,10 @@ for (const id of IDS) {
     assert.ok((page.match(/class="mistake"/g) || []).length >= 3, 'common mistakes');                                            // T07
     const film = JSON.parse(read(`media/${id}/film.json`));
     const films = film.films || [film];
-    if (film.schema === 2) assert.deepEqual(films.map(f => f.kind), ['popular', 'concise', 'advanced', 'lab'], 'four films: popular, concise, advanced, walkthrough');
+    if (film.schema === 2) {
+      assert.deepEqual(films.slice(0, 4).map(f => f.kind), ['popular', 'concise', 'advanced', 'lab'], 'four films: popular, concise, advanced, walkthrough');
+      assert.ok(films.slice(4).every(f => f.kind === 'original'), 'beyond the four, only the original author\'s film');
+    }
     for (const f of films) {
       assert.equal(f.status, 'ready');
       // Schema 2: one version per language (zh and en), each with its own captions, chapters and transcript.
@@ -180,4 +183,19 @@ test('inline module imports use relative or absolute specifiers', () => {
     for (const m of html.matchAll(/\bimport\b[^'"]*?from\s*['"]([^'"]+)['"]/g))
       assert.ok(/^(\.{1,2}\/|\/|https?:)/.test(m[1]), `bare module specifier "${m[1]}" in ${path.relative(SITE, f)}`);
   }
+});
+
+test('home: the introduction film (zh + en) and the comparison table names each method', () => {
+  for (const page of ['index.html', 'en/index.html']) {
+    const html = read(page);
+    assert.ok(html.includes('id="intro-film-root"'), `${page}: intro film slot`);
+    assert.ok(!/\|\s*\[M0\d\]\(/.test(html) && !/>M0\d<\/a>/.test(html), `${page}: comparison rows carry method names, not bare M0X`);
+  }
+  const film = JSON.parse(read('media/home/film.json'));
+  assert.deepEqual(film.films.map(f => f.kind), ['intro']);
+  for (const [lang, v] of Object.entries(film.films[0].versions)) {
+    assert.ok(exists(`media/home/${v.src}`) && exists(`media/home/${v.vtt}`) && exists(`media/home/${v.poster}`), `intro ${lang} files`);
+    assert.equal(v.readingViolations, 0);
+  }
+  assert.deepEqual(Object.keys(film.films[0].versions).sort(), ['en', 'zh']);
 });

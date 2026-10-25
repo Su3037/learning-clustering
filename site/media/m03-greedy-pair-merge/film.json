@@ -11,8 +11,8 @@
     "en": "Merge, and Merge Again"
    },
    "why": {
-    "zh": "五个朋友分两辆车：每次把最投机的两组合并；一个把 10 排在 2 前面的文件夹，讲清原网页的比较器错误；酒店只有双人房，讲清为什么不能硬凑。",
-    "en": "Five friends split into two cars by merging the best-matched groups; a folder that sorts 10 before 2 explains the original page's comparator bug; twin rooms at the hotel show why you never force a merge."
+    "zh": "从窗上的雨滴讲起：最近的两滴总是先合在一起。再看五个朋友分两辆车：每次把最投机的两组合并；一个把 10 排在 2 前面的文件夹，讲清原网页的比较器错误；酒店只有双人房，讲清为什么不能硬凑。",
+    "en": "It opens with rain on a window, where the nearest two drops always fuse first. Then five friends split into two cars by merging the best-matched groups; a folder that sorts 10 before 2 explains the original page's comparator bug; twin rooms at the hotel show why you never force a merge."
    },
    "music": {
     "zh": "《We Never (Remix)（若如初见）》Hi Noise / 秋成（第三方录音，不在本课程许可范围内）",
@@ -20,12 +20,12 @@
    },
    "scenes": [
     {
-     "sceneId": "p-open",
+     "sceneId": "p-drops",
      "start": 0.0,
      "end": 10.75
     },
     {
-     "sceneId": "p-bonds",
+     "sceneId": "p-drops2",
      "start": 10.75,
      "end": 17.41
     },
@@ -115,8 +115,13 @@
      "chapters": [
       {
        "t": 0.0,
+       "title": "序 · 雨滴",
+       "sceneId": "p-drops"
+      },
+      {
+       "t": 17.41,
        "title": "序 · 分车",
-       "sceneId": "p-open"
+       "sceneId": "p-rule"
       },
       {
        "t": 37.0,
@@ -147,32 +152,38 @@
      "transcript": [
       {
        "start": 0.0,
-       "end": 5.0,
-       "text": "五个朋友去毕业旅行，要分进两辆车。",
-       "sceneId": "p-open"
+       "end": 4.6,
+       "text": "雨落在窗上。",
+       "sceneId": "p-drops"
       },
       {
-       "start": 5.0,
-       "end": 9.4,
-       "text": "怎么分，才能让合得来的人坐一起？",
-       "sceneId": "p-open"
+       "start": 4.6,
+       "end": 9.2,
+       "text": "挨得最近的两滴，先连成一滴。",
+       "sceneId": "p-drops"
       },
       {
-       "start": 11.75,
+       "start": 10.75,
        "end": 16.35,
-       "text": "线越粗，两个人越聊得来。",
-       "sceneId": "p-bonds"
+       "text": "然后再找最近的一对。合并，从不拆开。",
+       "sceneId": "p-drops2"
       },
       {
        "start": 17.41,
-       "end": 24.01,
-       "text": "一开始每人自成一组：所有交情都被拆散，一共 18。",
+       "end": 21.81,
+       "text": "五个朋友分两辆车，也可以这样分。",
        "sceneId": "p-rule"
       },
       {
-       "start": 24.01,
-       "end": 30.61,
-       "text": "规则只有一句：每次把最投机的两组合并，直到只剩两组。",
+       "start": 21.81,
+       "end": 26.832,
+       "text": "一开始每人自成一组：拆散的交情共 18。",
+       "sceneId": "p-rule"
+      },
+      {
+       "start": 26.832,
+       "end": 31.632,
+       "text": "每次合并最投机的两组，直到只剩两组。",
        "sceneId": "p-rule"
       },
       {
@@ -315,7 +326,7 @@
       }
      ],
      "readingViolations": 0,
-     "bytes": 9092640
+     "bytes": 9158407
     },
     "en": {
      "src": "story.en.mp4",
@@ -326,8 +337,13 @@
      "chapters": [
       {
        "t": 0.0,
+       "title": "PROLOGUE · RAINDROPS",
+       "sceneId": "p-drops"
+      },
+      {
+       "t": 17.41,
        "title": "PROLOGUE · TWO CARS",
-       "sceneId": "p-open"
+       "sceneId": "p-rule"
       },
       {
        "t": 37.0,
@@ -358,32 +374,38 @@
      "transcript": [
       {
        "start": 0.0,
-       "end": 5.0,
-       "text": "Five friends on a graduation trip, splitting into two cars.",
-       "sceneId": "p-open"
+       "end": 4.6,
+       "text": "Rain on a window.",
+       "sceneId": "p-drops"
       },
       {
-       "start": 5.0,
-       "end": 9.4,
-       "text": "How do you split them so friends ride together?",
-       "sceneId": "p-open"
+       "start": 4.6,
+       "end": 9.2,
+       "text": "The two nearest drops fuse first.",
+       "sceneId": "p-drops"
       },
       {
-       "start": 11.75,
+       "start": 10.75,
        "end": 16.35,
-       "text": "The thicker the line, the better two people get along.",
-       "sceneId": "p-bonds"
+       "text": "Then the next nearest pair. Merged, never split again.",
+       "sceneId": "p-drops2"
       },
       {
        "start": 17.41,
-       "end": 24.01,
-       "text": "At first everyone is a group of one: every friendship is split, 18 in all.",
+       "end": 21.81,
+       "text": "Five friends splitting into two cars can do the same.",
        "sceneId": "p-rule"
       },
       {
-       "start": 24.01,
-       "end": 30.61,
-       "text": "The rule is one line: merge the two groups that get along best, until two remain.",
+       "start": 21.81,
+       "end": 26.832,
+       "text": "At first everyone is a group of one: 18 in friendships split.",
+       "sceneId": "p-rule"
+      },
+      {
+       "start": 26.832,
+       "end": 31.632,
+       "text": "Merge the two best-matched groups, until two remain.",
        "sceneId": "p-rule"
       },
       {
@@ -526,7 +548,7 @@
       }
      ],
      "readingViolations": 0,
-     "bytes": 9004764
+     "bytes": 9070678
     }
    }
   },

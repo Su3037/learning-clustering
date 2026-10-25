@@ -23,6 +23,7 @@ from pathlib import Path
 from cine import (W, H, L, tr, Film, Scene, Beat, GOLD, TEAL, BLUE, ROSE, AMBER, CORAL, LILAC, SAGE, IVORY, MUTED, FAINT, DIM,
                   PANEL_BG, NODE_BG, clamp, ease, lerp, title_card, panel, badge, bar, code_panel, table, graph, fit, pulse,
                   count_hits, substrate)
+from hooks import chairlift
 from story import S, TRACK, INTRO_HITS, FILL1, FILL2, PHRASE, FILL3, FILL4, title_assemble, credits, MUSIC_LINE, landed
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -213,32 +214,6 @@ SUB_POS = fit({k: tuple(v) for k, v in SUB_G["positions"].items()}, (340, 300, 8
 FHUE = {"AB": TEAL, "DE": BLUE, "CD": AMBER, "AC": TEAL, "BD": BLUE, "ABC": TEAL}
 
 
-def p_open(fr, c):
-    for i, n in enumerate("ABCDE"):
-        a = landed(c.T, INTRO_HITS, i)
-        if a <= 0:
-            continue
-        p = FPOS[n]
-        fr.dot(p, 46, NODE_BG, a)
-        fr.ring(p, 46, NEUTRAL, 2.8, a)
-        fr.text(FR[n], p[0], p[1] + 9, 26, IVORY, a, anchor="c", role="serif")
-    if c.on(1):
-        a = c.p(1)
-        for i in range(2):
-            x = 1150 + i * 330
-            fr.rect(x, 420, 260, 130, fill=PANEL_BG, stroke=FAINT, width=1.2, alpha=0.95 * a, r=34, screen=True)
-            fr.text(L(f"双座车 {i + 1}", f"two-seater {i + 1}"), x + 130, 480, 26, MUTED, a, anchor="c", role="serif")
-            seats(fr, x + 130, 520, 0, 2, TEAL, a, unit=26)
-
-
-def p_ask(fr, c):
-    scene_graph(fr, FPOS, G01E, clusters_of(list("ABCDE"), ONES), ONES, None, 1.0, names=FR, seat_rows=False)
-    a = c.p(0)
-    fr.text(L("合得来的坐一起——", "friends ride together —"), 1400, 420, 34, IVORY, a, anchor="c", role="serif")
-    if c.on(1):
-        fr.text(L("装得下吗？", "but does it fit?"), 1400, 510, 56, GOLD, c.p(1), anchor="c", role="serif", glow=0.3 * c.p(1))
-
-
 def p_rule(fr, c):
     ev = CAP2["run"]["events"][2]
     scene_graph(fr, FPOS, G01E, ev["before"], ONES, 2, 1.0, hue=FHUE, names=FR)
@@ -424,19 +399,18 @@ def p_end(fr, c):
 
 STORY = Film(
     "story", "popular", L("装得下吗", "Does It Fit?"), None, BRAND, poster_at=36.5, music=TRACK, seed=4,
-    why=L("同样的五个朋友、同样的合并规则，只是座位有限：双座车装不下五个人（不可能），两把大提琴让出租车走进死胡同（卡住），双人自行车上最要好的一对反而拆散最多（不是最好）。",
-          "The same five friends and the same merge rule, but seats are limited: two-seaters cannot take five in two cars (impossible), two cellos lead the taxis into a dead end (stuck), and on tandem bikes the closest pair splits the most (not the best)."),
+    why=L("从两人座的缆车讲起：再要好，也得装得下。然后是同样的五个朋友、同样的合并规则，只是座位有限：双座车装不下五个人（不可能），两把大提琴让出租车走进死胡同（卡住），双人自行车上最要好的一对反而拆散最多（不是最好）。",
+          "It opens on a two-seat chairlift: however close, it has to fit. Then the same five friends and the same merge rule, but seats are limited: two-seaters cannot take five in two cars (impossible), two cellos lead the taxis into a dead end (stuck), and on tandem bikes the closest pair splits the most (not the best)."),
     scenes=[
-        Scene("p-open", p_open, [Beat(L("还是那五个朋友，还是那条规则。", "The same five friends, the same rule."), 4.8),
-                                 Beat(L("这一次，每辆车只有两个座位。", "This time, every car has only two seats."), 4.6)],
-              chapter=L("序 · 座位", "PROLOGUE · SEATS"), until=S["intro_end"]),
-        Scene("p-ask", p_ask, [Beat(L("合得来的坐一起——", "Friends ride together —"), 2.6),
-                               Beat(L("可是，装得下吗？", "but does it fit?"), 3.0)],
+        Scene("p-lift", chairlift, [Beat(L("缆车的每把吊椅，只坐两个人。", "Each chair on the lift seats just two."), 4.8),
+                                    Beat(L("排队的是三个最要好的朋友。", "In the queue: three best friends."), 4.6)],
+              chapter=L("序 · 缆车", "PROLOGUE · THE CHAIRLIFT"), until=S["intro_end"]),
+        Scene("p-lift2", chairlift, [Beat(None, 1.6), Beat(L("再要好，也得装得下。", "However close, it still has to fit."), 4.4)],
               until=S["groove"]),
-        Scene("p-rule", p_rule, [Beat(L("规则多了一句：合并前，先看装不装得下。", "The rule gains one line: before merging, check that it fits."), 5.2),
-                                 Beat(L("装不下的候选，再合得来也划掉。", "A candidate that does not fit is crossed out, however close."), 4.4),
+        Scene("p-rule", p_rule, [Beat(L("五个朋友分车，这次每辆车只有两个座位。", "Five friends again, and every car seats only two."), 4.8),
+                                 Beat(L("合并前先看装不装得下：装不下的划掉。", "Before merging, check it fits: what doesn't is crossed out."), 5.2),
                                  Beat(L("在剩下的里面，选最合得来的。", "Among the rest, take the closest pair."), 3.6)],
-              until=S["roll"]),
+              chapter=L("序 · 双座车", "PROLOGUE · TWO-SEATERS"), until=S["roll"]),
         Scene("p-title", p_title, [Beat(None, 4.5)], fade=False, until=37.0),
         Scene("p-cars", p_cars, [Beat(L("Ada 和 Ben 先上了一辆双座车。", "Ada and Ben take the first two-seater."), 4.0),
                                  Beat(L("加上 Cai 就是三人，装不下；Dev、Eva 上第二辆。", "Three with Cai won't fit; Dev and Eva take the second."), 6.0),

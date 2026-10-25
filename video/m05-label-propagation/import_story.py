@@ -5,7 +5,7 @@
 
 Copies site/media/circles.mp4 (v4, 6:20, We Never (Remix) played twice), its zh/en WebVTT and cover
 from Su3037/clustering-lab5-label-propagation, and adds the film to site/media/m05-label-propagation/film.json
-as the "popular" film. The picture already carries Chinese captions with English underneath, so one MP4
+as the "original" film (the chapter's own popular film is rendered from films.py). The picture already carries Chinese captions with English underneath, so one MP4
 serves both languages; the English page offers the English WebVTT track.
 
 With --music it also extracts one play of the track (0–189.82 s, at the film's mix level) for
@@ -52,28 +52,28 @@ def main():
     src = Path(a.source)
     commit = subprocess.run(["git", "-C", str(src), "rev-parse", "HEAD"], capture_output=True, text=True).stdout.strip()
     MEDIA.mkdir(parents=True, exist_ok=True)
-    shutil.copyfile(src / "site/media/circles.mp4", MEDIA / "story.mp4")
+    shutil.copyfile(src / "site/media/circles.mp4", MEDIA / "original.mp4")
     for lg in ("zh", "en"):
-        shutil.copyfile(src / f"site/media/circles.{lg}.vtt", MEDIA / f"story.{lg}.vtt")
-    subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", str(src / "site/media/circles-cover.jpg"), "-vf", "scale=1280:-1", "-q:v", "4", str(MEDIA / "story.jpg")], check=True)
-    dur = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", str(MEDIA / "story.mp4")], capture_output=True, text=True).stdout)
+        shutil.copyfile(src / f"site/media/circles.{lg}.vtt", MEDIA / f"original.{lg}.vtt")
+    subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", str(src / "site/media/circles-cover.jpg"), "-vf", "scale=1280:-1", "-q:v", "4", str(MEDIA / "original.jpg")], check=True)
+    dur = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", str(MEDIA / "original.mp4")], capture_output=True, text=True).stdout)
     chapters = json.loads((src / "video/chapters-v4.json").read_text(encoding="utf-8"))
     board = json.loads((src / "video/storyboard-v4.json").read_text(encoding="utf-8"))
     versions = {}
     for lg in ("zh", "en"):
-        versions[lg] = {"src": "story.mp4", "vtt": f"story.{lg}.vtt", "poster": "story.jpg", "duration": round(dur, 2), "captions": "zh+en",
+        versions[lg] = {"src": "original.mp4", "vtt": f"original.{lg}.vtt", "poster": "original.jpg", "duration": round(dur, 2), "captions": "zh+en",
                         "chapters": [{"t": c["start"], "title": c["title"] if lg == "zh" else CHAPTER_EN[c["title"]], "sceneId": c["id"]} for c in chapters],
-                        "transcript": parse_vtt(MEDIA / f"story.{lg}.vtt"), "bytes": (MEDIA / "story.mp4").stat().st_size}
+                        "transcript": parse_vtt(MEDIA / f"original.{lg}.vtt"), "bytes": (MEDIA / "original.mp4").stat().st_size}
     merge_manifest("m05-label-propagation", [{
-        "id": "story", "kind": "popular", "status": "ready", "external": True,
+        "id": "original", "kind": "original", "status": "ready", "external": True,
         "title": {"zh": "圈子从哪里来", "en": "Where Do Clusters Come From?"},
         "why": {"zh": "作者原作的科普片（第四版），原样收录：从通讯录到芯片，再逐层拆开九层规则。",
                 "en": "The author's original popular-science film (version 4), included as made: from a contact list to a chip, then the rule taken apart in nine layers."},
         "music": TRACKS["wenever"]["credit"],
         "source": {"repository": "https://github.com/Su3037/clustering-lab5-label-propagation", "commit": commit, "file": "site/media/circles.mp4"},
         "scenes": [{"sceneId": s["id"], "start": s["start"], "end": s["end"]} for s in board["scenes"]],
-        "fps": 30, "size": [1920, 1080], "versions": versions}], ["story", "concise", "advanced", "lab"])
-    print("story →", MEDIA / "story.mp4", f"{dur:.1f}s")
+        "fps": 30, "size": [1920, 1080], "versions": versions}], ["story", "concise", "advanced", "lab", "original"])
+    print("story →", MEDIA / "original.mp4", f"{dur:.1f}s")
     if a.music:
         # The film mixes the track at gain 0.45 from 0 s and again from 189.82 s; take the first play at the film's own level (peak −4 dBFS).
         subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", str(src / "site/media/circles.mp4"), "-vn", "-t", "189.82",

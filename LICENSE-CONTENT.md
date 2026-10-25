@@ -14,8 +14,8 @@ CC BY 4.0 署名建议：“Learning Clustering（Su3037），CC BY 4.0”，并
 
 ## 不在上述许可范围内
 
-- **八份学生原作**（见 `content/credits.md` 与站内“资源与贡献”页）。它们的权利与许可属于各自作者；原作多数没有声明统一许可，本仓库没有复制它们的源代码、视频、音轨或课件，只署名并链接固定提交。例外是作者本人的 Lab05：Module 05 引擎改写自其 MIT 实现（声明见 `THIRD_PARTY_NOTICES.md`），科普片是其 CC BY 4.0 原片（`site/media/m05-label-propagation/story.mp4`）。
-- **科普影片的第三方配乐**《We Never (Remix)（若如初见）》（Hi Noise / 秋成）：按作者指定使用，不在本课程任何许可范围内，不提供单独音轨。Module 05 的科普片是作者原作影片（第四版），画面与文字按原作的 CC BY 4.0 署名使用。
+- **八份学生原作**（见 `content/credits.md` 与站内“资源与贡献”页）。它们的权利与许可属于各自作者；原作多数没有声明统一许可，本仓库没有复制它们的源代码、视频、音轨或课件，只署名并链接固定提交。例外是作者本人的 Lab05：Module 05 引擎改写自其 MIT 实现（声明见 `THIRD_PARTY_NOTICES.md`），原作科普片按其 CC BY 4.0 原样收录（`site/media/m05-label-propagation/original.mp4`）。
+- **科普影片的第三方配乐**《We Never (Remix)（若如初见）》（Hi Noise / 秋成）：按作者指定使用，不在本课程任何许可范围内，不提供单独音轨。Module 05 收录的原作影片（第四版），画面与文字按原作的 CC BY 4.0 署名使用。
 - 原作中的少量例子数值（Module 02 的 priority_graph、tiny_netlist；Module 04 的 greedy_trap、suboptimal；Module 05 的虚构图）按原作者署名使用。Module 09 的候选 DAG 由原作影片画面复原，状态为“候选”。
 - **教师原课程材料**（yongfu-li/eda-learning）：只链接，不分发。
 - 引用的论文：只使用数学概念并注明出处，未复制图版。

@@ -1,5 +1,9 @@
-// Home page: show per-module challenge progress on the eight cards.
+// Home page: the introduction film, and per-module challenge progress on the eight cards.
 import { loadProgress, fetchJSON, L } from './core.js';
+import { mountVideo } from './media.js';
+
+const intro = document.querySelector('#intro-film-root');
+if (intro) mountVideo(intro, new URL('../media/home/film.json', import.meta.url));
 const reg = await fetchJSON(new URL('../data/registry.json', import.meta.url));
 function paint() {
   if (!reg) return;

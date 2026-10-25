@@ -21,6 +21,7 @@ from pathlib import Path
 from cine import (W, H, L, tr, Film, Scene, Beat, GOLD, TEAL, BLUE, ROSE, AMBER, IVORY, MUTED, FAINT, DIM,
                   PANEL_BG, NODE_BG, clamp, ease, lerp, lerp2, title_card, panel, badge, code_panel, table, graph, fit, pulse,
                   count_hits, substrate)
+from hooks import chess
 from story import S, TRACK, INTRO_HITS, FILL1, FILL2, PHRASE, FILL3, FILL4, title_assemble, credits, MUSIC_LINE, landed
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -159,35 +160,11 @@ AFTER1 = P1["accepted"]
 TRIAL2 = TRIALS[1]["after"]
 
 
-def p_open(fr, c):
-    for (x, y, w, h), i in ((ROOM_L, 0), (ROOM_R, 1)):
-        a = landed(c.T, INTRO_HITS, i)
-        fr.rect(x, y, w, h, fill=PANEL_BG, stroke=FAINT, width=1.4, alpha=0.9 * a, r=18)
-    pos = seats(SEED)
-    for i, n in enumerate("AEBCD"):
-        a = landed(c.T, INTRO_HITS, 2 + i)
-        if a <= 0:
-            continue
-        fr.dot(pos[FR[n]], 46, NODE_BG, a)
-        fr.ring(pos[FR[n]], 46, TEAL if SEED[n] == 0 else BLUE, 2.8, a)
-        fr.text(FR[n], pos[FR[n]][0], pos[FR[n]][1] + 8, 22, IVORY, a, anchor="c", role="serif")
-    if c.on(1):
-        a = c.p(1)
-        fr.text(L("左屋 · 两张床", "LEFT ROOM · TWO BEDS"), ROOM_L[0] + 24, ROOM_L[1] + 38, 18, MUTED, a, spacing=2)
-        fr.text(L("右屋 · 三张床", "RIGHT ROOM · THREE BEDS"), ROOM_R[0] + 24, ROOM_R[1] + 38, 18, MUTED, a, spacing=2)
-
-
-def p_ask(fr, c):
-    rooms(fr, SEED, 1.0, counter=c.on(0), count_glow=0.3 * c.p(0))
-    if c.on(1):
-        fr.text(L("能少一点吗？", "Can it be less?"), W / 2, 860 - 20, 40, GOLD, c.p(1), anchor="c", role="serif", glow=0.3 * c.p(1))
-
-
 def p_rule(fr, c):
     badges = {n: f"D {D0[n]:+d}" for n in IDS} if c.on(1) else None
     rooms(fr, SEED, 1.0, badges=badges)
-    if c.on(0):
-        fr.text(L("规则：只能一换一，床位数不变", "the rule: swap one for one, the bed count stays"), W / 2, 790, 26, IVORY, c.p(0), anchor="c")
+    if c.on(1):
+        fr.text(L("规则：只能一换一，床位数不变", "the rule: swap one for one, the bed count stays"), W / 2, 790, 26, IVORY, c.p(1), anchor="c")
     if c.on(1):
         fr.text(L("D = 屋外朋友 − 屋里朋友", "D = friends outside − friends inside"), W / 2, 840, 26, GOLD, c.p(1), anchor="c", role="serif")
 
@@ -335,19 +312,15 @@ def p_end(fr, c):
 
 STORY = Film(
     "story", "popular", L("先试探，再回退", "Try, Then Roll Back"), None, BRAND, poster_at=36.5, music=TRACK, seed=7,
-    why=L("五个朋友分住两间屋，两张床和三张床，只许一换一。每个人的 D 值、一对的收益、省下 9 的交换、亏 8 的试探、回退到最佳前缀；人更多时亏一步可能打开一扇门；最后空前缀让一切停下。",
-          "Five friends in two rooms, two beds and three, allowed only one-for-one swaps. Each person's D value, a pair's gain, a swap that saves 9, a trial that loses 8, the roll-back to the best prefix; with more people one loss can open a door; and the empty prefix that ends it."),
+    why=L("从一步弃子讲起：先亏 3，两步后赚回 9。再看五个朋友分住两间屋，两张床和三张床，只许一换一。每个人的 D 值、一对的收益、省下 9 的交换、亏 8 的试探、回退到最佳前缀；人更多时亏一步可能打开一扇门；最后空前缀让一切停下。",
+          "It opens with a chess sacrifice: lose 3 now, take 9 two moves later. Then five friends in two rooms, two beds and three, allowed only one-for-one swaps. Each person's D value, a pair's gain, a swap that saves 9, a trial that loses 8, the roll-back to the best prefix; with more people one loss can open a door; and the empty prefix that ends it."),
     scenes=[
-        Scene("p-open", p_open, [Beat(L("还是那五个朋友，分住两间屋。", "The same five friends, in two rooms."), 4.6),
-                                 Beat(L("左屋两张床，右屋三张。", "Two beds on the left, three on the right."), 4.4)],
-              chapter=L("序 · 两间屋", "PROLOGUE · TWO ROOMS"), until=S["intro_end"]),
-        Scene("p-ask", p_ask, [Beat(L("被拆散的交情：12。", "Friendships split: 12."), 3.0),
-                               Beat(L("能少一点吗？", "Can it be less?"), 2.6)],
+        Scene("p-chess", chess, [Beat(L("下棋时，高手有时故意送掉一个子。", "In chess, a strong player sometimes gives a piece away."), 4.6), Beat(L("眼下，亏了 3 分——", "Three points down, for now —"), 4.6)],
+              chapter=L("序 · 弃子", "PROLOGUE · A SACRIFICE"), until=S["intro_end"]),
+        Scene("p-chess2", chess, [Beat(None, 1.0), Beat(L("路一打开，两步后赢回 9 分。", "the line opens, and two moves later nine come back."), 4.8)],
               until=S["groove"]),
-        Scene("p-rule", p_rule, [Beat(L("只能一换一：床位数不变。", "Swap one for one: the beds stay put."), 4.4),
-                                 Beat(L("每人：屋外朋友减屋里朋友，叫 D。", "Each: friends outside minus inside: D."), 4.8),
-                                 Beat(L("D 就是他一个人搬走能省多少。", "D is what moving alone would save."), 4.2)],
-              until=S["roll"]),
+        Scene("p-rule", p_rule, [Beat(L("五个朋友住两间屋：拆散的交情 12。", "Five friends, two rooms: 12 in friendships split."), 4.4), Beat(L("只能一换一。每人的 D：屋外朋友减屋里朋友。", "Swap one for one only. Each person's D: friends outside minus inside."), 5.6), Beat(L("D 就是他一个人搬走能省多少。", "D is what moving alone would save."), 4.2)],
+              chapter=L("序 · 两间屋", "PROLOGUE · TWO ROOMS"), until=S["roll"]),
         Scene("p-title", p_title, [Beat(None, 4.5)], fade=False, until=37.0),
         Scene("p-gain", p_gain, [Beat(L("换一对：两人的 D 相加——", "Swap a pair: add the two D values —"), 3.6),
                                  Beat(L("两人若是朋友，再减两倍交情。", "if they're friends, take off twice that."), 4.2),
