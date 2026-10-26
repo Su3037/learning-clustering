@@ -43,6 +43,7 @@ function readLocalizedMd(file, lang) {
 
 const course0 = readJSON(path.join(CONTENT, 'course.json'));
 const BRAND = `<svg viewBox="0 0 32 32" aria-hidden="true"><path d="M9 11 23 9M9 11 20 23" stroke="#8b958e" stroke-width="1.3"/><path d="M23 9 20 23" stroke="#a33b3b" stroke-width="1.3" stroke-dasharray="2.2 2"/><circle cx="9" cy="11" r="4.6" fill="#0f6b5c"/><circle cx="23" cy="9" r="3.6" fill="#2f5e9e"/><circle cx="20" cy="23" r="4.6" fill="#946a17"/></svg>`;
+const PLAYBOOK = 'https://github.com/Su3037/learning-clustering/tree/main/course-playbook';
 
 for (const lang of LANGS) buildLanguage(lang);
 console.log('built zh + en');
@@ -120,6 +121,8 @@ ${body}
 <footer class="footer"><div class="wrap">
 <p>${T(`Learning Clustering · 整合已关闭 Clustering 提交 Module 02–09。原作者署名见<a href="${rel}credits/index.html">资源与贡献</a>。`,
     `Learning Clustering · Modules 02–09, built from eight closed Clustering submissions. Original authors are credited on the <a href="${rel}credits/index.html">Credits</a> page.`)}</p>
+<p>${T(`想用同样的方法做别的课？制作手册（skill 与提示词，适用于 Claude、Codex、Cursor、DeepSeek 等）见 <a href="${PLAYBOOK}">GitHub 上的 course-playbook</a>，欢迎参考。`,
+    `Making another course? The production playbook (a skill and prompts for Claude, Codex, Cursor, DeepSeek and others) is in <a href="${PLAYBOOK}">course-playbook on GitHub</a>, free to reuse.`)}</p>
 <p><button class="btn quiet small" type="button" data-pref="reduceMotion">${T('减少动态', 'Reduce motion')}</button> <button class="btn quiet small" type="button" data-pref="sound">${T('声音', 'Sound')}</button> · ${T('内容版本', 'Content version')} ${course.contentVersion}</p>
 </div></footer>
 <script type="module">import { initShell } from '${root || './'}assets/core.js'; initShell();</script>

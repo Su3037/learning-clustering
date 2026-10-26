@@ -1,0 +1,14 @@
+---
+description: Course production rules (Learning Clustering house style) for course content, pages, engines, films and slides
+globs: content/**,site/**,video/**,python/**,scripts/**,tests/**
+alwaysApply: false
+---
+
+This repository is a bilingual (Chinese / English) algorithm course built in the Learning Clustering house style.
+
+- Follow `course-playbook/SKILL.md` as standing instructions.
+- Before working on an area, read its reference: anatomy `reference/01`, volume `02`, films `03`,
+  design and i18n `04`, workflow `05`, tests `06`, pitfalls `07` (all under `course-playbook/`).
+- Use the step prompts in `course-playbook/prompts/` and the checklists in `course-playbook/checklists/`.
+- Engine first: every number shown to learners comes from the course engine; films assert their numbers.
+- One module at a time, to full depth. Keep `handoff-state.md` current. Run the tests before finishing.

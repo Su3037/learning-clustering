@@ -46,3 +46,8 @@
 - 不把 M09 改名 Multilevel，不为 `multilevel-clustering` 旧路径生成跳转。
 - 不把 `legacyComparator`、`LEGACY_HILLCLIMB` 当教学结论展示（只作“已修复错误”说明与回归）。
 - 不改动参考包 `output/clustering-course-prompt-pack`。
+
+## 2026-10-26 制作手册
+
+- 新增 `course-playbook/`：把本课程的制作经验整理成与工具无关的 skill（`SKILL.md`）、参考文档、逐步提示词、模板与检查清单，供以后做其他课程使用。README 与全站页脚加了指向它的说明（`scripts/build-site.mjs` 的 `PLAYBOOK`）。
+- 课程结构、标准或流程有变化时，同步更新 `course-playbook/`（尤其 `reference/02-volume-and-depth.md` 的实测数字）。
