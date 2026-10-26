@@ -17,6 +17,12 @@
 
 每个模块包含：讲解影片（Module 05 起每章四部：科普、精讲、进阶、实验演示，中英两版）、带页码与讲稿的课件（网页 / PDF / PPTX）、讲义与伪代码、由真实算法引擎驱动的实验台、带两级提示的挑战题、浏览器内在线编程（Pyodide，无需安装）与可下载的 Python 练习包。全站可在中文与英文之间切换。
 
+## 想做别的课？制作手册 · Course playbook
+
+[`course-playbook/`](course-playbook/) 把这门课的制作经验整理成一套与工具无关的 skill 与提示词：课程结构、内容量与深度标准、四部影片（科普 / 精讲 / 进阶 / 实验演示）与首页导论片的做法、设计系统、中英双语、在线实验与编程、测试与发布流程，以及踩过的坑。用 Claude、Codex、Cursor、DeepSeek 等任何 AI 工具都可以照着它做出风格、格式、内容量和深度一致的新课程；欢迎参考与复用（CC BY 4.0，请署名）。从 [`course-playbook/README.md`](course-playbook/README.md) 开始。
+
+The [`course-playbook/`](course-playbook/) folder packages how this course was made (structure, volume and depth targets, the four films per module, design system, bilingual pages, in-browser labs and code labs, tests and release) as a tool-agnostic skill plus step-by-step prompts, so other courses can be built to the same standard with Claude, Codex, Cursor, DeepSeek or any other AI tool. Free to reuse with credit.
+
 ## 本地运行
 
 ```sh
